@@ -13,7 +13,8 @@
 
   <div class="field">
     <%= form.label :organisational_unit_id %>
-    <%= form.text_field :organisational_unit_id %>
+    <%= form.collection_select(:organisational_unit_id, OrganisationalUnit.all, :id, :name, {:prompt => 'Select the org unit'} ) %>
+
   </div>
 
   <div class="field">

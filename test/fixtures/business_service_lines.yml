@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  organisational_unit: one
+  name: MyString
+  tier: 
+
+two:
+  organisational_unit: two
+  name: MyString
+  tier: 

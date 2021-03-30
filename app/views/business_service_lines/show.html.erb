@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Organisational unit:</strong>
+  <%= @business_service_line.organisational_unit_id %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @business_service_line.name %>
+</p>
+
+<p>
+  <strong>Tier:</strong>
+  <%= @business_service_line.tier %>
+</p>
+
+<%= link_to 'Edit', edit_business_service_line_path(@business_service_line) %> |
+<%= link_to 'Back', business_service_lines_path %>
