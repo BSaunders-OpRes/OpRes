@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @organisational_unit.name %>
+</p>
+
+<p>
+  <strong>Geographic region:</strong>
+  <%= @organisational_unit.geographic_region %>
+</p>
+
+<p>
+  <strong>Country:</strong>
+  <%= @organisational_unit.country %>
+</p>
+
+<%= link_to 'Edit', edit_organisational_unit_path(@organisational_unit) %> |
+<%= link_to 'Back', organisational_units_path %>

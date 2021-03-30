@@ -1,0 +1,32 @@
+<%= form_with(model: organisational_unit, local: true) do |form| %>
+  <% if organisational_unit.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(organisational_unit.errors.count, "error") %> prohibited this organisational_unit from being saved:</h2>
+
+      <ul>
+        <% organisational_unit.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :geographic_region %>
+    <%= form.text_field :geographic_region %>
+  </div>
+
+  <div class="field">
+    <%= form.label :country %>
+    <%= form.text_field :country %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
