@@ -10,7 +10,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_30_080923) do
+ActiveRecord::Schema.define(version: 2021_03_30_083902) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
+  create_table "business_service_lines", force: :cascade do |t|
+    t.bigint "organisational_unit_id", null: false
+    t.string "name"
+    t.integer "tier"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["organisational_unit_id"], name: "index_business_service_lines_on_organisational_unit_id"
+  end
+
+  create_table "channels", force: :cascade do |t|
+    t.bigint "organisational_unit_id", null: false
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["organisational_unit_id"], name: "index_channels_on_organisational_unit_id"
+  end
 
   create_table "organisational_units", force: :cascade do |t|
     t.string "name"
@@ -21,12 +41,14 @@ ActiveRecord::Schema.define(version: 2021_03_30_080923) do
   end
 
   create_table "products", force: :cascade do |t|
-    t.integer "organisational_unit_id", null: false
+    t.bigint "organisational_unit_id", null: false
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["organisational_unit_id"], name: "index_products_on_organisational_unit_id"
   end
 
+  add_foreign_key "business_service_lines", "organisational_units"
+  add_foreign_key "channels", "organisational_units"
   add_foreign_key "products", "organisational_units"
 end
