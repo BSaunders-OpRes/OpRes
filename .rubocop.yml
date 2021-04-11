@@ -1,0 +1,20 @@
+AllCops:
+  NewCops: enable
+  TargetRubyVersion: 2.7.1
+  DisplayCopNames: true
+  Include:
+    - '**/*.rb'
+    - '**/*.gemfile'
+    - '**/*.gemspec'
+    - '**/*.rake'
+    - '**/*.ru'
+    - '**/Gemfile'
+    - '**/Rakefile'
+  Exclude:
+    - 'db/**/*'
+    - 'config/**/*'
+    - 'script/**/*'
+    - 'bin/{bundle,rails,rake,setup,spring,update}'
+
+Style/ClassAndModuleChildren:
+  Enabled: false
