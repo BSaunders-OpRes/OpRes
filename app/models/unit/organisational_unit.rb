@@ -1,0 +1,2 @@
+class OrganisationalUnit < Unit
+end
