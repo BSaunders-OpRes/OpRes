@@ -1,4 +1,5 @@
 class BusinessServiceLine < ApplicationRecord
+  # Associations #
   belongs_to :unit
 
   has_one  :material_risk_taker
@@ -11,4 +12,11 @@ class BusinessServiceLine < ApplicationRecord
   has_many :risk_appetites
   has_many :vulnerabilities
   has_many :steps
+
+  # Enums #
+  enum tier: %i[1st 2nd 3rd 4th]
+
+  # Validations #
+  validates :name, :description, :tier, :region, :country, :institution, presence: true
+  validates :tier, numericality: { only_integer: true }
 end
