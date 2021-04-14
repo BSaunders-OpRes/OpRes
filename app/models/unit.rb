@@ -1,4 +1,5 @@
 class Unit < ApplicationRecord
+  # Associations #
   belongs_to :user
 
   has_many :key_contacts
@@ -7,4 +8,7 @@ class Unit < ApplicationRecord
   has_many :channels
   has_many :suppliers
   has_many :business_service_lines
+
+  # Validations #
+  validates :name, presence: true
 end
