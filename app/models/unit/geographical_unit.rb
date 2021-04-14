@@ -1,2 +1,0 @@
-class GeographicalUnit < Unit
-end

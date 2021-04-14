@@ -1,2 +1,0 @@
-class InstitutionUnit < Unit
-end

@@ -1,2 +1,0 @@
-class OrganisationalUnit < Unit
-end
