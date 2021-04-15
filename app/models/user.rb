@@ -7,4 +7,7 @@ class User < ApplicationRecord
 
   # Validations #
   validates :name, presence: true
+
+  # Devise #
+  devise :database_authenticatable, :registerable, :confirmable, :recoverable, stretches: 13
 end
