@@ -1,14 +1,15 @@
 import React,{ useState }  from 'react';
+
 import { Form, FormCheck, FormLabel } from 'react-bootstrap';
 import { AiFillEyeInvisible } from "react-icons/ai";
 import {Link} from 'react-router-dom';
 import {InputField, Password, Error, CheckBoxContainer,BtnSubmit, SignUpText, ForgetPasswordText} from './style';
 
-export default function CustomerLogin() {
+export default function CustomerReg() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
-  const [visible, setVisibility] = useState(false);
+  
   const submitForm = (e) => {
     e.preventDefault();
     if (email === "" || password === "") {
@@ -22,10 +23,6 @@ export default function CustomerLogin() {
     e.preventDefault();
     console.log('form submitted')
   }
-
-
-  const Eye = <i class="fa fa-eye" aria-hidden="true"></i>
-  const EyeSlash = <i class="fa fa-eye-slash" aria-hidden="true"></i>;
   return (
     
     <InputField>
@@ -39,7 +36,16 @@ export default function CustomerLogin() {
       <div className="row">
         <div className="form-group col-md-10">
           <Password>
-            <input type='password' value={password} name="name" className='form-control' placeholder='Password' onChange={e => setPassword(e.target.value)} />
+            <input type="password" value={password} name="name" className='form-control' placeholder='Password' onChange={e => setPassword(e.target.value)} />
+            <AiFillEyeInvisible/>
+          </Password>
+          <Error>{error}</Error>
+        </div>
+      </div>
+      <div className="row">
+        <div className="form-group col-md-10">
+          <Password>
+            <input type="password" value={password} name="name" className='form-control' placeholder='Password' onChange={e => setPassword(e.target.value)} />
             <AiFillEyeInvisible/>
           </Password>
           <Error>{error}</Error>
@@ -50,7 +56,6 @@ export default function CustomerLogin() {
           <Form.Check type="checkbox" label="Keep me logged in" />
         </Form.Group>
       </CheckBoxContainer>
-
       <div className="row">
         <div className="form-group col-md-10 mb-0">
           <BtnSubmit type="submit" value="Submit" onClick={submitForm} />
@@ -59,9 +64,9 @@ export default function CustomerLogin() {
       <div className='row'>
         <div className="col-md-10">
           <SignUpText className='my-4 text-center'>
-            <p>Dont have an account 
+            <p>Already have an account
             
-            <Link to='/users/sign_up'>Sign Up</Link>
+            <Link to='/users/sign_in'>Sign In</Link>
             
             </p>
           </SignUpText>
@@ -70,7 +75,13 @@ export default function CustomerLogin() {
           </ForgetPasswordText>
         </div>
       </div>
-    </form>
-  </InputField>
+      {console.log(error)}
+      {/* {error && (
+        <Alert severity="error" onClick={() => setError(null)}>
+          {props.error || error}
+        </Alert>
+      )} */}
+        </form>
+    </InputField>
   )
 }
