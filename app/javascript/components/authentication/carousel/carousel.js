@@ -10,7 +10,7 @@ export default function carousel() {
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-
+    margin: 0 auto 50px;
     .carousel {
       height: 30%;
       .carousel-control-prev, .carousel-control-next {
@@ -53,9 +53,12 @@ export default function carousel() {
         }
       }
     }
+    @media (max-width: 768px) {
+      display: none;
+    }
   `
   const ImgWrapper = styled.div`
-    width: 500px;
+    max-width: 500px;
     margin: 0 auto;
   ` 
   return (

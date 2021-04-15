@@ -16,6 +16,14 @@ export const InputField =  styled.div`
     outline: none;
     box-shadow: none;
   }
+  input[type=text] {
+    padding: 15px 10px;
+    position: relative;
+    height: auto;
+    font-size: 12px;
+    outline: none;
+    box-shadow: none;
+  }
 `
 export const BtnSubmit = styled.input.attrs({ type: 'submit' })`
   width: 100%;
@@ -26,7 +34,7 @@ export const BtnSubmit = styled.input.attrs({ type: 'submit' })`
   padding: 10px;
 `
 export const CheckBoxContainer = styled.div`
-  padding: 20px 0;
+  padding: 10px 0;
   .form-check {
     padding-left: 0;
     input[type=checkbox] {

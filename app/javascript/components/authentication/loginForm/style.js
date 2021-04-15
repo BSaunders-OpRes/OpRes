@@ -6,6 +6,15 @@ export const FormWrapper =  styled.div`
   justify-content: flex-start;
   flex-direction: column;
   padding-left: 100px;
+  
+  @media (max-width: 768px) {
+    padding: 0 15px;
+    max-width: 500px;
+    margin: 0 auto 50px;
+    h1 {
+      font-size: 22px;
+    }
+  }
 `
 
 export const Styles =  styled.div`

@@ -8,7 +8,6 @@ export default function CustomerLogin() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
-  const [visible, setVisibility] = useState(false);
   const submitForm = (e) => {
     e.preventDefault();
     if (email === "" || password === "") {
@@ -40,7 +39,6 @@ export default function CustomerLogin() {
         <div className="form-group col-md-10">
           <Password>
             <input type='password' value={password} name="name" className='form-control' placeholder='Password' onChange={e => setPassword(e.target.value)} />
-            <AiFillEyeInvisible/>
           </Password>
           <Error>{error}</Error>
         </div>
@@ -61,7 +59,7 @@ export default function CustomerLogin() {
           <SignUpText className='my-4 text-center'>
             <p>Dont have an account 
             
-            <Link to='/users/sign_up'>Sign Up</Link>
+            <Link className='ml-1' to='/users/sign_up'>Sign Up</Link>
             
             </p>
           </SignUpText>

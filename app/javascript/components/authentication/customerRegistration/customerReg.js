@@ -37,17 +37,19 @@ export default function CustomerReg() {
         <div className="form-group col-md-10">
           <Password>
             <input type="password" value={password} name="name" className='form-control' placeholder='Password' onChange={e => setPassword(e.target.value)} />
-            <AiFillEyeInvisible/>
           </Password>
           <Error>{error}</Error>
         </div>
       </div>
       <div className="row">
         <div className="form-group col-md-10">
-          <Password>
-            <input type="password" value={password} name="name" className='form-control' placeholder='Password' onChange={e => setPassword(e.target.value)} />
-            <AiFillEyeInvisible/>
-          </Password>
+          <input type="text" value={email} name="name" className='form-control' placeholder='Organization Name' onChange={e => setEmail(e.target.value)} />
+          <Error>{error}</Error>
+        </div>
+      </div>
+      <div className="row">
+        <div className="form-group col-md-10">
+          <input type="text" value={email} name="name" className='form-control' placeholder='Organization Typ' onChange={e => setEmail(e.target.value)} />
           <Error>{error}</Error>
         </div>
       </div>
@@ -65,23 +67,12 @@ export default function CustomerReg() {
         <div className="col-md-10">
           <SignUpText className='my-4 text-center'>
             <p>Already have an account
-            
-            <Link to='/users/sign_in'>Sign In</Link>
-            
+              <Link className='ml-1' to='/users/sign_in'>Sign In</Link>
             </p>
           </SignUpText>
-          <ForgetPasswordText className='text-center'>
-            <a href="">Forgotten password</a>
-          </ForgetPasswordText>
         </div>
       </div>
-      {console.log(error)}
-      {/* {error && (
-        <Alert severity="error" onClick={() => setError(null)}>
-          {props.error || error}
-        </Alert>
-      )} */}
-        </form>
-    </InputField>
+    </form>
+  </InputField>
   )
 }
