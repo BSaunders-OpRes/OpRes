@@ -49,7 +49,7 @@ export default function CustomerReg() {
       </div>
       <div className="row">
         <div className="form-group col-md-10">
-          <input type="text" value={email} name="name" className='form-control' placeholder='Organization Typ' onChange={e => setEmail(e.target.value)} />
+          <input type="text" value={email} name="name" className='form-control' placeholder='Organization Type' onChange={e => setEmail(e.target.value)} />
           <Error>{error}</Error>
         </div>
       </div>
