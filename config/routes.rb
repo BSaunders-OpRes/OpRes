@@ -7,4 +7,11 @@ Rails.application.routes.draw do
     authentications: 'users/authentications',
     passwords:       'users/passwords'
   }
+
+  namespace :admin do
+    resources :dashboard, only: %i[index]
+    resources :institutions
+    resources :products
+    resources :channels
+  end
 end

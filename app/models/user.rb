@@ -3,7 +3,7 @@ class User < ApplicationRecord
   has_many :units
 
   # Enums #
-  enum role: %i[org_admin unit_admin user]
+  enum role: %i[app_admin org_admin unit_admin user]
 
   # Validations #
   validates :name, presence: true

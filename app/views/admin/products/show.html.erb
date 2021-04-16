@@ -1,0 +1,22 @@
+<h3 class="mb-4">
+  Product
+</h3>
+
+<table class="table">
+  <tbody>
+    <tr>
+      <th scope="row">Name</th>
+      <td><%= @product.name %></td>
+    </tr>
+    <tr>
+      <th scope="row">Description</th>
+      <td><%= @product.description %></td>
+    </tr>
+    <tr>
+      <th scope="row">Active</th>
+      <td><%= @product.active ? 'Yes' : 'No' %></td>
+    </tr>
+  </tbody>
+</table>
+
+<%= link_to 'Back', admin_products_path, class: 'btn btn-primary' %>

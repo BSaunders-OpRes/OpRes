@@ -1,9 +1,9 @@
 class Product < ApplicationRecord
   # Associations #
-  belongs_to :unit
-
-  has_many   :business_service_line_products 
-  has_many   :business_service_lines, through: :business_service_line_products
+  has_many :institution_products
+  has_many :institutions, through: :institution_products
+  has_many :product_channels
+  has_many :channels, through: :product_channels
 
   # Validations #
   validates :name, :description, presence: true
