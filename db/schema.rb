@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_14_074201) do
+ActiveRecord::Schema.define(version: 2021_04_15_095514) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -47,12 +47,11 @@ ActiveRecord::Schema.define(version: 2021_04_14_074201) do
   end
 
   create_table "channels", force: :cascade do |t|
-    t.bigint "unit_id"
     t.string "name"
     t.text "description"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["unit_id"], name: "index_channels_on_unit_id"
+    t.boolean "active", default: false
   end
 
   create_table "cloud_hosting_providers", force: :cascade do |t|
@@ -71,6 +70,23 @@ ActiveRecord::Schema.define(version: 2021_04_14_074201) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["supplier_id"], name: "index_incidents_on_supplier_id"
+  end
+
+  create_table "institution_products", force: :cascade do |t|
+    t.bigint "institution_id"
+    t.bigint "product_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["institution_id"], name: "index_institution_products_on_institution_id"
+    t.index ["product_id"], name: "index_institution_products_on_product_id"
+  end
+
+  create_table "institutions", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.boolean "active", default: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "key_contact_suppliers", force: :cascade do |t|
@@ -102,13 +118,21 @@ ActiveRecord::Schema.define(version: 2021_04_14_074201) do
     t.index ["business_service_line_id"], name: "index_material_risk_takers_on_business_service_line_id"
   end
 
+  create_table "product_channels", force: :cascade do |t|
+    t.bigint "product_id"
+    t.bigint "channel_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["channel_id"], name: "index_product_channels_on_channel_id"
+    t.index ["product_id"], name: "index_product_channels_on_product_id"
+  end
+
   create_table "products", force: :cascade do |t|
-    t.bigint "unit_id"
     t.string "name"
     t.text "description"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["unit_id"], name: "index_products_on_unit_id"
+    t.boolean "active", default: false
   end
 
   create_table "relationship_owners", force: :cascade do |t|
@@ -248,14 +272,16 @@ ActiveRecord::Schema.define(version: 2021_04_14_074201) do
   add_foreign_key "business_service_line_products", "business_service_lines"
   add_foreign_key "business_service_line_products", "products"
   add_foreign_key "business_service_lines", "units"
-  add_foreign_key "channels", "units"
   add_foreign_key "cloud_hosting_providers", "suppliers"
   add_foreign_key "incidents", "suppliers"
+  add_foreign_key "institution_products", "institutions"
+  add_foreign_key "institution_products", "products"
   add_foreign_key "key_contact_suppliers", "key_contacts"
   add_foreign_key "key_contact_suppliers", "suppliers"
   add_foreign_key "key_contacts", "units"
   add_foreign_key "material_risk_takers", "business_service_lines"
-  add_foreign_key "products", "units"
+  add_foreign_key "product_channels", "channels"
+  add_foreign_key "product_channels", "products"
   add_foreign_key "relationship_owners", "suppliers"
   add_foreign_key "risk_appetites", "business_service_lines"
   add_foreign_key "steps", "business_service_lines"

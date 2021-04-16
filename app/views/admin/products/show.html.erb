@@ -1,0 +1,29 @@
+<h3 class="mb-4">
+  Product
+</h3>
+
+<div class="card border-0 shadow">
+  <div class="card-body">
+    <table class="table">
+      <tbody>
+        <tr>
+          <th class="border-top-0" scope="row">Name</th>
+          <td class="border-top-0"><%= @product.name %></td>
+        </tr>
+        <tr>
+          <th scope="row">Description</th>
+          <td><%= @product.description %></td>
+        </tr>
+        <tr>
+          <th scope="row">Active</th>
+          <td><%= @product.active ? 'Yes' : 'No' %></td>
+        </tr>
+        <tr>
+          <th scope="row">Channels</th>
+          <td><%= @product.channel_list %></td>
+        </tr>
+      </tbody>
+    </table>
+    <%= link_to 'Back', admin_products_path, class: 'btn dark-btn float-right' %>
+  </div>
+</div>

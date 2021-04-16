@@ -1,7 +1,18 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+
+# Application Admin #
+User.create_with(name: 'Application Admin', password: 'Adm!n123', role: User.roles[:app_admin]).find_or_create_by(email: 'admin@opres.uk')
+
+# Institutions #
+%w[Retail\ Bank, Business\ Bank Commercial\ Bank Investment\ Bank Union\ Bank Wealth\ Management].each do |institution|
+  Institution.create_with(description: institution, active: true).find_or_create_by(name: institution)
+end
+
+# Products #
+%w[Retail\ Bank\ A Current\ Account Mortgages Loans Credit\ Cards Savings\ Accounts].each do |product|
+  Product.create_with(description: product, active: true).find_or_create_by(name: product)
+end
+
+# Channels #
+%w[Web Mobile ATM Branch Telephony].each do |channel|
+  Channel.create_with(description: channel, active: true).find_or_create_by(name: channel)
+end

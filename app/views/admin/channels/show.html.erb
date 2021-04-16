@@ -1,0 +1,25 @@
+<h3 class="mb-4">
+  Channel
+</h3>
+<div class="card border-0 shadow">
+  <div class="card-body">
+    <table class="table">
+      <tbody>
+        <tr>
+          <th class="border-top-0" scope="row">Name</th>
+          <td class="border-top-0"><%= @channel.name %></td>
+        </tr>
+        <tr>
+          <th scope="row">Description</th>
+          <td><%= @channel.description %></td>
+        </tr>
+        <tr>
+          <th scope="row">Active</th>
+          <td><%= @channel.active ? 'Yes' : 'No' %></td>
+        </tr>
+      </tbody>
+    </table>
+    <%= link_to 'Back', admin_channels_path, class: 'btn dark-btn float-right' %>
+  </div>
+</div>
+

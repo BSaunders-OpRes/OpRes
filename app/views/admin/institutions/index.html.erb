@@ -1,0 +1,39 @@
+<div class="text-right mb-3 d-flex justify-content-between align-items-center">
+  <h3>Institution</h3>
+  <%= link_to 'New Institution', new_admin_institution_path, class: 'btn dark-btn rounded-0 border-0' %>
+</div>
+<div class='card border-0'>
+  <div class='card-body'>
+    <div class="listings">
+      <% if @institutions.present? %>
+        <table class="table">
+          <thead class="thead-dark">
+            <tr>
+              <th scope="col">Name</th>
+              <th scope="col">Description</th>
+              <th scope="col">Active</th>
+              <th scope="col">Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @institutions.each do |institution| %>
+              <tr>
+                <td><%= institution.name %></td>
+                <td><%= institution.description %></td>
+                <td><%= institution.active ? 'Yes' : 'No' %></td>
+                <td>
+                  <%= link_to 'View', admin_institution_path(institution), class: 'btn dark-btn rounded-0 border-0 btn-sm' %>
+                  <%= link_to 'Edit', edit_admin_institution_path(institution), class: 'btn dark-btn rounded-0 border-0 btn-sm' %>
+                </td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      <% else %>
+        <div class="alert alert-primary m-0" role="alert">
+          No institutions are created yet!
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

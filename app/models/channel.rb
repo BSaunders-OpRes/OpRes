@@ -1,10 +1,8 @@
 class Channel < ApplicationRecord
   # Associations #
-  belongs_to :unit
-
-  has_many   :business_service_line_channels 
-  has_many   :business_service_lines, through: :business_service_line_channels
+  has_many :product_channels, dependent: :destroy
+  has_many :products, through: :product_channels
 
   # Validations #
-  validates :name, :description, presence: true
+  validates :name, :description, :active, presence: true
 end
