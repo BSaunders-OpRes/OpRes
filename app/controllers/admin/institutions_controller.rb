@@ -1,5 +1,6 @@
 class Admin::InstitutionsController < Admin::BaseController
   before_action :load_institution, only: %i[edit update show destroy]
+  before_action :load_form_data,   only: %i[new create edit update]
 
   def index
     @institutions = Institution.order(id: :desc)
@@ -47,7 +48,11 @@ class Admin::InstitutionsController < Admin::BaseController
     @institution = Institution.find(params[:id])
   end
 
+  def load_form_data
+    @products = Product.all
+  end
+
   def institution_params
-    params.require(:institution).permit(:name, :description, :active)
+    params.require(:institution).permit(:name, :description, :active, product_ids: [])
   end
 end

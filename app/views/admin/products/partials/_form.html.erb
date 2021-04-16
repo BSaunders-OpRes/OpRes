@@ -17,6 +17,11 @@
   </div>
 
   <div class="form-group">
+    <%= f.label  :channel_ids, 'Channels (Relevant channels for this type of product)' %>
+    <%= f.select :channel_ids, options_for_select(@channels.map { |channel| [channel.name, channel.id] }, product.channel_ids), {}, multiple: true, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
     <%= f.submit class: 'btn btn-success' %>
     <%= link_to 'Cancel', admin_products_path, class: 'btn btn-danger btn-sm' %>
   </div>

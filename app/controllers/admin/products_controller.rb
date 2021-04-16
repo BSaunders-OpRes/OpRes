@@ -1,5 +1,6 @@
 class Admin::ProductsController < Admin::BaseController
-  before_action :load_product, only: %i[edit update show destroy]
+  before_action :load_product,   only: %i[edit update show destroy]
+  before_action :load_form_data, only: %i[new create edit update]
 
   def index
     @products = Product.order(id: :desc)
@@ -47,7 +48,11 @@ class Admin::ProductsController < Admin::BaseController
     @product = Product.find(params[:id])
   end
 
+  def load_form_data
+    @channels = Channel.all
+  end
+
   def product_params
-    params.require(:product).permit(:name, :description, :active)
+    params.require(:product).permit(:name, :description, :active, channel_ids: [])
   end
 end

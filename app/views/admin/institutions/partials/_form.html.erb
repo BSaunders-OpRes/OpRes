@@ -17,6 +17,11 @@
   </div>
 
   <div class="form-group">
+    <%= f.label  :product_ids, 'Products (Relevant products for this type of institution)' %>
+    <%= f.select :product_ids, options_for_select(@products.map { |product| [product.name, product.id] }, institution.product_ids), {}, multiple: true, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
     <%= f.submit class: 'btn btn-success' %>
     <%= link_to 'Cancel', admin_institutions_path, class: 'btn btn-danger btn-sm' %>
   </div>

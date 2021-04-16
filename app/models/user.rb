@@ -9,5 +9,5 @@ class User < ApplicationRecord
   validates :name, presence: true
 
   # Devise #
-  devise :database_authenticatable, :registerable, :confirmable, :recoverable, stretches: 13
+  devise :database_authenticatable, :registerable, :recoverable, stretches: 13
 end
