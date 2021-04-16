@@ -3,7 +3,7 @@
 User.create_with(name: 'Application Admin', password: 'Adm!n123', role: User.roles[:app_admin]).find_or_create_by(email: 'admin@opres.uk')
 
 # Institutions #
-%w[Retail\ Bank, Business\ Bank Commercial\ Bank Investment\ Bank Union\ Bank Wealth\ Management].each do |institution|
+%w[Retail\ Bank Business\ Bank Commercial\ Bank Investment\ Bank Union\ Bank Wealth\ Management].each do |institution|
   Institution.create_with(description: institution, active: true).find_or_create_by(name: institution)
 end
 
