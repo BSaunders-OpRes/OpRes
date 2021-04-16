@@ -1,35 +1,39 @@
-<div class="text-right mb-2">
-  <%= link_to 'New Channel', new_admin_channel_path, class: 'btn btn-primary' %>
+<div class="text-right mb-3 d-flex justify-content-between align-items-center">
+  <h3>Channel</h3>
+  <%= link_to 'New Channel', new_admin_channel_path, class: 'btn dark-btn border-0 rounded-0' %>
 </div>
-
-<div class="listings">
-  <% if @channels.present? %>
-    <table class="table">
-      <thead class="thead-dark">
-        <tr>
-          <th scope="col">Name</th>
-          <th scope="col">Description</th>
-          <th scope="col">Active</th>
-          <th scope="col">Actions</th>
-        </tr>
-      </thead>
-      <tbody>
-        <% @channels.each do |channel| %>
-          <tr>
-            <td><%= channel.name %></td>
-            <td><%= channel.description %></td>
-            <td><%= channel.active ? 'Yes' : 'No' %></td>
-            <td>
-              <%= link_to 'View', admin_channel_path(channel), class: 'btn btn-secondary btn-sm' %>
-              <%= link_to 'Edit', edit_admin_channel_path(channel), class: 'btn btn-secondary btn-sm' %>
-            </td>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
-  <% else %>
-    <div class="alert alert-primary" role="alert">
-      No channels are created yet!
+<div class='card border-0'>
+  <div class='card-body'>
+    <div class="listings">
+      <% if @channels.present? %>
+        <table class="table">
+          <thead class="thead-dark">
+            <tr>
+              <th scope="col">Name</th>
+              <th scope="col">Description</th>
+              <th scope="col">Active</th>
+              <th scope="col">Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @channels.each do |channel| %>
+              <tr>
+                <td><%= channel.name %></td>
+                <td><%= channel.description %></td>
+                <td><%= channel.active ? 'Yes' : 'No' %></td>
+                <td>
+                  <%= link_to 'View', admin_channel_path(channel), class: 'btn dark-btn btn-sm' %>
+                  <%= link_to 'Edit', edit_admin_channel_path(channel), class: 'btn dark-btn btn-sm' %>
+                </td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      <% else %>
+        <div class="alert alert-primary m-0" role="alert">
+          No channels are created yet!
+        </div>
+      <% end %>
     </div>
-  <% end %>
+  </div>
 </div>
