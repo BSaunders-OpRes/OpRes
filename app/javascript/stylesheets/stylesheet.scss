@@ -1,3 +1,9 @@
+@import 'bootstrap';
+@import 'react-toastify/dist/ReactToastify.css';
+
+@import './main/main.scss';
 @import './sidebar/sidebar.scss';
 @import './header/header.scss';
 @import './buttons/buttons.scss';
+@import './carousel/carousel.scss';
+@import './login/login.scss';

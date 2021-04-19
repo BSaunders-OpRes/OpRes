@@ -1,0 +1,137 @@
+.overflow-x-hidden {
+  overflow-x: hidden;
+}
+.input-field {
+  input[type=email] {
+    padding: 15px 10px;
+    position: relative;
+    height: auto;
+    font-size: 12px;
+    box-shadow: none;
+  }
+  input[type=password] {
+    padding: 15px 10px;
+    position: relative;
+    height: auto;
+    font-size: 12px;
+    outline: none;
+    box-shadow: none;
+  }
+}
+.password {
+  position: relative;
+    svg {
+      position: absolute;
+      right: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+}
+.error {
+  font-size: 12px;
+  color: #C03131;
+}
+.check-box-container {
+  padding: 20px 0;
+  .form-check {
+    padding-left: 0;
+    input[type=checkbox] {
+      margin: 0 10px 0 0;
+      position: relative;
+    }
+    .form-check-label {
+      color: #999;
+      font-size: 14px;
+    }
+  }
+}
+.btn-submit {
+  width: 100%;
+  background: #999;
+  color: #fff;
+  border: 0;
+  outline: 0;
+  padding: 10px;
+}
+.sign-up-text {
+  p {
+    font-size: 12px;
+    a {
+      color: #000;
+      font-weight: bold;
+      border-bottom: 1px solid #000;
+    }
+  }
+}
+.form-wrapper {
+  .forget-password-text {
+    a {
+      color: #000;
+      font-weight: bold;
+      border-bottom: 1px solid #000;
+      font-size: 12px;
+    }
+  }
+  background-color: #fff;
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  padding-left: 100px;
+
+  @media (max-width: 768px) {
+    padding: 0 15px;
+    max-width: 500px;
+    margin: 0 auto 50px;
+    h1 {
+      font-size: 22px;
+    }
+  }
+}
+.form-style {
+  .nav-tabs {
+    border: 0;
+    padding: 10px 0;
+    visibility: hidden;
+  .nav-link.active {
+    position: relative;
+    color: #000;
+    &:after {
+      content: '';
+      position: absolute;
+      left: 0;
+      width: 40px;
+      height: 2px;
+      background-color: #6BEAB3;
+      top: 100%;
+    }
+  }
+  .nav-link {
+    border: 0;
+    background: transparent;
+    padding: 0;
+    font-size: 12px;
+    color: #333;
+    padding-bottom: 5px;
+    &:first-child {
+      margin-right: 20px;
+    }
+  }
+ }
+}
+.logo-container {
+  height: 150px;
+  display: flex;
+  align-items: center;
+  padding-left: 100px;
+  img {
+    width: 100px;
+  }
+  @media (max-width: 768px) {
+    padding: 0 15px;
+    justify-content: center;
+  }
+}
+.login-wrapper {
+  overflow-x: hidden;
+  height: 100%;
+}
