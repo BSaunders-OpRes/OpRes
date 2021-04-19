@@ -5,9 +5,7 @@ class User < ApplicationRecord
   # Enums #
   enum role: %i[app_admin org_admin unit_admin user]
 
-  # Validations #
-  validates :name, presence: true
-
   # Devise #
-  devise :database_authenticatable, :registerable, :recoverable, stretches: 13
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable
 end
