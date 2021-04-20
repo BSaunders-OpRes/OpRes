@@ -1,5 +1,5 @@
 GIT
-  remote: git@github.com:influitive/apartment.git
+  remote: https://github.com/influitive/apartment.git
   revision: f266f73e58835f94e4ec7c16f28443fe5eada1ac
   branch: development
   specs:
