@@ -3,8 +3,15 @@
 class Users::RegistrationsController < Devise::RegistrationsController
   # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
+
   respond_to :json
 
+  # GET /resource/sign_up
+  # def new
+  #   super
+  # end
+
+  # POST /resource
   def create
     build_resource(sign_up_params)
     resource.role = User.roles[:org_admin]
@@ -43,22 +50,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
       end
     end
   end
-
-  private
-
-  def organisation_params
-    params.require(:organisation).permit(:name, :unit_type).merge(type: 'Units::Organisational')
-  end
-
-  # GET /resource/sign_up
-  # def new
-  #   super
-  # end
-
-  # POST /resource
-  # def create
-  #   super
-  # end
 
   # GET /resource/edit
   # def edit
@@ -105,4 +96,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # def after_inactive_sign_up_path_for(resource)
   #   super(resource)
   # end
+
+  private
+
+  def organisation_params
+    params.require(:organisation).permit(:name, :unit_type).merge(type: 'Units::Organisational')
+  end
 end

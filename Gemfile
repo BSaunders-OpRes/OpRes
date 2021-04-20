@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
+gem 'apartment', git: 'git@github.com:influitive/apartment.git', branch: 'development'
 gem 'bootsnap', '>= 1.4.2', require: false
 gem 'carmen-rails', '~> 1.0.0'
 gem 'devise'
