@@ -23,8 +23,8 @@ Apartment.configure do |config|
   # - an array of strings representing each Tenant name.
   # - a hash which keys are tenant names, and values custom db config (must contain all key/values required in database.yml)
   #
-  config.tenant_names = lambda{ Unit.pluck(:name) }
-  config.excluded_models = %w{ User }
+  config.tenant_names = lambda { Units::Organisational.pluck(:name) }
+  config.excluded_models = %w[]
   # config.tenant_names = ['tenant1', 'tenant2']
   # config.tenant_names = {
   #   'tenant1' => {
@@ -58,7 +58,7 @@ Apartment.configure do |config|
   #
   # The default behaviour is true.
   #
-  # config.use_schemas = true
+  config.use_schemas = true
 
   #
   # ==> PostgreSQL only options
@@ -105,7 +105,7 @@ end
 
 # Rails.application.config.middleware.use Apartment::Elevators::Domain
 # Rails.application.config.middleware.use Apartment::Elevators::Subdomain
-Apartment::Elevators::Subdomain.excluded_subdomains = ['www']
+Apartment::Elevators::Subdomain.excluded_subdomains = %w[public www]
 
 # Rails.application.config.middleware.use Apartment::Elevators::FirstSubdomain
 # Rails.application.config.middleware.use Apartment::Elevators::Host
