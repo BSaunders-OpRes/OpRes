@@ -23,5 +23,6 @@ Rails.application.routes.draw do
   namespace :organisation do
     resources :dashboard, only: %i[index]
     resources :business_service_lines
+    resources :suppliers
   end
 end
