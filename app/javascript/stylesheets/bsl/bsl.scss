@@ -1,0 +1,62 @@
+body {
+  background: #F3F5FA;
+}
+
+::-webkit-input-placeholder {
+  text-transform: capitalize;
+}
+
+:-ms-input-placeholder {
+  text-transform: capitalize;
+}
+
+::placeholder {
+  text-transform: capitalize;
+}
+textarea {
+  resize: none;
+}
+.bsl-container {
+  max-width: 700px;
+  margin: 50px auto;
+  .wizard-body {
+    .wizard-header {
+      p {
+        font-size: 14px;
+      }
+    }
+    ul.nav-tabs {
+      li.nav-item {
+        a.nav-link {
+          font-size: 14px;
+          letter-spacing: 0.05em;
+          color: #888;
+        }
+        a.active {
+          position: relative;
+          font-weight: bold;
+          color: #000;
+          &:after {
+            content: "";
+            position: absolute;
+            height: 2px;
+            width: 30px;
+            background: green;
+            left: 0;
+            top: 90%;
+          }
+        }
+      }
+    }
+    .checkbox-container {
+      .form-check  {
+        width: 115px;
+      }
+    }
+  }
+}
+.slidecontainer {
+  input[type=range] {
+    flex: 1;
+  }
+}

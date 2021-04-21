@@ -1,0 +1,42 @@
+<div class="bsl-container shadow-sm">
+  <div class="card">
+    <div class="card-body">
+      <div class="back-btn-header">
+        <i class="fa fa-arrow-left" aria-hidden="true"></i>
+        <span class="ml-2">back</span>
+      </div>
+      <div class="wizard-body">
+        <div class="wizard-header my-4">
+          <h4 class="mb-4 font-weight-bold">Add a new business service line </h4>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. In amet aperiam, iste iusto dicta quisquam cumque mollitia veritatis</p>
+        </div>
+
+        <ul class="nav nav-tabs border-0 rounded-0" id="myTab" role="tablist">
+          <li class="nav-item">
+            <a class="nav-link active border-0 rounded-0 pl-0" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link border-0 rounded-0" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Internal SLA</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link border-0 rounded-0" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Super SLA Targets</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link border-0 rounded-0" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Process</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link border-0 rounded-0" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Risk</a>
+          </li>
+        </ul>
+        <div class="tab-content mt-5" id="myTabContent">
+          <%= render 'organisation/business_service_lines/bsl_tabs/about' %>
+          <%= render 'organisation/business_service_lines/bsl_tabs/internal_sla' %>
+          <%= render 'organisation/business_service_lines/bsl_tabs/process' %>
+          <%= render 'organisation/business_service_lines/bsl_tabs/supplier_sla_target' %>
+          <%= render 'organisation/business_service_lines/bsl_tabs/risk' %>
+          <%= render 'organisation/business_service_lines/bsl_tabs/journey_flow' %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
