@@ -19,4 +19,9 @@ Rails.application.routes.draw do
       resources :channels
     end
   end
+
+  namespace :organisation do
+    resources :dashboard, only: %i[index]
+    resources :business_service_lines
+  end
 end
