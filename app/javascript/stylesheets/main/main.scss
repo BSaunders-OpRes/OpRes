@@ -19,3 +19,31 @@ p {
 a {
   text-decoration: none;
 }
+.flex-1 {
+  flex: 1;
+}
+::-webkit-input-placeholder {
+  text-transform: capitalize;
+}
+
+:-ms-input-placeholder {
+  text-transform: capitalize;
+}
+
+::placeholder {
+  text-transform: capitalize;
+}
+textarea {
+  resize: none;
+}
+.green-border-card {
+  border: 3px solid #6BEAB3;
+  background: #F3F5FA;
+}
+.black-border-card {
+  border: 3px solid #000;
+  background: #F3F5FA;
+}
+.cursor-pointer {
+  cursor: pointer;
+}

@@ -2,20 +2,6 @@ body {
   background: #F3F5FA;
 }
 
-::-webkit-input-placeholder {
-  text-transform: capitalize;
-}
-
-:-ms-input-placeholder {
-  text-transform: capitalize;
-}
-
-::placeholder {
-  text-transform: capitalize;
-}
-textarea {
-  resize: none;
-}
 .bsl-container {
   max-width: 700px;
   margin: 50px auto;
@@ -41,7 +27,7 @@ textarea {
             position: absolute;
             height: 2px;
             width: 30px;
-            background: green;
+            background: #6BEAB3;
             left: 0;
             top: 90%;
           }
@@ -58,5 +44,30 @@ textarea {
 .slidecontainer {
   input[type=range] {
     flex: 1;
+  }
+}
+
+.add-supplier-modal {
+  .modal-dialog {
+    max-width: 700px;
+    .modal-content {
+      .modal-body {
+        .nav.nav-tabs {
+          border: 1px solid #ddd;
+          border-radius: 4px;
+          li.nav-item {
+            a.nav-link {
+              &:after {
+                display: none;
+              }
+            }
+            a.active {
+              background: #000;
+              color: #fff;
+            }
+          }
+        }
+      }
+    }
   }
 }
