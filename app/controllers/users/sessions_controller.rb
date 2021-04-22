@@ -15,6 +15,13 @@ class Users::SessionsController < Devise::SessionsController
     self.resource = warden.authenticate!(auth_options)
     set_flash_message(:notice, :signed_in) if is_flashing_format?
     sign_in(resource_name, resource)
+    Rails.logger.info "*"*50
+    Rails.logger.info "Tenant: #{Apartment::Tenant.current}"
+    Rails.logger.info "Session User: #{session['warden.user.user.key']}"
+    Rails.logger.info "Current User: #{current_user&.inspect}"
+    Rails.logger.info "Request Referrer: #{request&.referrer}"
+    Rails.logger.info "Request URL: #{request&.url}"
+    Rails.logger.info "*"*50
     respond_with(resource) do |format|
       format.json { render json: { redirect_url: after_sign_in_path_for(resource) }, status: 200 }
     end
