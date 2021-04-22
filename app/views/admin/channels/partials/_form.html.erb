@@ -1,7 +1,6 @@
 <div class="card border-0 shadow">
   <div class="card-body">
-
-    <%= form_for ['admin', channel] do |f| %>
+    <%= form_for channel, url: new_or_create ? admin_channels_path : admin_channel_path, method: new_or_create ? :post : :patch do |f| %>
       <%= render 'layouts/partials/form_errors', instance: channel %>
 
       <div class="row">
@@ -17,11 +16,6 @@
       </div>
 
       <div class="row d-flex align-items-center">
-        <div class="form-check col-md-6 pl-5">
-          <%= f.check_box :active, { class: 'form-check-input' }, true, false %>
-          <%= f.label :active, class: 'form-check-label' %>
-        </div>
-
         <div class="form-group col-md-6 text-right mb-0">
           <%= f.submit class: 'btn primary-btn' %>
           <%= link_to 'Cancel', admin_channels_path, class: 'btn dark-btn' %>

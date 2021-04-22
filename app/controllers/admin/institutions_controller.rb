@@ -3,15 +3,15 @@ class Admin::InstitutionsController < Admin::BaseController
   before_action :load_form_data,   only: %i[new create edit update]
 
   def index
-    @institutions = Institution.order(id: :desc)
+    @institutions = PreInstitution.order(id: :desc)
   end
 
   def new
-    @institution = Institution.new
+    @institution = PreInstitution.new
   end
 
   def create
-    @institution = Institution.new(institution_params)
+    @institution = PreInstitution.new(institution_params)
 
     if @institution.save
       redirect_to admin_institutions_path, notice: 'Institution has been created successfully!'
@@ -45,14 +45,14 @@ class Admin::InstitutionsController < Admin::BaseController
   private
 
   def load_institution
-    @institution = Institution.find(params[:id])
+    @institution = PreInstitution.find(params[:id])
   end
 
   def load_form_data
-    @products = Product.all
+    @products = PreProduct.all
   end
 
   def institution_params
-    params.require(:institution).permit(:name, :description, :active, product_ids: [])
+    params.require(:pre_institution).permit(:name, :description, pre_product_ids: [])
   end
 end

@@ -13,10 +13,6 @@
           <th scope="row">Description</th>
           <td><%= @channel.description %></td>
         </tr>
-        <tr>
-          <th scope="row">Active</th>
-          <td><%= @channel.active ? 'Yes' : 'No' %></td>
-        </tr>
       </tbody>
     </table>
     <%= link_to 'Back', admin_channels_path, class: 'btn dark-btn float-right' %>

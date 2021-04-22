@@ -1,7 +1,6 @@
 class Channel < ApplicationRecord
   # Associations #
-  has_many :product_channels, dependent: :destroy
-  has_many :products, through: :product_channels
+  belongs_to :unit
 
   # Validations #
   validates :name, :description, :active, presence: true

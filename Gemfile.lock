@@ -1,14 +1,3 @@
-GIT
-  remote: https://github.com/influitive/apartment.git
-  revision: f266f73e58835f94e4ec7c16f28443fe5eada1ac
-  branch: development
-  specs:
-    apartment (2.2.1)
-      activerecord (>= 3.1.2, < 6.1)
-      parallel (>= 0.7.1)
-      public_suffix (>= 2)
-      rack (>= 1.3.6)
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -56,6 +45,8 @@ GEM
     activerecord (6.0.3.6)
       activemodel (= 6.0.3.6)
       activesupport (= 6.0.3.6)
+    activerecord-import (0.15.0)
+      activerecord (>= 3.2)
     activestorage (6.0.3.6)
       actionpack (= 6.0.3.6)
       activejob (= 6.0.3.6)
@@ -89,14 +80,13 @@ GEM
       rack-test (>= 0.6.3)
       regexp_parser (>= 1.5, < 3.0)
       xpath (~> 3.2)
-    carmen (1.0.2)
-      activesupport (>= 3.0.0)
-    carmen-rails (1.0.1)
-      carmen (~> 1.0.0)
-      rails
     childprocess (3.0.0)
     concurrent-ruby (1.1.8)
     connection_pool (2.2.3)
+    countries (3.1.0)
+      i18n_data (~> 0.11.0)
+      sixarm_ruby_unaccent (~> 1.1)
+      unicode_utils (~> 1.4)
     crass (1.0.6)
     devise (4.7.3)
       bcrypt (~> 3.0)
@@ -112,6 +102,7 @@ GEM
       activesupport (>= 4.2.0)
     i18n (1.8.9)
       concurrent-ruby (~> 1.0)
+    i18n_data (0.11.0)
     jbuilder (2.11.2)
       activesupport (>= 5.0.0)
     listen (3.5.0)
@@ -183,6 +174,7 @@ GEM
       execjs
       railties (>= 3.2)
       tilt
+    redis (4.2.5)
     regexp_parser (2.1.1)
     responders (3.0.1)
       actionpack (>= 5.0)
@@ -231,6 +223,11 @@ GEM
     selenium-webdriver (3.142.7)
       childprocess (>= 0.5, < 4.0)
       rubyzip (>= 1.2.2)
+    sidekiq (6.2.1)
+      connection_pool (>= 2.2.2)
+      rack (~> 2.0)
+      redis (>= 4.2.0)
+    sixarm_ruby_unaccent (1.2.0)
     spring (2.1.1)
     spring-watcher-listen (2.0.1)
       listen (>= 2.7, < 4.0)
@@ -251,6 +248,7 @@ GEM
     tzinfo (1.2.9)
       thread_safe (~> 0.1)
     unicode-display_width (2.0.0)
+    unicode_utils (1.4.0)
     warden (1.2.9)
       rack (>= 2.0.9)
     web-console (4.1.0)
@@ -277,12 +275,12 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  apartment!
+  activerecord-import (~> 0.15.0)
   bootsnap (>= 1.4.2)
   brakeman (~> 5.0.0)
   byebug
   capybara (>= 2.15)
-  carmen-rails (~> 1.0.0)
+  countries (~> 3.1)
   devise
   jbuilder (~> 2.7)
   listen (~> 3.2)
@@ -294,6 +292,7 @@ DEPENDENCIES
   rubocop (~> 1.12.1)
   sass-rails (>= 6)
   selenium-webdriver
+  sidekiq (~> 6.2, >= 6.2.1)
   spring
   spring-watcher-listen (~> 2.0.0)
   turbolinks (~> 5)

@@ -2,15 +2,15 @@ class Admin::ChannelsController < Admin::BaseController
   before_action :load_channel, only: %i[edit update show destroy]
 
   def index
-    @channels = Channel.order(id: :desc)
+    @channels = PreChannel.order(id: :desc)
   end
 
   def new
-    @channel = Channel.new
+    @channel = PreChannel.new
   end
 
   def create
-    @channel = Channel.new(channel_params)
+    @channel = PreChannel.new(channel_params)
 
     if @channel.save
       redirect_to admin_channels_path, notice: 'Channel has been created successfully!'
@@ -44,10 +44,10 @@ class Admin::ChannelsController < Admin::BaseController
   private
 
   def load_channel
-    @channel = Channel.find(params[:id])
+    @channel = PreChannel.find(params[:id])
   end
 
   def channel_params
-    params.require(:channel).permit(:name, :description, :active)
+    params.require(:pre_channel).permit(:name, :description)
   end
 end

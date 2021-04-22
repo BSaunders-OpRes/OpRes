@@ -1,0 +1,14 @@
+class CreateInstitutions < ActiveRecord::Migration[6.0]
+  def change
+    create_table :institutions do |t|
+      t.references :unit, foreign_key: true, index: true
+
+      t.string :name
+      t.text   :description
+
+      t.timestamps
+    end
+
+    add_reference :units, :institution, foreign_key: true, index: true
+  end
+end

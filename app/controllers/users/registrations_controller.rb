@@ -15,15 +15,21 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def create
     build_resource(sign_up_params)
     resource.role = User.roles[:org_admin]
-    resource.units.build(organisation_params)
 
-    begin
-      resource.save
-    rescue => e
-      if e.instance_of? ActiveRecord::RecordNotUnique
-        resource.errors.add(:base, 'Email is already taken.')
-      else
-        resource.error.add(:base, 'Oops! something went wrong.')
+    User.transaction do
+      begin
+        if resource.save!
+          org_unit = Units::Organisational.new(organisation_unit_params)
+          org_unit.save!
+          resource.update!(unit_id: org_unit.id)
+        end
+      rescue => e
+        if e.instance_of? ActiveRecord::RecordNotUnique
+          resource.errors.add(:base, 'Email is already taken.')
+        else
+          resource.errors.add(:base, 'Oops! something went wrong.')
+        end
+        raise ActiveRecord::Rollback
       end
     end
 
@@ -34,12 +40,15 @@ class Users::RegistrationsController < Devise::RegistrationsController
         set_flash_message! :notice, :signed_up
         sign_up(resource_name, resource)
         respond_with(resource) do |format|
-          format.json { render json: { data: resource }, status: 200 }
+          format.json { render json: { redirect_url: after_sign_up_path_for(resource) }, status: 200 }
         end
       else
-        set_flash_message! :notice, :"signed_up_but_#{resource.inactive_message}"
+        set_flash_message :notice, :"signed_up_but_#{resource.inactive_message}" if is_flashing_format?
+        msg = find_message(:"signed_up_but_#{resource.inactive_message}", {})
         expire_data_after_sign_in!
-        respond_with resource, data: resource, status: 200
+        respond_with(resource) do |format|
+          format.json { render json: { message: msg, redirect_url: after_inactive_sign_up_path_for(resource) }, status: 200 }
+        end
       end
     else
       clean_up_passwords resource
@@ -75,7 +84,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   #   super
   # end
 
-  # protected
+  protected
 
   # If you have extra params to permit, append them to the sanitizer.
   # def configure_sign_up_params
@@ -93,13 +102,13 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   # The path used after sign up for inactive accounts.
-  # def after_inactive_sign_up_path_for(resource)
-  #   super(resource)
-  # end
+  def after_inactive_sign_up_path_for(resource)
+    new_user_session_path
+  end
 
   private
 
-  def organisation_params
-    params.require(:organisation).permit(:name, :unit_type).merge(type: 'Units::Organisational')
+  def organisation_unit_params
+    params.require(:organisation).permit(:name, :unit_type)
   end
 end

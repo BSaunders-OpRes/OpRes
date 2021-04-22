@@ -4,7 +4,7 @@ class CreateChannels < ActiveRecord::Migration[6.0]
       t.references :unit, foreign_key: true, index: true
 
       t.string :name
-      t.text :description
+      t.text   :description
 
       t.timestamps
     end

@@ -44,8 +44,8 @@ export default function Registration() {
   }
 
   const redirection = (resp) => {
-    window.location.href = '/'
-    toast.success('Successfully!! SignedUp', { autoClose:3000 });
+    window.location.href = resp.redirect_url;
+    toast.success(resp.message, { autoClose:3000 });
   }
 
   const error_handling = (err) => {
@@ -89,10 +89,10 @@ export default function Registration() {
                   <div className="row">
                     <div className="form-group col-md-10">
                       <select className='form-control' name="organisationtype" placeholder='Organization Type' onChange={e => setOrganisationType(e.target.value)}>
-                          <option value="0">Retail Bank</option>
-                          <option value="1">Investment Bank</option>
-                          <option value="2">Insurance</option>
-                          <option value="3">Other</option>
+                          <option value="retail">Retail</option>
+                          <option value="investment">Investment</option>
+                          <option value="insurance">Insurance</option>
+                          <option value="other">Other</option>
                       </select>
                       <div className='error'>{organisationTypeError}</div>
                     </div>

@@ -1,20 +1,13 @@
-require 'bcrypt'
-
 class User < ApplicationRecord
   # Associations #
-  has_many :units
+  belongs_to :unit, optional: true
+  has_one :managing_unit, class_name: 'Unit', foreign_key: :manager_id
 
   # Enums #
   enum role: %i[app_admin org_admin unit_admin user]
 
   # Devise #
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable
-
-  # Methods #
-  class << self
-    def valid_password?(password, pass_hash)
-      BCrypt::Password.new(pass_hash) == password
-    end
-  end
+         :recoverable, :rememberable, :confirmable,
+         :trackable
 end

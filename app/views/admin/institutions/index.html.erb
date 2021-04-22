@@ -11,7 +11,6 @@
             <tr>
               <th scope="col">Name</th>
               <th scope="col">Description</th>
-              <th scope="col">Active</th>
               <th scope="col">Actions</th>
             </tr>
           </thead>
@@ -20,7 +19,6 @@
               <tr>
                 <td><%= institution.name %></td>
                 <td><%= institution.description %></td>
-                <td><%= institution.active ? 'Yes' : 'No' %></td>
                 <td>
                   <%= link_to 'View', admin_institution_path(institution), class: 'btn dark-btn rounded-0 border-0 btn-sm' %>
                   <%= link_to 'Edit', edit_admin_institution_path(institution), class: 'btn dark-btn rounded-0 border-0 btn-sm' %>

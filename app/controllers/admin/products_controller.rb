@@ -3,15 +3,15 @@ class Admin::ProductsController < Admin::BaseController
   before_action :load_form_data, only: %i[new create edit update]
 
   def index
-    @products = Product.order(id: :desc)
+    @products = PreProduct.order(id: :desc)
   end
 
   def new
-    @product = Product.new
+    @product = PreProduct.new
   end
 
   def create
-    @product = Product.new(product_params)
+    @product = PreProduct.new(product_params)
 
     if @product.save
       redirect_to admin_products_path, notice: 'Product has been created successfully!'
@@ -45,14 +45,14 @@ class Admin::ProductsController < Admin::BaseController
   private
 
   def load_product
-    @product = Product.find(params[:id])
+    @product = PreProduct.find(params[:id])
   end
 
   def load_form_data
-    @channels = Channel.all
+    @channels = PreChannel.all
   end
 
   def product_params
-    params.require(:product).permit(:name, :description, :active, channel_ids: [])
+    params.require(:pre_product).permit(:name, :description, pre_channel_ids: [])
   end
 end

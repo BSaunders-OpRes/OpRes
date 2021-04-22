@@ -15,13 +15,6 @@ class Users::SessionsController < Devise::SessionsController
     self.resource = warden.authenticate!(auth_options)
     set_flash_message(:notice, :signed_in) if is_flashing_format?
     sign_in(resource_name, resource)
-    Rails.logger.info "*"*50
-    Rails.logger.info "Tenant: #{Apartment::Tenant.current}"
-    Rails.logger.info "Session User: #{session['warden.user.user.key']}"
-    Rails.logger.info "Current User: #{current_user&.inspect}"
-    Rails.logger.info "Request Referrer: #{request&.referrer}"
-    Rails.logger.info "Request URL: #{request&.url}"
-    Rails.logger.info "*"*50
     respond_with(resource) do |format|
       format.json { render json: { redirect_url: after_sign_in_path_for(resource) }, status: 200 }
     end
@@ -44,6 +37,8 @@ class Users::SessionsController < Devise::SessionsController
   def after_sign_in_path_for(resource)
     if resource.app_admin?
       admin_dashboard_index_path
+    elsif resource.org_admin?
+      resource.sign_in_count > 1 ? organisation_dashboard_index_path : organisation_journeys_path
     else
       root_path
     end

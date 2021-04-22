@@ -1,9 +1,9 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-gem 'apartment', github: 'influitive/apartment', branch: 'development'
+gem 'activerecord-import', '~> 0.15.0'
 gem 'bootsnap', '>= 1.4.2', require: false
-gem 'carmen-rails', '~> 1.0.0'
+gem 'countries', '~> 3.1'
 gem 'devise'
 gem 'jbuilder', '~> 2.7'
 gem 'pg', '>=1.2.3'
@@ -11,9 +11,9 @@ gem 'puma', '~> 4.1'
 gem 'rails', '~> 6.0.3', '>= 6.0.3.6'
 gem 'react-rails', '~> 2.6.1'
 gem 'sass-rails', '>= 6'
+gem 'sidekiq', '~> 6.2', '>= 6.2.1'
 gem 'turbolinks', '~> 5'
 gem 'webpacker', '~> 4.0'
-
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
 end
