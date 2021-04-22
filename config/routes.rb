@@ -31,5 +31,7 @@ Rails.application.routes.draw do
     resources :dashboard, only: %i[index]
     resources :business_service_lines
     resources :suppliers
+    resources :organisation_admins
+    resources :unit_admins
   end
 end
