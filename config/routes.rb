@@ -12,6 +12,13 @@ Rails.application.routes.draw do
       passwords:       'users/passwords'
     }
 
+    resources :authentication, only: %i[index] do
+      collection do
+        post   :sign_in
+        delete :sign_out
+      end
+    end
+
     namespace :admin do
       resources :dashboard, only: %i[index]
       resources :institutions
