@@ -3,22 +3,18 @@
   <div class="mt-5">
     <div class="input-fields card mb-5">
       <div class="card-body">
+        <div class="row align-items-center mb-3">
+          <div class="col-sm-12">
+            <input type="text" class="form-control form-control font-12 h-auto py-2 shadow-none" id="inlineFormInputGroup" placeholder="Add Step Title">
+          </div>
+        </div>
+        <div class="row align-items-center mb-3">
+          <div class="col-sm-12">
+            <textarea id="textarea" rows="3" placeholder="Add Description" class="w-100 form-control font-12 shadow-none"></textarea>
+          </div>
+        </div>
         <div class="row align-items-center">
-          <div class="col-md-12">
-            <div class="form-group mb-2">
-              <input type="text" class="form-control form-control font-12 h-auto py-2 shadow-none" id="inlineFormInputGroup" placeholder="Add Step Title">
-            </div>
-          </div>
-        </div>
-        <div class="row align-items-center mt-3">
-          <div class="col-md-12">
-            <div class="form-group mb-2">
-              <textarea id="textarea" rows="3" placeholder="Add Description" class="w-100 form-control font-12 shadow-none"></textarea>
-            </div>
-          </div>
-        </div>
-        <div class="row align-items-center mt-3">
-          <div class="col-md-6">
+          <div class="col-sm-6 mb-3">
             <select class="form-control w-100 font-12 h-auto py-3 shadow-none">
               <option value="">Please Select</option>
               <optgroup label="Option group 1">
@@ -33,7 +29,7 @@
               </optgroup>
             </select>
           </div>
-          <div class="col-md-6">
+          <div class="col-sm-6 mb-3">
             <select class="form-control w-100 font-12 h-auto py-3 shadow-none" disabled>
               <option value="">Please Select</option>
               <optgroup label="Option group 1">
@@ -49,8 +45,8 @@
             </select>
           </div>
         </div>
-         <div class="row align-items-center mt-3">
-          <div class="col-md-6">
+         <div class="row align-items-center">
+          <div class="col-sm-6 mb-3">
             <select class="form-control w-100 font-12 h-auto py-3 shadow-none">
               <option value="">Please Select</option>
               <optgroup label="Option group 1">
@@ -65,7 +61,7 @@
               </optgroup>
             </select>
           </div>
-          <div class="col-md-6">
+          <div class="col-sm-6 mb-3">
             <select class="form-control w-100 font-12 h-auto py-3 shadow-none" disabled>
               <option value="">Please Select</option>
               <optgroup label="Option group 1">
@@ -95,10 +91,10 @@
       <i class="fa fa-plus-circle" aria-hidden="true"></i>
       <span class="font-12 text-capitalize font-600">Add another step</span>
     </div>
-    <div class="wizard-btn">
-      <a href="" class="btn btn-light-grey btn-md font-600 text-capitalize font-12">previous</a>
-      <a href="" class="btn btn-md font-600 text-capitalize font-12 float-right ml-2 dark-btn w-25">proceed</a>
-      <a href="" class="btn btn-light-grey btn-md font-600 text-capitalize font-12 float-right btn-light-grey">save & close</a>
+    <div class="wizard-btn d-flex d-sm-block justify-content-between flex-column">
+      <a href="" class="btn btn-light-grey btn-sm font-600 text-capitalize font-12 mb-3 mb-sm-0">previous</a>
+      <a href="" class="btn btn-sm font-600 text-capitalize font-12 float-right ml-0 ml-sm-2 dark-btn w-25-sm w-100 mb-3 mb-sm-0">proceed</a>
+      <a href="" class="btn btn-light-grey btn-sm font-600 text-capitalize font-12 float-right btn-light-grey">save & close</a>
     </div>
   </div>
   </div>
