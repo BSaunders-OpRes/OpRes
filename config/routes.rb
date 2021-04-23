@@ -20,7 +20,7 @@ Rails.application.routes.draw do
     resources :dashboard, only: %i[index]
     resources :journeys, only: %i[index] do
       patch :regional_step,    on: :collection
-      patch :country_step,     on: :collection
+      post :country_step,     on: :collection
       post  :institution_step, on: :collection
       post  :product_step,     on: :collection
       post  :channel_step,     on: :collection

@@ -5,6 +5,7 @@ gem 'activerecord-import', '~> 0.15.0'
 gem 'bootsnap', '>= 1.4.2', require: false
 gem 'countries', '~> 3.1'
 gem 'devise'
+gem 'dotenv-rails'
 gem 'jbuilder', '~> 2.7'
 gem 'pg', '>=1.2.3'
 gem 'puma', '~> 4.1'
@@ -19,6 +20,7 @@ group :development, :test do
 end
 
 group :development do
+  gem 'pry'
   gem 'brakeman', '~> 5.0.0'
   gem 'listen', '~> 3.2'
   gem 'rspec-rails', '~> 5.0.1'

@@ -5,6 +5,7 @@ class Unit < ApplicationRecord
   # Associations #
   belongs_to :manager, class_name: 'User', foreign_key: :manager_id, optional: true
   belongs_to :institution, optional: true
+  belongs_to :parent, class_name: 'Unit', foreign_key: :parent_id
 
   has_many :users
   has_many :key_contacts
@@ -18,7 +19,7 @@ class Unit < ApplicationRecord
   # has_many :unit_level_products
 
   # Validations #
-  validates :name, presence: true
+  # validates :name, presence: true
 
   # Enums #
   enum unit_type: %i[retail investment insurance other]
