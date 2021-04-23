@@ -1,0 +1,22 @@
+.flex-1 {
+  flex: 1;
+}
+.white-space-nowrap {
+  white-space: nowrap;
+}
+.overflow-x-auto {
+  overflow-x: auto;
+}
+@media screen and (min-width: 576px) {
+  .w-25-sm {
+    width: 25% !important;
+  }
+}
+@media screen and (max-width: 576px) {
+  .flex-sm-1 {
+    flex: 1;
+  }
+  .flex-sm-half {
+    flex: .5;
+  }
+}
