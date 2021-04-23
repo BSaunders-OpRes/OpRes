@@ -53,14 +53,14 @@ export default function Registration() {
   }
 
   return (
-    <div>
+    <div className="h-100">
       <div className='row h-100'>
         <div className="col-md-6">
           <div className='logo-container'>
             <img src={Logo} alt=""/>
           </div>
           <div className='form-wrapper'>
-            <h1>Sign Up</h1>
+            <h1 className="font-600">Sign Up</h1>
             <div className='form-style'>
               <Tabs defaultActiveKey="customer" id="uncontrolled-tab-example">
               <Tab eventKey="customer" title="Customer Login">
@@ -68,27 +68,27 @@ export default function Registration() {
                 <form className='h-100' onSubmit = {handleSubmit}>
                   <div className="row">
                     <div className="form-group col-md-10">
-                      <input type="email" value={email} name="name" className='form-control' placeholder='Email address' onChange={e => setEmail(e.target.value)} />
+                      <input type="email" value={email} name="name" className='form-control border-0' placeholder='Email address' onChange={e => setEmail(e.target.value)} />
                       <div className='error'>{emailError}</div>
                     </div>
                   </div>
                   <div className="row">
                     <div className="form-group col-md-10">
                       <div className='password'>
-                        <input type="password" value={password} name="password" className='form-control' placeholder='Password' onChange={e => setPassword(e.target.value)} />
+                        <input type="password" value={password} name="password" className='form-control border-0' placeholder='Password' onChange={e => setPassword(e.target.value)} />
                       </div>
                       <div className='error'>{passwordError}</div>
                     </div>
                   </div>
                   <div className="row">
                     <div className="form-group col-md-10">
-                      <input type="text" value={organisationName} name="company_name" className='form-control' placeholder='Organization Name' onChange={e => setorganisationName(e.target.value)} />
+                      <input type="text" value={organisationName} name="company_name" className='form-control border-0' placeholder='Organization Name' onChange={e => setorganisationName(e.target.value)} />
                       <div className='error'>{organisationNameError}</div>
                     </div>
                   </div>
                   <div className="row">
                     <div className="form-group col-md-10">
-                      <select className='form-control' name="organisationtype" placeholder='Organization Type' onChange={e => setOrganisationType(e.target.value)}>
+                      <select className='form-control border-0 signup-select' name="organisationtype" placeholder='Organization Type' onChange={e => setOrganisationType(e.target.value)}>
                           <option value="retail">Retail</option>
                           <option value="investment">Investment</option>
                           <option value="insurance">Insurance</option>

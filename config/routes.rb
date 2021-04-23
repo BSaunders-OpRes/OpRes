@@ -27,5 +27,7 @@ Rails.application.routes.draw do
     end
     resources :business_service_lines
     resources :suppliers
+    resources :organisation_admins
+    resources :unit_admins
   end
 end

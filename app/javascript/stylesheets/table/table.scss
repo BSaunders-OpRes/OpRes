@@ -1,0 +1,17 @@
+.custom-table {
+  thead {
+    th {
+      border: none;
+      color: $light-grey;
+    }
+  }
+
+  th,td {
+    padding: 1rem 1.5rem;
+  }
+
+  td {
+    color: $dark-grey;
+    font-weight: 600;
+  }
+}

@@ -4,6 +4,7 @@ body {
   padding: 0;
   box-sizing: border-box;
   height: 100%;
+  background: #F3F5FA;
 }
 html {
   height: 100%;
@@ -19,9 +20,14 @@ p {
 a {
   text-decoration: none;
 }
-.flex-1 {
-  flex: 1;
+.tooltip-inner {
+  text-transform: capitalize;
 }
+.form-control:disabled {
+  opacity: .4 !important;
+  background: #fff !important;
+}
+
 ::-webkit-input-placeholder {
   text-transform: capitalize;
 }
@@ -46,4 +52,7 @@ textarea {
 }
 .cursor-pointer {
   cursor: pointer;
+}
+.body-bg-color {
+  background: #F3F5FA;
 }

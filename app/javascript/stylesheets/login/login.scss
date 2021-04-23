@@ -17,6 +17,22 @@
     outline: none;
     box-shadow: none;
   }
+  input[type=text] {
+    padding: 15px 10px;
+    position: relative;
+    height: auto;
+    font-size: 12px;
+    outline: none;
+    box-shadow: none;
+  }
+  .signup-select {
+    padding: 15px 10px;
+    position: relative;
+    height: auto;
+    font-size: 12px;
+    outline: none;
+    box-shadow: none;
+  }
 }
 .password {
   position: relative;
@@ -64,6 +80,10 @@
   }
 }
 .form-wrapper {
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  padding-left: 100px;
   .forget-password-text {
     a {
       color: #000;
@@ -72,11 +92,6 @@
       font-size: 12px;
     }
   }
-  background-color: #fff;
-  display: flex;
-  justify-content: flex-start;
-  flex-direction: column;
-  padding-left: 100px;
 
   @media (max-width: 768px) {
     padding: 0 15px;
