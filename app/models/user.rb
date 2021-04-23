@@ -8,6 +8,6 @@ class User < ApplicationRecord
 
   # Devise #
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :confirmable,
+         :recoverable, :rememberable,
          :trackable
 end

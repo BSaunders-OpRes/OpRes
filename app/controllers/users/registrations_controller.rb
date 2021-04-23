@@ -47,7 +47,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
         msg = find_message(:"signed_up_but_#{resource.inactive_message}", {})
         expire_data_after_sign_in!
         respond_with(resource) do |format|
-          format.json { render json: { message: msg, redirect_url: after_inactive_sign_up_path_for(resource) }, status: 200 }
+          format.json { render json: { message: msg, redirect_url: after_sign_up_path_for(resource) }, status: 200 }
         end
       end
     else
@@ -97,9 +97,15 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   # The path used after sign up.
-  # def after_sign_up_path_for(resource)
-  #   super(resource)
-  # end
+  def after_sign_up_path_for(resource)
+    if resource.app_admin?
+      admin_dashboard_index_path
+    elsif resource.org_admin?
+      resource.sign_in_count > 1 ? organisation_dashboard_index_path : organisation_journeys_path
+    else
+      root_path
+    end
+  end
 
   # The path used after sign up for inactive accounts.
   def after_inactive_sign_up_path_for(resource)

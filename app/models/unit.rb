@@ -5,7 +5,7 @@ class Unit < ApplicationRecord
   # Associations #
   belongs_to :manager, class_name: 'User', foreign_key: :manager_id, optional: true
   belongs_to :institution, optional: true
-  belongs_to :parent, class_name: 'Unit', foreign_key: :parent_id
+  belongs_to :parent, class_name: 'Unit', foreign_key: :parent_id, optional: true
 
   has_many :users
   has_many :key_contacts
