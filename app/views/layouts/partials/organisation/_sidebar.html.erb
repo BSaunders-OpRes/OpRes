@@ -1,0 +1,40 @@
+<div class="sidebar h-100">
+  <div class="sidebar-header py-4 border-bottom">
+    <div class="sidebar-logo-container d-flex align-items-center ml-4">
+      <i id="close_sidebar" class="fa fa-times font-18" aria-hidden="true"></i>
+      <div class="logo-box ml-3">
+        <%= image_pack_tag 'media/images/logo.png', class: 'img-fluid' %>
+      </div>
+    </div>
+  </div>
+  <ul class="list-unstyled">
+    <li class="d-flex pl-4 align-items-center">
+      <i class="fa fa-home font-18" aria-hidden="true"></i>
+      <%= link_to 'Management Dashboard', organisation_dashboard_index_path, class: 'ml-3 font-14 text-decoration-none font-600 text-capitalize py-4' %>
+    </li>
+    <li class="d-flex pl-4 align-items-center">
+      <i class="fa fa-list-ul" aria-hidden="true"></i>
+      <%= link_to 'Customer Journey', organisation_journeys_path, class: 'ml-3 font-14 text-decoration-none font-600 text-capitalize py-4' %>
+    </li>
+    <li class="d-flex pl-4 align-items-center">
+      <i class="fa fa-briefcase" aria-hidden="true"></i>
+      <%= link_to 'Business Service Lines', organisation_business_service_lines_path, class: 'ml-3 font-14 text-decoration-none font-600 text-capitalize py-4' %>
+    </li>
+    <li class="d-flex pl-4 align-items-center">
+      <i class="fa fa-home font-18" aria-hidden="true"></i>
+      <%= link_to 'Suppliers', organisation_suppliers_path, class: 'ml-3 font-14 text-decoration-none font-600 text-capitalize py-4' %>
+    </li>
+    <li class="d-flex pl-4 align-items-center">
+      <i class="fa fa-home font-18" aria-hidden="true"></i>
+      <%= link_to 'Organisation Admins', organisation_organisation_admins_path, class: 'ml-3 font-14 text-decoration-none font-600 text-capitalize py-4' %>
+    </li>
+    <li class="d-flex pl-4 align-items-center">
+      <i class="fa fa-home font-18" aria-hidden="true"></i>
+      <%= link_to 'Unit Admins', organisation_unit_admins_path, class: 'ml-3 font-14 text-decoration-none font-600 text-capitalize py-4' %>
+    </li>
+    <li class="d-flex pl-4 align-items-center">
+      <i class="fa fa-home font-18" aria-hidden="true"></i>
+      <a class="ml-3 font-14 text-decoration-none font-600 text-capitalize py-4" href="#">administration portal</a>
+    </li>
+  </ul>
+</div>

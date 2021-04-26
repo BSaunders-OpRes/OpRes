@@ -1,0 +1,34 @@
+<header class="py-3 w-100 header">
+  <div class="container d-flex align-items-center justify-content-between">
+    <div class="logo-bar d-flex align-items-center">
+      <i id="open_sidebar" class="fa fa-bars font-18 text-white" aria-hidden="true"></i>
+      <div class="logo-box ml-3">
+        <%= image_pack_tag 'media/images/white-logo.png', class: 'img-fluid' %>
+      </div>
+    </div>
+    <div class="search-field">
+      <i class="fa fa-search text-white font-14" aria-hidden="true"></i>
+      <input type="text" placeholder="search anything..." class="border-0 form-control shadow-none text-white h-auto">
+    </div>
+    <div class="notification-field d-flex align-items-center justify-content-end">
+      <a href="" class="alert-notification d-flex align-items-center">
+        <span class="font-14 font-700 text-white ">Alert</span>
+        <span class="notification-green-circle"><i class="fa fa-bell-o text-white ml-2 font-18" aria-hidden="true"></i></span>
+      </a>
+      <div class="dropdown">
+        <a href="" class="username ml-5 d-flex align-items-center justify-content-center" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <span class="text-uppercase font-600 text-dark font-13">jd</span>
+        </a>
+        <div class="dropdown-menu py-0" aria-labelledby="dropdownMenuButton">
+          <a class="dropdown-item d-flex align-items-center py-3 border-bottom" href="#">
+            <span class="text-uppercase font-600 text-dark font-13 username d-flex align-items-center justify-content-center">jd</span>
+            <span class="text-capitalize font-600 font-14 ml-2 text-capitalize">Jhon Doe</span>
+          </a>
+          <a class="dropdown-item font-14 text-capitalize py-2" href="#">My account</a>
+          <a class="dropdown-item font-14 text-capitalize py-2" href="#">Settings</a>
+          <%= link_to 'Log Out', destroy_user_session_path, method: :delete, class: 'dropdown-item font-14 text-capitalize py-3 border-top' %>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>

@@ -1,3 +1,58 @@
+.blur {
+  filter: blur(2px);
+}
+
 .sidebar {
-  background-color: #000;
+  background-color: #fff;
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 0;
+  transition: .4s all;
+  overflow-x: hidden;
+  filter: blur(0) !important;
+  z-index: 9999;
+  .sidebar-header {
+    width: 300px;
+    .logo-box {
+      width: 120px;
+      img {
+        width: 100%;
+      }
+    }
+  }
+  ul {
+    li {
+      position: relative;
+      width: 300px;
+      &:after {
+        content: "";
+        position: absolute;
+        height: 2px;
+        width: 0;
+        left: 0;
+        right: 0;
+        top: 100%;
+        background-color: $primary-green;
+        transition: .6s all;
+      }
+      i {
+        transition: .6s all;
+      }
+      &:hover {
+        i {
+          color: $dark-grey;
+        }
+        &:after {
+          width: 100%;
+        }
+      }
+      a {
+        color: $black;
+        display: block;
+        transition: .6s all;
+      }
+    }
+  }
 }
