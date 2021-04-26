@@ -22,6 +22,7 @@ end
 group :development do
   gem 'pry'
   gem 'brakeman', '~> 5.0.0'
+  gem 'letter_opener', group: :development
   gem 'listen', '~> 3.2'
   gem 'rspec-rails', '~> 5.0.1'
   gem 'rubocop', '~> 1.12.1', require: false
