@@ -14,6 +14,12 @@
   </head>
 
   <body>
-    <%= yield %>
+    <%= render 'layouts/partials/organisation/header' %>
+    <%= render 'layouts/partials/organisation/sidebar' %>
+    <div class="container">
+      <div class="content">
+        <%= yield %>
+      </div>
+    </div>
   </body>
 </html>

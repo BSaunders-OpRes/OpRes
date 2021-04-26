@@ -1,3 +1,85 @@
 .navbar-dark {
   background-color: #000;
 }
+.header {
+  background-color: $black;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  .logo-bar {
+    flex: .75;
+    .logo-box {
+      width: 120px;
+      img {
+        width: 100%;
+      }
+    }
+    i {
+      cursor: pointer;
+    }
+  }
+  .search-field {
+    flex: 1;
+    position: relative;
+    i {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      left: 15px;
+    }
+    input {
+      background-color: #1f1d1d;
+      outline: 0;
+      padding-left: 42px;
+      padding: 10px 10px 10px 42px;
+    }
+    ::-webkit-input-placeholder {
+      color: $white;
+      font-size: 12px;
+      text-transform: unset;
+      letter-spacing: 0.05em;
+    }
+
+    :-ms-input-placeholder {
+      color: $white;
+      font-size: 12px;
+    }
+
+    ::placeholder {
+      color: $white;
+      font-size: 12px;
+    }
+  }
+  .notification-field {
+    flex: .75;
+    .dropdown {
+      .dropdown-menu {
+        left: -40px !important;
+        width: 200px;
+      }
+    }
+    .alert-notification {
+      .notification-green-circle {
+        position: relative;
+        &::before {
+          content: "";
+          position: absolute;
+          background: #6BEAB3;
+          width: 8px;
+          height: 8px;
+          top: 0;
+          right: 0;
+          border-radius: 100px;
+        }
+      }
+    }
+  }
+  .username {
+    background: $primary-green;
+    width: 35px;
+    height: 35px;
+    border-radius: 100px;
+  }
+}
