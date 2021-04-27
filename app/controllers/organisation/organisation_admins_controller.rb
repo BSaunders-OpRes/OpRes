@@ -2,7 +2,7 @@ class Organisation::OrganisationAdminsController < Organisation::BaseController
   before_action :load_organisation_admin, only: %i[edit update show destroy]
 
   def index
-    @org_admins = User.org_admin.where(unit: organisational_unit)
+    @org_admins = organisational_unit.users.org_admin
   end
 
   def new
@@ -50,7 +50,7 @@ class Organisation::OrganisationAdminsController < Organisation::BaseController
   end
 
   def load_organisation_admin
-    @org_admin = User.find(params[:id])
+    @org_admin = organisational_unit.users.find(params[:id])
   end
 
   def skip_password_validation?

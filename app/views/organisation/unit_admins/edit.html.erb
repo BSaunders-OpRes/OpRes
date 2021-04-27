@@ -1,13 +1,13 @@
 <div class="bsl-container">
   <div class="card p-3 shadow">
     <div class="back-btn-header mb-4">
-      <%= link_to organisation_organisation_admins_path, class: 'ml-2 text-decoration-none text-dark' do %>
+      <%= link_to organisation_unit_admins_path, class: 'ml-2' do %>
         <i class="fa fa-arrow-left" aria-hidden="true"></i>
         Back
       <% end %>
     </div>
-    <h4 class="mb-4 font-weight-bold">Add Organisation Admin</h4>
+    <h4 class="mb-4 font-weight-bold">Edit Unit Admin</h4>
     <p class="font-14 mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. In amet aperiam, iste iusto dicta quisquam cumque mollitia veritatis</p>
-    <%= render 'organisation/organisation_admins/partials/form', org_admin: @org_admin %>
+    <%= render 'organisation/unit_admins/partials/form', unit_admin: @unit_admin %>
   </div>
 </div>

@@ -1,5 +1,5 @@
-<%= form_for org_admin, url: new_or_create ? organisation_organisation_admins_path : organisation_organisation_admin_path, method: new_or_create ? :post : :patch do |f| %>
-  <%= render 'layouts/partials/form_errors', instance: org_admin %>
+<%= form_for unit_admin, url: new_or_create ? organisation_unit_admins_path : organisation_unit_admin_path, method: new_or_create ? :post : :patch do |f| %>
+  <%= render 'layouts/partials/form_errors', instance: unit_admin %>
   <div class="row align-items-center mb-3">
     <div class="col-md-6">
       <%= f.label :first_name %>
@@ -10,12 +10,18 @@
       <%= f.text_field :last_name, class: 'w-100 form-control font-12 h-auto py-3 shadow-none', placeholder: 'Last Name' %>
     </div>
   </div>
+
   <div class="row align-items-center mb-3">
-    <div class="col-md-12">
+    <div class="col-md-6">
       <%= f.label :email %>
       <%= f.email_field :email, class: 'w-100 form-control font-12 h-auto py-3 shadow-none', placeholder: 'Email', required: true %>
     </div>
+    <div class="col-md-6">
+      <%= f.label :managing_unit, 'Unit' %>
+      <%= select_tag :managing_unit, options_for_select(organisation_dropdown_options, unit_admin&.managing_unit&.id), multiple: false, class: 'w-100 form-control font-12 h-auto py-3 shadow-none' %>
+    </div>
   </div>
+
   <div class="row align-items-center mb-3">
     <div class="col-md-6">
       <%= f.label :password, class: 'text-capitalize font-14 font-600 mb-2' %>
@@ -26,6 +32,7 @@
       <%= f.password_field :password_confirmation, class: 'w-100 form-control font-12 h-auto py-3 shadow-none', placeholder: 'Password Confirmation', required: new_or_create %>
     </div>
   </div>
+
   <div class="d-flex mt-5">
     <%= f.submit class: 'btn btn-md font-600 text-capitalize font-12 ml-auto dark-btn w-25' %>
   </div>
