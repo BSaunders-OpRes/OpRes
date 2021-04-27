@@ -13,6 +13,26 @@
   overflow-x: hidden;
   filter: blur(0) !important;
   z-index: 9999;
+  /* width */
+    &::-webkit-scrollbar {
+      width: 2px;
+    }
+
+    /* Track */
+    &::-webkit-scrollbar-track {
+      background: #f1f1f1;
+      width: 2px;
+    }
+
+    /* Handle */
+    &::-webkit-scrollbar-thumb {
+      background: #333;
+    }
+
+    /* Handle on hover */
+    &::-webkit-scrollbar-thumb:hover {
+      background: #555;
+    }
   .sidebar-header {
     width: 300px;
     .logo-box {
@@ -31,7 +51,7 @@
         position: absolute;
         height: 2px;
         width: 0;
-        left: 0;
+        left: -10px;
         right: 0;
         top: 100%;
         background-color: $primary-green;
@@ -52,7 +72,14 @@
         color: $black;
         display: block;
         transition: .6s all;
+        flex: 1;
       }
     }
   }
+}
+
+.submenu.dropdown-toggle::after {
+  position: absolute;
+  right: 40px;
+  top: 50%;
 }

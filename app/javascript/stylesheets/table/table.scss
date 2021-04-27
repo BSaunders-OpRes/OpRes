@@ -1,3 +1,31 @@
+.table-search-field {
+  position: relative;
+  i.fa-search {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 40px;
+  }
+  input[type=text] {
+    background: $body-bg-color;
+    padding-left: 42px
+  }
+  ::-webkit-input-placeholder {
+    font-size: 12px;
+    font-weight: 500;
+  }
+
+  :-ms-input-placeholder {
+    font-size: 12px;
+    font-weight: 500;
+  }
+
+  ::placeholder {
+    font-size: 12px;
+    font-weight: 500;
+  }
+}
+
 .custom-table {
   thead {
     th {
