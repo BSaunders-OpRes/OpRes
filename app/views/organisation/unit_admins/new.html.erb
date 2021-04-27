@@ -1,43 +1,13 @@
 <div class="bsl-container">
   <div class="card p-3 shadow">
-    <div class="back-btn-header mb-3">
-      <i class="fa fa-arrow-left" aria-hidden="true"></i>
-      <span class="ml-2">back</span>
+    <div class="back-btn-header mb-4">
+      <%= link_to organisation_unit_admins_path, class: 'ml-2 text-decoration-none text-dark' do %>
+        <i class="fa fa-arrow-left" aria-hidden="true"></i>
+        Back
+      <% end %>
     </div>
     <h4 class="mb-4 font-weight-bold">Add Unit Admin</h4>
-    <p class="font-14 mb-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. In amet aperiam, iste iusto dicta quisquam cumque mollitia veritatis</p>
-    <form>
-      <div class="row align-items-center mb-3">
-        <div class="col-md-6">
-          <p class="text-capitalize font-14 font-600 mb-2">Name</p>
-          <input type="text" placeholder="Name" class="w-100 form-control font-12 h-auto py-3 shadow-none">
-        </div>
-        <div class="col-md-6">
-          <p class="text-capitalize font-14 font-600 mb-2">Email</p>
-          <input type="email" placeholder="Email" class="w-100 form-control font-12 h-auto py-3 shadow-none">
-        </div>
-      </div>
-      <div class="row align-items-center mb-3">
-        <div class="col-md-6">
-          <p class="text-capitalize font-14 font-600 mb-2">Password</p>
-          <input type="password" placeholder="Password" class="w-100 form-control font-12 h-auto py-3 shadow-none">
-        </div>
-        <div class="col-md-6">
-          <p class="text-capitalize font-14 font-600 mb-2">Password Confirmation</p>
-          <input type="password" placeholder="Password Confirmation" class="w-100 form-control font-12 h-auto py-3 shadow-none">
-        </div>
-      </div>
-      <div class="form-group">
-        <select class="w-100 form-control font-12 h-auto py-3 shadow-none">
-          <option>Organisation</option>
-          <option>Market</option>
-          <option>Bank</option>
-          <option>Store</option>
-        </select>
-      </div>
-      <div class="d-flex mt-5">
-        <button type="submit" class="btn btn-md font-600 text-capitalize font-12 ml-auto dark-btn w-25">Save</button>
-      </div>
-    </form>
+    <p class="font-14 mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. In amet aperiam, iste iusto dicta quisquam cumque mollitia veritatis</p>
+    <%= render 'organisation/unit_admins/partials/form', unit_admin: @unit_admin %>
   </div>
 </div>

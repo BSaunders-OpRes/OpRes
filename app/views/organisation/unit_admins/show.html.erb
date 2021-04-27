@@ -2,8 +2,10 @@
   <div class="card shadow">
     <div class="p-3">
       <div class="back-btn-header mb-4">
-        <i class="fa fa-arrow-left" aria-hidden="true"></i>
-        <span class="ml-2">back</span>
+        <%= link_to organisation_unit_admins_path, class: 'ml-2' do %>
+          <i class="fa fa-arrow-left" aria-hidden="true"></i>
+          Back
+        <% end %>
       </div>
       <div class="d-flex justify-content-between align-items-center">
         <h4 class="mb-4 font-weight-bold">Unit Admin Show</h4>
@@ -17,24 +19,18 @@
             <th>Name</th>
             <th>Email</th>
             <th>Organisation</th>
+            <th>Manager Of</th>
           </tr>
         </thead>
         <tbody>
           <tr>
             <td><i class="fa fa-user-circle fa-2x" aria-hidden="true"></i></td>
-            <td class="text-dark">abc</td>
-            <td>abc@gmail.com</td>
+            <td class="text-dark"><%= @unit_admin.name %></td>
+            <td><%= @unit_admin.email %></td>
             <td>
-              abc
+              <%= organisational_unit.name %>
             </td>
-          </tr>
-          <tr>
-            <td><i class="fa fa-user-circle fa-2x" aria-hidden="true"></i></td>
-            <td class="text-dark">abc</td>
-            <td>abc@gmail.com</td>
-            <td>
-              abc
-            </td>
+            <td><%= @unit_admin.managing_unit&.name || 'N/A' %></td>
           </tr>
         </tbody>
       </table>
