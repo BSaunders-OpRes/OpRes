@@ -25,3 +25,24 @@
   background: #ECF7F4;
   color: #5BBDA1;
 }
+.dropdown-radius-btn {
+  position: relative;
+  width: 180px;
+  &:after {
+    content: "";
+    position: absolute;
+    width: 1px;
+    height: 100%;
+    background: #353535;
+    right: 37px;
+    top: 0;
+    bottom: 0;
+  }
+  a, button {
+    border-radius: 7px;
+  }
+  .dropdown-menu {
+    right: 0;
+    border-radius: 7px;
+  }
+}

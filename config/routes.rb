@@ -20,6 +20,9 @@ Rails.application.routes.draw do
 
   namespace :organisation do
     resources :dashboard, only: %i[index]
+    resources :institutions
+    resources :products
+    resources :channels
     resources :journeys, only: %i[index] do
       patch :regional_step,    on: :collection
       post :country_step,     on: :collection

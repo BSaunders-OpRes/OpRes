@@ -2,6 +2,9 @@
 <html>
   <head>
     <title>Opres</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400&display=swap" rel="stylesheet">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -12,13 +15,11 @@
   <body class='bg-light'>
     <div id="page-content-wrapper" class="h-100 overflow-hidden">
       <%= render 'layouts/partials/admin/header' %>
-      <div class="container-full h-100">
-        <div class="row h-100">
-          <div class="col-sm-2 pr-0">
-            <%= render 'layouts/partials/admin/sidebar' %>
-          </div>
-          <div class="col-sm-10 pl-0">
-            <div class="container p-4">
+      <%= render 'layouts/partials/admin/sidebar' %>
+      <div class="row h-100">
+        <div class="col-sm-12">
+          <div class="container">
+            <div class="content">
               <%= yield %>
             </div>
           </div>
