@@ -1,0 +1,25 @@
+<%= form_tag organisation_journey_path('regional-unit'), remote: true do %>
+  <div class="card-body body-bg-color w-75 mx-auto font-14 ">
+    <p>
+      In order to create the best experience for you, we need to ask a few simple questions. This will allow us to confgure the application and data model so it fts your business and operational resilience targets.
+    </p>
+  </div>
+  <div class="card-body w-75 mx-auto font-14 mt-4 border">
+    <div class="row">
+      <div class="col-sm-12">
+        <p class="font-14 body-bg-color p-2">
+          <strong>Question:</strong> Please tell us the name of your organisation? This should be the legal trading name. As an example "Acme Bank Holdings PLC".
+        </p>
+      </div>
+      <div class="col-sm-12 mt-3">
+        <div class="font-14 body-bg-color p-2 h-100 form-group">
+          <%= text_field_tag :name, organisational_unit.name, required: true, class: 'form-control' %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="card-body w-75 d-flex p-0 mx-auto justify-content-between my-4">
+    <span></span>
+    <%= submit_tag 'Next', class: 'btn primary-btn text-capitalize w-25 rounded-0' %>
+  </div>
+<% end %>

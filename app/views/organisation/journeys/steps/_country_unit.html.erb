@@ -1,0 +1,29 @@
+<%= form_tag organisation_journey_path('institution-unit'), remote: true do %>
+  <div class="card-body w-75 mx-auto font-14 mt-4 border">
+  <div class="row">
+    <div class="col-sm-12">
+      <p class="font-14 body-bg-color p-2">
+        <strong>Question:</strong> You selected the following regions; <%= organisational_unit.children.pluck(:region).join(', ') %> Please can you tell us which countries you operate in across these regions? These can be amended later on if you don't manage to capture them all right now.
+      </p>
+    </div>
+    <div class="col-sm-12 mt-3">
+      <% organisational_unit.children.each do |regional_unit| %>
+        <%= regional_unit.region %>
+        <% Unit.countries_selection_by_region(regional_unit.region).each do |country| %>
+          <div class="form-check d-flex align-items-center mr-2 form-group">
+            <%= check_box_tag "#{regional_unit.region}[#{regional_unit.id}][]", country.first, false, class: 'form-check-input mt-0 shadow-none', id: "country-#{country.first.parameterize}" %>
+            <label class="form-check-label text-capitalize font-13" for="<%= "country-#{country.first.parameterize}" %>">
+              <%= country.first %>
+            </label>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+  </div>
+  <div class="card-body w-75 d-flex p-0 mx-auto justify-content-between my-4">
+    <%= link_to 'Back', organisation_journey_path('regional-unit'), class: 'btn dark-btn text-capitalize w-25 rounded-0' %>
+    <%#= submit_tag 'Next', class: 'btn primary-btn text-capitalize w-25 rounded-0' %>
+    <a href="javascript:void(0);" class="btn primary-btn text-capitalize w-25 rounded-0">Next</a>
+  </div>
+<% end %>

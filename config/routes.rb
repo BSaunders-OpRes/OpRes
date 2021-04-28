@@ -23,12 +23,8 @@ Rails.application.routes.draw do
     resources :institutions
     resources :products
     resources :channels
-    resources :journeys, only: %i[index] do
-      patch :regional_step,    on: :collection
-      post :country_step,     on: :collection
-      post  :institution_step, on: :collection
-      post  :product_step,     on: :collection
-      post  :channel_step,     on: :collection
+    resources :journeys,  only: %i[show] do
+      post :show, on: :member
     end
     resources :business_service_lines
     resources :suppliers
