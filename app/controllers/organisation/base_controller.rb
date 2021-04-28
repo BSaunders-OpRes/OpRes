@@ -14,6 +14,6 @@ class Organisation::BaseController < ApplicationController
   end
 
   def load_organisational_unit
-    @organisational_unit = current_user.unit
+    @organisational_unit = current_user.unit.include_children
   end
 end

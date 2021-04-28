@@ -2,6 +2,10 @@ module Firm::ChildrenConcern
   extend ActiveSupport::Concern
 
   included do
+    def include_children
+      Unit.includes(children: [children: [:children]]).find(id)
+    end
+
     def inclusive_children
       exclusive_children.unshift(self)
     end

@@ -8,9 +8,10 @@
       </div>
       <div class="col-sm-12 mt-3">
         <div class="checkbox-container d-flex justify-content-start flex-wrap">
-          <% @regional_data.each do |region| %>
+          <% regional_units = organisational_unit.children %>
+          <% Unit.regions.each do |region| %>
             <div class="form-check d-flex align-items-center mr-2 form-group">
-              <%= check_box_tag "regions[#{region}]", region, @regional_units.pluck(:region).include?(region), class: 'form-check-input mt-0 shadow-none', id: "region-#{region.parameterize}" %>
+              <%= check_box_tag "regions[#{region}]", region, regional_units.pluck(:region).include?(region), class: 'form-check-input mt-0 shadow-none', id: "region-#{region.parameterize}" %>
               <label class="form-check-label text-capitalize font-13" for="<%= "region-#{region.parameterize}" %>">
                 <%= region %>
               </label>
