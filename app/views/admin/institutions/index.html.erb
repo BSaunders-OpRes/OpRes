@@ -1,37 +1,56 @@
-<div class="text-right my-4 d-flex justify-content-between align-items-center">
-  <h3>Institution</h3>
-  <%= link_to 'New Institution', new_admin_institution_path, class: 'btn dark-btn rounded-0 border-0' %>
-</div>
-<div class='card border-0'>
-  <div class='card-body'>
-    <div class="listings">
-      <% if @institutions.present? %>
-        <table class="table">
-          <thead class="thead-dark">
-            <tr>
-              <th scope="col">Name</th>
-              <th scope="col">Description</th>
-              <th scope="col">Actions</th>
-            </tr>
-          </thead>
-          <tbody>
-            <% @institutions.each do |institution| %>
-              <tr>
-                <td><%= institution.name %></td>
-                <td><%= institution.description %></td>
-                <td>
-                  <%= link_to 'View', admin_institution_path(institution), class: 'btn dark-btn rounded-0 border-0 btn-sm' %>
-                  <%= link_to 'Edit', edit_admin_institution_path(institution), class: 'btn dark-btn rounded-0 border-0 btn-sm' %>
-                </td>
-              </tr>
+<!-- <div class="row">
+  <div class="col-md-8 mx-auto d-flex justify-content-between align-items-center my-5">
+    <h3 class="text-capitalize font-600">Institutions</h3>
+
+  </div>
+</div> -->
+<div class="row mt-5">
+  <div class="col-sm-8 mx-auto">
+    <div class='card border-0'>
+      <div class='card-body p-0'>
+        <div class="listings">
+          <div class="d-flex justify-content-between align-items-center py-3 px-4 mt-3">
+            <h5 class="text-capitalize font-700">Institutions</h5>
+            <%= link_to new_admin_institution_path, class: 'font-600 text-capitalize font-12 ml-auto text-black text-decoration-none d-flex' do %>
+              <i class="fa fa-plus-circle mr-1 font-20"></i>
+              <span class="ml-2 font-14">Add New</span>
             <% end %>
-          </tbody>
-        </table>
-      <% else %>
-        <div class="alert alert-primary m-0" role="alert">
-          No institutions are created yet!
+          </div>
+          <div class="table-search-field px-4">
+            <i class="fa fa-search text-dark font-14" aria-hidden="true"></i>
+            <input type="text" placeholder="search institutions" class="w-100 form-control border-0 shadow-none">
+          </div>
+          <% if @institutions.present? %>
+            <div class="table-responsive">
+              <table class="table custom-table font-12 m-0">
+                <thead>
+                  <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <% @institutions.each do |institution| %>
+                    <tr>
+                      <td class="text-dark"><%= institution.name %></td>
+                      <td><%= institution.description %></td>
+                      <td>
+                        <%= link_to 'View', admin_institution_path(institution), class: 'mx-1 text-dark font-700' %>
+                        <%= link_to 'Edit', edit_admin_institution_path(institution), class: 'mx-1 text-dark font-700' %>
+                      </td>
+                    </tr>
+                  <% end %>
+                </tbody>
+              </table>
+            </div>
+          <% else %>
+            <div class="alert alert-primary m-0" role="alert">
+              No institutions are created yet!
+            </div>
+          <% end %>
         </div>
-      <% end %>
+      </div>
     </div>
   </div>
 </div>

@@ -1,39 +1,61 @@
-<div class="bsl-container">
-  <div class="card shadow">
-    <div class="p-3">
-      <div class="back-btn-header mb-4">
-        <%= link_to organisation_unit_admins_path, class: 'ml-2' do %>
-          <i class="fa fa-arrow-left" aria-hidden="true"></i>
-          Back
-        <% end %>
+<div class="row mt-5">
+  <div class="col-md-7 mx-auto">
+    <div class="card shadow">
+      <div class="p-3">
+        <div class="back-btn-header mb-4">
+          <%= link_to organisation_unit_admins_path, class: 'text-dark' do %>
+            <i class="fa fa-arrow-left" aria-hidden="true"></i>
+            <span class="ml-1">Back</span>
+          <% end %>
+        </div>
+        <div class="show-page">
+          <div class="row align-items-center">
+            <div class="col-md-4">
+              <div class="show-img">
+                <%= image_pack_tag 'media/images/user-img.png', class: 'img-fluid' %>
+              </div>
+            </div>
+            <div class="col-md-8">
+              <div class="card border-0">
+                <div class="card-body">
+                  <div class="row pb-4 border-bottom">
+                    <div class="col-md-6">
+                      <h6 class="font-14 text-capitalize font-700">name</h6>
+                    </div>
+                    <div class="col-md-6">
+                      <h5 class="font-14 text-capitalize text-secondary"><%= @unit_admin.name %></h5>
+                    </div>
+                  </div>
+                  <div class="row py-4 border-bottom">
+                    <div class="col-md-6">
+                      <h6 class="font-14 text-capitalize font-700">email</h6>
+                    </div>
+                    <div class="col-md-6">
+                      <h6 class="font-14 text-secondary"><%= @unit_admin.email %></h6>
+                    </div>
+                  </div>
+                  <div class="row py-4 border-bottom">
+                    <div class="col-md-6">
+                      <h6 class="font-14 text-capitalize font-700">organisational name</h6>
+                    </div>
+                    <div class="col-md-6">
+                      <h5 class="font-14 text-capitalize text-secondary"><%= organisational_unit.name %></h5>
+                    </div>
+                  </div>
+                  <div class="row py-4">
+                    <div class="col-md-6">
+                      <h6 class="font-14 text-capitalize font-700">managing unit</h6>
+                    </div>
+                    <div class="col-md-6">
+                      <h5 class="font-14 text-capitalize text-secondary"><%= @unit_admin.managing_unit&.name || 'N/A' %></h5>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="d-flex justify-content-between align-items-center">
-        <h4 class="mb-4 font-weight-bold">Unit Admin Show</h4>
-      </div>
-    </div>
-    <div class="table-responsive">
-      <table class="table custom-table font-14 m-0">
-        <thead>
-          <tr>
-            <th>#</th>
-            <th>Name</th>
-            <th>Email</th>
-            <th>Organisation</th>
-            <th>Manager Of</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><i class="fa fa-user-circle fa-2x" aria-hidden="true"></i></td>
-            <td class="text-dark"><%= @unit_admin.name %></td>
-            <td><%= @unit_admin.email %></td>
-            <td>
-              <%= organisational_unit.name %>
-            </td>
-            <td><%= @unit_admin.managing_unit&.name || 'N/A' %></td>
-          </tr>
-        </tbody>
-      </table>
     </div>
   </div>
 </div>
