@@ -6,6 +6,7 @@ gem 'bootsnap', '>= 1.4.2', require: false
 gem 'countries', '~> 3.1'
 gem 'devise'
 gem 'dotenv-rails'
+gem 'exception_handler', '~> 0.8.0.1'
 gem 'jbuilder', '~> 2.7'
 gem 'pg', '>=1.2.3'
 gem 'puma', '~> 4.1'
