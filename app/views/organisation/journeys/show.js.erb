@@ -1,0 +1,2 @@
+history.pushState({}, null, "<%= organisation_journey_path(@step) %>");
+$('#journey-step').html('<%= j(render "organisation/journeys/steps/#{@step.underscore}") %>');

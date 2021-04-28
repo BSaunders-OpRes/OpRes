@@ -5,9 +5,8 @@
         <h1 class="text-capitalize text-center">Welcome to OpRes</h1>
       </div>
       <div id='journey-step'>
-        <%= render 'organisation/journeys/steps/organisational_unit_step' %>
+        <%= render "organisation/journeys/steps/#{@step.underscore}" %>
       </div>
     </div>
   </div>
 </div>
-

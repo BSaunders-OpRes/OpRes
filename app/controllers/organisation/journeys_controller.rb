@@ -1,23 +1,61 @@
 class Organisation::JourneysController < Organisation::BaseController
-  def index; end
+  before_action :load_step, only: %i[show]
 
-  def regional_step
-    organisational_unit.update(units_organisational_params)
+  def show
+    log_step("Step: #{@step}")
+
+    case @step
+    when 'organisational-unit'
+      log_step("Handling Step: organisational-unit")
+      handle_organisational_unit
+    when 'regional-unit'
+      log_step("Handling Step: regional-unit")
+      handle_regional_unit
+    when 'country-unit'
+      log_step("Handling Step: country-unit")
+      handle_country_unit
+    end
+
+    respond_to do |format|
+      format.html {}
+      format.js   {}
+    end
   end
 
-  def country_step
-    return if params[:regions].blank?
+  private
 
-    regional_units = []
-    params[:regions].values.each do |region|
-      regional_units << Units::Regional.new(
-        parent: organisational_unit,
-        region: region,
-        name:   Units::Regional.build_name(organisational_unit, region)
-      )
+  def load_step
+    @step = params[:id]
+  end
+
+  def handle_organisational_unit; end
+
+  def handle_regional_unit
+    if request.post?
+      log_step("Saving Data")
+      organisational_unit.update(name: params[:name])
     end
-    Units::Regional.import(regional_units)
+
+    log_step("Picking Data")
+    @regional_data  = Unit.regions
     @regional_units = Units::Regional.where(parent: organisational_unit)
+  end
+
+  def handle_country_unit
+    if request.post?
+      log_step("Saving Data")
+      old_regional_units = Units::Regional.where(parent: organisational_unit)
+      new_regional_units = []
+      params[:regions].values.each do |region|
+        regional_unit      = old_regional_units.find_or_initialize_by(region: region)
+        regional_unit.name = Unit.build_name(organisational_unit, region)
+        new_regional_units << regional_unit
+      end
+      Units::Regional.import(new_regional_units, on_duplicate_key_update: %i[name])
+    end
+
+    log_step("Picking Data")
+    # Pick country step data
   end
 
   def institution_step
@@ -43,13 +81,13 @@ class Organisation::JourneysController < Organisation::BaseController
   def channel_step
   end
 
-  private
-
-  def units_organisational_params
-    params.require(:units_organisational).permit(:name)
-  end
-
   def finish_wizard_path
     # user_path(current_user)
+  end
+
+  def log_step(msg)
+    Rails.logger.info "*"*50
+    Rails.logger.info msg
+    Rails.logger.info "*"*50
   end
 end

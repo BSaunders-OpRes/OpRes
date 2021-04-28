@@ -25,4 +25,11 @@ class Unit < ApplicationRecord
 
   # Enums #
   enum unit_type: %i[retail investment insurance other]
+
+  # Methods #
+  class << self
+    def build_name(organisation, postfix)
+      "#{organisation.name} #{postfix}"
+    end
+  end
 end
