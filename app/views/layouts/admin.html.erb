@@ -13,15 +13,13 @@
   </head>
 
   <body class='bg-light'>
-    <div id="page-content-wrapper" class="h-100 overflow-hidden">
-      <%= render 'layouts/partials/admin/header' %>
-      <%= render 'layouts/partials/admin/sidebar' %>
-      <div class="row h-100">
-        <div class="col-sm-12">
-          <div class="container">
-            <div class="content">
-              <%= yield %>
-            </div>
+    <%= render 'layouts/partials/admin/header' %>
+    <%= render 'layouts/partials/admin/sidebar' %>
+    <div class="row h-100">
+      <div class="col-sm-12">
+        <div class="container">
+          <div class="content">
+            <%= yield %>
           </div>
         </div>
       </div>

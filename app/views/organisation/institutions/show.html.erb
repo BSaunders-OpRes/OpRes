@@ -3,7 +3,7 @@
     <div class="card shadow">
       <div class="p-3">
         <div class="back-btn-header mb-4">
-          <%= link_to organisation_organisation_admins_path, class: 'text-dark' do %>
+          <%= link_to organisation_institutions_path, class: 'text-dark' do %>
             <i class="fa fa-arrow-left" aria-hidden="true"></i>
             <span class="ml-1">Back</span>
           <% end %>
@@ -23,23 +23,15 @@
                       <h6 class="font-14 text-capitalize font-700">name</h6>
                     </div>
                     <div class="col-md-6">
-                      <h5 class="font-14 text-capitalize text-secondary"><%= @org_admin.name %></h5>
+                      <h5 class="font-14 text-capitalize text-secondary">name</h5>
                     </div>
                   </div>
                   <div class="row py-4 border-bottom">
                     <div class="col-md-6">
-                      <h6 class="font-14 text-capitalize font-700">email</h6>
+                      <h6 class="font-14 text-capitalize font-700">description</h6>
                     </div>
                     <div class="col-md-6">
-                      <h6 class="font-14 text-secondary"><%= @org_admin.email %></h6>
-                    </div>
-                  </div>
-                  <div class="row py-4 border-bottom">
-                    <div class="col-md-6">
-                      <h6 class="font-14 text-capitalize font-700">organisational name</h6>
-                    </div>
-                    <div class="col-md-6">
-                      <h5 class="font-14 text-capitalize text-secondary"><%= organisational_unit.name %></h5>
+                      <h5 class="font-14 text-capitalize text-secondary">description</h5>
                     </div>
                   </div>
                 </div>
