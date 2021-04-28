@@ -10,4 +10,14 @@ module ApplicationHelper
     childs = Unit.sort_children(childs)
     childs.pluck(:name, :id)
   end
+
+  def determine_user_redirect_path
+    if current_user&.app_admin?
+      admin_dashboard_index_path
+    elsif current_user&.org_admin?
+      current_user.sign_in_count > 1 ? organisation_dashboard_index_path : organisation_journeys_path
+    else
+      root_path
+    end
+  end
 end

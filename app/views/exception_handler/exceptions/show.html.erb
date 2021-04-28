@@ -1,0 +1,28 @@
+<div class='container h-100 d-flex align-items-center justify-content-center'>
+  <div class='row'>
+    <div class='col-md-12'>
+      <div class='error-template text-center'>
+        <h1 class='font-300 display-1 text-center'>
+        <%= @exception.status %>
+        </h1>
+        <div class='error-details display-3 text-center mb-4'>
+          <% if @exception.status == 404 %>
+            <h2>
+              <%= @exception.response.to_s.humanize %>
+            </h2>
+          <% else %>
+            <h2>
+              Oops! Something went wrong.Our team is working on it.   
+            </h2>
+          <% end %> 
+        </div>
+        <div class='error-actions'>
+          <%= link_to determine_user_redirect_path, class: 'btn primary-btn btn-lg' do %>
+            <i class='fa fa-home' aria-hidden='true'></i>
+            Take Me Home
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
