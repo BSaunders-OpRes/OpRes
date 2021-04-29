@@ -3,7 +3,7 @@
     <div class="card shadow">
       <div class="p-3">
         <div class="back-btn-header mb-4">
-          <%= link_to organisation_organisation_admins_path, class: 'text-dark' do %>
+          <%= link_to organisation_admins_path, class: 'text-dark' do %>
             <i class="fa fa-arrow-left" aria-hidden="true"></i>
             <span class="ml-1">Back</span>
           <% end %>
@@ -23,7 +23,7 @@
                       <h6 class="font-14 text-capitalize font-700">name</h6>
                     </div>
                     <div class="col-md-6">
-                      <h5 class="font-14 text-capitalize text-secondary"><%= @org_admin.name %></h5>
+                      <h5 class="font-14 text-capitalize text-secondary"><%= @admin.name %></h5>
                     </div>
                   </div>
                   <div class="row py-4 border-bottom">
@@ -31,7 +31,15 @@
                       <h6 class="font-14 text-capitalize font-700">email</h6>
                     </div>
                     <div class="col-md-6">
-                      <h6 class="font-14 text-secondary"><%= @org_admin.email %></h6>
+                      <h6 class="font-14 text-secondary"><%= @admin.email %></h6>
+                    </div>
+                  </div>
+                  <div class="row py-4 border-bottom">
+                    <div class="col-md-6">
+                      <h6 class="font-14 text-capitalize font-700">role</h6>
+                    </div>
+                    <div class="col-md-6">
+                      <h5 class="font-14 text-capitalize text-secondary"><%= @admin.role.humanize %></h5>
                     </div>
                   </div>
                   <div class="row py-4 border-bottom">
@@ -40,6 +48,14 @@
                     </div>
                     <div class="col-md-6">
                       <h5 class="font-14 text-capitalize text-secondary"><%= organisational_unit.name %></h5>
+                    </div>
+                  </div>
+                  <div class="row py-4">
+                    <div class="col-md-6">
+                      <h6 class="font-14 text-capitalize font-700">managing unit</h6>
+                    </div>
+                    <div class="col-md-6">
+                      <h5 class="font-14 text-capitalize text-secondary"><%= @admin.managing_unit&.name || 'N/A' %></h5>
                     </div>
                   </div>
                 </div>
