@@ -5,7 +5,7 @@
 .sidebar {
   background-color: #fff;
   position: fixed;
-  left: 0;
+  left: -1px;
   top: 0;
   bottom: 0;
   width: 0;
@@ -35,6 +35,11 @@
     }
   .sidebar-header {
     width: 300px;
+    .sidebar-logo-container {
+      i.fa-times {
+        cursor: pointer;
+      }
+    }
     .logo-box {
       width: 120px;
       img {

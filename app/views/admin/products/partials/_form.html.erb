@@ -1,33 +1,29 @@
-<div class="card border-0 shadow">
-  <div class="card-body">
-    <%= form_for product, url: new_or_create ? admin_products_path : admin_product_path, method: new_or_create ? :post : :patch do |f| %>
-      <%= render 'layouts/partials/form_errors', instance: product %>
 
-      <div class="row">
-        <div class="form-group col-md-6">
-          <%= f.label :name %>
-          <%= f.text_field :name, class: 'form-control', placeholder: 'Product Name', required: true %>
-        </div>
+<%= form_for product, url: new_or_create ? admin_products_path : admin_product_path, method: new_or_create ? :post : :patch do |f| %>
+  <%= render 'layouts/partials/form_errors', instance: product %>
 
-        <div class="form-group col-md-6">
-          <%= f.label :description %>
-          <%= f.text_field :description, class: 'form-control', placeholder: 'Product Description', required: true %>
-        </div>
-      </div>
+  <div class="row">
+    <div class="form-group col-md-6">
+      <%= f.label :name %>
+      <%= f.text_field :name, class: 'form-control', placeholder: 'Product Name', required: true %>
+    </div>
 
-      <div class="row">
-        <div class="form-group col-md-12">
-          <%= f.label  :pre_channel_ids, 'Channels (Relevant channels for this type of product)' %>
-          <%= f.select :pre_channel_ids, options_for_select(@channels.map { |channel| [channel.name, channel.id] }, product.pre_channel_ids), {}, multiple: true, class: 'form-control' %>
-        </div>
-      </div>
-
-      <div class="row d-flex align-items-center">
-        <div class="form-group col-md-6 text-right mb-0">
-          <%= f.submit class: 'btn primary-btn' %>
-          <%= link_to 'Cancel', admin_products_path, class: 'btn dark-btn' %>
-        </div>
-      </div>
-    <% end %>
+    <div class="form-group col-md-6">
+      <%= f.label :description %>
+      <%= f.text_field :description, class: 'form-control', placeholder: 'Product Description', required: true %>
+    </div>
   </div>
-</div>
+
+  <div class="row">
+    <div class="form-group col-md-12">
+      <%= f.label  :pre_channel_ids, 'Channels (Relevant channels for this type of product)' %>
+      <%= f.select :pre_channel_ids, options_for_select(@channels.map { |channel| [channel.name, channel.id] }, product.pre_channel_ids), {}, multiple: true, class: 'form-control' %>
+    </div>
+  </div>
+
+  <div class="row d-flex align-items-center">
+    <div class="form-group col-md-12 text-right mb-0">
+      <%= f.submit class: 'btn primary-btn font-12 font-600' %>
+    </div>
+  </div>
+<% end %>
