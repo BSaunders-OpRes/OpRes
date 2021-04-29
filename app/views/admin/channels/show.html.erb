@@ -1,21 +1,43 @@
-<h3 class="mb-4">
-  Channel
-</h3>
-<div class="card border-0 shadow">
-  <div class="card-body">
-    <table class="table">
-      <tbody>
-        <tr>
-          <th class="border-top-0" scope="row">Name</th>
-          <td class="border-top-0"><%= @channel.name %></td>
-        </tr>
-        <tr>
-          <th scope="row">Description</th>
-          <td><%= @channel.description %></td>
-        </tr>
-      </tbody>
-    </table>
-    <%= link_to 'Back', admin_channels_path, class: 'btn dark-btn float-right' %>
+<div class="row mt-5">
+  <div class="col-md-7 mx-auto">
+    <div class="card shadow">
+      <div class="p-3">
+        <%= link_to admin_channels_path, class: 'text-decoration-none text-dark mt-2 mb-4 d-block' do  %>
+          <i class="fa fa-arrow-left" aria-hidden="true"></i>
+          <span class="ml-1">Back</span>
+        <% end %>
+        <div class="show-page">
+          <div class="row align-items-center">
+            <div class="col-md-4">
+              <div class="show-img">
+                <%= image_pack_tag 'media/images/user-img.png', class: 'img-fluid' %>
+              </div>
+            </div>
+            <div class="col-md-8">
+              <div class="card border-0">
+                <div class="card-body">
+                  <div class="row pb-4 border-bottom">
+                    <div class="col-md-6">
+                      <h6 class="font-14 text-capitalize font-700">name</h6>
+                    </div>
+                    <div class="col-md-6">
+                      <h5 class="font-14 text-capitalize text-secondary"><%= @channel.name %></h5>
+                    </div>
+                  </div>
+                  <div class="row py-4 border-bottom">
+                    <div class="col-md-6">
+                      <h6 class="font-14 text-capitalize font-700">description</h6>
+                    </div>
+                    <div class="col-md-6">
+                      <h5 class="font-14 text-capitalize text-secondary"><%= @channel.description %></h5>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
-
