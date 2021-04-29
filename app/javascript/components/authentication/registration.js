@@ -89,6 +89,7 @@ export default function Registration() {
                   <div className="row">
                     <div className="form-group col-md-10">
                       <select className='form-control border-0 signup-select' name="organisationtype" placeholder='Organization Type' onChange={e => setOrganisationType(e.target.value)}>
+                          <option value="">Please select organisation type</option>
                           <option value="retail">Retail</option>
                           <option value="investment">Investment</option>
                           <option value="insurance">Insurance</option>

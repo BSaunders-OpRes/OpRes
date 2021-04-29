@@ -32,4 +32,10 @@ class Unit < ApplicationRecord
       "#{organisation.name} #{postfix}"
     end
   end
+
+  %w[organisational regional country institution].each do |klass|
+    define_method "#{klass}?" do
+      self.class.name.downcase.include? klass
+    end
+  end
 end

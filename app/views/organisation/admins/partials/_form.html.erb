@@ -1,5 +1,5 @@
-<%= form_for unit_admin, url: new_or_create ? organisation_unit_admins_path : organisation_unit_admin_path, method: new_or_create ? :post : :patch do |f| %>
-  <%= render 'layouts/partials/form_errors', instance: unit_admin %>
+<%= form_for admin, url: new_or_create ? organisation_admins_path : organisation_admin_path, method: new_or_create ? :post : :patch do |f| %>
+  <%= render 'layouts/partials/form_errors', instance: admin %>
   <div class="row align-items-center mb-3">
     <div class="col-md-6">
       <%= f.label :first_name %>
@@ -18,7 +18,7 @@
     </div>
     <div class="col-md-6">
       <%= f.label :managing_unit, 'Unit' %>
-      <%= select_tag :managing_unit, options_for_select(organisation_dropdown_options, unit_admin&.managing_unit&.id), multiple: false, class: 'w-100 form-control font-12 h-auto py-3 shadow-none' %>
+      <%= select_tag :managing_unit, options_for_select(organisation_dropdown_options, admin&.managing_unit&.id), multiple: false, class: 'w-100 form-control font-12 h-auto py-3 shadow-none' %>
     </div>
   </div>
 

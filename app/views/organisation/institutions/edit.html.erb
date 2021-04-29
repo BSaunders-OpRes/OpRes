@@ -1,0 +1,13 @@
+<div class="bsl-container mt-5">
+  <div class="card p-3 shadow">
+    <div class="back-btn-header mb-4">
+      <%= link_to organisation_institutions_path, class: 'text-decoration-none text-dark' do %>
+        <i class="fa fa-arrow-left" aria-hidden="true"></i>
+        <span class="ml-1">Back</span>
+      <% end %>
+    </div>
+    <h4 class="mb-4 font-weight-bold">Edit Institution</h4>
+    <p class="font-14 mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. In amet aperiam, iste iusto dicta quisquam cumque mollitia veritatis</p>
+    <%= render 'organisation/institutions/partials/form', institution: @institution %>
+  </div>
+</div>
