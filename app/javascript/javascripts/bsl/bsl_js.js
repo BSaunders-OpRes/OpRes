@@ -1,7 +1,5 @@
-document.addEventListener("turbolinks:load", () => {
-  $(function () {
-    $('[data-toggle="tooltip"]').tooltip()
-  });
+document.addEventListener('turbolinks:load', function() {
+  $('[data-toggle="tooltip"]').tooltip();
 
   $('#close_sidebar').click(function() {
     $('.sidebar').css('width', '0');
@@ -24,6 +22,15 @@ document.addEventListener("turbolinks:load", () => {
 
     $('#bsl-desc p').addClass('d-none');
     $(desc).removeClass('d-none');
+  });
+
+  $('body').on('click', '.faded-popover-wrapper .faded-popover-title', function() {
+    $('.faded-popover-wrapper .faded-popover-content').addClass('d-none');
+    $(this).siblings('.faded-popover-content').removeClass('d-none');
+  });
+
+  $('body').on('click', '.faded-popover-wrapper .faded-popover-content i', function() {
+    $(this).parent('.faded-popover-content').addClass('d-none');
   });
 
   document.querySelector("#myinput_one").oninput = function() {

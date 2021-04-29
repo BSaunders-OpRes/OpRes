@@ -59,3 +59,36 @@ textarea {
   padding-top: 75px;
   padding-bottom: 100px;
 }
+
+.faded-popover-wrapper {
+  display: inline-block;
+  position: relative;
+  margin: 5px 10px;
+  cursor: pointer;
+  .faded-popover-title {
+    position: relative;
+    i {
+      margin-left: 0.5rem;
+    }
+  }
+  .faded-popover-content {
+    position: absolute;
+    right: 0;
+    top: -10px;
+    left: 125%;
+    background: #000;
+    width: 240px;
+    padding: 15px;
+    color: #fff;
+    z-index: 1;
+    height: 300px;
+    overflow: auto;
+    i {
+      position: absolute;
+      right: 13px;
+      top: 13px;
+      font-size: 25px;
+      z-index: 3;
+    }
+  }
+}

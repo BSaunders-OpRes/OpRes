@@ -9,6 +9,8 @@ class Organisation::JourneysController < Organisation::BaseController
       handle_regional_unit
     when 'country-unit'
       handle_country_unit
+    when 'institution-unit'
+      handle_institution_unit
     end
 
     respond_to do |format|
@@ -41,20 +43,13 @@ class Organisation::JourneysController < Organisation::BaseController
     end
   end
 
-  def institution_step
-    countries_units = []
-    regions         = Unit::regions
-    regions&.each do |region|
-      countries = params[region] && params.dig(region).values.first
-
-      countries&.each do |country|
-        countries_units << Units::Country.new(
-          parent_id: params.dig(region).keys.first.to_i,
-          region:    region,
-          name:      Units::Country.build_name(organisational_unit, country)
-        )
+  def handle_institution_unit
+    organisational_unit.children.each do |regional_unit|
+      params[:countries][regional_unit.id.to_s]&.values&.each do |country|
+        regional_unit.children
+                     .create_with(type: Units::Country, name: Unit.build_name(organisational_unit, country))
+                     .find_or_create_by(country: country)
       end
-      Units::Country.import(countries_units, on_duplicate_key_ignore: true)
     end
   end
 
