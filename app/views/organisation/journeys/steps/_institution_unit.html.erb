@@ -1,0 +1,48 @@
+<%= form_tag organisation_journey_path('product-channel-unit'), remote: true do %>
+  <div class="card-body w-75 mx-auto font-14 mt-4 border">
+    <div class="row">
+      <div class="col-sm-12">
+        <p class="font-14 body-bg-color p-2">
+          <strong>Question:</strong> Thank you for confrming the countries that you operate in. We now need to know what type of Banking institutions operate in each country, for each region. Please complete the tick boxes below.
+        </p>
+      </div>
+      <div class="col-sm-12 mt-3">
+        <div class="regions">
+          <% organisational_unit.children.each do |regional_unit| %>
+            <div class="region">
+              <%= "#{regional_unit.region} - #{regional_unit.children.size} Countries Selected" %>
+            </div>
+            <div class="countries">
+              <% regional_unit.children.each do |country_unit| %>
+                <div class="country">
+                  <%= Unit.find_country_by_code(country_unit.country).name %>
+                  <div class="faded-popover-wrapper">
+                    <div class="faded-popover-title">
+                      Click to select Institutions
+                      <i class="fa fa-expand"></i>
+                    </div>
+                    <div class="faded-popover-content d-none">
+                      <i class="fa fa-times-circle-o"></i>
+                      <% @institution_data.each do |institution| %>
+                        <div class="mb-3">
+                          <input type="checkbox">
+                          <label for="" class="ml-2">
+                            <%= institution.name %>
+                          </label>
+                        </div>
+                      <% end %>
+                    </div>
+                  </div>
+                </div>
+              <% end %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="card-body w-75 d-flex p-0 mx-auto justify-content-between my-4">
+    <%= link_to 'Back', organisation_journey_path('country-unit'), class: 'btn dark-btn text-capitalize w-25 rounded-0' %>
+    <%= submit_tag 'Next', class: 'btn primary-btn text-capitalize w-25 rounded-0' %>
+  </div>
+<% end %>

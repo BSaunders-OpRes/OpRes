@@ -8,11 +8,19 @@ module Firm::CountryConcern
       end
 
       def countries_by_region(region)
+        countries_objects_by_region(region).map(&:name)
+      end
+
+      def countries_objects_by_region(region)
         ISO3166::Country.find_all_countries_by_world_region(region)
       end
 
       def countries_selection_by_region(region)
-        countries_by_region(region).map { |c| [c.name, c.alpha2] }
+        countries_objects_by_region(region).map { |c| [c.name, c.alpha2] }
+      end
+
+      def find_country_by_code(code)
+        ISO3166::Country.find_country_by_alpha2(code)
       end
     end
   end

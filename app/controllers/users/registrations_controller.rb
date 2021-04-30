@@ -22,6 +22,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
           org_unit = Units::Organisational.new(organisation_unit_params)
           org_unit.save!
           resource.update!(unit_id: org_unit.id)
+          OrgUnitInitWorker.perform_async(org_unit.id)
         end
       rescue => e
         if e.instance_of? ActiveRecord::RecordNotUnique

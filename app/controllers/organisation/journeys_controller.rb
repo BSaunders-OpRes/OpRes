@@ -35,22 +35,26 @@ class Organisation::JourneysController < Organisation::BaseController
 
   def handle_country_unit
     if request.post?
-      params[:regions].values.each do |region|
+      params[:regions]&.each do |region, code|
         organisational_unit.children
                            .create_with(type: Units::Regional, name: Unit.build_name(organisational_unit, region))
-                           .find_or_create_by(region: region)
+                           .find_or_create_by(region: code)
       end
     end
   end
 
   def handle_institution_unit
-    organisational_unit.children.each do |regional_unit|
-      params[:countries][regional_unit.id.to_s]&.values&.each do |country|
-        regional_unit.children
-                     .create_with(type: Units::Country, name: Unit.build_name(organisational_unit, country))
-                     .find_or_create_by(country: country)
+    if request.post?
+      organisational_unit.children.each do |regional_unit|
+        params[:countries][regional_unit.id.to_s]&.each do |country, code|
+          regional_unit.children
+                       .create_with(type: Units::Country, name: Unit.build_name(organisational_unit, country))
+                       .find_or_create_by(country: code)
+        end
       end
     end
+
+    @institution_data = organisational_unit.institutions
   end
 
   def product_step

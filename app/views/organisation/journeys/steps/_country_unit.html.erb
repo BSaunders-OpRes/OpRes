@@ -13,12 +13,12 @@
               <%= regional_unit.region %>
               <i class="fa fa-expand"></i>
             </div>
-             <div class="faded-popover-content d-none">
+            <div class="faded-popover-content d-none">
               <i class="fa fa-times-circle-o"></i>
               <% country_units = regional_unit.children %>
-              <% Unit.countries_selection_by_region(regional_unit.region).each do |country, alpha2| %>
+              <% Unit.countries_selection_by_region(regional_unit.region).each do |country, code| %>
                 <div class="form-check d-flex align-items-center mr-2 form-group">
-                  <%= check_box_tag "countries[#{regional_unit.id}[#{alpha2}]]", alpha2, country_units.pluck(:country).include?(alpha2), class: 'form-check-input mt-0 shadow-none', id: "country-#{country.parameterize}" %>
+                  <%= check_box_tag "countries[#{regional_unit.id}[#{country}]]", code, country_units.pluck(:country).include?(code), class: 'form-check-input mt-0 shadow-none', id: "country-#{country.parameterize}" %>
                   <label class="form-check-label text-capitalize font-13" for="<%= "country-#{country.parameterize}" %>">
                     <%= country %>
                   </label>
