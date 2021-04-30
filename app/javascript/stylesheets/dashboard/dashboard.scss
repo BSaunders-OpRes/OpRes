@@ -1,0 +1,27 @@
+.pie-hight-chart {
+  .card-header {
+    height: 235px;
+    .donut {
+      height: 218px;
+      display: flex;
+      align-items: flex-end;
+    }
+  }
+}
+.circle {
+  width: 15px;
+  height: 15px;
+  border-radius: 100px;
+}
+.green-1 {
+  background: #6BEAB3
+}
+.green-2 {
+  background: #367C5C
+}
+.green-3 {
+  background: #CDFAF1
+}
+.green-4 {
+  background: #58C395
+}

@@ -29,5 +29,6 @@ Rails.application.routes.draw do
     resources :business_service_lines
     resources :suppliers
     resources :admins
+    resources :administration_portal, only: %i[index]
   end
 end
