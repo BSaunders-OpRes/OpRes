@@ -1,5 +1,5 @@
 <%= form_for institution, url: new_or_create ? admin_institutions_path : admin_institution_path, method: new_or_create ? :post : :patch do |f| %>
-  <%= render 'layouts/partials/form_errors', instance: institution %>
+  <%= render 'layouts/partials/shared/form_errors', instance: institution %>
   <div class="row">
     <div class="form-group col-md-6">
       <%= f.label :name %>

@@ -1,10 +1,16 @@
-<div class="row align-items-center mb-3">
-  <div class="col-md-12 form-group">
-    <label for="" class="text-capitalize">name</label>
-    <input type="text" class = 'w-100 form-control font-12 h-auto py-3 shadow-none' placeholder= 'Name'>
+<%= form_for channel, url: new_or_create ? organisation_channels_path : organisation_channel_path, method: new_or_create ? :post : :patch do |f| %>
+  <%= render 'layouts/partials/shared/form_errors', instance: channel %>
+  <div class="row align-items-center mb-3">
+    <div class="col-md-12 form-group">
+      <%= f.label :name, class: 'text-capitalize' %>
+      <%= f.text_field :name, class: 'w-100 form-control font-12 h-auto py-3 shadow-none', placeholder: 'Channel Name', required: true %>
+    </div>
+    <div class="col-md-12 form-group">
+      <%= f.label :description, class: 'text-capitalize' %>
+      <%= f.text_area :description, class: 'w-100 form-control font-12 shadow-none', placeholder: 'Channel Description', required: true %>
+    </div>
   </div>
-  <div class="col-md-12 form-group">
-    <label for="" class="text-capitalize">description</label>
-     <textarea id="textarea" rows="3" class="w-100 form-control font-12 shadow-none"></textarea>
+  <div class="d-flex mt-5">
+    <%= f.submit class: 'btn btn-md font-600 text-capitalize font-12 ml-auto dark-btn w-25' %>
   </div>
-</div>
+<% end %>

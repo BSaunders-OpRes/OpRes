@@ -1,5 +1,5 @@
 <%= form_for institution, url: new_or_create ? organisation_institutions_path : organisation_institution_path, method: new_or_create ? :post : :patch do |f| %>
-  <%= render 'layouts/partials/form_errors', instance: institution %>
+  <%= render 'layouts/partials/shared/form_errors', instance: institution %>
   <div class="row align-items-center mb-3">
     <div class="col-md-12 form-group">
       <%= f.label :name, class: 'text-capitalize' %>

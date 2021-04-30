@@ -1,5 +1,5 @@
 <%= form_for channel, url: new_or_create ? admin_channels_path : admin_channel_path, method: new_or_create ? :post : :patch do |f| %>
-  <%= render 'layouts/partials/form_errors', instance: channel %>
+  <%= render 'layouts/partials/shared/form_errors', instance: channel %>
 
   <div class="row">
     <div class="form-group col-md-6">

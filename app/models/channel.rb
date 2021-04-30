@@ -3,5 +3,5 @@ class Channel < ApplicationRecord
   belongs_to :unit
 
   # Validations #
-  validates :name, :description, :active, presence: true
+  validates :name, :description, presence: true
 end
