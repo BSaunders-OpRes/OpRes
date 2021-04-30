@@ -1,5 +1,5 @@
 <%= form_for admin, url: new_or_create ? organisation_admins_path : organisation_admin_path, method: new_or_create ? :post : :patch do |f| %>
-  <%= render 'layouts/partials/form_errors', instance: admin %>
+  <%= render 'layouts/partials/shared/form_errors', instance: admin %>
   <div class="row align-items-center mb-3">
     <div class="col-md-6">
       <%= f.label :first_name %>

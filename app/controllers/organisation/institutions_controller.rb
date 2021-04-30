@@ -1,4 +1,5 @@
 class Organisation::InstitutionsController < Organisation::BaseController
+  before_action :authenticate_org_admin
   before_action :load_institution, only: %i[edit update show destroy]
 
   def index

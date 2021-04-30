@@ -1,4 +1,5 @@
 class Organisation::AdminsController < Organisation::BaseController
+  before_action :authenticate_org_admin
   before_action :load_admin, only: %i[edit update show destroy]
   before_action :load_unit,  only: %i[create update]
 

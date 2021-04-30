@@ -2,12 +2,7 @@
   <div class="col-md-7 mx-auto">
     <div class="card shadow">
       <div class="p-3">
-        <div class="back-btn-header mb-4">
-          <%= link_to organisation_institutions_path, class: 'text-dark' do %>
-            <i class="fa fa-arrow-left" aria-hidden="true"></i>
-            <span class="ml-1">Back</span>
-          <% end %>
-        </div>
+       <%= render 'layouts/partials/shared/redirect_back', path: organisation_institutions_path %>
         <div class="show-page">
           <div class="row align-items-center">
             <div class="col-md-4">

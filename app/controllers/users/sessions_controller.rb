@@ -39,6 +39,8 @@ class Users::SessionsController < Devise::SessionsController
       admin_dashboard_index_path
     elsif resource.org_admin?
       resource.sign_in_count > 1 ? organisation_dashboard_index_path : organisation_journey_path('organisational-unit')
+    elsif resource.unit_admin?
+      organisation_dashboard_index_path
     else
       root_path
     end

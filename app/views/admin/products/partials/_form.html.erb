@@ -1,6 +1,5 @@
-
 <%= form_for product, url: new_or_create ? admin_products_path : admin_product_path, method: new_or_create ? :post : :patch do |f| %>
-  <%= render 'layouts/partials/form_errors', instance: product %>
+  <%= render 'layouts/partials/shared/form_errors', instance: product %>
 
   <div class="row">
     <div class="form-group col-md-6">
