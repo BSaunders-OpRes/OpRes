@@ -7,14 +7,11 @@ require('jquery');
 require('popper.js');
 require('bootstrap');
 
-import JQuery     from 'jquery';
-import Highcharts from 'highcharts';
-
-window.$ = window.JQuery = JQuery;
-window.Highcharts = Highcharts;
+require.context('../images', true);
 
 import '../javascripts/javascript.js';
 import '../stylesheets/stylesheet.scss';
+
 var componentRequireContext = require.context('components', true);
 var ReactRailsUJS = require('react_ujs');
 ReactRailsUJS.useContext(componentRequireContext);

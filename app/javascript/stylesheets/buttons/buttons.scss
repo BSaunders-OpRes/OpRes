@@ -16,6 +16,18 @@
   background: #e5e5e5;
 }
 
+.body-color-dropdown {
+  background: $body-bg-color;
+  width: 150px;
+  > a {
+    position: relative;
+    &:after {
+      position: absolute;
+      right: 10px;
+    }
+  }
+}
+
 .pink-btn {
   background: #FBF0ED;
   color: #E6987B;
