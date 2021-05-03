@@ -2,9 +2,9 @@
 @import 'react-toastify/dist/ReactToastify.css';
 
 @import './variables/variables.scss';
+@import './main/main.scss';
 @import './font_classes/font_classes.scss';
 @import './spacing/spacing.scss';
-@import './main/main.scss';
 @import './sidebar/sidebar.scss';
 @import './header/header.scss';
 @import './buttons/buttons.scss';
@@ -14,4 +14,4 @@
 @import './table/table.scss';
 @import './exception/exception.scss';
 @import './bs4-xxl-breakpoint/breakpoints.scss';
-@import './dashboard/dashboard.scss'
+@import './dashboard/dashboard.scss';

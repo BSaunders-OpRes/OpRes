@@ -83,8 +83,20 @@
   }
 }
 
-.submenu.dropdown-toggle::after {
+.upper-menu.dropdown-toggle::after {
   position: absolute;
   right: 40px;
   top: 50%;
+}
+
+.submenu {
+  li {
+    a.dropdown-toggle {
+      &:after {
+        position: absolute;
+        right: 56px;
+        top: 50%;
+      }
+    }
+  }
 }

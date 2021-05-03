@@ -2,7 +2,7 @@
   <div class="col-md-12 d-flex justify-content-between align-items-center">
     <h2 class="font-700 text-capitalize">administration portal</h2>
     <div class="dropdown dd-carrot-btn">
-      <a class="btn btn-lg font-20 text-black text-decoration-none dark-btn d-flex align-items-center" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <a class="btn btn-lg font-20 text-decoration-none dark-btn d-flex align-items-center" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         <i class="fa fa-plus-circle mr-1 font-20"></i>
         <span class="font-14 mr-4 ml-1">Add New</span>
         <i class="fa fa-caret-down font-12 ml-auto" aria-hidden="true"></i>
@@ -17,10 +17,10 @@
   </div>
 </div>
 <div class="row">
-  <div class="col-sm-6">
+  <div class="col-md-6 mb-4">
     <div class="card shadow">
       <div class="d-flex justify-content-between align-items-center py-3 px-4 mt-3">
-        <h5 class="text-capitalize font-700">business service line</h5>
+        <h5 class="text-capitalize font-700 font-xxl-25">business service line</h5>
         <%= link_to new_organisation_business_service_line_path, class: 'font-600 text-capitalize font-12 ml-auto text-black text-decoration-none d-flex' do %>
           <i class="fa fa-plus-circle mr-1 font-20"></i>
           <span class="ml-2 font-14">Add New</span>
@@ -33,7 +33,7 @@
       <div class="table-filter-field px-4 d-flex mt-4 mb-2">
         <div class="filter">
           <div class="dropdown">
-            <a class="text-black text-decoration-none dropdown-toggle font-12 font-600 text-secondary" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <a class="text-black text-decoration-none dropdown-toggle font-12 font-400 text-capitalize text-secondary" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               All tiers
             </a>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -45,7 +45,7 @@
         </div>
         <div class="filter ml-3">
           <div class="dropdown">
-            <a class="text-black text-decoration-none dropdown-toggle font-12 font-600 text-secondary" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <a class="text-black text-decoration-none dropdown-toggle font-12 font-400 text-capitalize text-secondary" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               All regions
             </a>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -57,7 +57,7 @@
         </div>
         <div class="filter ml-3">
           <div class="dropdown">
-            <a class="text-black text-decoration-none dropdown-toggle font-12 font-600 text-secondary" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <a class="text-black text-decoration-none dropdown-toggle font-12 font-400 text-capitalize text-secondary" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               All institution
             </a>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -69,7 +69,7 @@
         </div>
         <div class="filter ml-3">
           <div class="dropdown">
-            <a class="text-black text-decoration-none dropdown-toggle font-12 font-600 text-secondary" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <a class="text-black text-decoration-none dropdown-toggle font-12 font-400 text-capitalize text-secondary" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               All products
             </a>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -80,32 +80,30 @@
           </div>
         </div>
       </div>
-      <div class="table-responsive">
+      <div class="table-responsive px-4">
         <table class="table custom-table font-14 m-0">
           <thead>
             <tr>
-              <th class="text-capitalize">BSL Name</th>
-              <th>Email</th>
-              <th>Actions</th>
+              <th class="text-capitalize font-12 pl-0">BSL Name</th>
+              <th class="w-10 font-12 font-xxl-14 px-2 text-capitalize">Tier</th>
+              <th class="w-10 font-12 font-xxl-14 px-2 text-capitalize">Country</th>
+              <th class="w-10 font-12 font-xxl-14 px-2 text-capitalize">region</th>
+              <th class="w-10 font-12 font-xxl-14 px-2 text-capitalize">institution</th>
+              <th class="w-10 font-12 font-xxl-14 px-2 text-capitalize">product</th>
+              <th></th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td class="text-dark">abc</td>
-              <td>abc@gmail.com</td>
-              <td>
-                <a class="mx-1 text-dark text-uppercase font-700" href="#">Show</a>
-                <a class="mx-1 text-dark text-uppercase font-700" href="#">Edit</a>
-                <a class="mx-1 text-dark text-uppercase font-700" href="#">Delete</a>
-              </td>
-            </tr>
-            <tr>
-              <td class="text-dark">abc</td>
-              <td>abc@gmail.com</td>
-              <td>
-                <a class="mx-1 text-dark text-uppercase font-700" href="#">Show</a>
-                <a class="mx-1 text-dark text-uppercase font-700" href="#">Edit</a>
-                <a class="mx-1 text-dark text-uppercase font-700" href="#">Delete</a>
+              <td class="font-12 font-xxl-14 pl-0 text-black">Name Here</td>
+              <td class="w-10 font-12 font-xxl-14 px-2 font-400 text-capitalize">4</td>
+              <td class="w-10 font-12 font-xxl-14 px-2 font-400 text-capitalize">counrty</td>
+              <td class="w-10 font-12 font-xxl-14 px-2 font-400 text-capitalize">region</td>
+              <td class="w-10 font-12 font-xxl-14 px-2 font-400 text-capitalize">institution</td>
+              <td class="w-10 font-12 font-xxl-14 px-2 font-400 text-capitalize">product</td>
+              <td class= 'px-1 font-12'>
+                <a class="mx-1 text-black text-uppercase font-600 font-12" href="#">Edit</a>
+                <a class="mx-1 text-black text-uppercase font-600 font-12" href="#">View</a>
               </td>
             </tr>
           </tbody>
@@ -113,24 +111,14 @@
       </div>
     </div>
   </div>
-  <div class="col-sm-6">
+  <div class="col-md-6 mb-4">
     <div class="card shadow">
       <div class="d-flex justify-content-between align-items-center py-3 px-4 mt-3">
-        <h5 class="text-capitalize font-700">Suppliers</h5>
+        <h5 class="text-capitalize font-700 font-xxl-25">suppliers</h5>
         <%= link_to new_organisation_supplier_path, class: 'font-600 text-capitalize font-12 ml-auto text-black text-decoration-none d-flex' do %>
           <i class="fa fa-plus-circle mr-1 font-20"></i>
           <span class="ml-2 font-14">Add New</span>
         <% end %>
-        <!-- <div class="dropdown ml-3">
-          <a class="font-20 text-black text-decoration-none" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <i class="fa fa-ellipsis-v" aria-hidden="true"></i>
-          </a>
-          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <a class="dropdown-item" href="#">Action</a>
-            <a class="dropdown-item" href="#">Another action</a>
-            <a class="dropdown-item" href="#">Something else here</a>
-          </div>
-        </div> -->
       </div>
       <div class="table-search-field px-4">
         <i class="fa fa-search text-dark font-14" aria-hidden="true"></i>
@@ -139,8 +127,8 @@
       <div class="table-filter-field px-4 d-flex mt-4 mb-2">
         <div class="filter">
           <div class="dropdown">
-            <a class="text-black text-decoration-none dropdown-toggle font-12 font-600 text-secondary" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              All party level
+            <a class="text-black text-decoration-none dropdown-toggle font-12 font-400 text-capitalize text-secondary" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              All party levels
             </a>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
               <a class="dropdown-item" href="#">Action</a>
@@ -151,8 +139,8 @@
         </div>
         <div class="filter ml-3">
           <div class="dropdown">
-            <a class="text-black text-decoration-none dropdown-toggle font-12 font-600 text-secondary" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              All countires
+            <a class="text-black text-decoration-none dropdown-toggle font-12 font-400 text-capitalize text-secondary" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              All countries
             </a>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
               <a class="dropdown-item" href="#">Action</a>
@@ -163,7 +151,7 @@
         </div>
         <div class="filter ml-3">
           <div class="dropdown">
-            <a class="text-black text-decoration-none dropdown-toggle font-12 font-600 text-secondary" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <a class="text-black text-decoration-none dropdown-toggle font-12 font-400 text-capitalize text-secondary" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               All regions
             </a>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -174,32 +162,30 @@
           </div>
         </div>
       </div>
-      <div class="table-responsive">
+      <div class="table-responsive px-4">
         <table class="table custom-table font-14 m-0">
           <thead>
             <tr>
-              <th class="text-capitalize">supplier Name</th>
-              <th>Email</th>
-              <th>Actions</th>
+              <th class="text-capitalize font-12 pl-0">BSL Name</th>
+              <th class="w-10 font-12 font-xxl-14 px-2 text-capitalize">Tier</th>
+              <th class="w-10 font-12 font-xxl-14 px-2 text-capitalize">Country</th>
+              <th class="w-10 font-12 font-xxl-14 px-2 text-capitalize">region</th>
+              <th class="w-10 font-12 font-xxl-14 px-2 text-capitalize">institution</th>
+              <th class="w-10 font-12 font-xxl-14 px-2 text-capitalize">product</th>
+              <th></th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td class="text-dark">abc</td>
-              <td>abc@gmail.com</td>
-              <td>
-                <a class="mx-1 text-dark text-uppercase font-700" href="#">Show</a>
-                <a class="mx-1 text-dark text-uppercase font-700" href="#">Edit</a>
-                <a class="mx-1 text-dark text-uppercase font-700" href="#">Delete</a>
-              </td>
-            </tr>
-            <tr>
-              <td class="text-dark">abc</td>
-              <td>abc@gmail.com</td>
-              <td>
-                <a class="mx-1 text-dark text-uppercase font-700" href="#">Show</a>
-                <a class="mx-1 text-dark text-uppercase font-700" href="#">Edit</a>
-                <a class="mx-1 text-dark text-uppercase font-700" href="#">Delete</a>
+              <td class="font-12 font-xxl-14 pl-0 text-black">Name Here</td>
+              <td class="w-10 font-12 font-xxl-14 px-2 font-400 text-capitalize">4</td>
+              <td class="w-10 font-12 font-xxl-14 px-2 font-400 text-capitalize">counrty</td>
+              <td class="w-10 font-12 font-xxl-14 px-2 font-400 text-capitalize">region</td>
+              <td class="w-10 font-12 font-xxl-14 px-2 font-400 text-capitalize">institution</td>
+              <td class="w-10 font-12 font-xxl-14 px-2 font-400 text-capitalize">product</td>
+              <td class= 'px-1 font-12'>
+                <a class="mx-1 text-black text-uppercase font-600 font-12" href="#">Edit</a>
+                <a class="mx-1 text-black text-uppercase font-600 font-12" href="#">View</a>
               </td>
             </tr>
           </tbody>

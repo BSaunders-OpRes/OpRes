@@ -15,14 +15,18 @@
       <%= link_to 'Management Dashboard', organisation_dashboard_index_path, class: 'ml-3 font-14 text-decoration-none font-600 text-capitalize py-4' %>
     </li>
     <li class="d-flex pl-4 align-items-center">
-      <i class="fa fa-cog" aria-hidden="true"></i>
-      <a class="ml-3 font-14 text-decoration-none dropdown-toggle font-600 text-capitalize py-4 submenu" href="#homeSubmenu" data-toggle="collapse" aria-expanded="false">Administration</a>
+      <i class="fa fa-list-ul" aria-hidden="true"></i>
+      <%= link_to 'Administration Portal', organisation_administration_portal_index_path, class: 'ml-3 font-14 text-decoration-none font-600 text-capitalize py-4' %>
     </li>
-     <ul class="collapse list-unstyled " id="homeSubmenu">
+    <li class="d-flex pl-4 align-items-center">
+      <i class="fa fa-cog" aria-hidden="true"></i>
+      <a class="ml-3 font-14 text-decoration-none dropdown-toggle font-600 text-capitalize py-4 upper-menu" href="#homeSubmenu" data-toggle="collapse" aria-expanded="false">Administration</a>
+    </li>
+    <ul class="collapse list-unstyled submenu" id="homeSubmenu">
       <% if current_user.org_admin? %>
         <li class="d-flex pl-4 align-items-center ml-3">
-          <i class="fa fa-cog" aria-hidden="true"></i>
-          <a class="ml-3 font-14 text-decoration-none dropdown-toggle font-600 text-capitalize py-4 submenu" href="#on-boarding" data-toggle="collapse" aria-expanded="false">onboarding</a>
+          <i class="fa fa-briefcase" aria-hidden="true"></i>
+          <a class="ml-3 font-14 text-decoration-none dropdown-toggle font-600 text-capitalize py-4" href="#on-boarding" data-toggle="collapse" aria-expanded="false">onboarding</a>
         </li>
         <ul class="collapse list-unstyled " id="on-boarding">
           <li class="d-flex pl-4 align-items-center ml-4">
@@ -39,10 +43,6 @@
           </li>
         </ul>
       <% end %>
-      <li class="d-flex pl-4 align-items-center ml-3">
-        <i class="fa fa-list-ul" aria-hidden="true"></i>
-        <%= link_to 'Administration Portal', organisation_administration_portal_index_path, class: 'ml-3 font-14 text-decoration-none font-600 text-capitalize py-4' %>
-      </li>
       <% if current_user.org_admin? %>
         <li class="d-flex pl-4 align-items-center ml-3">
           <i class="fa fa-random" aria-hidden="true"></i>
