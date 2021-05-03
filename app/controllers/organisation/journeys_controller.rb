@@ -11,6 +11,10 @@ class Organisation::JourneysController < Organisation::BaseController
       handle_country_unit
     when 'institution-unit'
       handle_institution_unit
+    when 'product-channel'
+      handle_product_channel
+    when 'finish'
+      handle_finish
     end
 
     respond_to do |format|
@@ -54,16 +58,26 @@ class Organisation::JourneysController < Organisation::BaseController
       end
     end
 
-    @institution_data = organisational_unit.institutions
+    @institutions = organisational_unit.institutions
   end
 
-  def product_step
+  def handle_product_channel
+    if request.post?
+      organisational_unit.children.each do |regional_unit|
+        regional_unit.children.each do |country_unit|
+          params[:institutions][country_unit.id.to_s]&.each do |id, name|
+            country_unit.children
+                        .create_with(type: Units::Institution, name: name)
+                        .find_or_create_by(institution_id: id)
+          end
+        end
+      end
+    end
+
+    @products = organisational_unit.products
+    @channels = organisational_unit.channels
   end
 
-  def channel_step
-  end
-
-  def finish_wizard_path
-    # user_path(current_user)
+  def handle_finish
   end
 end

@@ -1,4 +1,4 @@
-<%= form_tag organisation_journey_path('product-channel-unit'), remote: true do %>
+<%= form_tag organisation_journey_path('product-channel'), remote: true do %>
   <div class="card-body w-75 mx-auto font-14 mt-4 border">
     <div class="row">
       <div class="col-sm-12">
@@ -23,10 +23,11 @@
                     </div>
                     <div class="faded-popover-content d-none">
                       <i class="fa fa-times-circle-o"></i>
-                      <% @institution_data.each do |institution| %>
-                        <div class="mb-3">
-                          <input type="checkbox">
-                          <label for="" class="ml-2">
+                      <% institution_units = country_unit.children %>
+                      <% @institutions.each do |institution| %>
+                        <div class="form-check d-flex align-items-center mr-2 form-group">
+                          <%= check_box_tag "institutions[#{country_unit.id}[#{institution.id}]]", institution.name, institution_units.pluck(:institution_id).include?(institution.id), class: 'form-check-input mt-0 shadow-none', id: "#{country_unit.country}-institution-#{institution.id}" %>
+                          <label class="form-check-label text-capitalize font-13" for="<%= "#{country_unit.country}-institution-#{institution.id}" %>">
                             <%= institution.name %>
                           </label>
                         </div>
