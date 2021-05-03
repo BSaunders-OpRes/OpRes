@@ -83,3 +83,21 @@
     border-radius: 100px;
   }
 }
+
+@media only screen and (max-width: 767px) {
+  .header {
+    .logo-bar {
+      .logo-box {
+        width: 95px;
+      }
+    }
+
+    .username {
+      margin: 0 0 0 10px !important;
+    }
+  }
+
+  .btn {
+    width: auto !important;
+  }
+}

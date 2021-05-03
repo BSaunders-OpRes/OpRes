@@ -3,7 +3,9 @@
     <div class="logo-bar d-flex align-items-center">
       <i id="open_sidebar" class="fa fa-bars font-18 text-white" aria-hidden="true"></i>
       <div class="logo-box ml-3">
-        <%= image_pack_tag 'media/images/white-logo.png', class: 'img-fluid' %>
+        <%= link_to determine_user_redirect_path do %>
+          <%= image_pack_tag 'media/images/white-logo.png', class: 'img-fluid' %>
+        <% end %>
       </div>
     </div>
     <div class="search-field">
@@ -12,7 +14,7 @@
     </div>
     <div class="notification-field d-flex align-items-center justify-content-end">
       <a href="" class="alert-notification d-flex align-items-center">
-        <span class="font-14 font-700 text-white ">Alert</span>
+        <span class="font-14 font-700 text-white d-none d-sm-block">Alert</span>
         <span class="notification-green-circle"><i class="fa fa-bell-o text-white ml-2 font-18" aria-hidden="true"></i></span>
       </a>
       <div class="dropdown">

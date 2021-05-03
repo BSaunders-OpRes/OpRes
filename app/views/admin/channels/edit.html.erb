@@ -1,15 +1,17 @@
-<div class="bsl-container mt-5">
-  <div class="card shadow">
-    <div class="card-body">
-      <div class="back-btn-header mb-4">
-        <%= link_to admin_channels_path, class: 'text-decoration-none text-dark' do  %>
-          <i class="fa fa-arrow-left" aria-hidden="true"></i>
-          <span class="ml-1">Back</span>
-        <% end %>
+<div class="row">
+  <div class="col-sm-12 col-md-10 col-lg-8 col-xxl-10 mx-auto">
+    <div class="card border-0 shadow">
+      <div class='card-body px-4'>
+        <div class="back-btn-header mb-4 mt-3">
+          <%= link_to admin_channels_path, class: 'text-decoration-none text-dark' do  %>
+            <i class="fa fa-arrow-left" aria-hidden="true"></i>
+            <span class="ml-1">Back</span>
+          <% end %>
+        </div>
+        <h4 class="mb-4 font-weight-bold text-capitalize">Edit channel type</h4>
+        <p class="font-14 mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. In amet aperiam, iste iusto dicta quisquam cumque mollitia veritatis</p>
+        <%= render 'admin/channels/partials/form', channel: @channel %>
       </div>
-      <h4 class="mb-4 font-weight-bold text-capitalize">Edit channel type</h4>
-      <p class="font-14 mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. In amet aperiam, iste iusto dicta quisquam cumque mollitia veritatis</p>
-      <%= render 'admin/channels/partials/form', channel: @channel %>
     </div>
   </div>
 </div>
