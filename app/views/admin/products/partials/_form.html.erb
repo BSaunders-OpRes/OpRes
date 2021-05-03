@@ -2,27 +2,27 @@
   <%= render 'layouts/partials/shared/form_errors', instance: product %>
 
   <div class="row">
-    <div class="form-group col-md-6">
+    <div class="form-group col-md-12">
       <%= f.label :name %>
-      <%= f.text_field :name, class: 'form-control', placeholder: 'Product Name', required: true %>
+      <%= f.text_field :name, class: 'w-100 form-control font-12 h-auto py-3 shadow-none', placeholder: 'Product Name', required: true %>
     </div>
 
-    <div class="form-group col-md-6">
+    <div class="form-group col-md-12">
       <%= f.label :description %>
-      <%= f.text_field :description, class: 'form-control', placeholder: 'Product Description', required: true %>
+      <%= f.text_field :description, class: 'w-100 form-control font-12 h-auto py-3 shadow-none', placeholder: 'Product Description', required: true %>
     </div>
   </div>
 
   <div class="row">
     <div class="form-group col-md-12">
       <%= f.label  :pre_channel_ids, 'Channels (Relevant channels for this type of product)' %>
-      <%= f.select :pre_channel_ids, options_for_select(@channels.map { |channel| [channel.name, channel.id] }, product.pre_channel_ids), {}, multiple: true, class: 'form-control' %>
+      <%= f.select :pre_channel_ids, options_for_select(@channels.map { |channel| [channel.name, channel.id] }, product.pre_channel_ids), {}, multiple: true, class: 'w-100 form-control font-12 h-auto py-3 shadow-none' %>
     </div>
   </div>
 
   <div class="row d-flex align-items-center">
     <div class="form-group col-md-12 text-right mb-0">
-      <%= f.submit class: 'btn primary-btn font-12 font-600' %>
+      <%= f.submit class: 'btn btn-md font-600 text-capitalize font-12 ml-auto dark-btn w-25' %>
     </div>
   </div>
 <% end %>

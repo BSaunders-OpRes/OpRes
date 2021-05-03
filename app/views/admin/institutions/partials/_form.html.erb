@@ -1,27 +1,27 @@
 <%= form_for institution, url: new_or_create ? admin_institutions_path : admin_institution_path, method: new_or_create ? :post : :patch do |f| %>
   <%= render 'layouts/partials/shared/form_errors', instance: institution %>
   <div class="row">
-    <div class="form-group col-md-6">
+    <div class="form-group col-md-12">
       <%= f.label :name %>
-      <%= f.text_field :name, class: 'form-control rounded-0 shadow-none', placeholder: 'Institution Name', required: true %>
+      <%= f.text_field :name, class: 'w-100 form-control font-12 h-auto py-3 shadow-none', placeholder: 'Institution Name', required: true %>
     </div>
 
-    <div class="form-group col-md-6">
+    <div class="form-group col-md-12">
       <%= f.label :description %>
-      <%= f.text_field :description, class: 'form-control rounded-0 shadow-none', placeholder: 'Institution Description', required: true %>
+      <%= f.text_field :description, class: 'w-100 form-control font-12 h-auto py-3 shadow-none', placeholder: 'Institution Description', required: true %>
     </div>
   </div>
 
   <div class="row">
     <div class="form-group col-md-12">
       <%= f.label  :pre_product_ids, 'Products (Relevant products for this type of institution)' %>
-      <%= f.select :pre_product_ids, options_for_select(@products.map { |product| [product.name, product.id] }, institution.pre_product_ids), {}, multiple: true, class: 'form-control shadow-none' %>
+      <%= f.select :pre_product_ids, options_for_select(@products.map { |product| [product.name, product.id] }, institution.pre_product_ids), {}, multiple: true, class: 'w-100 form-control font-12 h-auto py-3 shadow-none' %>
     </div>
   </div>
 
   <div class="row d-flex align-items-center">
     <div class="form-group col-md-12 text-right mb-0">
-      <%= f.submit class: 'btn primary-btn font-12 font-600' %>
+      <%= f.submit class: 'btn btn-md font-600 text-capitalize font-12 ml-auto dark-btn w-25' %>
     </div>
   </div>
 <% end %>

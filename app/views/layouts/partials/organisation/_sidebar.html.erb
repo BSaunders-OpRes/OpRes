@@ -3,7 +3,9 @@
     <div class="sidebar-logo-container d-flex align-items-center ml-4">
       <i id="close_sidebar" class="fa fa-times font-18" aria-hidden="true"></i>
       <div class="logo-box ml-3">
-        <%= image_pack_tag 'media/images/logo.png', class: 'img-fluid' %>
+        <%= link_to determine_user_redirect_path do %>
+          <%= image_pack_tag 'media/images/logo.png', class: 'img-fluid' %>
+        <% end %>
       </div>
     </div>
   </div>
