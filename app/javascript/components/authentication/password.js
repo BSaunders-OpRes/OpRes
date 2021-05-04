@@ -15,15 +15,6 @@ export default function login(props) {
 
   const handleSubmit = (e)=> {
     e.preventDefault();
-    if (email === '' || password === '') {
-      setError('Fields are required');
-      return;
-    }
-
-    const user = { user: { email: email, password: password } };
-    authentication.login(user)
-    .then(resp => redirection(resp))
-    .catch(err => error_handling(err))
   }
 
   const error_handling = (err) => {
@@ -45,7 +36,7 @@ export default function login(props) {
             <img src={Logo} alt=""/>
           </div>
           <div className='form-wrapper'>
-            <h1 className="mb-5 font-600">Log into your account</h1>
+            <h1 className="mb-5 font-600">Forgot Password</h1>
             <div className='input-field'>
               <form className='h-100' onSubmit={handleSubmit}>
                 <div className="row">
@@ -54,35 +45,12 @@ export default function login(props) {
                     <div className='error'>{error}</div>
                   </div>
                 </div>
-                <div className="row">
-                  <div className="form-group col-md-10">
-                    <div className='password'Password>
-                      <input type='password' value={password} name="name" className='form-control border-0' placeholder='Password' onChange={e => setPassword(e.target.value)} />
-                    </div>
-                    <div className='error'>{error}</div>
-                  </div>
-                </div>
-                <div className='check-box-container'>
-                  <Form.Group controlId="formBasicCheckbox">
-                    <Form.Check type="checkbox" label="Keep me logged in" />
-                  </Form.Group>
-                </div>
-                <div className="row">
-                  <div className="form-group col-md-10 mb-0">
-                    <button className='btn-submit'type="submit" value="Submit">
-                      Login
-                    </button>
-                  </div>
-                </div>
                 <div className='row'>
                   <div className="col-md-10">
                     <div className='sign-up-text my-4 text-center'>
-                      <p>Dont have an account
-                      <a href='/users/sign_up' className="ml-2 text-decoration-none">Sign Up</a>
-                      </p>
                     </div>
                     <div className='forget-password-text text-center'>
-                      <a href='/users/password/new' className="text-decoration-none">Forgotten password</a>
+                    <a href='/users/sign_in' className="ml-2 text-decoration-none">Back to Sign In</a>
                     </div>
                   </div>
                 </div>
