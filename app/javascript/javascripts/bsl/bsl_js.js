@@ -33,6 +33,17 @@ document.addEventListener('turbolinks:load', function() {
     $(this).parent('.faded-popover-content').addClass('d-none');
   });
 
+  $('body').on('click', '.accordion-wrapper .accordion-arrow', function() {
+    accordion_content = $(this).parent('.accordion-title').siblings('.accordion-content');
+    if (accordion_content.hasClass('d-none')) {
+      accordion_content.removeClass('d-none');
+      $(this).find('a i').removeClass('fa-angle-down').addClass('fa-angle-up');
+    } else {
+      accordion_content.addClass('d-none');
+      $(this).find('a i').removeClass('fa-angle-up').addClass('fa-angle-down');
+    }
+  });
+
   if ($('#myinput_one').length >= 1) {
     document.querySelector("#myinput_one").oninput = function() {
       var value = (this.value-this.min)/(this.max-this.min)*100
