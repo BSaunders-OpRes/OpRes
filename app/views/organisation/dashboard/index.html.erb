@@ -1,5 +1,5 @@
 <div class="row" id="management-dashboard">
-  <div class="col-md-12 d-flex justify-content-between align-items-center">
+  <div class="col-md-12 d-flex justify-content-between align-items-center flex-wrap">
     <h2  class="font-700 text-capitalize">management dashbaord</h2>
     <div class="white-btn px-2 py-1 d-flex align-items-center">
       <span><i class="fa fa-sliders" aria-hidden="true"></i>  </span>
@@ -7,11 +7,11 @@
     </div>
   </div>
 </div>
-<div class="row mt-5">
-  <div class="col-md-3">
+<div class="row mt-5 d-flex">
+  <div class="col-md-6 col-lg-3 order-lg-1 order-2 mb-lg-0 mb-4">
     <div class="card border-0 shadow-sm pie-high-chart">
       <div class="card-header bg-white text-center">
-        <p class="font-14 text-capitalize font-600">business service line</p>
+        <p class="font-14 text-capitalize font-600">bsl</p>
         <div class="donut-content">
           <div id="first-donut" class="donut"></div>
           <div class="donut-value font-50 font-700">50</div>
@@ -52,11 +52,11 @@
       </div>
     </div>
   </div>
-  <div class="col-md-3">
+  <div class="col-md-12 col-lg-3 order-lg-2 order-3 mb-lg-0 mb-4">
     <div class="card border-0 shadow-sm pie-high-chart">
       <div class="card-header bg-white text-center">
-        <p class="font-14 text-capitalize font-600">3rd & 4th supplier</p>
-        <div class="row">
+        <p class="font-14 text-capitalize font-600">3rd supplier</p>
+        <div class="row flex-sm-wrap flex-nowrap">
           <div class="col-sm-6 px-0 d-flex justify-content-center">
             <div class="sm-donut-content">
               <div id="first-donut-sm" class="sm-donut"></div>
@@ -116,11 +116,11 @@
       </div>
     </div>
   </div>
-  <div class="col-md-3">
+  <div class="col-md-12 col-lg-3 order-lg-3 order-4 mb-lg-0 mb-4">
     <div class="card border-0 shadow-sm pie-high-chart">
       <div class="card-header bg-white text-center">
-        <p class="font-14 text-capitalize font-600">3rd & 4th supplier</p>
-        <div class="row">
+        <p class="font-14 text-capitalize font-600">4th supplier</p>
+        <div class="row flex-sm-wrap flex-nowrap">
           <div class="col-sm-6 px-0 d-flex justify-content-center">
             <div class="sm-donut-content">
               <div id="third-donut-sm" class="sm-donut"></div>
@@ -180,7 +180,7 @@
       </div>
     </div>
   </div>
-  <div class="col-md-3">
+  <div class="col-md-6 col-lg-3 order-lg-4 order-1 mb-lg-0 mb-4">
     <div class="card border-0 shadow-sm pie-high-chart">
       <div class="card-header bg-white text-center">
         <p class="font-14 text-capitalize font-600">business service line</p>
@@ -226,13 +226,13 @@
   </div>
 </div>
 <div class="row mt-4">
-  <div class="col-md-9">
+  <div class="col-md-6 col-lg-9 mb-4 mb-lg-0">
     <div class="card border-0 shadow-sm">
       <div class="card-body">
-        <div class="tb-header d-flex justify-content-between align-items-center">
-          <h5 class="font-16 text-capitalize font-600">high risk business service line</h5>
-          <div class="filter-grouped d-flex">
-            <div class="dropdown body-color-dropdown mr-2">
+        <div class="tb-header flex-wrap d-flex justify-content-between flex-lg-row flex-column">
+          <h5 class="font-16 text-capitalize font-600 flex-1 align-self-lg-center mb-lg-0 mb-4">high risk business service line</h5>
+          <div class="filter-grouped d-flex flex-1">
+            <div class="dropdown body-color-dropdown mr-2 w-100">
               <a id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class='dropdown-toggle text-capitalize py-2 pr-5 pl-2 d-flex align-items-center justify-content-start font-12 text-dark font-600' id='top-10'>top 10</a>
               <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                 <a class="dropdown-item">Action</a>
@@ -240,7 +240,7 @@
                 <a class="dropdown-item">Filter top 10</a>
               </div>
             </div>
-            <div class="dropdown body-color-dropdown">
+            <div class="dropdown body-color-dropdown w-100">
               <a id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class='dropdown-toggle text-capitalize py-2 pr-5 pl-2 d-flex align-items-center justify-content-start font-12 text-dark font-600' id='top-10'>today</a>
               <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                 <a class="dropdown-item">Action</a>
@@ -250,7 +250,7 @@
             </div>
           </div>
         </div>
-        <div class="table-responsive mt-3">
+        <div class="table-responsive mt-0 mt-lg-3">
           <table class="table custom-table mb-5">
             <thead>
               <tr>
@@ -343,7 +343,7 @@
       </div>
     </div>
   </div>
-  <div class="col-md-3">
+  <div class="col-md-6 col-lg-3">
     <div class="card resiliece-indicator border-0 shadow-sm">
       <div class="card-header p-2 bg-transparent border-0">
         <div class="header-wrapper text-center p-4">
@@ -553,7 +553,7 @@
   </div>
 </div>
 <div class="row mt-4">
-  <div class="col-md-3">
+  <div class="col-md-3 mb-lg-0 mb-4">
     <div class="card line-progress-bar">
       <div class="card-header bg-transparent text-center p-3">
         <h5 class="text-capitalize font-600 font-12 font-xxl-14 mb-2">Retail current account journey</h5>
@@ -595,13 +595,13 @@
       </div>
     </div>
   </div>
-  <div class="col-md-3">
+  <div class="col-md-3 mb-lg-0 mb-4">
     <div class="card line-progress-bar">
       <div class="card-header bg-transparent text-center p-3">
         <h5 class="text-capitalize font-600 font-12 font-xxl-14 mb-2">business current account journeys</h5>
         <p class="text-capitalize font-10 font-xxl-12 font-400">Resilience posture status</p>
         <div class="progress my-4" style="height:10px">
-          <div class="progress-bar" style="width:20%;height:20px"></div>
+          <div class="progress-bar bg-yellow" style="width:20%;height:20px"></div>
         </div>
         <p class="text-capitalize font-12 font-600">Sub Optimal resilience posture </p>
         <span class="text-capitalize font-11 font-300">Risk Appetite Validation required</span>
@@ -637,13 +637,13 @@
       </div>
     </div>
   </div>
-  <div class="col-md-3">
+  <div class="col-md-3 mb-lg-0 mb-4">
     <div class="card line-progress-bar">
       <div class="card-header bg-transparent text-center p-3">
         <h5 class="text-capitalize font-600 font-12 font-xxl-14 mb-2">loans journeys</h5>
         <p class="text-capitalize font-10 font-xxl-12 font-400">Resilience posture status</p>
         <div class="progress my-4" style="height:10px">
-          <div class="progress-bar" style="width:20%;height:20px"></div>
+          <div class="progress-bar bg-dark-yellow" style="width:20%;height:20px"></div>
         </div>
         <p class="text-capitalize font-12 font-600">Sub Optimal resilience posture </p>
         <span class="text-capitalize font-11 font-300">Risk Appetite Validation required</span>
@@ -679,13 +679,13 @@
       </div>
     </div>
   </div>
-  <div class="col-md-3">
+  <div class="col-md-3 mb-lg-0">
     <div class="card line-progress-bar">
       <div class="card-header bg-transparent text-center p-3">
         <h5 class="text-capitalize font-600 font-12 font-xxl-14 mb-2">Mortgage journeys</h5>
         <p class="text-capitalize font-10 font-xxl-12 font-400">Resilience posture status</p>
         <div class="progress my-4" style="height:10px">
-          <div class="progress-bar" style="width:20%;height:20px"></div>
+          <div class="progress-bar bg-red" style="width:20%;height:20px"></div>
         </div>
         <p class="text-capitalize font-12 font-600">Sub Optimal resilience posture </p>
         <span class="text-capitalize font-11 font-300">Risk Appetite Validation required</span>

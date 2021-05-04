@@ -6,6 +6,10 @@ body {
   height: 100%;
   background: #F3F5FA;
   overflow-x: hidden;
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 html {
   height: 100%;
@@ -67,6 +71,8 @@ textarea {
 .content {
   padding-top: 75px;
   padding-bottom: 100px;
+  height: 100%;
+  min-height: 100%;
 }
 
 .faded-popover-wrapper {
@@ -129,13 +135,13 @@ textarea {
 }
 
 .bg-red {
-  background: #E4412E;
+  background: #E4412E !important;
 }
 .bg-yellow {
-  background: #FFD730;
+  background: #FFD730 !important;
 }
 .bg-dark-yellow {
-  background: #E39A2B;
+  background: #E39A2B !important;
 }
 
 .text-red {
@@ -149,6 +155,11 @@ textarea {
 }
 
 footer {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
   img {
     opacity: .2;
     width: 120px;
