@@ -16,7 +16,14 @@ class BusinessServiceLine < ApplicationRecord
   # Enums #
   enum tier: %i[1st 2nd 3rd 4th]
 
+  # Todo #
+  # add institution in validation
+
   # Validations #
-  validates :name, :description, :tier, :region, :country, :institution, presence: true
+  validates :name, :description, :tier, :region, :country, presence: true
   validates :tier, numericality: { only_integer: true }
+
+  # Nested Attributes #
+  accepts_nested_attributes_for :material_risk_taker
+  accepts_nested_attributes_for :sla
 end

@@ -26,7 +26,10 @@ Rails.application.routes.draw do
     resources :journeys,  only: %i[show] do
       post :show, on: :member
     end
-    resources :business_service_lines
+    resources :business_service_lines do
+      get :find_countries,  on: :member
+      get :find_institutes, on: :member
+    end
     resources :suppliers
     resources :admins
     resources :administration_portal, only: %i[index]

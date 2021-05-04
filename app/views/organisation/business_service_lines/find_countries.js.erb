@@ -1,0 +1,5 @@
+<% if @countries %>
+  $("#business_service_line_country").html('<%= escape_javascript render "organisation/business_service_lines/partials/drop_down",options: @countries&.map{|unit| [unit.name, unit.id] }, prompt_message: "Select your country", path: "business_service_line[country]" %>');
+<% else %>
+  $("#business_service_line_country").html("<%= escape_javascript render 'organisation/business_service_lines/partials/drop_down', options: {}, path: "business_service_line[country]", prompt_message: "Select your country" %>");
+<% end %>

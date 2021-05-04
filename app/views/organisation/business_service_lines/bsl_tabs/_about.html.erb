@@ -7,7 +7,7 @@
           <p class="text-capitalize font-14 font-600">business service line name</p>
         </div>
         <div class="col-sm-7 order-3 order-sm-2">
-          <input type="text" placeholder="Enter Name" class="w-100 form-control font-12 h-auto py-3 shadow-none">
+          <%= form.text_field :name, class: 'w-100 form-control font-12 h-auto py-3 shadow-none', placeholder: 'BSL Name', required: true %>
         </div>
         <div class="col-sm-1 text-right order-2 flex-sm-half mb-2 mb-sm-0">
           <i class="fa fa-info-circle font-18" data-toggle="tooltip" data-placement="top" title="business service line name" aria-hidden="true"></i>
@@ -18,7 +18,7 @@
           <p class="text-capitalize font-14 font-600">business service line description </p>
         </div>
         <div class="col-sm-7 order-3 order-sm-2">
-         <textarea id="textarea" rows="3" class="w-100 form-control font-12 shadow-none"></textarea>
+        <%= form.text_area :description, class: 'w-100 form-control font-12 h-auto py-3 shadow-none', placeholder: 'BSL description', required: true %>
         </div>
         <div class="col-sm-1 text-right order-2 flex-sm-half mb-2 mb-sm-0">
           <i class="fa fa-info-circle font-18" data-toggle="tooltip" data-placement="top" title="business service line description" aria-hidden="true"></i>
@@ -29,19 +29,7 @@
           <p class="text-capitalize font-14 font-600">service tier</p>
         </div>
         <div class="col-sm-7 order-3 order-sm-2">
-          <select class="form-control w-100 font-12 h-auto py-3 shadow-none">
-            <option value="">Please Select</option>
-            <optgroup label="Option group 1">
-              <option value="">Option 1</option>
-              <option value="">Option 2</option>
-              <option value="">Option 3</option>
-            </optgroup>
-            <optgroup label="Option group 2">
-              <option value="">Option 4</option>
-              <option value="">Option 5</option>
-              <option value="">Option 6</option>
-            </optgroup>
-          </select>
+          <%= form.select :tier, options_for_select(BusinessServiceLine.tiers.map {|k, v| [k.humanize.capitalize, v.to_i]}),{:include_blank => 'Select your Tier'},{ class: 'form-control w-100 font-12 h-auto py-3 shadow-none' } %>
         </div>
         <div class="col-sm-1 text-right order-2 flex-sm-half mb-2 mb-sm-0">
           <i class="fa fa-info-circle font-18" data-toggle="tooltip" data-placement="top" title="service tier" aria-hidden="true"></i>
@@ -52,19 +40,7 @@
           <p class="text-capitalize font-14 font-600">region</p>
         </div>
         <div class="col-sm-7 order-3 order-sm-2">
-          <select class="form-control w-100 font-12 h-auto py-3 shadow-none">
-            <option value="">Please Select</option>
-            <optgroup label="Option group 1">
-              <option value="">Option 1</option>
-              <option value="">Option 2</option>
-              <option value="">Option 3</option>
-            </optgroup>
-            <optgroup label="Option group 2">
-              <option value="">Option 4</option>
-              <option value="">Option 5</option>
-              <option value="">Option 6</option>
-            </optgroup>
-          </select>
+          <%= render 'organisation/business_service_lines/partials/drop_down', options: organisational_unit.children.map{|unit| [unit.name, unit.id] },prompt_message: 'Select your region',path: 'business_service_line[region]'  %>
         </div>
         <div class="col-sm-1 text-right order-2 flex-sm-half mb-2 mb-sm-0">
           <i class="fa fa-info-circle font-18" data-toggle="tooltip" data-placement="top" title="region" aria-hidden="true"></i>
@@ -75,19 +51,7 @@
           <p class="text-capitalize font-14 font-600">country</p>
         </div>
         <div class="col-sm-7 order-3 order-sm-2">
-          <select class="form-control w-100 font-12 h-auto py-3 shadow-none">
-            <option value="">Please Select</option>
-            <optgroup label="Option group 1">
-              <option value="">Option 1</option>
-              <option value="">Option 2</option>
-              <option value="">Option 3</option>
-            </optgroup>
-            <optgroup label="Option group 2">
-              <option value="">Option 4</option>
-              <option value="">Option 5</option>
-              <option value="">Option 6</option>
-            </optgroup>
-          </select>
+            <%= render 'organisation/business_service_lines/partials/drop_down', options: {} ,prompt_message: 'Select your country',path: 'business_service_line[country]'  %>
         </div>
         <div class="col-sm-1 text-right order-2 flex-sm-half mb-2 mb-sm-0">
           <i class="fa fa-info-circle font-18" data-toggle="tooltip" data-placement="top" title="country" aria-hidden="true"></i>
@@ -191,45 +155,42 @@
         </div>
       </div>
     </div>
-    <div class="input-fields mb-5 pb-5 border-bottom">
-      <div class="row align-items-center">
-        <div class="col-sm-4 flex-sm-1 mb-2 mb-sm-0">
-          <p class="text-capitalize font-14 font-600">Material Risk taker name</p>
+    <%= form.fields_for :material_risk_taker do |risk_taker|%>
+      <div class="input-fields mb-5 pb-5 border-bottom">
+        <div class="row align-items-center">
+          <div class="col-sm-4 flex-sm-1 mb-2 mb-sm-0">
+            <p class="text-capitalize font-14 font-600">Material Risk taker name</p>
+          </div>
+          <div class="col-sm-7 order-3 order-sm-2">
+            <%= risk_taker.text_field :name, placeholder: 'Enter Name', class: 'w-100 form-control font-12 h-auto py-3 shadow-none' %>
+          </div>
+          <div class="col-sm-1 text-right order-2 flex-sm-half mb-2 mb-sm-0">
+            <i class="fa fa-info-circle font-18" data-toggle="tooltip" data-placement="top" title="Material Risk taker name" aria-hidden="true"></i>
+          </div>
         </div>
-        <div class="col-sm-7 order-3 order-sm-2">
-          <input type="text" placeholder="Enter Name" class="w-100 form-control font-12 h-auto py-3 shadow-none">
+        <div class="row align-items-center mt-4">
+          <div class="col-sm-4 flex-sm-1 mb-2 mb-sm-0">
+            <p class="text-capitalize font-14 font-600">material risk taker title</p>
+          </div>
+          <div class="col-sm-7 order-3 order-sm-2">
+            <%= risk_taker.text_field :title, placeholder: 'Enter Title', class: 'w-100 form-control font-12 h-auto py-3 shadow-none' %>
+          </div>
+          <div class="col-sm-1 text-right order-2 flex-sm-half mb-2 mb-sm-0">
+            <i class="fa fa-info-circle font-18" data-toggle="tooltip" data-placement="top" title="material risk taker title" aria-hidden="true"></i>
+          </div>
         </div>
-        <div class="col-sm-1 text-right order-2 flex-sm-half mb-2 mb-sm-0">
-          <i class="fa fa-info-circle font-18" data-toggle="tooltip" data-placement="top" title="Material Risk taker name" aria-hidden="true"></i>
+        <div class="row align-items-center mt-4">
+          <div class="col-sm-4 flex-sm-1 mb-2 mb-sm-0">
+            <p class="text-capitalize font-14 font-600">email address</p>
+          </div>
+          <div class="col-sm-7 order-3 order-sm-2">
+            <%= risk_taker.email_field :email, placeholder: 'Enter Email', class:'w-100 form-control font-12 h-auto py-3 shadow-none' %>
+          </div>
+          <div class="col-sm-1 text-right order-2 flex-sm-half mb-2 mb-sm-0">
+            <i class="fa fa-info-circle font-18" data-toggle="tooltip" data-placement="top" title="email address" aria-hidden="true"></i>
+          </div>
         </div>
       </div>
-      <div class="row align-items-center mt-4">
-        <div class="col-sm-4 flex-sm-1 mb-2 mb-sm-0">
-          <p class="text-capitalize font-14 font-600">material risk taker title</p>
-        </div>
-        <div class="col-sm-7 order-3 order-sm-2">
-          <input type="text" placeholder="Enter Title" class="w-100 form-control font-12 h-auto py-3 shadow-none">
-        </div>
-        <div class="col-sm-1 text-right order-2 flex-sm-half mb-2 mb-sm-0">
-          <i class="fa fa-info-circle font-18" data-toggle="tooltip" data-placement="top" title="material risk taker title" aria-hidden="true"></i>
-        </div>
-      </div>
-      <div class="row align-items-center mt-4">
-        <div class="col-sm-4 flex-sm-1 mb-2 mb-sm-0">
-          <p class="text-capitalize font-14 font-600">email address</p>
-        </div>
-        <div class="col-sm-7 order-3 order-sm-2">
-          <input type="email" placeholder="Enter Email" class="w-100 form-control font-12 h-auto py-3 shadow-none">
-        </div>
-        <div class="col-sm-1 text-right order-2 flex-sm-half mb-2 mb-sm-0">
-          <i class="fa fa-info-circle font-18" data-toggle="tooltip" data-placement="top" title="email address" aria-hidden="true"></i>
-        </div>
-      </div>
-    </div>
-    <div class="wizard-btn d-flex d-sm-block justify-content-between flex-column">
-      <a href="" class="btn btn-light-grey btn-sm font-600 text-capitalize font-12 mb-3 mb-sm-0">previous</a>
-      <a href="" class="btn btn-sm font-600 text-capitalize font-12 float-right ml-0 ml-sm-2 dark-btn w-25-sm w-100 mb-3 mb-sm-0">proceed</a>
-      <a href="" class="btn btn-light-grey btn-sm font-600 text-capitalize font-12 float-right btn-light-grey">save & close</a>
-    </div>
+    <% end %>
   </div>
 </div>
