@@ -6,6 +6,10 @@ module Firm::ChildrenConcern
       Unit.includes(children: [children: [:children]]).find(id)
     end
 
+    def include_deep_children
+      Unit.includes(children: [children: [children: [unit_products: [:unit_product_channels]]]]).find(id)
+    end
+
     def inclusive_children
       exclusive_children.unshift(self)
     end

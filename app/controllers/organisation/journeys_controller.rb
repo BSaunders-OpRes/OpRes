@@ -33,13 +33,13 @@ class Organisation::JourneysController < Organisation::BaseController
 
   def handle_regional_unit
     if request.post?
-      organisational_unit.update(name: params[:name])
+      organisational_unit.update(name: params.dig(:name))
     end
   end
 
   def handle_country_unit
     if request.post?
-      params[:regions]&.each do |region, code|
+      params.dig(:regions)&.each do |region, code|
         organisational_unit.children
                            .create_with(type: Units::Regional, name: Unit.build_name(organisational_unit, region))
                            .find_or_create_by(region: code)
@@ -50,7 +50,7 @@ class Organisation::JourneysController < Organisation::BaseController
   def handle_institution_unit
     if request.post?
       organisational_unit.children.each do |regional_unit|
-        params[:countries][regional_unit.id.to_s]&.each do |country, code|
+        params.dig(:countries, regional_unit.id.to_s)&.each do |country, code|
           regional_unit.children
                        .create_with(type: Units::Country, name: Unit.build_name(organisational_unit, country))
                        .find_or_create_by(country: code)
@@ -65,7 +65,7 @@ class Organisation::JourneysController < Organisation::BaseController
     if request.post?
       organisational_unit.children.each do |regional_unit|
         regional_unit.children.each do |country_unit|
-          params[:institutions][country_unit.id.to_s]&.each do |id, name|
+          params.dig(:institutions, country_unit.id.to_s)&.each do |id, name|
             country_unit.children
                         .create_with(type: Units::Institution, name: name)
                         .find_or_create_by(institution_id: id)
@@ -74,10 +74,27 @@ class Organisation::JourneysController < Organisation::BaseController
       end
     end
 
+    @organisational_unit = organisational_unit.include_deep_children
     @products = organisational_unit.products
     @channels = organisational_unit.channels
   end
 
   def handle_finish
+    if request.post?
+      @organisational_unit = organisational_unit.include_deep_children
+      organisational_unit.children.each do |regional_unit|
+        regional_unit.children.each do |country_unit|
+          country_unit.children.each do |institution_unit|
+            params.dig(:products, institution_unit.id.to_s)&.each do |pid, pname|
+              unit_product = institution_unit.unit_products.find_or_create_by(product_id: pid)
+
+              params.dig(:channels, institution_unit.id.to_s, pid)&.each do |cid, cname|
+                unit_product.unit_product_channels.find_or_create_by(channel_id: cid)
+              end
+            end
+          end
+        end
+      end
+    end
   end
 end

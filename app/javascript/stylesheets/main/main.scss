@@ -92,12 +92,45 @@ textarea {
     top: -10px;
     left: 125%;
     background: #000;
-    width: 240px;
-    padding: 15px;
+    width: 230px;
+    padding: 40px 0 15px;
     color: #fff;
     z-index: 1;
     height: 300px;
-    overflow: auto;
+    overflow-y: auto;
+    overflow-x: hidden;
+    .close-i {
+      position: absolute;
+      right: 13px;
+      top: 13px;
+      font-size: 25px;
+      z-index: 3;
+    }
+    .check-field {
+      margin: 5px 20px 15px;
+    }
+  }
+}
+
+.accordion-wrapper {
+  display: block;
+  padding: 5px 20px;
+  cursor: pointer;
+  .accordion-title {
+    position: relative;
+    i {
+      margin-left: 0.5rem;
+    }
+  }
+  .accordion-content {
+    position: relative;
+    background: $light-grey;
+    width: 190px;
+    padding: 15px;
+    color: #fff;
+    z-index: 1;
+    height: 170px;
+    overflow-y: auto;
     i {
       position: absolute;
       right: 13px;
@@ -107,6 +140,7 @@ textarea {
     }
   }
 }
+
 .dd-carrot-btn {
   width: 200px;
   > a {
