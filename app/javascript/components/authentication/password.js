@@ -45,6 +45,13 @@ export default function login(props) {
                     <div className='error'>{error}</div>
                   </div>
                 </div>
+                <div className="row">
+                  <div className="form-group col-md-10 mb-0">
+                    <button className='btn-submit'type="submit" value="Submit">
+                      Send
+                    </button>
+                  </div>
+                </div>
                 <div className='row'>
                   <div className="col-md-10">
                     <div className='sign-up-text my-4 text-center'>
