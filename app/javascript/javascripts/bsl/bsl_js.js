@@ -47,13 +47,30 @@ document.addEventListener('turbolinks:load', function() {
     }
   });
 
- $('#business_service_line_region').change(function(){
-    $.ajax({
+  $('body').on('change', '#business_service_line_region', function() {
+   $.ajax({
       url: "/organisation/business_service_lines/:"+ $(this).val()+"/find_countries",
       type: "GET",
       data: {region_id: $(this).val()},
     })
   });
+
+  $('body').on('change', '#business_service_line_country', function() {
+    $.ajax({
+      url: "/organisation/business_service_lines/:"+ $(this).val()+"/find_institutions",
+      type: "GET",
+      data: {country_id: $(this).val()},
+    })
+  });
+
+  $('body').on('change', '#business_service_line_institution', function() {
+    $.ajax({
+      url: "/organisation/business_service_lines/:"+ $(this).val()+"/find_channels_products",
+      type: "GET",
+      data: {institution_id: $(this).val()},
+    })
+  });
+
 
   $('#proceed-btn').click(function(e){
     e.preventDefault();

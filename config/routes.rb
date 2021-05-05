@@ -27,8 +27,9 @@ Rails.application.routes.draw do
       post :show, on: :member
     end
     resources :business_service_lines do
-      get :find_countries,  on: :member
-      get :find_institutes, on: :member
+      get :find_countries,    on: :member
+      get :find_institutions, on: :member
+      get :find_channels_products,     on: :member
     end
     resources :suppliers
     resources :admins

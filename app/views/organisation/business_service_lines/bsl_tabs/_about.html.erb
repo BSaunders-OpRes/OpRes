@@ -50,7 +50,7 @@
         <div class="col-sm-4 flex-sm-1 mb-2 mb-sm-0">
           <p class="text-capitalize font-14 font-600">country</p>
         </div>
-        <div class="col-sm-7 order-3 order-sm-2">
+        <div class="col-sm-7 order-3 order-sm-2" id="countries" >
             <%= render 'organisation/business_service_lines/partials/drop_down', options: {} ,prompt_message: 'Select your country',path: 'business_service_line[country]'  %>
         </div>
         <div class="col-sm-1 text-right order-2 flex-sm-half mb-2 mb-sm-0">
@@ -61,20 +61,8 @@
         <div class="col-sm-4 flex-sm-1 mb-2 mb-sm-0">
           <p class="text-capitalize font-14 font-600">brand/institiution</p>
         </div>
-        <div class="col-sm-7 order-3 order-sm-2">
-          <select class="form-control w-100 font-12 h-auto py-3 shadow-none">
-            <option value="">Please Select</option>
-            <optgroup label="Option group 1">
-              <option value="">Option 1</option>
-              <option value="">Option 2</option>
-              <option value="">Option 3</option>
-            </optgroup>
-            <optgroup label="Option group 2">
-              <option value="">Option 4</option>
-              <option value="">Option 5</option>
-              <option value="">Option 6</option>
-            </optgroup>
-          </select>
+        <div class="col-sm-7 order-3 order-sm-2" id='institutions'>
+          <%= render 'organisation/business_service_lines/partials/drop_down', options: {} ,prompt_message: 'Select your institiution',path: 'business_service_line[institiution]'  %>
         </div>
         <div class="col-sm-1 text-right order-2 flex-sm-half mb-2 mb-sm-0">
           <i class="fa fa-info-circle font-18" data-toggle="tooltip" data-placement="top" title="brand/institiution" aria-hidden="true"></i>
@@ -82,76 +70,34 @@
       </div>
     </div>
     <div class="checkboxes-field mb-5 pb-5 border-bottom">
-      <div class="row align-items-center">
-        <div class="col-sm-4 align-self-start flex-sm-1">
-          <p class="text-capitalize font-14 font-600 text-capitalize">channel</p>
-        </div>
-        <div class="col-sm-7 order-3 order-sm-2 mt-sm-0 mt-3">
-          <div class="checkbox-container d-flex justify-content-start flex-wrap">
-            <div class="form-check d-flex align-items-center mr-2 form-group">
-              <input class="form-check-input mt-0 shadow-none" type="checkbox" value="" id="flexCheckDefault">
-              <label class="form-check-label text-capitalize font-13" for="flexCheckDefault">
-                Digital Bank
-              </label>
-            </div>
-            <div class="form-check d-flex align-items-center mr-2 form-group">
-              <input class="form-check-input mt-0 shadow-none" type="checkbox" value="" id="flexCheckDefault">
-              <label class="form-check-label text-capitalize font-13" for="flexCheckDefault">
-                mobile Bank
-              </label>
-            </div>
-            <div class="form-check d-flex align-items-center mr-2 form-group">
-              <input class="form-check-input mt-0 shadow-none" type="checkbox" value="" id="flexCheckDefault">
-              <label class="form-check-label text-capitalize font-13" for="flexCheckDefault">
-                branch
-              </label>
-            </div>
-            <div class="form-check d-flex align-items-center form-group">
-              <input class="form-check-input mt-0 shadow-none" type="checkbox" value="" id="flexCheckDefault">
-              <label class="form-check-label text-capitalize font-13" for="flexCheckDefault">
-                telephone
-              </label>
-            </div>
-          </div>
-        </div>
-        <div class="col-sm-1 text-right order-2 flex-sm-half align-self-start">
-          <i class="fa fa-info-circle font-18" data-toggle="tooltip" data-placement="top" title="channel" aria-hidden="true"></i>
-        </div>
-      </div>
       <div class="row align-items-center mt-4">
         <div class="col-sm-4 align-self-start flex-sm-1">
           <p class="text-capitalize font-14 font-600 text-capitalize">product</p>
         </div>
         <div class="col-sm-7 order-3 order-sm-2 mt-sm-0 mt-3">
           <div class="checkbox-container d-flex justify-content-start flex-wrap">
-            <div class="form-check d-flex align-items-center mr-2 form-group">
-              <input class="form-check-input mt-0 shadow-none" type="checkbox" value="" id="flexCheckDefault">
-              <label class="form-check-label text-capitalize font-13" for="flexCheckDefault">
-                Digital Bank
-              </label>
-            </div>
-            <div class="form-check d-flex align-items-center mr-2 form-group">
-              <input class="form-check-input mt-0 shadow-none" type="checkbox" value="" id="flexCheckDefault">
-              <label class="form-check-label text-capitalize font-13" for="flexCheckDefault">
-                mobile Bank
-              </label>
-            </div>
-            <div class="form-check d-flex align-items-center mr-2 form-group">
-              <input class="form-check-input mt-0 shadow-none" type="checkbox" value="" id="flexCheckDefault">
-              <label class="form-check-label text-capitalize font-13" for="flexCheckDefault">
-                branch
-              </label>
-            </div>
-            <div class="form-check d-flex align-items-center mr-2 form-group">
-              <input class="form-check-input mt-0 shadow-none" type="checkbox" value="" id="flexCheckDefault">
-              <label class="form-check-label text-capitalize font-13" for="flexCheckDefault">
-                telephone
-              </label>
+            <div class="form-check d-flex align-items-center mr-2 form-group" id ='products'>
+              <%= render 'organisation/business_service_lines/partials/check_box',options: {}, path: 'product_ids[]' %>
             </div>
           </div>
         </div>
         <div class="col-sm-1 text-right order-2 flex-sm-half align-self-start">
           <i class="fa fa-info-circle font-18" data-toggle="tooltip" data-placement="top" title="product" aria-hidden="true"></i>
+        </div>
+      </div>
+      <div class="row align-items-center">
+        <div class="col-sm-4 align-self-start flex-sm-1">
+          <p class="text-capitalize font-14 font-600 text-capitalize">channel</p>
+        </div>
+        <div class="col-sm-7 order-3 order-sm-2 mt-sm-0 mt-3">
+          <div class="checkbox-container d-flex justify-content-start flex-wrap">
+            <div class="form-check d-flex align-items-center mr-2 form-group" id= "channels">
+              <%= render 'organisation/business_service_lines/partials/check_box',options: {}, path: 'channel_ids[]' %>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-1 text-right order-2 flex-sm-half align-self-start">
+          <i class="fa fa-info-circle font-18" data-toggle="tooltip" data-placement="top" title="channel" aria-hidden="true"></i>
         </div>
       </div>
     </div>

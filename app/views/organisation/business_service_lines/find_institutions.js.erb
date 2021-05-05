@@ -1,0 +1,5 @@
+<% if @institutions %>
+  $("#institutions").html('<%= j(render "organisation/business_service_lines/partials/drop_down", options: @institutions&.map{|unit| [unit.name, unit.id] }, prompt_message: "Select your institution", path: "business_service_line[institution]") %>');
+<% else %>
+  $("#institutions").html("<%= escape_javascript render 'organisation/business_service_lines/partials/drop_down', options: {}, path: "business_service_line[institution]", prompt_message: "Select your institution" %>");
+<% end %>

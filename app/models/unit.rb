@@ -18,7 +18,7 @@ class Unit < ApplicationRecord
   has_many :products
   has_many :channels
   has_many :unit_products
-  # has_many :unit_level_products
+  has_many :unit_level_products, through: :unit_products, source: :product
 
   # Validations #
   # validates :name, presence: true

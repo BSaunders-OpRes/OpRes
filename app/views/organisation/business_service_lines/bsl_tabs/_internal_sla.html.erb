@@ -59,12 +59,12 @@
         </div>
         <div class="col-sm-7 order-3 order-sm-2 mt-sm-0 mt-3">
           <div class="checkbox-container d-flex justify-content-start flex-wrap">
-            <div class="form-check d-flex align-items-center form-group mr-2">
-              <% Sla.support_hours.each do |key, val| %>
-                <%= internal_sla.label key %><br />
-                <%= internal_sla.check_box :support_hours, {:multiple => false}, val, nil %>
-              <% end %>
-            </div>
+            <% Sla.support_hours.each do |key, val| %>
+              <div class="form-check d-flex align-items-center form-group mr-2">
+                <%= internal_sla.check_box :support_hours, {:id => "support-hours#{key}",:multiple => false}, val, nil %>
+                <%= internal_sla.label key, class: 'mb-0 ml-2 font-12', for: "support-hours#{key}" %><br />
+              </div>
+            <% end %>
           </div>
         </div>
         <div class="col-sm-1 text-right order-2 flex-sm-half align-self-start">

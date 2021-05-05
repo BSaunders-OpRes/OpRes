@@ -30,11 +30,12 @@
     }
     .checkbox-container {
       .form-check  {
-        width: 115px;
+        width: auto;
       }
     }
   }
 }
+
 .add-supplier-modal {
   .modal-dialog {
     max-width: 700px;
@@ -82,4 +83,23 @@
 .wizard {
   max-width: 800px;
   margin: 50px auto;
+}
+
+.custom-placeholder {
+  input[type="text"]::-webkit-input-placeholder {
+    text-transform: capitalize;
+    font-weight: bold;
+    color: $black;
+  }
+
+  :-ms-input-placeholder {
+    text-transform: capitalize;
+    font-weight: bold;
+    color: $black;
+  }
+
+  input[type="text"]::placeholder {
+    text-transform: capitalize;
+    font-weight: bold;
+  }
 }
