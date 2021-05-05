@@ -9,13 +9,15 @@
       <div class="col-sm-12 mt-3">
         <div class="regions">
           <% organisational_unit.children.each do |regional_unit| %>
-            <div class="region">
+            <div class="region p-2">
               <%= "#{regional_unit.region} - #{regional_unit.children.size} Countries Selected" %>
             </div>
-            <div class="countries">
+            <div class="countries p-2">
               <% regional_unit.children.each do |country_unit| %>
-                <div class="country">
-                  <%= Unit.find_country_by_code(country_unit.country).name %>
+                <div class="country pb-2 d-flex justify-content-between align-items-center">
+                  <span>
+                    <%= Unit.find_country_by_code(country_unit.country).name %>
+                  </span>
                   <div class="faded-popover-wrapper">
                     <div class="faded-popover-title">
                       Click to select Institutions

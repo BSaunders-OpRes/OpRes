@@ -89,8 +89,8 @@ textarea {
   .faded-popover-content {
     position: absolute;
     right: 0;
-    top: -10px;
-    left: 125%;
+    top: 0;
+    left: 110%;
     background: #000;
     width: 230px;
     padding: 40px 0 15px;
@@ -99,6 +99,27 @@ textarea {
     height: 300px;
     overflow-y: auto;
     overflow-x: hidden;
+    transition: .5s all;
+    /* width */
+    &::-webkit-scrollbar {
+      width: 2px;
+    }
+
+    /* Track */
+    &::-webkit-scrollbar-track {
+      background: #f1f1f1;
+      width: 2px;
+    }
+
+    /* Handle */
+    &::-webkit-scrollbar-thumb {
+      background: #333;
+    }
+
+    /* Handle on hover */
+    &::-webkit-scrollbar-thumb:hover {
+      background: #555;
+    }
     .close-i {
       position: absolute;
       right: 13px;
@@ -167,7 +188,21 @@ textarea {
   height: 15px;
   border-radius: 100px;
 }
-
+.scale-1 {
+  transform: scale(1);
+}
+.scale-0 {
+  transform: scale(0);
+}
+.bg-primary-green {
+  background: $primary-green;
+}
+.bg-secondary-green {
+  background: $secondary-green;
+}
+.bg-primary-green {
+  background: $primary-green;
+}
 .bg-red {
   background: #E4412E !important;
 }
@@ -218,6 +253,6 @@ footer {
 }
 
 #container {
-    height: 400px;
+  height: 400px;
 }
 
