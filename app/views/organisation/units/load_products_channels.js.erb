@@ -1,0 +1,4 @@
+<% if @products %>
+  $('#products-dropdown').html("<%= j(render 'organisation/units/partials/check_box', param_name: 'business_service_line[product_ids][]', options: @products.map{ |product| [product.name, product.id] }) %>");
+  $('#channels-dropdown').html("<%= j(render 'organisation/units/partials/check_box', param_name: 'business_service_line[channel_ids][]', options: @channels.map{ |channel| [channel.name, channel.id] }) %>");
+<% end %>

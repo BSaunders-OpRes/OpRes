@@ -86,6 +86,13 @@
 }
 
 .custom-placeholder {
+  i.fa.fa-pencil {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #E4412E;
+  }
   input[type="text"]::-webkit-input-placeholder {
     text-transform: capitalize;
     font-weight: bold;

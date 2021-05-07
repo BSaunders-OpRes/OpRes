@@ -6,7 +6,7 @@ require('channels')
 require('jquery');
 require('popper.js');
 require('bootstrap');
-require("jquery-validation")
+require("@nathanvda/cocoon")
 
 require.context('../images', true);
 

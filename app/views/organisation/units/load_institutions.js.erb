@@ -1,0 +1,5 @@
+<% if @country_unit %>
+  $('#institutions-dropdown').html("<%= j(render 'organisation/units/partials/drop_down', param_name: 'business_service_line[institution]', options: @country_unit.institution_dropdown, prompt_message: 'Select your institution') %>");
+<% else %>
+  $('#institutions-dropdown').html("<%= j(render 'organisation/units/partials/drop_down', param_name: 'business_service_line[institution]', options: {}, prompt_message: 'Select your institution') %>");
+<% end %>

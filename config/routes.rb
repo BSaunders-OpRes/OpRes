@@ -26,10 +26,11 @@ Rails.application.routes.draw do
     resources :journeys,  only: %i[show] do
       post :show, on: :member
     end
-    resources :business_service_lines do
-      get :find_countries,    on: :member
-      get :find_institutions, on: :member
-      get :find_channels_products,     on: :member
+    resources :business_service_lines
+    resources :units, only: []  do
+      get :load_countries,         on: :collection
+      get :load_institutions,      on: :collection
+      get :load_products_channels, on: :collection
     end
     resources :suppliers
     resources :admins

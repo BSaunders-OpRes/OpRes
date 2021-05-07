@@ -3,6 +3,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 gem 'activerecord-import', '~> 0.15.0'
 gem 'bootsnap', '>= 1.4.2', require: false
+gem 'cocoon', '~> 1.2', '>= 1.2.15'
 gem 'countries', '~> 3.1'
 gem 'devise'
 gem 'dotenv-rails'

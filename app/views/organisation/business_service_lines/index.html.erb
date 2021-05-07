@@ -32,7 +32,7 @@
             </tr>
           </thead>
           <tbody>
-            <% @bsls.each do |bsl| %>
+            <% @bsls&.each do |bsl| %>
               <tr>
                 <td class="text-dark"><%= bsl.name %></td>
                 <td><%= bsl.region %></td>

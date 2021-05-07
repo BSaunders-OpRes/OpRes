@@ -29,45 +29,51 @@
           <p class="text-capitalize font-14 font-600">service tier</p>
         </div>
         <div class="col-sm-7 order-3 order-sm-2">
-          <%= form.select :tier, options_for_select(BusinessServiceLine.tiers.map {|k, v| [k.humanize.capitalize, v.to_i]}),{:include_blank => 'Select your Tier'},{ class: 'form-control w-100 font-12 h-auto py-3 shadow-none' } %>
+          <%= form.select :tier, options_for_select(BusinessServiceLine.tiers.map { |k, v| [k] }), { include_blank: 'Select your Tier' }, { class: 'form-control w-100 font-12 h-auto py-3 shadow-none' } %>
         </div>
         <div class="col-sm-1 text-right order-2 flex-sm-half mb-2 mb-sm-0">
           <i class="fa fa-info-circle font-18" data-toggle="tooltip" data-placement="top" title="service tier" aria-hidden="true"></i>
         </div>
       </div>
-      <div class="row align-items-center mt-4">
-        <div class="col-sm-4 flex-sm-1 mb-2 mb-sm-0">
-          <p class="text-capitalize font-14 font-600">region</p>
+      <% if managing_unit.can_access_regional_dropdown? %>
+        <div class="row align-items-center mt-4">
+          <div class="col-sm-4 flex-sm-1 mb-2 mb-sm-0">
+            <p class="text-capitalize font-14 font-600">region</p>
+          </div>
+          <div class="col-sm-7 order-3 order-sm-2">
+            <%= render 'organisation/units/partials/drop_down', param_name: 'business_service_line[region]', options: managing_unit.regional_dropdown, prompt_message: 'Select your region' %>
+          </div>
+          <div class="col-sm-1 text-right order-2 flex-sm-half mb-2 mb-sm-0">
+            <i class="fa fa-info-circle font-18" data-toggle="tooltip" data-placement="top" title="region" aria-hidden="true"></i>
+          </div>
         </div>
-        <div class="col-sm-7 order-3 order-sm-2">
-          <%= render 'organisation/business_service_lines/partials/drop_down', options: organisational_unit.children.map{|unit| [unit.name, unit.id] },prompt_message: 'Select your region',path: 'business_service_line[region]'  %>
+      <% end %>
+      <% if managing_unit.can_access_country_dropdown? %>
+        <div class="row align-items-center mt-4">
+          <div class="col-sm-4 flex-sm-1 mb-2 mb-sm-0">
+            <p class="text-capitalize font-14 font-600">country</p>
+          </div>
+          <div class="col-sm-7 order-3 order-sm-2" id="countries-dropdown">
+            <%= render 'organisation/units/partials/drop_down', param_name: 'business_service_line[country]', options: managing_unit.country_dropdown, prompt_message: 'Select your country' %>
+          </div>
+          <div class="col-sm-1 text-right order-2 flex-sm-half mb-2 mb-sm-0">
+            <i class="fa fa-info-circle font-18" data-toggle="tooltip" data-placement="top" title="country" aria-hidden="true"></i>
+          </div>
         </div>
-        <div class="col-sm-1 text-right order-2 flex-sm-half mb-2 mb-sm-0">
-          <i class="fa fa-info-circle font-18" data-toggle="tooltip" data-placement="top" title="region" aria-hidden="true"></i>
+      <% end %>
+      <% if managing_unit.can_access_institution_dropdown? %>
+        <div class="row align-items-center mt-4">
+          <div class="col-sm-4 flex-sm-1 mb-2 mb-sm-0">
+            <p class="text-capitalize font-14 font-600">brand/institution</p>
+          </div>
+          <div class="col-sm-7 order-3 order-sm-2" id='institutions-dropdown'>
+            <%= render 'organisation/units/partials/drop_down', param_name: 'business_service_line[institution]', options: managing_unit.institution_dropdown, prompt_message: 'Select your institution' %>
+          </div>
+          <div class="col-sm-1 text-right order-2 flex-sm-half mb-2 mb-sm-0">
+            <i class="fa fa-info-circle font-18" data-toggle="tooltip" data-placement="top" title="brand/institution" aria-hidden="true"></i>
+          </div>
         </div>
-      </div>
-      <div class="row align-items-center mt-4">
-        <div class="col-sm-4 flex-sm-1 mb-2 mb-sm-0">
-          <p class="text-capitalize font-14 font-600">country</p>
-        </div>
-        <div class="col-sm-7 order-3 order-sm-2" id="countries" >
-            <%= render 'organisation/business_service_lines/partials/drop_down', options: {} ,prompt_message: 'Select your country',path: 'business_service_line[country]'  %>
-        </div>
-        <div class="col-sm-1 text-right order-2 flex-sm-half mb-2 mb-sm-0">
-          <i class="fa fa-info-circle font-18" data-toggle="tooltip" data-placement="top" title="country" aria-hidden="true"></i>
-        </div>
-      </div>
-      <div class="row align-items-center mt-4">
-        <div class="col-sm-4 flex-sm-1 mb-2 mb-sm-0">
-          <p class="text-capitalize font-14 font-600">brand/institiution</p>
-        </div>
-        <div class="col-sm-7 order-3 order-sm-2" id='institutions'>
-          <%= render 'organisation/business_service_lines/partials/drop_down', options: {} ,prompt_message: 'Select your institiution',path: 'business_service_line[institiution]'  %>
-        </div>
-        <div class="col-sm-1 text-right order-2 flex-sm-half mb-2 mb-sm-0">
-          <i class="fa fa-info-circle font-18" data-toggle="tooltip" data-placement="top" title="brand/institiution" aria-hidden="true"></i>
-        </div>
-      </div>
+      <% end %>
     </div>
     <div class="checkboxes-field mb-5 pb-5 border-bottom">
       <div class="row align-items-center mt-4">
@@ -76,8 +82,8 @@
         </div>
         <div class="col-sm-7 order-3 order-sm-2 mt-sm-0 mt-3">
           <div class="checkbox-container d-flex justify-content-start flex-wrap">
-            <div class="form-check d-flex align-items-center mr-2 form-group" id ='products'>
-              <%= render 'organisation/business_service_lines/partials/check_box',options: {}, path: 'product_ids[]' %>
+            <div class="form-check d-flex align-items-center mr-2 form-group" id="products-dropdown">
+              <%= render 'organisation/units/partials/check_box', options: {}, param_name: 'business_service_line[product_ids][]' %>
             </div>
           </div>
         </div>
@@ -91,8 +97,8 @@
         </div>
         <div class="col-sm-7 order-3 order-sm-2 mt-sm-0 mt-3">
           <div class="checkbox-container d-flex justify-content-start flex-wrap">
-            <div class="form-check d-flex align-items-center mr-2 form-group" id= "channels">
-              <%= render 'organisation/business_service_lines/partials/check_box',options: {}, path: 'channel_ids[]' %>
+            <div class="form-check d-flex align-items-center mr-2 form-group" id="channels-dropdown">
+              <%= render 'organisation/units/partials/check_box', options: {}, param_name: 'business_service_line[channel_ids][]' %>
             </div>
           </div>
         </div>
@@ -101,7 +107,7 @@
         </div>
       </div>
     </div>
-    <%= form.fields_for :material_risk_taker do |risk_taker|%>
+    <%= form.fields_for :material_risk_taker do |risk_taker| %>
       <div class="input-fields mb-5 pb-5 border-bottom">
         <div class="row align-items-center">
           <div class="col-sm-4 flex-sm-1 mb-2 mb-sm-0">

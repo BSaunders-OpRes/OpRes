@@ -2,6 +2,7 @@ class Unit < ApplicationRecord
   # Modules #
   include Firm::CountryConcern
   include Firm::ChildrenConcern
+  include Firm::DropdownConcern
 
   # Associations #
   belongs_to :parent,  class_name: 'Unit', foreign_key: :parent_id,  optional: true
@@ -33,9 +34,9 @@ class Unit < ApplicationRecord
     end
   end
 
-  %w[organisational regional country institution].each do |klass|
+  %w[organisational_unit regional_unit country_unit institution_unit].each do |klass|
     define_method "#{klass}?" do
-      self.class.name.downcase.include? klass
+      self.class.name.downcase.include? klass.split('_').first
     end
   end
 end

@@ -1,48 +1,14 @@
-<%= form.fields_for :risk_appetites do |risk_appetite| %>
-  <div class="tab-pane fade" id="risk-tab" role="tabpanel" aria-labelledby="home-tab">
-    <h5 class="font-600">Set Risk Appetite</h5>
-    <div class="mt-5">
-      <div class="progress-fields mb-5 pb-5 border-bottom">
-        <div class="row align-items-center">
-          <div class="col-md-12 mb-4 custom-placeholder">
-          <%= risk_appetite.text_field :type, placeholder: 'Risk appetite title',class: 'form-control border-top-0 border-left-0 border-right-0 rounded-0 text-capitalize font-14 font-600 pl-0 border-bottom shadow-none' %>
-          </div>
-          <div class="col-md-7 d-flex align-items-center mb-sm-0 mb-2">
-            <div class="slidecontainer d-flex align-items-center w-100">
-              <span class="font-12 font-300 mr-2 light-text text-capitalize font-600">very low</span>
-              <div class="chrome flex-1">
-                <%= risk_appetite.range_field :risk_appetite_value ,min:'0', max: '100', class:'w-100 myinput', id:'myinput_one', value: '0' %>
-              </div>
-              <span class="font-12 font-300 ml-2 light-text text-capitalize font-600">very high</span>
-            </div>
-          </div>
-          <div class="col-md-5 d-flex align-items-center">
-            <div class="input-group w-50 mr-1">
-              <div class="input-group-prepend">
-                <div class="input-group-text px-3 bg-white font-12">%</div>
-              </div>
-              <input type="number"  value= '0' class="form-control form-control font-12 h-auto py-3 shadow-none" id="demo1" placeholder="0" value=0>
-            </div>
-            <a href="" class="btn font-13 font-500 text-capitalize pink-btn font-600 w-50 ml-1 py-3">medium</a>
-          </div>
-          <div class="col-md-12 mt-4">
-            <a class="card cursor-pointer text-decoration-none text-dark" href="#expand1" data-toggle="collapse" aria-expanded="false">
-              <div class="card-body d-flex align-items-center justify-content-between p-3">
-                <span class="text-capitalize light-text font-12 ">add justification</span>
-                <span class="font-600 text-capitalize font-12">expand</span>
-              </div>
-            </a>
-            <div class="collapse w-100" id="expand1">
-              <div class="card">
-                <div class="card-body">
-                  <%= risk_appetite.text_field :description, placeholder: 'Add Description', cols: '30', rows: '3', class: 'form-control'%>
-                </div>
-              </div>
-            </div>
-            <small class="small text-capitalize light-text font-10 font-400">jane doe 12th March 2021 14:19</small>
-          </div>
-        </div>
-      </div>
+<div class="tab-pane fade" id="risk-tab" role="tabpanel" aria-labelledby="home-tab">
+  <h5 class="font-600">Set Risk Appetite</h5>
+  <div class="mt-5 risk-appetites">
+    <%= form.fields_for :risk_appetites do |risk_appetite| %>
+      <%= render 'organisation/business_service_lines/risk_appetite_fields', f: risk_appetite %>
+    <% end %>
+    <div class="links text-right mb-5">
+      <%= link_to_add_association form, :risk_appetites, class: 'font-14 text-dark' do %>
+        <i class="fa fa-plus-circle"></i>
+        <span>Add Risk</span>
+      <% end %>
     </div>
   </div>
-<% end %>
+</div>

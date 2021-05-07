@@ -53,7 +53,7 @@ class Organisation::AdminsController < Organisation::BaseController
   def user_params
     params.require(:user)
           .permit(:first_name, :last_name, :email, :password, :password_confirmation)
-          .merge(role: @unit.organisational? ? User.roles[:org_admin]: User.roles[:unit_admin], unit: organisational_unit)
+          .merge(role: @unit.organisational_unit? ? User.roles[:org_admin]: User.roles[:unit_admin], unit: organisational_unit)
   end
 
   def load_admin

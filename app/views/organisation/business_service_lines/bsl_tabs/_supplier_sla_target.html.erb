@@ -12,7 +12,7 @@
               <div class="input-group-prepend">
                 <div class="input-group-text px-3 bg-white font-12">Minutes</div>
               </div>
-              <%= internal_sla.text_field :severity1_response_time, placeholder:'Enter Target', class: 'form-control form-control font-12 h-auto py-3 shadow-none', id: 'inlineFormInputGroup'%>
+              <%= internal_sla.number_field :severity1_response_time, placeholder:'Enter Target', class: 'form-control form-control font-12 h-auto py-3 shadow-none', id: 'inlineFormInputGroup'%>
             </div>
           </div>
           <div class="col-sm-1 text-right order-2 flex-sm-half mb-2 mb-sm-0">
@@ -28,7 +28,7 @@
               <div class="input-group-prepend">
                 <div class="input-group-text px-3 bg-white font-12">Minutes</div>
               </div>
-              <%= internal_sla.text_field :severity2_response_time, placeholder:'Enter Target', class: 'form-control form-control font-12 h-auto py-3 shadow-none', id: 'inlineFormInputGroup'%>
+              <%= internal_sla.number_field :severity2_response_time, placeholder:'Enter Target', class: 'form-control form-control font-12 h-auto py-3 shadow-none', id: 'inlineFormInputGroup'%>
             </div>
           </div>
           <div class="col-sm-1 text-right order-2 flex-sm-half mb-2 mb-sm-0">
@@ -44,7 +44,7 @@
               <div class="input-group-prepend">
                 <div class="input-group-text px-3 bg-white font-12">Minutes</div>
               </div>
-              <%= internal_sla.text_field :severity3_response_time, placeholder:'Enter Target', class: 'form-control form-control font-12 h-auto py-3 shadow-none', id: 'inlineFormInputGroup'%>
+              <%= internal_sla.number_field :severity3_response_time, placeholder:'Enter Target', class: 'form-control form-control font-12 h-auto py-3 shadow-none', id: 'inlineFormInputGroup'%>
             </div>
           </div>
           <div class="col-sm-1 text-right order-2 flex-sm-half mb-2 mb-sm-0">
@@ -60,7 +60,55 @@
               <div class="input-group-prepend">
                 <div class="input-group-text px-3 bg-white font-12">Minutes</div>
               </div>
-              <%= internal_sla.text_field :severity1_restoration_service_time, placeholder:'Enter Target', class: 'form-control form-control font-12 h-auto py-3 shadow-none', id: 'inlineFormInputGroup'%>  
+              <%= internal_sla.number_field :severity1_restoration_service_time, placeholder:'Enter Target', class: 'form-control form-control font-12 h-auto py-3 shadow-none', id: 'inlineFormInputGroup'%>
+            </div>
+          </div>
+          <div class="col-sm-1 text-right order-2 flex-sm-half mb-2 mb-sm-0">
+            <i class="fa fa-info-circle" aria-hidden="true"></i>
+          </div>
+        </div>
+        <div class="row align-items-center mt-3">
+          <div class="col-sm-4 flex-sm-1 mb-2 mb-sm-0">
+            <p class="text-capitalize font-14 font-600">3rd/4th party serverity 2 restoration of service time</p>
+          </div>
+          <div class="col-sm-7 order-3 order-sm-2">
+            <div class="input-group mb-2">
+              <div class="input-group-prepend">
+                <div class="input-group-text px-3 bg-white font-12">Minutes</div>
+              </div>
+              <%= internal_sla.number_field :severity2_restoration_service_time, placeholder:'Enter Target', class: 'form-control form-control font-12 h-auto py-3 shadow-none', id: 'inlineFormInputGroup'%>
+            </div>
+          </div>
+          <div class="col-sm-1 text-right order-2 flex-sm-half mb-2 mb-sm-0">
+            <i class="fa fa-info-circle" aria-hidden="true"></i>
+          </div>
+        </div>
+        <div class="row align-items-center mt-3">
+          <div class="col-sm-4 flex-sm-1 mb-2 mb-sm-0">
+            <p class="text-capitalize font-14 font-600">3rd/4th party serverity 3 restoration of service time</p>
+          </div>
+          <div class="col-sm-7 order-3 order-sm-2">
+            <div class="input-group mb-2">
+              <div class="input-group-prepend">
+                <div class="input-group-text px-3 bg-white font-12">Minutes</div>
+              </div>
+              <%= internal_sla.number_field :severity3_restoration_service_time, placeholder:'Enter Target', class: 'form-control form-control font-12 h-auto py-3 shadow-none', id: 'inlineFormInputGroup'%>
+            </div>
+          </div>
+          <div class="col-sm-1 text-right order-2 flex-sm-half mb-2 mb-sm-0">
+            <i class="fa fa-info-circle" aria-hidden="true"></i>
+          </div>
+        </div>
+        <div class="row align-items-center mt-3">
+          <div class="col-sm-4 flex-sm-1 mb-2 mb-sm-0">
+            <p class="text-capitalize font-14 font-600">3rd/4th party serverity 4 restoration of service time</p>
+          </div>
+          <div class="col-sm-7 order-3 order-sm-2">
+            <div class="input-group mb-2">
+              <div class="input-group-prepend">
+                <div class="input-group-text px-3 bg-white font-12">Minutes</div>
+              </div>
+              <%= internal_sla.number_field :severity4_restoration_service_time, placeholder:'Enter Target', class: 'form-control form-control font-12 h-auto py-3 shadow-none', id: 'inlineFormInputGroup'%>
             </div>
           </div>
           <div class="col-sm-1 text-right order-2 flex-sm-half mb-2 mb-sm-0">
