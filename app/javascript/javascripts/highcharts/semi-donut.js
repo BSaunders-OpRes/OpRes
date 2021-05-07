@@ -46,7 +46,7 @@ document.addEventListener('turbolinks:load', function() {
         {
           type: 'pie',
           name: '',
-          innerSize: '70%',
+          innerSize: '80%',
           data: [
             {
               name: '',
