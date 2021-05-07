@@ -2,27 +2,11 @@
   overflow-x: hidden;
 }
 .input-field {
-  input[type=email] {
+  input {
     padding: 15px 10px;
     position: relative;
     height: auto;
     font-size: 12px;
-    box-shadow: none;
-  }
-  input[type=password] {
-    padding: 15px 10px;
-    position: relative;
-    height: auto;
-    font-size: 12px;
-    outline: none;
-    box-shadow: none;
-  }
-  input[type=text] {
-    padding: 15px 10px;
-    position: relative;
-    height: auto;
-    font-size: 12px;
-    outline: none;
     box-shadow: none;
   }
   .signup-select {
@@ -139,7 +123,7 @@
   align-items: center;
   padding-left: 100px;
   img {
-    width: 100px;
+    width: 130px;
   }
   @media (max-width: 768px) {
     padding: 0 15px;
@@ -149,4 +133,34 @@
 .login-wrapper {
   overflow-x: hidden;
   height: 100%;
+}
+
+.animated-field {
+  position: relative;
+
+  input {
+    padding: 28px 10px 18px;
+    font-size: 14px;
+    height: 65px;;
+  }
+
+  input:placeholder-shown {
+    padding: 22px 10px;
+  }
+
+  input:placeholder-shown + label {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(1rem);
+  }
+
+  label {
+    display: block;
+    font-weight: 600;
+    transition: all .3s;
+    font-size: 0.75rem;
+    position: absolute;
+    top: 10px;
+    left: 25px;
+  }
 }

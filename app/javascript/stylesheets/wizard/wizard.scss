@@ -8,3 +8,22 @@
     background: #b2f5d8;
   }
 }
+
+.custom-progress {
+  .progress-bar {
+    background-color: $secondary-green;
+  }
+}
+
+.country-box {
+  /*min-width: 200px;*/
+  transition: all .3s;
+  background: $black;
+  white-space: nowrap;
+
+  .text {
+    width: 0;
+    opacity: 0;
+    transition: width .3s;
+  }
+}

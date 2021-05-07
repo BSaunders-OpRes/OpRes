@@ -36,12 +36,13 @@ export default function login(props) {
             <img src={Logo} alt=""/>
           </div>
           <div className='form-wrapper'>
-            <h1 className="mb-5 font-600">Forgot Password</h1>
+            <h2 className="mb-5 font-600">Forgot Password</h2>
             <div className='input-field'>
               <form className='h-100' onSubmit={handleSubmit}>
                 <div className="row">
-                  <div className="form-group col-md-10">
+                  <div className="form-group col-md-10 animated-field">
                     <input type="email" value={email} name="name" className='form-control border-0' placeholder='Email address' onChange={e => setEmail(e.target.value)} />
+                    <label>Email Address</label>
                     <div className='error'>{error}</div>
                   </div>
                 </div>

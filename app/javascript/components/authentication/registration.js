@@ -8,7 +8,8 @@ import { BrowserRouter as Router, Link, Route, Switch } from 'react-router-dom';
 import authentication    from '../../libraries/api/authentication';
 import Carousel          from '../carousel/carousel';
 import Logo              from '../../images/logo.png';
-import organisationTypes from '../../libraries/helpers/constants'; 
+
+import { organisationTypes } from '../../libraries/helpers/constants';
 
 export default function Registration() {
   const [email, setEmail]                                 = useState('');
@@ -60,40 +61,60 @@ export default function Registration() {
             <img src={Logo} alt=""/>
           </div>
           <div className='form-wrapper'>
-            <h1 className="font-600">Sign Up</h1>
+            <h2 className="font-600">Sign Up</h2>
             <div className='form-style'>
               <Tabs defaultActiveKey="customer" id="uncontrolled-tab-example">
               <Tab eventKey="customer" title="Customer Login">
               <div className='input-field'>
                 <form className='h-100' onSubmit = {handleSubmit}>
                   <div className="row">
-                    <div className="form-group col-md-10">
+                    <div className="form-group col-md-10 animated-field">
+                      <input type="text" name="name" className='form-control border-0' placeholder='First Name' />
+                      <label>First Name</label>
+                    </div>
+                  </div>
+                  <div className="row">
+                    <div className="form-group col-md-10 animated-field">
+                      <input type="text" name="name" className='form-control border-0' placeholder='Last Name' />
+                      <label>Last Name</label>
+                    </div>
+                  </div>
+                  <div className="row">
+                    <div className="form-group col-md-10 animated-field">
+                      <input type="text" name="name" className='form-control border-0' placeholder='Job Title' />
+                      <label>Job Title</label>
+                    </div>
+                  </div>
+                  <div className="row">
+                    <div className="form-group col-md-10 animated-field">
                       <input type="email" value={email} name="name" className='form-control border-0' placeholder='Email address' onChange={e => setEmail(e.target.value)} />
+                      <label>Email address</label>
                       <div className='error'>{emailError}</div>
                     </div>
                   </div>
                   <div className="row">
-                    <div className="form-group col-md-10">
-                      <div className='password'>
-                        <input type="password" value={password} name="password" className='form-control border-0' placeholder='Password' onChange={e => setPassword(e.target.value)} />
-                      </div>
+                    <div className="form-group col-md-10 animated-field password">
+                      <input type="password" value={password} name="password" className='form-control border-0' placeholder='Password' onChange={e => setPassword(e.target.value)} />
+                      <label>Password</label>
                       <div className='error'>{passwordError}</div>
                     </div>
                   </div>
                   <div className="row">
-                    <div className="form-group col-md-10">
-                      <input type="text" value={organisationName} name="company_name" className='form-control border-0' placeholder='Organization Name' onChange={e => setorganisationName(e.target.value)} />
+                    <div className="form-group col-md-10 animated-field">
+                      <input type="text" value={organisationName} name="company_name" className='form-control border-0' placeholder='Organisation Name' onChange={e => setorganisationName(e.target.value)} />
+                      <label>Organisation Name</label>
                       <div className='error'>{organisationNameError}</div>
                     </div>
                   </div>
                   <div className="row">
                     <div className="form-group col-md-10">
                       <select className='form-control border-0 signup-select' name="organisationtype" placeholder='Organization Type' onChange={e => setOrganisationType(e.target.value)}>
-                          <option value="">Please select organisation type</option>
-                          <option value="retail">Retail</option>
-                          <option value="investment">Investment</option>
-                          <option value="insurance">Insurance</option>
-                          <option value="other">Other</option>
+                        <option value="">Please select organisation type</option>
+                        {Object.entries(organisationTypes).map((type) => {
+                          return(
+                            <option key={type} value={type[0]}>{type[1]}</option>
+                          )}
+                        )}
                       </select>
                       <div className='error'>{organisationTypeError}</div>
                     </div>
