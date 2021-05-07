@@ -13,6 +13,8 @@ document.addEventListener('turbolinks:load', function() {
     render_donut_chart('eight-donut-sm');
     render_donut_chart('ninth-donut-sm');
     render_donut_chart('tenth-donut-sm');
+    render_donut_chart('eleventh-donut-sm');
+    render_donut_chart('twelth-donut-sm');
   }
 
   function render_donut_chart(element) {

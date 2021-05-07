@@ -1,6 +1,6 @@
 <div class="row" id="management-dashboard">
   <div class="col-md-12 d-flex justify-content-between align-items-center flex-wrap">
-    <h2  class="font-700 text-capitalize">management dashbaord</h2>
+    <h2  class="font-700 text-capitalize">Resilience Data Hub</h2>
     <div class="white-btn px-2 py-1 d-flex align-items-center">
       <span><i class="fa fa-sliders" aria-hidden="true"></i>  </span>
       <span class= 'text-capitalize font-12 font-600 ml-2'>customise</span>
@@ -11,7 +11,7 @@
   <div class="col-md-6 col-lg-3 order-lg-1 order-2 mb-lg-0 mb-4">
     <div class="card border-0 shadow-sm pie-high-chart">
       <div class="card-header bg-white text-center">
-        <p class="font-14 text-capitalize font-600">business service line</p>
+        <p class="font-14 text-capitalize font-600 chart-header-title">business services</p>
         <div class="donut-content">
           <div id="first-donut" class="donut"></div>
           <div class="donut-value font-50 font-700">50</div>
@@ -52,18 +52,19 @@
       </div>
     </div>
   </div>
+
   <div class="col-md-12 col-lg-3 order-lg-2 order-3 mb-lg-0 mb-4">
     <div class="card border-0 shadow-sm pie-high-chart">
       <div class="card-header bg-white text-center">
-        <p class="font-14 text-capitalize font-600">3rd supplier</p>
+        <p class="font-14 text-capitalize font-600 chart-header-title">3rd & 4th Party Supplier Compliance</p>
         <div class="row flex-sm-wrap flex-nowrap">
           <div class="col-sm-6 px-0 d-flex justify-content-center">
             <div class="sm-donut-content">
               <div id="first-donut-sm" class="sm-donut"></div>
               <div class="donut-value font-25 font-700">50</div>
               <div class="donut-desc flex-column">
-                <span class="font-12 font-600 text-capitalize mb-2">4th party</span>
-                <div class="d-flex mt-1">
+                <span class="font-12 font-600 text-capitalize mb-2">3rd party</span>
+                <div class="d-flex mt-1 align-items-center">
                   <div class="circle green-4"></div>
                   <span class="font-12 font-400 ml-1 text-capitalize">compliant</span>
                 </div>
@@ -75,8 +76,8 @@
               <div id="second-donut-sm" class="sm-donut"></div>
               <div class="donut-value font-25 font-700">50</div>
               <div class="donut-desc flex-column">
-                <span class="font-12 font-600 text-capitalize mb-2">3rd party</span>
-                <div class="d-flex mt-1">
+                <span class="font-12 font-600 text-capitalize mb-2">4th party</span>
+                <div class="d-flex mt-1 align-items-center">
                   <div class="circle green-2"></div>
                   <span class="font-12 font-400 ml-1 text-capitalize">non-compliant</span>
                 </div>
@@ -85,30 +86,56 @@
           </div>
         </div>
       </div>
-      <div class="card-body">
-        <div class="tiers d-flex justify-content-between align-items-center mb-3">
-          <div class="color-tier d-flex align-items-center">
-            <span class="font-12 font-400 text-capitalize">Compliant 3rd party</span>
+      <div class="card-body resiliece-indicator">
+        <ul class="nav nav-tabs border-0 mb-3" id="myTab" role="tablist">
+          <li class="nav-item pr-2">
+            <a class="nav-link active border-0 font-11 font-xxl-12 px-0 py-1 text-capitalize text-dark active" id="home-tab" data-toggle="tab" href="#third-party" role="tab" aria-controls="home" aria-selected="true">3rd party</a>
+          </li>
+          <li class="nav-item pr-2">
+            <a class="nav-link font-11 border-0 font-xxl-12 px-0 text-capitalize p-1 text-dark" id="profile-tab" data-toggle="tab" href="#fourth-party" role="tab" aria-controls="profile" aria-selected="false">4th party</a>
+          </li>
+        </ul>
+        <div class="tab-content" id="myTabContent">
+          <div class="tab-pane fade show active pb-3" id="third-party" role="tabpanel" aria-labelledby="home-tab">
+            <div class="tiers d-flex justify-content-between align-items-start mb-3">
+              <div class="color-tier d-flex align-items-center">
+                <span class="font-12 font-400 text-capitalize pr-2">3rd Party Matches Impact Tolerances</span>
+              </div>
+              <span class="font-12 font-700">24</span>
+            </div>
+            <div class="tiers d-flex justify-content-between align-items-start mb-3">
+              <div class="color-tier d-flex align-items-center">
+                <span class="font-12 font-400 text-capitalize pr-2">3rd Party Meets Impact Tolerances</span>
+              </div>
+              <span class="font-12 font-700">24</span>
+            </div>
+            <div class="tiers d-flex justify-content-between align-items-start">
+              <div class="color-tier d-flex align-items-center">
+                <span class="font-12 font-400 text-capitalize pr-2">3rd Party Exceeds Impact Tolerances</span>
+              </div>
+              <span class="font-12 font-700">24</span>
+            </div>
           </div>
-          <span class="font-12 font-700">24</span>
-        </div>
-        <div class="tiers d-flex justify-content-between align-items-center mb-3">
-          <div class="color-tier d-flex align-items-center">
-            <span class="font-12 font-400 text-capitalize">non Compliant 3rd party</span>
+          <div class="tab-pane fade pb-3" id="fourth-party" role="tabpanel" aria-labelledby="home-tab">
+            <div class="tiers d-flex justify-content-between align-items-start mb-3">
+              <div class="color-tier d-flex align-items-center">
+                <span class="font-12 font-400 text-capitalize pr-3">4th Party Matches Impact Tolerances</span>
+              </div>
+              <span class="font-12 font-700">24</span>
+            </div>
+            <div class="tiers d-flex justify-content-between align-items-start mb-3">
+              <div class="color-tier d-flex align-items-center">
+                <span class="font-12 font-400 text-capitalize pr-3">4th Party Meets Impact Tolerances</span>
+              </div>
+              <span class="font-12 font-700">24</span>
+            </div>
+            <div class="tiers d-flex justify-content-between align-items-start">
+              <div class="color-tier d-flex align-items-center">
+                <span class="font-12 font-400 text-capitalize pr-3">4th Party Exceeds Impact Tolerances </span>
+              </div>
+              <span class="font-12 font-700">24</span>
+            </div>
           </div>
-          <span class="font-12 font-700">24</span>
-        </div>
-        <div class="tiers d-flex justify-content-between align-items-center mb-3">
-          <div class="color-tier d-flex align-items-center">
-            <span class="font-12 font-400 text-capitalize">Compliant 3rd party</span>
-          </div>
-          <span class="font-12 font-700">24</span>
-        </div>
-        <div class="tiers d-flex justify-content-between align-items-center">
-          <div class="color-tier d-flex align-items-center">
-            <span class="font-12 font-400 text-capitalize">non Compliant 4th party</span>
-          </div>
-          <span class="font-12 font-700">24</span>
         </div>
       </div>
       <div class="card-footer text-center bg-white">
@@ -116,18 +143,19 @@
       </div>
     </div>
   </div>
+
   <div class="col-md-12 col-lg-3 order-lg-3 order-4 mb-lg-0 mb-4">
     <div class="card border-0 shadow-sm pie-high-chart">
       <div class="card-header bg-white text-center">
-        <p class="font-14 text-capitalize font-600">4th supplier</p>
+        <p class="font-14 text-capitalize font-600 chart-header-title">Critical & Important Supplier Compliance</p>
         <div class="row flex-sm-wrap flex-nowrap">
           <div class="col-sm-6 px-0 d-flex justify-content-center">
             <div class="sm-donut-content">
               <div id="third-donut-sm" class="sm-donut"></div>
               <div class="donut-value font-25 font-700">50</div>
               <div class="donut-desc flex-column">
-                <span class="font-12 font-600 text-capitalize mb-2">4th party</span>
-                <div class="d-flex mt-1">
+                <span class="font-12 font-600 text-capitalize mb-2">critical system</span>
+                <div class="d-flex mt-1 align-items-center">
                   <div class="circle green-4"></div>
                   <span class="font-12 font-400 ml-1 text-capitalize">compliant</span>
                 </div>
@@ -139,8 +167,8 @@
               <div id="fourth-donut-sm" class="sm-donut"></div>
               <div class="donut-value font-25 font-700">50</div>
               <div class="donut-desc flex-column">
-                <span class="font-12 font-600 text-capitalize mb-2">3rd party</span>
-                <div class="d-flex mt-1">
+                <span class="font-12 font-600 text-capitalize mb-2">important system</span>
+                <div class="d-flex mt-1 align-items-center">
                   <div class="circle green-2"></div>
                   <span class="font-12 font-400 ml-1 text-capitalize">non-compliant</span>
                 </div>
@@ -149,30 +177,57 @@
           </div>
         </div>
       </div>
-      <div class="card-body">
-        <div class="tiers d-flex justify-content-between align-items-center mb-3">
-          <div class="color-tier d-flex align-items-center">
-            <span class="font-12 font-400 text-capitalize">Compliant 3rd party</span>
+
+      <div class="card-body resiliece-indicator">
+        <ul class="nav nav-tabs border-0 mb-3" id="myTab" role="tablist">
+          <li class="nav-item pr-2">
+            <a class="nav-link active border-0 font-11 font-xxl-12 px-0 py-1 text-capitalize text-dark active" id="home-tab" data-toggle="tab" href="#critical-system" role="tab" aria-controls="home" aria-selected="true">Critical Systems</a>
+          </li>
+          <li class="nav-item pr-2">
+            <a class="nav-link font-11 border-0 font-xxl-12 px-0 text-capitalize p-1 text-dark" id="profile-tab" data-toggle="tab" href="#important-system" role="tab" aria-controls="profile" aria-selected="false">Important Systems</a>
+          </li>
+        </ul>
+        <div class="tab-content" id="myTabContent">
+          <div class="tab-pane fade show active pb-3" id="critical-system" role="tabpanel" aria-labelledby="home-tab">
+            <div class="tiers d-flex justify-content-between align-items-start mb-3">
+              <div class="color-tier d-flex align-items-center">
+                <span class="font-12 font-400 text-capitalize pr-2">Critical System Matches Impact Tolerances</span>
+              </div>
+              <span class="font-12 font-700">24</span>
+            </div>
+            <div class="tiers d-flex justify-content-between align-items-start mb-3">
+              <div class="color-tier d-flex align-items-center">
+                <span class="font-12 font-400 text-capitalize pr-2">Critical System Meets Impact Tolerances</span>
+              </div>
+              <span class="font-12 font-700">24</span>
+            </div>
+            <div class="tiers d-flex justify-content-between align-items-start">
+              <div class="color-tier d-flex align-items-center">
+                <span class="font-12 font-400 text-capitalize pr-2">Critical System Exceeds Impact Tolerances</span>
+              </div>
+              <span class="font-12 font-700">24</span>
+            </div>
           </div>
-          <span class="font-12 font-700">24</span>
-        </div>
-        <div class="tiers d-flex justify-content-between align-items-center mb-3">
-          <div class="color-tier d-flex align-items-center">
-            <span class="font-12 font-400 text-capitalize">non Compliant 3rd party</span>
+          <div class="tab-pane fade pb-3" id="important-system" role="tabpanel" aria-labelledby="home-tab">
+            <div class="tiers d-flex justify-content-between align-items-start mb-3">
+              <div class="color-tier d-flex align-items-center">
+                <span class="font-12 font-400 text-capitalize pr-3">Important System Matches Impact Tolerances</span>
+              </div>
+              <span class="font-12 font-700">24</span>
+            </div>
+            <div class="tiers d-flex justify-content-between align-items-start mb-3">
+              <div class="color-tier d-flex align-items-center">
+                <span class="font-12 font-400 text-capitalize pr-3">Important System Meets Impact Tolerances</span>
+              </div>
+              <span class="font-12 font-700">24</span>
+            </div>
+            <div class="tiers d-flex justify-content-between align-items-start">
+              <div class="color-tier d-flex align-items-center">
+                <span class="font-12 font-400 text-capitalize pr-3">Important System Exceeds Impact Tolerances</span>
+              </div>
+              <span class="font-12 font-700">24</span>
+            </div>
           </div>
-          <span class="font-12 font-700">24</span>
-        </div>
-        <div class="tiers d-flex justify-content-between align-items-center mb-3">
-          <div class="color-tier d-flex align-items-center">
-            <span class="font-12 font-400 text-capitalize">Compliant 3rd party</span>
-          </div>
-          <span class="font-12 font-700">24</span>
-        </div>
-        <div class="tiers d-flex justify-content-between align-items-center">
-          <div class="color-tier d-flex align-items-center">
-            <span class="font-12 font-400 text-capitalize">non Compliant 4th party</span>
-          </div>
-          <span class="font-12 font-700">24</span>
         </div>
       </div>
       <div class="card-footer text-center bg-white">
@@ -180,10 +235,11 @@
       </div>
     </div>
   </div>
+
   <div class="col-md-6 col-lg-3 order-lg-4 order-1 mb-lg-0 mb-4">
     <div class="card border-0 shadow-sm pie-high-chart">
       <div class="card-header bg-white text-center">
-        <p class="font-14 text-capitalize font-600">business service line</p>
+        <p class="font-14 text-capitalize font-600 chart-header-title">Cloud Service Provider Distribution</p>
         <div class="donut-content">
           <div id="second-donut" class="donut"></div>
           <div class="donut-value font-50 font-700">50</div>
@@ -207,14 +263,14 @@
         <div class="tiers d-flex justify-content-between align-items-center mb-3">
           <div class="color-tier d-flex align-items-center">
             <div class="circle green-3"></div>
-            <span class="font-12 font-400 ml-2">azure</span>
+            <span class="font-12 font-400 ml-2 text-capitalize">Azure</span>
           </div>
           <span class="font-12 font-700">24</span>
         </div>
         <div class="tiers d-flex justify-content-between align-items-center">
           <div class="color-tier d-flex align-items-center">
             <div class="circle green-4"></div>
-            <span class="font-12 font-400 ml-2">private cloud</span>
+            <span class="font-12 font-400 ml-2 text-capitalize">Private Cloud</span>
           </div>
           <span class="font-12 font-700">24</span>
         </div>
@@ -351,43 +407,52 @@
             <i class="fa fa-exclamation-triangle font-25 text-red" aria-hidden="true"></i>
             <h2 class="font-700 font-50">15</h2>
           </div>
-          <p class="font-12 font-xxl-14 font-600">Resilience indicators outside of the risk appetite</p>
+          <p class="font-12 font-xxl-14 font-600 text-capitalize">Impact tolerances outside of risk appetite</p>
         </div>
       </div>
       <div class="card-body position-relative pt-1 pb-5">
         <ul class="nav nav-tabs border-0 mb-3" id="myTab" role="tablist">
           <li class="nav-item pr-2">
-            <a class="nav-link active border-0 font-12 font-xxl-12 px-0 py-1 text-capitalize text-dark" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">tier 1</a>
+            <a class="nav-link active border-0 font-12 font-xxl-12 px-0 py-1 text-capitalize text-dark" id="home-tab" data-toggle="tab" href="#tier-1" role="tab" aria-controls="home" aria-selected="true">tier 1</a>
           </li>
           <li class="nav-item pr-2">
-            <a class="nav-link font-12 border-0 font-xxl-12 px-0 text-capitalize p-1 text-dark" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">tier 2</a>
+            <a class="nav-link font-12 border-0 font-xxl-12 px-0 text-capitalize p-1 text-dark" id="profile-tab" data-toggle="tab" href="#tier-2" role="tab" aria-controls="profile" aria-selected="false">tier 2</a>
           </li>
           <li class="nav-item pr-2">
-            <a class="nav-link font-12 border-0 font-xxl-12 px-0 text-capitalize py-1 text-dark" id="contact-tab " data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">tier 2</a>
+            <a class="nav-link font-12 border-0 font-xxl-12 px-0 text-capitalize py-1 text-dark" id="contact-tab " data-toggle="tab" href="#tier-3" role="tab" aria-controls="contact" aria-selected="false">tier 3</a>
+          </li>
+          <li class="nav-item pr-2">
+            <a class="nav-link font-12 border-0 font-xxl-12 px-0 text-capitalize py-1 text-dark" id="contact-tab " data-toggle="tab" href="#tier-4" role="tab" aria-controls="contact" aria-selected="false">tier 4</a>
           </li>
         </ul>
         <div class="tab-content" id="myTabContent">
-          <div class="tab-pane fade show active pb-3" id="home" role="tabpanel" aria-labelledby="home-tab">
+          <div class="tab-pane fade show active pb-3" id="tier-1" role="tabpanel" aria-labelledby="home-tab">
             <p class="font-11 font-xxl-14 text-secondary ">Tier 1 business service line that are either compliant or non-compliant with Risk Appetite. Categorized as Critical or important</p>
 
             <div class="row">
               <div class="col-md-4 px-0">
                 <div id="fifth-donut-sm" class="sm-donut mx-auto"></div>
-
               </div>
               <div class="col-md-8 mt-3">
-                <h5 class="font-12 font-xxl-14 font-700 text-capitalize">critical</h5>
+                <h5 class="font-12 font-xxl-14 font-700 text-capitalize">critical system</h5>
                 <div class="tiers d-flex justify-content-between align-items-center mt-2">
                   <div class="color-tier d-flex align-items-center">
                     <div class="circle green-4"></div>
-                    <span class="font-12 font-400 ml-2 text-capitalize">compliant</span>
+                    <span class="font-12 font-400 ml-2 text-capitalize flex-1 cursor-pointer" data-toggle="tooltip" data-placement="top" title="Critical System Matches Impact Tolerances">Matches Impact Tolerances...</span>
                   </div>
                   <span class="font-12 font-700">24</span>
                 </div>
                 <div class="tiers d-flex justify-content-between align-items-center mt-2">
                   <div class="color-tier d-flex align-items-center">
                     <div class="circle green-2"></div>
-                    <span class="font-12 font-400 ml-2 text-capitalize">non-compliant</span>
+                    <span class="font-12 font-400 ml-2 text-capitalize flex-1 cursor-pointer" data-toggle="tooltip" data-placement="top" title="Critical System Meets Impact Tolerances">Meets Impact Tolerances...</span>
+                  </div>
+                  <span class="font-12 font-700">24</span>
+                </div>
+                <div class="tiers d-flex justify-content-between align-items-center mt-2">
+                  <div class="color-tier d-flex align-items-center">
+                    <div class="circle green-3"></div>
+                    <span class="font-12 font-400 ml-2 text-capitalize flex-1 cursor-pointer" data-toggle="tooltip" data-placement="top" title="Critical System Exceeds Impact Tolerances">Exceeds Impact Tolerances...</span>
                   </div>
                   <span class="font-12 font-700">24</span>
                 </div>
@@ -399,18 +464,25 @@
 
               </div>
               <div class="col-md-8 mt-3">
-                <h5 class="font-12 font-xxl-14 font-700 text-capitalize">important</h5>
+                <h5 class="font-12 font-xxl-14 font-700 text-capitalize">important system</h5>
                 <div class="tiers d-flex justify-content-between align-items-center mt-2">
                   <div class="color-tier d-flex align-items-center">
                     <div class="circle green-4"></div>
-                    <span class="font-12 font-400 ml-2 text-capitalize">compliant</span>
+                    <span class="font-12 font-400 ml-2 text-capitalize flex-1 cursor-pointer" data-toggle="tooltip" data-placement="top" title="Important System Matches Impact Tolerances">Matches Impact Tolerances</span>
                   </div>
                   <span class="font-12 font-700">24</span>
                 </div>
                 <div class="tiers d-flex justify-content-between align-items-center mt-2">
                   <div class="color-tier d-flex align-items-center">
                     <div class="circle green-2"></div>
-                    <span class="font-12 font-400 ml-2 text-capitalize">non-compliant</span>
+                    <span class="font-12 font-400 ml-2 text-capitalize cursor-pointer flex-1" data-toggle="tooltip" data-placement="top" title="Important System Meets Impact Tolerances">Meets Impact Tolerances</span>
+                  </div>
+                  <span class="font-12 font-700">24</span>
+                </div>
+                <div class="tiers d-flex justify-content-between align-items-center mt-2">
+                  <div class="color-tier d-flex align-items-center">
+                    <div class="circle green-3"></div>
+                    <span class="font-12 font-400 ml-2 text-capitalize cursor-pointer flex-1" data-toggle="tooltip" data-placement="top" title="Important System Exceeds Impact Tolerances">Exceeds Impact Tolerances</span>
                   </div>
                   <span class="font-12 font-700">24</span>
                 </div>
@@ -420,27 +492,33 @@
               <a href="" class="text-capitalize font-12 font-xxl-14 border-bottom text-black">view all</a>
             </div>
           </div>
-          <div class="tab-pane fade pb-3" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+          <div class="tab-pane fade pb-3" id="tier-2" role="tabpanel" aria-labelledby="profile-tab">
             <p class="font-11 font-xxl-14 text-secondary ">Tier 2 business service line that are either compliant or non-compliant with Risk Appetite. Categorized as Critical or important</p>
 
             <div class="row">
               <div class="col-md-4 px-0">
                 <div id="seventh-donut-sm" class="sm-donut mx-auto"></div>
-
               </div>
               <div class="col-md-8 mt-3">
-                <h5 class="font-12 font-xxl-14 font-700 text-capitalize">critical</h5>
+                <h5 class="font-12 font-xxl-14 font-700 text-capitalize">critical system</h5>
                 <div class="tiers d-flex justify-content-between align-items-center mt-2">
                   <div class="color-tier d-flex align-items-center">
                     <div class="circle green-4"></div>
-                    <span class="font-12 font-400 ml-2 text-capitalize">compliant</span>
+                    <span class="font-12 font-400 ml-2 text-capitalize flex-1 cursor-pointer" data-toggle="tooltip" data-placement="top" title="Critical System Matches Impact Tolerances">Matches Impact Tolerances...</span>
                   </div>
                   <span class="font-12 font-700">24</span>
                 </div>
                 <div class="tiers d-flex justify-content-between align-items-center mt-2">
                   <div class="color-tier d-flex align-items-center">
                     <div class="circle green-2"></div>
-                    <span class="font-12 font-400 ml-2 text-capitalize">non-compliant</span>
+                    <span class="font-12 font-400 ml-2 text-capitalize flex-1 cursor-pointer" data-toggle="tooltip" data-placement="top" title="Critical System Meets Impact Tolerances">Meets Impact Tolerances...</span>
+                  </div>
+                  <span class="font-12 font-700">24</span>
+                </div>
+                <div class="tiers d-flex justify-content-between align-items-center mt-2">
+                  <div class="color-tier d-flex align-items-center">
+                    <div class="circle green-3"></div>
+                    <span class="font-12 font-400 ml-2 text-capitalize flex-1 cursor-pointer" data-toggle="tooltip" data-placement="top" title="Critical System Exceeds Impact Tolerances">Exceeds Impact Tolerances...</span>
                   </div>
                   <span class="font-12 font-700">24</span>
                 </div>
@@ -452,18 +530,25 @@
 
               </div>
               <div class="col-md-8 mt-3">
-                <h5 class="font-12 font-xxl-14 font-700 text-capitalize">important</h5>
+                <h5 class="font-12 font-xxl-14 font-700 text-capitalize">important system</h5>
                 <div class="tiers d-flex justify-content-between align-items-center mt-2">
                   <div class="color-tier d-flex align-items-center">
                     <div class="circle green-4"></div>
-                    <span class="font-12 font-400 ml-2 text-capitalize">compliant</span>
+                    <span class="font-12 font-400 ml-2 text-capitalize flex-1 cursor-pointer" data-toggle="tooltip" data-placement="top" title="Important System Matches Impact Tolerances">Matches Impact Tolerances</span>
                   </div>
                   <span class="font-12 font-700">24</span>
                 </div>
                 <div class="tiers d-flex justify-content-between align-items-center mt-2">
                   <div class="color-tier d-flex align-items-center">
                     <div class="circle green-2"></div>
-                    <span class="font-12 font-400 ml-2 text-capitalize">non-compliant</span>
+                    <span class="font-12 font-400 ml-2 text-capitalize cursor-pointer flex-1" data-toggle="tooltip" data-placement="top" title="Important System Meets Impact Tolerances">Meets Impact Tolerances</span>
+                  </div>
+                  <span class="font-12 font-700">24</span>
+                </div>
+                <div class="tiers d-flex justify-content-between align-items-center mt-2">
+                  <div class="color-tier d-flex align-items-center">
+                    <div class="circle green-3"></div>
+                    <span class="font-12 font-400 ml-2 text-capitalize cursor-pointer flex-1" data-toggle="tooltip" data-placement="top" title="Important System Exceeds Impact Tolerances">Exceeds Impact Tolerances</span>
                   </div>
                   <span class="font-12 font-700">24</span>
                 </div>
@@ -473,25 +558,32 @@
               <a href="" class="text-capitalize font-12 font-xxl-14 border-bottom text-black">view all</a>
             </div>
           </div>
-          <div class="tab-pane fade pb-3" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+          <div class="tab-pane fade pb-3" id="tier-3" role="tabpanel" aria-labelledby="contact-tab">
             <p class="font-11 font-xxl-14 text-secondary ">Tier 3 business service line that are either compliant or non-compliant with Risk Appetite. Categorized as Critical or important</p>
             <div class="row">
               <div class="col-md-4 px-0">
                 <div id="ninth-donut-sm" class="sm-donut mx-auto"></div>
               </div>
               <div class="col-md-8 mt-3">
-                <h5 class="font-12 font-xxl-14 font-700 text-capitalize">critical</h5>
+                <h5 class="font-12 font-xxl-14 font-700 text-capitalize">critical system</h5>
                 <div class="tiers d-flex justify-content-between align-items-center mt-2">
                   <div class="color-tier d-flex align-items-center">
                     <div class="circle green-4"></div>
-                    <span class="font-12 font-400 ml-2 text-capitalize">compliant</span>
+                    <span class="font-12 font-400 ml-2 text-capitalize flex-1 cursor-pointer" data-toggle="tooltip" data-placement="top" title="Critical System Matches Impact Tolerances">Matches Impact Tolerances...</span>
                   </div>
                   <span class="font-12 font-700">24</span>
                 </div>
                 <div class="tiers d-flex justify-content-between align-items-center mt-2">
                   <div class="color-tier d-flex align-items-center">
                     <div class="circle green-2"></div>
-                    <span class="font-12 font-400 ml-2 text-capitalize">non-compliant</span>
+                    <span class="font-12 font-400 ml-2 text-capitalize flex-1 cursor-pointer" data-toggle="tooltip" data-placement="top" title="Critical System Meets Impact Tolerances">Meets Impact Tolerances...</span>
+                  </div>
+                  <span class="font-12 font-700">24</span>
+                </div>
+                <div class="tiers d-flex justify-content-between align-items-center mt-2">
+                  <div class="color-tier d-flex align-items-center">
+                    <div class="circle green-3"></div>
+                    <span class="font-12 font-400 ml-2 text-capitalize flex-1 cursor-pointer" data-toggle="tooltip" data-placement="top" title="Critical System Exceeds Impact Tolerances">Exceeds Impact Tolerances...</span>
                   </div>
                   <span class="font-12 font-700">24</span>
                 </div>
@@ -500,20 +592,93 @@
             <div class="row mt-3">
               <div class="col-md-4 px-0">
                 <div id="tenth-donut-sm" class="sm-donut mx-auto"></div>
+
               </div>
               <div class="col-md-8 mt-3">
-                <h5 class="font-12 font-xxl-14 font-700 text-capitalize">important</h5>
+                <h5 class="font-12 font-xxl-14 font-700 text-capitalize">important system</h5>
                 <div class="tiers d-flex justify-content-between align-items-center mt-2">
                   <div class="color-tier d-flex align-items-center">
                     <div class="circle green-4"></div>
-                    <span class="font-12 font-400 ml-2 text-capitalize">compliant</span>
+                    <span class="font-12 font-400 ml-2 text-capitalize flex-1 cursor-pointer" data-toggle="tooltip" data-placement="top" title="Important System Matches Impact Tolerances">Matches Impact Tolerances</span>
                   </div>
                   <span class="font-12 font-700">24</span>
                 </div>
                 <div class="tiers d-flex justify-content-between align-items-center mt-2">
                   <div class="color-tier d-flex align-items-center">
                     <div class="circle green-2"></div>
-                    <span class="font-12 font-400 ml-2 text-capitalize">non-compliant</span>
+                    <span class="font-12 font-400 ml-2 text-capitalize cursor-pointer flex-1" data-toggle="tooltip" data-placement="top" title="Important System Meets Impact Tolerances">Meets Impact Tolerances</span>
+                  </div>
+                  <span class="font-12 font-700">24</span>
+                </div>
+                <div class="tiers d-flex justify-content-between align-items-center mt-2">
+                  <div class="color-tier d-flex align-items-center">
+                    <div class="circle green-3"></div>
+                    <span class="font-12 font-400 ml-2 text-capitalize cursor-pointer flex-1" data-toggle="tooltip" data-placement="top" title="Important System Exceeds Impact Tolerances">Exceeds Impact Tolerances</span>
+                  </div>
+                  <span class="font-12 font-700">24</span>
+                </div>
+              </div>
+            </div>
+            <div class="d-flex py-2 justify-content-center view-all">
+              <a href="" class="text-capitalize font-12 font-xxl-14 border-bottom text-black">view all</a>
+            </div>
+          </div>
+          <div class="tab-pane fade pb-3" id="tier-4" role="tabpanel" aria-labelledby="contact-tab">
+            <p class="font-11 font-xxl-14 text-secondary ">Tier 3 business service line that are either compliant or non-compliant with Risk Appetite. Categorized as Critical or important</p>
+            <div class="row">
+              <div class="col-md-4 px-0">
+                <div id="eleventh-donut-sm" class="sm-donut mx-auto"></div>
+              </div>
+              <div class="col-md-8 mt-3">
+                <h5 class="font-12 font-xxl-14 font-700 text-capitalize">critical system</h5>
+                <div class="tiers d-flex justify-content-between align-items-center mt-2">
+                  <div class="color-tier d-flex align-items-center">
+                    <div class="circle green-4"></div>
+                    <span class="font-12 font-400 ml-2 text-capitalize flex-1 cursor-pointer" data-toggle="tooltip" data-placement="top" title="Critical System Matches Impact Tolerances">Matches Impact Tolerances...</span>
+                  </div>
+                  <span class="font-12 font-700">24</span>
+                </div>
+                <div class="tiers d-flex justify-content-between align-items-center mt-2">
+                  <div class="color-tier d-flex align-items-center">
+                    <div class="circle green-2"></div>
+                    <span class="font-12 font-400 ml-2 text-capitalize flex-1 cursor-pointer" data-toggle="tooltip" data-placement="top" title="Critical System Meets Impact Tolerances">Meets Impact Tolerances...</span>
+                  </div>
+                  <span class="font-12 font-700">24</span>
+                </div>
+                <div class="tiers d-flex justify-content-between align-items-center mt-2">
+                  <div class="color-tier d-flex align-items-center">
+                    <div class="circle green-3"></div>
+                    <span class="font-12 font-400 ml-2 text-capitalize flex-1 cursor-pointer" data-toggle="tooltip" data-placement="top" title="Critical System Exceeds Impact Tolerances">Exceeds Impact Tolerances...</span>
+                  </div>
+                  <span class="font-12 font-700">24</span>
+                </div>
+              </div>
+            </div>
+            <div class="row mt-3">
+              <div class="col-md-4 px-0">
+                <div id="twelth-donut-sm" class="sm-donut mx-auto"></div>
+
+              </div>
+              <div class="col-md-8 mt-3">
+                <h5 class="font-12 font-xxl-14 font-700 text-capitalize">important system</h5>
+                <div class="tiers d-flex justify-content-between align-items-center mt-2">
+                  <div class="color-tier d-flex align-items-center">
+                    <div class="circle green-4"></div>
+                    <span class="font-12 font-400 ml-2 text-capitalize flex-1 cursor-pointer" data-toggle="tooltip" data-placement="top" title="Important System Matches Impact Tolerances">Matches Impact Tolerances</span>
+                  </div>
+                  <span class="font-12 font-700">24</span>
+                </div>
+                <div class="tiers d-flex justify-content-between align-items-center mt-2">
+                  <div class="color-tier d-flex align-items-center">
+                    <div class="circle green-2"></div>
+                    <span class="font-12 font-400 ml-2 text-capitalize cursor-pointer flex-1" data-toggle="tooltip" data-placement="top" title="Important System Meets Impact Tolerances">Meets Impact Tolerances</span>
+                  </div>
+                  <span class="font-12 font-700">24</span>
+                </div>
+                <div class="tiers d-flex justify-content-between align-items-center mt-2">
+                  <div class="color-tier d-flex align-items-center">
+                    <div class="circle green-3"></div>
+                    <span class="font-12 font-400 ml-2 text-capitalize cursor-pointer flex-1" data-toggle="tooltip" data-placement="top" title="Important System Exceeds Impact Tolerances">Exceeds Impact Tolerances</span>
                   </div>
                   <span class="font-12 font-700">24</span>
                 </div>
@@ -559,7 +724,7 @@
         <h5 class="text-capitalize font-600 font-12 font-xxl-14 mb-2">Retail current account journey</h5>
         <p class="text-capitalize font-10 font-xxl-12 font-400">Resilience posture status</p>
         <div class="semi-donut-content">
-          <div id="semi-donut-1" class="donut mt-3"></div>
+          <div id="semi-donut-1" class="donut mt-3 semi-circle"></div>
           <div class="donut-value font-50 font-700 w-100">
             <p class="text-capitalize font-12 font-600 mb-2">Sub Optimal resilience posture </p>
             <span class="text-capitalize font-11 font-300">Risk Appetite Validation required</span>
@@ -603,7 +768,7 @@
         <h5 class="text-capitalize font-600 font-12 font-xxl-14 mb-2">business current account journeys</h5>
         <p class="text-capitalize font-10 font-xxl-12 font-400">Resilience posture status</p>
         <div class="semi-donut-content">
-          <div id="semi-donut-2" class="donut mt-3"></div>
+          <div id="semi-donut-2" class="donut mt-3 semi-circle"></div>
           <div class="donut-value font-50 font-700 w-100">
             <p class="text-capitalize font-12 font-600 mb-2">Sub Optimal resilience posture </p>
             <span class="text-capitalize font-11 font-300">Risk Appetite Validation required</span>
@@ -647,7 +812,7 @@
         <h5 class="text-capitalize font-600 font-12 font-xxl-14 mb-2">loans journeys</h5>
         <p class="text-capitalize font-10 font-xxl-12 font-400">Resilience posture status</p>
         <div class="semi-donut-content">
-          <div id="semi-donut-3" class="donut mt-3"></div>
+          <div id="semi-donut-3" class="donut mt-3 semi-circle"></div>
           <div class="donut-value font-50 font-700 w-100">
             <p class="text-capitalize font-12 font-600 mb-2">Sub Optimal resilience posture </p>
             <span class="text-capitalize font-11 font-300">Risk Appetite Validation required</span>
@@ -691,7 +856,7 @@
         <h5 class="text-capitalize font-600 font-12 font-xxl-14 mb-2">Mortgage journeys</h5>
         <p class="text-capitalize font-10 font-xxl-12 font-400">Resilience posture status</p>
         <div class="semi-donut-content">
-          <div id="semi-donut-4" class="donut mt-3"></div>
+          <div id="semi-donut-4" class="donut mt-3 semi-circle"></div>
           <div class="donut-value font-50 font-700 w-100">
             <p class="text-capitalize font-12 font-600 mb-2">Sub Optimal resilience posture </p>
             <span class="text-capitalize font-11 font-300">Risk Appetite Validation required</span>

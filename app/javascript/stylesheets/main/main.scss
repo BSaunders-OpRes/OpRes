@@ -1,5 +1,5 @@
 body {
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'DM Sans', sans-serif;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -35,6 +35,12 @@ a {
 .tooltip-inner {
   text-transform: capitalize;
 }
+.flex-point-15 {
+  flex: .15;
+}
+.flex-inherit {
+  flex: inherit;
+}
 .form-control:disabled {
   opacity: .4 !important;
   background: #fff !important;
@@ -55,18 +61,18 @@ textarea {
   resize: none;
 }
 .green-border-card {
-  border: 3px solid #6BEAB3;
-  background: #F3F5FA;
+  border: 3px solid $primary-green;
+  background: $body-bg-color;
 }
 .black-border-card {
   border: 3px solid #000;
-  background: #F3F5FA;
+  background: $body-bg-color;
 }
 .cursor-pointer {
   cursor: pointer;
 }
 .body-bg-color {
-  background: #F3F5FA;
+  background: $body-bg-color;
 }
 .content {
   padding-top: 75px;
@@ -91,32 +97,25 @@ textarea {
     right: 0;
     top: 0;
     left: 110%;
-    background: #000;
+    background: $black;
     width: 230px;
     padding: 40px 0 15px;
-    color: #fff;
+    color: $white;
     z-index: 1;
     height: 300px;
     overflow-y: auto;
     overflow-x: hidden;
     transition: .5s all;
-    /* width */
     &::-webkit-scrollbar {
       width: 2px;
     }
-
-    /* Track */
     &::-webkit-scrollbar-track {
       background: #f1f1f1;
       width: 2px;
     }
-
-    /* Handle */
     &::-webkit-scrollbar-thumb {
       background: #333;
     }
-
-    /* Handle on hover */
     &::-webkit-scrollbar-thumb:hover {
       background: #555;
     }
@@ -148,7 +147,7 @@ textarea {
     background: $light-grey;
     width: 190px;
     padding: 15px;
-    color: #fff;
+    color: $white;
     z-index: 1;
     height: 170px;
     overflow-y: auto;
@@ -174,7 +173,7 @@ textarea {
   }
 }
 .white-btn {
-  background: #fff;
+  background: $white;
   border-radius: 5px;
 }
 
@@ -204,23 +203,23 @@ textarea {
   background: $primary-green;
 }
 .bg-red {
-  background: #E4412E !important;
+  background: $red !important;
 }
 .bg-yellow {
-  background: #FFD730 !important;
+  background: $yellow !important;
 }
 .bg-dark-yellow {
-  background: #E39A2B !important;
+  background: $dark-yellow !important;
 }
 
 .text-red {
-  color: #E4412E;
+  color: $red;
 }
 .text-yellow {
-  color: #FFD730;
+  color: $yellow;
 }
 .text-dark-yellow {
-  color: #E39A2B;
+  color: $dark-yellow;
 }
 
 footer {

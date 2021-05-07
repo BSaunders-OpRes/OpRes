@@ -15,13 +15,13 @@
         a.active {
           position: relative;
           font-weight: bold;
-          color: #000;
+          color: $black;
           &:after {
             content: "";
             position: absolute;
             height: 2px;
             width: 30px;
-            background: #6BEAB3;
+            background: $primary-green;
             left: 0;
             top: 90%;
           }
