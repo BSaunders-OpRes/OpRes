@@ -27,10 +27,12 @@ document.addEventListener('turbolinks:load', function() {
   $('body').on('click', '.faded-popover-wrapper .faded-popover-title', function() {
     $('.faded-popover-wrapper .faded-popover-content').addClass('d-none');
     $(this).siblings('.faded-popover-content').removeClass('d-none');
+    $(this).find('.text').css({ width: '100px', opacity: '1' });
   });
 
   $('body').on('click', '.faded-popover-wrapper .faded-popover-content i', function() {
     $(this).parent('.faded-popover-content').addClass('d-none');
+    $(this).parent().siblings('.faded-popover-title').find('.text').css({ width: '0px', opacity: '0' });
   });
 
   $('body').on('click', '.accordion-wrapper .accordion-arrow', function() {

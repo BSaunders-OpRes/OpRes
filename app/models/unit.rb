@@ -24,7 +24,7 @@ class Unit < ApplicationRecord
   # validates :name, presence: true
 
   # Enums #
-  enum unit_type: %i[retail investment insurance other]
+  enum unit_type: %i[bank building_society insurer designated_investment_firm payments_services_institution recognised_investment_exchange electronic_money_institution enhanced_scope_senior_managers_and_certification_regime]
 
   # Methods #
   class << self

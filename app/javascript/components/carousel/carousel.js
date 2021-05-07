@@ -11,19 +11,37 @@ export default function carousel() {
         <Carousel.Item>
           <Carousel.Caption>
             <h3>Instant insight</h3>
-            <p>Our customers get instant insights into their resilience gaps, accross mission critical customer journeys</p>
+            <p>Map business services, identify resilience gaps acrossyour estate andimprove service availability through scenario testing.</p>
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item>
           <Carousel.Caption>
             <h3>Instant insight</h3>
-            <p>Our customers get instant insights into their resilience gaps, accross mission critical customer journeys</p>
+            <p>Identify 3rd & 4th party risks faster, resolve themend to end and addressregulatory concerns.</p>
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item>
           <Carousel.Caption>
             <h3>Instant insight</h3>
-            <p>Our customers get instant insights into their resilience gaps, accross mission critical customer journeys</p>
+            <p>Understand cloud service provider concentration risksand assessworkload distribution.</p>
+          </Carousel.Caption>
+        </Carousel.Item>
+        <Carousel.Item>
+          <Carousel.Caption>
+            <h3>Instant insight</h3>
+            <p>Make informed architecture choices and increase resiliencefor yourcustomers.</p>
+          </Carousel.Caption>
+        </Carousel.Item>
+        <Carousel.Item>
+          <Carousel.Caption>
+            <h3>Instant insight</h3>
+            <p>OOptimise vendor reporting & improve supplier managementto identify costsavings.</p>
+          </Carousel.Caption>
+        </Carousel.Item>
+        <Carousel.Item>
+          <Carousel.Caption>
+            <h3>Instant insight</h3>
+            <p>Provide business & technology risk insights to complianceteams andregulators.</p>
           </Carousel.Caption>
         </Carousel.Item>
       </Carousel>
