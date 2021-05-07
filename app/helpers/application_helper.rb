@@ -22,4 +22,12 @@ module ApplicationHelper
       root_path
     end
   end
+
+  def hide_search_bar?
+    params[:controller] == 'organisation/journeys'
+  end
+
+  def hide_side_bar?
+    params[:controller] == 'organisation/journeys'
+  end
 end

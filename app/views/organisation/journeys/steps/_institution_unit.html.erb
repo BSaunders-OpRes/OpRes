@@ -24,13 +24,17 @@
                       <i class="fa fa-expand"></i>
                     </div>
                     <div class="faded-popover-content d-none">
-                      <i class="fa fa-times-circle-o close-i"></i>
+                      <div class="d-flex justify-content-between align-items-center px-2 mb-3">
+                        <span class="faded-popover-close bg-white btn py-1 px-1 font-11 font-600">Confirm</span>
+                        <i class="fa fa-times-circle-o close-i faded-popover-close"></i>
+                      </div>
                       <% institution_units = country_unit.children %>
                       <% @institutions.each do |institution| %>
                         <div class="form-check d-flex align-items-center mr-2 form-group check-field">
-                          <%= check_box_tag "institutions[#{country_unit.id}[#{institution.id}]]", institution.name, institution_units.pluck(:institution_id).include?(institution.id), class: 'form-check-input mt-0 shadow-none', id: "#{country_unit.country}-institution-#{institution.id}" %>
-                          <label class="form-check-label text-capitalize font-13" for="<%= "#{country_unit.country}-institution-#{institution.id}" %>">
+                          <label class="form-check-label text-capitalize font-13 custom-checkbox" for="<%= "#{country_unit.country}-institution-#{institution.id}" %>">
                             <%= institution.name %>
+                            <%= check_box_tag "institutions[#{country_unit.id}[#{institution.id}]]", institution.name, institution_units.pluck(:institution_id).include?(institution.id), class: 'form-check-input mt-0 shadow-none', id: "#{country_unit.country}-institution-#{institution.id}" %>
+                            <span class="checkmark shadow-sm rounded"></span>
                           </label>
                         </div>
                       <% end %>

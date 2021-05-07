@@ -26,13 +26,14 @@ document.addEventListener('turbolinks:load', function() {
 
   $('body').on('click', '.faded-popover-wrapper .faded-popover-title', function() {
     $('.faded-popover-wrapper .faded-popover-content').addClass('d-none');
+    $('.faded-popover-wrapper .faded-popover-title .faded-popover-expandable-text').removeClass('faded-popover-expand-text');
     $(this).siblings('.faded-popover-content').removeClass('d-none');
-    $(this).find('.text').css({ width: '100px', opacity: '1' });
+    $(this).find('.faded-popover-expandable-text').addClass('faded-popover-expand-text');
   });
 
-  $('body').on('click', '.faded-popover-wrapper .faded-popover-content i', function() {
-    $(this).parent('.faded-popover-content').addClass('d-none');
-    $(this).parent().siblings('.faded-popover-title').find('.text').css({ width: '0px', opacity: '0' });
+  $('body').on('click', '.faded-popover-wrapper .faded-popover-content .faded-popover-close', function() {
+    $(this).parents('.faded-popover-content').addClass('d-none');
+    $(this).parents('.faded-popover-content').siblings('.faded-popover-title').find('.faded-popover-expandable-text').removeClass('faded-popover-expand-text');
   });
 
   $('body').on('click', '.accordion-wrapper .accordion-arrow', function() {

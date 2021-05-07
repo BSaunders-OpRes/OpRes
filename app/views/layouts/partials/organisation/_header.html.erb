@@ -1,17 +1,21 @@
 <header class="py-3 w-100 header">
   <div class="container d-flex align-items-center justify-content-between">
     <div class="logo-bar d-flex align-items-center">
-      <i id="open_sidebar" class="fa fa-bars font-18 text-white" aria-hidden="true"></i>
+      <% unless hide_side_bar? %>
+        <i id="open_sidebar" class="fa fa-bars font-18 text-white" aria-hidden="true"></i>
+      <% end %>
       <div class="logo-box ml-3">
         <%= link_to determine_user_redirect_path do %>
           <%= image_pack_tag 'media/images/white-logo.png', class: 'img-fluid' %>
         <% end %>
       </div>
     </div>
-    <div class="search-field">
-      <i class="fa fa-search text-white font-14" aria-hidden="true"></i>
-      <input type="text" placeholder="search anything..." class="border-0 form-control shadow-none text-white h-auto">
-    </div>
+    <% unless hide_search_bar? %>
+      <div class="search-field">
+        <i class="fa fa-search text-white font-14" aria-hidden="true"></i>
+        <input type="text" placeholder="search anything..." class="border-0 form-control shadow-none text-white h-auto">
+      </div>
+    <% end %>
     <div class="notification-field d-flex align-items-center justify-content-end">
       <a href="" class="alert-notification d-flex align-items-center">
         <span class="font-14 font-700 text-white d-none d-sm-block">Alert</span>

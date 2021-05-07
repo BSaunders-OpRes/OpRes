@@ -16,7 +16,9 @@ module Firm::CountryConcern
       end
 
       def countries_selection_by_region(region)
-        countries_objects_by_region(region).map { |c| [c.name, c.alpha2] }
+        countries_objects_by_region(region).map      { |c| [c.name, c.alpha2] }
+                                           .group_by { |c| c[0][0].upcase }
+                                           .sort_by  { |k, v| k }
       end
 
       def find_country_by_code(code)

@@ -88,6 +88,15 @@ textarea {
   cursor: pointer;
   .faded-popover-title {
     position: relative;
+    .faded-popover-expandable-text {
+      width: 0;
+      opacity: 0;
+      transition: 0.4s all;
+    }
+    .faded-popover-expand-text {
+      width: 100px;
+      opacity: 1;
+    }
     i {
       margin-left: 0.5rem;
     }
@@ -99,7 +108,7 @@ textarea {
     left: 110%;
     background: $black;
     width: 230px;
-    padding: 40px 0 15px;
+    padding: 10px 0 15px;
     color: $white;
     z-index: 1;
     height: 300px;
@@ -120,14 +129,10 @@ textarea {
       background: #555;
     }
     .close-i {
-      position: absolute;
-      right: 13px;
-      top: 13px;
       font-size: 25px;
-      z-index: 3;
     }
     .check-field {
-      margin: 5px 20px 15px;
+      margin: 5px 20px 15px 0;
     }
   }
 }
