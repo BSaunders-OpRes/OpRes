@@ -1,7 +1,3 @@
-.blur {
-  filter: blur(2px);
-}
-
 .sidebar {
   background-color: #fff;
   position: fixed;
@@ -33,6 +29,10 @@
     &::-webkit-scrollbar-thumb:hover {
       background: #555;
     }
+  .have-issue {
+    width: 250px;
+    background: $body-bg-color;
+  }
   .sidebar-header {
     width: 300px;
     .sidebar-logo-container {
