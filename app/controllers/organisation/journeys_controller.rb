@@ -41,7 +41,7 @@ class Organisation::JourneysController < Organisation::BaseController
     if request.post?
       params.dig(:regions)&.each do |region, code|
         organisational_unit.children
-                           .create_with(type: Units::Regional, name: Unit.build_name(organisational_unit, region))
+                           .create_with(type: Units::Regional, name: Unit.build_name('', organisational_unit.name, region))
                            .find_or_create_by(region: code)
       end
     end
@@ -52,7 +52,7 @@ class Organisation::JourneysController < Organisation::BaseController
       organisational_unit.children.each do |regional_unit|
         params.dig(:countries, regional_unit.id.to_s)&.each do |country, code|
           regional_unit.children
-                       .create_with(type: Units::Country, name: Unit.build_name(organisational_unit, country))
+                       .create_with(type: Units::Country, name: Unit.build_name('', organisational_unit.name, country))
                        .find_or_create_by(country: code)
         end
       end
@@ -67,7 +67,7 @@ class Organisation::JourneysController < Organisation::BaseController
         regional_unit.children.each do |country_unit|
           params.dig(:institutions, country_unit.id.to_s)&.each do |id, name|
             country_unit.children
-                        .create_with(type: Units::Institution, name: build_institution_name(regional_unit, name, country_unit))
+                        .create_with(type: Units::Institution, name: Unit.build_name(regional_unit.region, name, country_unit.country))
                         .find_or_create_by(institution_id: id)
           end
         end
@@ -96,9 +96,5 @@ class Organisation::JourneysController < Organisation::BaseController
         end
       end
     end
-  end
-
-  def build_institution_name (regional_unit, name, country_unit)
-    "#{regional_unit.region} #{name}  #{country_unit.country}"
   end
 end

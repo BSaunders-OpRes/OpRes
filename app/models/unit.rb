@@ -29,8 +29,8 @@ class Unit < ApplicationRecord
 
   # Methods #
   class << self
-    def build_name(organisation, postfix)
-      "#{organisation.name} #{postfix}"
+    def build_name(prefix, name, postfix)
+      "#{prefix} #{name} #{postfix}".squish
     end
   end
 
