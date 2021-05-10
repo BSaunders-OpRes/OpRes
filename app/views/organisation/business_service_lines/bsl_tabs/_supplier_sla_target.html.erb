@@ -1,76 +1,121 @@
 <div class="tab-pane fade" id="supplier-sla-target-tab" role="tabpanel" aria-labelledby="supplier_sla">
   <h5 class="font-600 text-capitalize">supplier SLA target</h5>
-  <div class="mt-5">
-    <div class="input-fields mb-5 pb-5 border-bottom">
-      <div class="row align-items-center">
-        <div class="col-sm-4 flex-sm-1 mb-2 mb-sm-0">
-          <p class="text-capitalize font-14 font-600">supplier incident notification severity 1</p>
-        </div>
-        <div class="col-sm-7 order-3 order-sm-2">
-          <div class="input-group mb-2">
-            <div class="input-group-prepend">
-              <div class="input-group-text px-3 bg-white font-12">Minutes</div>
+  <%= form.fields_for :sla do |internal_sla|%>
+    <div class="mt-5">
+      <div class="input-fields mb-5 pb-5 border-bottom">
+        <div class="row align-items-center">
+          <div class="col-sm-4 flex-sm-1 mb-2 mb-sm-0">
+            <p class="text-capitalize font-14 font-600">supplier incident notification severity 1</p>
+          </div>
+          <div class="col-sm-7 order-3 order-sm-2">
+            <div class="input-group mb-2">
+              <div class="input-group-prepend">
+                <div class="input-group-text px-3 bg-white font-12">Minutes</div>
+              </div>
+              <%= internal_sla.number_field :severity1_response_time, placeholder:'Enter Target', class: 'form-control form-control font-12 h-auto py-3 shadow-none', id: 'inlineFormInputGroup'%>
             </div>
-            <input type="text" class="form-control form-control font-12 h-auto py-3 shadow-none" id="inlineFormInputGroup" placeholder="Enter Target">
+          </div>
+          <div class="col-sm-1 text-right order-2 flex-sm-half mb-2 mb-sm-0">
+            <i class="fa fa-info-circle" aria-hidden="true"></i>
           </div>
         </div>
-        <div class="col-sm-1 text-right order-2 flex-sm-half mb-2 mb-sm-0">
-          <i class="fa fa-info-circle" aria-hidden="true"></i>
-        </div>
-      </div>
-      <div class="row align-items-center mt-3">
-        <div class="col-sm-4 flex-sm-1 mb-2 mb-sm-0">
-          <p class="text-capitalize font-14 font-600">supplier incident notification severity 2</p>
-        </div>
-        <div class="col-sm-7 order-3 order-sm-2">
-          <div class="input-group mb-2">
-            <div class="input-group-prepend">
-              <div class="input-group-text px-3 bg-white font-12">Minutes</div>
+        <div class="row align-items-center mt-3">
+          <div class="col-sm-4 flex-sm-1 mb-2 mb-sm-0">
+            <p class="text-capitalize font-14 font-600">supplier incident notification severity 2</p>
+          </div>
+          <div class="col-sm-7 order-3 order-sm-2">
+            <div class="input-group mb-2">
+              <div class="input-group-prepend">
+                <div class="input-group-text px-3 bg-white font-12">Minutes</div>
+              </div>
+              <%= internal_sla.number_field :severity2_response_time, placeholder:'Enter Target', class: 'form-control form-control font-12 h-auto py-3 shadow-none', id: 'inlineFormInputGroup'%>
             </div>
-            <input type="text" class="form-control form-control font-12 h-auto py-3 shadow-none" id="inlineFormInputGroup" placeholder="Enter Target">
+          </div>
+          <div class="col-sm-1 text-right order-2 flex-sm-half mb-2 mb-sm-0">
+            <i class="fa fa-info-circle" aria-hidden="true"></i>
           </div>
         </div>
-        <div class="col-sm-1 text-right order-2 flex-sm-half mb-2 mb-sm-0">
-          <i class="fa fa-info-circle" aria-hidden="true"></i>
-        </div>
-      </div>
-      <div class="row align-items-center mt-3">
-        <div class="col-sm-4 flex-sm-1 mb-2 mb-sm-0">
-          <p class="text-capitalize font-14 font-600">supplier incident notification severity 3</p>
-        </div>
-        <div class="col-sm-7 order-3 order-sm-2">
-          <div class="input-group mb-2">
-            <div class="input-group-prepend">
-              <div class="input-group-text px-3 bg-white font-12">Minutes</div>
+        <div class="row align-items-center mt-3">
+          <div class="col-sm-4 flex-sm-1 mb-2 mb-sm-0">
+            <p class="text-capitalize font-14 font-600">supplier incident notification severity 3</p>
+          </div>
+          <div class="col-sm-7 order-3 order-sm-2">
+            <div class="input-group mb-2">
+              <div class="input-group-prepend">
+                <div class="input-group-text px-3 bg-white font-12">Minutes</div>
+              </div>
+              <%= internal_sla.number_field :severity3_response_time, placeholder:'Enter Target', class: 'form-control form-control font-12 h-auto py-3 shadow-none', id: 'inlineFormInputGroup'%>
             </div>
-            <input type="text" class="form-control form-control font-12 h-auto py-3 shadow-none" id="inlineFormInputGroup" placeholder="Enter Target">
+          </div>
+          <div class="col-sm-1 text-right order-2 flex-sm-half mb-2 mb-sm-0">
+            <i class="fa fa-info-circle" aria-hidden="true"></i>
           </div>
         </div>
-        <div class="col-sm-1 text-right order-2 flex-sm-half mb-2 mb-sm-0">
-          <i class="fa fa-info-circle" aria-hidden="true"></i>
-        </div>
-      </div>
-      <div class="row align-items-center mt-3">
-        <div class="col-sm-4 flex-sm-1 mb-2 mb-sm-0">
-          <p class="text-capitalize font-14 font-600">3rd/4th party serverity 1 restoration of service time</p>
-        </div>
-        <div class="col-sm-7 order-3 order-sm-2">
-          <div class="input-group mb-2">
-            <div class="input-group-prepend">
-              <div class="input-group-text px-3 bg-white font-12">Minutes</div>
+        <div class="row align-items-center mt-3">
+          <div class="col-sm-4 flex-sm-1 mb-2 mb-sm-0">
+            <p class="text-capitalize font-14 font-600">3rd/4th party serverity 1 restoration of service time</p>
+          </div>
+          <div class="col-sm-7 order-3 order-sm-2">
+            <div class="input-group mb-2">
+              <div class="input-group-prepend">
+                <div class="input-group-text px-3 bg-white font-12">Minutes</div>
+              </div>
+              <%= internal_sla.number_field :severity1_restoration_service_time, placeholder:'Enter Target', class: 'form-control form-control font-12 h-auto py-3 shadow-none', id: 'inlineFormInputGroup'%>
             </div>
-            <input type="text" class="form-control form-control font-12 h-auto py-3 shadow-none" id="inlineFormInputGroup" placeholder="Enter Target">
+          </div>
+          <div class="col-sm-1 text-right order-2 flex-sm-half mb-2 mb-sm-0">
+            <i class="fa fa-info-circle" aria-hidden="true"></i>
           </div>
         </div>
-        <div class="col-sm-1 text-right order-2 flex-sm-half mb-2 mb-sm-0">
-          <i class="fa fa-info-circle" aria-hidden="true"></i>
+        <div class="row align-items-center mt-3">
+          <div class="col-sm-4 flex-sm-1 mb-2 mb-sm-0">
+            <p class="text-capitalize font-14 font-600">3rd/4th party serverity 2 restoration of service time</p>
+          </div>
+          <div class="col-sm-7 order-3 order-sm-2">
+            <div class="input-group mb-2">
+              <div class="input-group-prepend">
+                <div class="input-group-text px-3 bg-white font-12">Minutes</div>
+              </div>
+              <%= internal_sla.number_field :severity2_restoration_service_time, placeholder:'Enter Target', class: 'form-control form-control font-12 h-auto py-3 shadow-none', id: 'inlineFormInputGroup'%>
+            </div>
+          </div>
+          <div class="col-sm-1 text-right order-2 flex-sm-half mb-2 mb-sm-0">
+            <i class="fa fa-info-circle" aria-hidden="true"></i>
+          </div>
+        </div>
+        <div class="row align-items-center mt-3">
+          <div class="col-sm-4 flex-sm-1 mb-2 mb-sm-0">
+            <p class="text-capitalize font-14 font-600">3rd/4th party serverity 3 restoration of service time</p>
+          </div>
+          <div class="col-sm-7 order-3 order-sm-2">
+            <div class="input-group mb-2">
+              <div class="input-group-prepend">
+                <div class="input-group-text px-3 bg-white font-12">Minutes</div>
+              </div>
+              <%= internal_sla.number_field :severity3_restoration_service_time, placeholder:'Enter Target', class: 'form-control form-control font-12 h-auto py-3 shadow-none', id: 'inlineFormInputGroup'%>
+            </div>
+          </div>
+          <div class="col-sm-1 text-right order-2 flex-sm-half mb-2 mb-sm-0">
+            <i class="fa fa-info-circle" aria-hidden="true"></i>
+          </div>
+        </div>
+        <div class="row align-items-center mt-3">
+          <div class="col-sm-4 flex-sm-1 mb-2 mb-sm-0">
+            <p class="text-capitalize font-14 font-600">3rd/4th party serverity 4 restoration of service time</p>
+          </div>
+          <div class="col-sm-7 order-3 order-sm-2">
+            <div class="input-group mb-2">
+              <div class="input-group-prepend">
+                <div class="input-group-text px-3 bg-white font-12">Minutes</div>
+              </div>
+              <%= internal_sla.number_field :severity4_restoration_service_time, placeholder:'Enter Target', class: 'form-control form-control font-12 h-auto py-3 shadow-none', id: 'inlineFormInputGroup'%>
+            </div>
+          </div>
+          <div class="col-sm-1 text-right order-2 flex-sm-half mb-2 mb-sm-0">
+            <i class="fa fa-info-circle" aria-hidden="true"></i>
+          </div>
         </div>
       </div>
     </div>
-    <div class="wizard-btn d-flex d-sm-block justify-content-between flex-column">
-      <a href="" class="btn btn-light-grey btn-sm font-600 text-capitalize font-12 mb-3 mb-sm-0">previous</a>
-      <a href="" class="btn btn-sm font-600 text-capitalize font-12 float-right ml-0 ml-sm-2 dark-btn w-25-sm w-100 mb-3 mb-sm-0">proceed</a>
-      <a href="" class="btn btn-light-grey btn-sm font-600 text-capitalize font-12 float-right btn-light-grey">save & close</a>
-    </div>
-  </div>
+  <% end %>
 </div>

@@ -6,6 +6,7 @@ require('channels')
 require('jquery');
 require('popper.js');
 require('bootstrap');
+require("@nathanvda/cocoon")
 
 require.context('../images', true);
 

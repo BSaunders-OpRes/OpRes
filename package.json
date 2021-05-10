@@ -4,6 +4,7 @@
   "dependencies": {
     "@babel/preset-react": "^7.13.13",
     "@fortawesome/react-fontawesome": "^0.1.14",
+    "@nathanvda/cocoon": "^1.2.14",
     "@rails/actioncable": "^6.0.0",
     "@rails/activestorage": "^6.0.0",
     "@rails/ujs": "^6.0.0",
@@ -14,6 +15,7 @@
     "bootstrap": "^4.6.0",
     "highcharts": "^9.0.1",
     "jquery": "^3.6.0",
+    "jquery-validation": "^1.19.3",
     "popper.js": "^1.16.1",
     "prop-types": "^15.7.2",
     "react": "^17.0.2",

@@ -30,11 +30,12 @@
     }
     .checkbox-container {
       .form-check  {
-        width: 115px;
+        width: auto;
       }
     }
   }
 }
+
 .add-supplier-modal {
   .modal-dialog {
     max-width: 700px;
@@ -60,7 +61,7 @@
   }
 }
 .myinput {
-  background: linear-gradient(to right, #000 0%, #000 50%, #F3F5FA 50%, #F3F5FA 100%);
+  background: linear-gradient(to right, transparent 0%, #000 0%, #F3F5FA 0%, #F3F5FA 100%);
   border: 0;
   border-radius: 100px;
   height: 7px;
@@ -82,4 +83,30 @@
 .wizard {
   max-width: 800px;
   margin: 50px auto;
+}
+
+.custom-placeholder {
+  i.fa.fa-pencil {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #E4412E;
+  }
+  input[type="text"]::-webkit-input-placeholder {
+    text-transform: capitalize;
+    font-weight: bold;
+    color: $black;
+  }
+
+  :-ms-input-placeholder {
+    text-transform: capitalize;
+    font-weight: bold;
+    color: $black;
+  }
+
+  input[type="text"]::placeholder {
+    text-transform: capitalize;
+    font-weight: bold;
+  }
 }

@@ -1,5 +1,6 @@
 module ApplicationHelper
   attr_reader :organisational_unit
+  attr_reader :managing_unit
 
   def new_or_create
     params[:action].in? %w[new create]

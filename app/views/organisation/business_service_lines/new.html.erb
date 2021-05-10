@@ -1,51 +1,56 @@
-<div class="col-sm-12 col-md-10 col-lg-8 col-xxl-10 mx-auto bsl-container">
-  <div class="card border-0 shadow">
-    <div class="card-body px-4">
-      <div class="back-btn-header mt-3">
-        <i class="fa fa-arrow-left" aria-hidden="true"></i>
-        <span class="ml-2">back</span>
-      </div>
-      <div class="wizard-body">
-        <div class="wizard-header my-4">
-          <h4 class="mb-4 font-weight-bold">Add a new business service line </h4>
-          <div class="tab-content" id="bsl-desc">
-            <p id="about-desc" data-toggle="tab" href="#about" role="tab" aria-controls="home" aria-selected="true">As part of adding a new business service line, you are requrired to provide context and information about it's purpose, core functionality and channels</p>
+<%= form_for @bsl, url: new_or_create ? organisation_business_service_lines_path : organisation_business_service_line_path, method: new_or_create ? :post : :patch do |form| %>
+  <div class="bsl-container px-4 mt-5">
+    <div class="shadow-sm card">
+      <div class="card-body">
+        <%= render 'layouts/partials/shared/redirect_back', path: organisation_administration_portal_index_path %>
+        <div class="wizard-body">
+          <div class="wizard-header my-4">
+            <h4 class="mb-4 font-weight-bold">Add a new business service line </h4>
+            <div class="tab-content mt-5" id="bsl-desc">
+              <p id="about-desc" data-toggle="tab" href="#about" role="tab" aria-controls="home" aria-selected="true">As part of adding a new business service line, you are requrired to provide context and information about it's purpose, core functionality and channels</p>
 
-            <p class="d-none" id="internal-sla-desc">As part of adding a new business service line, you are requrired to provide the internal SLA, SLO, RTO and RPO targets that you firm wishes to meet.</p>
+              <p class="d-none" id="internal-sla-desc">As part of adding a new business service line, you are requrired to provide the internal SLA, SLO, RTO and RPO targets that you firm wishes to meet.</p>
 
-            <p class="d-none" id="supplier-sla-target-desc">Over the next phase of creating a new business service line, you are required to define the response and restoration times (in minutes) that your supplier need to adhere to when an incident occurs to the systems and services they are providing to your organisation.</p>
+              <p class="d-none" id="supplier-sla-target-desc">Over the next phase of creating a new business service line, you are required to define the response and restoration times (in minutes) that your supplier need to adhere to when an incident occurs to the systems and services they are providing to your organisation.</p>
 
-            <p class="d-none" id="journey-desc">Over the next phase of creating a new business service line, you are required to add each step that a customer would execute as part of the business service line being completed. you are then required to map the technology that support each step. Whether this is a bank hosted system or a system hosted by a third or 4th party supplier. This is where you must also depict whether a supplier deemed to be either "critical" or "important" to the successful delivery of your service line to end customer.</p>
+              <p class="d-none" id="journey-desc">Over the next phase of creating a new business service line, you are required to add each step that a customer would execute as part of the business service line being completed. you are then required to map the technology that support each step. Whether this is a bank hosted system or a system hosted by a third or 4th party supplier. This is where you must also depict whether a supplier deemed to be either "critical" or "important" to the successful delivery of your service line to end customer.</p>
 
-            <p class="d-none" id="risk-desc">Over the next phase of creating a new business service line, you will set your organisation's tolerance levels across key service-level data points. This will enables your organisation to identify where service levels with your suppliers either match or do not match your service level targets and defined tolerance levels. you will be required to populate the justification field to document your rationale for setting these thresholds.</p>
+              <p class="d-none" id="risk-desc">Over the next phase of creating a new business service line, you will set your organisation's tolerance levels across key service-level data points. This will enables your organisation to identify where service levels with your suppliers either match or do not match your service level targets and defined tolerance levels. you will be required to populate the justification field to document your rationale for setting these thresholds.</p>
+            </div>
+          </div>
+
+          <ul class="nav nav-tabs border-0 rounded-0 mt-5 overflow-x-auto flex-nowrap mw-100 py-1" id="bsl-tab" role="tablist">
+            <li class="nav-item">
+              <a class="nav-link border-0 rounded-0 p-0 pb-1 pb-sm-3 active" data-toggle="tab" href="#about-tab" role="tab" aria-controls="home" aria-selected="true">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link border-0 rounded-0 p-0 ml-4 pb-2 pb-sm-3 white-space-nowrap" data-toggle="tab" href="#internal-sla-tab" role="tab" aria-controls="profile" aria-selected="false">Internal SLA</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link border-0 rounded-0 p-0 ml-4 pb-2 pb-sm-3 white-space-nowrap" data-toggle="tab" href="#supplier-sla-target-tab" role="tab" aria-controls="contact" aria-selected="false">Supplier SLA Targets</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link border-0 rounded-0 p-0 ml-4 pb-2 pb-sm-3" data-toggle="tab" href="#journey-tab" role="tab" aria-controls="contact" aria-selected="false">Journey</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link border-0 rounded-0 p-0 ml-4 pb-2 pb-sm-3" data-toggle="tab" href="#risk-tab" role="tab" aria-controls="contact" aria-selected="false">Risk</a>
+            </li>
+          </ul>
+          <div class="tab-content mt-5" id="bsl_tab_content">
+            <%= render 'organisation/business_service_lines/bsl_tabs/about', form: form %>
+            <%= render 'organisation/business_service_lines/bsl_tabs/internal_sla', form: form %>
+            <%= render 'organisation/business_service_lines/bsl_tabs/supplier_sla_target', form: form %>
+            <%= render 'organisation/business_service_lines/bsl_tabs/journey_flow' %>
+            <%= render 'organisation/business_service_lines/bsl_tabs/risk', form: form %>
           </div>
         </div>
+        <div class="wizard-btn d-flex d-sm-block justify-content-between flex-column">
+          <button type="button" id="bsl-previous-btn" class="btn btn-light-grey btn-sm font-600 text-capitalize font-12 mb-3 mb-sm-0">previous</button>
+          <button type="proceed-btn" id="bsl-proceed-btn" class="btn btn-sm font-600 text-capitalize font-12 float-right ml-0 ml-sm-2 dark-btn w-25-sm w-100 mb-3 mb-sm-0">proceed</button>
 
-        <ul class="nav nav-tabs border-0 rounded-0 mt-5 overflow-x-auto flex-nowrap mw-100 py-1" id="bsl-tab" role="tablist">
-          <li class="nav-item">
-            <a class="nav-link active border-0 rounded-0 p-0 pb-1 pb-sm-3" data-toggle="tab" href="#about-tab" role="tab" aria-controls="home" aria-selected="true">About</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link border-0 rounded-0 p-0 ml-4 pb-2 pb-sm-3 white-space-nowrap" data-toggle="tab" href="#internal-sla-tab" role="tab" aria-controls="profile" aria-selected="false">Internal SLA</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link border-0 rounded-0 p-0 ml-4 pb-2 pb-sm-3 white-space-nowrap" data-toggle="tab" href="#supplier-sla-target-tab" role="tab" aria-controls="contact" aria-selected="false">Supplier SLA Targets</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link border-0 rounded-0 p-0 ml-4 pb-2 pb-sm-3" data-toggle="tab" href="#journey-tab" role="tab" aria-controls="contact" aria-selected="false">Journey</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link border-0 rounded-0 p-0 ml-4 pb-2 pb-sm-3" data-toggle="tab" href="#risk-tab" role="tab" aria-controls="contact" aria-selected="false">Risk</a>
-          </li>
-        </ul>
-        <div class="tab-content mt-5" id="bsl_tab_content">
-          <%= render 'organisation/business_service_lines/bsl_tabs/about' %>
-          <%= render 'organisation/business_service_lines/bsl_tabs/internal_sla' %>
-          <%= render 'organisation/business_service_lines/bsl_tabs/supplier_sla_target' %>
-          <%= render 'organisation/business_service_lines/bsl_tabs/risk' %>
-          <%= render 'organisation/business_service_lines/bsl_tabs/journey_flow' %>
+          <%= form.submit 'Save & close', class: 'btn btn-light-grey btn-sm font-600 text-capitalize font-12 float-right btn-light-grey' %>
         </div>
       </div>
     </div>
   </div>
-</div>
+<% end %>

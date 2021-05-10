@@ -21,7 +21,7 @@ module Firm::ChildrenConcern
     end
 
     def find_children(child_id)
-      inclusive_children.select { |child| child.id == child_id }.first
+      inclusive_children.select { |child| child.id == child_id.to_i }.first
     end
 
     def sort_children_rule
