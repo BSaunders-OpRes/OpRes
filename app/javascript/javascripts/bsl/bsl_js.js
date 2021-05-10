@@ -1,17 +1,4 @@
 document.addEventListener('turbolinks:load', function() {
-  $('[data-toggle="tooltip"]').tooltip();
-
-  $('#close_sidebar').click(function() {
-    $('.sidebar').css('width', '0');
-    $('.content').removeClass('blur');
-    $('.header').removeClass('blur');
-  });
-
-  $('#open_sidebar').click(function() {
-    $('.sidebar').css('width', '290');
-    $('.content').addClass('blur');
-    $('.header').addClass('blur');
-  });
 
   $('#bsl-tab li').click(function() {
     href  = $(this).find('a').attr('href');
@@ -24,41 +11,56 @@ document.addEventListener('turbolinks:load', function() {
     $(desc).removeClass('d-none');
   });
 
-  $('body').on('click', '.faded-popover-wrapper .faded-popover-title', function() {
-    $('.faded-popover-wrapper .faded-popover-content').addClass('d-none');
-    $('.faded-popover-wrapper .faded-popover-title .faded-popover-expandable-text').removeClass('faded-popover-expand-text');
-    $(this).siblings('.faded-popover-content').removeClass('d-none');
-    $(this).find('.faded-popover-expandable-text').addClass('faded-popover-expand-text');
+  $('body').on('change', '#business_service_line_region', function() {
+    $.ajax({
+      url:  '/organisation/units/load_countries',
+      type: 'GET',
+      data: { regional_unit_id: $(this).val() },
+    });
   });
 
-  $('body').on('click', '.faded-popover-wrapper .faded-popover-content .faded-popover-close', function() {
-    $(this).parents('.faded-popover-content').addClass('d-none');
-    $(this).parents('.faded-popover-content').siblings('.faded-popover-title').find('.faded-popover-expandable-text').removeClass('faded-popover-expand-text');
+  $('body').on('change', '#business_service_line_country', function() {
+    $.ajax({
+      url: '/organisation/units/load_institutions',
+      type: 'GET',
+      data: { country_unit_id: $(this).val() },
+    });
   });
 
-  $('body').on('click', '.accordion-wrapper .accordion-arrow', function() {
-    accordion_content = $(this).parent('.accordion-title').siblings('.accordion-content');
-    if (accordion_content.hasClass('d-none')) {
-      accordion_content.removeClass('d-none');
-      $(this).find('a i').removeClass('fa-angle-down').addClass('fa-angle-up');
+  $('body').on('change', '#business_service_line_institution', function() {
+    $.ajax({
+      url:  '/organisation/units/load_products_channels',
+      type: 'GET',
+      data: { institution_unit_id: $(this).val() },
+    });
+  });
+
+  $('#bsl-proceed-btn').click(function(e) {
+    e.preventDefault();
+
+    var current_tab = $('#bsl-tab li.nav-item a.active').parent('li.nav-item');
+    var next_tab    = current_tab.next('li.nav-item');
+
+    if(next_tab.length == 0) {
+      return;
     } else {
-      accordion_content.addClass('d-none');
-      $(this).find('a i').removeClass('fa-angle-up').addClass('fa-angle-down');
+      $('html, body').animate({ scrollTop: '300px' }, 300);
+      next_tab.find('a').trigger('click');
     }
   });
 
-  if ($('#myinput_one').length >= 1) {
-    document.querySelector("#myinput_one").oninput = function() {
-      var value = (this.value-this.min)/(this.max-this.min)*100
-      this.style.background = 'linear-gradient(to right, #000 0%, #000 ' + value + '%, #F3F5FA ' + value + '%, #F3F5FA 100%)'
-    };
-  }
+   $('#bsl-previous-btn').click(function(e) {
+    e.preventDefault();
 
-  if ($('#myinput_two').length >= 1) {
-    document.querySelector("#myinput_two").oninput = function() {
-      var value = (this.value-this.min)/(this.max-this.min)*100
-      this.style.background = 'linear-gradient(to right, #000 0%, #000 ' + value + '%, #F3F5FA ' + value + '%, #F3F5FA 100%)'
-    };
-  }
+    var current_tab  = $('#bsl-tab li.nav-item a.active').parent('li.nav-item');
+    var previous_tab = current_tab.prev('li.nav-item');
+
+    if(previous_tab.length == 0) {
+      return;
+    } else {
+      $('html, body').animate({ scrollTop: '300px' }, 300);
+      previous_tab.find('a').trigger('click');
+    }
+  });
 });
 

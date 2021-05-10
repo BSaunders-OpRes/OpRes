@@ -12,7 +12,7 @@ module Firm::CountryConcern
       end
 
       def countries_objects_by_region(region)
-        ISO3166::Country.find_all_countries_by_world_region(region)
+        ISO3166::Country.find_all_countries_by_world_region(region).sort_by(&:name)
       end
 
       def countries_selection_by_region(region)

@@ -16,7 +16,39 @@ class BusinessServiceLine < ApplicationRecord
   # Enums #
   enum tier: %i[1st 2nd 3rd 4th]
 
+  # Todo #
+  # add institution in validation
+
   # Validations #
-  validates :name, :description, :tier, :region, :country, :institution, presence: true
-  validates :tier, numericality: { only_integer: true }
+  validates :name, :description, :tier, presence: true
+
+  # Nested Attributes #
+  accepts_nested_attributes_for :sla
+  accepts_nested_attributes_for :material_risk_taker
+  accepts_nested_attributes_for :risk_appetites
+
+    # Methods #
+  def product_ids
+    products.pluck(:id)
+  end
+
+  def product_ids=(ids)
+    self.products = Product.find(ids.reject(&:blank?))
+  end
+
+  def product_list
+    products.pluck(:name).join(', ')
+  end
+
+  def channel_ids
+    channels.pluck(:id)
+  end
+
+  def channel_ids=(ids)
+    self.channels = Channel.find(ids.reject(&:blank?))
+  end
+
+  def channel_list
+    channels.pluck(:name).join(', ')
+  end
 end

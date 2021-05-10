@@ -27,29 +27,22 @@
           <thead>
             <tr>
               <th>Name</th>
-              <th>Email</th>
+              <th>Region</th>
               <th>Actions</th>
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td class="text-dark">abc</td>
-              <td>abc@gmail.com</td>
-              <td>
-                <a class="mx-1 text-dark" href="#">Show</a>
-                <a class="mx-1 text-dark" href="#">Edit</a>
-                <a class="mx-1 text-dark" href="#">Delete</a>
-              </td>
-            </tr>
-            <tr>
-              <td class="text-dark">abc</td>
-              <td>abc@gmail.com</td>
-              <td>
-                <a class="mx-1 text-dark" href="#">Show</a>
-                <a class="mx-1 text-dark" href="#">Edit</a>
-                <a class="mx-1 text-dark" href="#">Delete</a>
-              </td>
-            </tr>
+            <% @bsls&.each do |bsl| %>
+              <tr>
+                <td class="text-dark"><%= bsl.name %></td>
+                <td><%= bsl.region %></td>
+                <td>
+                  <a class="mx-1 text-dark" href="#">Show</a>
+                  <a class="mx-1 text-dark" href="#">Edit</a>
+                  <a class="mx-1 text-dark" href="#">Delete</a>
+                </td>
+              </tr>
+            <% end %>
           </tbody>
         </table>
       </div>

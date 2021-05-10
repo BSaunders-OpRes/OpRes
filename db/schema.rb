@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_22_144634) do
+ActiveRecord::Schema.define(version: 2021_05_06_081125) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -38,9 +38,6 @@ ActiveRecord::Schema.define(version: 2021_04_22_144634) do
     t.string "name"
     t.text "description"
     t.integer "tier"
-    t.integer "region"
-    t.integer "country"
-    t.string "institution"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["unit_id"], name: "index_business_service_lines_on_unit_id"
@@ -132,6 +129,7 @@ ActiveRecord::Schema.define(version: 2021_04_22_144634) do
     t.text "description"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "unit_type"
   end
 
   create_table "pre_product_channels", force: :cascade do |t|
@@ -172,7 +170,7 @@ ActiveRecord::Schema.define(version: 2021_04_22_144634) do
   create_table "risk_appetites", force: :cascade do |t|
     t.bigint "business_service_line_id"
     t.integer "creator_id"
-    t.string "type"
+    t.string "name"
     t.text "description"
     t.integer "risk_appetite_value"
     t.datetime "created_at", precision: 6, null: false
@@ -309,6 +307,7 @@ ActiveRecord::Schema.define(version: 2021_04_22_144634) do
     t.string "last_sign_in_ip"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "job_title"
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true

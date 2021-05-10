@@ -1,0 +1,84 @@
+<div class="row">
+  <div class="col-sm-12 col-md-10 col-lg-8 col-xxl-10 mx-auto">
+    <div class="card border-0 shadow">
+      <div class="card-body px-4">
+        <%= render 'layouts/partials/shared/redirect_back', path: organisation_administration_portal_index_path %>
+        <div class="show-page">
+          <div class="row align-items-center">
+            <div class="col-md-12">
+              <div class="card border-0">
+                <div class="card-body">
+                  <div class="row pb-4 border-bottom">
+                    <div class="col-md-6">
+                      <h6 class="font-14 text-capitalize font-700">name</h6>
+                    </div>
+                    <div class="col-md-6">
+                      <h5 class="font-14 text-capitalize text-secondary"><%= @bsl.name %></h5>
+                    </div>
+                  </div>
+                  <div class="row py-4 border-bottom">
+                    <div class="col-md-6">
+                      <h6 class="font-14 text-capitalize font-700">Tier</h6>
+                    </div>
+                    <div class="col-md-6">
+                      <h5 class="font-14 text-capitalize text-secondary"><%= @bsl.tier %></h5>
+                    </div>
+                  </div>
+
+                  <div class="row py-4 border-bottom">
+                    <div class="col-md-6">
+                      <h6 class="font-14 text-capitalize font-700">Region</h6>
+                    </div>
+                    <div class="col-md-6">
+                      <h5 class="font-14 text-capitalize text-secondary"><%= @bsl.unit&.parent&.parent.name %></h5>
+                    </div>
+                  </div>
+                  <div class="row py-4 border-bottom">
+                    <div class="col-md-6">
+                      <h6 class="font-14 text-capitalize font-700">Country</h6>
+                    </div>
+                    <div class="col-md-6">
+                      <h5 class="font-14 text-capitalize text-secondary"><%= @bsl.unit&.parent.name %></h5>
+                    </div>
+                  </div>
+
+
+                  <div class="row py-4 border-bottom">
+                    <div class="col-md-6">
+                      <h6 class="font-14 text-capitalize font-700">Institution</h6>
+                    </div>
+                    <div class="col-md-6">
+                      <h5 class="font-14 text-capitalize text-secondary"><%= @bsl.unit&.name %></h5>
+                    </div>
+                  </div>
+
+                  <div class="row py-4 border-bottom">
+                    <div class="col-md-6">
+                      <h6 class="font-14 text-capitalize font-700">Products</h6>
+                    </div>
+                    <div class="col-md-6">
+                      <% @bsl.products&.each do |product| %>
+                        <h5 class="font-14 text-capitalize text-secondary"><%= product.name %></h5>
+                      <% end %>
+                    </div>
+                  </div>
+                  <div class="row py-4 border-bottom">
+                    <div class="col-md-6">
+                      <h6 class="font-14 text-capitalize font-700">Channels</h6>
+                    </div>
+                    <div class="col-md-6">
+                     <% @bsl.channels&.each do |channel| %>
+                        <h5 class="font-14 text-capitalize text-secondary"><%= channel.name %></h5>
+                      <% end %>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+   </div>
+ </div>

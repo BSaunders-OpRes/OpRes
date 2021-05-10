@@ -94,18 +94,20 @@
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td class="font-12 font-xxl-14 pl-0 text-black">Name Here</td>
-              <td class="w-10 font-12 font-xxl-14 px-2 font-400 text-capitalize">4</td>
-              <td class="w-10 font-12 font-xxl-14 px-2 font-400 text-capitalize">counrty</td>
-              <td class="w-10 font-12 font-xxl-14 px-2 font-400 text-capitalize">region</td>
-              <td class="w-10 font-12 font-xxl-14 px-2 font-400 text-capitalize">institution</td>
-              <td class="w-10 font-12 font-xxl-14 px-2 font-400 text-capitalize">product</td>
-              <td class= 'px-1 font-12'>
-                <a class="mx-1 text-black text-uppercase font-600 font-12" href="#">Edit</a>
-                <a class="mx-1 text-black text-uppercase font-600 font-12" href="#">View</a>
-              </td>
-            </tr>
+            <% @business_service_lines&.each do |bsl| %>
+              <tr>
+                <td class="font-12 font-xxl-14 pl-0 text-black"><%= bsl.name %></td>
+                <td class="w-10 font-12 font-xxl-14 px-2 font-400 text-capitalize"><%= bsl.tier %></td>
+                <td class="w-10 font-12 font-xxl-14 px-2 font-400 text-capitalize"><%= bsl.unit&.parent&.parent&.name %></td>
+                <td class="w-10 font-12 font-xxl-14 px-2 font-400 text-capitalize"><%= bsl.unit&.parent&.name %></td>
+                <td class="w-10 font-12 font-xxl-14 px-2 font-400 text-capitalize"><%= bsl.unit&.name %></td>
+                <td class="w-10 font-12 font-xxl-14 px-2 font-400 text-capitalize">products</td>
+                <td class= 'px-1 font-12'>
+                  <%= link_to 'Edit', edit_organisation_business_service_line_path(bsl), class: 'mx-1 text-black text-uppercase font-600 font-12' %>
+                  <%= link_to 'View', organisation_business_service_line_path(bsl), class: 'mx-1 text-black text-uppercase font-600 font-12' %>
+                </td>
+              </tr>
+            <% end %>
           </tbody>
         </table>
       </div>

@@ -27,6 +27,11 @@ Rails.application.routes.draw do
       post :show, on: :member
     end
     resources :business_service_lines
+    resources :units, only: []  do
+      get :load_countries,         on: :collection
+      get :load_institutions,      on: :collection
+      get :load_products_channels, on: :collection
+    end
     resources :suppliers
     resources :admins
     resources :administration_portal, only: %i[index]
