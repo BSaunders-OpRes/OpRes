@@ -41,6 +41,10 @@ a {
 .flex-inherit {
   flex: inherit;
 }
+.blur {
+  filter: blur(2px);
+  transition: .3s all;
+}
 .form-control:disabled {
   opacity: .4 !important;
   background: #fff !important;
@@ -215,6 +219,9 @@ textarea {
 }
 .bg-dark-yellow {
   background: $dark-yellow !important;
+}
+.bg-ternary-green {
+  background: $ternary-green !important;
 }
 
 .text-red {

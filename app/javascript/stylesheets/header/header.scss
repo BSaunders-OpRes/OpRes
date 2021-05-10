@@ -57,6 +57,7 @@
     flex: .75;
     .dropdown {
       .dropdown-menu {
+        top: 18px !important;
         left: -40px !important;
         width: 200px;
       }
@@ -73,6 +74,25 @@
           top: 0;
           right: 0;
           border-radius: 100px;
+        }
+      }
+    }
+    .notification-dropdown {
+      .dropdown-menu {
+        width: 350px;
+        top: 25px !important;
+        .dropdown-item {
+          .alert-circle {
+            width: 40px;
+            height: 40px;
+            border-radius: 100px;
+          }
+          .alert-text {
+            white-space: normal;
+          }
+        }
+        .previous-alert {
+          border-top: 7px solid $body-bg-color;
         }
       }
     }
