@@ -67,7 +67,7 @@ class Organisation::JourneysController < Organisation::BaseController
         regional_unit.children.each do |country_unit|
           params.dig(:institutions, country_unit.id.to_s)&.each do |id, name|
             country_unit.children
-                        .create_with(type: Units::Institution, name: name)
+                        .create_with(type: Units::Institution, name: build_institution_name(regional_unit, name, country_unit))
                         .find_or_create_by(institution_id: id)
           end
         end
@@ -96,5 +96,9 @@ class Organisation::JourneysController < Organisation::BaseController
         end
       end
     end
+  end
+
+  def build_institution_name (regional_unit, name, country_unit)
+    "#{regional_unit.region} #{name}  #{country_unit.country}"
   end
 end
