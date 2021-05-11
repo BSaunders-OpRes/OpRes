@@ -12,7 +12,10 @@ export default function login(props) {
   const [email,    setEmail]    = useState('');
   const [password, setPassword] = useState('');
   const [error,    setError]    = useState('');
-
+  const [passwordShown, setPasswordShown] = useState(false);
+  const togglePasswordVisiblity = () => {
+    setPasswordShown(passwordShown ? false : true);
+  };
   const handleSubmit = (e)=> {
     e.preventDefault();
     if (email === '' || password === '') {
@@ -34,8 +37,8 @@ export default function login(props) {
     window.location.href = resp.redirect_url
   }
 
-  const Eye = <i class="fa fa-eye" aria-hidden="true"></i>
-  const EyeSlash = <i class="fa fa-eye-slash" aria-hidden="true"></i>;
+  const eye = <i className="fa fa-eye" aria-hidden="true"></i>
+  const eyeSlash = <i className="fa fa-eye-slash" aria-hidden="true"></i>;
 
   return (
     <div className='login-wrapper h-100'>
@@ -57,8 +60,9 @@ export default function login(props) {
                 </div>
                 <div className="row">
                   <div className="form-group col-md-10 animated-field password">
-                    <input type='password' value={password} name="name" className='form-control border-0' placeholder='Password' onChange={e => setPassword(e.target.value)} />
+                    <input type={passwordShown ? "text" : "password"} value={password} name="name" className='form-control border-0' placeholder='Password' onChange={e => setPassword(e.target.value)} />
                     <label>Password</label>
+                     <i onClick={togglePasswordVisiblity}>{passwordShown ? eye : eyeSlash}</i>
                     <div className='error'>{error}</div>
                   </div>
                 </div>
