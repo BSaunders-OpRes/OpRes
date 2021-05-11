@@ -31,4 +31,22 @@ module ApplicationHelper
   def hide_side_bar?
     params[:controller] == 'organisation/journeys'
   end
+
+  def find_region(bsl)
+    return {} unless @bsl.persisted?
+    {} unless bsl.unit.institution_unit?
+    [bsl.unit.parent.parent.name, bsl.unit.parent.parent.id ]
+  end
+
+  def find_country(bsl)
+    return {} unless @bsl.persisted?
+    {} unless bsl.unit.institution_unit?
+    [bsl.unit.parent.name, bsl.unit.parent.id]
+  end
+
+  def find_institute(bsl)
+    return {} unless @bsl.persisted?
+    {} unless bsl.unit.institution_unit?
+    [bsl.unit.name, bsl.unit.id]
+  end
 end

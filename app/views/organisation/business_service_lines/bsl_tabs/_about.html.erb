@@ -41,7 +41,7 @@
             <p class="text-capitalize font-14 font-600">region</p>
           </div>
           <div class="col-sm-7 order-3 order-sm-2">
-            <%= render 'organisation/units/partials/drop_down', param_name: 'business_service_line[region]', options: managing_unit.regional_dropdown, prompt_message: 'Select your region' %>
+            <%= render 'organisation/units/partials/drop_down', param_name: 'business_service_line[region]', options: managing_unit.regional_dropdown, val: find_region(@bsl), prompt_message: 'Select your region' %>
           </div>
           <div class="col-sm-1 text-right order-2 flex-sm-half mb-2 mb-sm-0">
             <i class="fa fa-info-circle font-18" data-toggle="tooltip" data-placement="top" title="region" aria-hidden="true"></i>
@@ -54,7 +54,7 @@
             <p class="text-capitalize font-14 font-600">country</p>
           </div>
           <div class="col-sm-7 order-3 order-sm-2" id="countries-dropdown">
-            <%= render 'organisation/units/partials/drop_down', param_name: 'business_service_line[country]', options: managing_unit.country_dropdown, prompt_message: 'Select your country' %>
+            <%= render 'organisation/units/partials/drop_down', param_name: 'business_service_line[country]', options: params[:action] == 'edit' ? [find_country(@bsl)] : managing_unit.country_dropdown, val: find_country(@bsl), prompt_message: 'Select your country' %>
           </div>
           <div class="col-sm-1 text-right order-2 flex-sm-half mb-2 mb-sm-0">
             <i class="fa fa-info-circle font-18" data-toggle="tooltip" data-placement="top" title="country" aria-hidden="true"></i>
@@ -67,7 +67,7 @@
             <p class="text-capitalize font-14 font-600">brand/institution</p>
           </div>
           <div class="col-sm-7 order-3 order-sm-2" id='institutions-dropdown'>
-            <%= render 'organisation/units/partials/drop_down', param_name: 'business_service_line[institution]', options: managing_unit.institution_dropdown, prompt_message: 'Select your institution' %>
+            <%= render 'organisation/units/partials/drop_down', param_name: 'business_service_line[institution]',val: {}, options: params[:action] == 'edit' ? [find_institute(@bsl)] : managing_unit.institution_dropdown, val: find_institute(@bsl), prompt_message: 'Select your institution' %>
           </div>
           <div class="col-sm-1 text-right order-2 flex-sm-half mb-2 mb-sm-0">
             <i class="fa fa-info-circle font-18" data-toggle="tooltip" data-placement="top" title="brand/institution" aria-hidden="true"></i>
@@ -83,7 +83,7 @@
         <div class="col-sm-7 order-3 order-sm-2 mt-sm-0 mt-3">
           <div class="checkbox-container d-flex justify-content-start flex-wrap">
             <div class="form-check d-flex align-items-center mr-2 form-group" id="products-dropdown">
-              <%= render 'organisation/units/partials/check_box', options: {}, param_name: 'business_service_line[product_ids][]' %>
+              <%= render 'organisation/units/partials/check_box', options:  @bsl&.products.map{ |product| [product.name, product.id] }, selected_values:  @bsl&.products.map{ |product| [product.name, product.id] }, param_name: 'business_service_line[product_ids][]' %>
             </div>
           </div>
         </div>
@@ -98,7 +98,7 @@
         <div class="col-sm-7 order-3 order-sm-2 mt-sm-0 mt-3">
           <div class="checkbox-container d-flex justify-content-start flex-wrap">
             <div class="form-check d-flex align-items-center mr-2 form-group" id="channels-dropdown">
-              <%= render 'organisation/units/partials/check_box', options: {}, param_name: 'business_service_line[channel_ids][]' %>
+              <%= render 'organisation/units/partials/check_box', options:  @bsl&.channels.map{ |channel| [channel.name, channel.id] }, selected_values: @bsl&.channels.map{ |channel| [channel.name, channel.id] }, param_name: 'business_service_line[channel_ids][]' %>
             </div>
           </div>
         </div>
