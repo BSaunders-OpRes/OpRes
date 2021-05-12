@@ -23,9 +23,9 @@ class BusinessServiceLine < ApplicationRecord
   validates :name, :description, :tier, presence: true
 
   # Nested Attributes #
-  accepts_nested_attributes_for :sla
-  accepts_nested_attributes_for :material_risk_taker
-  accepts_nested_attributes_for :risk_appetites
+  accepts_nested_attributes_for :sla, allow_destroy: true
+  accepts_nested_attributes_for :material_risk_taker, allow_destroy: true
+  accepts_nested_attributes_for :risk_appetites, allow_destroy: true
 
     # Methods #
   def product_ids

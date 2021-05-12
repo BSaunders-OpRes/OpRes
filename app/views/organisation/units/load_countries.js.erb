@@ -1,7 +1,7 @@
 <% if @regional_unit %>
-  $('#countries-dropdown').html("<%= j(render 'organisation/units/partials/drop_down', param_name: 'business_service_line[country]', options: @regional_unit.country_dropdown, prompt_message: 'Select your country') %>");
+  $('#countries-dropdown').html("<%= j(render 'organisation/units/partials/drop_down', param_name: 'business_service_line[country]', options: @regional_unit.country_dropdown, val: {}, prompt_message: 'Select your country') %>");
 <% else %>
-  $('#countries-dropdown').html("<%= j(render 'organisation/units/partials/drop_down', param_name: 'business_service_line[country]', options: {}, prompt_message: 'Select your country') %>");
+  $('#countries-dropdown').html("<%= j(render 'organisation/units/partials/drop_down', param_name: 'business_service_line[country]', options: {}, val: {}, prompt_message: 'Select your country') %>");
 <% end %>
 
-$('#institutions-dropdown').html("<%= j(render 'organisation/units/partials/drop_down', param_name: 'business_service_line[institution]', options: {}, prompt_message: 'Select your institution') %>");
+$('#institutions-dropdown').html("<%= j(render 'organisation/units/partials/drop_down', param_name: 'business_service_line[institution]', options: {}, val: {}, prompt_message: 'Select your institution') %>");

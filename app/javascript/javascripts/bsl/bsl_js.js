@@ -11,7 +11,7 @@ document.addEventListener('turbolinks:load', function() {
     $(desc).removeClass('d-none');
   });
 
-  $('body').on('change', '#business_service_line_region', function() {
+  $('body').on('click', '#business_service_line_region', function() {
     $.ajax({
       url:  '/organisation/units/load_countries',
       type: 'GET',
