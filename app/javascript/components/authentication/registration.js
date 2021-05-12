@@ -116,6 +116,7 @@ export default function Registration() {
                           )}
                         )}
                       </select>
+                      <i class="fa fa-sort-desc" aria-hidden="true"></i>
                       <div className='error'>{organisationTypeError}</div>
                     </div>
                   </div>

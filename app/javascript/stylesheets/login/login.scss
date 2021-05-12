@@ -16,15 +16,29 @@
     font-size: 12px;
     outline: none;
     box-shadow: none;
+    height: 65px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -o-appearance: none;
+    & + i.fa {
+      float: right;
+      margin-top: -42px;
+      margin-right: 5px;
+      pointer-events: none;
+      padding-right: 5px;
+      position: relative;
+      z-index: 10;
+    }
   }
 }
 .password {
   position: relative;
-    svg {
+    i {
       position: absolute;
       right: 20px;
       top: 50%;
       transform: translateY(-50%);
+      cursor: pointer;
     }
 }
 .error {
