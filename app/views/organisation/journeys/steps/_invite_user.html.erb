@@ -1,0 +1,99 @@
+<%= form_tag organisation_journey_path('finish'), remote: true do %>
+
+  <div class="card bsl-container">
+    <div class="card-body w-75 mx-auto font-14 mt-4 p-0 wizard-body">
+      <p class="font-12 border p-3">As a part of the onboarding wizard, we recommend that firms federate administration responsibilities to the various business unit and entities across their organisation</p>
+      <p class="my-5">Please provide the details for users in this region. Users can be set up as a <strong>"Super User"</strong> or <strong>"Standard User"</strong>. Super user can add new, update and amend existing business service & supplier records. Standard Users can only view existing records.</p>
+      <ul class="nav nav-tabs border-0" id="myTab" role="tablist">
+        <li class="nav-item mr-3">
+          <a class="nav-link active border-0 p-0 pb-2" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Name & Email Addresses</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link border-0 p-0 pb-2" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Add Many At Once</a>
+        </li>
+      </ul>
+      <div class="tab-content py-4" id="myTabContent">
+        <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+          <div class="row">
+            <div class="form-group col-md-3">
+              <input type="text" class="form-control font-12" placeholder="First Name"/>
+            </div>
+            <div class="form-group col-md-3">
+              <input type="text" class="form-control font-12" placeholder="Last Name"/>
+            </div>
+            <div class="form-group col-md-3">
+              <input type="text" class="form-control font-12" placeholder="Email"/>
+            </div>
+            <div class="form-group col-md-3">
+              <select class="form-control w-100 font-12 shadow-none">
+                <option value="">Permissions</option>
+                <option value="">Super User</option>
+                <option value="">Standar User</option>
+              </select>
+            </div>
+          </div>
+          <div class="row">
+            <div class="form-group col-md-3">
+              <input type="text" class="form-control font-12" placeholder="First Name"/>
+            </div>
+            <div class="form-group col-md-3">
+              <input type="text" class="form-control font-12" placeholder="Last Name"/>
+            </div>
+            <div class="form-group col-md-3">
+              <input type="text" class="form-control font-12" placeholder="Email"/>
+            </div>
+            <div class="form-group col-md-3">
+              <select class="form-control w-100 font-12 shadow-none">
+                <option value="">Permissions</option>
+                <option value="">Super User</option>
+                <option value="">Standar User</option>
+              </select>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <textarea class="form-control" name="" id="" cols="30" rows="4" placeholder="Personalize Invite"></textarea>
+            </div>
+          </div>
+        </div>
+        <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+          <div class="row mb-4">
+            <div class="col-md-9">
+              <textarea class="form-control" name="" id="" cols="30" rows="4" placeholder="Email Addresses"></textarea>
+            </div>
+            <div class="form-group col-md-3">
+              <select class="form-control w-100 font-12 shadow-none">
+                <option value="">Permissions</option>
+                <option value="">Super User</option>
+                <option value="">Standar User</option>
+              </select>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <textarea class="form-control" name="" id="" cols="30" rows="4" placeholder="Personalize Invite"></textarea>
+            </div>
+          </div>
+        </div>
+        <div class="row mt-4">
+          <div class="col-md-12">
+            <button class="btn primary-btn border-0 py-2 font-12 font-600">Send Invitation</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="w-75 mx-auto mt-4">
+    <div class="progress custom-progress">
+      <div class="progress-bar progress-bar" role="progressbar" style="width: 90%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+    </div>
+    <div class="d-flex justify-content-between font-12">
+      <span>Step 6</span>
+      <span>90%</span>
+    </div>
+  </div>
+  <div class="card-body w-75 d-flex p-0 mx-auto justify-content-between my-4">
+    <%= link_to 'Back', organisation_journey_path('product-channel'), class: 'btn dark-btn text-capitalize w-25 rounded-0' %>
+    <%= submit_tag 'Next', class: 'btn primary-btn text-capitalize w-25 rounded-0' %>
+  </div>
+<% end %>

@@ -84,7 +84,18 @@
   max-width: 800px;
   margin: 50px auto;
 }
-
+.info {
+  background: #000;
+  width: 20px;
+  height: 20px;
+  color: #fff;
+  border-radius: 100px;
+  text-align: center;
+  font-size: 13px;
+  line-height: 22px;
+  font-weight: 700;
+  margin-left: auto;
+}
 .custom-placeholder {
   i.fa.fa-pencil {
     position: absolute;

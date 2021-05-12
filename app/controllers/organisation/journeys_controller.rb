@@ -13,6 +13,8 @@ class Organisation::JourneysController < Organisation::BaseController
       handle_institution_unit
     when 'product-channel'
       handle_product_channel
+    when 'invite-user'
+      handle_invite_user
     when 'finish'
       handle_finish
     end
@@ -78,6 +80,8 @@ class Organisation::JourneysController < Organisation::BaseController
     @products = organisational_unit.products
     @channels = organisational_unit.channels
   end
+
+  def handle_invite_user; end
 
   def handle_finish
     if request.post?

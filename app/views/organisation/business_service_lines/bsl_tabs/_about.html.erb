@@ -10,7 +10,7 @@
           <%= form.text_field :name, class: 'w-100 form-control font-12 h-auto py-3 shadow-none', placeholder: 'BSL Name', required: true %>
         </div>
         <div class="col-sm-1 text-right order-2 flex-sm-half mb-2 mb-sm-0">
-          <i class="fa fa-info-circle font-18" data-toggle="tooltip" data-placement="top" title="business service line name" aria-hidden="true"></i>
+          <div class="info" data-toggle="tooltip" data-placement="top" title="business service line name" aria-hidden="true">i</div>
         </div>
       </div>
       <div class="row align-items-center mt-4">
@@ -21,7 +21,7 @@
         <%= form.text_area :description, class: 'w-100 form-control font-12 h-auto py-3 shadow-none', placeholder: 'BSL description', required: true %>
         </div>
         <div class="col-sm-1 text-right order-2 flex-sm-half mb-2 mb-sm-0">
-          <i class="fa fa-info-circle font-18" data-toggle="tooltip" data-placement="top" title="business service line description" aria-hidden="true"></i>
+          <div class="info" data-toggle="tooltip" data-placement="top" title="business service line description" aria-hidden="true">i</div>
         </div>
       </div>
       <div class="row align-items-center mt-4">
@@ -32,7 +32,7 @@
           <%= form.select :tier, options_for_select(BusinessServiceLine.tiers.map { |k, v| [k] }, @bsl.tier), { include_blank: 'Select your Tier' }, { class: 'form-control w-100 font-12 h-auto py-3 shadow-none' } %>
         </div>
         <div class="col-sm-1 text-right order-2 flex-sm-half mb-2 mb-sm-0">
-          <i class="fa fa-info-circle font-18" data-toggle="tooltip" data-placement="top" title="service tier" aria-hidden="true"></i>
+          <div class="info" data-toggle="tooltip" data-placement="top" title="service tier" aria-hidden="true">i</div>
         </div>
       </div>
       <% if managing_unit.can_access_regional_dropdown? %>
@@ -44,7 +44,8 @@
             <%= render 'organisation/units/partials/drop_down', param_name: 'business_service_line[region]', options: managing_unit.regional_dropdown, val: find_region(@bsl), prompt_message: 'Select your region' %>
           </div>
           <div class="col-sm-1 text-right order-2 flex-sm-half mb-2 mb-sm-0">
-            <i class="fa fa-info-circle font-18" data-toggle="tooltip" data-placement="top" title="region" aria-hidden="true"></i>
+            <div class="info" data-toggle="tooltip" data-placement="top" title="region" aria-hidden="true">i</div>
+
           </div>
         </div>
       <% end %>
@@ -57,7 +58,7 @@
             <%= render 'organisation/units/partials/drop_down', param_name: 'business_service_line[country]', options: params[:action] == 'edit' ? [find_country(@bsl)] : managing_unit.country_dropdown, val: find_country(@bsl), prompt_message: 'Select your country' %>
           </div>
           <div class="col-sm-1 text-right order-2 flex-sm-half mb-2 mb-sm-0">
-            <i class="fa fa-info-circle font-18" data-toggle="tooltip" data-placement="top" title="country" aria-hidden="true"></i>
+            <div class="info" data-toggle="tooltip" data-placement="top" title="country" aria-hidden="true">i</div>
           </div>
         </div>
       <% end %>
@@ -70,7 +71,7 @@
             <%= render 'organisation/units/partials/drop_down', param_name: 'business_service_line[institution]',val: {}, options: params[:action] == 'edit' ? [find_institute(@bsl)] : managing_unit.institution_dropdown, val: find_institute(@bsl), prompt_message: 'Select your institution' %>
           </div>
           <div class="col-sm-1 text-right order-2 flex-sm-half mb-2 mb-sm-0">
-            <i class="fa fa-info-circle font-18" data-toggle="tooltip" data-placement="top" title="brand/institution" aria-hidden="true"></i>
+            <div class="info" data-toggle="tooltip" data-placement="top" title="brand/institution" aria-hidden="true">i</div>
           </div>
         </div>
       <% end %>
@@ -88,7 +89,7 @@
           </div>
         </div>
         <div class="col-sm-1 text-right order-2 flex-sm-half align-self-start">
-          <i class="fa fa-info-circle font-18" data-toggle="tooltip" data-placement="top" title="product" aria-hidden="true"></i>
+          <div class="info" data-toggle="tooltip" data-placement="top" title="product" aria-hidden="true">i</div>
         </div>
       </div>
       <div class="row align-items-center">
@@ -103,7 +104,7 @@
           </div>
         </div>
         <div class="col-sm-1 text-right order-2 flex-sm-half align-self-start">
-          <i class="fa fa-info-circle font-18" data-toggle="tooltip" data-placement="top" title="channel" aria-hidden="true"></i>
+          <div class="info" data-toggle="tooltip" data-placement="top" title="channel" aria-hidden="true">i</div>
         </div>
       </div>
     </div>
@@ -117,7 +118,7 @@
             <%= risk_taker.text_field :name, placeholder: 'Enter Name', class: 'w-100 form-control font-12 h-auto py-3 shadow-none' %>
           </div>
           <div class="col-sm-1 text-right order-2 flex-sm-half mb-2 mb-sm-0">
-            <i class="fa fa-info-circle font-18" data-toggle="tooltip" data-placement="top" title="Material Risk taker name" aria-hidden="true"></i>
+            <div class="info" data-toggle="tooltip" data-placement="top" title="Material Risk taker name" aria-hidden="true">i</div>
           </div>
         </div>
         <div class="row align-items-center mt-4">
@@ -128,7 +129,7 @@
             <%= risk_taker.text_field :title, placeholder: 'Enter Title', class: 'w-100 form-control font-12 h-auto py-3 shadow-none' %>
           </div>
           <div class="col-sm-1 text-right order-2 flex-sm-half mb-2 mb-sm-0">
-            <i class="fa fa-info-circle font-18" data-toggle="tooltip" data-placement="top" title="material risk taker title" aria-hidden="true"></i>
+            <div class="info" data-toggle="tooltip" data-placement="top" title="material risk taker title" aria-hidden="true">i</div>
           </div>
         </div>
         <div class="row align-items-center mt-4">
@@ -139,7 +140,7 @@
             <%= risk_taker.email_field :email, placeholder: 'Enter Email', class:'w-100 form-control font-12 h-auto py-3 shadow-none' %>
           </div>
           <div class="col-sm-1 text-right order-2 flex-sm-half mb-2 mb-sm-0">
-            <i class="fa fa-info-circle font-18" data-toggle="tooltip" data-placement="top" title="email address" aria-hidden="true"></i>
+            <div class="info" data-toggle="tooltip" data-placement="top" title="email address" aria-hidden="true">i</div>
           </div>
         </div>
       </div>
