@@ -34,6 +34,7 @@
                           <label class="form-check-label text-capitalize font-13 custom-checkbox" for="<%= "#{country_unit.country}-institution-#{institution.id}" %>">
                             <%= institution.name %>
                             <%= check_box_tag "institutions[#{country_unit.id}[#{institution.id}]]", institution.name, institution_units.pluck(:institution_id).include?(institution.id), class: 'form-check-input mt-0 shadow-none', id: "#{country_unit.country}-institution-#{institution.id}" %>
+                            <%= text_field_tag "institutions_name[#{country_unit.id}[#{institution.id}]]", institution.name %>
                             <span class="checkmark shadow-sm rounded"></span>
                           </label>
                         </div>
