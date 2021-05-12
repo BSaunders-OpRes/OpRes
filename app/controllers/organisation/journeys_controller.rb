@@ -100,9 +100,4 @@ class Organisation::JourneysController < Organisation::BaseController
       end
     end
   end
-
-  def build_institution_name(id,regional_unit,name,country_unit)
-    Unit.build_name(regional_unit.region, name, country_unit.country) if params.dig(:institutions_name).values_at(id).first.empty?
-    params.dig(:institutions_name).values_at(id).first
-  end
 end
