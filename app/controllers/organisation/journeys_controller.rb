@@ -84,9 +84,7 @@ class Organisation::JourneysController < Organisation::BaseController
     @channels = organisational_unit.channels
   end
 
-  def handle_invite_user; end
-
-  def handle_finish
+  def handle_invite_user
     if request.post?
       @organisational_unit = organisational_unit.include_deep_children
       organisational_unit.children.each do |regional_unit|
@@ -104,4 +102,6 @@ class Organisation::JourneysController < Organisation::BaseController
       end
     end
   end
+
+  def handle_finish; end
 end
