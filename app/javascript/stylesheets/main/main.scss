@@ -274,7 +274,7 @@ footer {
   -ms-user-select: none;
   user-select: none;
 
-  input {
+  input[type=checkbox] {
     position: absolute;
     opacity: 0;
     cursor: pointer;
