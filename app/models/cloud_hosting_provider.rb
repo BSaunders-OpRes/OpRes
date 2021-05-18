@@ -3,5 +3,5 @@ class CloudHostingProvider < ApplicationRecord
   belongs_to :supplier
 
   # Validations #
-  validates :name, :description, presence: true
+  validates :name, presence: true
 end

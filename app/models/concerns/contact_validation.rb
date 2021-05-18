@@ -2,7 +2,7 @@ module ContactValidation
   extend ActiveSupport::Concern
 
   included do
-    validates :name, :email, presence: true
-    validates_format_of :email, with: /\A[^@\s]+@([^@\s]+\.)+[^@\s]+\z/
+    validates :name, presence: true
+    validates :email, format: { with: Devise::email_regexp }, if: -> { email.present? }
   end
 end

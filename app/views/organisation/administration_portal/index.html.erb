@@ -168,28 +168,26 @@
         <table class="table custom-table font-14 m-0">
           <thead>
             <tr>
-              <th class="text-capitalize font-12 pl-0">BSL Name</th>
-              <th class="w-10 font-12 font-xxl-14 px-2 text-capitalize">Tier</th>
-              <th class="w-10 font-12 font-xxl-14 px-2 text-capitalize">Country</th>
-              <th class="w-10 font-12 font-xxl-14 px-2 text-capitalize">region</th>
-              <th class="w-10 font-12 font-xxl-14 px-2 text-capitalize">institution</th>
-              <th class="w-10 font-12 font-xxl-14 px-2 text-capitalize">product</th>
+              <th class="text-capitalize font-12 pl-0">Supplier Name</th>
+              <th class="w-10 font-12 font-xxl-14 px-2 text-capitalize">Contracting Terms</th>
+              <th class="w-10 font-12 font-xxl-14 px-2 text-capitalize">Organisational Unit Name</th>
+              <th class="w-10 font-12 font-xxl-14 px-2 text-capitalize">Party Type</th>
               <th></th>
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td class="font-12 font-xxl-14 pl-0 text-black">Name Here</td>
-              <td class="w-10 font-12 font-xxl-14 px-2 font-400 text-capitalize">4</td>
-              <td class="w-10 font-12 font-xxl-14 px-2 font-400 text-capitalize">counrty</td>
-              <td class="w-10 font-12 font-xxl-14 px-2 font-400 text-capitalize">region</td>
-              <td class="w-10 font-12 font-xxl-14 px-2 font-400 text-capitalize">institution</td>
-              <td class="w-10 font-12 font-xxl-14 px-2 font-400 text-capitalize">product</td>
-              <td class= 'px-1 font-12'>
-                <a class="mx-1 text-black text-uppercase font-600 font-12" href="#">Edit</a>
-                <a class="mx-1 text-black text-uppercase font-600 font-12" href="#">View</a>
-              </td>
-            </tr>
+            <% @suppliers&.each do |supplier| %>
+              <tr>
+                <td class="font-12 font-xxl-14 pl-0 text-black"><%= supplier.name %></td>
+                <td class="w-10 font-12 font-xxl-14 px-2 font-400 text-capitalize"><%= supplier.contracting_terms %></td>
+                <td class="w-10 font-12 font-xxl-14 px-2 font-400 text-capitalize"><%= organisational_unit.name %></td>
+                <td class="w-10 font-12 font-xxl-14 px-2 font-400 text-capitalize"><%= supplier.party_type %></td>
+                <td class= 'px-1 font-12'>
+                   <%= link_to 'Edit', edit_organisation_supplier_path(supplier), class: 'mx-1 text-black text-uppercase font-600 font-12' %>
+                  <%= link_to 'View', organisation_supplier_path(supplier), class: 'mx-1 text-black text-uppercase font-600 font-12' %>
+                </td>
+              </tr>
+            <% end %>
           </tbody>
         </table>
       </div>

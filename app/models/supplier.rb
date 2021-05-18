@@ -17,8 +17,26 @@ class Supplier < ApplicationRecord
 
   # Enums #
   enum contracting_terms: %i[monthly annually]
+  enum party_type: %i[3rd-party 4th-party]
 
   # Validations #
   validates :name, :contracting_terms, presence: true
-  validates :contracting_terms, numericality: { only_integer: true }
+
+  # Nested Attributes #
+  accepts_nested_attributes_for :cloud_hosting_provider, allow_destroy: true
+  accepts_nested_attributes_for :relationship_owner, allow_destroy: true
+  accepts_nested_attributes_for :sla, allow_destroy: true
+
+  # Methods #
+  def key_contacts_ids
+    key_contacts.pluck(:id)
+  end
+
+  def key_contacts_ids=(ids)
+    self.key_contacts = KeyContact.find(ids.reject(&:blank?))
+  end
+
+  def key_contacts_list
+    key_contacts.pluck(:name).join(', ')
+  end
 end
