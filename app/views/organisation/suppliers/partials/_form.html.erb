@@ -1,0 +1,319 @@
+<%= form_for supplier, url: new_or_create ? organisation_suppliers_path : organisation_supplier_path, method: new_or_create ? :post : :patch do |form| %>
+  <div class="wizard-body">
+    <div class="wizard-header my-4 border-bottom pb-4">
+      <h4 class="mb-4 font-weight-bold"><%= new_or_create ? 'Add a new supplier' : 'Edit supplier' %></h4>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. In amet aperiam, iste iusto dicta quisquam cumque mollitia veritatis</p>
+    </div>
+     <h5 class="font-600">Supplier details</h5>
+    <div class="mt-5">
+      <div class="input-fields mb-5 pb-5 border-bottom">
+        <div class="row align-items-center">
+          <div class="col-sm-4 flex-sm-1 mb-2 mb-sm-0">
+            <p class="text-capitalize font-14 font-600">supplier name</p>
+          </div>
+          <div class="col-sm-7 order-3 order-sm-2">
+            <%= form.text_field :name, placeholder: 'Supplier Name', required: true, class: 'w-100 form-control font-12 h-auto py-3 shadow-none' %>
+          </div>
+          <div class="col-sm-1 text-right order-2 flex-sm-half mb-2 mb-sm-0">
+            <div class="info" data-toggle="tooltip" data-placement="top" title="supplier name" aria-hidden="true">i</div>
+          </div>
+        </div>
+        <div class="checkboxes-field mt-4">
+          <div class="row align-items-center">
+            <div class="col-sm-4 flex-sm-1">
+              <p class="text-capitalize font-14 font-600 text-capitalize">party type</p>
+            </div>
+            <div class="col-sm-7 order-3 order-sm-2 mt-sm-0 mt-3">
+              <div class="checkbox-container d-flex justify-content-start flex-wrap">
+                <div class="form-check d-flex align-items-center mr-2 form-group mb-2 pl-0">
+                   <% Supplier.party_types&.each do |key, val| %>
+                    <div class="form-check d-flex align-items-center form-group col-12 mb-0 pl-0"  id='flexCheckDefault'>
+                      <%= form.check_box :party_type, { id: "party_type#{key}", multiple: false }, key, nil %>
+                      <%= form.label key.titleize, class: 'mb-0 ml-2 font-12 text-capitalize', for: "party_type#{key}" %><br />
+                    </div>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-1 text-right order-2 flex-sm-half mb-2 mb-sm-0">
+              <div class="info" data-toggle="tooltip" data-placement="top" title="party type" aria-hidden="true">i</div>
+            </div>
+          </div>
+        </div>
+        <div class="row align-items-center mt-4">
+          <div class="col-sm-4 flex-sm-1 mb-2 mb-sm-0">
+            <p class="text-capitalize font-14 font-600">cloud hosting provider</p>
+          </div>
+          <div class="col-sm-7 order-3 order-sm-2">
+            <%= form.fields_for :cloud_hosting_provider do |cloud_hosting_provider| %>
+              <%= cloud_hosting_provider.text_field :name, placeholder: 'Cloud Hosting Provider', class: 'w-100 form-control font-12 h-auto py-3 shadow-none' %>
+            <% end %>
+          </div>
+          <div class="col-sm-1 text-right order-2 flex-sm-half mb-2 mb-sm-0">
+            <div class="info" data-toggle="tooltip" data-placement="top" title="cloud hosting provider" aria-hidden="true">i</div>
+          </div>
+        </div>
+        <div class="checkboxes-field mt-4">
+          <div class="row align-items-center">
+            <div class="col-sm-4 flex-sm-1 mb-2 mb-sm-0">
+              <p class="text-capitalize font-14 font-600 text-capitalize">contracting terms</p>
+            </div>
+
+            <div class="col-sm-7 order-3 order-sm-2">
+              <div class="checkbox-container d-flex justify-content-start flex-wrap">
+                <div class="form-check d-flex align-items-center mr-2 form-group mb-2 pl-0">
+                  <% Supplier.contracting_terms&.each do |key, val| %>
+                    <div class="form-check d-flex align-items-center form-group col-12 mb-0 pl-0"  id='flexCheckDefault'>
+                      <%= form.check_box :contracting_terms, { id: "contracting_terms#{key}", multiple: false }, key, nil %>
+                      <%= form.label key, class: 'mb-0 font-12 ml-2', for: "contracting_terms#{key}" %><br />
+                    </div>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-1 text-right order-2 flex-sm-half mb-2 mb-sm-0">
+              <div class="info" data-toggle="tooltip" data-placement="top" title="contact terms" aria-hidden="true">i</div>
+            </div>
+          </div>
+        </div>
+        <div class="row align-items-center mt-4">
+          <div class="col-sm-4 flex-sm-1 mb-2 mb-sm-0">
+            <p class="text-capitalize font-14 font-600">Relationship Owner</p>
+          </div>
+          <div class="col-sm-7 order-3 order-sm-2">
+            <%= form.fields_for :relationship_owner do |relationship_owner| %>
+              <%= relationship_owner.text_field :name, placeholder: 'Relationship Owner', class:'w-100 form-control font-12 h-auto py-3 shadow-none' %>
+            <% end %>
+          </div>
+          <div class="col-sm-1 text-right order-2 flex-sm-half mb-2 mb-sm-0">
+            <div class="info" data-toggle="tooltip" data-placement="top" title="Relationship Owner" aria-hidden="true">i</div>
+          </div>
+        </div>
+        <div class="checkboxes-field mt-4">
+          <div class="row align-items-center">
+            <div class="col-sm-4 flex-sm-1 align-self-start">
+              <p class="text-capitalize font-14 font-600 text-capitalize">supplier Key contact</p>
+            </div>
+            <div class="col-sm-7 order-3 order-sm-2 mt-sm-0 mt-3">
+                <div class="form-check d-flex align-items-center mr-2 form-group mb-2 pl-0">
+                  <% key_contacts&.map{ |kc| [kc.name, kc.id] }&.each do |key, val| %>
+                    <div class="form-check d-flex align-items-center form-group mr-3">
+                      <%= check_box_tag 'supplier[key_contacts_ids][]', val, supplier&.key_contacts.map{ |kc| [kc.name, kc.id] }&.pluck(1).include?(val), class: 'form-check-input mt-0 shadow-none', id: "#{key} -- #{val}" %>
+                      <%= label_tag key, nil, class: 'form-check-label text-capitalize font-13', for: "#{key} -- #{val}" %>
+                    </div>
+                  <% end %>
+                </div>
+            </div>
+            <div class="col-sm-1 text-right order-2 flex-sm-half mb-2 mb-sm-0">
+              <div class="info" data-toggle="tooltip" data-placement="top" title="supplier contact" aria-hidden="true">i</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <%= form.fields_for :sla do |supplier_sla| %>
+        <div class="input-fields mb-5 pb-5 border-bottom">
+          <h5 class="font-600">Supplier options</h5>
+          <div class="row align-items-center mt-5">
+            <div class="col-sm-4 flex-sm-1 mb-2 mb-sm-0">
+              <p class="text-capitalize font-14 font-600">contracted service level agreement</p>
+            </div>
+            <div class="col-sm-7 order-3 order-sm-2">
+              <div class="input-group mb-2">
+                <div class="input-group-prepend">
+                  <div class="input-group-text px-3 bg-white font-12">%</div>
+                </div>
+                 <%= supplier_sla.number_field :service_level_agreement, placeholder: 'Enter Target', id: 'inlineFormInputGroup', class: 'form-control form-control font-12 h-auto py-3 shadow-none' %>
+              </div>
+            </div>
+            <div class="col-sm-1 text-right order-2 flex-sm-half mb-2 mb-sm-0">
+              <div class="info" data-toggle="tooltip" data-placement="top" title="contracted service level agreement" aria-hidden="true">i</div>
+            </div>
+          </div>
+          <div class="row align-items-center mt-4">
+            <div class="col-sm-4 flex-sm-1 mb-2 mb-sm-0">
+              <p class="text-capitalize font-14 font-600">contracted service level objective</p>
+            </div>
+            <div class="col-sm-7 order-3 order-sm-2">
+              <div class="input-group mb-2">
+                <div class="input-group-prepend">
+                  <div class="input-group-text px-3 bg-white font-12">%</div>
+                </div>
+                <%= supplier_sla.number_field :service_level_objective, placeholder: 'Enter Target', id: 'inlineFormInputGroup', class: 'form-control form-control font-12 h-auto py-3 shadow-none' %>
+              </div>
+            </div>
+            <div class="col-sm-1 text-right order-2 flex-sm-half mb-2 mb-sm-0">
+              <div class="info" data-toggle="tooltip" data-placement="top" title="contracted service level object" aria-hidden="true">i</div>
+            </div>
+          </div>
+          <div class="row align-items-center mt-4">
+            <div class="col-sm-4 flex-sm-1 mb-2 mb-sm-0">
+              <p class="text-capitalize font-14 font-600">contracted recovery point objective</p>
+            </div>
+            <div class="col-sm-7 order-3 order-sm-2">
+              <div class="input-group mb-2">
+                <div class="input-group-prepend">
+                  <div class="input-group-text px-3 bg-white font-12 text-capitalize">minutes</div>
+                </div>
+                <%= supplier_sla.number_field :recovery_point_objective, placeholder: 'Enter Target', id: 'inlineFormInputGroup', class: 'form-control form-control font-12 h-auto py-3 shadow-none' %>
+              </div>              </div>
+            <div class="col-sm-1 text-right order-2 flex-sm-half mb-2 mb-sm-0">
+              <div class="info" data-toggle="tooltip" data-placement="top" title="contracted recovery point object" aria-hidden="true">i</div>
+            </div>
+          </div>
+          <div class="row align-items-center mt-4">
+            <div class="col-sm-4 flex-sm-1 mb-2 mb-sm-0">
+              <p class="text-capitalize font-14 font-600">Contracted Severity 1 Response Time</p>
+            </div>
+            <div class="col-sm-7 order-3 order-sm-2">
+              <div class="input-group mb-2">
+                <div class="input-group-prepend">
+                  <div class="input-group-text px-3 bg-white font-12 text-capitalize">minutes</div>
+                </div>
+                <%= supplier_sla.number_field :severity1_response_time, placeholder:'Enter Target', class: 'form-control form-control font-12 h-auto py-3 shadow-none', id: 'inlineFormInputGroup'%>
+              </div>
+            </div>
+            <div class="col-sm-1 text-right order-2 flex-sm-half mb-2 mb-sm-0">
+              <div class="info" data-toggle="tooltip" data-placement="top" title="contracted recovery point object" aria-hidden="true">i</div>
+            </div>
+          </div>
+          <div class="row align-items-center mt-4">
+            <div class="col-sm-4 flex-sm-1 mb-2 mb-sm-0">
+              <p class="text-capitalize font-14 font-600">Contracted Severity 2 Response Time</p>
+            </div>
+            <div class="col-sm-7 order-3 order-sm-2">
+              <div class="input-group mb-2">
+                <div class="input-group-prepend">
+                  <div class="input-group-text px-3 bg-white font-12 text-capitalize">minutes</div>
+                </div>
+                <%= supplier_sla.number_field :severity2_response_time, placeholder:'Enter Target', class: 'form-control form-control font-12 h-auto py-3 shadow-none', id: 'inlineFormInputGroup'%>
+              </div>
+            </div>
+            <div class="col-sm-1 text-right order-2 flex-sm-half mb-2 mb-sm-0">
+              <div class="info" data-toggle="tooltip" data-placement="top" title="contracted recovery point object" aria-hidden="true">i</div>
+            </div>
+          </div>
+          <div class="row align-items-center mt-4">
+            <div class="col-sm-4 flex-sm-1 mb-2 mb-sm-0">
+              <p class="text-capitalize font-14 font-600">Contracted Severity 3 Response Time</p>
+            </div>
+            <div class="col-sm-7 order-3 order-sm-2">
+              <div class="input-group mb-2">
+                <div class="input-group-prepend">
+                  <div class="input-group-text px-3 bg-white font-12 text-capitalize">minutes</div>
+                </div>
+               <%= supplier_sla.number_field :severity3_response_time, placeholder:'Enter Target', class: 'form-control form-control font-12 h-auto py-3 shadow-none', id: 'inlineFormInputGroup'%>
+              </div>
+            </div>
+            <div class="col-sm-1 text-right order-2 flex-sm-half mb-2 mb-sm-0">
+              <div class="info" data-toggle="tooltip" data-placement="top" title="contracted recovery point object" aria-hidden="true">i</div>
+            </div>
+          </div>
+          <div class="row align-items-center mt-4">
+            <div class="col-sm-4 flex-sm-1 mb-2 mb-sm-0">
+              <p class="text-capitalize font-14 font-600">Contracted Severity 4 Response Time</p>
+            </div>
+            <div class="col-sm-7 order-3 order-sm-2">
+              <div class="input-group mb-2">
+                <div class="input-group-prepend">
+                  <div class="input-group-text px-3 bg-white font-12 text-capitalize">minutes</div>
+                </div>
+                <%= supplier_sla.number_field :severity4_response_time, placeholder:'Enter Target', class: 'form-control form-control font-12 h-auto py-3 shadow-none', id: 'inlineFormInputGroup'%>
+              </div>
+            </div>
+            <div class="col-sm-1 text-right order-2 flex-sm-half mb-2 mb-sm-0">
+              <div class="info" data-toggle="tooltip" data-placement="top" title="contracted recovery point object" aria-hidden="true">i</div>
+            </div>
+          </div>
+          <div class="row align-items-center mt-4">
+            <div class="col-sm-4 flex-sm-1 mb-2 mb-sm-0">
+              <p class="text-capitalize font-14 font-600">Contracted Severity 1 Restoration of Service Time</p>
+            </div>
+            <div class="col-sm-7 order-3 order-sm-2">
+              <div class="input-group mb-2">
+                <div class="input-group-prepend">
+                  <div class="input-group-text px-3 bg-white font-12 text-capitalize">minutes</div>
+                </div>
+               <%= supplier_sla.number_field :severity1_restoration_service_time, placeholder:'Enter Target', class: 'form-control form-control font-12 h-auto py-3 shadow-none', id: 'inlineFormInputGroup'%>
+              </div>
+            </div>
+            <div class="col-sm-1 text-right order-2 flex-sm-half mb-2 mb-sm-0">
+              <div class="info" data-toggle="tooltip" data-placement="top" title="contracted recovery point object" aria-hidden="true">i</div>
+            </div>
+          </div>
+          <div class="row align-items-center mt-4">
+            <div class="col-sm-4 flex-sm-1 mb-2 mb-sm-0">
+              <p class="text-capitalize font-14 font-600">Contracted Severity 2 Restoration of Service Time</p>
+            </div>
+            <div class="col-sm-7 order-3 order-sm-2">
+              <div class="input-group mb-2">
+                <div class="input-group-prepend">
+                  <div class="input-group-text px-3 bg-white font-12 text-capitalize">minutes</div>
+                </div>
+
+              <%= supplier_sla.number_field :severity2_restoration_service_time, placeholder:'Enter Target', class: 'form-control form-control font-12 h-auto py-3 shadow-none', id: 'inlineFormInputGroup'%>
+              </div>
+            </div>
+            <div class="col-sm-1 text-right order-2 flex-sm-half mb-2 mb-sm-0">
+              <div class="info" data-toggle="tooltip" data-placement="top" title="contracted recovery point object" aria-hidden="true">i</div>
+            </div>
+          </div>
+          <div class="row align-items-center mt-4">
+            <div class="col-sm-4 flex-sm-1 mb-2 mb-sm-0">
+              <p class="text-capitalize font-14 font-600">Contracted Severity 3 Restoration of Service Time</p>
+            </div>
+            <div class="col-sm-7 order-3 order-sm-2">
+              <div class="input-group mb-2">
+                <div class="input-group-prepend">
+                  <div class="input-group-text px-3 bg-white font-12 text-capitalize">minutes</div>
+                </div>
+                <%= supplier_sla.number_field :severity3_restoration_service_time, placeholder:'Enter Target', class: 'form-control form-control font-12 h-auto py-3 shadow-none', id: 'inlineFormInputGroup'%>
+              </div>
+            </div>
+            <div class="col-sm-1 text-right order-2 flex-sm-half mb-2 mb-sm-0">
+              <div class="info" data-toggle="tooltip" data-placement="top" title="contracted recovery point object" aria-hidden="true">i</div>
+            </div>
+          </div>
+          <div class="row align-items-center mt-4">
+            <div class="col-sm-4 flex-sm-1 mb-2 mb-sm-0">
+              <p class="text-capitalize font-14 font-600">Contracted Severity 4 Restoration of Service Time</p>
+            </div>
+            <div class="col-sm-7 order-3 order-sm-2">
+              <div class="input-group mb-2">
+                <div class="input-group-prepend">
+                  <div class="input-group-text px-3 bg-white font-12 text-capitalize">minutes</div>
+                </div>
+                <%= supplier_sla.number_field :severity4_restoration_service_time, placeholder:'Enter Target', class: 'form-control form-control font-12 h-auto py-3 shadow-none', id: 'inlineFormInputGroup'%>
+              </div>
+            </div>
+            <div class="col-sm-1 text-right order-2 flex-sm-half mb-2 mb-sm-0">
+              <div class="info" data-toggle="tooltip" data-placement="top" title="contracted recovery point object" aria-hidden="true">i</div>
+            </div>
+          </div>
+          <div class="checkboxes-field mt-4">
+            <div class="row align-items-center">
+              <div class="col-sm-4 flex-sm-1 align-self-start">
+                <p class="text-capitalize font-14 font-600 text-capitalize">Support hours</p>
+              </div>
+              <div class="col-sm-7 order-3 order-sm-2 mt-sm-0 mt-3">
+                <div class="checkbox-container d-flex justify-content-start flex-wrap">
+                  <% Sla.support_hours.each do |key, val| %>
+                    <div class="form-check d-flex align-items-center form-group mr-3 pl-0">
+                      <%= supplier_sla.check_box :support_hours, { id: "support-hours#{key}", multiple: false }, key, nil %>
+                      <%= supplier_sla.label key, class: 'mb-0 ml-2 font-12', for: "support-hours#{key}" %><br />
+                    </div>
+                  <% end %>
+                </div>
+              </div>
+              <div class="col-sm-1 text-right order-2 flex-sm-half mb-2 mb-sm-0 align-self-start">
+                <div class="info" data-toggle="tooltip" data-placement="top" title="supplier key contacts" aria-hidden="true">i</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+      <div class="wizard-btn d-flex d-sm-block justify-content-between flex-column">
+           <%= form.submit 'Save & Add Supplier', class: 'btn btn-light-grey btn-sm font-600 text-capitalize font-12 float-right btn-light-grey' %>
+      </div>
+    </div>
+  </div>
+<% end %>
