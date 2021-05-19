@@ -7,6 +7,19 @@
 .overflow-x-auto {
   overflow-x: auto;
 }
+.w-10 {
+  width: 10%;
+}
+.w-15 {
+  width: 15%;
+}
+.w-65 {
+  width: 65%;
+}
+.w-sm-75 {
+  width: 75%;
+}
+
 @media screen and (min-width: 576px) {
   .w-25-sm {
     width: 25% !important;

@@ -11,26 +11,24 @@ body {
   flex-direction: column;
   justify-content: space-between;
 }
+
 html {
   height: 100%;
 }
+
 h1, h2, h3, h4, h5, h6, p {
   margin: 0;
 }
-.w-10 {
-  width: 10%;
-}
-.text-light-grey {
-  color: #949494;
-}
-.text-black {
-  color: $black !important;
-}
+
 p {
   padding: 0;
 }
+
 a {
   text-decoration: none;
+}
+.justify-content-even {
+  justify-content: space-evenly;
 }
 .tooltip-inner {
   text-transform: capitalize;
@@ -202,37 +200,7 @@ textarea {
 .scale-0 {
   transform: scale(0);
 }
-.bg-primary-green {
-  background: $primary-green;
-}
-.bg-secondary-green {
-  background: $secondary-green;
-}
-.bg-primary-green {
-  background: $primary-green;
-}
-.bg-red {
-  background: $red !important;
-}
-.bg-yellow {
-  background: $yellow !important;
-}
-.bg-dark-yellow {
-  background: $dark-yellow !important;
-}
-.bg-ternary-green {
-  background: $ternary-green !important;
-}
 
-.text-red {
-  color: $red;
-}
-.text-yellow {
-  color: $yellow;
-}
-.text-dark-yellow {
-  color: $dark-yellow;
-}
 
 footer {
   height: 100%;
@@ -292,8 +260,6 @@ footer {
   background-color: #eee;
 }
 
-/* On mouse-over, add a grey background color */
-
 .custom-checkbox {
   &:hover input ~ .checkmark {
     background-color: #ccc;
@@ -303,10 +269,6 @@ footer {
     background-color: $secondary-green;
   }
 }
-
-/* When the checkbox is checked, add a blue background */
-
-/* Create the checkmark/indicator (hidden when not checked) */
 
 .checkmark:after {
   content: "";

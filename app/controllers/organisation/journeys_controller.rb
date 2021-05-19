@@ -3,6 +3,8 @@ class Organisation::JourneysController < Organisation::BaseController
 
   def show
     case @step
+    when 'welcome'
+      handle_welcome
     when 'organisational-unit'
       handle_organisational_unit
     when 'regional-unit'
@@ -30,6 +32,8 @@ class Organisation::JourneysController < Organisation::BaseController
   def load_step
     @step = params[:id]
   end
+
+  def handle_welcome; end
 
   def handle_organisational_unit; end
 

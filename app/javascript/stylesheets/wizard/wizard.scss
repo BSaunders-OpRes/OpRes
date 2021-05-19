@@ -1,3 +1,30 @@
+.h-522 {
+  height: 522px;
+  overflow: auto;
+  padding-bottom: 140px;
+  &::-webkit-scrollbar {
+    width: 2px;
+  }
+
+  /* Track */
+  &::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    width: 2px;
+  }
+
+  /* Handle */
+  &::-webkit-scrollbar-thumb {
+    background: #ddd;
+  }
+
+  /* Handle on hover */
+  &::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
+}
+.border-right-transparent {
+  border-right: 2px solid transparent;
+}
 .regions {
   background: $primary-green;
   .region {
@@ -8,7 +35,53 @@
     background: #b2f5d8;
   }
 }
+.search-field {
+  flex: 1;
+  position: relative;
+  i {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 15px;
+  }
+  input {
+    outline: 0;
+    padding-left: 42px;
+    padding: 10px 10px 10px 42px;
+    color: $black;
+    &:focus {
+      background: $body-bg-color;
+    }
+  }
+  ::-webkit-input-placeholder {
+    color: $black;
+    font-size: 12px;
+    text-transform: unset;
+    letter-spacing: 0.05em;
+  }
 
+  :-ms-input-placeholder {
+    color: $black;
+    font-size: 12px;
+  }
+
+  ::placeholder {
+    color: $black;
+    font-size: 12px;
+  }
+}
+.info-white {
+  background: $white;
+  width: 15px;
+  height: 15px;
+  border-radius: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.white-selection, .black-selection {
+  height: 70px;
+}
 .custom-progress {
   .progress-bar {
     background-color: $secondary-green;
@@ -16,7 +89,6 @@
 }
 
 .country-box {
-  /*min-width: 200px;*/
   transition: all .3s;
   background: $black;
   white-space: nowrap;
@@ -25,5 +97,140 @@
     width: 0;
     opacity: 0;
     transition: width .3s;
+  }
+}
+
+.bottom-btns {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  box-shadow: 0px 0 17px 0px rgba(1, 1, 70, .1);
+}
+
+.custom-checkbox {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+
+  input[type=checkbox] {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+}
+
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 18px;
+  width: 18px;
+  background-color: #eee;
+}
+
+.custom-checkbox {
+  &:hover input ~ .checkmark {
+    background-color: #ccc;
+  }
+
+  input:checked ~ .checkmark {
+    background-color: $secondary-green;
+  }
+}
+
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+.custom-checkbox input:not(:checked) ~ .checkmark {
+  border: 1px solid #c7c7c7;
+}
+
+.custom-checkbox {
+  input:checked ~ .checkmark:after {
+    display: block;
+  }
+
+  .checkmark:after {
+    left: 6px;
+    top: 3px;
+    width: 6px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+  }
+}
+
+.transparent-checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 18px;
+  width: 18px;
+  background-color: transparent;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+.custom-checkbox {
+  &:hover input ~ .transparent-checkmark {
+    background-color: #ccc;
+  }
+
+  input:checked ~ .transparent-checkmark {
+    background-color: transparent;
+  }
+}
+.transparent-checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+.transparent-checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+.custom-checkbox input:not(:checked) ~ .transparent-checkmark {
+  border: 1px solid #c7c7c7;
+}
+
+.custom-checkbox {
+  input:checked ~ .transparent-checkmark:after {
+    display: block;
+  }
+
+  .transparent-checkmark:after {
+    left: 5px;
+    top: 3px;
+    width: 6px;
+    height: 10px;
+    border: solid $black;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+  }
+}
+
+.custom-tabs {
+  li {
+    a.active {
+      font-weight: bold;
+      border-bottom: 2px solid $primary-green !important;
+    }
   }
 }

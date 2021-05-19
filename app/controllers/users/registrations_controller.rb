@@ -102,7 +102,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     if resource.app_admin?
       admin_dashboard_index_path
     elsif resource.org_admin?
-      resource.sign_in_count > 1 ? organisation_dashboard_index_path : organisation_journey_path('organisational-unit')
+      resource.sign_in_count > 1 ? organisation_dashboard_index_path : organisation_journey_path('welcome')
     else
       root_path
     end
