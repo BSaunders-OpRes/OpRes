@@ -112,7 +112,7 @@ export default function Registration() {
                     </div>
                     <div class="form-group col-md-12">
                       <button type="submit" value="Submit" className='btn-submit w-100 p-2'>
-                        SignUp
+                        Sign Up
                       </button>
                     </div>
                     <div className='sign-up-text text-center col-md-12'>
