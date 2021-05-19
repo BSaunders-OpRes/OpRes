@@ -16,7 +16,7 @@ module ApplicationHelper
     if current_user&.app_admin?
       admin_dashboard_index_path
     elsif current_user&.org_admin?
-      current_user.sign_in_count > 1 ? organisation_dashboard_index_path : organisation_journey_path('organisational-unit')
+      current_user.sign_in_count > 1 ? organisation_dashboard_index_path : organisation_journey_path('welcome')
     elsif current_user&.unit_admin?
       organisation_dashboard_index_path
     else
