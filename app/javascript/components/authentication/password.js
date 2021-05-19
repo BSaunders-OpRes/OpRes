@@ -31,34 +31,32 @@ export default function login(props) {
   return (
     <div className='login-wrapper h-100'>
       <div className='row h-100'>
-        <div className="col-md-6">
-          <div className='logo-container'>
-            <img src={Logo} alt=""/>
-          </div>
+        <div className="col-md-6 pr-md-0">
           <div className='form-wrapper'>
-            <h2 className="mb-5 font-600">Forgot Password</h2>
             <div className='input-field'>
               <form className='h-100' onSubmit={handleSubmit}>
                 <div className="row">
-                  <div className="form-group col-md-10 animated-field">
-                    <input type="email" value={email} name="name" className='form-control border-0' placeholder='Email address' onChange={e => setEmail(e.target.value)} />
-                    <label>Email Address</label>
-                    <div className='error'>{error}</div>
-                  </div>
-                </div>
-                <div className="row">
-                  <div className="form-group col-md-10 mb-0">
-                    <button className='btn-submit'type="submit" value="Submit">
-                      Send
-                    </button>
-                  </div>
-                </div>
-                <div className='row'>
-                  <div className="col-md-10">
-                    <div className='sign-up-text my-4 text-center'>
+                  <div class="col-md-10 mx-auto">
+                    <div className='logo-container'>
+                      <img src={Logo} alt=""/>
+                    </div>
+                    <h2 className="mb-4 font-600">Forgot Password</h2>
+                    <div class="row">
+                      <div className="form-group col-md-12 animated-field">
+                        <input type="email" value={email} name="name" className='form-control border-0' placeholder='Email address' onChange={e => setEmail(e.target.value)} />
+                        <label>Email Address</label>
+                        <div className='error'>{error}</div>
+                      </div>
+                    </div>
+                    <div className="form-group">
+                      <button className='btn-submit w-100 p-2'type="submit" value="Submit">
+                        Send
+                      </button>
                     </div>
                     <div className='forget-password-text text-center'>
-                    <a href='/users/sign_in' className="ml-2 text-decoration-none">Back to Sign In</a>
+                      <p className="mb-3">
+                        <a href='/users/sign_in' className="text-decoration-none">Back to Sign In</a>
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -66,7 +64,7 @@ export default function login(props) {
             </div>
           </div>
         </div>
-        <div className="col-md-6">
+        <div className="col-md-6 pl-md-0 d-none d-md-block">
           <Carousel/>
         </div>
       </div>

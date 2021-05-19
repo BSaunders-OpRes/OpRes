@@ -56,58 +56,44 @@ export default function Registration() {
   return (
     <div className="h-100">
       <div className='row h-100'>
-        <div className="col-md-6">
-          <div className='logo-container'>
-            <img src={Logo} alt=""/>
-          </div>
+        <div className="col-md-6 pr-md-0">
           <div className='form-wrapper'>
-            <h2 className="font-600">Sign Up</h2>
-            <div className='form-style'>
-              <Tabs defaultActiveKey="customer" id="uncontrolled-tab-example">
-              <Tab eventKey="customer" title="Customer Login">
-              <div className='input-field'>
-                <form className='h-100' onSubmit = {handleSubmit}>
+            <form className='h-100' onSubmit = {handleSubmit}>
+              <div className="row">
+                <div className="col-md-10 mx-auto">
                   <div className="row">
-                    <div className="form-group col-md-10 animated-field">
+                    <div className='logo-container col-md-12'>
+                      <img src={Logo} alt=""/>
+                    </div>
+                    <h2 className="font-600 mb-4 col-md-12">Sign Up</h2>
+                    <div className="form-group col-md-6 animated-field">
                       <input type="text" name="name" className='form-control border-0' placeholder='First Name' />
                       <label>First Name</label>
                     </div>
-                  </div>
-                  <div className="row">
-                    <div className="form-group col-md-10 animated-field">
+                    <div className="form-group col-md-6 animated-field">
                       <input type="text" name="name" className='form-control border-0' placeholder='Last Name' />
                       <label>Last Name</label>
                     </div>
-                  </div>
-                  <div className="row">
-                    <div className="form-group col-md-10 animated-field">
+                    <div className="form-group col-md-6 animated-field">
                       <input type="text" name="name" className='form-control border-0' placeholder='Job Title' />
                       <label>Job Title</label>
                     </div>
-                  </div>
-                  <div className="row">
-                    <div className="form-group col-md-10 animated-field">
+                    <div className="form-group col-md-6 animated-field">
                       <input type="email" value={email} name="name" className='form-control border-0' placeholder='Email address' onChange={e => setEmail(e.target.value)} />
                       <label>Email address</label>
                       <div className='error'>{emailError}</div>
                     </div>
-                  </div>
-                  <div className="row">
-                    <div className="form-group col-md-10 animated-field password">
+                    <div className="form-group col-md-6 animated-field password">
                       <input type="password" value={password} name="password" className='form-control border-0' placeholder='Password' onChange={e => setPassword(e.target.value)} />
                       <label>Password</label>
                       <div className='error'>{passwordError}</div>
                     </div>
-                  </div>
-                  <div className="row">
-                    <div className="form-group col-md-10 animated-field">
+                    <div className="form-group col-md-6 animated-field">
                       <input type="text" value={organisationName} name="company_name" className='form-control border-0' placeholder='Organisation Name' onChange={e => setorganisationName(e.target.value)} />
                       <label>Organisation Name</label>
                       <div className='error'>{organisationNameError}</div>
                     </div>
-                  </div>
-                  <div className="row">
-                    <div className="form-group col-md-10">
+                    <div class="form-group col-md-12">
                       <select className='form-control border-0 signup-select' name="organisationtype" placeholder='Organization Type' onChange={e => setOrganisationType(e.target.value)}>
                         <option value="">Please select organisation type</option>
                         {Object.entries(organisationTypes).map((type) => {
@@ -116,39 +102,31 @@ export default function Registration() {
                           )}
                         )}
                       </select>
-                      <i class="fa fa-sort-desc" aria-hidden="true"></i>
+                      <i class="fa fa-sort-desc pr-2 mr-2" aria-hidden="true"></i>
                       <div className='error'>{organisationTypeError}</div>
                     </div>
-                  </div>
-                  <div className='check-box-container'>
-                    <Form.Group controlId="formBasicCheckbox">
-                      <Form.Check type="checkbox" label="Keep me logged in" />
-                    </Form.Group>
-                  </div>
-                  <div className="row">
-                    <div className="form-group col-md-10 mb-0">
-                      <button type="submit" value="Submit" className='btn-submit'>
+                    <div className='check-box-container col-md-12'>
+                      <Form.Group className="" controlId="formBasicCheckbox">
+                        <Form.Check className="pl-0" type="checkbox" label="Keep me logged in" />
+                      </Form.Group>
+                    </div>
+                    <div class="form-group col-md-12">
+                      <button type="submit" value="Submit" className='btn-submit w-100 p-2'>
                         SignUp
                       </button>
                     </div>
-                  </div>
-                  <div className='row'>
-                    <div className="col-md-10">
-                      <div className='sign-up-text my-4 text-center'>
-                        <p>Already have an account
+                    <div className='sign-up-text text-center col-md-12'>
+                      <p className="mb-3">Already have an account
                         <a href='/users/sign_in' className="ml-2 text-decoration-none">Sign In</a>
-                        </p>
-                      </div>
+                      </p>
                     </div>
                   </div>
-                </form>
+                </div>
               </div>
-              </Tab>
-              </Tabs>
-            </div>
+            </form>
           </div>
         </div>
-        <div className="col-md-6">
+        <div className="col-md-6 pl-md-0 d-none d-md-block">
           <Carousel/>
         </div>
       </div>
