@@ -1,10 +1,10 @@
 .carousel-styling {
   height: 100%;
-  background-color: #040605;
   display: flex;
+  margin: 0 auto 50px;
   flex-direction: column;
   justify-content: flex-end;
-  margin: 0 auto 50px;
+  background-color: $similar-black;
   .carousel {
     height: 30%;
     .carousel-control-prev, .carousel-control-next {
@@ -14,38 +14,44 @@
       bottom: 20px;
     }
     .carousel-inner {
-      position: relative;
       height: 100%;
+      position: relative;
       .carousel-item {
-      height: 80%;
-      .carousel-caption {
-        color: #fff;
-        width: 50%;
-        margin: 0 auto;
-        h3 {
-          font-size: 14px;
-          margin-bottom: 20px;
-          font-weight: 600;
-        }
-        p {
-          font-size: 12px;
-          font-weight: 400;
+        height: 80%;
+        .carousel-caption {
+          left: 0;
+          right: 0;
+          bottom: 0;
+          color: $white;
+          width: 100%;
+          height: 80%;
+          margin: 0 auto;
+          padding: 0 40px;
+          position: inherit;
+          h3 {
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 20px;
+          }
+          p {
+            font-size: 12px;
+            font-weight: 400;
+          }
         }
       }
     }
-  }
-  .carousel-indicators {
-    li {
-      width: 7px;
-      height: 7px;
-      border: 1px solid #fff;
-      border-radius: 100px;
-      background: transparent;
+    .carousel-indicators {
+      li {
+        width: 7px;
+        height: 7px;
+        border-radius: 100px;
+        border: 1px solid $white;
+        background: transparent;
+      }
+      li.active {
+        background: $white;
+      }
     }
-    li.active {
-      background: #fff;
-    }
-  }
   }
 }
 .carousel-img{
