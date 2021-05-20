@@ -4,7 +4,7 @@ module Firm::CountryConcern
   included do
     class << self
       def regions
-        ISO3166::Country.all.map(&:world_region).uniq << 'LATAM'
+        Region.all.map(&:name).uniq
       end
 
       def countries_by_region(region)
@@ -12,7 +12,7 @@ module Firm::CountryConcern
       end
 
       def countries_objects_by_region(region)
-        ISO3166::Country.find_all_countries_by_world_region(region).sort_by(&:name)
+        Region.find_by_name(region).countries.sort_by(&:name)
       end
 
       def countries_selection_by_region(region)
@@ -22,7 +22,7 @@ module Firm::CountryConcern
       end
 
       def find_country_by_code(code)
-        ISO3166::Country.find_country_by_alpha2(code)
+        Country.find_by_alpha2(code)
       end
     end
   end

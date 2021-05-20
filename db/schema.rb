@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_17_090441) do
+ActiveRecord::Schema.define(version: 2021_05_19_084539) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -59,6 +59,40 @@ ActiveRecord::Schema.define(version: 2021_05_17_090441) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["supplier_id"], name: "index_cloud_hosting_providers_on_supplier_id"
+  end
+
+  create_table "countries", force: :cascade do |t|
+    t.bigint "region_id"
+    t.string "continent"
+    t.string "alpha2"
+    t.string "alpha3"
+    t.string "country_code"
+    t.string "international_prefix"
+    t.string "ioc"
+    t.string "gec"
+    t.string "name"
+    t.json "national_destination_code_lengths"
+    t.json "national_number_lengths"
+    t.string "national_prefix"
+    t.string "number"
+    t.string "region_name"
+    t.string "subregion"
+    t.string "world_region"
+    t.string "un_locode"
+    t.string "nationality"
+    t.boolean "postal_code"
+    t.string "postal_code_format"
+    t.json "unofficial_names"
+    t.json "languages_official"
+    t.json "languages_spoken"
+    t.json "geo"
+    t.string "currency_code"
+    t.string "start_of_week"
+    t.json "translations"
+    t.json "translated_names"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["region_id"], name: "index_countries_on_region_id"
   end
 
   create_table "incidents", force: :cascade do |t|
@@ -155,6 +189,12 @@ ActiveRecord::Schema.define(version: 2021_05_17_090441) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["unit_id"], name: "index_products_on_unit_id"
+  end
+
+  create_table "regions", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "relationship_owners", force: :cascade do |t|
@@ -331,6 +371,7 @@ ActiveRecord::Schema.define(version: 2021_05_17_090441) do
   add_foreign_key "business_service_lines", "units"
   add_foreign_key "channels", "units"
   add_foreign_key "cloud_hosting_providers", "suppliers"
+  add_foreign_key "countries", "regions"
   add_foreign_key "incidents", "suppliers"
   add_foreign_key "institutions", "units"
   add_foreign_key "key_contact_suppliers", "key_contacts"
