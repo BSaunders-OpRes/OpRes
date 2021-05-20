@@ -6,7 +6,7 @@
   justify-content: flex-end;
   background-color: $similar-black;
   .carousel {
-    height: 30%;
+    height: 100%;
     .carousel-control-prev, .carousel-control-next {
       display: none;
     }
@@ -29,12 +29,12 @@
           padding: 0 40px;
           position: inherit;
           h3 {
-            font-size: 14px;
+            font-size: 16px;
             font-weight: 600;
             margin-bottom: 20px;
           }
           p {
-            font-size: 12px;
+            font-size: 14px;
             font-weight: 400;
           }
         }

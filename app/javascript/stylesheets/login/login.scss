@@ -55,17 +55,17 @@
     position: relative;
   }
   .signup-select {
-    height: 50px;
+    height: 40px;
     outline: none;
+    padding: 5px 10px;
     font-size: 12px;
     box-shadow: none;
     appearance: none;
-    padding: 15px 10px;
     position: relative;
     -moz-appearance: none;
     -webkit-appearance: none;
     & + i.fa {
-      top: 13px;
+      top: 8px;
       right: 10px;
       z-index: 10;
       position: absolute;
@@ -91,7 +91,7 @@
   }
 }
 .logo-container {
-  height: 110px;
+  height: 80px;
   display: flex;
   align-items: center;
   img {
@@ -111,13 +111,13 @@
   position: relative;
 
   input {
-    height: 50px;
+    height: 40px;
     font-size: 12px;
     padding: 15px 10px 0;
   }
 
   input:placeholder-shown {
-    padding: 15px 10px;
+    padding: 5px 10px;
   }
 
   input:placeholder-shown + label {
@@ -127,7 +127,7 @@
   }
 
   label {
-    top: 10px;
+    top: 5px;
     left: 25px;
     display: block;
     font-weight: 600;

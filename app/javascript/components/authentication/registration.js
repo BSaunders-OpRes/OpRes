@@ -62,33 +62,35 @@ export default function Registration() {
               <div className="row">
                 <div className="col-md-10 mx-auto">
                   <div className="row">
-                    <div className='logo-container col-md-12'>
+                    <div className='logo-container col-md-12 mt-2'>
                       <img src={Logo} alt=""/>
                     </div>
-                    <h2 className="font-600 mb-4 col-md-12">Sign Up</h2>
-                    <div className="form-group col-md-6 animated-field">
+                    <div className='col-md-12'>
+                      <h3 className="font-600 w-100 mt-2 mb-3">Sign Up</h3>
+                    </div>
+                    <div className="form-group col-md-12 animated-field">
                       <input type="text" name="name" className='form-control border-0' placeholder='First Name' />
                       <label>First Name</label>
                     </div>
-                    <div className="form-group col-md-6 animated-field">
+                    <div className="form-group col-md-12 animated-field">
                       <input type="text" name="name" className='form-control border-0' placeholder='Last Name' />
                       <label>Last Name</label>
                     </div>
-                    <div className="form-group col-md-6 animated-field">
+                    <div className="form-group col-md-12 animated-field">
                       <input type="text" name="name" className='form-control border-0' placeholder='Job Title' />
                       <label>Job Title</label>
                     </div>
-                    <div className="form-group col-md-6 animated-field">
+                    <div className="form-group col-md-12 animated-field">
                       <input type="email" value={email} name="name" className='form-control border-0' placeholder='Email address' onChange={e => setEmail(e.target.value)} />
                       <label>Email address</label>
                       <div className='error'>{emailError}</div>
                     </div>
-                    <div className="form-group col-md-6 animated-field password">
+                    <div className="form-group col-md-12 animated-field password">
                       <input type="password" value={password} name="password" className='form-control border-0' placeholder='Password' onChange={e => setPassword(e.target.value)} />
                       <label>Password</label>
                       <div className='error'>{passwordError}</div>
                     </div>
-                    <div className="form-group col-md-6 animated-field">
+                    <div className="form-group col-md-12 animated-field">
                       <input type="text" value={organisationName} name="company_name" className='form-control border-0' placeholder='Organisation Name' onChange={e => setorganisationName(e.target.value)} />
                       <label>Organisation Name</label>
                       <div className='error'>{organisationNameError}</div>
@@ -104,11 +106,6 @@ export default function Registration() {
                       </select>
                       <i class="fa fa-sort-desc pr-2 mr-2" aria-hidden="true"></i>
                       <div className='error'>{organisationTypeError}</div>
-                    </div>
-                    <div className='check-box-container col-md-12'>
-                      <Form.Group className="" controlId="formBasicCheckbox">
-                        <Form.Check className="pl-0" type="checkbox" label="Keep me logged in" />
-                      </Form.Group>
                     </div>
                     <div class="form-group col-md-12">
                       <button type="submit" value="Submit" className='btn-submit w-100 p-2'>
