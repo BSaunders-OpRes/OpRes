@@ -12,7 +12,7 @@ export default function carousel() {
       <Carousel>
         <Carousel.Item>
           <div className="carousel-img">
-            <img src={CarouselImg} className="w-100"/>
+            <img src={CarouselImg5} className="w-100"/>
           </div>
           <Carousel.Caption>
             <h3>Map Business Services End to End</h3>
@@ -21,7 +21,7 @@ export default function carousel() {
         </Carousel.Item>
         <Carousel.Item>
           <div className="carousel-img">
-            <img src={CarouselImg1} className="w-100"/>
+            <img src={CarouselImg} className="w-100"/>
           </div>
           <Carousel.Caption>
             <h3>Understand Supplier Dependencies</h3>
@@ -30,7 +30,7 @@ export default function carousel() {
         </Carousel.Item>
         <Carousel.Item>
           <div className="carousel-img">
-            <img src={CarouselImg2} className="w-100"/>
+            <img src={CarouselImg4} className="w-100"/>
           </div>
           <Carousel.Caption>
             <h3>Visualise Workload Distribution</h3>
@@ -48,7 +48,7 @@ export default function carousel() {
         </Carousel.Item>
         <Carousel.Item>
           <div className="carousel-img">
-            <img src={CarouselImg4} className="w-100"/>
+            <img src={CarouselImg2} className="w-100"/>
           </div>
           <Carousel.Caption>
             <h3>Reduce Costs</h3>
@@ -57,7 +57,7 @@ export default function carousel() {
         </Carousel.Item>
         <Carousel.Item>
           <div className="carousel-img">
-            <img src={CarouselImg5} className="w-100"/>
+            <img src={CarouselImg1} className="w-100"/>
           </div>
           <Carousel.Caption>
             <h3>Quantify & Control Resilience Risks</h3>
