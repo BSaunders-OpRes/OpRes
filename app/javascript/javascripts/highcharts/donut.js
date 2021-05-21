@@ -15,6 +15,11 @@ document.addEventListener('turbolinks:load', function() {
     render_donut_chart('tenth-donut-sm');
     render_donut_chart('eleventh-donut-sm');
     render_donut_chart('twelth-donut-sm');
+    render_donut_chart('third-donut');
+    render_donut_chart('fourth-donut');
+    render_donut_chart('fifth-donut');
+    render_donut_chart('sixth-donut');
+    render_donut_chart('seventh-donut');
   }
 
   function render_donut_chart(element) {
