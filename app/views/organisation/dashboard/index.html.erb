@@ -2,14 +2,337 @@
   <div class="col-md-12 d-flex justify-content-between align-items-center flex-wrap">
     <h2  class="font-700 text-capitalize mb-xs-3">Resilience Data Hub</h2>
     <div class="white-btn px-2 py-1 d-flex align-items-center">
-      <span><i class="fa fa-sliders" aria-hidden="true"></i>  </span>
-      <span class= 'text-capitalize font-12 font-600 ml-2'>customise</span>
+      <span><i class="fa fa-ellipsis-v mx-1" aria-hidden="true"></i></span>
     </div>
   </div>
 </div>
-<div class="row mt-5 d-flex">
-  <div class="col-md-6 col-lg-3 order-lg-1 order-2 mb-lg-0 mb-4">
-    <div class="card border-0 shadow-sm pie-high-chart">
+<div class="card mt-5 border-0 shadow-sm mx-1 rounded-50 ">
+  <div class="card-body pb-0">
+    <div class="d-flex align-items-center px-1">
+      <i class="fa fa-sliders"></i>
+      <h5 class="text-capitalize ml-2">segmentation options</h5>
+    </div>
+    <div class="row no-gutters mt-3">
+      <div class="col-lg px-1 col-md-4 col-sm-6">
+        <div class="dropdown custom-dropdown">
+          <button class="border-0 p-3 bg-body-color dropdown-toggle w-100 shadow-none mb-3" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <span class="d-flex flex-column align-items-start">
+              <h6 class="text-capitalize font-12 font-xxl-14 mb-1">
+                <span class="font-600 text-capitalize">Regions .</span>
+                <span class="text-light-grey">3</span>
+              </h6>
+              <span class="text-capitalize font-12 font-xxl-14 text-light-grey">View all</span>
+            </span>
+          </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <div class="form-group dropdown-item pl-3 m-0">
+              <label for="ch39" class="custom-checkbox d-flex m-0">
+                <span class="font-12 text-black text-capitalize">View All</span>
+                <input type="checkbox" class="form-control" id="ch39">
+                <span class="transparent-checkmark"></span>
+              </label>                        
+            </div>
+            <div class="form-group dropdown-item pl-3 m-0">
+              <label for="ch69" class="custom-checkbox d-flex m-0">
+                <span class="font-12 text-black text-capitalize">AMERS</span>
+                <input type="checkbox" class="form-control" id="ch69">
+                <span class="transparent-checkmark"></span>
+              </label>                        
+            </div>
+            <div class="form-group dropdown-item pl-3 m-0">
+              <label for="ch59" class="custom-checkbox d-flex m-0">
+                <span class="font-12 text-black text-capitalize">APAC</span>
+                <input type="checkbox" class="form-control" id="ch59">
+                <span class="transparent-checkmark"></span>
+              </label>                        
+            </div>
+            <div class="form-group dropdown-item pl-3 m-0">
+              <label for="ch79" class="custom-checkbox d-flex m-0">
+                <span class="font-12 text-black text-capitalize">EMEA</span>
+                <input type="checkbox" class="form-control" id="ch79">
+                <span class="transparent-checkmark"></span>
+              </label>                        
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg px-1 col-md-4 col-sm-6">
+        <div class="dropdown custom-dropdown">
+          <button class="border-0 mb-3 bg-body-color p-3 dropdown-toggle w-100 shadow-none" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <span class="d-flex flex-column align-items-start">
+              <h6 class="text-capitalize font-12 font-xxl-14 mb-1">
+                <span class="font-600 text-capitalize">Sub Regions .</span>
+                <span class="text-light-grey">3</span>
+              </h6>
+              <span class="text-capitalize font-12 font-xxl-14 text-light-grey">View all</span>
+            </span>
+          </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <div class="form-group dropdown-item pl-3 m-0 mb-2">
+              <label for="ch319" class="custom-checkbox d-flex m-0">
+                <span class="font-12 text-black text-capitalize">View All</span>
+                <input type="checkbox" class="form-control" id="ch319">
+                <span class="transparent-checkmark"></span>
+              </label>                        
+            </div>
+            <div class="form-group dropdown-item pl-3 m-0 mb-2">
+              <label for="ch619" class="custom-checkbox d-flex m-0">
+                <span class="font-12 text-black text-capitalize">Sub Saharan Africa
+                  <span class="text-light-grey">- 3 countries</span>
+                </span>
+                <input type="checkbox" class="form-control" id="ch619">
+                <span class="transparent-checkmark"></span>
+              </label>                        
+            </div>
+            <div class="form-group dropdown-item pl-3 m-0 mb-2">
+              <label for="ch519" class="custom-checkbox d-flex m-0">
+                <span class="font-12 text-black text-capitalize">
+                  eastern europe
+                  <span class="text-light-grey">- 3 countries</span>
+                </span>
+                <input type="checkbox" class="form-control" id="ch519">
+                <span class="transparent-checkmark"></span>
+              </label>                        
+            </div>
+            <div class="form-group dropdown-item pl-3 m-0 mb-2">
+              <label for="ch719" class="custom-checkbox d-flex m-0">
+                <span class="font-12 text-black text-capitalize">
+                  northern europe
+                  <span class="text-light-grey">- 3 countries</span>
+                </span>
+                <input type="checkbox" class="form-control" id="ch719">
+                <span class="transparent-checkmark"></span>
+              </label>                        
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg px-1 col-md-4 col-sm-6">
+        <div class="dropdown custom-dropdown">
+          <button class="border-0 mb-3 p-3 bg-body-color dropdown-toggle w-100 shadow-none" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <span class="d-flex flex-column align-items-start">
+              <h6 class="text-capitalize font-12 font-xxl-14 mb-1">
+                <span class="font-600 text-capitalize">countries .</span>
+                <span class="text-light-grey">3</span>
+              </h6>
+              <span class="text-capitalize font-12 font-xxl-14 text-light-grey">View all</span>
+            </span>
+          </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <div class="form-group dropdown-item pl-3 m-0">
+              <label for="ch39" class="custom-checkbox d-flex m-0">
+                <span class="font-12 text-black text-capitalize">View All</span>
+                <input type="checkbox" class="form-control" id="ch39">
+                <span class="transparent-checkmark"></span>
+              </label>                        
+            </div>
+            <div class="form-group dropdown-item pl-3 m-0">
+              <label for="ch69" class="custom-checkbox d-flex m-0">
+                <span class="font-12 text-black text-capitalize">
+                <i class="flag belgium"></i>
+                belgium</span>
+                <input type="checkbox" class="form-control" id="ch69">
+                <span class="transparent-checkmark"></span>
+              </label>                        
+            </div>
+            <div class="form-group dropdown-item pl-3 m-0">
+              <label for="ch59" class="custom-checkbox d-flex m-0">
+                <span class="font-12 text-black text-capitalize">
+                <i class="flag france"></i>
+                france</span>
+                <input type="checkbox" class="form-control" id="ch59">
+                <span class="transparent-checkmark"></span>
+              </label>                        
+            </div>
+            <div class="form-group dropdown-item pl-3 m-0">
+              <label for="ch79" class="custom-checkbox d-flex m-0">
+                <span class="font-12 text-black text-capitalize">
+                <i class="flag germany"></i>
+                germany</span>
+                <input type="checkbox" class="form-control" id="ch79">
+                <span class="transparent-checkmark"></span>
+              </label>                        
+            </div>
+            <div class="form-group dropdown-item pl-3 m-0">
+              <label for="ch79" class="custom-checkbox d-flex m-0">
+                <span class="font-12 text-black text-capitalize">
+                <i class="flag spain"></i>
+                spain</span>
+                <input type="checkbox" class="form-control" id="ch79">
+                <span class="transparent-checkmark"></span>
+              </label>                        
+            </div>
+            <div class="form-group dropdown-item pl-3 m-0">
+              <label for="ch79" class="custom-checkbox d-flex m-0">
+                <span class="font-12 text-black text-capitalize">
+                <i class="flag uk"></i>
+                UK</span>
+                <input type="checkbox" class="form-control" id="ch79">
+                <span class="transparent-checkmark"></span>
+              </label>                        
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg px-1 col-md-4 col-sm-6">
+        <div class="dropdown custom-dropdown">
+          <button class="border-0 mb-3 p-3 bg-body-color dropdown-toggle w-100 shadow-none" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <span class="d-flex flex-column align-items-start">
+              <h6 class="text-capitalize font-12 font-xxl-14 mb-1">
+                <span class="font-600 text-capitalize">institutions .</span>
+                <span class="text-light-grey">3</span>
+              </h6>
+              <span class="text-capitalize font-12 font-xxl-14 text-light-grey">View all</span>
+            </span>
+          </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <div class="form-group dropdown-item pl-3 m-0">
+              <label for="ch39" class="custom-checkbox d-flex m-0">
+                <span class="font-12 text-black text-capitalize">View All</span>
+                <input type="checkbox" class="form-control" id="ch39">
+                <span class="transparent-checkmark"></span>
+              </label>                        
+            </div>
+            <div class="form-group dropdown-item pl-3 m-0">
+              <label for="ch69" class="custom-checkbox d-flex m-0">
+                <span class="font-12 text-black text-capitalize">
+                <i class="flag belgium"></i>
+                belgium</span>
+                <input type="checkbox" class="form-control" id="ch69">
+                <span class="transparent-checkmark"></span>
+              </label>                        
+            </div>
+            <div class="form-group dropdown-item pl-3 m-0">
+              <label for="ch59" class="custom-checkbox d-flex m-0">
+                <span class="font-12 text-black text-capitalize">
+                <i class="flag france"></i>
+                france</span>
+                <input type="checkbox" class="form-control" id="ch59">
+                <span class="transparent-checkmark"></span>
+              </label>                        
+            </div>
+            <div class="form-group dropdown-item pl-3 m-0">
+              <label for="ch79" class="custom-checkbox d-flex m-0">
+                <span class="font-12 text-black text-capitalize">
+                <i class="flag germany"></i>
+                germany</span>
+                <input type="checkbox" class="form-control" id="ch79">
+                <span class="transparent-checkmark"></span>
+              </label>                        
+            </div>
+            <div class="form-group dropdown-item pl-3 m-0">
+              <label for="ch79" class="custom-checkbox d-flex m-0">
+                <span class="font-12 text-black text-capitalize">
+                <i class="flag spain"></i>
+                spain</span>
+                <input type="checkbox" class="form-control" id="ch79">
+                <span class="transparent-checkmark"></span>
+              </label>                        
+            </div>
+            <div class="form-group dropdown-item pl-3 m-0">
+              <label for="ch79" class="custom-checkbox d-flex m-0">
+                <span class="font-12 text-black text-capitalize">
+                <i class="flag uk"></i>
+                UK</span>
+                <input type="checkbox" class="form-control" id="ch79">
+                <span class="transparent-checkmark"></span>
+              </label>                        
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg px-1 col-md-4 col-sm-6">
+        <div class="dropdown custom-dropdown">
+          <button class="border-0 mb-3 p-3 bg-body-color dropdown-toggle w-100 shadow-none" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <span class="d-flex flex-column align-items-start">
+              <h6 class="text-capitalize font-12 font-xxl-14 mb-1">
+                <span class="font-600 text-capitalize">entities .</span>
+                <span class="text-light-grey">3</span>
+              </h6>
+              <span class="text-capitalize font-12 font-xxl-14 text-light-grey">View all</span>
+            </span>
+          </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <div class="form-group dropdown-item pl-3 m-0">
+              <label for="ch39" class="custom-checkbox d-flex m-0">
+                <span class="font-12 text-black text-capitalize">View All</span>
+                <input type="checkbox" class="form-control" id="ch39">
+                <span class="transparent-checkmark"></span>
+              </label>                        
+            </div>
+            <div class="form-group dropdown-item pl-3 m-0">
+              <label for="ch69" class="custom-checkbox d-flex m-0">
+                <span class="font-12 text-black text-capitalize">AMERS</span>
+                <input type="checkbox" class="form-control" id="ch69">
+                <span class="transparent-checkmark"></span>
+              </label>                        
+            </div>
+            <div class="form-group dropdown-item pl-3 m-0">
+              <label for="ch59" class="custom-checkbox d-flex m-0">
+                <span class="font-12 text-black text-capitalize">APAC</span>
+                <input type="checkbox" class="form-control" id="ch59">
+                <span class="transparent-checkmark"></span>
+              </label>                        
+            </div>
+            <div class="form-group dropdown-item pl-3 m-0">
+              <label for="ch79" class="custom-checkbox d-flex m-0">
+                <span class="font-12 text-black text-capitalize">EMEA</span>
+                <input type="checkbox" class="form-control" id="ch79">
+                <span class="transparent-checkmark"></span>
+              </label>                        
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg px-1 col-md-4 col-sm-6">
+        <div class="dropdown custom-dropdown">
+          <button class="border-0 mb-3 p-3 bg-body-color dropdown-toggle w-100 shadow-none" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <span class="d-flex flex-column align-items-start">
+              <h6 class="text-capitalize font-12 font-xxl-14 mb-1">
+                <span class="font-600 text-capitalize">products .</span>
+                <span class="text-light-grey">3</span>
+              </h6>
+              <span class="text-capitalize font-12 font-xxl-14 text-light-grey">View all</span>
+            </span>
+          </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <div class="form-group dropdown-item pl-3 m-0">
+              <label for="ch39" class="custom-checkbox d-flex m-0">
+                <span class="font-12 text-black text-capitalize">View All</span>
+                <input type="checkbox" class="form-control" id="ch39">
+                <span class="transparent-checkmark"></span>
+              </label>                        
+            </div>
+            <div class="form-group dropdown-item pl-3 m-0">
+              <label for="ch69" class="custom-checkbox d-flex m-0">
+                <span class="font-12 text-black text-capitalize">AMERS</span>
+                <input type="checkbox" class="form-control" id="ch69">
+                <span class="transparent-checkmark"></span>
+              </label>                        
+            </div>
+            <div class="form-group dropdown-item pl-3 m-0">
+              <label for="ch59" class="custom-checkbox d-flex m-0">
+                <span class="font-12 text-black text-capitalize">APAC</span>
+                <input type="checkbox" class="form-control" id="ch59">
+                <span class="transparent-checkmark"></span>
+              </label>                        
+            </div>
+            <div class="form-group dropdown-item pl-3 m-0">
+              <label for="ch79" class="custom-checkbox d-flex m-0">
+                <span class="font-12 text-black text-capitalize">EMEA</span>
+                <input type="checkbox" class="form-control" id="ch79">
+                <span class="transparent-checkmark"></span>
+              </label>                        
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row mt-5 d-flex no-gutters">
+  <div class="col-md-6 col-lg-3 order-lg-1 order-2 mb-lg-0 mb-4 px-1">
+    <div class="card border-0 shadow-sm pie-high-chart overflow-hidden rounded-50 min-h-560">
       <div class="card-header bg-white text-center">
         <p class="font-14 text-capitalize font-600 chart-header-title">business services</p>
         <div class="donut-content">
@@ -53,10 +376,10 @@
     </div>
   </div>
 
-  <div class="col-md-12 col-lg-3 order-lg-2 order-3 mb-lg-0 mb-4">
-    <div class="card border-0 shadow-sm pie-high-chart">
-      <div class="card-header bg-white text-center">
-        <p class="font-14 text-capitalize font-600 chart-header-title">3rd & 4th Party Supplier Compliance</p>
+  <div class="col-md-12 col-lg-3 order-lg-2 order-3 mb-lg-0 mb-4 px-1">
+    <div class="card border-0 shadow-sm pie-high-chart overflow-hidden rounded-50 min-h-560">
+      <div class="card-header bg-white text-center border-0">
+        <p class="font-14 text-capitalize font-600 chart-header-title">system & supplier resilience indicators</p>
         <div class="row flex-sm-wrap flex-nowrap">
           <div class="col-sm-6 px-0 d-flex justify-content-center">
             <div class="sm-donut-content">
@@ -64,10 +387,6 @@
               <div class="donut-value font-25 font-700">50</div>
               <div class="donut-desc flex-column">
                 <span class="font-12 font-600 text-capitalize mb-2">3rd party</span>
-                <div class="d-flex mt-1 align-items-center">
-                  <div class="circle green-4"></div>
-                  <span class="font-12 font-400 ml-1 text-capitalize">compliant</span>
-                </div>
               </div>
             </div>
           </div>
@@ -77,26 +396,59 @@
               <div class="donut-value font-25 font-700">50</div>
               <div class="donut-desc flex-column">
                 <span class="font-12 font-600 text-capitalize mb-2">4th party</span>
-                <div class="d-flex mt-1 align-items-center">
-                  <div class="circle green-2"></div>
-                  <span class="font-12 font-400 ml-1 text-capitalize">non-compliant</span>
-                </div>
               </div>
             </div>
           </div>
         </div>
+        <div class="d-flex mt-1 align-items-center h-100px justify-content-between">
+          <div class="d-flex align-items-center">
+            <div class="circle green-1"></div>
+            <span class="font-12 font-400 ml-1 text-capitalize">matches</span>
+          </div>
+          <div class="d-flex align-items-center">
+            <div class="circle green-2"></div>
+            <span class="font-12 font-400 ml-1 text-capitalize">meet</span>
+          </div>
+          <div class="d-flex align-items-center">
+            <div class="circle green-3"></div>
+            <span class="font-12 font-400 ml-1 text-capitalize">exceeds</span>
+          </div>
+        </div>
       </div>
-      <div class="card-body resiliece-indicator">
+      <div class="card-body resiliece-indicator pt-0 pb-0">
         <ul class="nav nav-tabs border-0 mb-3" id="myTab" role="tablist">
           <li class="nav-item pr-2">
-            <a class="nav-link active border-0 font-11 font-xxl-12 px-0 py-1 text-capitalize text-dark active" id="home-tab" data-toggle="tab" href="#third-party" role="tab" aria-controls="home" aria-selected="true">3rd party</a>
+            <a class="nav-link active border-0 font-11 font-xxl-12 px-0 py-1 text-capitalize text-dark active" id="home-tab" data-toggle="tab" href="#matches" role="tab" aria-controls="home" aria-selected="true">matches</a>
+          </li>
+          <li class="nav-item pr-2">
+            <a class="nav-link border-0 font-11 font-xxl-12 px-0 py-1 text-capitalize text-dark" id="home-tab" data-toggle="tab" href="#third-party" role="tab" aria-controls="home" aria-selected="true">3rd party</a>
           </li>
           <li class="nav-item pr-2">
             <a class="nav-link font-11 border-0 font-xxl-12 px-0 text-capitalize p-1 text-dark" id="profile-tab" data-toggle="tab" href="#fourth-party" role="tab" aria-controls="profile" aria-selected="false">4th party</a>
           </li>
         </ul>
         <div class="tab-content" id="myTabContent">
-          <div class="tab-pane fade show active pb-3" id="third-party" role="tabpanel" aria-labelledby="home-tab">
+          <div class="tab-pane fade show active pb-3" id="matches" role="tabpanel" aria-labelledby="home-tab">
+            <div class="tiers d-flex justify-content-between align-items-start mb-3">
+              <div class="color-tier d-flex align-items-center">
+                <span class="font-12 font-400 text-capitalize pr-2">Matches impact tolerances</span>
+              </div>
+              <span class="font-12 font-700">24</span>
+            </div>
+            <div class="tiers d-flex justify-content-between align-items-start mb-3">
+              <div class="color-tier d-flex align-items-center">
+                <span class="font-12 font-400 text-capitalize pr-2">Meets impact tolerances</span>
+              </div>
+              <span class="font-12 font-700">24</span>
+            </div>
+            <div class="tiers d-flex justify-content-between align-items-start">
+              <div class="color-tier d-flex align-items-center">
+                <span class="font-12 font-400 text-capitalize pr-2">Exceeds impact tolerances</span>
+              </div>
+              <span class="font-12 font-700">24</span>
+            </div>
+          </div>
+          <div class="tab-pane fade pb-3" id="third-party" role="tabpanel" aria-labelledby="home-tab">
             <div class="tiers d-flex justify-content-between align-items-start mb-3">
               <div class="color-tier d-flex align-items-center">
                 <span class="font-12 font-400 text-capitalize pr-2">3rd Party Matches Impact Tolerances</span>
@@ -139,15 +491,15 @@
         </div>
       </div>
       <div class="card-footer text-center bg-white">
-        <a href="" class="font-12 text-capitalize font-600 border-bottom text-dark">view all</a>
+        <a href="" class="font-12 text-capitalize font-600 border-bottom-black text-dark">view all</a>
       </div>
     </div>
   </div>
 
-  <div class="col-md-12 col-lg-3 order-lg-3 order-4 mb-lg-0 mb-4">
-    <div class="card border-0 shadow-sm pie-high-chart">
-      <div class="card-header bg-white text-center">
-        <p class="font-14 text-capitalize font-600 chart-header-title">Critical & Important Supplier Compliance</p>
+  <div class="col-md-12 col-lg-3 order-lg-3 order-4 mb-lg-0 mb-4 px-1">
+    <div class="card border-0 shadow-sm pie-high-chart overflow-hidden rounded-50 min-h-560">
+      <div class="card-header bg-white text-center border-0">
+        <p class="font-14 text-capitalize font-600 chart-header-title">Critical & Important System</p>
         <div class="row flex-sm-wrap flex-nowrap">
           <div class="col-sm-6 px-0 d-flex justify-content-center">
             <div class="sm-donut-content">
@@ -155,10 +507,6 @@
               <div class="donut-value font-25 font-700">50</div>
               <div class="donut-desc flex-column">
                 <span class="font-12 font-600 text-capitalize mb-2">critical system</span>
-                <div class="d-flex mt-1 align-items-center">
-                  <div class="circle green-4"></div>
-                  <span class="font-12 font-400 ml-1 text-capitalize">compliant</span>
-                </div>
               </div>
             </div>
           </div>
@@ -168,17 +516,27 @@
               <div class="donut-value font-25 font-700">50</div>
               <div class="donut-desc flex-column">
                 <span class="font-12 font-600 text-capitalize mb-2">important system</span>
-                <div class="d-flex mt-1 align-items-center">
-                  <div class="circle green-2"></div>
-                  <span class="font-12 font-400 ml-1 text-capitalize">non-compliant</span>
-                </div>
               </div>
             </div>
           </div>
         </div>
+        <div class="d-flex mt-1 align-items-center h-100px justify-content-between">
+          <div class="d-flex align-items-center">
+            <div class="circle green-1"></div>
+            <span class="font-12 font-400 ml-1 text-capitalize">matches</span>
+          </div>
+          <div class="d-flex align-items-center">
+            <div class="circle green-2"></div>
+            <span class="font-12 font-400 ml-1 text-capitalize">meet</span>
+          </div>
+          <div class="d-flex align-items-center">
+            <div class="circle green-3"></div>
+            <span class="font-12 font-400 ml-1 text-capitalize">exceeds</span>
+          </div>
+        </div>
       </div>
 
-      <div class="card-body resiliece-indicator">
+      <div class="card-body resiliece-indicator pt-0 pb-0">
         <ul class="nav nav-tabs border-0 mb-3" id="myTab" role="tablist">
           <li class="nav-item pr-2">
             <a class="nav-link active border-0 font-11 font-xxl-12 px-0 py-1 text-capitalize text-dark active" id="home-tab" data-toggle="tab" href="#critical-system" role="tab" aria-controls="home" aria-selected="true">Critical Systems</a>
@@ -231,15 +589,15 @@
         </div>
       </div>
       <div class="card-footer text-center bg-white">
-        <a href="" class="font-12 text-capitalize font-600 border-bottom text-dark">view all</a>
+        <a href="" class="font-12 text-capitalize font-600 border-bottom-black text-dark">view all</a>
       </div>
     </div>
   </div>
 
-  <div class="col-md-6 col-lg-3 order-lg-4 order-1 mb-lg-0 mb-4">
-    <div class="card border-0 shadow-sm pie-high-chart">
+  <div class="col-md-6 col-lg-3 order-lg-4 order-1 mb-lg-0 mb-4 px-1">
+    <div class="card border-0 shadow-sm pie-high-chart overflow-hidden rounded-50 min-h-560">
       <div class="card-header bg-white text-center">
-        <p class="font-14 text-capitalize font-600 chart-header-title">Cloud Service Provider Distribution</p>
+        <p class="font-14 text-capitalize font-600 chart-header-title">Cloud Service Provider breakdown</p>
         <div class="donut-content">
           <div id="second-donut" class="donut"></div>
           <div class="donut-value font-50 font-700">50</div>
@@ -276,14 +634,15 @@
         </div>
       </div>
       <div class="card-footer text-center bg-white">
-        <a href="" class="font-12 text-capitalize font-600 border-bottom text-dark">view all</a>
+        <a href="" class="font-12 text-capitalize font-600 border-bottom-black text-dark align-self-center">view all</a>
       </div>
     </div>
   </div>
+
 </div>
-<div class="row mt-4">
-  <div class="col-md-6 col-lg-9 mb-4 mb-lg-0">
-    <div class="card border-0 shadow-sm">
+<div class="row mt-4 no-gutters">
+  <div class="col-md-6 col-lg-9 mb-4 mb-lg-0 px-1">
+    <div class="card border-0 shadow-sm rounded-50 overflow-hidden min-h-566">
       <div class="card-body">
         <div class="tb-header flex-wrap d-flex justify-content-between flex-lg-row flex-column">
           <h5 class="font-16 text-capitalize font-600 flex-1 align-self-lg-center mb-lg-0 mb-4">high risk business service line</h5>
@@ -307,7 +666,7 @@
           </div>
         </div>
         <div class="table-responsive mt-0 mt-lg-3">
-          <table class="table custom-table mb-5">
+          <table class="table custom-table mb-4">
             <thead>
               <tr>
                 <th class="font-11 font-xxl-14 px-1 text-dark font-400">User flow</th>
@@ -392,15 +751,15 @@
               </tr>
             </tbody>
           </table>
-          <div class="d-flex justify-content-center">
-            <a href="" class="text-capitalize font-12 font-xxl-14 text-dark border-bottom">view all</a>
-          </div>
         </div>
+      </div>
+      <div class="d-flex justify-content-center py-2 border-top custom-view-all">
+        <a href="" class="text-capitalize font-12 font-xxl-14 text-dark border-bottom-black font-600 px-1">view all</a>
       </div>
     </div>
   </div>
-  <div class="col-md-6 col-lg-3">
-    <div class="card resiliece-indicator border-0 shadow-sm">
+  <div class="col-md-6 col-lg-3 px-1">
+    <div class="card resiliece-indicator border-0 shadow-sm rounded-50 overflow-hidden min-h-566">
       <div class="card-header p-2 bg-transparent border-0">
         <div class="header-wrapper text-center p-4">
           <div class="d-flex justify-content-center align-items-center">
@@ -438,21 +797,21 @@
                 <div class="tiers d-flex justify-content-between align-items-center mt-2">
                   <div class="color-tier d-flex align-items-center">
                     <div class="circle green-4"></div>
-                    <span class="font-12 font-400 ml-2 text-capitalize flex-1 cursor-pointer" data-toggle="tooltip" data-placement="top" title="Critical System Matches Impact Tolerances">Matches Impact Tolerances...</span>
+                    <span class="font-12 font-400 ml-2 text-capitalize flex-1 cursor-pointer" data-toggle="tooltip" data-placement="top" title="Critical System Matches Impact Tolerances">Matches</span>
                   </div>
                   <span class="font-12 font-700">24</span>
                 </div>
                 <div class="tiers d-flex justify-content-between align-items-center mt-2">
                   <div class="color-tier d-flex align-items-center">
                     <div class="circle green-2"></div>
-                    <span class="font-12 font-400 ml-2 text-capitalize flex-1 cursor-pointer" data-toggle="tooltip" data-placement="top" title="Critical System Meets Impact Tolerances">Meets Impact Tolerances...</span>
+                    <span class="font-12 font-400 ml-2 text-capitalize flex-1 cursor-pointer" data-toggle="tooltip" data-placement="top" title="Critical System Meets Impact Tolerances">Meets</span>
                   </div>
                   <span class="font-12 font-700">24</span>
                 </div>
                 <div class="tiers d-flex justify-content-between align-items-center mt-2">
                   <div class="color-tier d-flex align-items-center">
                     <div class="circle green-3"></div>
-                    <span class="font-12 font-400 ml-2 text-capitalize flex-1 cursor-pointer" data-toggle="tooltip" data-placement="top" title="Critical System Exceeds Impact Tolerances">Exceeds Impact Tolerances...</span>
+                    <span class="font-12 font-400 ml-2 text-capitalize flex-1 cursor-pointer" data-toggle="tooltip" data-placement="top" title="Critical System Exceeds Impact Tolerances">Exceeds</span>
                   </div>
                   <span class="font-12 font-700">24</span>
                 </div>
@@ -468,28 +827,28 @@
                 <div class="tiers d-flex justify-content-between align-items-center mt-2">
                   <div class="color-tier d-flex align-items-center">
                     <div class="circle green-4"></div>
-                    <span class="font-12 font-400 ml-2 text-capitalize flex-1 cursor-pointer" data-toggle="tooltip" data-placement="top" title="Important System Matches Impact Tolerances">Matches Impact Tolerances</span>
+                    <span class="font-12 font-400 ml-2 text-capitalize flex-1 cursor-pointer" data-toggle="tooltip" data-placement="top" title="Important System Matches Impact Tolerances">Matches</span>
                   </div>
                   <span class="font-12 font-700">24</span>
                 </div>
                 <div class="tiers d-flex justify-content-between align-items-center mt-2">
                   <div class="color-tier d-flex align-items-center">
                     <div class="circle green-2"></div>
-                    <span class="font-12 font-400 ml-2 text-capitalize cursor-pointer flex-1" data-toggle="tooltip" data-placement="top" title="Important System Meets Impact Tolerances">Meets Impact Tolerances</span>
+                    <span class="font-12 font-400 ml-2 text-capitalize cursor-pointer flex-1" data-toggle="tooltip" data-placement="top" title="Important System Meets Impact Tolerances">Meets</span>
                   </div>
                   <span class="font-12 font-700">24</span>
                 </div>
                 <div class="tiers d-flex justify-content-between align-items-center mt-2">
                   <div class="color-tier d-flex align-items-center">
                     <div class="circle green-3"></div>
-                    <span class="font-12 font-400 ml-2 text-capitalize cursor-pointer flex-1" data-toggle="tooltip" data-placement="top" title="Important System Exceeds Impact Tolerances">Exceeds Impact Tolerances</span>
+                    <span class="font-12 font-400 ml-2 text-capitalize cursor-pointer flex-1" data-toggle="tooltip" data-placement="top" title="Important System Exceeds Impact Tolerances">Exceeds</span>
                   </div>
                   <span class="font-12 font-700">24</span>
                 </div>
               </div>
             </div>
             <div class="d-flex py-2 justify-content-center view-all">
-              <a href="" class="text-capitalize font-12 font-xxl-14 border-bottom text-black">view all</a>
+              <a href="" class="text-capitalize font-12 font-xxl-14 border-bottom-black font-600 text-black px-1">view all</a>
             </div>
           </div>
           <div class="tab-pane fade pb-3" id="tier-2" role="tabpanel" aria-labelledby="profile-tab">
@@ -504,21 +863,21 @@
                 <div class="tiers d-flex justify-content-between align-items-center mt-2">
                   <div class="color-tier d-flex align-items-center">
                     <div class="circle green-4"></div>
-                    <span class="font-12 font-400 ml-2 text-capitalize flex-1 cursor-pointer" data-toggle="tooltip" data-placement="top" title="Critical System Matches Impact Tolerances">Matches Impact Tolerances...</span>
+                    <span class="font-12 font-400 ml-2 text-capitalize flex-1 cursor-pointer" data-toggle="tooltip" data-placement="top" title="Critical System Matches Impact Tolerances">Matches</span>
                   </div>
                   <span class="font-12 font-700">24</span>
                 </div>
                 <div class="tiers d-flex justify-content-between align-items-center mt-2">
                   <div class="color-tier d-flex align-items-center">
                     <div class="circle green-2"></div>
-                    <span class="font-12 font-400 ml-2 text-capitalize flex-1 cursor-pointer" data-toggle="tooltip" data-placement="top" title="Critical System Meets Impact Tolerances">Meets Impact Tolerances...</span>
+                    <span class="font-12 font-400 ml-2 text-capitalize flex-1 cursor-pointer" data-toggle="tooltip" data-placement="top" title="Critical System Meets Impact Tolerances">Meets</span>
                   </div>
                   <span class="font-12 font-700">24</span>
                 </div>
                 <div class="tiers d-flex justify-content-between align-items-center mt-2">
                   <div class="color-tier d-flex align-items-center">
                     <div class="circle green-3"></div>
-                    <span class="font-12 font-400 ml-2 text-capitalize flex-1 cursor-pointer" data-toggle="tooltip" data-placement="top" title="Critical System Exceeds Impact Tolerances">Exceeds Impact Tolerances...</span>
+                    <span class="font-12 font-400 ml-2 text-capitalize flex-1 cursor-pointer" data-toggle="tooltip" data-placement="top" title="Critical System Exceeds Impact Tolerances">Exceeds</span>
                   </div>
                   <span class="font-12 font-700">24</span>
                 </div>
@@ -534,28 +893,28 @@
                 <div class="tiers d-flex justify-content-between align-items-center mt-2">
                   <div class="color-tier d-flex align-items-center">
                     <div class="circle green-4"></div>
-                    <span class="font-12 font-400 ml-2 text-capitalize flex-1 cursor-pointer" data-toggle="tooltip" data-placement="top" title="Important System Matches Impact Tolerances">Matches Impact Tolerances</span>
+                    <span class="font-12 font-400 ml-2 text-capitalize flex-1 cursor-pointer" data-toggle="tooltip" data-placement="top" title="Important System Matches Impact Tolerances">Matches</span>
                   </div>
                   <span class="font-12 font-700">24</span>
                 </div>
                 <div class="tiers d-flex justify-content-between align-items-center mt-2">
                   <div class="color-tier d-flex align-items-center">
                     <div class="circle green-2"></div>
-                    <span class="font-12 font-400 ml-2 text-capitalize cursor-pointer flex-1" data-toggle="tooltip" data-placement="top" title="Important System Meets Impact Tolerances">Meets Impact Tolerances</span>
+                    <span class="font-12 font-400 ml-2 text-capitalize cursor-pointer flex-1" data-toggle="tooltip" data-placement="top" title="Important System Meets Impact Tolerances">Meets</span>
                   </div>
                   <span class="font-12 font-700">24</span>
                 </div>
                 <div class="tiers d-flex justify-content-between align-items-center mt-2">
                   <div class="color-tier d-flex align-items-center">
                     <div class="circle green-3"></div>
-                    <span class="font-12 font-400 ml-2 text-capitalize cursor-pointer flex-1" data-toggle="tooltip" data-placement="top" title="Important System Exceeds Impact Tolerances">Exceeds Impact Tolerances</span>
+                    <span class="font-12 font-400 ml-2 text-capitalize cursor-pointer flex-1" data-toggle="tooltip" data-placement="top" title="Important System Exceeds Impact Tolerances">Exceeds</span>
                   </div>
                   <span class="font-12 font-700">24</span>
                 </div>
               </div>
             </div>
             <div class="d-flex py-2 justify-content-center view-all">
-              <a href="" class="text-capitalize font-12 font-xxl-14 border-bottom text-black">view all</a>
+              <a href="" class="text-capitalize font-12 font-xxl-14 border-bottom-black align-self-center text-black">view all</a>
             </div>
           </div>
           <div class="tab-pane fade pb-3" id="tier-3" role="tabpanel" aria-labelledby="contact-tab">
@@ -569,21 +928,21 @@
                 <div class="tiers d-flex justify-content-between align-items-center mt-2">
                   <div class="color-tier d-flex align-items-center">
                     <div class="circle green-4"></div>
-                    <span class="font-12 font-400 ml-2 text-capitalize flex-1 cursor-pointer" data-toggle="tooltip" data-placement="top" title="Critical System Matches Impact Tolerances">Matches Impact Tolerances...</span>
+                    <span class="font-12 font-400 ml-2 text-capitalize flex-1 cursor-pointer" data-toggle="tooltip" data-placement="top" title="Critical System Matches Impact Tolerances">Matches</span>
                   </div>
                   <span class="font-12 font-700">24</span>
                 </div>
                 <div class="tiers d-flex justify-content-between align-items-center mt-2">
                   <div class="color-tier d-flex align-items-center">
                     <div class="circle green-2"></div>
-                    <span class="font-12 font-400 ml-2 text-capitalize flex-1 cursor-pointer" data-toggle="tooltip" data-placement="top" title="Critical System Meets Impact Tolerances">Meets Impact Tolerances...</span>
+                    <span class="font-12 font-400 ml-2 text-capitalize flex-1 cursor-pointer" data-toggle="tooltip" data-placement="top" title="Critical System Meets Impact Tolerances">Meets</span>
                   </div>
                   <span class="font-12 font-700">24</span>
                 </div>
                 <div class="tiers d-flex justify-content-between align-items-center mt-2">
                   <div class="color-tier d-flex align-items-center">
                     <div class="circle green-3"></div>
-                    <span class="font-12 font-400 ml-2 text-capitalize flex-1 cursor-pointer" data-toggle="tooltip" data-placement="top" title="Critical System Exceeds Impact Tolerances">Exceeds Impact Tolerances...</span>
+                    <span class="font-12 font-400 ml-2 text-capitalize flex-1 cursor-pointer" data-toggle="tooltip" data-placement="top" title="Critical System Exceeds Impact Tolerances">Exceeds</span>
                   </div>
                   <span class="font-12 font-700">24</span>
                 </div>
@@ -599,28 +958,28 @@
                 <div class="tiers d-flex justify-content-between align-items-center mt-2">
                   <div class="color-tier d-flex align-items-center">
                     <div class="circle green-4"></div>
-                    <span class="font-12 font-400 ml-2 text-capitalize flex-1 cursor-pointer" data-toggle="tooltip" data-placement="top" title="Important System Matches Impact Tolerances">Matches Impact Tolerances</span>
+                    <span class="font-12 font-400 ml-2 text-capitalize flex-1 cursor-pointer" data-toggle="tooltip" data-placement="top" title="Important System Matches Impact Tolerances">Matches</span>
                   </div>
                   <span class="font-12 font-700">24</span>
                 </div>
                 <div class="tiers d-flex justify-content-between align-items-center mt-2">
                   <div class="color-tier d-flex align-items-center">
                     <div class="circle green-2"></div>
-                    <span class="font-12 font-400 ml-2 text-capitalize cursor-pointer flex-1" data-toggle="tooltip" data-placement="top" title="Important System Meets Impact Tolerances">Meets Impact Tolerances</span>
+                    <span class="font-12 font-400 ml-2 text-capitalize cursor-pointer flex-1" data-toggle="tooltip" data-placement="top" title="Important System Meets Impact Tolerances">Meets</span>
                   </div>
                   <span class="font-12 font-700">24</span>
                 </div>
                 <div class="tiers d-flex justify-content-between align-items-center mt-2">
                   <div class="color-tier d-flex align-items-center">
                     <div class="circle green-3"></div>
-                    <span class="font-12 font-400 ml-2 text-capitalize cursor-pointer flex-1" data-toggle="tooltip" data-placement="top" title="Important System Exceeds Impact Tolerances">Exceeds Impact Tolerances</span>
+                    <span class="font-12 font-400 ml-2 text-capitalize cursor-pointer flex-1" data-toggle="tooltip" data-placement="top" title="Important System Exceeds Impact Tolerances">Exceeds</span>
                   </div>
                   <span class="font-12 font-700">24</span>
                 </div>
               </div>
             </div>
             <div class="d-flex py-2 justify-content-center view-all">
-              <a href="" class="text-capitalize font-12 font-xxl-14 border-bottom text-black">view all</a>
+              <a href="" class="text-capitalize font-12 font-xxl-14 border-bottom-black align-self-center text-black">view all</a>
             </div>
           </div>
           <div class="tab-pane fade pb-3" id="tier-4" role="tabpanel" aria-labelledby="contact-tab">
@@ -634,21 +993,21 @@
                 <div class="tiers d-flex justify-content-between align-items-center mt-2">
                   <div class="color-tier d-flex align-items-center">
                     <div class="circle green-4"></div>
-                    <span class="font-12 font-400 ml-2 text-capitalize flex-1 cursor-pointer" data-toggle="tooltip" data-placement="top" title="Critical System Matches Impact Tolerances">Matches Impact Tolerances...</span>
+                    <span class="font-12 font-400 ml-2 text-capitalize flex-1 cursor-pointer" data-toggle="tooltip" data-placement="top" title="Critical System Matches Impact Tolerances">Matches</span>
                   </div>
                   <span class="font-12 font-700">24</span>
                 </div>
                 <div class="tiers d-flex justify-content-between align-items-center mt-2">
                   <div class="color-tier d-flex align-items-center">
                     <div class="circle green-2"></div>
-                    <span class="font-12 font-400 ml-2 text-capitalize flex-1 cursor-pointer" data-toggle="tooltip" data-placement="top" title="Critical System Meets Impact Tolerances">Meets Impact Tolerances...</span>
+                    <span class="font-12 font-400 ml-2 text-capitalize flex-1 cursor-pointer" data-toggle="tooltip" data-placement="top" title="Critical System Meets Impact Tolerances">Meets</span>
                   </div>
                   <span class="font-12 font-700">24</span>
                 </div>
                 <div class="tiers d-flex justify-content-between align-items-center mt-2">
                   <div class="color-tier d-flex align-items-center">
                     <div class="circle green-3"></div>
-                    <span class="font-12 font-400 ml-2 text-capitalize flex-1 cursor-pointer" data-toggle="tooltip" data-placement="top" title="Critical System Exceeds Impact Tolerances">Exceeds Impact Tolerances...</span>
+                    <span class="font-12 font-400 ml-2 text-capitalize flex-1 cursor-pointer" data-toggle="tooltip" data-placement="top" title="Critical System Exceeds Impact Tolerances">Exceeds</span>
                   </div>
                   <span class="font-12 font-700">24</span>
                 </div>
@@ -664,28 +1023,28 @@
                 <div class="tiers d-flex justify-content-between align-items-center mt-2">
                   <div class="color-tier d-flex align-items-center">
                     <div class="circle green-4"></div>
-                    <span class="font-12 font-400 ml-2 text-capitalize flex-1 cursor-pointer" data-toggle="tooltip" data-placement="top" title="Important System Matches Impact Tolerances">Matches Impact Tolerances</span>
+                    <span class="font-12 font-400 ml-2 text-capitalize flex-1 cursor-pointer" data-toggle="tooltip" data-placement="top" title="Important System Matches Impact Tolerances">Matches</span>
                   </div>
                   <span class="font-12 font-700">24</span>
                 </div>
                 <div class="tiers d-flex justify-content-between align-items-center mt-2">
                   <div class="color-tier d-flex align-items-center">
                     <div class="circle green-2"></div>
-                    <span class="font-12 font-400 ml-2 text-capitalize cursor-pointer flex-1" data-toggle="tooltip" data-placement="top" title="Important System Meets Impact Tolerances">Meets Impact Tolerances</span>
+                    <span class="font-12 font-400 ml-2 text-capitalize cursor-pointer flex-1" data-toggle="tooltip" data-placement="top" title="Important System Meets Impact Tolerances">Meets</span>
                   </div>
                   <span class="font-12 font-700">24</span>
                 </div>
                 <div class="tiers d-flex justify-content-between align-items-center mt-2">
                   <div class="color-tier d-flex align-items-center">
                     <div class="circle green-3"></div>
-                    <span class="font-12 font-400 ml-2 text-capitalize cursor-pointer flex-1" data-toggle="tooltip" data-placement="top" title="Important System Exceeds Impact Tolerances">Exceeds Impact Tolerances</span>
+                    <span class="font-12 font-400 ml-2 text-capitalize cursor-pointer flex-1" data-toggle="tooltip" data-placement="top" title="Important System Exceeds Impact Tolerances">Exceeds</span>
                   </div>
                   <span class="font-12 font-700">24</span>
                 </div>
               </div>
             </div>
             <div class="d-flex py-2 justify-content-center view-all">
-              <a href="" class="text-capitalize font-12 font-xxl-14 border-bottom text-black">view all</a>
+              <a href="" class="text-capitalize font-12 font-xxl-14 border-bottom-black align-self-center text-black">view all</a>
             </div>
           </div>
         </div>
@@ -717,7 +1076,494 @@
     </p> -->
   </div>
 </div>
-<div class="row mt-4">
+<div class="row mt-5 d-flex no-gutters">
+  <div class="col mb-lg-0 mb-4 px-1">
+    <div class="card border-0 shadow-sm pie-high-chart overflow-hidden rounded-50 min-h-510">
+      <div class="card-header bg-white text-center border-0">
+        <p class="font-14 font-600 chart-header-title">
+          <span class="d-block text-capitalize">global retail bank</span>
+          <span class="font-12 d-block text-capitalize text-light-grey">Resilience Posture</span>
+        </p>
+        <div class="donut-content">
+          <div id="third-donut" class="donut"></div>
+          <div class="donut-value font-50 font-700">50</div>
+        </div>
+      </div>
+      <div class="card-body border-bottom">
+        <div class="tiers d-flex justify-content-between align-items-center mb-3">
+          <div class="color-tier d-flex align-items-center">
+            <div class="circle green-1"></div>
+            <span class="font-12 font-400 ml-2">Tier 1</span>
+          </div>
+          <span class="font-12 font-700">24</span>
+        </div>
+        <div class="tiers d-flex justify-content-between align-items-center mb-3">
+          <div class="color-tier d-flex align-items-center">
+            <div class="circle green-2"></div>
+            <span class="font-12 font-400 ml-2">Tier 2</span>
+          </div>
+          <span class="font-12 font-700">24</span>
+        </div>
+        <div class="tiers d-flex justify-content-between align-items-center mb-3">
+          <div class="color-tier d-flex align-items-center">
+            <div class="circle green-3"></div>
+            <span class="font-12 font-400 ml-2">Tier 3</span>
+          </div>
+          <span class="font-12 font-700">24</span>
+        </div>
+        <div class="tiers d-flex justify-content-between align-items-center">
+          <div class="color-tier d-flex align-items-center">
+            <div class="circle green-4"></div>
+            <span class="font-12 font-400 ml-2">Tier 4</span>
+          </div>
+          <span class="font-12 font-700">24</span>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="tiers d-flex justify-content-between align-items-center mb-3">
+          <div class="color-tier d-flex align-items-center">
+            <span class="font-11 font-500">Total Business Services</span>
+          </div>
+          <span class="font-11 font-700">24</span>
+        </div>
+        <div class="tiers d-flex justify-content-between align-items-center mb-3">
+          <div class="color-tier d-flex align-items-center">
+            <span class="font-11 font-500">Total Bank Hosted Systems</span>
+          </div>
+          <span class="font-11 font-700">24</span>
+        </div>
+        <div class="tiers d-flex justify-content-between align-items-center mb-3">
+          <div class="color-tier d-flex align-items-center">
+            <span class="font-11 font-500">Total 3rd Party Suppliers</span>
+          </div>
+          <span class="font-11 font-700">24</span>
+        </div>
+        <div class="tiers d-flex justify-content-between align-items-center mb-3">
+          <div class="color-tier d-flex align-items-center">
+            <span class="font-11 font-500">Total 4th Party Suppliers</span>
+          </div>
+          <span class="font-11 font-700">24</span>
+        </div>
+        <div class="tiers d-flex justify-content-between align-items-center mb-3">
+          <div class="color-tier d-flex align-items-center">
+            <span class="font-11 font-500">Most Compliant Region</span>
+          </div>
+          <span class="font-11 font-700">24</span>
+        </div>
+        <div class="tiers d-flex justify-content-between align-items-center mb-3">
+          <div class="color-tier d-flex align-items-center">
+            <span class="font-11 font-500">Least Compliant Region</span>
+          </div>
+          <span class="font-11 font-700">24</span>
+        </div>
+        <div class="tiers d-flex justify-content-between align-items-center mb-3">
+          <div class="color-tier d-flex align-items-center">
+            <span class="font-11 font-500">Most Used Cloud Supplier</span>
+          </div>
+          <span class="font-11 font-700">24</span>
+        </div>
+        <div class="tiers d-flex justify-content-between align-items-center">
+          <div class="color-tier d-flex align-items-center">
+            <span class="font-11 font-500">Total Number of Resilience Gap</span>
+          </div>
+          <span class="font-11 font-700">24</span>
+        </div>
+      </div>
+      <div class="card-footer text-center bg-white">
+        <a href="" class="font-12 text-capitalize font-600 border-bottom-black text-dark">view all</a>
+      </div>
+    </div>
+  </div>
+  <div class="col mb-lg-0 mb-4 px-1">
+    <div class="card border-0 shadow-sm pie-high-chart overflow-hidden rounded-50 min-h-510">
+      <div class="card-header bg-white text-center border-0">
+        <p class="font-14 font-600 chart-header-title">
+          <span class="d-block text-capitalize">global investment bank</span>
+          <span class="font-12 d-block text-capitalize text-light-grey">Resilience Posture</span>
+        </p>
+        <div class="donut-content">
+          <div id="fourth-donut" class="donut"></div>
+          <div class="donut-value font-50 font-700">50</div>
+        </div>
+      </div>
+      <div class="card-body border-bottom">
+        <div class="tiers d-flex justify-content-between align-items-center mb-3">
+          <div class="color-tier d-flex align-items-center">
+            <div class="circle green-1"></div>
+            <span class="font-12 font-400 ml-2">Tier 1</span>
+          </div>
+          <span class="font-12 font-700">24</span>
+        </div>
+        <div class="tiers d-flex justify-content-between align-items-center mb-3">
+          <div class="color-tier d-flex align-items-center">
+            <div class="circle green-2"></div>
+            <span class="font-12 font-400 ml-2">Tier 2</span>
+          </div>
+          <span class="font-12 font-700">24</span>
+        </div>
+        <div class="tiers d-flex justify-content-between align-items-center mb-3">
+          <div class="color-tier d-flex align-items-center">
+            <div class="circle green-3"></div>
+            <span class="font-12 font-400 ml-2">Tier 3</span>
+          </div>
+          <span class="font-12 font-700">24</span>
+        </div>
+        <div class="tiers d-flex justify-content-between align-items-center">
+          <div class="color-tier d-flex align-items-center">
+            <div class="circle green-4"></div>
+            <span class="font-12 font-400 ml-2">Tier 4</span>
+          </div>
+          <span class="font-12 font-700">24</span>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="tiers d-flex justify-content-between align-items-center mb-3">
+          <div class="color-tier d-flex align-items-center">
+            <span class="font-11 font-500">Total Business Services</span>
+          </div>
+          <span class="font-11 font-700">24</span>
+        </div>
+        <div class="tiers d-flex justify-content-between align-items-center mb-3">
+          <div class="color-tier d-flex align-items-center">
+            <span class="font-11 font-500">Total Bank Hosted Systems</span>
+          </div>
+          <span class="font-11 font-700">24</span>
+        </div>
+        <div class="tiers d-flex justify-content-between align-items-center mb-3">
+          <div class="color-tier d-flex align-items-center">
+            <span class="font-11 font-500">Total 3rd Party Suppliers</span>
+          </div>
+          <span class="font-11 font-700">24</span>
+        </div>
+        <div class="tiers d-flex justify-content-between align-items-center mb-3">
+          <div class="color-tier d-flex align-items-center">
+            <span class="font-11 font-500">Total 4th Party Suppliers</span>
+          </div>
+          <span class="font-11 font-700">24</span>
+        </div>
+        <div class="tiers d-flex justify-content-between align-items-center mb-3">
+          <div class="color-tier d-flex align-items-center">
+            <span class="font-11 font-500">Most Compliant Region</span>
+          </div>
+          <span class="font-11 font-700">24</span>
+        </div>
+        <div class="tiers d-flex justify-content-between align-items-center mb-3">
+          <div class="color-tier d-flex align-items-center">
+            <span class="font-11 font-500">Least Compliant Region</span>
+          </div>
+          <span class="font-11 font-700">24</span>
+        </div>
+        <div class="tiers d-flex justify-content-between align-items-center mb-3">
+          <div class="color-tier d-flex align-items-center">
+            <span class="font-11 font-500">Most Used Cloud Supplier</span>
+          </div>
+          <span class="font-11 font-700">24</span>
+        </div>
+        <div class="tiers d-flex justify-content-between align-items-center">
+          <div class="color-tier d-flex align-items-center">
+            <span class="font-11 font-500">Total Number of Resilience Gap</span>
+          </div>
+          <span class="font-11 font-700">24</span>
+        </div>
+      </div>
+      <div class="card-footer text-center bg-white">
+        <a href="" class="font-12 text-capitalize font-600 border-bottom-black text-dark">view all</a>
+      </div>
+    </div>
+  </div>
+  <div class="col mb-lg-0 mb-4 px-1">
+    <div class="card border-0 shadow-sm pie-high-chart overflow-hidden rounded-50 min-h-510">
+      <div class="card-header bg-white text-center border-0">
+        <p class="font-14 font-600 chart-header-title">
+          <span class="d-block text-capitalize">global business bank</span>
+          <span class="font-12 d-block text-capitalize text-light-grey">Resilience Posture</span>
+        </p>
+        <div class="donut-content">
+          <div id="fifth-donut" class="donut"></div>
+          <div class="donut-value font-50 font-700">50</div>
+        </div>
+      </div>
+      <div class="card-body border-bottom">
+        <div class="tiers d-flex justify-content-between align-items-center mb-3">
+          <div class="color-tier d-flex align-items-center">
+            <div class="circle green-1"></div>
+            <span class="font-12 font-400 ml-2">Tier 1</span>
+          </div>
+          <span class="font-12 font-700">24</span>
+        </div>
+        <div class="tiers d-flex justify-content-between align-items-center mb-3">
+          <div class="color-tier d-flex align-items-center">
+            <div class="circle green-2"></div>
+            <span class="font-12 font-400 ml-2">Tier 2</span>
+          </div>
+          <span class="font-12 font-700">24</span>
+        </div>
+        <div class="tiers d-flex justify-content-between align-items-center mb-3">
+          <div class="color-tier d-flex align-items-center">
+            <div class="circle green-3"></div>
+            <span class="font-12 font-400 ml-2">Tier 3</span>
+          </div>
+          <span class="font-12 font-700">24</span>
+        </div>
+        <div class="tiers d-flex justify-content-between align-items-center">
+          <div class="color-tier d-flex align-items-center">
+            <div class="circle green-4"></div>
+            <span class="font-12 font-400 ml-2">Tier 4</span>
+          </div>
+          <span class="font-12 font-700">24</span>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="tiers d-flex justify-content-between align-items-center mb-3">
+          <div class="color-tier d-flex align-items-center">
+            <span class="font-11 font-500">Total Business Services</span>
+          </div>
+          <span class="font-11 font-700">24</span>
+        </div>
+        <div class="tiers d-flex justify-content-between align-items-center mb-3">
+          <div class="color-tier d-flex align-items-center">
+            <span class="font-11 font-500">Total Bank Hosted Systems</span>
+          </div>
+          <span class="font-11 font-700">24</span>
+        </div>
+        <div class="tiers d-flex justify-content-between align-items-center mb-3">
+          <div class="color-tier d-flex align-items-center">
+            <span class="font-11 font-500">Total 3rd Party Suppliers</span>
+          </div>
+          <span class="font-11 font-700">24</span>
+        </div>
+        <div class="tiers d-flex justify-content-between align-items-center mb-3">
+          <div class="color-tier d-flex align-items-center">
+            <span class="font-11 font-500">Total 4th Party Suppliers</span>
+          </div>
+          <span class="font-11 font-700">24</span>
+        </div>
+        <div class="tiers d-flex justify-content-between align-items-center mb-3">
+          <div class="color-tier d-flex align-items-center">
+            <span class="font-11 font-500">Most Compliant Region</span>
+          </div>
+          <span class="font-11 font-700">24</span>
+        </div>
+        <div class="tiers d-flex justify-content-between align-items-center mb-3">
+          <div class="color-tier d-flex align-items-center">
+            <span class="font-11 font-500">Least Compliant Region</span>
+          </div>
+          <span class="font-11 font-700">24</span>
+        </div>
+        <div class="tiers d-flex justify-content-between align-items-center mb-3">
+          <div class="color-tier d-flex align-items-center">
+            <span class="font-11 font-500">Most Used Cloud Supplier</span>
+          </div>
+          <span class="font-11 font-700">24</span>
+        </div>
+        <div class="tiers d-flex justify-content-between align-items-center">
+          <div class="color-tier d-flex align-items-center">
+            <span class="font-11 font-500">Total Number of Resilience Gap</span>
+          </div>
+          <span class="font-11 font-700">24</span>
+        </div>
+      </div>
+      <div class="card-footer text-center bg-white">
+        <a href="" class="font-12 text-capitalize font-600 border-bottom-black text-dark">view all</a>
+      </div>
+    </div>
+  </div>
+  <div class="col mb-lg-0 mb-4 px-1">
+    <div class="card border-0 shadow-sm pie-high-chart overflow-hidden rounded-50 min-h-510">
+      <div class="card-header bg-white text-center border-0">
+       <p class="font-14 font-600 chart-header-title">
+          <span class="d-block text-capitalize">global digital bank</span>
+          <span class="font-12 d-block text-capitalize text-light-grey">Resilience Posture</span>
+        </p>
+        <div class="donut-content">
+          <div id="sixth-donut" class="donut"></div>
+          <div class="donut-value font-50 font-700">50</div>
+        </div>
+      </div>
+      <div class="card-body border-bottom">
+        <div class="tiers d-flex justify-content-between align-items-center mb-3">
+          <div class="color-tier d-flex align-items-center">
+            <div class="circle green-1"></div>
+            <span class="font-12 font-400 ml-2">Tier 1</span>
+          </div>
+          <span class="font-12 font-700">24</span>
+        </div>
+        <div class="tiers d-flex justify-content-between align-items-center mb-3">
+          <div class="color-tier d-flex align-items-center">
+            <div class="circle green-2"></div>
+            <span class="font-12 font-400 ml-2">Tier 2</span>
+          </div>
+          <span class="font-12 font-700">24</span>
+        </div>
+        <div class="tiers d-flex justify-content-between align-items-center mb-3">
+          <div class="color-tier d-flex align-items-center">
+            <div class="circle green-3"></div>
+            <span class="font-12 font-400 ml-2">Tier 3</span>
+          </div>
+          <span class="font-12 font-700">24</span>
+        </div>
+        <div class="tiers d-flex justify-content-between align-items-center">
+          <div class="color-tier d-flex align-items-center">
+            <div class="circle green-4"></div>
+            <span class="font-12 font-400 ml-2">Tier 4</span>
+          </div>
+          <span class="font-12 font-700">24</span>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="tiers d-flex justify-content-between align-items-center mb-3">
+          <div class="color-tier d-flex align-items-center">
+            <span class="font-11 font-500">Total Business Services</span>
+          </div>
+          <span class="font-11 font-700">24</span>
+        </div>
+        <div class="tiers d-flex justify-content-between align-items-center mb-3">
+          <div class="color-tier d-flex align-items-center">
+            <span class="font-11 font-500">Total Bank Hosted Systems</span>
+          </div>
+          <span class="font-11 font-700">24</span>
+        </div>
+        <div class="tiers d-flex justify-content-between align-items-center mb-3">
+          <div class="color-tier d-flex align-items-center">
+            <span class="font-11 font-500">Total 3rd Party Suppliers</span>
+          </div>
+          <span class="font-11 font-700">24</span>
+        </div>
+        <div class="tiers d-flex justify-content-between align-items-center mb-3">
+          <div class="color-tier d-flex align-items-center">
+            <span class="font-11 font-500">Total 4th Party Suppliers</span>
+          </div>
+          <span class="font-11 font-700">24</span>
+        </div>
+        <div class="tiers d-flex justify-content-between align-items-center mb-3">
+          <div class="color-tier d-flex align-items-center">
+            <span class="font-11 font-500">Most Compliant Region</span>
+          </div>
+          <span class="font-11 font-700">24</span>
+        </div>
+        <div class="tiers d-flex justify-content-between align-items-center mb-3">
+          <div class="color-tier d-flex align-items-center">
+            <span class="font-11 font-500">Least Compliant Region</span>
+          </div>
+          <span class="font-11 font-700">24</span>
+        </div>
+        <div class="tiers d-flex justify-content-between align-items-center mb-3">
+          <div class="color-tier d-flex align-items-center">
+            <span class="font-11 font-500">Most Used Cloud Supplier</span>
+          </div>
+          <span class="font-11 font-700">24</span>
+        </div>
+        <div class="tiers d-flex justify-content-between align-items-center">
+          <div class="color-tier d-flex align-items-center">
+            <span class="font-11 font-500">Total Number of Resilience Gap</span>
+          </div>
+          <span class="font-11 font-700">24</span>
+        </div>
+      </div>
+      <div class="card-footer text-center bg-white">
+        <a href="" class="font-12 text-capitalize font-600 border-bottom-black text-dark">view all</a>
+      </div>
+    </div>
+  </div>
+  <div class="col mb-lg-0 mb-4 px-1">
+    <div class="card border-0 shadow-sm pie-high-chart overflow-hidden rounded-50 min-h-510">
+      <div class="card-header bg-white text-center border-0">
+        <p class="font-14 font-600 chart-header-title">
+          <span class="d-block text-capitalize">global union bank</span>
+          <span class="font-12 d-block text-capitalize text-light-grey">Resilience Posture</span>
+        </p>
+        <div class="donut-content">
+          <div id="seventh-donut" class="donut"></div>
+          <div class="donut-value font-50 font-700">50</div>
+        </div>
+      </div>
+      <div class="card-body border-bottom">
+        <div class="tiers d-flex justify-content-between align-items-center mb-3">
+          <div class="color-tier d-flex align-items-center">
+            <div class="circle green-1"></div>
+            <span class="font-12 font-400 ml-2">Tier 1</span>
+          </div>
+          <span class="font-12 font-700">24</span>
+        </div>
+        <div class="tiers d-flex justify-content-between align-items-center mb-3">
+          <div class="color-tier d-flex align-items-center">
+            <div class="circle green-2"></div>
+            <span class="font-12 font-400 ml-2">Tier 2</span>
+          </div>
+          <span class="font-12 font-700">24</span>
+        </div>
+        <div class="tiers d-flex justify-content-between align-items-center mb-3">
+          <div class="color-tier d-flex align-items-center">
+            <div class="circle green-3"></div>
+            <span class="font-12 font-400 ml-2">Tier 3</span>
+          </div>
+          <span class="font-12 font-700">24</span>
+        </div>
+        <div class="tiers d-flex justify-content-between align-items-center">
+          <div class="color-tier d-flex align-items-center">
+            <div class="circle green-4"></div>
+            <span class="font-12 font-400 ml-2">Tier 4</span>
+          </div>
+          <span class="font-12 font-700">24</span>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="tiers d-flex justify-content-between align-items-center mb-3">
+          <div class="color-tier d-flex align-items-center">
+            <span class="font-11 font-xxl-14 font-500">Total Business Services</span>
+          </div>
+          <span class="font-11 font-xxl-14 font-700">24</span>
+        </div>
+        <div class="tiers d-flex justify-content-between align-items-center mb-3">
+          <div class="color-tier d-flex align-items-center">
+            <span class="font-11 font-xxl-14 font-500">Total Bank Hosted Systems</span>
+          </div>
+          <span class="font-11 font-xxl-14 font-700">24</span>
+        </div>
+        <div class="tiers d-flex justify-content-between align-items-center mb-3">
+          <div class="color-tier d-flex align-items-center">
+            <span class="font-11 font-xxl-14 font-500">Total 3rd Party Suppliers</span>
+          </div>
+          <span class="font-11 font-xxl-14 font-700">24</span>
+        </div>
+        <div class="tiers d-flex justify-content-between align-items-center mb-3">
+          <div class="color-tier d-flex align-items-center">
+            <span class="font-11 font-xxl-14 font-500">Total 4th Party Suppliers</span>
+          </div>
+          <span class="font-11 font-xxl-14 font-700">24</span>
+        </div>
+        <div class="tiers d-flex justify-content-between align-items-center mb-3">
+          <div class="color-tier d-flex align-items-center">
+            <span class="font-11 font-xxl-14 font-500">Most Compliant Region</span>
+          </div>
+          <span class="font-11 font-xxl-14 font-700">24</span>
+        </div>
+        <div class="tiers d-flex justify-content-between align-items-center mb-3">
+          <div class="color-tier d-flex align-items-center">
+            <span class="font-11 font-xxl-14 font-500">Least Compliant Region</span>
+          </div>
+          <span class="font-11 font-xxl-14 font-700">24</span>
+        </div>
+        <div class="tiers d-flex justify-content-between align-items-center mb-3">
+          <div class="color-tier d-flex align-items-center">
+            <span class="font-11 font-xxl-14 font-500">Most Used Cloud Supplier</span>
+          </div>
+          <span class="font-11 font-xxl-14 font-700">24</span>
+        </div>
+        <div class="tiers d-flex justify-content-between align-items-center">
+          <div class="color-tier d-flex align-items-center">
+            <span class="font-11 font-xxl-14 font-500">Total Number of Resilience Gap</span>
+          </div>
+          <span class="font-11 font-xxl-14 font-700">24</span>
+        </div>
+      </div>
+      <div class="card-footer text-center bg-white">
+        <a href="" class="font-12 font-xxl-14 text-capitalize font-600 border-bottom-black text-dark">view all</a>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- <div class="row mt-4">
   <div class="col-md-6 col-lg-3 mb-lg-0 mb-4">
     <div class="card pie-high-chart">
       <div class="card-header bg-white text-center">
@@ -894,7 +1740,7 @@
       </div>
     </div>
   </div>
-</div>
+</div> -->
 <div class="row mt-5">
   <div class="col-md-12 text-center d-flex justify-content-center">
     <a href="" class="dark-btn py-3 px-4 rounded align-items-center d-flex text-decoration-none">

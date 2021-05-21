@@ -77,7 +77,7 @@
       position: relative;
       .donut-value {
         position: absolute;
-        top: 46%;
+        top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
       }
@@ -124,7 +124,13 @@
     }
   }
 }
-
+.custom-view-all {
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  border-top: 1px solid;
+  padding: 10px 0;
+}
 .circle {
   width: 15px;
   height: 15px;
@@ -148,6 +154,28 @@
       background: #58C395;
     }
   }
+}
+
+.h-100px {
+  height: 100px;
+}
+
+.custom-dropdown {
+  button.dropdown-toggle {
+    position: relative;
+    &:after {
+      position: absolute;
+      right: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+  }
+}
+.min-h-560 {
+  min-height: 540px;
+}
+.min-h-566 {
+  min-height: 566px;
 }
 // @media screen and (max-width: 576px) {
 //   .pie-high-chart {

@@ -39,10 +39,21 @@ a {
 .flex-inherit {
   flex: inherit;
 }
+
+.rounded-50 {
+  border-radius: .50rem;
+}
+.border-bottom-black {
+  border-bottom: 1px solid $black;
+}
 .blur {
   filter: blur(2px);
   transition: .3s all;
+  input, select, a, svg {
+    pointer-events: none;
+  }
 }
+
 .form-control:disabled {
   opacity: .4 !important;
   background: #fff !important;
