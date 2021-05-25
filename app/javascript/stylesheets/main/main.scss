@@ -49,6 +49,7 @@ a {
 .blur {
   filter: blur(2px);
   transition: .3s all;
+  overflow: hidden;
   input, select, a, svg {
     pointer-events: none;
   }

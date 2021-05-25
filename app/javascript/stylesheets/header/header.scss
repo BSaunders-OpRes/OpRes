@@ -4,11 +4,11 @@
 .header {
   background-color: $black;
   position: fixed;
-  top: 0;
+  top: -1px;
   left: 0;
   right: 0;
   z-index: 9999;
-  min-height: 76px;
+  min-height: 77px;
   .logo-bar {
     flex: .75;
     .logo-box {
