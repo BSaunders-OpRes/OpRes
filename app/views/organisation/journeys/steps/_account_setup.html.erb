@@ -1,0 +1,69 @@
+<div class="bg-body-color py-3"></div>
+<div class="row">
+  <div class="col-md-12">
+    <div class="card border-0">
+      <div class="card-body px-5">
+        <div class="text-left w-15">
+          <%= image_pack_tag 'media/images/logo.png', class: 'w-100' %>
+        </div>
+        <h1 class="text-capitalize font-300 font-40 mt-4">Account Setup</h1>
+        <p class="font-12 font-xxl-14 font-500 my-4">Please complete the onboarding process for your operating regions. This allow us to create the optimal data model for your  organisation.</p>
+        <div class="black-selection bg-black py-3 px-4 rounded d-flex">
+          <div class="row align-items-center flex-1">
+            <div class="col-md-7">
+              <div class="left-side d-flex align-items-center">
+                <div class="info-white font-11 font-600">i</div>
+                <div class="d-flex flex-column ml-4">
+                  <p class="text-capitalize font-13 font-xxl-14 text-white font-500">organisation details</p>
+                  <span class="text-light-grey font-12 font-xxl-13"><%= organisational_unit.name %>,
+                    <%= organisational_unit.children.map { |c| c.region.name }&.join(', ') %>
+                  </span>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-5">
+              <div class="right-side d-flex justify-content-between">
+                <a href="" class="font-13 font-xxl-14 text-green">
+                  <i class="fa fa-check"></i>
+                  <span class="text-capitalize ml-2">completed</span>
+                </a>
+
+                <%= link_to organisation_journey_path('organisation'), class: 'font-13 font-xxl-14 text-white' do %>
+                  <span class="text-capitalize mr-2">edit</span>
+                  <i class="fa fa-angle-right font-16"></i>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        </div>
+        <% organisational_unit.children&.map(&:region).each do |region| %>
+          <div class="white-selection bg-white py-3 px-4 rounded d-flex border mt-2">
+            <div class="row align-items-center flex-1">
+              <div class="col-md-7">
+                <div class="left-side d-flex align-items-center">
+                  <i class="fa fa-map-marker"></i>
+                  <div class="d-flex flex-column ml-4">
+                    <p class="text-capitalize font-13 font-xxl-14 text-black font-500"><%= region.name %> details</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-5">
+                <div class="right-side d-flex justify-content-between">
+                  <a href="" class="font-13 font-xxl-14 text-dark-yellow">
+                    <i class="fa fa-check invisible"></i>
+                    <span class="text-capitalize ml-2">In progress</span>
+                  </a>
+                    <%= link_to organisation_journey_path("countries/#{region.lower_name}"), class: 'font-13 font-xxl-14 text-black' do %>
+                      <span class="text-capitalize mr-2">resume</span>
+                      <i class="fa fa-angle-right font-16"></i>
+                    <% end %>
+                </div>
+              </div>
+            </div>
+          </div>
+        <% end %>
+        <%= link_to 'Save & Complete setup', organisation_journey_path('finish'), class: 'btn dark-btn mt-5 font-600 px-4 font-12 font-xxl-14 text-capitalize' %>
+      </div>
+    </div>
+  </div>
+</div>

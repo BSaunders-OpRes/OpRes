@@ -24,6 +24,14 @@ module Firm::ChildrenConcern
       inclusive_children.select { |child| child.id == child_id.to_i }.first
     end
 
+    def find_children_by_region(region_id)
+      inclusive_children.select { |child| child.region_id == region_id.to_i }.first
+    end
+
+    def find_children_by_country(country_id)
+      inclusive_children.select { |child| child.country_id == country_id.to_i }.first
+    end
+
     def sort_children_rule
       case type
       when 'Units::Organisational'

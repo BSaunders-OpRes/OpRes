@@ -1,0 +1,35 @@
+<div class="bg-body-color py-3"></div>
+<div class="row">
+  <div class="col-md-12">
+    <%= form_tag organisation_journey_path('regions'), remote: true do %>
+      <div class="card border-0 text-center">
+        <div class="card-body px-5">
+          <div class="d-flex justify-content-between my-3">
+            <%= link_to organisation_journey_path('welcome'), class: 'text-capitalize text-dark text-decoration-none' do %>
+              <span><i class="fa fa-arrow-left" aria-hidden="true"></i></span>
+              <span class="ml-2">Back</span>
+            <% end %>
+            <%= link_to organisation_journey_path('regions'), class: 'text-capitalize text-dark text-decoration-none' do %>
+              <span class="mr-2">Next</span>
+              <span><i class="fa fa-arrow-right" aria-hidden="true"></i></span>
+            <% end %>
+          </div>
+          <h1 class="text-dark font-30 text-black">Organisation Name</h1>
+          <div class="w-50 mx-auto">
+            <p class="font-13 font-xxl-14 mx-auto font-500 my-4 text-black">This should be legal trading name. As an example "Acme Banking Holdings PLC"
+            </p>
+            <div class="form-group">
+              <%= text_field_tag 'organisation[name]', organisational_unit.name, placeholder: 'Organisation name', class: 'form-control' %>
+            </div>
+            <%= submit_tag 'Next', class: 'text-capitalize dark-btn btn font-500 font-12 w-100 py-2 mb-5' %>
+          </div>
+          <div class="horizondatl-eclipse">
+            <span class="active-circle"><i class="fa fa-circle font-12" aria-hidden="true"></i></span>
+            <span class="active-circle"><i class="fa fa-circle text-secondary font-12" aria-hidden="true"></i></span>
+            <span class="active-circle"><i class="fa fa-circle text-secondary font-12" aria-hidden="true"></i></span>
+          </div>
+        </div>
+      </div>
+    <% end %>  
+  </div>
+</div>

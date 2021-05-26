@@ -1,11 +1,6 @@
 <div class="row">
   <div class="col-sm-12 col-md-10 col-lg-8 col-xxl-10 mx-auto">
     <div class="card border-0">
-      <div class="card-body">
-        <div class="text-center w-25 mx-auto">
-          <%= image_pack_tag 'media/images/logo.png', class: 'img-fluid' %>
-        </div>
-      </div>
       <div id='journey-step'>
         <%= render "organisation/journeys/steps/#{@step.underscore}" %>
       </div>

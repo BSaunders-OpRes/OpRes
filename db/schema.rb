@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_19_084539) do
+ActiveRecord::Schema.define(version: 2021_05_26_052235) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -130,6 +130,16 @@ ActiveRecord::Schema.define(version: 2021_05_19_084539) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["unit_id"], name: "index_key_contacts_on_unit_id"
+  end
+
+  create_table "managers", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "unit_id"
+    t.integer "permission"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["unit_id"], name: "index_managers_on_unit_id"
+    t.index ["user_id"], name: "index_managers_on_user_id"
   end
 
   create_table "material_risk_takers", force: :cascade do |t|
@@ -313,18 +323,18 @@ ActiveRecord::Schema.define(version: 2021_05_19_084539) do
 
   create_table "units", force: :cascade do |t|
     t.integer "parent_id"
-    t.integer "manager_id"
     t.string "type"
     t.integer "unit_type"
     t.string "name"
-    t.string "region"
-    t.string "country"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "institution_id"
+    t.bigint "region_id"
+    t.bigint "country_id"
+    t.index ["country_id"], name: "index_units_on_country_id"
     t.index ["institution_id"], name: "index_units_on_institution_id"
-    t.index ["manager_id"], name: "index_units_on_manager_id"
     t.index ["parent_id"], name: "index_units_on_parent_id"
+    t.index ["region_id"], name: "index_units_on_region_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -377,6 +387,8 @@ ActiveRecord::Schema.define(version: 2021_05_19_084539) do
   add_foreign_key "key_contact_suppliers", "key_contacts"
   add_foreign_key "key_contact_suppliers", "suppliers"
   add_foreign_key "key_contacts", "units"
+  add_foreign_key "managers", "units"
+  add_foreign_key "managers", "users"
   add_foreign_key "material_risk_takers", "business_service_lines"
   add_foreign_key "pre_institution_products", "pre_institutions"
   add_foreign_key "pre_institution_products", "pre_products"
@@ -397,7 +409,9 @@ ActiveRecord::Schema.define(version: 2021_05_19_084539) do
   add_foreign_key "unit_product_channels", "unit_products"
   add_foreign_key "unit_products", "products"
   add_foreign_key "unit_products", "units"
+  add_foreign_key "units", "countries"
   add_foreign_key "units", "institutions"
+  add_foreign_key "units", "regions"
   add_foreign_key "users", "units"
   add_foreign_key "vulnerabilities", "business_service_lines"
 end

@@ -1,0 +1,44 @@
+<div class="bg-body-color py-3"></div>
+<div class="row">
+  <div class="col-md-12">
+  <%= form_tag organisation_journey_path('account_setup'), remote: true do %>
+    <div class="card border-0 text-center">
+      <div class="card-body px-5">
+        <div class="d-flex justify-content-between my-3">
+         <%= link_to organisation_journey_path('organisation'), class: 'text-capitalize text-dark text-decoration-none' do %>
+          <span><i class="fa fa-arrow-left text-black" aria-hidden="true"></i></span>
+          <span class="ml-2">Back</span>
+        <% end %>
+        <%= link_to organisation_journey_path('account_setup'), class: 'text-capitalize text-dark text-decoration-none' do %>
+          <span class="mr-2">Next</span>
+          <span><i class="fa fa-arrow-right text-secondary" aria-hidden="true"></i></span>
+        <% end %>
+        </div>
+        <h1 class="text-dark font-30 text-black">Operating Regions</h1>
+        <div class="w-50 mx-auto">
+          <p class="font-13 font-xxl-14 mx-auto font-500 mt-4 text-black">Please tell us the regions that your organisation operates in?
+          </p>
+          <span class="font-11 font-xxl-12 mb-4 d-block font-500">(You can select more than one region. If you forget to add a region, this can be updated later on).</span>
+            <% regional_units = organisational_unit.children %>
+            <% @all_regions.each do |region| %>
+              <div class="form-group mb-4">
+                <label class="d-flex justify-content-between align-items-center custom-checkbox px-0 pb-4 border-bottom" for="<%= "region-#{region.lower_name.parameterize}" %>">
+                  <span class="text-uppercase font-14 font-400"><%= region.name %></span>
+                  <%= check_box_tag "regions[#{region.id}]", region.name, regional_units.pluck(:region_id).include?(region.id), class: 'form-control w-auto', id: "region-#{region.lower_name.parameterize}" %>
+                  <span class="checkmark position-relative"></span>
+                </label>
+              </div>
+            <% end %>
+
+          <%= submit_tag 'Next', class: 'text-capitalize dark-btn btn font-500 font-12 w-25 py-2 mb-5' %>
+        </div>
+        <div class="horizondatl-eclipse">
+          <span class="active-circle"><i class="fa fa-circle font-12" aria-hidden="true"></i></span>
+          <span class="active-circle"><i class="fa fa-circle text-secondary font-12" aria-hidden="true"></i></span>
+          <span class="active-circle"><i class="fa fa-circle text-secondary font-12" aria-hidden="true"></i></span>
+        </div>
+      </div>
+    </div>
+  <% end %>
+  </div>
+</div>

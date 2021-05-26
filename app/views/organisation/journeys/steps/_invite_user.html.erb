@@ -1,98 +1,88 @@
-<%= form_tag organisation_journey_path('finish'), remote: true do %>
-  <div class="card bsl-container">
-    <div class="card-body w-75 mx-auto font-14 mt-4 p-0 wizard-body">
-      <p class="font-12 border p-3">As a part of the onboarding wizard, we recommend that firms federate administration responsibilities to the various business unit and entities across their organisation</p>
-      <p class="my-5">Please provide the details for users in this region. Users can be set up as a <strong>"Super User"</strong> or <strong>"Standard User"</strong>. Super user can add new, update and amend existing business service & supplier records. Standard Users can only view existing records.</p>
-      <ul class="nav nav-tabs border-0" id="myTab" role="tablist">
-        <li class="nav-item mr-3">
-          <a class="nav-link active border-0 p-0 pb-2" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Name & Email Addresses</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link border-0 p-0 pb-2" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Add Many At Once</a>
-        </li>
-      </ul>
-      <div class="tab-content py-4" id="myTabContent">
-        <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-          <div class="row">
-            <div class="form-group col-md-3">
-              <input type="text" class="form-control font-12" placeholder="First Name"/>
+<div class="bg-body-color py-3"></div>
+<div class="row">
+  <div class="col-md-12">
+    <div class="card border-0 text-center">
+      <div class="card-body px-5">
+        <%= form_tag organisation_journey_path("countries/#{@region_operator.lower_name}/#{@country_operator.lower_alpha2}"), remote: true do %>
+          <div class="d-flex justify-content-between my-3">
+            <%= link_to organisation_journey_path("institutions/#{@region_operator.lower_name}/#{@country_operator.lower_alpha2}"), class: 'text-capitalize text-dark text-decoration-none' do %>
+              <span><i class="fa fa-arrow-left" aria-hidden="true"></i></span>
+              <span class="ml-2 text-black">Back</span>
+            <% end %>
+            <%= link_to organisation_journey_path("country_setup/#{@region_operator.lower_name}"), class: 'text-capitalize text-dark text-decoration-none' do %>
+              <span class="mr-2 text-secondary">Next</span>
+              <span><i class="fa fa-arrow-right text-secondary" aria-hidden="true"></i></span>
+            <% end %>
+          </div>
+          <h2 class="text-capitalize font-300">Invite administrator</h2>
+          <p class="font-12 font-xxl-14 p-3 bg-body-color my-4">As a part of the onboarding wizard, we recommend that firms federate administration responsibilities to the various business unit and entities across their organisation</p>
+          <p class="font-12 font-xxl-14">Please provide the details for users in this region. Users can be set up as a <strong>"Super User"</strong> or <strong>"Standard User"</strong>. Super user can add new, update and amend existing business service & supplier records. Standard Users can only view existing records.</p>
+          <ul class="nav nav-tabs d-flex justify-content-even mt-5 custom-tabs" id="myTab" role="tablist">
+            <li class="nav-item">
+              <a class="nav-link active border-0 p-0 pb-2 bg-transparent text-black" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Name & Email Addresses</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link border-0 p-0 pb-2 bg-transparent text-black" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Add Many At Once</a>
+            </li>
+          </ul>
+          <div class="tab-content py-4" id="myTabContent">
+            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+              <div class="row no-gutters">
+                <div class="form-group col-md-3 px-1 mb-2">
+                  <%= text_field_tag 'user[first_name]', nil,class:'form-control font-12 text-black py-3 shadow-none', placeholder: 'First Name' %>
+                </div>
+                <div class="form-group col-md-3 px-1 mb-2">
+                  <%= text_field_tag 'user[last_name]', nil,class:'form-control font-12 text-black py-3 shadow-none', placeholder: 'Last Name' %>
+                </div>
+                <div class="form-group col-md-3 px-1 mb-2">
+                  <%= email_field_tag 'user[email]', nil, class: 'form-control font-12 py-3 shadow-none', placeholder:'Email' %>
+                </div>
+                <div class="form-group col-md-3 px-1 mb-2">
+                  <%= select_tag 'user[permissions]', options_for_select(Manager.permissions.map { |k, v| [k.titleize, k] }),prompt: 'Permissions', multiple: false, class: 'form-control w-100 font-12 shadow-none' %>
+                </div>
+              </div>
+              <div class="row mb-4 mt-2 no-gutters">
+                <div class="col-md-12 text-left px-1">
+                  <a href="#" class="text-black d-flex align-items-center">
+                    <i class='fa fa-plus-circle font-16'></i>
+                    <span class="text-capitalize font-12 ml-2">Add Another</span>
+                  </a>
+                </div>
+              </div>
+              <div class="row no-gutters">
+                <div class="col-md-12 px-1">
+                  <%#= text_area_tag 'message', class: 'form-control font-12', name: '', cols: '30', rows: '4', placeholder: 'Add a personalised invite message'%>
+                  <textarea class="form-control font-12", cols="30", rows="4", placeholder="Add a personalised invite message"></textarea>
+                </div>
+              </div>
             </div>
-            <div class="form-group col-md-3">
-              <input type="text" class="form-control font-12" placeholder="Last Name"/>
+            <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+              <div class="row mb-4">
+                <div class="col-md-9">
+                  <textarea class="form-control font-12" name="" id="" cols="30" rows="4" placeholder="Email Addresses (Seperate emails withg a comma)"></textarea>
+                </div>
+                <div class="form-group col-md-3">
+                  <select class="form-control w-100 font-12 shadow-none">
+                    <option value="">Permissions</option>
+                    <option value="">Super User</option>
+                    <option value="">Standar User</option>
+                  </select>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12">
+                  <textarea class="form-control font-12" name="message" id="" cols="30" rows="4" placeholder="Add a personalised invite message"></textarea>
+                </div>
+              </div>
             </div>
-            <div class="form-group col-md-3">
-              <input type="text" class="form-control font-12" placeholder="Email"/>
-            </div>
-            <div class="form-group col-md-3">
-              <select class="form-control w-100 font-12 shadow-none">
-                <option value="">Permissions</option>
-                <option value="">Super User</option>
-                <option value="">Standar User</option>
-              </select>
+            <div class="row mt-4">
+              <div class="col-md-12 text-left">
+                <%= submit_tag 'Send Invitation', class: 'btn dark-btn border-0 py-2 font-12 font-600 px-4'%>
+              </div>
             </div>
           </div>
-          <div class="row">
-            <div class="form-group col-md-3">
-              <input type="text" class="form-control font-12" placeholder="First Name"/>
-            </div>
-            <div class="form-group col-md-3">
-              <input type="text" class="form-control font-12" placeholder="Last Name"/>
-            </div>
-            <div class="form-group col-md-3">
-              <input type="text" class="form-control font-12" placeholder="Email"/>
-            </div>
-            <div class="form-group col-md-3">
-              <select class="form-control w-100 font-12 shadow-none">
-                <option value="">Permissions</option>
-                <option value="">Super User</option>
-                <option value="">Standar User</option>
-              </select>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-12">
-              <textarea class="form-control" name="" id="" cols="30" rows="4" placeholder="Personalize Invite"></textarea>
-            </div>
-          </div>
-        </div>
-        <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-          <div class="row mb-4">
-            <div class="col-md-9">
-              <textarea class="form-control" name="" id="" cols="30" rows="4" placeholder="Email Addresses"></textarea>
-            </div>
-            <div class="form-group col-md-3">
-              <select class="form-control w-100 font-12 shadow-none">
-                <option value="">Permissions</option>
-                <option value="">Super User</option>
-                <option value="">Standar User</option>
-              </select>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-12">
-              <textarea class="form-control" name="" id="" cols="30" rows="4" placeholder="Personalize Invite"></textarea>
-            </div>
-          </div>
-        </div>
-        <div class="row mt-4">
-          <div class="col-md-12">
-            <button class="btn primary-btn border-0 py-2 font-12 font-600">Send Invitation</button>
-          </div>
-        </div>
+        <% end %> 
       </div>
     </div>
   </div>
-  <div class="w-75 mx-auto mt-4">
-    <div class="progress custom-progress">
-      <div class="progress-bar progress-bar" role="progressbar" style="width: 90%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
-    </div>
-    <div class="d-flex justify-content-between font-12">
-      <span>Step 6</span>
-      <span>90%</span>
-    </div>
-  </div>
-  <div class="card-body w-75 d-flex p-0 mx-auto justify-content-between my-4">
-    <%= link_to 'Back', organisation_journey_path('product-channel'), class: 'btn dark-btn text-capitalize w-25 rounded-0' %>
-    <%= submit_tag 'Next', class: 'btn primary-btn text-capitalize w-25 rounded-0' %>
-  </div>
-<% end %>
+</div>

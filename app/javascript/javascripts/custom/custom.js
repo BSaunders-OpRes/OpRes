@@ -50,4 +50,3 @@ document.addEventListener('turbolinks:load', function() {
     $(this).toggleClass('font-600')
   });
 });
-
