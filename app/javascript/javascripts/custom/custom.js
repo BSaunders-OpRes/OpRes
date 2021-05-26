@@ -3,10 +3,10 @@ document.addEventListener('turbolinks:load', function() {
   $('[data-toggle="tooltip"]').tooltip();
 
   $('#close_sidebar').click(function() {
-    e.stopPropagation();
     $('.sidebar').css('width', '0');
     $('.content').removeClass('blur');
     $('.header').removeClass('blur');
+    $('body').removeClass('overflow-hidden')
   });
 
   $('#open_sidebar').click(function(e) {
@@ -14,12 +14,14 @@ document.addEventListener('turbolinks:load', function() {
     $('.sidebar').css('width', '290');
     $('.content').addClass('blur');
     $('.header').addClass('blur');
+    $('body').addClass('overflow-hidden')
   });
 
   $('.content, .header').click(function(e) {
     $('.sidebar').css('width', '0');
     $('.content').removeClass('blur');
     $('.header').removeClass('blur');
+    $('body').removeClass('overflow-hidden')
   });
 
   if ($('#myinput_one').length >= 1) {
