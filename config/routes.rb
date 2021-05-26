@@ -19,15 +19,14 @@ Rails.application.routes.draw do
   end
 
   namespace :organisation do
+    match '/journeys/*id', to: 'journeys#show', via: %i[get post], as: :journey
+    get :build_institution, to: 'journeys#build_institution'
     resources :dashboard, only: %i[index]
     resources :institutions
     resources :products
     resources :channels
-    resources :journeys,  only: %i[show] do
-      post :show, on: :member
-    end
     resources :business_service_lines
-    resources :units, only: []  do
+    resources :units, only: [] do
       get :load_countries,         on: :collection
       get :load_institutions,      on: :collection
       get :load_products_channels, on: :collection

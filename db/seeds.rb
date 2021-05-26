@@ -24,7 +24,7 @@ end
 # Channels #
 
 # Import Countries #
-countries_file = Rails.root.join('public', 'countries', 'modified.json')
+countries_file = Rails.root.join('public', 'json_data', 'countries.json')
 countries_data = File.read(countries_file)
 JSON.parse(countries_data).each do |region_with_countries|
   region_with_countries.each do |region, countries|

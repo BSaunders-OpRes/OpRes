@@ -1,0 +1,43 @@
+<div class="card mt-2">
+  <div class="card-body">
+    <div class="form-group">
+      <%= hidden_field_tag "institutions[#{institution.id}][#{index}][id]", selected_institution_unit&.id %>
+      <%= text_field_tag "institutions[#{institution.id}][#{index}][name]", selected_institution_unit&.name || institution.name, class: 'form-control font-12' %>
+    </div>
+    <div class="row mb-2">
+      <div class="col text-left">
+        <span class="text-capitalize text-light-grey font-11">Products</span>
+      </div>
+      <div class="col text-left">
+        <span class="text-capitalize text-light-grey font-11">channels</span>
+      </div>
+    </div>
+
+    <% unit_products = selected_institution_unit&.unit_products || [] %>
+    <% @all_products.each do |product| %>
+      <% selected_unit_product = unit_products.select { |up| up.product_id == product.id }.first %>
+      <div class="row">
+        <div class="col">
+          <div class="form-group my-1">
+            <label class="custom-checkbox d-flex pl-4" for="<%= "#{index}#{institution.id}#{product.id}" %>">
+              <span class="font-12 text-black text-capitalize"><%= product.name %></span>
+              <%= check_box_tag "institutions[#{institution.id}][#{index}][products][#{product.id}][name]", product.name, unit_products&.pluck(:product_id)&.include?(product.id), class: 'form-control w-auto', id: "#{index}#{institution.id}#{product.id}" %>
+              <span class="transparent-checkmark"></span>
+            </label>
+          </div>
+        </div>
+        <div class="col">
+          <a href="" class="text-black d-flex my-1 align-items-center" data="<%= product %>" data-toggle="modal" data-target="#institution-<%= institution.id %>-<%= index %>-product-<%= product.id %>">
+            <i class="fa fa-plus-circle"></i>
+            <span class="font-12 text-capitalize font-600 ml-2">add more</span>
+          </a>
+        </div>
+        <%= render 'organisation/journeys/partials/channels', institution: institution, product: product, selected_unit_product: selected_unit_product, index: index %>
+      </div>
+    <% end %>
+    <a href="#" class="d-flex align-items-center text-left text-black">
+      <span><i class="fa fa-plus-circle font-16"></i></span>
+      <span class="font-12 ml-1">Add another product</span>
+    </a>
+  </div>
+</div>

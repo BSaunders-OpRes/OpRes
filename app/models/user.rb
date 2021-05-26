@@ -1,7 +1,8 @@
 class User < ApplicationRecord
   # Associations #
   belongs_to :unit, optional: true
-  has_one :managing_unit, class_name: 'Unit', foreign_key: :manager_id
+  has_many :managers, dependent: :destroy
+  has_many :managing_units, through: :managers, source: :unit
 
   # Attribute Accessors #
   attr_accessor :skip_password_validation
