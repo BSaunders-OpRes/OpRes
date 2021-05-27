@@ -20,7 +20,11 @@ export default function Registration() {
   const [organisationNameError, setorganisationNameError] = useState('');
   const [organisationType, setOrganisationType]           = useState('');
   const [organisationTypeError, setOrganisationTypeError] = useState('');
+  const [passwordShown, setPasswordShown]                 = useState(false);
 
+  const togglePasswordVisiblity = () => {
+    setPasswordShown(passwordShown ? false : true);
+  };
   const handleSubmit = (e)=> {
     e.preventDefault();
 
@@ -52,6 +56,8 @@ export default function Registration() {
   const error_handling = (err) => {
     toast.error(err.response.data.message, { autoClose:3000 });
   }
+  const eye = <i className="fa fa-eye" aria-hidden="true"></i>
+  const eyeSlash = <i className="fa fa-eye-slash" aria-hidden="true"></i>;
 
   return (
     <div className="h-100">
@@ -86,8 +92,9 @@ export default function Registration() {
                       <div className='error'>{emailError}</div>
                     </div>
                     <div className="form-group col-md-12 animated-field password">
-                      <input type="password" value={password} name="password" className='form-control border-0' placeholder='Password' onChange={e => setPassword(e.target.value)} />
+                      <input type={passwordShown ? 'text' : 'password'} value={password} name="password" className='form-control border-0' placeholder='Password' onChange={e => setPassword(e.target.value)} />
                       <label>Password</label>
+                      <i onClick={togglePasswordVisiblity}>{passwordShown ? eye : eyeSlash}</i>
                       <div className='error'>{passwordError}</div>
                     </div>
                     <div className="form-group col-md-12 animated-field">

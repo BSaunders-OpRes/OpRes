@@ -1,12 +1,12 @@
-<div class="modal fade" id="institution-<%= institution.id %>-<%= index %>-product-<%= product.id %>" tabindex="-1" aria-labelledby="product-<%= product.id %>" aria-hidden="true">
-  <div class="modal-dialog">
+<div class="modal mt-5 fade" id="institution-<%= institution.id %>-<%= index %>-product-<%= product.id %>" tabindex="-1" aria-labelledby="product-<%= product.id %>" aria-hidden="true">
+  <div class="modal-dialog mt-5">
     <div class="modal-content w-75 mx-auto">
       <div class="modal-header border-0 pb-0">
         <button type="button" class="close pb-1" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <div class="modal-body">
+      <div class="modal-body pt-0 mt-2">
         <h5 class="text-capitalize font-300 mb-4">Add Channels</h5>
         <% unit_product_channels = selected_unit_product&.unit_product_channels || [] %>
         <div class="form-group my-3">

@@ -30,8 +30,8 @@
                       <td class="text-dark"><%= channel.name %></td>
                       <td><%= channel.description %></td>
                       <td>
-                        <%= link_to 'View', organisation_channel_path(channel), class: 'mx-1 text-dark font-700' %>
-                        <%= link_to 'Edit', edit_organisation_channel_path(channel), class: 'mx-1 text-dark font-700' %>
+                        <%= link_to 'View', organisation_channel_path(channel), class: 'mx-1 text-dark font-700 text-uppercase' %>
+                        <%= link_to 'Edit', edit_organisation_channel_path(channel), class: 'mx-1 text-dark font-700 text-uppercase' %>
                         <%= link_to 'Delete', organisation_channel_path(channel), method: :delete, data: { confirm: 'Are you sure?' }, class: 'font-12 font-700 mx-1 text-dark text-uppercase' %>
                       </td>
                     </tr>

@@ -30,8 +30,8 @@
                       <td class="text-dark"><%= product.name %></td>
                       <td><%= product.description %></td>
                       <td>
-                        <%= link_to 'View', organisation_product_path(product), class: 'mx-1 text-dark font-700' %>
-                        <%= link_to 'Edit', edit_organisation_product_path(product), class: 'mx-1 text-dark font-700' %>
+                        <%= link_to 'View', organisation_product_path(product), class: 'mx-1 text-dark font-700 text-uppercase' %>
+                        <%= link_to 'Edit', edit_organisation_product_path(product), class: 'mx-1 text-dark font-700 text-uppercase' %>
                         <%= link_to 'Delete', organisation_product_path(product), method: :delete, data: { confirm: 'Are you sure?' }, class: 'font-12 font-700 mx-1 text-dark text-uppercase' %>
                       </td>
                     </tr>

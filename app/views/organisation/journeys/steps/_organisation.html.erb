@@ -3,7 +3,7 @@
   <div class="col-md-12">
     <%= form_tag organisation_journey_path('regions'), remote: true do %>
       <div class="card border-0 text-center">
-        <div class="card-body px-5">
+        <div class="card-body px-sm-5 p-3">
           <div class="d-flex justify-content-between my-3">
             <%= link_to organisation_journey_path('welcome'), class: 'text-capitalize text-dark text-decoration-none' do %>
               <span><i class="fa fa-arrow-left" aria-hidden="true"></i></span>
@@ -15,13 +15,13 @@
             <% end %>
           </div>
           <h1 class="text-dark font-30 text-black">Organisation Name</h1>
-          <div class="w-50 mx-auto">
+          <div class="w-sm-50 w-100 mx-auto">
             <p class="font-13 font-xxl-14 mx-auto font-500 my-4 text-black">This should be legal trading name. As an example "Acme Banking Holdings PLC"
             </p>
             <div class="form-group">
               <%= text_field_tag 'organisation[name]', organisational_unit.name, placeholder: 'Organisation name', class: 'form-control' %>
             </div>
-            <%= submit_tag 'Next', class: 'text-capitalize dark-btn btn font-500 font-12 w-100 py-2 mb-5' %>
+            <%= submit_tag 'Next', class: 'text-capitalize dark-btn font-500 font-14 w-100 py-2 mb-5 rounded border-0' %>
           </div>
           <div class="horizondatl-eclipse">
             <span class="active-circle"><i class="fa fa-circle font-12" aria-hidden="true"></i></span>

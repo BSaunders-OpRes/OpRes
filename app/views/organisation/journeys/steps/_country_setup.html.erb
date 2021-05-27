@@ -2,18 +2,18 @@
 <div class="row">
   <div class="col-md-12">
     <div class="card border-0">
-      <div class="card-body px-5">
-        <div class="text-left w-15">
+      <div class="card-body px-sm-5 p-3">
+        <div class="text-left wizard-logo-width">
           <%= image_pack_tag 'media/images/logo.png', class: 'w-100' %>
         </div>
-        <h1 class="text-capitalize font-300 font-40 mt-4"><%= @region_operator.name %> Countries Setup</h1>
+        <h1 class="text-capitalize font-sm-24 font-300 font-40 mt-4"><%= @region_operator.name %> Countries Setup</h1>
         <p class="font-12 font-xxl-14 font-500 my-4">Please complete the onboarding process for your operating regions. This allow us to create the optimal data model for your  organisation.</p>
-        <div class="black-selection bg-black py-3 px-4 rounded d-flex">
-          <div class="row align-items-center flex-1">
+        <div class="black-selection bg-black rounded d-flex">
+          <div class="row align-items-center flex-1 py-md-3 px-md-4 p-3">
             <div class="col-md-7">
-              <div class="left-side d-flex align-items-center">
+              <div class="left-side d-flex align-items-center mb-md-0 mb-3">
                 <div class="info-white font-11 font-600">i</div>
-                <div class="d-flex flex-column ml-4">
+                <div class="d-flex flex-column ml-md-4 ml-2">
                   <p class="text-capitalize font-13 font-xxl-14 text-white font-500">
                     <%= @region_operator.name %> details
                   </p>
@@ -38,12 +38,12 @@
           </div>
         </div>
         <% @regional_unit.children.map(&:country).each do |country| %>
-          <div class="white-selection bg-white py-3 px-4 rounded d-flex border mt-2">
-            <div class="row align-items-center flex-1">
+          <div class="white-selection bg-white rounded d-flex border mt-2">
+            <div class="row align-items-center flex-1 py-md-3 px-md-4 p-3">
               <div class="col-md-7">
-                <div class="left-side d-flex align-items-center">
+                <div class="left-side d-flex align-items-center mb-md-0 mb-3">
                   <i class="flag <%= country.lower_alpha2 %>"></i>
-                  <div class="d-flex flex-column ml-4">
+                  <div class="d-flex flex-column ml-md-4 ml-0">
                     <p class="text-capitalize font-13 font-xxl-14 text-black font-500"><%= country.name %></p>
                   </div>
                 </div>
@@ -51,8 +51,8 @@
               <div class="col-md-5">
                 <div class="right-side d-flex justify-content-between">
                   <a href="" class="font-13 font-xxl-14 text-dark-yellow">
-                    <i class="fa fa-check invisible"></i>
-                    <span class="text-capitalize ml-2">In progress</span>
+                    <i class="fa fa-check d-none"></i>
+                    <span class="text-capitalize ml-0">In progress</span>
                   </a>
                 <%= link_to organisation_journey_path("institutions/#{ @region_operator.lower_name}/#{country.lower_alpha2}"), class: 'build-invite-user font-13 font-xxl-14 text-black' do %>
                   <span class="text-capitalize mr-2">Get Started</span>

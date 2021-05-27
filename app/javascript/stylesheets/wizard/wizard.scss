@@ -46,6 +46,9 @@
     background: #555;
   }
 }
+.wizard-logo-width {
+  width: 120px;
+}
 .border-right-transparent {
   border-right: 2px solid transparent;
 }
@@ -256,5 +259,12 @@
       font-weight: bold;
       border-bottom: 2px solid $primary-green !important;
     }
+  }
+}
+
+
+@media screen and (max-width: 768px) {
+  .white-selection, .black-selection {
+    height: auto;
   }
 }
