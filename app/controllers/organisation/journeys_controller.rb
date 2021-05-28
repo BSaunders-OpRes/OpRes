@@ -1,3 +1,5 @@
+require 'csv'
+
 class Organisation::JourneysController < Organisation::BaseController
   before_action :load_step_data, only: %i[show]
 
@@ -101,6 +103,61 @@ class Organisation::JourneysController < Organisation::BaseController
   end
 
   def save_users_data
+    users_info, message = [], ''
+
+    if params.dig(:users, :multiple, :csv).blank?
+      message = params.dig(:users, :single, :message)
+      params.dig(:users, :single, :data)&.each do |index, user_data|
+        user_data[:email] = user_data.dig(:email).squish
+        next if user_data.dig(:email).blank?
+
+        users_info << {
+          basic: {
+            unit_id:    organisational_unit.id,
+            first_name: user_data.dig(:first_name),
+            last_name:  user_data.dig(:last_name),
+            email:      user_data.dig(:email),
+            password:   Devise.friendly_token,
+            role:       User.roles[:unit_admin]
+          },
+          advance: {
+            permission: user_data.dig(:permission)
+          }
+        }
+      end
+    else
+      message = params.dig(:users, :multiple, :message)
+      emails = CSV.parse(params.dig(:users, :multiple, :csv))
+      emails.flatten.compact.each do |email|
+        email = email.squish
+        next if email.blank?
+
+        users_info << {
+          basic: {
+            unit:       organisational_unit,
+            email:      email,
+            password:   Devise.friendly_token,
+            role:       User.roles[:unit_admin],
+          },
+          advance: {
+            permission: params.dig(:users, :multiple, :permission)
+          }
+        }
+      end
+    end
+
+    users_info.each do |user_data|
+      user = User.create_with(user_data.dig(:basic))
+                 .find_or_create_by(email: user_data.dig(:basic, :email))
+
+      next if user.errors.present?
+
+      manager = user.managers.find_or_initialize_by(unit: @country_unit)
+      manager.permission = user_data.dig(:advance, :permission)
+
+      InvitationMailer.invite_admin(user, user_data.dig(:basic, :password), message, @country_unit).deliver_later unless manager.persisted?
+      manager.save
+    end
   end
 
   #############
