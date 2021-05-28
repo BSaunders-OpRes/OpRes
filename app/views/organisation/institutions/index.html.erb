@@ -30,8 +30,8 @@
                       <td class="text-dark"><%= institution.name %></td>
                       <td><%= institution.description %></td>
                       <td>
-                        <%= link_to 'View', organisation_institution_path(institution), class: 'mx-1 text-dark font-700' %>
-                        <%= link_to 'Edit', edit_organisation_institution_path(institution), class: 'mx-1 text-dark font-700' %>
+                        <%= link_to 'View', organisation_institution_path(institution), class: 'mx-1 text-dark font-700 text-uppercase' %>
+                        <%= link_to 'Edit', edit_organisation_institution_path(institution), class: 'mx-1 text-dark font-700 text-uppercase' %>
                         <%= link_to 'Delete', organisation_institution_path(institution), method: :delete, data: { confirm: 'Are you sure?' }, class: 'font-12 font-700 mx-1 text-dark text-uppercase' %>
                       </td>
                     </tr>
