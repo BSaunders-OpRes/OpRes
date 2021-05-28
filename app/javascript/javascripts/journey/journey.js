@@ -26,4 +26,12 @@ document.addEventListener('turbolinks:load', function() {
       }
     });
   });
+
+
+
+  if ($('#onboarding-finish').length >0) {
+    setTimeout(function() {
+      window.location.href = '/organisation/dashboard';
+    }, 2000);
+  }
 });
