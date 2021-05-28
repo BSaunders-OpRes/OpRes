@@ -2,6 +2,1156 @@
   {
     "EMEA": [
       {
+        "continent": "Africa",
+        "alpha2": "AO",
+        "alpha3": "AGO",
+        "country_code": "244",
+        "international_prefix": "00",
+        "ioc": "ANG",
+        "gec": "AO",
+        "name": "Angola",
+        "national_destination_code_lengths": [
+          2
+        ],
+        "national_number_lengths": [
+          9
+        ],
+        "national_prefix": "0",
+        "number": "024",
+        "region": "Africa",
+        "subregion": "Sub-Saharan Africa",
+        "world_region": "EMEA",
+        "un_locode": "AO",
+        "nationality": "Angolan",
+        "postal_code": false,
+        "unofficial_names": [
+          "Angola",
+          "アンゴラ"
+        ],
+        "languages_official": [
+          "pt"
+        ],
+        "languages_spoken": [
+          "pt"
+        ],
+        "geo": {
+          "latitude": 47.516231,
+          "latitude_dec": "-12.333555221557617",
+          "longitude": 14.550072,
+          "longitude_dec": "17.539464950561523",
+          "max_latitude": 49.0206081,
+          "max_longitude": 17.1606861,
+          "min_latitude": 46.37233579999999,
+          "min_longitude": 9.530783399999999,
+          "bounds": {
+            "northeast": {
+              "lat": 49.0206081,
+              "lng": 17.1606861
+            },
+            "southwest": {
+              "lat": 46.37233579999999,
+              "lng": 9.530783399999999
+            }
+          }
+        },
+        "currency_code": "AOA",
+        "start_of_week": "monday",
+        "translations": {
+          "en": "Angola"
+        },
+        "translated_names": [
+          "Angola"
+        ]
+      },
+      {
+        "continent": "Africa",
+        "alpha2": "BI",
+        "alpha3": "BDI",
+        "country_code": "257",
+        "international_prefix": "00",
+        "ioc": "BDI",
+        "gec": "BY",
+        "name": "Burundi",
+        "national_destination_code_lengths": [
+          2
+        ],
+        "national_number_lengths": [
+          8
+        ],
+        "national_prefix": "None",
+        "number": "108",
+        "region": "Africa",
+        "subregion": "Sub-Saharan Africa",
+        "world_region": "EMEA",
+        "un_locode": "BI",
+        "nationality": "Burundian",
+        "postal_code": false,
+        "unofficial_names": [
+          "Burundi",
+          "ブルンジ"
+        ],
+        "languages_official": [
+          "fr",
+          "rn"
+        ],
+        "languages_spoken": [
+          "fr",
+          "rn"
+        ],
+        "geo": {
+          "latitude": -3.373056,
+          "latitude_dec": "-3.365208148956299",
+          "longitude": 29.918886,
+          "longitude_dec": "29.88650894165039",
+          "max_latitude": -2.3097302,
+          "max_longitude": 30.8495447,
+          "min_latitude": -4.4693288,
+          "min_longitude": 29.000993,
+          "bounds": {
+            "northeast": {
+              "lat": -2.3097302,
+              "lng": 30.8495447
+            },
+            "southwest": {
+              "lat": -4.4693288,
+              "lng": 29.000993
+            }
+          }
+        },
+        "currency_code": "BIF",
+        "start_of_week": "monday",
+        "translations": {
+          "en": "Burundi"
+        },
+        "translated_names": [
+          "Burundi"
+        ]
+      },
+      {
+        "continent": "Africa",
+        "alpha2": "CD",
+        "alpha3": "COD",
+        "country_code": "243",
+        "international_prefix": "00",
+        "ioc": "COD",
+        "gec": "CG",
+        "name": "Congo (Democratic Republic of the)",
+        "national_destination_code_lengths": [
+          2
+        ],
+        "national_number_lengths": [
+          8
+        ],
+        "national_prefix": "None",
+        "number": "180",
+        "region": "Africa",
+        "subregion": "Sub-Saharan Africa",
+        "world_region": "EMEA",
+        "un_locode": "CD",
+        "nationality": "Congolese",
+        "postal_code": false,
+        "unofficial_names": [
+          "Congo (Dem. Rep.)",
+          "Kongo (Dem. Rep.)",
+          "Congo (Rep. Dem.)",
+          "コンゴ民主共和国",
+          "Congo [DRC]",
+          "Congo (The Democratic Republic Of The)",
+          "Democratic Republic of the Congo",
+          "Congo, Democratic Republic of"
+        ],
+        "languages_official": [
+          "fr",
+          "ln",
+          "kg",
+          "sw",
+          "lu"
+        ],
+        "languages_spoken": [
+          "fr",
+          "ln",
+          "kg",
+          "sw",
+          "lu"
+        ],
+        "geo": {
+          "latitude": -4.038333,
+          "latitude_dec": "-2.879866123199463",
+          "longitude": 21.758664,
+          "longitude_dec": "23.6563777923584",
+          "max_latitude": 5.3920029,
+          "max_longitude": 31.314612,
+          "min_latitude": -13.4590349,
+          "min_longitude": 12.1454,
+          "bounds": {
+            "northeast": {
+              "lat": 5.3920029,
+              "lng": 31.314612
+            },
+            "southwest": {
+              "lat": -13.4590349,
+              "lng": 12.1454
+            }
+          }
+        },
+        "currency_code": "CDF",
+        "start_of_week": "monday",
+        "translations": {
+          "en": "Congo, The Democratic Republic of the"
+        },
+        "translated_names": [
+          "Congo, The Democratic Republic of the"
+        ]
+      },
+      {
+        "continent": "Africa",
+        "alpha2": "CF",
+        "alpha3": "CAF",
+        "country_code": "236",
+        "international_prefix": "00",
+        "ioc": "CAF",
+        "gec": "CT",
+        "name": "Central African Republic",
+        "national_destination_code_lengths": [
+          2
+        ],
+        "national_number_lengths": [
+          8
+        ],
+        "national_prefix": "None",
+        "number": "140",
+        "region": "Africa",
+        "subregion": "Sub-Saharan Africa",
+        "world_region": "EMEA",
+        "un_locode": "CF",
+        "nationality": "Central African",
+        "postal_code": false,
+        "unofficial_names": [
+          "Central African Republic",
+          "Zentralafrikanische Republik",
+          "République Centrafricaine",
+          "República Centroafricana",
+          "中央アフリカ共和国",
+          "Centraal-Afrikaanse Republiek"
+        ],
+        "languages_official": [
+          "fr",
+          "sg"
+        ],
+        "languages_spoken": [
+          "fr",
+          "sg"
+        ],
+        "geo": {
+          "latitude": 6.611110999999999,
+          "latitude_dec": "6.574123382568359",
+          "longitude": 20.939444,
+          "longitude_dec": "20.486923217773438",
+          "max_latitude": 11.0179569,
+          "max_longitude": 27.4583049,
+          "min_latitude": 2.2208493,
+          "min_longitude": 14.4150981,
+          "bounds": {
+            "northeast": {
+              "lat": 11.0179569,
+              "lng": 27.4583049
+            },
+            "southwest": {
+              "lat": 2.2208493,
+              "lng": 14.4150981
+            }
+          }
+        },
+        "currency_code": "XAF",
+        "start_of_week": "monday",
+        "translations": {
+          "en": "Central African Republic"
+        },
+        "translated_names": [
+          "Central African Republic"
+        ]
+      },
+      {
+        "continent": "Africa",
+        "alpha2": "CM",
+        "alpha3": "CMR",
+        "country_code": "237",
+        "international_prefix": "00",
+        "ioc": "CMR",
+        "gec": "CM",
+        "name": "Cameroon",
+        "national_destination_code_lengths": [
+          2
+        ],
+        "national_number_lengths": [
+          8
+        ],
+        "national_prefix": "None",
+        "number": "120",
+        "region": "Africa",
+        "subregion": "Sub-Saharan Africa",
+        "world_region": "EMEA",
+        "un_locode": "CM",
+        "nationality": "Cameroonian",
+        "postal_code": false,
+        "unofficial_names": [
+          "Cameroon",
+          "Kamerun",
+          "Cameroun",
+          "Camerún",
+          "カメルーン",
+          "Kameroen"
+        ],
+        "languages_official": [
+          "en",
+          "fr"
+        ],
+        "languages_spoken": [
+          "en",
+          "fr"
+        ],
+        "geo": {
+          "latitude": 7.369721999999999,
+          "latitude_dec": "5.685476779937744",
+          "longitude": 12.354722,
+          "longitude_dec": "12.722877502441406",
+          "max_latitude": 13.083335,
+          "max_longitude": 16.1944081,
+          "min_latitude": 1.6559,
+          "min_longitude": 8.3936001,
+          "bounds": {
+            "northeast": {
+              "lat": 13.083335,
+              "lng": 16.1944081
+            },
+            "southwest": {
+              "lat": 1.6559,
+              "lng": 8.3936001
+            }
+          }
+        },
+        "currency_code": "XAF",
+        "start_of_week": "monday",
+        "translations": {
+          "en": "Cameroon"
+        },
+        "translated_names": [
+          "Cameroon"
+        ]
+      },
+      {
+        "continent": "Africa",
+        "alpha2": "TD",
+        "alpha3": "TCD",
+        "country_code": "235",
+        "international_prefix": "15",
+        "ioc": "CHA",
+        "gec": "CD",
+        "name": "Chad",
+        "national_destination_code_lengths": [
+          2
+        ],
+        "national_number_lengths": [
+          7
+        ],
+        "national_prefix": "None",
+        "number": "148",
+        "region": "Africa",
+        "subregion": "Sub-Saharan Africa",
+        "world_region": "EMEA",
+        "un_locode": "TD",
+        "nationality": "Chadian",
+        "postal_code": false,
+        "unofficial_names": [
+          "Chad",
+          "تشاد",
+          "Tschad",
+          "Tchad",
+          "チャド",
+          "Tsjaad"
+        ],
+        "languages_official": [
+          "ar",
+          "fr"
+        ],
+        "languages_spoken": [
+          "ar",
+          "fr"
+        ],
+        "geo": {
+          "latitude": 15.454166,
+          "latitude_dec": "15.367652893066406",
+          "longitude": 18.732207,
+          "longitude_dec": "18.66758155822754",
+          "max_latitude": 23.449228,
+          "max_longitude": 24.0000011,
+          "min_latitude": 7.442975,
+          "min_longitude": 13.4699999,
+          "bounds": {
+            "northeast": {
+              "lat": 23.449228,
+              "lng": 24.0000011
+            },
+            "southwest": {
+              "lat": 7.442975,
+              "lng": 13.4699999
+            }
+          }
+        },
+        "currency_code": "XAF",
+        "start_of_week": "monday",
+        "translations": {
+          "en": "Chad"
+        },
+        "translated_names": [
+          "Chad"
+        ]
+      },
+      {
+        "continent": "Africa",
+        "alpha2": "CG",
+        "alpha3": "COG",
+        "country_code": "242",
+        "international_prefix": "00",
+        "ioc": "CGO",
+        "gec": "CF",
+        "name": "Congo",
+        "national_destination_code_lengths": [
+          2
+        ],
+        "national_number_lengths": [
+          7
+        ],
+        "national_prefix": "None",
+        "number": "178",
+        "region": "Africa",
+        "subregion": "Sub-Saharan Africa",
+        "world_region": "EMEA",
+        "un_locode": "CG",
+        "nationality": "Congolese",
+        "postal_code": false,
+        "unofficial_names": [
+          "Congo",
+          "Kongo",
+          "コンゴ共和国",
+          "Congo [Republiek]",
+          "Congo, Republic of"
+        ],
+        "languages_official": [
+          "fr",
+          "ln"
+        ],
+        "languages_spoken": [
+          "fr",
+          "ln"
+        ],
+        "geo": {
+          "latitude": -0.228021,
+          "latitude_dec": "-2.879866123199463",
+          "longitude": 15.827659,
+          "longitude_dec": "23.6563777923584",
+          "max_latitude": 3.707791,
+          "max_longitude": 18.643611,
+          "min_latitude": -5.0964,
+          "min_longitude": 11.1182001,
+          "bounds": {
+            "northeast": {
+              "lat": 3.707791,
+              "lng": 18.643611
+            },
+            "southwest": {
+              "lat": -5.0964,
+              "lng": 11.1182001
+            }
+          }
+        },
+        "currency_code": "XAF",
+        "start_of_week": "monday",
+        "translations": {
+          "en": "Congo"
+        },
+        "translated_names": [
+          "Congo"
+        ]
+      },
+      {
+        "continent": "Africa",
+        "alpha2": "GQ",
+        "alpha3": "GNQ",
+        "country_code": "240",
+        "international_prefix": "00",
+        "ioc": "GEQ",
+        "gec": "EK",
+        "name": "Equatorial Guinea",
+        "national_destination_code_lengths": [
+          2
+        ],
+        "national_number_lengths": [
+          6
+        ],
+        "national_prefix": "None",
+        "number": "226",
+        "region": "Africa",
+        "subregion": "Sub-Saharan Africa",
+        "world_region": "EMEA",
+        "un_locode": "GQ",
+        "nationality": "Equatorial Guinean",
+        "postal_code": false,
+        "unofficial_names": [
+          "Equatorial Guinea",
+          "Äquatorial-Guinea",
+          "Guinée Équatoriale",
+          "Guinea Ecuatorial",
+          "赤道ギニア",
+          "Equatoriaal-Guinea"
+        ],
+        "languages_official": [
+          "es",
+          "fr"
+        ],
+        "languages_spoken": [
+          "es",
+          "fr"
+        ],
+        "geo": {
+          "latitude": 1.650801,
+          "latitude_dec": "1.5331259965896606",
+          "longitude": 10.267895,
+          "longitude_dec": "10.372581481933594",
+          "max_latitude": 3.8355,
+          "max_longitude": 11.3333,
+          "min_latitude": -1.5475,
+          "min_longitude": 5.541900099999999,
+          "bounds": {
+            "northeast": {
+              "lat": 3.8355,
+              "lng": 11.3333
+            },
+            "southwest": {
+              "lat": -1.5475,
+              "lng": 5.541900099999999
+            }
+          }
+        },
+        "currency_code": "XAF",
+        "start_of_week": "monday",
+        "translations": {
+          "en": "Equatorial Guinea"
+        },
+        "translated_names": [
+          "Equatorial Guinea"
+        ]
+      },
+      {
+        "continent": "Africa",
+        "alpha2": "GA",
+        "alpha3": "GAB",
+        "country_code": "241",
+        "international_prefix": "00",
+        "ioc": "GAB",
+        "gec": "GB",
+        "name": "Gabon",
+        "national_destination_code_lengths": [
+          2
+        ],
+        "national_number_lengths": [
+          6,
+          7,
+          8
+        ],
+        "national_prefix": "None",
+        "number": "266",
+        "region": "Africa",
+        "subregion": "Sub-Saharan Africa",
+        "world_region": "EMEA",
+        "un_locode": "GA",
+        "nationality": "Gabonese",
+        "postal_code": false,
+        "unofficial_names": [
+          "Gabon",
+          "Gabun",
+          "Gabón",
+          "ガボン"
+        ],
+        "languages_official": [
+          "fr"
+        ],
+        "languages_spoken": [
+          "fr"
+        ],
+        "geo": {
+          "latitude": -0.803689,
+          "latitude_dec": "-0.6345400810241699",
+          "longitude": 11.609444,
+          "longitude_dec": "11.738608360290527",
+          "max_latitude": 2.318109,
+          "max_longitude": 14.5269234,
+          "min_latitude": -4.1656,
+          "min_longitude": 8.421,
+          "bounds": {
+            "northeast": {
+              "lat": 2.318109,
+              "lng": 14.5269234
+            },
+            "southwest": {
+              "lat": -4.1656,
+              "lng": 8.421
+            }
+          }
+        },
+        "currency_code": "XAF",
+        "start_of_week": "monday",
+        "translations": {
+          "en": "Gabon"
+        },
+        "translated_names": [
+          "Gabon"
+        ]
+      },
+      {
+        "continent": "Africa",
+        "alpha2": "KE",
+        "alpha3": "KEN",
+        "country_code": "254",
+        "international_prefix": "000",
+        "ioc": "KEN",
+        "gec": "KE",
+        "name": "Kenya",
+        "national_destination_code_lengths": [
+          2
+        ],
+        "national_number_lengths": [
+          9
+        ],
+        "national_prefix": "0",
+        "number": "404",
+        "region": "Africa",
+        "subregion": "Sub-Saharan Africa",
+        "world_region": "EMEA",
+        "un_locode": "KE",
+        "nationality": "Kenyan",
+        "postal_code": true,
+        "postal_code_format": "\\d{5}",
+        "unofficial_names": [
+          "Kenya",
+          "Kenia",
+          "ケニア"
+        ],
+        "languages_official": [
+          "en",
+          "sw"
+        ],
+        "languages_spoken": [
+          "en",
+          "sw"
+        ],
+        "geo": {
+          "latitude": -0.023559,
+          "latitude_dec": "0.5765031576156616",
+          "longitude": 37.906193,
+          "longitude_dec": "37.83988952636719",
+          "max_latitude": 5.033420899999999,
+          "max_longitude": 41.9068957,
+          "min_latitude": -4.724299999999999,
+          "min_longitude": 33.90982109999999,
+          "bounds": {
+            "northeast": {
+              "lat": 5.033420899999999,
+              "lng": 41.9068957
+            },
+            "southwest": {
+              "lat": -4.724299999999999,
+              "lng": 33.90982109999999
+            }
+          }
+        },
+        "currency_code": "KES",
+        "start_of_week": "monday",
+        "translations": {
+          "en": "Kenya"
+        },
+        "translated_names": [
+          "Kenya"
+        ]
+      },
+      {
+        "continent": "Africa",
+        "alpha2": "NG",
+        "alpha3": "NGA",
+        "country_code": "234",
+        "international_prefix": "009",
+        "ioc": "NGR",
+        "gec": "NI",
+        "name": "Nigeria",
+        "national_destination_code_lengths": [
+          2
+        ],
+        "national_number_lengths": [
+          7,
+          8
+        ],
+        "national_prefix": "0",
+        "number": "566",
+        "region": "Africa",
+        "subregion": "Sub-Saharan Africa",
+        "world_region": "EMEA",
+        "un_locode": "NG",
+        "nationality": "Nigerian",
+        "vat_rates": {
+          "standard": 5,
+          "reduced": [
+
+          ],
+          "super_reduced": null,
+          "parking": null
+        },
+        "postal_code": true,
+        "postal_code_format": "\\d{6}",
+        "unofficial_names": [
+          "Nigeria",
+          "Nigéria",
+          "the Federal Republic of Nigeria",
+          "ナイジェリア"
+        ],
+        "languages_official": [
+          "en"
+        ],
+        "languages_spoken": [
+          "en"
+        ],
+        "geo": {
+          "latitude": 9.081999,
+          "latitude_dec": "9.559505462646484",
+          "longitude": 8.675277,
+          "longitude_dec": "8.077880859375",
+          "max_latitude": 13.8856449,
+          "max_longitude": 14.677982,
+          "min_latitude": 4.1821001,
+          "min_longitude": 2.676932,
+          "bounds": {
+            "northeast": {
+              "lat": 13.8856449,
+              "lng": 14.677982
+            },
+            "southwest": {
+              "lat": 4.1821001,
+              "lng": 2.676932
+            }
+          }
+        },
+        "currency_code": "NGN",
+        "start_of_week": "monday",
+        "translations": {
+          "en": "Nigeria"
+        },
+        "translated_names": [
+          "Nigeria"
+        ]
+      },
+      {
+        "continent": "Africa",
+        "alpha2": "RW",
+        "alpha3": "RWA",
+        "country_code": "250",
+        "international_prefix": "00",
+        "ioc": "RWA",
+        "gec": "RW",
+        "name": "Rwanda",
+        "national_destination_code_lengths": [
+          2
+        ],
+        "national_number_lengths": [
+          8,
+          9
+        ],
+        "national_prefix": "0",
+        "number": "646",
+        "region": "Africa",
+        "subregion": "Sub-Saharan Africa",
+        "world_region": "EMEA",
+        "un_locode": "RW",
+        "nationality": "Rwandan",
+        "postal_code": false,
+        "unofficial_names": [
+          "Rwanda",
+          "Ruanda",
+          "ルワンダ"
+        ],
+        "languages_official": [
+          "rw",
+          "en",
+          "fr"
+        ],
+        "languages_spoken": [
+          "rw",
+          "en",
+          "fr"
+        ],
+        "geo": {
+          "latitude": -1.940278,
+          "latitude_dec": "-1.9999498128890991",
+          "longitude": 29.873888,
+          "longitude_dec": "29.926057815551758",
+          "max_latitude": -1.0473753,
+          "max_longitude": 30.8991179,
+          "min_latitude": -2.8399383,
+          "min_longitude": 28.861754,
+          "bounds": {
+            "northeast": {
+              "lat": -1.0473753,
+              "lng": 30.8991179
+            },
+            "southwest": {
+              "lat": -2.8399383,
+              "lng": 28.861754
+            }
+          }
+        },
+        "currency_code": "RWF",
+        "start_of_week": "monday",
+        "translations": {
+          "en": "Rwanda"
+        },
+        "translated_names": [
+          "Rwanda"
+        ]
+      },
+      {
+        "continent": "Africa",
+        "alpha2": "ST",
+        "alpha3": "STP",
+        "country_code": "239",
+        "international_prefix": "00",
+        "ioc": "STP",
+        "gec": "TP",
+        "name": "Sao Tome and Principe",
+        "national_destination_code_lengths": [
+          2
+        ],
+        "national_number_lengths": [
+          6,
+          7
+        ],
+        "national_prefix": "0",
+        "number": "678",
+        "region": "Africa",
+        "subregion": "Sub-Saharan Africa",
+        "world_region": "EMEA",
+        "un_locode": "ST",
+        "nationality": "Sao Tomean",
+        "postal_code": false,
+        "unofficial_names": [
+          "São Tomé and Príncipe",
+          "São Tomé und Príncipe",
+          "São Tomé et Príncipe",
+          "Santo Tomé y Príncipe",
+          "サントメ・プリンシペ",
+          "Sao Tomé en Principe"
+        ],
+        "languages_official": [
+          "pt"
+        ],
+        "languages_spoken": [
+          "pt"
+        ],
+        "geo": {
+          "latitude": 0.18636,
+          "latitude_dec": "0.275555282831192",
+          "longitude": 6.613080999999999,
+          "longitude_dec": "6.631628036499023",
+          "max_latitude": 1.8961687,
+          "max_longitude": 7.658843900000001,
+          "min_latitude": -0.09887689999999999,
+          "min_longitude": 6.328125,
+          "bounds": {
+            "northeast": {
+              "lat": 1.8961687,
+              "lng": 7.658843900000001
+            },
+            "southwest": {
+              "lat": -0.09887689999999999,
+              "lng": 6.328125
+            }
+          }
+        },
+        "currency_code": "STD",
+        "start_of_week": "monday",
+        "translations": {
+          "en": "Sao Tome and Principe"
+        },
+        "translated_names": [
+          "Sao Tome and Principe"
+        ]
+      },
+      {
+        "continent": "Africa",
+        "alpha2": "TZ",
+        "alpha3": "TZA",
+        "country_code": "255",
+        "international_prefix": "000",
+        "ioc": "TAN",
+        "gec": "TZ",
+        "name": "Tanzania, United Republic of",
+        "national_destination_code_lengths": [
+          2
+        ],
+        "national_number_lengths": [
+          9
+        ],
+        "national_prefix": "0",
+        "number": "834",
+        "region": "Africa",
+        "subregion": "Sub-Saharan Africa",
+        "world_region": "EMEA",
+        "un_locode": "TZ",
+        "nationality": "Tanzanian",
+        "postal_code": true,
+        "postal_code_format": "\\d{4,5}",
+        "unofficial_names": [
+          "Tanzania",
+          "Tansania",
+          "Tanzanie",
+          "タンザニア",
+          "Tanzania United Republic"
+        ],
+        "languages_official": [
+          "sw",
+          "en"
+        ],
+        "languages_spoken": [
+          "sw",
+          "en"
+        ],
+        "geo": {
+          "latitude": -6.369028,
+          "latitude_dec": "-6.306897163391113",
+          "longitude": 34.888822,
+          "longitude_dec": "34.85392761230469",
+          "max_latitude": -0.984397,
+          "max_longitude": 40.6398,
+          "min_latitude": -11.7612539,
+          "min_longitude": 29.34,
+          "bounds": {
+            "northeast": {
+              "lat": -0.984397,
+              "lng": 40.6398
+            },
+            "southwest": {
+              "lat": -11.7612539,
+              "lng": 29.34
+            }
+          }
+        },
+        "currency_code": "TZS",
+        "start_of_week": "monday",
+        "translations": {
+          "en": "Tanzania"
+        },
+        "translated_names": [
+          "Tanzania"
+        ]
+      },
+      {
+        "continent": "Africa",
+        "alpha2": "UG",
+        "alpha3": "UGA",
+        "country_code": "256",
+        "international_prefix": "000",
+        "ioc": "UGA",
+        "gec": "UG",
+        "name": "Uganda",
+        "national_destination_code_lengths": [
+          2
+        ],
+        "national_number_lengths": [
+          9
+        ],
+        "national_prefix": "0",
+        "number": "800",
+        "region": "Africa",
+        "subregion": "Sub-Saharan Africa",
+        "world_region": "EMEA",
+        "un_locode": "UG",
+        "nationality": "Ugandan",
+        "postal_code": false,
+        "unofficial_names": [
+          "Uganda",
+          "ウガンダ",
+          "Oeganda"
+        ],
+        "languages_official": [
+          "en",
+          "sw"
+        ],
+        "languages_spoken": [
+          "en",
+          "sw"
+        ],
+        "geo": {
+          "latitude": 1.373333,
+          "latitude_dec": "1.2773280143737793",
+          "longitude": 32.290275,
+          "longitude_dec": "32.389984130859375",
+          "max_latitude": 4.2186278,
+          "max_longitude": 35.0330489,
+          "min_latitude": -1.4823179,
+          "min_longitude": 29.573433,
+          "bounds": {
+            "northeast": {
+              "lat": 4.2186278,
+              "lng": 35.0330489
+            },
+            "southwest": {
+              "lat": -1.4823179,
+              "lng": 29.573433
+            }
+          }
+        },
+        "currency_code": "UGX",
+        "start_of_week": "monday",
+        "translations": {
+          "en": "Uganda"
+        },
+        "translated_names": [
+          "Uganda"
+        ]
+      },
+      {
+        "continent": "Africa",
+        "alpha2": "SD",
+        "alpha3": "SDN",
+        "country_code": "249",
+        "international_prefix": "00",
+        "ioc": "SUD",
+        "gec": "SU",
+        "name": "Sudan",
+        "national_destination_code_lengths": [
+          2
+        ],
+        "national_number_lengths": [
+          9
+        ],
+        "national_prefix": "0",
+        "number": "729",
+        "region": "Africa",
+        "subregion": "Sub-Saharan Africa",
+        "world_region": "EMEA",
+        "un_locode": "SD",
+        "nationality": "Sudanese",
+        "postal_code": true,
+        "postal_code_format": "\\d{5}",
+        "unofficial_names": [
+          "Sudan",
+          "السودان",
+          "Soudan",
+          "Sudán",
+          "スーダン",
+          "Soedan"
+        ],
+        "languages_official": [
+          "ar",
+          "en"
+        ],
+        "languages_spoken": [
+          "ar",
+          "en"
+        ],
+        "geo": {
+          "latitude": 12.862807,
+          "latitude_dec": "16.085784912109375",
+          "longitude": 30.217636,
+          "longitude_dec": "30.087390899658203",
+          "max_latitude": 22.224918,
+          "max_longitude": 38.69379989999999,
+          "min_latitude": 9.3472209,
+          "min_longitude": 21.814939,
+          "bounds": {
+            "northeast": {
+              "lat": 22.224918,
+              "lng": 38.69379989999999
+            },
+            "southwest": {
+              "lat": 9.3472209,
+              "lng": 21.814939
+            }
+          }
+        },
+        "currency_code": "SDG",
+        "start_of_week": "monday",
+        "translations": {
+          "en": "Sudan"
+        },
+        "translated_names": [
+          "Sudan"
+        ]
+      },
+      {
+        "continent": "Africa",
+        "alpha2": "SS",
+        "alpha3": "SSD",
+        "country_code": "211",
+        "international_prefix": "0",
+        "ioc": null,
+        "gec": "OD",
+        "name": "South Sudan",
+        "national_destination_code_lengths": [
+          2
+        ],
+        "national_number_lengths": [
+          9
+        ],
+        "national_prefix": "0",
+        "number": "728",
+        "region": "Africa",
+        "subregion": "Sub-Saharan Africa",
+        "world_region": "EMEA",
+        "un_locode": "SS",
+        "nationality": "South Sudanese",
+        "postal_code": false,
+        "unofficial_names": [
+          "South Sudan",
+          "Südsudan",
+          "南スーダン",
+          "Zuid-Soedan"
+        ],
+        "languages_official": [
+          "ar",
+          "en"
+        ],
+        "languages_spoken": [
+          "ar",
+          "en"
+        ],
+        "geo": {
+          "latitude": 6.876991899999999,
+          "latitude_dec": "7.303858280181885",
+          "longitude": 31.3069788,
+          "longitude_dec": "30.280752182006836",
+          "max_latitude": 12.236389,
+          "max_longitude": 35.9489971,
+          "min_latitude": 3.48898,
+          "min_longitude": 23.4408491,
+          "bounds": {
+            "northeast": {
+              "lat": 12.236389,
+              "lng": 35.9489971
+            },
+            "southwest": {
+              "lat": 3.48898,
+              "lng": 23.4408491
+            }
+          }
+        },
+        "currency_code": "SSP",
+        "start_of_week": "sunday",
+        "translations": {
+          "en": "South Sudan"
+        },
+        "translated_names": [
+          "South Sudan"
+        ]
+      },
+      {
         "continent": "Europe",
         "alpha2": "AL",
         "alpha3": "ALB",
@@ -87,7 +1237,7 @@
         "national_prefix": "7",
         "number": "012",
         "region": "Africa",
-        "subregion": "Northern Africa",
+        "subregion": "Middle East & North Africa",
         "world_region": "EMEA",
         "un_locode": "DZ",
         "nationality": "Algerian",
@@ -205,68 +1355,6 @@
         ]
       },
       {
-        "continent": "Africa",
-        "alpha2": "AO",
-        "alpha3": "AGO",
-        "country_code": "244",
-        "international_prefix": "00",
-        "ioc": "ANG",
-        "gec": "AO",
-        "name": "Angola",
-        "national_destination_code_lengths": [
-          2
-        ],
-        "national_number_lengths": [
-          9
-        ],
-        "national_prefix": "0",
-        "number": "024",
-        "region": "Africa",
-        "subregion": "Middle Africa",
-        "world_region": "EMEA",
-        "un_locode": "AO",
-        "nationality": "Angolan",
-        "postal_code": false,
-        "unofficial_names": [
-          "Angola",
-          "アンゴラ"
-        ],
-        "languages_official": [
-          "pt"
-        ],
-        "languages_spoken": [
-          "pt"
-        ],
-        "geo": {
-          "latitude": 47.516231,
-          "latitude_dec": "-12.333555221557617",
-          "longitude": 14.550072,
-          "longitude_dec": "17.539464950561523",
-          "max_latitude": 49.0206081,
-          "max_longitude": 17.1606861,
-          "min_latitude": 46.37233579999999,
-          "min_longitude": 9.530783399999999,
-          "bounds": {
-            "northeast": {
-              "lat": 49.0206081,
-              "lng": 17.1606861
-            },
-            "southwest": {
-              "lat": 46.37233579999999,
-              "lng": 9.530783399999999
-            }
-          }
-        },
-        "currency_code": "AOA",
-        "start_of_week": "monday",
-        "translations": {
-          "en": "Angola"
-        },
-        "translated_names": [
-          "Angola"
-        ]
-      },
-      {
         "continent": "Asia",
         "alpha2": "AM",
         "alpha3": "ARM",
@@ -284,7 +1372,7 @@
         "national_prefix": "8",
         "number": "051",
         "region": "Asia",
-        "subregion": "Western Asia",
+        "subregion": "Middle East & North Africa",
         "world_region": "EMEA",
         "un_locode": "AM",
         "nationality": "Armenian",
@@ -438,7 +1526,7 @@
         "national_prefix": "8",
         "number": "031",
         "region": "Asia",
-        "subregion": "Western Asia",
+        "subregion": "Middle East & North Africa",
         "world_region": "EMEA",
         "un_locode": "AZ",
         "nationality": "Azerbaijani",
@@ -508,7 +1596,7 @@
         "national_prefix": "None",
         "number": "048",
         "region": "Asia",
-        "subregion": "Western Asia",
+        "subregion": "Middle East & North Africa",
         "world_region": "EMEA",
         "un_locode": "BH",
         "nationality": "Bahraini",
@@ -728,7 +1816,7 @@
         "national_prefix": "None",
         "number": "204",
         "region": "Africa",
-        "subregion": "Western Africa",
+        "subregion": "Sub-Saharan Africa",
         "world_region": "EMEA",
         "un_locode": "BJ",
         "nationality": "Beninese",
@@ -864,7 +1952,7 @@
         "national_prefix": "None",
         "number": "072",
         "region": "Africa",
-        "subregion": "Southern Africa",
+        "subregion": "Sub-Saharan Africa",
         "world_region": "EMEA",
         "un_locode": "BW",
         "nationality": "Motswana",
@@ -1007,7 +2095,7 @@
         "national_prefix": "None",
         "number": "854",
         "region": "Africa",
-        "subregion": "Western Africa",
+        "subregion": "Sub-Saharan Africa",
         "world_region": "EMEA",
         "un_locode": "BF",
         "nationality": "Burkinabe",
@@ -1055,70 +2143,6 @@
       },
       {
         "continent": "Africa",
-        "alpha2": "BI",
-        "alpha3": "BDI",
-        "country_code": "257",
-        "international_prefix": "00",
-        "ioc": "BDI",
-        "gec": "BY",
-        "name": "Burundi",
-        "national_destination_code_lengths": [
-          2
-        ],
-        "national_number_lengths": [
-          8
-        ],
-        "national_prefix": "None",
-        "number": "108",
-        "region": "Africa",
-        "subregion": "Eastern Africa",
-        "world_region": "EMEA",
-        "un_locode": "BI",
-        "nationality": "Burundian",
-        "postal_code": false,
-        "unofficial_names": [
-          "Burundi",
-          "ブルンジ"
-        ],
-        "languages_official": [
-          "fr",
-          "rn"
-        ],
-        "languages_spoken": [
-          "fr",
-          "rn"
-        ],
-        "geo": {
-          "latitude": -3.373056,
-          "latitude_dec": "-3.365208148956299",
-          "longitude": 29.918886,
-          "longitude_dec": "29.88650894165039",
-          "max_latitude": -2.3097302,
-          "max_longitude": 30.8495447,
-          "min_latitude": -4.4693288,
-          "min_longitude": 29.000993,
-          "bounds": {
-            "northeast": {
-              "lat": -2.3097302,
-              "lng": 30.8495447
-            },
-            "southwest": {
-              "lat": -4.4693288,
-              "lng": 29.000993
-            }
-          }
-        },
-        "currency_code": "BIF",
-        "start_of_week": "monday",
-        "translations": {
-          "en": "Burundi"
-        },
-        "translated_names": [
-          "Burundi"
-        ]
-      },
-      {
-        "continent": "Africa",
         "alpha2": "CV",
         "alpha3": "CPV",
         "country_code": "238",
@@ -1135,7 +2159,7 @@
         "national_prefix": "None",
         "number": "132",
         "region": "Africa",
-        "subregion": "Western Africa",
+        "subregion": "Sub-Saharan Africa",
         "world_region": "EMEA",
         "un_locode": "CV",
         "nationality": "Cape Verdian",
@@ -1186,210 +2210,6 @@
       },
       {
         "continent": "Africa",
-        "alpha2": "CM",
-        "alpha3": "CMR",
-        "country_code": "237",
-        "international_prefix": "00",
-        "ioc": "CMR",
-        "gec": "CM",
-        "name": "Cameroon",
-        "national_destination_code_lengths": [
-          2
-        ],
-        "national_number_lengths": [
-          8
-        ],
-        "national_prefix": "None",
-        "number": "120",
-        "region": "Africa",
-        "subregion": "Middle Africa",
-        "world_region": "EMEA",
-        "un_locode": "CM",
-        "nationality": "Cameroonian",
-        "postal_code": false,
-        "unofficial_names": [
-          "Cameroon",
-          "Kamerun",
-          "Cameroun",
-          "Camerún",
-          "カメルーン",
-          "Kameroen"
-        ],
-        "languages_official": [
-          "en",
-          "fr"
-        ],
-        "languages_spoken": [
-          "en",
-          "fr"
-        ],
-        "geo": {
-          "latitude": 7.369721999999999,
-          "latitude_dec": "5.685476779937744",
-          "longitude": 12.354722,
-          "longitude_dec": "12.722877502441406",
-          "max_latitude": 13.083335,
-          "max_longitude": 16.1944081,
-          "min_latitude": 1.6559,
-          "min_longitude": 8.3936001,
-          "bounds": {
-            "northeast": {
-              "lat": 13.083335,
-              "lng": 16.1944081
-            },
-            "southwest": {
-              "lat": 1.6559,
-              "lng": 8.3936001
-            }
-          }
-        },
-        "currency_code": "XAF",
-        "start_of_week": "monday",
-        "translations": {
-          "en": "Cameroon"
-        },
-        "translated_names": [
-          "Cameroon"
-        ]
-      },
-      {
-        "continent": "Africa",
-        "alpha2": "CF",
-        "alpha3": "CAF",
-        "country_code": "236",
-        "international_prefix": "00",
-        "ioc": "CAF",
-        "gec": "CT",
-        "name": "Central African Republic",
-        "national_destination_code_lengths": [
-          2
-        ],
-        "national_number_lengths": [
-          8
-        ],
-        "national_prefix": "None",
-        "number": "140",
-        "region": "Africa",
-        "subregion": "Middle Africa",
-        "world_region": "EMEA",
-        "un_locode": "CF",
-        "nationality": "Central African",
-        "postal_code": false,
-        "unofficial_names": [
-          "Central African Republic",
-          "Zentralafrikanische Republik",
-          "République Centrafricaine",
-          "República Centroafricana",
-          "中央アフリカ共和国",
-          "Centraal-Afrikaanse Republiek"
-        ],
-        "languages_official": [
-          "fr",
-          "sg"
-        ],
-        "languages_spoken": [
-          "fr",
-          "sg"
-        ],
-        "geo": {
-          "latitude": 6.611110999999999,
-          "latitude_dec": "6.574123382568359",
-          "longitude": 20.939444,
-          "longitude_dec": "20.486923217773438",
-          "max_latitude": 11.0179569,
-          "max_longitude": 27.4583049,
-          "min_latitude": 2.2208493,
-          "min_longitude": 14.4150981,
-          "bounds": {
-            "northeast": {
-              "lat": 11.0179569,
-              "lng": 27.4583049
-            },
-            "southwest": {
-              "lat": 2.2208493,
-              "lng": 14.4150981
-            }
-          }
-        },
-        "currency_code": "XAF",
-        "start_of_week": "monday",
-        "translations": {
-          "en": "Central African Republic"
-        },
-        "translated_names": [
-          "Central African Republic"
-        ]
-      },
-      {
-        "continent": "Africa",
-        "alpha2": "TD",
-        "alpha3": "TCD",
-        "country_code": "235",
-        "international_prefix": "15",
-        "ioc": "CHA",
-        "gec": "CD",
-        "name": "Chad",
-        "national_destination_code_lengths": [
-          2
-        ],
-        "national_number_lengths": [
-          7
-        ],
-        "national_prefix": "None",
-        "number": "148",
-        "region": "Africa",
-        "subregion": "Middle Africa",
-        "world_region": "EMEA",
-        "un_locode": "TD",
-        "nationality": "Chadian",
-        "postal_code": false,
-        "unofficial_names": [
-          "Chad",
-          "تشاد",
-          "Tschad",
-          "Tchad",
-          "チャド",
-          "Tsjaad"
-        ],
-        "languages_official": [
-          "ar",
-          "fr"
-        ],
-        "languages_spoken": [
-          "ar",
-          "fr"
-        ],
-        "geo": {
-          "latitude": 15.454166,
-          "latitude_dec": "15.367652893066406",
-          "longitude": 18.732207,
-          "longitude_dec": "18.66758155822754",
-          "max_latitude": 23.449228,
-          "max_longitude": 24.0000011,
-          "min_latitude": 7.442975,
-          "min_longitude": 13.4699999,
-          "bounds": {
-            "northeast": {
-              "lat": 23.449228,
-              "lng": 24.0000011
-            },
-            "southwest": {
-              "lat": 7.442975,
-              "lng": 13.4699999
-            }
-          }
-        },
-        "currency_code": "XAF",
-        "start_of_week": "monday",
-        "translations": {
-          "en": "Chad"
-        },
-        "translated_names": [
-          "Chad"
-        ]
-      },
-      {
-        "continent": "Africa",
         "alpha2": "KM",
         "alpha3": "COM",
         "country_code": "269",
@@ -1406,7 +2226,7 @@
         "national_prefix": "None",
         "number": "174",
         "region": "Africa",
-        "subregion": "Eastern Africa",
+        "subregion": "Sub-Saharan Africa",
         "world_region": "EMEA",
         "un_locode": "KM",
         "nationality": "Comoran",
@@ -1453,149 +2273,6 @@
         },
         "translated_names": [
           "Comoros"
-        ]
-      },
-      {
-        "continent": "Africa",
-        "alpha2": "CG",
-        "alpha3": "COG",
-        "country_code": "242",
-        "international_prefix": "00",
-        "ioc": "CGO",
-        "gec": "CF",
-        "name": "Congo",
-        "national_destination_code_lengths": [
-          2
-        ],
-        "national_number_lengths": [
-          7
-        ],
-        "national_prefix": "None",
-        "number": "178",
-        "region": "Africa",
-        "subregion": "Middle Africa",
-        "world_region": "EMEA",
-        "un_locode": "CG",
-        "nationality": "Congolese",
-        "postal_code": false,
-        "unofficial_names": [
-          "Congo",
-          "Kongo",
-          "コンゴ共和国",
-          "Congo [Republiek]",
-          "Congo, Republic of"
-        ],
-        "languages_official": [
-          "fr",
-          "ln"
-        ],
-        "languages_spoken": [
-          "fr",
-          "ln"
-        ],
-        "geo": {
-          "latitude": -0.228021,
-          "latitude_dec": "-2.879866123199463",
-          "longitude": 15.827659,
-          "longitude_dec": "23.6563777923584",
-          "max_latitude": 3.707791,
-          "max_longitude": 18.643611,
-          "min_latitude": -5.0964,
-          "min_longitude": 11.1182001,
-          "bounds": {
-            "northeast": {
-              "lat": 3.707791,
-              "lng": 18.643611
-            },
-            "southwest": {
-              "lat": -5.0964,
-              "lng": 11.1182001
-            }
-          }
-        },
-        "currency_code": "XAF",
-        "start_of_week": "monday",
-        "translations": {
-          "en": "Congo"
-        },
-        "translated_names": [
-          "Congo"
-        ]
-      },
-      {
-        "continent": "Africa",
-        "alpha2": "CD",
-        "alpha3": "COD",
-        "country_code": "243",
-        "international_prefix": "00",
-        "ioc": "COD",
-        "gec": "CG",
-        "name": "Congo (Democratic Republic of the)",
-        "national_destination_code_lengths": [
-          2
-        ],
-        "national_number_lengths": [
-          8
-        ],
-        "national_prefix": "None",
-        "number": "180",
-        "region": "Africa",
-        "subregion": "Middle Africa",
-        "world_region": "EMEA",
-        "un_locode": "CD",
-        "nationality": "Congolese",
-        "postal_code": false,
-        "unofficial_names": [
-          "Congo (Dem. Rep.)",
-          "Kongo (Dem. Rep.)",
-          "Congo (Rep. Dem.)",
-          "コンゴ民主共和国",
-          "Congo [DRC]",
-          "Congo (The Democratic Republic Of The)",
-          "Democratic Republic of the Congo",
-          "Congo, Democratic Republic of"
-        ],
-        "languages_official": [
-          "fr",
-          "ln",
-          "kg",
-          "sw",
-          "lu"
-        ],
-        "languages_spoken": [
-          "fr",
-          "ln",
-          "kg",
-          "sw",
-          "lu"
-        ],
-        "geo": {
-          "latitude": -4.038333,
-          "latitude_dec": "-2.879866123199463",
-          "longitude": 21.758664,
-          "longitude_dec": "23.6563777923584",
-          "max_latitude": 5.3920029,
-          "max_longitude": 31.314612,
-          "min_latitude": -13.4590349,
-          "min_longitude": 12.1454,
-          "bounds": {
-            "northeast": {
-              "lat": 5.3920029,
-              "lng": 31.314612
-            },
-            "southwest": {
-              "lat": -13.4590349,
-              "lng": 12.1454
-            }
-          }
-        },
-        "currency_code": "CDF",
-        "start_of_week": "monday",
-        "translations": {
-          "en": "Congo, The Democratic Republic of the"
-        },
-        "translated_names": [
-          "Congo, The Democratic Republic of the"
         ]
       },
       {
@@ -1696,7 +2373,7 @@
         "national_prefix": "None",
         "number": "196",
         "region": "Asia",
-        "subregion": "Western Asia",
+        "subregion": "Middle East & North Africa",
         "world_region": "EMEA",
         "un_locode": "CY",
         "nationality": "Cypriot",
@@ -1858,7 +2535,7 @@
         "national_prefix": "0",
         "number": "384",
         "region": "Africa",
-        "subregion": "Western Africa",
+        "subregion": "Sub-Saharan Africa",
         "world_region": "EMEA",
         "un_locode": "CI",
         "nationality": "Ivorian",
@@ -2003,7 +2680,7 @@
         "national_prefix": "None",
         "number": "262",
         "region": "Africa",
-        "subregion": "Eastern Africa",
+        "subregion": "Sub-Saharan Africa",
         "world_region": "EMEA",
         "un_locode": "DJ",
         "nationality": "Djibouti",
@@ -2070,7 +2747,7 @@
         "national_prefix": "0",
         "number": "818",
         "region": "Africa",
-        "subregion": "Northern Africa",
+        "subregion": "Middle East & North Africa",
         "world_region": "EMEA",
         "un_locode": "EG",
         "nationality": "Egyptian",
@@ -2122,74 +2799,6 @@
       },
       {
         "continent": "Africa",
-        "alpha2": "GQ",
-        "alpha3": "GNQ",
-        "country_code": "240",
-        "international_prefix": "00",
-        "ioc": "GEQ",
-        "gec": "EK",
-        "name": "Equatorial Guinea",
-        "national_destination_code_lengths": [
-          2
-        ],
-        "national_number_lengths": [
-          6
-        ],
-        "national_prefix": "None",
-        "number": "226",
-        "region": "Africa",
-        "subregion": "Middle Africa",
-        "world_region": "EMEA",
-        "un_locode": "GQ",
-        "nationality": "Equatorial Guinean",
-        "postal_code": false,
-        "unofficial_names": [
-          "Equatorial Guinea",
-          "Äquatorial-Guinea",
-          "Guinée Équatoriale",
-          "Guinea Ecuatorial",
-          "赤道ギニア",
-          "Equatoriaal-Guinea"
-        ],
-        "languages_official": [
-          "es",
-          "fr"
-        ],
-        "languages_spoken": [
-          "es",
-          "fr"
-        ],
-        "geo": {
-          "latitude": 1.650801,
-          "latitude_dec": "1.5331259965896606",
-          "longitude": 10.267895,
-          "longitude_dec": "10.372581481933594",
-          "max_latitude": 3.8355,
-          "max_longitude": 11.3333,
-          "min_latitude": -1.5475,
-          "min_longitude": 5.541900099999999,
-          "bounds": {
-            "northeast": {
-              "lat": 3.8355,
-              "lng": 11.3333
-            },
-            "southwest": {
-              "lat": -1.5475,
-              "lng": 5.541900099999999
-            }
-          }
-        },
-        "currency_code": "XAF",
-        "start_of_week": "monday",
-        "translations": {
-          "en": "Equatorial Guinea"
-        },
-        "translated_names": [
-          "Equatorial Guinea"
-        ]
-      },
-      {
-        "continent": "Africa",
         "alpha2": "ER",
         "alpha3": "ERI",
         "country_code": "291",
@@ -2206,7 +2815,7 @@
         "national_prefix": "0",
         "number": "232",
         "region": "Africa",
-        "subregion": "Eastern Africa",
+        "subregion": "Sub-Saharan Africa",
         "world_region": "EMEA",
         "un_locode": "ER",
         "nationality": "Eritrean",
@@ -2350,7 +2959,7 @@
         "national_prefix": "0",
         "number": "231",
         "region": "Africa",
-        "subregion": "Eastern Africa",
+        "subregion": "Sub-Saharan Africa",
         "world_region": "EMEA",
         "un_locode": "ET",
         "nationality": "Ethiopian",
@@ -2628,72 +3237,6 @@
       },
       {
         "continent": "Africa",
-        "alpha2": "GA",
-        "alpha3": "GAB",
-        "country_code": "241",
-        "international_prefix": "00",
-        "ioc": "GAB",
-        "gec": "GB",
-        "name": "Gabon",
-        "national_destination_code_lengths": [
-          2
-        ],
-        "national_number_lengths": [
-          6,
-          7,
-          8
-        ],
-        "national_prefix": "None",
-        "number": "266",
-        "region": "Africa",
-        "subregion": "Middle Africa",
-        "world_region": "EMEA",
-        "un_locode": "GA",
-        "nationality": "Gabonese",
-        "postal_code": false,
-        "unofficial_names": [
-          "Gabon",
-          "Gabun",
-          "Gabón",
-          "ガボン"
-        ],
-        "languages_official": [
-          "fr"
-        ],
-        "languages_spoken": [
-          "fr"
-        ],
-        "geo": {
-          "latitude": -0.803689,
-          "latitude_dec": "-0.6345400810241699",
-          "longitude": 11.609444,
-          "longitude_dec": "11.738608360290527",
-          "max_latitude": 2.318109,
-          "max_longitude": 14.5269234,
-          "min_latitude": -4.1656,
-          "min_longitude": 8.421,
-          "bounds": {
-            "northeast": {
-              "lat": 2.318109,
-              "lng": 14.5269234
-            },
-            "southwest": {
-              "lat": -4.1656,
-              "lng": 8.421
-            }
-          }
-        },
-        "currency_code": "XAF",
-        "start_of_week": "monday",
-        "translations": {
-          "en": "Gabon"
-        },
-        "translated_names": [
-          "Gabon"
-        ]
-      },
-      {
-        "continent": "Africa",
         "alpha2": "GM",
         "alpha3": "GMB",
         "country_code": "220",
@@ -2710,7 +3253,7 @@
         "national_prefix": "None",
         "number": "270",
         "region": "Africa",
-        "subregion": "Western Africa",
+        "subregion": "Sub-Saharan Africa",
         "world_region": "EMEA",
         "un_locode": "GM",
         "nationality": "Gambian",
@@ -2772,7 +3315,7 @@
         "national_prefix": "8*",
         "number": "268",
         "region": "Asia",
-        "subregion": "Western Asia",
+        "subregion": "Middle East & North Africa",
         "world_region": "EMEA",
         "un_locode": "GE",
         "nationality": "Georgian",
@@ -2927,7 +3470,7 @@
         "national_prefix": "None",
         "number": "288",
         "region": "Africa",
-        "subregion": "Western Africa",
+        "subregion": "Sub-Saharan Africa",
         "world_region": "EMEA",
         "un_locode": "GH",
         "nationality": "Ghanaian",
@@ -3267,7 +3810,7 @@
         "national_prefix": "None",
         "number": "324",
         "region": "Africa",
-        "subregion": "Western Africa",
+        "subregion": "Sub-Saharan Africa",
         "world_region": "EMEA",
         "un_locode": "GN",
         "nationality": "Guinean",
@@ -3334,7 +3877,7 @@
         "national_prefix": "None",
         "number": "624",
         "region": "Africa",
-        "subregion": "Western Africa",
+        "subregion": "Sub-Saharan Africa",
         "world_region": "EMEA",
         "un_locode": "GW",
         "nationality": "Guinea-Bissauan",
@@ -3629,7 +4172,7 @@
         "national_prefix": "0",
         "number": "364",
         "region": "Asia",
-        "subregion": "Southern Asia",
+        "subregion": "Middle East & North Africa",
         "world_region": "EMEA",
         "un_locode": "IR",
         "nationality": "Iranian",
@@ -3763,7 +4306,7 @@
         "national_prefix": "0",
         "number": "372",
         "region": "Europe",
-        "subregion": "Northern Europe",
+        "subregion": "Western Europe",
         "world_region": "EMEA",
         "un_locode": "IE",
         "nationality": "Irish",
@@ -3914,7 +4457,7 @@
         "national_prefix": "0",
         "number": "376",
         "region": "Asia",
-        "subregion": "Western Asia",
+        "subregion": "Middle East & North Africa",
         "world_region": "EMEA",
         "un_locode": "IL",
         "nationality": "Israeli",
@@ -4126,7 +4669,7 @@
         "national_prefix": "0",
         "number": "400",
         "region": "Asia",
-        "subregion": "Western Asia",
+        "subregion": "Middle East & North Africa",
         "world_region": "EMEA",
         "un_locode": "JO",
         "nationality": "Jordanian",
@@ -4245,72 +4788,6 @@
         ]
       },
       {
-        "continent": "Africa",
-        "alpha2": "KE",
-        "alpha3": "KEN",
-        "country_code": "254",
-        "international_prefix": "000",
-        "ioc": "KEN",
-        "gec": "KE",
-        "name": "Kenya",
-        "national_destination_code_lengths": [
-          2
-        ],
-        "national_number_lengths": [
-          9
-        ],
-        "national_prefix": "0",
-        "number": "404",
-        "region": "Africa",
-        "subregion": "Eastern Africa",
-        "world_region": "EMEA",
-        "un_locode": "KE",
-        "nationality": "Kenyan",
-        "postal_code": true,
-        "postal_code_format": "\\d{5}",
-        "unofficial_names": [
-          "Kenya",
-          "Kenia",
-          "ケニア"
-        ],
-        "languages_official": [
-          "en",
-          "sw"
-        ],
-        "languages_spoken": [
-          "en",
-          "sw"
-        ],
-        "geo": {
-          "latitude": -0.023559,
-          "latitude_dec": "0.5765031576156616",
-          "longitude": 37.906193,
-          "longitude_dec": "37.83988952636719",
-          "max_latitude": 5.033420899999999,
-          "max_longitude": 41.9068957,
-          "min_latitude": -4.724299999999999,
-          "min_longitude": 33.90982109999999,
-          "bounds": {
-            "northeast": {
-              "lat": 5.033420899999999,
-              "lng": 41.9068957
-            },
-            "southwest": {
-              "lat": -4.724299999999999,
-              "lng": 33.90982109999999
-            }
-          }
-        },
-        "currency_code": "KES",
-        "start_of_week": "monday",
-        "translations": {
-          "en": "Kenya"
-        },
-        "translated_names": [
-          "Kenya"
-        ]
-      },
-      {
         "continent": "Asia",
         "address_format": "{{recipient}}\n{{street}}\n{{postalcode}} {{city}}\n{{region}}\n{{country}}",
         "alpha2": "KW",
@@ -4329,7 +4806,7 @@
         "national_prefix": "None",
         "number": "414",
         "region": "Asia",
-        "subregion": "Western Asia",
+        "subregion": "Middle East & North Africa",
         "world_region": "EMEA",
         "un_locode": "KW",
         "nationality": "Kuwaiti",
@@ -4544,7 +5021,7 @@
         "national_prefix": "0",
         "number": "422",
         "region": "Asia",
-        "subregion": "Western Asia",
+        "subregion": "Middle East & North Africa",
         "world_region": "EMEA",
         "un_locode": "LB",
         "nationality": "Lebanese",
@@ -4614,7 +5091,7 @@
         "national_prefix": "None",
         "number": "426",
         "region": "Africa",
-        "subregion": "Southern Africa",
+        "subregion": "Sub-Saharan Africa",
         "world_region": "EMEA",
         "un_locode": "LS",
         "nationality": "Mosotho",
@@ -4681,7 +5158,7 @@
         "national_prefix": "22",
         "number": "430",
         "region": "Africa",
-        "subregion": "Western Africa",
+        "subregion": "Sub-Saharan Africa",
         "world_region": "EMEA",
         "un_locode": "LR",
         "nationality": "Liberian",
@@ -4745,7 +5222,7 @@
         "national_prefix": "0",
         "number": "434",
         "region": "Africa",
-        "subregion": "Northern Africa",
+        "subregion": "Middle East & North Africa",
         "world_region": "EMEA",
         "un_locode": "LY",
         "nationality": "Libyan",
@@ -5038,7 +5515,7 @@
         "national_prefix": "None",
         "number": "450",
         "region": "Africa",
-        "subregion": "Eastern Africa",
+        "subregion": "Sub-Saharan Africa",
         "world_region": "EMEA",
         "un_locode": "MG",
         "nationality": "Malagasy",
@@ -5105,7 +5582,7 @@
         "national_prefix": "None",
         "number": "454",
         "region": "Africa",
-        "subregion": "Eastern Africa",
+        "subregion": "Sub-Saharan Africa",
         "world_region": "EMEA",
         "un_locode": "MW",
         "nationality": "Malawian",
@@ -5169,7 +5646,7 @@
         "national_prefix": "0",
         "number": "466",
         "region": "Africa",
-        "subregion": "Western Africa",
+        "subregion": "Sub-Saharan Africa",
         "world_region": "EMEA",
         "un_locode": "ML",
         "nationality": "Malian",
@@ -5231,7 +5708,7 @@
         "national_prefix": "21",
         "number": "470",
         "region": "Europe",
-        "subregion": "Southern Europe",
+        "subregion": "Middle East & North Africa",
         "world_region": "EMEA",
         "un_locode": "MT",
         "nationality": "Maltese",
@@ -5308,7 +5785,7 @@
         "national_prefix": "0",
         "number": "478",
         "region": "Africa",
-        "subregion": "Western Africa",
+        "subregion": "Middle East & North Africa",
         "world_region": "EMEA",
         "un_locode": "MR",
         "nationality": "Mauritanian",
@@ -5376,7 +5853,7 @@
         "national_prefix": "None",
         "number": "480",
         "region": "Africa",
-        "subregion": "Eastern Africa",
+        "subregion": "Sub-Saharan Africa",
         "world_region": "EMEA",
         "un_locode": "MU",
         "nationality": "Mauritian",
@@ -5770,7 +6247,7 @@
         "national_prefix": "0",
         "number": "504",
         "region": "Africa",
-        "subregion": "Northern Africa",
+        "subregion": "Middle East & North Africa",
         "world_region": "EMEA",
         "un_locode": "MA",
         "nationality": "Moroccan",
@@ -5838,7 +6315,7 @@
         "national_prefix": "0",
         "number": "508",
         "region": "Africa",
-        "subregion": "Eastern Africa",
+        "subregion": "Sub-Saharan Africa",
         "world_region": "EMEA",
         "un_locode": "MZ",
         "nationality": "Mozambican",
@@ -5904,7 +6381,7 @@
         "national_prefix": "0",
         "number": "516",
         "region": "Africa",
-        "subregion": "Southern Africa",
+        "subregion": "Sub-Saharan Africa",
         "world_region": "EMEA",
         "un_locode": "NA",
         "nationality": "Namibian",
@@ -6050,7 +6527,7 @@
         "national_prefix": "0",
         "number": "562",
         "region": "Africa",
-        "subregion": "Western Africa",
+        "subregion": "Sub-Saharan Africa",
         "world_region": "EMEA",
         "un_locode": "NE",
         "nationality": "Nigerian",
@@ -6094,80 +6571,6 @@
         },
         "translated_names": [
           "Niger"
-        ]
-      },
-      {
-        "continent": "Africa",
-        "alpha2": "NG",
-        "alpha3": "NGA",
-        "country_code": "234",
-        "international_prefix": "009",
-        "ioc": "NGR",
-        "gec": "NI",
-        "name": "Nigeria",
-        "national_destination_code_lengths": [
-          2
-        ],
-        "national_number_lengths": [
-          7,
-          8
-        ],
-        "national_prefix": "0",
-        "number": "566",
-        "region": "Africa",
-        "subregion": "Western Africa",
-        "world_region": "EMEA",
-        "un_locode": "NG",
-        "nationality": "Nigerian",
-        "vat_rates": {
-          "standard": 5,
-          "reduced": [
-
-          ],
-          "super_reduced": null,
-          "parking": null
-        },
-        "postal_code": true,
-        "postal_code_format": "\\d{6}",
-        "unofficial_names": [
-          "Nigeria",
-          "Nigéria",
-          "the Federal Republic of Nigeria",
-          "ナイジェリア"
-        ],
-        "languages_official": [
-          "en"
-        ],
-        "languages_spoken": [
-          "en"
-        ],
-        "geo": {
-          "latitude": 9.081999,
-          "latitude_dec": "9.559505462646484",
-          "longitude": 8.675277,
-          "longitude_dec": "8.077880859375",
-          "max_latitude": 13.8856449,
-          "max_longitude": 14.677982,
-          "min_latitude": 4.1821001,
-          "min_longitude": 2.676932,
-          "bounds": {
-            "northeast": {
-              "lat": 13.8856449,
-              "lng": 14.677982
-            },
-            "southwest": {
-              "lat": 4.1821001,
-              "lng": 2.676932
-            }
-          }
-        },
-        "currency_code": "NGN",
-        "start_of_week": "monday",
-        "translations": {
-          "en": "Nigeria"
-        },
-        "translated_names": [
-          "Nigeria"
         ]
       },
       {
@@ -6339,7 +6742,7 @@
         "national_prefix": "None",
         "number": "512",
         "region": "Asia",
-        "subregion": "Western Asia",
+        "subregion": "Middle East & North Africa",
         "world_region": "EMEA",
         "un_locode": "OM",
         "nationality": "Omani",
@@ -6405,7 +6808,7 @@
         "national_prefix": "0",
         "number": "275",
         "region": "Asia",
-        "subregion": "Western Asia",
+        "subregion": "Middle East & North Africa",
         "world_region": "EMEA",
         "un_locode": "PS",
         "nationality": "Palestinian",
@@ -6632,7 +7035,7 @@
         "national_prefix": "None",
         "number": "634",
         "region": "Asia",
-        "subregion": "Western Asia",
+        "subregion": "Middle East & North Africa",
         "world_region": "EMEA",
         "un_locode": "QA",
         "nationality": "Qatari",
@@ -6829,74 +7232,6 @@
       },
       {
         "continent": "Africa",
-        "alpha2": "RW",
-        "alpha3": "RWA",
-        "country_code": "250",
-        "international_prefix": "00",
-        "ioc": "RWA",
-        "gec": "RW",
-        "name": "Rwanda",
-        "national_destination_code_lengths": [
-          2
-        ],
-        "national_number_lengths": [
-          8,
-          9
-        ],
-        "national_prefix": "0",
-        "number": "646",
-        "region": "Africa",
-        "subregion": "Eastern Africa",
-        "world_region": "EMEA",
-        "un_locode": "RW",
-        "nationality": "Rwandan",
-        "postal_code": false,
-        "unofficial_names": [
-          "Rwanda",
-          "Ruanda",
-          "ルワンダ"
-        ],
-        "languages_official": [
-          "rw",
-          "en",
-          "fr"
-        ],
-        "languages_spoken": [
-          "rw",
-          "en",
-          "fr"
-        ],
-        "geo": {
-          "latitude": -1.940278,
-          "latitude_dec": "-1.9999498128890991",
-          "longitude": 29.873888,
-          "longitude_dec": "29.926057815551758",
-          "max_latitude": -1.0473753,
-          "max_longitude": 30.8991179,
-          "min_latitude": -2.8399383,
-          "min_longitude": 28.861754,
-          "bounds": {
-            "northeast": {
-              "lat": -1.0473753,
-              "lng": 30.8991179
-            },
-            "southwest": {
-              "lat": -2.8399383,
-              "lng": 28.861754
-            }
-          }
-        },
-        "currency_code": "RWF",
-        "start_of_week": "monday",
-        "translations": {
-          "en": "Rwanda"
-        },
-        "translated_names": [
-          "Rwanda"
-        ]
-      },
-      {
-        "continent": "Africa",
         "alpha2": "RE",
         "alpha3": "REU",
         "country_code": "262",
@@ -7028,73 +7363,6 @@
         ]
       },
       {
-        "continent": "Africa",
-        "alpha2": "ST",
-        "alpha3": "STP",
-        "country_code": "239",
-        "international_prefix": "00",
-        "ioc": "STP",
-        "gec": "TP",
-        "name": "Sao Tome and Principe",
-        "national_destination_code_lengths": [
-          2
-        ],
-        "national_number_lengths": [
-          6,
-          7
-        ],
-        "national_prefix": "0",
-        "number": "678",
-        "region": "Africa",
-        "subregion": "Middle Africa",
-        "world_region": "EMEA",
-        "un_locode": "ST",
-        "nationality": "Sao Tomean",
-        "postal_code": false,
-        "unofficial_names": [
-          "São Tomé and Príncipe",
-          "São Tomé und Príncipe",
-          "São Tomé et Príncipe",
-          "Santo Tomé y Príncipe",
-          "サントメ・プリンシペ",
-          "Sao Tomé en Principe"
-        ],
-        "languages_official": [
-          "pt"
-        ],
-        "languages_spoken": [
-          "pt"
-        ],
-        "geo": {
-          "latitude": 0.18636,
-          "latitude_dec": "0.275555282831192",
-          "longitude": 6.613080999999999,
-          "longitude_dec": "6.631628036499023",
-          "max_latitude": 1.8961687,
-          "max_longitude": 7.658843900000001,
-          "min_latitude": -0.09887689999999999,
-          "min_longitude": 6.328125,
-          "bounds": {
-            "northeast": {
-              "lat": 1.8961687,
-              "lng": 7.658843900000001
-            },
-            "southwest": {
-              "lat": -0.09887689999999999,
-              "lng": 6.328125
-            }
-          }
-        },
-        "currency_code": "STD",
-        "start_of_week": "monday",
-        "translations": {
-          "en": "Sao Tome and Principe"
-        },
-        "translated_names": [
-          "Sao Tome and Principe"
-        ]
-      },
-      {
         "continent": "Asia",
         "address_format": "{{recipient}}\n{{street}}\n{{postalcode}} {{city}}\n{{country}}",
         "alpha2": "SA",
@@ -7114,7 +7382,7 @@
         "national_prefix": "0",
         "number": "682",
         "region": "Asia",
-        "subregion": "Western Asia",
+        "subregion": "Middle East & North Africa",
         "world_region": "EMEA",
         "un_locode": "SA",
         "nationality": "Saudi Arabian",
@@ -7183,7 +7451,7 @@
         "national_prefix": "None",
         "number": "686",
         "region": "Africa",
-        "subregion": "Western Africa",
+        "subregion": "Sub-Saharan Africa",
         "world_region": "EMEA",
         "un_locode": "SN",
         "nationality": "Senegalese",
@@ -7313,7 +7581,7 @@
         "national_prefix": "None",
         "number": "690",
         "region": "Africa",
-        "subregion": "Eastern Africa",
+        "subregion": "Sub-Saharan Africa",
         "world_region": "EMEA",
         "un_locode": "SC",
         "nationality": "Seychellois",
@@ -7378,7 +7646,7 @@
         "national_prefix": "0",
         "number": "694",
         "region": "Africa",
-        "subregion": "Western Africa",
+        "subregion": "Sub-Saharan Africa",
         "world_region": "EMEA",
         "un_locode": "SL",
         "nationality": "Sierra Leonean",
@@ -7597,7 +7865,7 @@
         "national_prefix": "None",
         "number": "706",
         "region": "Africa",
-        "subregion": "Eastern Africa",
+        "subregion": "Middle East & North Africa",
         "world_region": "EMEA",
         "un_locode": "SO",
         "nationality": "Somali",
@@ -7665,7 +7933,7 @@
         "national_prefix": "0",
         "number": "710",
         "region": "Africa",
-        "subregion": "Southern Africa",
+        "subregion": "Sub-Saharan Africa",
         "world_region": "EMEA",
         "un_locode": "ZA",
         "nationality": "South African",
@@ -7730,72 +7998,6 @@
         },
         "translated_names": [
           "South Africa"
-        ]
-      },
-      {
-        "continent": "Africa",
-        "alpha2": "SS",
-        "alpha3": "SSD",
-        "country_code": "211",
-        "international_prefix": "0",
-        "ioc": null,
-        "gec": "OD",
-        "name": "South Sudan",
-        "national_destination_code_lengths": [
-          2
-        ],
-        "national_number_lengths": [
-          9
-        ],
-        "national_prefix": "0",
-        "number": "728",
-        "region": "Africa",
-        "subregion": "Northern Africa",
-        "world_region": "EMEA",
-        "un_locode": "SS",
-        "nationality": "South Sudanese",
-        "postal_code": false,
-        "unofficial_names": [
-          "South Sudan",
-          "Südsudan",
-          "南スーダン",
-          "Zuid-Soedan"
-        ],
-        "languages_official": [
-          "ar",
-          "en"
-        ],
-        "languages_spoken": [
-          "ar",
-          "en"
-        ],
-        "geo": {
-          "latitude": 6.876991899999999,
-          "latitude_dec": "7.303858280181885",
-          "longitude": 31.3069788,
-          "longitude_dec": "30.280752182006836",
-          "max_latitude": 12.236389,
-          "max_longitude": 35.9489971,
-          "min_latitude": 3.48898,
-          "min_longitude": 23.4408491,
-          "bounds": {
-            "northeast": {
-              "lat": 12.236389,
-              "lng": 35.9489971
-            },
-            "southwest": {
-              "lat": 3.48898,
-              "lng": 23.4408491
-            }
-          }
-        },
-        "currency_code": "SSP",
-        "start_of_week": "sunday",
-        "translations": {
-          "en": "South Sudan"
-        },
-        "translated_names": [
-          "South Sudan"
         ]
       },
       {
@@ -7874,75 +8076,6 @@
         },
         "translated_names": [
           "Spain"
-        ]
-      },
-      {
-        "continent": "Africa",
-        "alpha2": "SD",
-        "alpha3": "SDN",
-        "country_code": "249",
-        "international_prefix": "00",
-        "ioc": "SUD",
-        "gec": "SU",
-        "name": "Sudan",
-        "national_destination_code_lengths": [
-          2
-        ],
-        "national_number_lengths": [
-          9
-        ],
-        "national_prefix": "0",
-        "number": "729",
-        "region": "Africa",
-        "subregion": "Northern Africa",
-        "world_region": "EMEA",
-        "un_locode": "SD",
-        "nationality": "Sudanese",
-        "postal_code": true,
-        "postal_code_format": "\\d{5}",
-        "unofficial_names": [
-          "Sudan",
-          "السودان",
-          "Soudan",
-          "Sudán",
-          "スーダン",
-          "Soedan"
-        ],
-        "languages_official": [
-          "ar",
-          "en"
-        ],
-        "languages_spoken": [
-          "ar",
-          "en"
-        ],
-        "geo": {
-          "latitude": 12.862807,
-          "latitude_dec": "16.085784912109375",
-          "longitude": 30.217636,
-          "longitude_dec": "30.087390899658203",
-          "max_latitude": 22.224918,
-          "max_longitude": 38.69379989999999,
-          "min_latitude": 9.3472209,
-          "min_longitude": 21.814939,
-          "bounds": {
-            "northeast": {
-              "lat": 22.224918,
-              "lng": 38.69379989999999
-            },
-            "southwest": {
-              "lat": 9.3472209,
-              "lng": 21.814939
-            }
-          }
-        },
-        "currency_code": "SDG",
-        "start_of_week": "monday",
-        "translations": {
-          "en": "Sudan"
-        },
-        "translated_names": [
-          "Sudan"
         ]
       },
       {
@@ -8194,7 +8327,7 @@
         "national_prefix": "0",
         "number": "760",
         "region": "Asia",
-        "subregion": "Western Asia",
+        "subregion": "Middle East & North Africa",
         "world_region": "EMEA",
         "un_locode": "SY",
         "nationality": "Syrian",
@@ -8316,74 +8449,6 @@
       },
       {
         "continent": "Africa",
-        "alpha2": "TZ",
-        "alpha3": "TZA",
-        "country_code": "255",
-        "international_prefix": "000",
-        "ioc": "TAN",
-        "gec": "TZ",
-        "name": "Tanzania, United Republic of",
-        "national_destination_code_lengths": [
-          2
-        ],
-        "national_number_lengths": [
-          9
-        ],
-        "national_prefix": "0",
-        "number": "834",
-        "region": "Africa",
-        "subregion": "Eastern Africa",
-        "world_region": "EMEA",
-        "un_locode": "TZ",
-        "nationality": "Tanzanian",
-        "postal_code": true,
-        "postal_code_format": "\\d{4,5}",
-        "unofficial_names": [
-          "Tanzania",
-          "Tansania",
-          "Tanzanie",
-          "タンザニア",
-          "Tanzania United Republic"
-        ],
-        "languages_official": [
-          "sw",
-          "en"
-        ],
-        "languages_spoken": [
-          "sw",
-          "en"
-        ],
-        "geo": {
-          "latitude": -6.369028,
-          "latitude_dec": "-6.306897163391113",
-          "longitude": 34.888822,
-          "longitude_dec": "34.85392761230469",
-          "max_latitude": -0.984397,
-          "max_longitude": 40.6398,
-          "min_latitude": -11.7612539,
-          "min_longitude": 29.34,
-          "bounds": {
-            "northeast": {
-              "lat": -0.984397,
-              "lng": 40.6398
-            },
-            "southwest": {
-              "lat": -11.7612539,
-              "lng": 29.34
-            }
-          }
-        },
-        "currency_code": "TZS",
-        "start_of_week": "monday",
-        "translations": {
-          "en": "Tanzania"
-        },
-        "translated_names": [
-          "Tanzania"
-        ]
-      },
-      {
-        "continent": "Africa",
         "alpha2": "TG",
         "alpha3": "TGO",
         "country_code": "228",
@@ -8400,7 +8465,7 @@
         "national_prefix": "None",
         "number": "768",
         "region": "Africa",
-        "subregion": "Western Africa",
+        "subregion": "Sub-Saharan Africa",
         "world_region": "EMEA",
         "un_locode": "TG",
         "nationality": "Togolese",
@@ -8462,7 +8527,7 @@
         "national_prefix": "None",
         "number": "788",
         "region": "Africa",
-        "subregion": "Northern Africa",
+        "subregion": "Middle East & North Africa",
         "world_region": "EMEA",
         "un_locode": "TN",
         "nationality": "Tunisian",
@@ -8533,7 +8598,7 @@
         "national_prefix": "0",
         "number": "792",
         "region": "Asia",
-        "subregion": "Western Asia",
+        "subregion": "Middle East & North Africa",
         "world_region": "EMEA",
         "un_locode": "TR",
         "nationality": "Turkish",
@@ -8650,71 +8715,6 @@
         ]
       },
       {
-        "continent": "Africa",
-        "alpha2": "UG",
-        "alpha3": "UGA",
-        "country_code": "256",
-        "international_prefix": "000",
-        "ioc": "UGA",
-        "gec": "UG",
-        "name": "Uganda",
-        "national_destination_code_lengths": [
-          2
-        ],
-        "national_number_lengths": [
-          9
-        ],
-        "national_prefix": "0",
-        "number": "800",
-        "region": "Africa",
-        "subregion": "Eastern Africa",
-        "world_region": "EMEA",
-        "un_locode": "UG",
-        "nationality": "Ugandan",
-        "postal_code": false,
-        "unofficial_names": [
-          "Uganda",
-          "ウガンダ",
-          "Oeganda"
-        ],
-        "languages_official": [
-          "en",
-          "sw"
-        ],
-        "languages_spoken": [
-          "en",
-          "sw"
-        ],
-        "geo": {
-          "latitude": 1.373333,
-          "latitude_dec": "1.2773280143737793",
-          "longitude": 32.290275,
-          "longitude_dec": "32.389984130859375",
-          "max_latitude": 4.2186278,
-          "max_longitude": 35.0330489,
-          "min_latitude": -1.4823179,
-          "min_longitude": 29.573433,
-          "bounds": {
-            "northeast": {
-              "lat": 4.2186278,
-              "lng": 35.0330489
-            },
-            "southwest": {
-              "lat": -1.4823179,
-              "lng": 29.573433
-            }
-          }
-        },
-        "currency_code": "UGX",
-        "start_of_week": "monday",
-        "translations": {
-          "en": "Uganda"
-        },
-        "translated_names": [
-          "Uganda"
-        ]
-      },
-      {
         "continent": "Europe",
         "address_format": "{{recipient}}\n{{street}}\n{{city}} {{region_short}}\n{{postalcode}}\n{{country}}",
         "alpha2": "UA",
@@ -8813,7 +8813,7 @@
         "national_prefix": "0",
         "number": "784",
         "region": "Asia",
-        "subregion": "Western Asia",
+        "subregion": "Middle East & North Africa",
         "world_region": "EMEA",
         "un_locode": "AE",
         "nationality": "Emirian",
@@ -8890,7 +8890,7 @@
         "national_prefix": "0",
         "number": "826",
         "region": "Europe",
-        "subregion": "Northern Europe",
+        "subregion": "Western Europe",
         "world_region": "EMEA",
         "un_locode": "GB",
         "nationality": "British",
@@ -9040,7 +9040,7 @@
         "national_prefix": "",
         "number": "732",
         "region": "Africa",
-        "subregion": "Northern Africa",
+        "subregion": "Middle East & North Africa",
         "world_region": "EMEA",
         "un_locode": "EH",
         "nationality": "Sahrawi",
@@ -9112,7 +9112,7 @@
         "national_prefix": "0",
         "number": "887",
         "region": "Asia",
-        "subregion": "Western Asia",
+        "subregion": "Middle East & North Africa",
         "world_region": "EMEA",
         "un_locode": "YE",
         "nationality": "Yemeni",
@@ -9177,7 +9177,7 @@
         "national_prefix": "0",
         "number": "894",
         "region": "Africa",
-        "subregion": "Eastern Africa",
+        "subregion": "Sub-Saharan Africa",
         "world_region": "EMEA",
         "un_locode": "ZM",
         "nationality": "Zambian",
@@ -9245,7 +9245,7 @@
         "national_prefix": "0",
         "number": "716",
         "region": "Africa",
-        "subregion": "Eastern Africa",
+        "subregion": "Sub-Saharan Africa",
         "world_region": "EMEA",
         "un_locode": "ZW",
         "nationality": "Zimbabwean",
@@ -9313,7 +9313,7 @@
         "national_prefix": "None",
         "number": "748",
         "region": "Africa",
-        "subregion": "Southern Africa",
+        "subregion": "Sub-Saharan Africa",
         "world_region": "EMEA",
         "un_locode": "SZ",
         "nationality": "Swazi",
@@ -10772,7 +10772,7 @@
         "national_prefix": "0",
         "number": "004",
         "region": "Asia",
-        "subregion": "Southern Asia",
+        "subregion": "South Asia",
         "world_region": "APAC",
         "un_locode": "AF",
         "nationality": "Afghan",
@@ -10841,7 +10841,7 @@
         "national_prefix": "1",
         "number": "016",
         "region": "Oceania",
-        "subregion": "Polynesia",
+        "subregion": "Oceania",
         "world_region": "APAC",
         "un_locode": "AS",
         "nationality": "American Samoan",
@@ -10911,7 +10911,7 @@
         "national_prefix": "0",
         "number": "036",
         "region": "Oceania",
-        "subregion": "Australia and New Zealand",
+        "subregion": "Oceania",
         "world_region": "APAC",
         "un_locode": "AU",
         "nationality": "Australian",
@@ -11641,7 +11641,7 @@
         "national_prefix": "00",
         "number": "184",
         "region": "Oceania",
-        "subregion": "Polynesia",
+        "subregion": "Oceania",
         "world_region": "APAC",
         "un_locode": "CK",
         "nationality": "Cook Islander",
@@ -11707,7 +11707,7 @@
         "national_prefix": "None",
         "number": "242",
         "region": "Oceania",
-        "subregion": "Melanesia",
+        "subregion": "Oceania",
         "world_region": "APAC",
         "un_locode": "FJ",
         "nationality": "Fijian",
@@ -11777,7 +11777,7 @@
         "national_prefix": "None",
         "number": "258",
         "region": "Oceania",
-        "subregion": "Polynesia",
+        "subregion": "Oceania",
         "world_region": "APAC",
         "un_locode": "PF",
         "nationality": "French Polynesian",
@@ -11912,7 +11912,7 @@
         "national_prefix": "1",
         "number": "316",
         "region": "Oceania",
-        "subregion": "Micronesia",
+        "subregion": "Oceania",
         "world_region": "APAC",
         "un_locode": "GU",
         "nationality": "Guamanian",
@@ -12316,7 +12316,7 @@
         "national_prefix": "None",
         "number": "296",
         "region": "Oceania",
-        "subregion": "Micronesia",
+        "subregion": "Oceania",
         "world_region": "APAC",
         "un_locode": "KI",
         "nationality": "I-Kiribati",
@@ -12782,7 +12782,7 @@
         "national_prefix": "1",
         "number": "584",
         "region": "Oceania",
-        "subregion": "Micronesia",
+        "subregion": "Oceania",
         "world_region": "APAC",
         "un_locode": "MH",
         "nationality": "Marshallese",
@@ -12851,7 +12851,7 @@
         "national_prefix": "1",
         "number": "583",
         "region": "Oceania",
-        "subregion": "Micronesia",
+        "subregion": "Oceania",
         "world_region": "APAC",
         "un_locode": "FM",
         "nationality": "Micronesian",
@@ -13050,7 +13050,7 @@
         "national_prefix": "0",
         "number": "520",
         "region": "Oceania",
-        "subregion": "Micronesia",
+        "subregion": "Oceania",
         "world_region": "APAC",
         "un_locode": "NR",
         "nationality": "Nauruan",
@@ -13185,7 +13185,7 @@
         "national_prefix": "None",
         "number": "540",
         "region": "Oceania",
-        "subregion": "Melanesia",
+        "subregion": "Oceania",
         "world_region": "APAC",
         "un_locode": "NC",
         "nationality": "New Caledonian",
@@ -13254,7 +13254,7 @@
         "national_prefix": "0",
         "number": "554",
         "region": "Oceania",
-        "subregion": "Australia and New Zealand",
+        "subregion": "Oceania",
         "world_region": "APAC",
         "un_locode": "NZ",
         "nationality": "New Zealander",
@@ -13329,7 +13329,7 @@
         "national_prefix": "None",
         "number": "570",
         "region": "Oceania",
-        "subregion": "Polynesia",
+        "subregion": "Oceania",
         "world_region": "APAC",
         "un_locode": "NU",
         "nationality": "Niuean",
@@ -13391,7 +13391,7 @@
         "national_prefix": "None",
         "number": "574",
         "region": "Oceania",
-        "subregion": "Australia and New Zealand",
+        "subregion": "Oceania",
         "world_region": "APAC",
         "un_locode": "NF",
         "nationality": "Norfolk Islander",
@@ -13458,7 +13458,7 @@
         "national_prefix": "1",
         "number": "580",
         "region": "Oceania",
-        "subregion": "Micronesia",
+        "subregion": "Oceania",
         "world_region": "APAC",
         "un_locode": "MP",
         "nationality": "American",
@@ -13528,7 +13528,7 @@
         "national_prefix": "0",
         "number": "586",
         "region": "Asia",
-        "subregion": "Southern Asia",
+        "subregion": "South Asia",
         "world_region": "APAC",
         "un_locode": "PK",
         "nationality": "Pakistani",
@@ -13594,7 +13594,7 @@
         "national_prefix": "None",
         "number": "585",
         "region": "Oceania",
-        "subregion": "Micronesia",
+        "subregion": "Oceania",
         "world_region": "APAC",
         "un_locode": "PW",
         "nationality": "Palauan",
@@ -13657,7 +13657,7 @@
         "national_prefix": "None",
         "number": "598",
         "region": "Oceania",
-        "subregion": "Melanesia",
+        "subregion": "Oceania",
         "world_region": "APAC",
         "un_locode": "PG",
         "nationality": "Papua New Guinean",
@@ -13803,7 +13803,7 @@
         "national_prefix": "0",
         "number": "612",
         "region": "Oceania",
-        "subregion": "Polynesia",
+        "subregion": "Oceania",
         "world_region": "APAC",
         "un_locode": "PN",
         "nationality": "Pitcairn Islander",
@@ -14136,7 +14136,7 @@
         "national_prefix": "None",
         "number": "090",
         "region": "Oceania",
-        "subregion": "Melanesia",
+        "subregion": "Oceania",
         "world_region": "APAC",
         "un_locode": "SB",
         "nationality": "Solomon Islander",
@@ -14473,7 +14473,7 @@
         "national_prefix": "None",
         "number": "772",
         "region": "Oceania",
-        "subregion": "Polynesia",
+        "subregion": "Oceania",
         "world_region": "APAC",
         "un_locode": "TK",
         "nationality": "Tokelauan",
@@ -14539,7 +14539,7 @@
         "national_prefix": "None",
         "number": "776",
         "region": "Oceania",
-        "subregion": "Polynesia",
+        "subregion": "Oceania",
         "world_region": "APAC",
         "un_locode": "TO",
         "nationality": "Tongan",
@@ -14672,7 +14672,7 @@
         "national_prefix": "None",
         "number": "798",
         "region": "Oceania",
-        "subregion": "Polynesia",
+        "subregion": "Oceania",
         "world_region": "APAC",
         "un_locode": "TV",
         "nationality": "Tuvaluan",
@@ -14736,7 +14736,7 @@
         "national_prefix": "None",
         "number": "548",
         "region": "Oceania",
-        "subregion": "Melanesia",
+        "subregion": "Oceania",
         "world_region": "APAC",
         "un_locode": "VU",
         "nationality": "Ni-Vanuatu",
@@ -14870,7 +14870,7 @@
         "national_prefix": "None",
         "number": "876",
         "region": "Oceania",
-        "subregion": "Polynesia",
+        "subregion": "Oceania",
         "world_region": "APAC",
         "un_locode": "WF",
         "nationality": "Wallis and Futuna Islander",
@@ -14922,7 +14922,7 @@
     ]
   },
   {
-    "LATAM": [
+    "AMERS": [
       {
         "continent": "South America",
         "address_format": "{{recipient}}\n{{street}}\n{{postalcode}} {{city}} {{region_short}}\n{{country}}",
@@ -14944,7 +14944,7 @@
         "number": "076",
         "region": "Americas",
         "subregion": "South America",
-        "world_region": "LATAM",
+        "world_region": "AMERS",
         "un_locode": "BR",
         "nationality": "Brazilian",
         "vat_rates": {
@@ -15022,8 +15022,8 @@
         "national_prefix": "01",
         "number": "484",
         "region": "Americas",
-        "subregion": "Central America",
-        "world_region": "LATAM",
+        "subregion": "Northern America",
+        "world_region": "AMERS",
         "un_locode": "MX",
         "nationality": "Mexican",
         "vat_rates": {
@@ -15098,7 +15098,7 @@
         "number": "170",
         "region": "Americas",
         "subregion": "South America",
-        "world_region": "LATAM",
+        "world_region": "AMERS",
         "un_locode": "CO",
         "nationality": "Colombian",
         "postal_code": true,
@@ -15165,7 +15165,7 @@
         "number": "032",
         "region": "Americas",
         "subregion": "South America",
-        "world_region": "LATAM",
+        "world_region": "AMERS",
         "un_locode": "AR",
         "nationality": "Argentinean",
         "postal_code": true,
@@ -15234,7 +15234,7 @@
         "number": "604",
         "region": "Americas",
         "subregion": "South America",
-        "world_region": "LATAM",
+        "world_region": "AMERS",
         "un_locode": "PE",
         "nationality": "Peruvian",
         "postal_code": true,
@@ -15299,7 +15299,7 @@
         "number": "862",
         "region": "Americas",
         "subregion": "South America",
-        "world_region": "LATAM",
+        "world_region": "AMERS",
         "un_locode": "VE",
         "nationality": "Venezuelan",
         "postal_code": true,
@@ -15363,7 +15363,7 @@
         "number": "152",
         "region": "Americas",
         "subregion": "South America",
-        "world_region": "LATAM",
+        "world_region": "AMERS",
         "un_locode": "CL",
         "nationality": "Chilean",
         "vat_rates": {
@@ -15434,8 +15434,8 @@
         "national_prefix": "None",
         "number": "320",
         "region": "Americas",
-        "subregion": "Central America",
-        "world_region": "LATAM",
+        "subregion": "Northern America",
+        "world_region": "AMERS",
         "un_locode": "GT",
         "nationality": "Guatemalan",
         "postal_code": true,
@@ -15499,7 +15499,7 @@
         "number": "218",
         "region": "Americas",
         "subregion": "South America",
-        "world_region": "LATAM",
+        "world_region": "AMERS",
         "un_locode": "EC",
         "nationality": "Ecuadorean",
         "postal_code": true,
@@ -15563,7 +15563,7 @@
         "number": "068",
         "region": "Americas",
         "subregion": "South America",
-        "world_region": "LATAM",
+        "world_region": "AMERS",
         "un_locode": "BO",
         "nationality": "Bolivian",
         "postal_code": false,
@@ -15630,8 +15630,8 @@
         "national_prefix": "None",
         "number": "332",
         "region": "Americas",
-        "subregion": "Caribbean",
-        "world_region": "LATAM",
+        "subregion": "Northern America",
+        "world_region": "AMERS",
         "un_locode": "HT",
         "nationality": "Haitian",
         "postal_code": true,
@@ -15696,8 +15696,8 @@
         "national_prefix": "0",
         "number": "192",
         "region": "Americas",
-        "subregion": "Caribbean",
-        "world_region": "LATAM",
+        "subregion": "Northern America",
+        "world_region": "AMERS",
         "un_locode": "CU",
         "nationality": "Cuban",
         "postal_code": true,
@@ -15760,8 +15760,8 @@
         "national_prefix": "1",
         "number": "214",
         "region": "Americas",
-        "subregion": "Caribbean",
-        "world_region": "LATAM",
+        "subregion": "Northern America",
+        "world_region": "AMERS",
         "un_locode": "DO",
         "nationality": "Dominican",
         "postal_code": true,
@@ -15828,8 +15828,8 @@
         "national_prefix": "None",
         "number": "340",
         "region": "Americas",
-        "subregion": "Central America",
-        "world_region": "LATAM",
+        "subregion": "Northern America",
+        "world_region": "AMERS",
         "un_locode": "HN",
         "nationality": "Honduran",
         "postal_code": true,
@@ -15892,7 +15892,7 @@
         "number": "600",
         "region": "Americas",
         "subregion": "South America",
-        "world_region": "LATAM",
+        "world_region": "AMERS",
         "un_locode": "PY",
         "nationality": "Paraguayan",
         "postal_code": true,
@@ -15956,8 +15956,8 @@
         "national_prefix": "None",
         "number": "558",
         "region": "Americas",
-        "subregion": "Central America",
-        "world_region": "LATAM",
+        "subregion": "Northern America",
+        "world_region": "AMERS",
         "un_locode": "NI",
         "nationality": "Nicaraguan",
         "postal_code": true,
@@ -16019,8 +16019,8 @@
         "national_prefix": "None",
         "number": "222",
         "region": "Americas",
-        "subregion": "Central America",
-        "world_region": "LATAM",
+        "subregion": "Northern America",
+        "world_region": "AMERS",
         "un_locode": "SV",
         "nationality": "Salvadoran",
         "postal_code": true,
@@ -16083,8 +16083,8 @@
         "national_prefix": "None",
         "number": "188",
         "region": "Americas",
-        "subregion": "Central America",
-        "world_region": "LATAM",
+        "subregion": "Northern America",
+        "world_region": "AMERS",
         "un_locode": "CR",
         "nationality": "Costa Rican",
         "postal_code": true,
@@ -16147,8 +16147,8 @@
         "national_prefix": "None",
         "number": "591",
         "region": "Americas",
-        "subregion": "Central America",
-        "world_region": "LATAM",
+        "subregion": "Northern America",
+        "world_region": "AMERS",
         "un_locode": "PA",
         "nationality": "Panamanian",
         "postal_code": false,
@@ -16212,7 +16212,7 @@
         "number": "858",
         "region": "Americas",
         "subregion": "South America",
-        "world_region": "LATAM",
+        "world_region": "AMERS",
         "un_locode": "UY",
         "nationality": "Uruguayan",
         "postal_code": true,
@@ -16275,8 +16275,8 @@
         "national_prefix": "1",
         "number": "388",
         "region": "Americas",
-        "subregion": "Caribbean",
-        "world_region": "LATAM",
+        "subregion": "Northern America",
+        "world_region": "AMERS",
         "un_locode": "JM",
         "nationality": "Jamaican",
         "postal_code": false,
@@ -16340,8 +16340,8 @@
         "national_prefix": "1",
         "number": "780",
         "region": "Americas",
-        "subregion": "Caribbean",
-        "world_region": "LATAM",
+        "subregion": "Northern America",
+        "world_region": "AMERS",
         "un_locode": "TT",
         "nationality": "Trinidadian",
         "postal_code": false,
@@ -16407,7 +16407,7 @@
         "number": "254",
         "region": "Americas",
         "subregion": "South America",
-        "world_region": "LATAM",
+        "world_region": "AMERS",
         "un_locode": "GF",
         "nationality": "French Guianan",
         "postal_code": true,
@@ -16473,7 +16473,7 @@
         "number": "740",
         "region": "Americas",
         "subregion": "South America",
-        "world_region": "LATAM",
+        "world_region": "AMERS",
         "un_locode": "SR",
         "nationality": "Surinamer",
         "postal_code": false,
@@ -16535,8 +16535,8 @@
         "national_prefix": "0",
         "number": "084",
         "region": "Americas",
-        "subregion": "Central America",
-        "world_region": "LATAM",
+        "subregion": "Northern America",
+        "world_region": "AMERS",
         "un_locode": "BZ",
         "nationality": "Belizean",
         "postal_code": false,
@@ -16601,8 +16601,8 @@
         "national_prefix": "1",
         "number": "044",
         "region": "Americas",
-        "subregion": "Caribbean",
-        "world_region": "LATAM",
+        "subregion": "Northern America",
+        "world_region": "AMERS",
         "un_locode": "BS",
         "nationality": "Bahamian",
         "postal_code": false,
@@ -16665,8 +16665,8 @@
         "national_prefix": "1",
         "number": "052",
         "region": "Americas",
-        "subregion": "Caribbean",
-        "world_region": "LATAM",
+        "subregion": "Northern America",
+        "world_region": "AMERS",
         "un_locode": "BB",
         "nationality": "Barbadian",
         "postal_code": true,
@@ -16730,8 +16730,8 @@
         "national_prefix": "1",
         "number": "662",
         "region": "Americas",
-        "subregion": "Caribbean",
-        "world_region": "LATAM",
+        "subregion": "Northern America",
+        "world_region": "AMERS",
         "un_locode": "LC",
         "nationality": "Saint Lucian",
         "postal_code": false,
@@ -16797,8 +16797,8 @@
         "national_prefix": "1",
         "number": "308",
         "region": "Americas",
-        "subregion": "Caribbean",
-        "world_region": "LATAM",
+        "subregion": "Northern America",
+        "world_region": "AMERS",
         "un_locode": "GD",
         "nationality": "Grenadian",
         "postal_code": false,
@@ -16860,8 +16860,8 @@
         "national_prefix": "1",
         "number": "670",
         "region": "Americas",
-        "subregion": "Caribbean",
-        "world_region": "LATAM",
+        "subregion": "Northern America",
+        "world_region": "AMERS",
         "un_locode": "VC",
         "nationality": "Saint Vincentian",
         "postal_code": true,
@@ -16930,8 +16930,8 @@
         "national_prefix": "1",
         "number": "028",
         "region": "Americas",
-        "subregion": "Caribbean",
-        "world_region": "LATAM",
+        "subregion": "Northern America",
+        "world_region": "AMERS",
         "un_locode": "AG",
         "nationality": "Antiguan, Barbudan",
         "postal_code": false,
@@ -16997,8 +16997,8 @@
         "national_prefix": "1",
         "number": "212",
         "region": "Americas",
-        "subregion": "Caribbean",
-        "world_region": "LATAM",
+        "subregion": "Northern America",
+        "world_region": "AMERS",
         "un_locode": "DM",
         "nationality": "Dominican",
         "postal_code": false,
@@ -17060,8 +17060,8 @@
         "national_prefix": "1",
         "number": "659",
         "region": "Americas",
-        "subregion": "Caribbean",
-        "world_region": "LATAM",
+        "subregion": "Northern America",
+        "world_region": "AMERS",
         "un_locode": "KN",
         "nationality": "Kittian and Nevisian",
         "postal_code": false,

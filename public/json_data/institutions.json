@@ -1,0 +1,48 @@
+[
+  {
+    "Bank": [
+      {
+        "Retail Bank": {
+          "products": ["Current Account", "Savings Accounts", "Mortgages", "Loans", "ISA", "Credit Cards", "Foreign Exchange", "Insurance", "Financial Advice & Planning", "International Payments"],
+          "channels": ["ATM", "Branch", "Telephone", "Web", "Mobile", "Post Office"] 
+        }
+      },
+      {
+        "Digital Only Bank": {
+          "products": ["Current Account", "Savings Accounts", "Mortgages", "Loans", "ISA", "Credit Cards", "Foreign Exchange", "Insurance", "Financial Advice & Planning", "International Payments"],
+          "channels": ["ATM", "Branch", "Telephone", "Web", "Mobile", "Post Office"]
+        }
+      },
+      {
+        "Business Bank": {
+          "products": ["Current Account", "Savings Accounts", "Mortgages", "Loans", "ISA", "Credit Cards", "Foreign Exchange", "Insurance", "Financial Advice & Planning", "International Payments"],
+          "channels": ["ATM", "Branch", "Telephone", "Web", "Mobile", "Post Office"]
+        }
+      },
+      {
+        "Wealth Management": {
+          "products": [ "Money Market Accounts", "Certificates of Deposits", "Money Market Funds", "Bonds", "Equities", "Mutual Funds", "Exchange Traded Funds", "Structured Products", "Private Equity Funds", "Hedge Funds", "Foreign Exchange", "Derivatives", "Fixed Income"],
+          "channels": ["ATM", "Branch", "Telephone", "Web", "Mobile", "Post Office"]
+        }
+      },
+      {
+        "Investment Management": {
+          "products": ["Cash ISA", "Self-Invested Pensions", "Stocks and Shares ISA", "Foreign Exchange", "Derivatives", "Credit Derivatives", "Fixed Income", "Equities", "Commodities", "Bonds", "Investment Funds", "Options", "Annuities", "Retirement Plans"],
+          "channels": ["ATM", "Branch", "Telephone", "Web", "Mobile", "Post Office"]
+        }
+      },
+      {
+        "Mutual Bank": {
+          "products": [ "Current Account", "Savings Accounts", "Mortgages", "Loans", "ISA", "Credit Cards", "Foreign Exchange", "Insurance", "Financial Advice & Planning", "Bank Draft", "Foreign Currency Cheque", "International Payments"],
+          "channels": ["ATM", "Branch", "Telephone", "Web", "Mobile", "Post Office"]
+        }
+      },
+      {
+        "Commercial Bank": {
+          "products": ["Industrial Loans", "Project Finance", "Syndicated Loans", "Leasing", "Foreign Trade Financing", "Bills of Exchange", "Current Accounts", "Savings Accounts", "Certificates of Deposit"],
+          "channels": ["ATM", "Branch", "Telephone", "Web", "Mobile", "Post Office"]
+        }
+      }
+    ]
+  }
+]

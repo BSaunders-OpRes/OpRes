@@ -3,7 +3,8 @@
   <div class="col-md-12">
     <div class="card border-0 text-center">
       <div class="card-body px-5">
-        <%= form_tag organisation_journey_path("countries/#{@region_operator.lower_name}/#{@country_operator.lower_alpha2}"), remote: true do %>
+        <%= form_tag organisation_journey_path("country_setup/#{@region_operator.lower_name}/#{@country_operator.lower_alpha2}"), remote: true do %>
+          <% index= 0 %>
           <div class="d-flex justify-content-between my-3">
             <%= link_to organisation_journey_path("institutions/#{@region_operator.lower_name}/#{@country_operator.lower_alpha2}"), class: 'text-capitalize text-dark text-decoration-none' do %>
               <span><i class="fa fa-arrow-left" aria-hidden="true"></i></span>
@@ -27,51 +28,37 @@
           </ul>
           <div class="tab-content py-4" id="myTabContent">
             <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-              <div class="row no-gutters">
-                <div class="form-group col-md-3 px-1 mb-2">
-                  <%= text_field_tag 'user[first_name]', nil,class:'form-control font-12 text-black py-3 shadow-none', placeholder: 'First Name' %>
-                </div>
-                <div class="form-group col-md-3 px-1 mb-2">
-                  <%= text_field_tag 'user[last_name]', nil,class:'form-control font-12 text-black py-3 shadow-none', placeholder: 'Last Name' %>
-                </div>
-                <div class="form-group col-md-3 px-1 mb-2">
-                  <%= email_field_tag 'user[email]', nil, class: 'form-control font-12 py-3 shadow-none', placeholder:'Email' %>
-                </div>
-                <div class="form-group col-md-3 px-1 mb-2">
-                  <%= select_tag 'user[permissions]', options_for_select(Manager.permissions.map { |k, v| [k.titleize, k] }),prompt: 'Permissions', multiple: false, class: 'form-control w-100 font-12 shadow-none' %>
-                </div>
+              <div id="user-invitation">
+                <%= render 'organisation/journeys/partials/user_invitation', index: index %>
               </div>
               <div class="row mb-4 mt-2 no-gutters">
                 <div class="col-md-12 text-left px-1">
-                  <a href="#" class="text-black d-flex align-items-center">
-                    <i class='fa fa-plus-circle font-16'></i>
-                    <span class="text-capitalize font-12 ml-2">Add Another</span>
-                  </a>
+                  <%= link_to 'javascript:void(0);', 'data-target': organisation_build_user_invitation_path, class: 'build-user-invitation d-flex align-items-center text-left text-black mt-4' do %>
+                    <i class="fa fa-plus-circle font-16"></i>
+                    <span class="ml-1 font-12">
+                      Add another
+                    </span>
+                  <% end %>
                 </div>
               </div>
               <div class="row no-gutters">
                 <div class="col-md-12 px-1">
-                  <%#= text_area_tag 'message', class: 'form-control font-12', name: '', cols: '30', rows: '4', placeholder: 'Add a personalised invite message'%>
-                  <textarea class="form-control font-12", cols="30", rows="4", placeholder="Add a personalised invite message"></textarea>
+                  <%= text_area_tag 'users[single][message]', nil, class: 'form-control font-12', placeholder: 'Add a personalised invite message', cols: '30', rows: '4' %>
                 </div>
               </div>
             </div>
             <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
               <div class="row mb-4">
                 <div class="col-md-9">
-                  <textarea class="form-control font-12" name="" id="" cols="30" rows="4" placeholder="Email Addresses (Seperate emails withg a comma)"></textarea>
+                  <%= text_area_tag 'users[multiple][csv]', nil, class: 'form-control font-12', placeholder: 'Email Addresses (Seperate emails with a comma)', cols: '30', rows: '4' %>
                 </div>
                 <div class="form-group col-md-3">
-                  <select class="form-control w-100 font-12 shadow-none">
-                    <option value="">Permissions</option>
-                    <option value="">Super User</option>
-                    <option value="">Standar User</option>
-                  </select>
+                  <%= select_tag 'users[multiple][permission]', options_for_select(Manager.permissions.map { |k, v| [k.titleize, k] }),prompt: 'Permissions', multiple: false, class: 'form-control w-100 font-12 shadow-none' %>
                 </div>
               </div>
               <div class="row">
                 <div class="col-md-12">
-                  <textarea class="form-control font-12" name="message" id="" cols="30" rows="4" placeholder="Add a personalised invite message"></textarea>
+                  <%= text_area_tag 'users[multiple][message]', nil, class: 'form-control font-12', placeholder: 'Add a personalised invite message', cols: '30', rows: '4' %>
                 </div>
               </div>
             </div>
