@@ -28,7 +28,7 @@
                 <% selected_institution_units = institution_units.where(institution_id: institution.id) %>
                 <div class="form-group mb-4 institution-block">
                   <label class="d-flex justify-content-between align-items-center custom-checkbox px-0 pb-4 border-bottom" for="<%= "institution-#{institution.name}" %>">
-                    <span class="text-uppercase font-14 font-400 text-capitalize"><%= institution.name %></span>
+                    <span class="text-uppercase font-14 font-400 text-capitalize text-left"><%= institution.name %></span>
                     <%= check_box_tag "institutions[#{institution.id}][name]", institution.name, institution_units&.pluck(:institution_id)&.include?(institution.id), class: 'form-control w-auto', id: "institution-#{institution.name}", 'data-toggle': 'collapse', 'data-target': "#institution-collapse-#{institution.id}" %>
                     <span class="checkmark position-relative"></span>
                   </label>
@@ -63,7 +63,7 @@
           <div class="w-65 mx-auto">
             <div class="row w-100 mx-auto my-3">
               <div class="col-md-4 col-sm pr-md-1 px-auto mb-sm-0 mb-3">
-                <button class="text-capitalize btn-outline-secondary border font-500 font-12 w-100 py-2 text-black rounded border-0">save & exit</button>
+                <%= link_to 'save & exit',organisation_journey_path("country_setup/#{@region_operator.lower_name}"), class: 'text-capitalize text-decoration-none border font-500 font-12 w-100 py-2 text-black rounded border-0 w-100 d-block bg-body-color' %>
               </div>
               <div class="col-md-8 col-sm pl-md-1 px-auto">
                 <%= submit_tag 'Next', class: 'text-capitalize dark-btn font-500 font-12 w-100 py-2 rounded border-0' %>

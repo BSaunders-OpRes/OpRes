@@ -16,8 +16,6 @@ class Organisation::JourneysController < Organisation::BaseController
   def build_institution
     @institution  = Institution.find(params[:institution])
     @index        = params[:index].to_i
-    @all_products = organisational_unit.products
-    @all_channels = organisational_unit.channels
   end
 
   private
@@ -147,7 +145,7 @@ class Organisation::JourneysController < Organisation::BaseController
     end
 
     users_info.each do |user_data|
-      user = User.create_with(user_data.dig(:basic))
+      user = organisational_unit.users.create_with(user_data.dig(:basic))
                  .find_or_create_by(email: user_data.dig(:basic, :email))
 
       next if user.errors.present?
@@ -189,7 +187,5 @@ class Organisation::JourneysController < Organisation::BaseController
 
   def load_institutions_data
     @all_institutions = organisational_unit.institutions
-    @all_products     = organisational_unit.products
-    @all_channels     = organisational_unit.channels
   end
 end

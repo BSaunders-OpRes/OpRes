@@ -14,30 +14,91 @@
     </div>
 
     <% unit_products = selected_institution_unit&.unit_products || [] %>
-    <% @all_products.each do |product| %>
+    <% institution.products.each do |product| %>
       <% selected_unit_product = unit_products.select { |up| up.product_id == product.id }.first %>
       <div class="row">
         <div class="col">
           <div class="form-group my-1">
             <label class="custom-checkbox d-flex pl-4" for="<%= "#{index}#{institution.id}#{product.id}" %>">
-              <span class="font-12 text-black text-capitalize"><%= product.name %></span>
+              <span class="font-12 text-black text-capitalize text-left"><%= product.name %></span>
               <%= check_box_tag "institutions[#{institution.id}][#{index}][products][#{product.id}][name]", product.name, unit_products&.pluck(:product_id)&.include?(product.id), class: 'form-control w-auto', id: "#{index}#{institution.id}#{product.id}" %>
               <span class="transparent-checkmark"></span>
             </label>
           </div>
         </div>
-        <div class="col">
-          <a href="" class="text-black d-flex my-1 align-items-center" data="<%= product %>" data-toggle="modal" data-target="#institution-<%= institution.id %>-<%= index %>-product-<%= product.id %>">
-            <i class="fa fa-plus-circle"></i>
-            <span class="font-12 text-capitalize font-600 ml-2">add more</span>
-          </a>
+        <div class="col d-flex align-items-center justify-content-between">
+          <% if selected_unit_product&.channels&.count.to_i.zero? %>
+            <a href="" class="text-black d-flex my-1 align-items-center" data="<%= product %>" data-toggle="modal" data-target="#institution-<%= institution.id %>-<%= index %>-product-<%= product.id %>">
+              <i class="fa fa-plus-circle"></i>
+              <span class="font-12 text-capitalize font-600 ml-2">Add channels</span>
+            </a>
+          <% else %>
+            <span class="text-left font-12 font-600">
+              <%= selected_unit_product.channels[0..1].map(&:name).join(', ') %>
+              <% remaining_channels_count = selected_unit_product.channels.count - 2 %>
+              <%= "+ #{remaining_channels_count} More" if remaining_channels_count.positive? %>
+            </span>
+            <a href="" class="text-black d-flex my-1 align-items-center" data="<%= product %>" data-toggle="modal" data-target="#institution-<%= institution.id %>-<%= index %>-product-<%= product.id %>">
+              <span class="font-12 text-capitalize font-600 ml-2">EDIT</span>
+            </a>
+          <% end %>
         </div>
         <%= render 'organisation/journeys/partials/channels', institution: institution, product: product, selected_unit_product: selected_unit_product, index: index %>
       </div>
     <% end %>
-    <a href="#" class="d-flex align-items-center text-left text-black">
+    <a href="#" class="d-flex align-items-center text-left text-black" data-toggle="modal" data-target="#add_product">
       <span><i class="fa fa-plus-circle font-16"></i></span>
       <span class="font-12 ml-1">Add another product</span>
     </a>
+  </div>
+</div>
+
+<div class="modal fade mt-5 pt-5" id="add_product" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header pb-0 border-0">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body px-4 py-0">
+        <h5 class="text-capitalize mb-4">add product</h5>
+        <div class="row align-items-center mb-4">
+          <div class="col-sm-4 flex-sm-1 mb-2 mb-sm-0 text-left">
+            <p class="text-capitalize font-14 font-600">product name</p>
+          </div>
+          <div class="col-sm-8 order-3 order-sm-2">
+            <input type="text" placeholder="Enter Name" class="w-100 form-control font-12 h-auto py-3 shadow-none">
+          </div>
+        </div>
+        <div class="row align-items-center">
+          <div class="col-sm-4 flex-sm-1 mb-2 mb-sm-0 text-left">
+            <p class="text-capitalize font-14 font-600">channel type</p>
+          </div>
+          <div class="col-sm-8 order-3 order-sm-2">
+            <div class="d-flex">
+              <label for="69" class="custom-checkbox d-flex align-items-center px-0 mr-2">
+                <span class="order-2 mr-2 text-capitalize font-12 ml-1">telephone</span>
+                <input type="checkbox" id='69' placeholder="Enter Name" class="w-100 form-control font-12 h-auto py-3 shadow-none">
+                <span class="checkmark position-relative order-1"></span>
+              </label>
+              <label for="69" class="custom-checkbox d-flex align-items-center px-0 mr-2">
+                <span class="order-2 mr-2 text-capitalize font-12 ml-1">web</span>
+                <input type="checkbox" id='69' placeholder="Enter Name" class="w-100 form-control font-12 h-auto py-3 shadow-none">
+                <span class="checkmark position-relative order-1"></span>
+              </label>
+              <label for="69" class="custom-checkbox d-flex align-items-center px-0 mr-2">
+                <span class="order-2 mr-2 text-capitalize font-12 ml-1">app</span>
+                <input type="checkbox" id='69' placeholder="Enter Name" class="w-100 form-control font-12 h-auto py-3 shadow-none">
+                <span class="checkmark position-relative order-1"></span>
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer border-0">
+        <button type="button" class="btn py-2 black-btn">Save changes</button>
+      </div>
+    </div>
   </div>
 </div>

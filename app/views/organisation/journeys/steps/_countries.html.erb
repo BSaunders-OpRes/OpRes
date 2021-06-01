@@ -2,7 +2,7 @@
 <div class="row">
   <div class="col-md-12">
     <div class="card border-0 text-center">
-    <%= form_tag organisation_journey_path("country_setup/#{@region_operator.lower_name}"), remote: true do %>
+    <%= form_tag organisation_journey_path("country_setup/#{@region_operator.lower_name}"), id: 'country-setup-form', remote: true do %>
       <div class="card-body px-sm-5 p-3">
         <div class="d-flex justify-content-between my-3">
         <%= link_to organisation_journey_path("account_setup/#{@region_operator.lower_name}"), class: 'text-capitalize text-dark text-decoration-none' do %>
@@ -22,31 +22,30 @@
           <div class="form-group">
             <div class="search-field my-4">
               <i class="fa fa-search"></i>
-              <input type="text" class="bg-body-color form-control font-12 border-0 shadow-none" placeholder="Search countries">
+              <input type="text" class="bg-body-color form-control font-12 border-0 shadow-none" placeholder="Search countries" id="country-search-filter" >
             </div>
           </div>
           <div class="text-right mb-4">
-            <a href="" class="text-decoration-none text-capitalize font-12 text-black font-600 font-xxl-14">select all</a>
+            <label for="select-all-countries" class="custom-checkbox d-flex p-0 justify-content-end align-items-center pr-2">
+              <span class="font-13 text-capitalize mr-2 font-600">select all</span>
+              <input type="checkbox" class="text-decoration-none text-capitalize font-12 text-black font-600 font-xxl-14" id="select-all-countries" value="selectAll">
+              <span class="checkmark position-relative"></span>
+            </label>
           </div>
         </div>
         <div class="h-522">
           <div class="w-md-50 w-100 px-2 mx-auto">
-            <% country_units = @regional_unit.children %>
-            <% @all_countries.each do |country| %>
-              <div class="form-group mb-4">
-                  <label class="d-flex justify-content-between align-items-center custom-checkbox px-0 pb-4 border-bottom" for="<%= "country-#{country.name.parameterize}" %>">
-                    <span class="text-uppercase font-14 font-400"><%= country.name %></span>
-                    <%= check_box_tag "countries[#{country.id}]", country.name, country_units.pluck(:country_id).include?(country.id), class: 'form-control w-auto', id: "country-#{country.name.parameterize}" %>
-                    <span class="checkmark position-relative"></span>
-                  </label>
-              </div>
-            <% end %>
+            <div id="countries-partial">
+             <%= render 'organisation/journeys/partials/countries' %>
+            </div>
           </div>
         </div>
-        <div class="w-md-50 w-100 mx-auto my-4">
-          <div class="row">
+      </div>
+      <div class="bottom-btns border-top py-3 bg-white">
+        <div class="w-65 mx-auto">
+          <div class="row w-100 mx-auto my-3">
             <div class="col-md-4 col-sm pr-md-1 px-auto mb-sm-0 mb-3">
-              <%= link_to 'save & exit',organisation_journey_path("account_setup/#{@region_operator.lower_name}"), class: 'text-capitalize btn-outline-secondary border font-500 font-12 w-100 py-2 text-black rounded border-0' %>
+              <%= link_to 'save & exit',organisation_journey_path("account_setup/#{@region_operator.lower_name}"), class: 'text-capitalize text-decoration-none border font-500 font-12 w-100 py-2 text-black rounded border-0 w-100 d-block bg-body-color' %>
             </div>
             <div class="col-md-8 col-sm pl-md-1 px-auto">
             <%= submit_tag 'Next', class: 'text-capitalize dark-btn font-500 font-12 w-100 py-2 rounded border-0' %>

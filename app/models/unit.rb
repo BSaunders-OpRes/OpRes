@@ -18,14 +18,14 @@ class Unit < ApplicationRecord
   has_many :supplier_contacts
   has_many :suppliers
   has_many :business_service_lines
-  has_many :institutions, dependent: :destroy
-  has_many :products
-  has_many :channels
+  has_many :institutions,  dependent: :destroy
+  has_many :products,      dependent: :destroy
+  has_many :channels,      dependent: :destroy
   has_many :unit_products, dependent: :destroy
   has_many :unit_level_products, through: :unit_products, source: :product
 
   # Validations #
-  # validates :name, presence: true
+  validates :name, presence: true
 
   # Enums #
   enum unit_type: %i[bank building_society insurer designated_investment_firm payments_services_institution recognised_investment_exchange electronic_money_institution enhanced_scope_senior_managers_and_certification_regime]
