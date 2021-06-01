@@ -1,6 +1,6 @@
 [
   {
-    "Bank": [
+    "bank": [
       {
         "Retail Bank": {
           "products": ["Current Account", "Savings Accounts", "Mortgages", "Loans", "ISA", "Credit Cards", "Foreign Exchange", "Insurance", "Financial Advice & Planning", "International Payments"],

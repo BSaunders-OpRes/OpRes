@@ -1,0 +1,10 @@
+<% country_units = @regional_unit.children %>
+<% @all_countries.each do |country| %>
+  <div class="form-group mb-4 country-list" >
+    <label class="d-flex justify-content-between align-items-center custom-checkbox px-0 pb-4 border-bottom" for="<%= "country-#{country.name.parameterize}" %>">
+      <span class="text-uppercase font-14 font-400"><%= country.name %></span>
+      <%= check_box_tag "countries[#{country.id}]", country.name, country_units.pluck(:country_id).include?(country.id), class: "form-control w-auto country", id: "country-#{country.name.parameterize}" %>
+      <span class="checkmark position-relative"></span>
+    </label>
+  </div>
+<% end %>

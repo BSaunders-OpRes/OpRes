@@ -5,24 +5,6 @@ user = User.create_with(first_name: 'Application', last_name: 'Admin', password:
 # user.confirm
 # Application Admin #
 
-# Institutions #
-%w[Retail\ Bank Business\ Bank Commercial\ Bank Investment\ Bank Union\ Bank Wealth\ Management].each do |institution|
-  PreInstitution.create_with(description: institution).find_or_create_by(name: institution)
-end
-# Institutions #
-
-# Products #
-%w[Current\ Account Mortgages Loans Credit\ Cards Savings\ Accounts Checking\ Account Treasury\ Service Payment\ Processing Securities Mergers\ &\ Acqusition Fixed\ Income Foreign\ Exchange Underwriting Derivative Equity Comodity].each do |product|
-  PreProduct.create_with(description: product).find_or_create_by(name: product)
-end
-# Products #
-
-# Channels #
-%w[Web Mobile ATM Branch Telephony].each do |channel|
-  PreChannel.create_with(description: channel).find_or_create_by(name: channel)
-end
-# Channels #
-
 # Import Countries #
 countries_file = Rails.root.join('public', 'json_data', 'countries.json')
 countries_data = File.read(countries_file)
@@ -63,3 +45,30 @@ JSON.parse(countries_data).each do |region_with_countries|
   end
 end
 # Import Countries #
+
+# Import Institutions, Products, and Channels#
+ipcs_file = Rails.root.join('public','json_data','institutions.json')
+ipcs_data = File.read(ipcs_file)
+JSON.parse(ipcs_data).each do |unit_type_data|
+  unit_type_data.each do |unit_type, institutions_data|
+    institutions_data.each do |institution_data|
+      institution_data.each do |institution_name, pc_data|
+        pre_institution = PreInstitution.create_with(description: institution_name).find_or_create_by(name: institution_name, unit_type: unit_type)
+
+        pre_products = []
+        pc_data.dig('products').each do |product|
+          pre_product   = PreProduct.create_with(description: product).find_or_create_by(name: product)
+          pre_products << pre_product
+
+          pre_channels = []
+          pc_data.dig('channels').each do |channel|
+            pre_channels << PreChannel.create_with(description: channel).find_or_create_by(name: channel)
+          end
+          pre_product.pre_channel_ids = pre_channels.map(&:id)
+        end
+        pre_institution.pre_product_ids = pre_products.map(&:id)
+      end
+    end
+  end
+end
+# Import Institutions, Products, and Channels#

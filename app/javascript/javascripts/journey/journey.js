@@ -27,11 +27,30 @@ document.addEventListener('turbolinks:load', function() {
     });
   });
 
-
-
   if ($('#onboarding-finish').length >0) {
     setTimeout(function() {
       window.location.href = '/organisation/dashboard';
     }, 2000);
   }
+
+  $('body').on('click', '#select-all-countries', function() {
+    if(this.checked) {
+      $('#countries-partial .country').prop('checked', true);
+    } else {
+      $('#countries-partial .country').prop('checked', false);
+    }
+  });
+
+  $('body').on('keypress', '#country-setup-form', function(e) {
+    if (e.keyCode == 13) {
+      return false;
+    }
+  });
+
+  $('body').on('keyup', '#country-search-filter', function() {
+    var value = $(this).val().toLowerCase();
+    $('#countries-partial .country-list').filter(function(index, ele) {
+      $(this).toggle($(ele).text().toLowerCase().indexOf(value) > -1)
+    });
+  });
 });

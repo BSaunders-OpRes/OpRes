@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_26_052235) do
+ActiveRecord::Schema.define(version: 2021_05_28_110857) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -104,6 +104,15 @@ ActiveRecord::Schema.define(version: 2021_05_26_052235) do
     t.index ["supplier_id"], name: "index_incidents_on_supplier_id"
   end
 
+  create_table "institution_products", force: :cascade do |t|
+    t.bigint "institution_id"
+    t.bigint "product_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["institution_id"], name: "index_institution_products_on_institution_id"
+    t.index ["product_id"], name: "index_institution_products_on_product_id"
+  end
+
   create_table "institutions", force: :cascade do |t|
     t.bigint "unit_id"
     t.string "name"
@@ -190,6 +199,15 @@ ActiveRecord::Schema.define(version: 2021_05_26_052235) do
     t.text "description"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "product_channels", force: :cascade do |t|
+    t.bigint "product_id"
+    t.bigint "channel_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["channel_id"], name: "index_product_channels_on_channel_id"
+    t.index ["product_id"], name: "index_product_channels_on_product_id"
   end
 
   create_table "products", force: :cascade do |t|
@@ -383,6 +401,8 @@ ActiveRecord::Schema.define(version: 2021_05_26_052235) do
   add_foreign_key "cloud_hosting_providers", "suppliers"
   add_foreign_key "countries", "regions"
   add_foreign_key "incidents", "suppliers"
+  add_foreign_key "institution_products", "institutions"
+  add_foreign_key "institution_products", "products"
   add_foreign_key "institutions", "units"
   add_foreign_key "key_contact_suppliers", "key_contacts"
   add_foreign_key "key_contact_suppliers", "suppliers"
@@ -394,6 +414,8 @@ ActiveRecord::Schema.define(version: 2021_05_26_052235) do
   add_foreign_key "pre_institution_products", "pre_products"
   add_foreign_key "pre_product_channels", "pre_channels"
   add_foreign_key "pre_product_channels", "pre_products"
+  add_foreign_key "product_channels", "channels"
+  add_foreign_key "product_channels", "products"
   add_foreign_key "products", "units"
   add_foreign_key "relationship_owners", "suppliers"
   add_foreign_key "risk_appetites", "business_service_lines"
