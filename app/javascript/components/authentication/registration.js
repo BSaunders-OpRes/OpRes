@@ -12,6 +12,9 @@ import Logo              from '../../images/logo.png';
 import { organisationTypes } from '../../libraries/helpers/constants';
 
 export default function Registration() {
+  const [first_name, setFirstName]                        = useState('');
+  const [last_name, setLastName]                          = useState('');
+  const [job_title, setJobTitle]                          = useState('');
   const [email, setEmail]                                 = useState('');
   const [emailError, setEmailError]                       = useState('');
   const [password, setPassword]                           = useState('');
@@ -42,7 +45,18 @@ export default function Registration() {
       return;
     }
 
-    const user = { user: { email: email, password: password }, organisation: { name: organisationName, unit_type: organisationType } }
+    const user = { 
+      user: { 
+        first_name,
+        last_name,
+        job_title,
+        email,
+        password 
+      },
+      organisation: { 
+        name: organisationName,
+        unit_type: organisationType 
+      } }
     authentication.signup(user)
     .then(resp => redirection(resp))
     .catch(err => error_handling(err))
@@ -75,15 +89,15 @@ export default function Registration() {
                       <h3 className="font-600 w-100 mt-2 mb-3">Sign Up</h3>
                     </div>
                     <div className="form-group col-md-12 animated-field">
-                      <input type="text" name="name" className='form-control border-0' placeholder='First Name' />
+                      <input type="text" value={first_name} name="first_name" className='form-control border-0' placeholder='First Name' onChange={e => setFirstName(e.target.value)} />
                       <label>First Name</label>
                     </div>
                     <div className="form-group col-md-12 animated-field">
-                      <input type="text" name="name" className='form-control border-0' placeholder='Last Name' />
+                      <input type="text" value={last_name} name="last_name" className='form-control border-0' placeholder='Last Name' onChange={e => setLastName(e.target.value)} />
                       <label>Last Name</label>
                     </div>
                     <div className="form-group col-md-12 animated-field">
-                      <input type="text" name="name" className='form-control border-0' placeholder='Job Title' />
+                      <input type="text" value={job_title} name="name" className='form-control border-0' placeholder='Job Title' onChange={e => setJobTitle(e.target.value)} />
                       <label>Job Title</label>
                     </div>
                     <div className="form-group col-md-12 animated-field">
@@ -102,7 +116,7 @@ export default function Registration() {
                       <label>Organisation Name</label>
                       <div className='error'>{organisationNameError}</div>
                     </div>
-                    <div class="form-group col-md-12">
+                    <div className="form-group col-md-12">
                       <select className='form-control border-0 signup-select' name="organisationtype" placeholder='Organization Type' onChange={e => setOrganisationType(e.target.value)}>
                         <option value="">Please select organisation type</option>
                         {Object.entries(organisationTypes).map((type) => {
@@ -111,10 +125,10 @@ export default function Registration() {
                           )}
                         )}
                       </select>
-                      <i class="fa fa-sort-desc pr-2 mr-2" aria-hidden="true"></i>
+                      <i className="fa fa-sort-desc pr-2 mr-2" aria-hidden="true"></i>
                       <div className='error'>{organisationTypeError}</div>
                     </div>
-                    <div class="form-group col-md-12">
+                    <div className="form-group col-md-12">
                       <button type="submit" value="Submit" className='btn-submit w-100 p-2'>
                         Sign Up
                       </button>
