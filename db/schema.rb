@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_28_110857) do
+ActiveRecord::Schema.define(version: 2021_06_02_055708) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -349,6 +349,7 @@ ActiveRecord::Schema.define(version: 2021_05_28_110857) do
     t.bigint "institution_id"
     t.bigint "region_id"
     t.bigint "country_id"
+    t.integer "status", default: 0
     t.index ["country_id"], name: "index_units_on_country_id"
     t.index ["institution_id"], name: "index_units_on_institution_id"
     t.index ["parent_id"], name: "index_units_on_parent_id"

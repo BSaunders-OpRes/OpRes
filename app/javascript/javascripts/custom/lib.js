@@ -21,4 +21,16 @@ document.addEventListener('turbolinks:load', function() {
       $(this).find('a i').removeClass('fa-angle-up').addClass('fa-angle-down');
     }
   });
+
+  $('body').on('click', '.wait-loader', function() {
+    show_loader();
+  });
+
+  window.show_loader = function() {
+    $('.loader-wrapper').removeClass('d-none');
+  }
+
+  window.hide_loader = function() {
+    $('.loader-wrapper').addClass('d-none');
+  }
 });

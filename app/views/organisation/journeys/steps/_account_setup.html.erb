@@ -25,18 +25,18 @@
               <div class="right-side d-flex justify-content-between">
                 <a href="" class="font-13 font-xxl-14 text-green">
                   <i class="fa fa-check"></i>
-                  <span class="text-capitalize ml-2">completed</span>
+                  <span class="text-capitalize ml-2"><%= organisational_unit.status%></span>
                 </a>
 
                 <%= link_to organisation_journey_path('organisation'), class: 'font-13 font-xxl-14 text-white' do %>
-                  <span class="text-capitalize mr-2">edit</span>
+                  <span class="text-capitalize mr-2"><%= btn_text(organisational_unit.status) %></span>
                   <i class="fa fa-angle-right font-16"></i>
                 <% end %>
               </div>
             </div>
           </div>
         </div>
-        <% organisational_unit.children&.map(&:region).each do |region| %>
+        <% organisational_unit.children.map{ |regional_unit| [regional_unit.region, regional_unit.status] }.each do |region, completion_status| %>
           <div class="white-selection bg-white rounded d-flex border mt-2">
             <div class="row align-items-center flex-1 py-md-3 px-md-4 p-3">
               <div class="col-md-7">
@@ -51,10 +51,10 @@
                 <div class="right-side d-flex justify-content-between">
                   <a href="" class="font-13 font-xxl-14 text-dark-yellow">
                     <i class="fa fa-check d-none"></i>
-                    <span class="text-capitalize ml-0">In progress</span>
+                    <span class="text-capitalize ml-0"><%= completion_status %></span>
                   </a>
                     <%= link_to organisation_journey_path("countries/#{region.lower_name}"), class: 'font-13 font-xxl-14 text-black' do %>
-                      <span class="text-capitalize mr-2">resume</span>
+                      <span class="text-capitalize mr-2"><%= btn_text(completion_status) %></span>
                       <i class="fa fa-angle-right font-16"></i>
                     <% end %>
                 </div>
@@ -62,7 +62,7 @@
             </div>
           </div>
         <% end %>
-        <%= link_to 'Save & Complete setup', organisation_journey_path('finish'), class: 'btn dark-btn mt-5 font-600 px-4 font-12 font-xxl-14 text-capitalize' %>
+        <%= link_to 'Save & Complete setup', organisation_journey_path('finish'), class: 'btn dark-btn mt-5 font-600 px-4 font-12 font-xxl-14 text-capitalize wait-loader' %>
       </div>
     </div>
   </div>

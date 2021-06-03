@@ -50,6 +50,8 @@ class Organisation::JourneysController < Organisation::BaseController
     elsif params.dig(:users).present?
       save_users_data
     end
+
+    organisational_unit.update_units_status
   end
 
   def save_organisation_data

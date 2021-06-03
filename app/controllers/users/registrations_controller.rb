@@ -116,6 +116,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
   private
 
   def organisation_unit_params
-    params.require(:organisation).permit(:name, :unit_type)
+    params.require(:organisation).permit(:name, :unit_type).merge(status: Unit.statuses[:completed])
   end
 end

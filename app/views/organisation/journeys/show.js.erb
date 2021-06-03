@@ -1,2 +1,4 @@
 history.pushState({}, null, "<%= organisation_journey_path(params[:id]) %>");
 $('#journey-step').html('<%= j(render "organisation/journeys/steps/#{@step.underscore}") %>');
+
+hide_loader();
