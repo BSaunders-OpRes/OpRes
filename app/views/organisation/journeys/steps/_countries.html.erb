@@ -45,10 +45,10 @@
         <div class="w-65 mx-auto">
           <div class="row w-100 mx-auto my-3">
             <div class="col-md-4 col-sm pr-md-1 px-auto mb-sm-0 mb-3">
-              <%= link_to 'save & exit',organisation_journey_path("account_setup/#{@region_operator.lower_name}"), class: 'text-capitalize text-decoration-none border font-500 font-12 w-100 py-2 text-black rounded border-0 w-100 d-block bg-body-color' %>
+              <%= submit_tag 'save & exit', class: 'text-capitalize text-decoration-none border font-500 font-12 w-100 py-2 text-black rounded border-0 w-100 d-block bg-body-color wait-loader' %>
             </div>
             <div class="col-md-8 col-sm pl-md-1 px-auto">
-            <%= submit_tag 'Next', class: 'text-capitalize dark-btn font-500 font-12 w-100 py-2 rounded border-0' %>
+            <%= submit_tag 'Next', class: 'text-capitalize dark-btn font-500 font-12 w-100 py-2 rounded border-0 wait-loader' %>
             </div>
           </div>
         </div>

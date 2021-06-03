@@ -1,7 +1,7 @@
 class Unit < ApplicationRecord
   # Modules #
-  include Firm::CountryConcern
   include Firm::ChildrenConcern
+  include Firm::CompletionConcern
   include Firm::DropdownConcern
 
   # Associations #
@@ -29,6 +29,7 @@ class Unit < ApplicationRecord
 
   # Enums #
   enum unit_type: %i[bank building_society insurer designated_investment_firm payments_services_institution recognised_investment_exchange electronic_money_institution enhanced_scope_senior_managers_and_certification_regime]
+  enum status: %i[incomplete inprogress completed]
 
   # Methods #
   class << self
