@@ -1,0 +1,3 @@
+<% if @supplier.present? %>
+	$('#supplier_modal').append("<%= j(render '/organisation/business_service_lines/bsl_tabs/supplier') %>");
+<% end %>

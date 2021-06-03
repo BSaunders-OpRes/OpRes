@@ -25,7 +25,7 @@ document.addEventListener('turbolinks:load', function() {
     }
   });
 
-   $('#bsl-previous-btn').click(function(e) {
+  $('#bsl-previous-btn').click(function(e) {
     e.preventDefault();
 
     var current_tab  = $('#bsl-tab li.nav-item a.active').parent('li.nav-item');
@@ -37,6 +37,14 @@ document.addEventListener('turbolinks:load', function() {
       $('html, body').animate({ scrollTop: '300px' }, 300);
       previous_tab.find('a').trigger('click');
     }
+  });
+
+  $('body').on('click', '#create_suppliers', function() {
+    $.ajax({
+      url:  '/organisation/suppliers/new',
+      type: 'GET',
+      dataType: 'script'
+    });
   });
 });
 
