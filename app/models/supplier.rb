@@ -2,17 +2,17 @@ class Supplier < ApplicationRecord
   # Associations #
   belongs_to :unit
 
-  has_one  :relationship_owner
-  has_one  :cloud_hosting_provider
-  has_one  :sla, as: :slaable
+  has_one  :relationship_owner,     dependent: :destroy
+  has_one  :cloud_hosting_provider, dependent: :destroy
+  has_one  :sla, as: :slaable,      dependent: :destroy
 
-  has_many :key_contact_suppliers
+  has_many :key_contact_suppliers, dependent: :destroy
   has_many :key_contacts, through: :key_contact_suppliers
-  has_many :supplier_contact_suppliers
+  has_many :supplier_contact_suppliers, dependent: :destroy
   has_many :supplier_contacts, through: :supplier_contact_suppliers
-  has_many :technologies
-  has_many :incidents
-  has_many :supplier_steps
+  has_many :technologies, dependent: :destroy
+  has_many :incidents, dependent: :destroy
+  has_many :supplier_steps, dependent: :destroy
   has_many :steps, through: :supplier_steps
 
   # Enums #

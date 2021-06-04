@@ -9,4 +9,9 @@ module Organisation::UnitsHelper
       'Edit'
     end
   end
+
+  def transform_inprogress_text(status)
+    return status unless status == 'inprogress'
+    'In Progress'
+  end
 end
