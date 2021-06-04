@@ -1,6 +1,8 @@
 class Organisation::ProductsController < Organisation::BaseController
   before_action :authenticate_org_admin
   before_action :load_product, only: %i[edit update show destroy]
+  before_action :load_form_data, only: %i[new create edit update]
+
 
   def index
     @products = organisational_unit.products.order(id: :desc)
@@ -12,7 +14,6 @@ class Organisation::ProductsController < Organisation::BaseController
 
   def create
     @product = organisational_unit.products.new(product_params)
-
     if @product.save
       redirect_to organisation_products_path, notice: 'Product has been created successfully!'
     else
@@ -48,7 +49,11 @@ class Organisation::ProductsController < Organisation::BaseController
     @product = organisational_unit.products.find(params[:id])
   end
 
+  def load_form_data
+    @channels = organisational_unit.channels
+  end
+
   def product_params
-    params.require(:product).permit(:name, :description)
+    params.require(:product).permit(:name, :description,channel_ids: [])
   end
 end

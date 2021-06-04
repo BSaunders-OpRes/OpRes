@@ -1,8 +1,8 @@
 <div class="row">
   <div class="col-sm-12 col-md-10 col-lg-8 col-xxl-10 mx-auto">
-    <div class='card border-0 shadow'>
+    <div class="card border-0 shadow">
       <div class='card-body px-4'>
-       <%= render 'layouts/partials/shared/redirect_back', path: organisation_institutions_path %>
+        <%= render 'layouts/partials/shared/redirect_back', path: organisation_institutions_path %>
         <div class="show-page">
           <div class="row align-items-center">
             <div class="col-md-4">
@@ -29,6 +29,14 @@
                       <h5 class="font-14 text-capitalize text-secondary"><%= @institution.description %></h5>
                     </div>
                   </div>
+                  <div class="row py-4 border-bottom">
+                    <div class="col-md-6">
+                      <h6 class="font-14 text-capitalize font-700">Product List</h6>
+                    </div>
+                    <div class="col-md-6">
+                      <h5 class="font-14 text-capitalize text-secondary"><%= @institution.product_list %></h5>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -36,5 +44,5 @@
         </div>
       </div>
     </div>
-   </div>
- </div>
+  </div>
+</div>
