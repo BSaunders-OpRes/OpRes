@@ -2,7 +2,7 @@
 <div class="row">
   <div class="col-md-12">
     <div class="card border-0 text-center">
-      <div class="card-body px-5">
+      <div class="card-body px-sm-5 p-3">
         <%= form_tag organisation_journey_path("country_setup/#{@region_operator.lower_name}/#{@country_operator.lower_alpha2}"), remote: true do %>
           <% index= 0 %>
           <div class="d-flex justify-content-between my-3">
@@ -18,12 +18,12 @@
           <h2 class="text-capitalize font-300">Invite administrator</h2>
           <p class="font-12 font-xxl-14 p-3 bg-body-color my-4">As a part of the onboarding wizard, we recommend that firms federate administration responsibilities to the various business unit and entities across their organisation</p>
           <p class="font-12 font-xxl-14">Please provide the details for users in this region. Users can be set up as a <strong>"Super User"</strong> or <strong>"Standard User"</strong>. Super user can add new, update and amend existing business service & supplier records. Standard Users can only view existing records.</p>
-          <ul class="nav nav-tabs d-flex justify-content-even mt-5 custom-tabs" id="myTab" role="tablist">
+          <ul class="nav nav-tabs d-flex justify-content-even flex-nowrap align-items-center mt-5 custom-tabs" id="myTab" role="tablist">
             <li class="nav-item">
-              <a class="nav-link active border-0 p-0 pb-2 bg-transparent text-black" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Name & Email Addresses</a>
+              <a class="nav-link active border-0 p-0 pb-2 bg-transparent text-black font-12 font-xxl-14 px-1" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Name & Email Addresses</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link border-0 p-0 pb-2 bg-transparent text-black" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Add Many At Once</a>
+              <a class="nav-link border-0 p-0 px-1 pb-2 bg-transparent text-black font-12 font-xxl-14" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Add Many At Once</a>
             </li>
           </ul>
           <div class="tab-content py-4" id="myTabContent">
@@ -48,8 +48,8 @@
               </div>
             </div>
             <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-              <div class="row mb-4">
-                <div class="col-md-9">
+              <div class="row">
+                <div class="col-md-9 mb-3">
                   <%= text_area_tag 'users[multiple][csv]', nil, class: 'form-control font-12', placeholder: 'Email Addresses (Seperate emails with a comma)', cols: '30', rows: '4' %>
                 </div>
                 <div class="form-group col-md-3">
