@@ -186,10 +186,10 @@ class Organisation::JourneysController < Organisation::BaseController
 
       next if user.errors.present?
 
-      manager = user.managers.find_or_initialize_by(unit: @country_unit)
+      manager = user.managers.find_or_initialize_by(unit: @regional_unit)
       manager.permission = user_data.dig(:advance, :permission)
 
-      InvitationMailer.invite_admin(user, user_data.dig(:basic, :password), message, @country_unit).deliver_later unless manager.persisted?
+      InvitationMailer.invite_admin(user, user_data.dig(:basic, :password), message, @regional_unit).deliver_later unless manager.persisted?
       manager.save
     end
   end
