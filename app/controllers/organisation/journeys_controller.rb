@@ -53,6 +53,9 @@ class Organisation::JourneysController < Organisation::BaseController
 
     @organisational_unit = organisational_unit.include_children
     organisational_unit.update_units_status
+
+    @regional_unit&.reload
+    @country_unit&.reload
   end
 
   def save_organisation_data
