@@ -1,6 +1,7 @@
 class Organisation::InstitutionsController < Organisation::BaseController
   before_action :authenticate_org_admin
   before_action :load_institution, only: %i[edit update show destroy]
+  before_action :load_form_data,   only: %i[new create edit update]
 
   def index
     @institutions = organisational_unit.institutions.order(id: :desc)
@@ -48,7 +49,12 @@ class Organisation::InstitutionsController < Organisation::BaseController
     @institution = organisational_unit.institutions.find(params[:id])
   end
 
+
+  def load_form_data
+    @products = organisational_unit.products
+  end
+
   def institution_params
-    params.require(:institution).permit(:name, :description)
+    params.require(:institution).permit(:name, :description, product_ids: [])
   end
 end
