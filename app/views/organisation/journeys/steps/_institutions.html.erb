@@ -22,7 +22,7 @@
           <p class="font-13 font-xxl-14 mx-auto font-500 my-4 text-black">Please tell us about the institution types that operate in this country.
           </p>
           <div class="h-400">
-            <div class="w-sm-65 w-100 mx-auto px-sm-0 px-2">
+            <div class="w-sm-75 w-100 mx-auto px-sm-0 px-2">
               <% institution_units = @country_unit.children %>
               <% @all_institutions.each do |institution| %>
                 <% selected_institution_units = institution_units.where(institution_id: institution.id) %>
