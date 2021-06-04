@@ -51,6 +51,7 @@ class Organisation::JourneysController < Organisation::BaseController
       save_users_data
     end
 
+    @organisational_unit = organisational_unit.include_children
     organisational_unit.update_units_status
   end
 
@@ -59,27 +60,43 @@ class Organisation::JourneysController < Organisation::BaseController
   end
 
   def save_regions_data
+    final_regional_units = []
+
     params.dig(:regions)&.each do |id, name|
-      organisational_unit.children
-                         .create_with(type: Units::Regional, name: Unit.build_name('', organisational_unit.name, name))
-                         .find_or_create_by(region_id: id)
+      regional_unit = organisational_unit.children
+                                         .create_with(type: Units::Regional, name: Unit.build_name('', organisational_unit.name, name))
+                                         .find_or_create_by(region_id: id)
+      final_regional_units << regional_unit.id
     end
+
+    regional_units_to_destroy = organisational_unit.children.map(&:id) - final_regional_units
+    Units::Regional.where(id: regional_units_to_destroy).destroy_all
   end
 
   def save_countries_data
+    final_country_units = []
+
     params.dig(:countries)&.each do |id, name|
-      @regional_unit.children
-                    .create_with(type: Units::Country, name: Unit.build_name('', organisational_unit.name, name))
-                    .find_or_create_by(country_id: id)
+      country_unit = @regional_unit.children
+                              .create_with(type: Units::Country, name: Unit.build_name('', organisational_unit.name, name))
+                              .find_or_create_by(country_id: id)
+      final_country_units << country_unit.id
     end
+
+    country_units_to_destroy = @regional_unit.children.map(&:id) - final_country_units
+    Units::Country.where(id: country_units_to_destroy).destroy_all
   end
 
   def save_institutions_data
+    params.dig(:institutions).reject! { |k, v| v[:name].blank? }
+
+    institution_units_to_destroy, unit_products_to_destroy, unit_product_channels_to_destroy = [], [], []
+
+    final_institution_units = []
     params.dig(:institutions)&.each do |iid, idata|
+      next if idata.dig(:name).blank? # means unchecked
       idata.delete(:name)
       idata.each do |index, iudata|
-        next if iudata.dig(:products).blank?
-
         institution_unit = @country_unit.children.find_or_initialize_by(id: iudata.dig(:id))
         if institution_unit.persisted?
           institution_unit.update(name: iudata.dig(:name))
@@ -91,15 +108,29 @@ class Organisation::JourneysController < Organisation::BaseController
           )
           institution_unit.save
         end
+        final_institution_units << institution_unit.id
 
+        final_unit_products = []
         iudata.dig(:products)&.each do |pid, pdata|
+          next if pdata.dig(:name).blank? # means unchecked
           unit_product = institution_unit.unit_products.find_or_create_by(product_id: pid)
+          final_unit_products << unit_product.id
+
+          final_product_channels = []
           pdata.dig(:channels)&.each do |cid, cname|
-            unit_product.unit_product_channels.find_or_create_by(channel_id: cid)
+            unit_product_channel = unit_product.unit_product_channels.find_or_create_by(channel_id: cid)
+            final_product_channels << unit_product_channel.id
           end
+          unit_product_channels_to_destroy << unit_product.unit_product_channels.map(&:id) - final_product_channels
         end
+        unit_products_to_destroy << institution_unit.unit_products.map(&:id) - final_unit_products
       end
     end
+    institution_units_to_destroy = @country_unit.children.map(&:id) - final_institution_units
+
+    Units::Institution.where(id: institution_units_to_destroy.flatten).destroy_all
+    UnitProduct.where(id: unit_products_to_destroy.flatten).destroy_all
+    UnitProductChannel.where(id: unit_product_channels_to_destroy.flatten).destroy_all
   end
 
   def save_users_data
@@ -188,6 +219,6 @@ class Organisation::JourneysController < Organisation::BaseController
   end
 
   def load_institutions_data
-    @all_institutions = organisational_unit.institutions
+    @all_institutions = organisational_unit.institutions.includes(products: [:channels])
   end
 end

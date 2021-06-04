@@ -10,17 +10,17 @@ class Unit < ApplicationRecord
   belongs_to :country,     optional: true
   belongs_to :institution, optional: true
 
-  has_many :children, class_name: 'Unit', foreign_key: :parent_id
+  has_many :children, class_name: 'Unit', foreign_key: :parent_id, dependent: :destroy
   has_many :managers, dependent: :destroy
   has_many :managing_users, through: :managers, source: :user
   has_many :users
   has_many :key_contacts
   has_many :supplier_contacts
-  has_many :suppliers
-  has_many :business_service_lines
-  has_many :institutions,  dependent: :destroy
-  has_many :products,      dependent: :destroy
-  has_many :channels,      dependent: :destroy
+  has_many :suppliers, dependent: :destroy
+  has_many :business_service_lines, dependent: :destroy
+  has_many :institutions
+  has_many :products
+  has_many :channels
   has_many :unit_products, dependent: :destroy
   has_many :unit_level_products, through: :unit_products, source: :product
 

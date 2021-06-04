@@ -2,15 +2,15 @@ class BusinessServiceLine < ApplicationRecord
   # Associations #
   belongs_to :unit
 
-  has_one  :material_risk_taker
-  has_one  :sla, as: :slaable
+  has_one  :material_risk_taker, dependent: :destroy
+  has_one  :sla, as: :slaable,   dependent: :destroy
 
-  has_many :steps
-  has_many :risk_appetites
-  has_many :vulnerabilities
-  has_many :business_service_line_products 
+  has_many :steps,           dependent: :destroy
+  has_many :risk_appetites,  dependent: :destroy
+  has_many :vulnerabilities, dependent: :destroy
+  has_many :business_service_line_products, dependent: :destroy
   has_many :products, through: :business_service_line_products
-  has_many :business_service_line_channels
+  has_many :business_service_line_channels, dependent: :destroy
   has_many :channels, through: :business_service_line_channels
 
   # Enums #

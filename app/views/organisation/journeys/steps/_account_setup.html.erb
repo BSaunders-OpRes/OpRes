@@ -51,7 +51,7 @@
                 <div class="right-side d-flex justify-content-between">
                   <a href="" class="font-13 font-xxl-14 text-dark-yellow">
                     <i class="fa fa-check d-none"></i>
-                    <span class="text-capitalize ml-0"><%= completion_status %></span>
+                    <span class="text-capitalize ml-0"><%= transform_inprogress_text(completion_status) %></span>
                   </a>
                     <%= link_to organisation_journey_path("countries/#{region.lower_name}"), class: 'font-13 font-xxl-14 text-black' do %>
                       <span class="text-capitalize mr-2"><%= btn_text(completion_status) %></span>

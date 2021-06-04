@@ -3,7 +3,6 @@ module Firm::CompletionConcern
 
   included do
     def update_units_status
-      reload
       update_institution_units_status
       update_country_units_status
       update_regional_units_status
@@ -17,7 +16,7 @@ module Firm::CompletionConcern
 
       institutional_units.each do |institutional_unit|
         if institutional_unit.unit_products.blank?
-          inprogress_units << institution_unit.id
+          inprogress_units << institutional_unit.id
           next
         end
 
