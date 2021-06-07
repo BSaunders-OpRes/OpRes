@@ -1,4 +1,6 @@
 class Organisation::SuppliersController < Organisation::BaseController
+  include ApplicationHelper
+
   before_action :load_supplier,     only: %i[edit show update]
   before_action :load_key_contacts, only: %i[new edit]
 
@@ -13,9 +15,9 @@ class Organisation::SuppliersController < Organisation::BaseController
     @supplier = Supplier.new(supplier_params)
 
     if @supplier.save
-      redirect_to organisation_administration_portal_index_path, notice: 'Supplier has been created successfully.'
+      redirect_to organisation_administration_portal_index_path, notice: 'Supplier has been created successfully.' if request.format.html?
     else
-      render :new
+      render :new if request.format.html?
     end
   end
 
@@ -37,7 +39,7 @@ class Organisation::SuppliersController < Organisation::BaseController
   private
 
   def supplier_params
-    params.require(:supplier).permit(:name, :party_type, :contracting_terms, :unit_id,
+    params.require(:supplier).permit(:name, :party_type, :contracting_terms, :unit_id, :status,
                       cloud_hosting_provider_attributes: %i[name id],
                       sla_attributes: %i[id service_level_agreement service_level_objective recovery_point_objective severity1_response_time severity2_response_time severity3_response_time severity4_response_time  severity1_restoration_service_time severity2_restoration_service_time severity3_restoration_service_time severity4_restoration_service_time support_hours id],
                       key_contacts_ids: [],

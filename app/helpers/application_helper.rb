@@ -66,4 +66,9 @@ module ApplicationHelper
     supplier_region = supplier.unit.parent
     supplier_region.children.map{|country| [country.name, country.id]}
   end
+
+  def find_suppliers
+    unit_children_ids = organisational_unit.inclusive_children.map(&:id)
+    Supplier.where(unit_id: unit_children_ids)
+  end
 end

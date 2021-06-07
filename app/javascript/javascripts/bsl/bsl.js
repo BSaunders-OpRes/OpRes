@@ -46,5 +46,38 @@ document.addEventListener('turbolinks:load', function() {
       dataType: 'script'
     });
   });
+
+  $('body').on('click', '#supplier_from_submit', function(e) {
+    e.preventDefault();
+    var name = $('#name').val();
+    var party_type = $('#party_type').val();
+    var unit_id = $('#supplier_country').val();
+    var status = "Critical";
+
+    if($('#important').is(':checked'))
+      status = "Important";
+
+    $.ajax({
+      url:  '/organisation/suppliers/',
+      dataType: 'script',
+      type: 'POST',
+      data: {
+        supplier: {
+          name,
+          party_type,
+          unit_id,
+          status
+        }
+      }
+    });
+  });
+
+  $('body').on('change', '#select_supplier', function(e){
+    $.ajax({
+      url:  '/organisation/suppliers/' + e.target.value,
+      type: 'GET',
+      dataType: 'script'
+    });
+  })
 });
 

@@ -3,6 +3,8 @@ default:
   database: opres
   pool: 5
   timeout: 5000
+  username: tsc
+  password: tsc_123
 
 test:
   adapter: postgresql
@@ -15,6 +17,8 @@ development:
   database: opres_development
   pool: 5
   timeout: 5000
+  username: postgres
+  password: postgres
 
 production:
   adapter: postgresql

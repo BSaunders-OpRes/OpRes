@@ -1,99 +1,24 @@
 <div class="tab-pane fade" id="journey-tab" role="tabpanel" aria-labelledby="profile-tab">
   <h5 class="font-600 text-capitalize">service line process</h5>
   <div class="mt-5">
-    <div class="input-fields mb-4 pb-4 border-bottom border-top">
-      <div class="row align-items-center">
-        <div class="col-sm-12 my-3 d-flex justify-content-between align-items-center">
-          <span>
-            <i class="fa fa-ellipsis-v" aria-hidden="true"></i>
-            <i class="fa fa-ellipsis-v" aria-hidden="true"></i>
-            <span class="font-14 font-600 ml-1 text-capitalize">step 1</span>
-          </span>
-          <span><i class="fa fa-trash font-16" aria-hidden="true"></i></span>
-        </div>
-        <div class="col-sm-12">
-          <input type="text" class="w-100 font-12 form-control mb-3 shadow-none h-auto py-3" placeholder="example name">
-          <textarea name="" class="form-control font-12 shadow-none mb-3" id="" cols="30" rows="4" placeholder="add description"></textarea>
-        </div>
-        <div class="col-sm-6 mb-sm-0 mb-3">
-          <button type="button" class="btn w-100 p-0">
-            <div class="card border-top-0 border-right-0 border-bottom-0 border-green green-border-card">
-              <div class="card-body p-3">
-                <span class="d-flex align-items-center mb-3">
-                  <i class="fa fa-ellipsis-v" aria-hidden="true"></i>
-                  <i class="fa fa-ellipsis-v ml-1" aria-hidden="true"></i>
-                  <span class="font-12 font-600 ml-2 text-capitalize flex-1">supplier name</span>
-                  <span><i class="fa fa-trash font-12" aria-hidden="true"></i></span>
-                </span>
-                <ul class="list-group p-0 list-unstyled">
-                  <li class="font-12 text-capitalize font-weight-normal">3rd party</li>
-                  <li class="font-12 text-capitalize font-weight-normal">critical</li>
-                  <li class="font-12 text-capitalize font-weight-normal">Greater london UK</li>
-                </ul>
-              </div>
-            </div>
-          </button>
-        </div>
-        <div class="col-sm-6 mb-sm-0 mb-0">
-          <button type="button" class="btn w-100 p-0">
-            <div class="card border-top-0 border-right-0 border-bottom-0 black-border-card">
-              <div class="card-body p-3">
-                <span class="d-flex align-items-center mb-3">
-                  <i class="fa fa-ellipsis-v" aria-hidden="true"></i>
-                  <i class="fa fa-ellipsis-v ml-1" aria-hidden="true"></i>
-                  <span class="font-12 font-600 ml-2 text-capitalize flex-1">supplier name</span>
-                  <span><i class="fa fa-trash font-12" aria-hidden="true"></i></span>
-                </span>
-                <ul class="list-group p-0 list-unstyled">
-                  <li class="font-12 text-capitalize font-weight-normal">3rd party</li>
-                  <li class="font-12 text-capitalize font-weight-normal">critical</li>
-                  <li class="font-12 text-capitalize font-weight-normal">Greater london UK</li>
-                </ul>
-              </div>
-            </div>
-          </button>
-        </div>
-        <div class="col-sm-12 mt-4">
-          <span data-toggle="modal" data-target="#exampleModal" class="cursor-pointer">
-            <i class="fa fa-plus-circle" aria-hidden="true"></i>
-            <span class="font-14 font-600 ml-1 text-capitalize" id="create_suppliers">add suppliers</span>
-          </span>
+    <%= form.fields_for :steps do |step| %>
+      <div id="step-block">
+        <%= render '/organisation/business_service_lines/step_fields', f: step %>
+      </div>
+    <% end %>
+      <div class="input-fields mb-4 pb-4">
+        <div class="row align-items-center">
+          <div class="col-sm-12">
+            <span>
+              <%= link_to_add_association form, :steps, class: 'add-step-btn text-decoration-none' do %>
+                <i class="fa fa-plus-circle" aria-hidden="true"></i>
+                <span class="font-14 font-600 ml-1 text-capitalize cursor-pointer">add another step</span>
+              <% end %>
+            </span>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="input-fields mb-4 pb-4 border-bottom">
-      <div class="row align-items-center">
-        <div class="col-sm-12 my-3 d-flex justify-content-between align-items-center">
-          <span>
-            <i class="fa fa-ellipsis-v" aria-hidden="true"></i>
-            <i class="fa fa-ellipsis-v" aria-hidden="true"></i>
-            <span class="font-14 font-600 ml-1 text-capitalize">step 2</span>
-          </span>
-          <span><i class="fa fa-trash font-16" aria-hidden="true"></i></span>
-        </div>
-        <div class="col-sm-12">
-          <input type="text" class="w-100 font-12 form-control mb-3 shadow-none h-auto py-3" placeholder="add step title">
-          <textarea name="" class="form-control font-12 shadow-none mb-3" id="" cols="30" rows="4" placeholder="add description"></textarea>
-        </div>
-        <div class="col-sm-12 mt-4">
-          <span data-toggle="modal" data-target="#exampleModal" class="cursor-pointer">
-            <i class="fa fa-plus-circle" aria-hidden="true"></i>
-            <span class="font-14 font-600 ml-1 text-capitalize">add suppliers</span>
-          </span>
-        </div>
-      </div>
-    </div>
-    <div class="input-fields mb-4 pb-4 border-bottom">
-      <div class="row align-items-center">
-        <div class="col-sm-12 d-flex justify-content-between align-items-center">
-          <span>
-            <i class="fa fa-plus-circle" aria-hidden="true"></i>
-            <span class="font-14 font-600 ml-1 text-capitalize">add another step</span>
-          </span>
-        </div>
-      </div>
-    </div>
   </div>
 </div>
 
-<div id="supplier_modal"></div>
+<div id="new_supplier"></div>

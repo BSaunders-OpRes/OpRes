@@ -21,7 +21,7 @@ class Supplier < ApplicationRecord
   enum status: %i[Critical Important]
 
   # Validations #
-  validates :name, :contracting_terms, presence: true
+  # validates :name, :contracting_terms, presence: true
 
   # Nested Attributes #
   accepts_nested_attributes_for :cloud_hosting_provider, allow_destroy: true
