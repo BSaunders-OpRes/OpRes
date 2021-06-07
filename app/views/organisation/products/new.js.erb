@@ -1,0 +1,7 @@
+<% @institution = organisational_unit.institutions.find(params[:institution_id]) %>
+<% @index = params[:index] %>
+
+$('#modal-loader').html('<%= j(render "organisation/products/partials/modal_form", product: @product) %>');
+$('#add-product-modal').modal('show');
+
+hide_loader();

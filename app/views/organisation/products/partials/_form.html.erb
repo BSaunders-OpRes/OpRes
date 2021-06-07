@@ -1,4 +1,4 @@
-<%= form_for product, url: new_or_create ? organisation_products_path : organisation_product_path, method: new_or_create ? :post : :patch do |f| %>
+<%= form_for product, url: new_or_create ? organisation_products_path(institution_id: @institution&.id, index: @index) : organisation_product_path, method: new_or_create ? :post : :patch, remote: @institution.present? do |f| %>
   <%= render 'layouts/partials/shared/form_errors', instance: product %>
   <div class="row align-items-center mb-3">
     <div class="col-md-12 form-group">

@@ -1,1 +1,6 @@
-$("#institution-<%= params[:institution] %>").append('<%= j(render "organisation/journeys/partials/institution", institution: @institution, selected_institution_unit: nil, index: 0) %>');
+<% @institution = organisational_unit.institutions.find(params[:institution_id]) %>
+<% @index = params[:index] %>
+
+$('.all-products').append('<%= j(render "organisation/journeys/partials/product", institution: @institution, product: @product, index: @index, unit_products: []) %>');
+$("#institution-<%= @institution.id %>-<%= @index %>-product-<%= @product.id %>").modal('hide');
+$('#add-product-modal').modal('hide');
