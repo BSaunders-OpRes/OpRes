@@ -14,10 +14,16 @@ class Organisation::ProductsController < Organisation::BaseController
 
   def create
     @product = organisational_unit.products.new(product_params)
-    if @product.save
-      redirect_to organisation_products_path, notice: 'Product has been created successfully!'
-    else
-      render :new
+
+    respond_to do |format|
+      if @product.save
+        organisational_unit.institutions.find(params[:institution_id]).products << @product if params[:institution_id].present?
+        format.html { redirect_to organisation_products_path, notice: 'Product has been created successfully!' }
+        format.js
+      else
+        format.html { render :new }
+        format.js
+      end
     end
   end
 

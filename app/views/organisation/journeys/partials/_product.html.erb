@@ -1,0 +1,30 @@
+<div class="row">
+  <% selected_unit_product = unit_products.select { |up| up.product_id == product.id }.first %>
+  <div class="col">
+    <div class="form-group my-1">
+      <label class="custom-checkbox d-flex pl-4" for="<%= "#{index}#{institution.id}#{product.id}" %>">
+        <span class="font-12 text-black text-capitalize text-left"><%= product.name %></span>
+        <%= check_box_tag "institutions[#{institution.id}][#{index}][products][#{product.id}][name]", product.name, unit_products&.pluck(:product_id)&.include?(product.id), class: 'form-control w-auto', id: "#{index}#{institution.id}#{product.id}" %>
+        <span class="transparent-checkmark"></span>
+      </label>
+    </div>
+  </div>
+  <div class="col d-flex align-items-center justify-content-between">
+    <% if selected_unit_product&.channels&.count.to_i.zero? %>
+      <a href="" class="text-black d-flex my-1 align-items-center" data="<%= product %>" data-toggle="modal" data-target="#institution-<%= institution.id %>-<%= index %>-product-<%= product.id %>">
+        <i class="fa fa-plus-circle"></i>
+        <span class="font-12 text-capitalize font-600 ml-2">Add channels</span>
+      </a>
+    <% else %>
+      <span class="text-left font-12 font-600">
+        <%= selected_unit_product.channels[0..1].map(&:name).join(', ') %>
+        <% remaining_channels_count = selected_unit_product.channels.count - 2 %>
+        <%= "+ #{remaining_channels_count} More" if remaining_channels_count.positive? %>
+      </span>
+      <a href="" class="text-black d-flex my-1 align-items-center" data="<%= product %>" data-toggle="modal" data-target="#institution-<%= institution.id %>-<%= index %>-product-<%= product.id %>">
+        <span class="font-12 text-capitalize font-600 ml-2">EDIT</span>
+      </a>
+    <% end %>
+  </div>
+  <%= render 'organisation/journeys/partials/channels', institution: institution, product: product, selected_unit_product: selected_unit_product, index: index %>
+</div>
