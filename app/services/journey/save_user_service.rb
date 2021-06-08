@@ -4,7 +4,7 @@ class Journey::SaveUserService < ApplicationService
   end
 
   def call
-    users_info, message = [], ''
+    users_info, message, failing_users = [], '', []
     if args.dig(:params, :users, :multiple, :csv).blank?
       message = args.dig(:params, :users, :single, :message)
       args.dig(:params, :users, :single, :data)&.each do |index, user_data|
@@ -52,7 +52,12 @@ class Journey::SaveUserService < ApplicationService
                  .create_with(user_data.dig(:basic))
                  .find_or_create_by(email: user_data.dig(:basic, :email))
 
-      next if user.errors.present?
+      if user.errors.present?
+        failing_users << {
+          "#{user.email}": user.errors
+        }
+        next
+      end
 
       manager = user.managers.find_or_initialize_by(unit: args.dig(:regional_unit))
       manager.permission = user_data.dig(:advance, :permission)
@@ -60,5 +65,7 @@ class Journey::SaveUserService < ApplicationService
       InvitationMailer.invite_admin(user, user_data.dig(:basic, :password), message, args.dig(:regional_unit)).deliver_later unless manager.persisted?
       manager.save
     end
+
+    failing_users
   end
 end

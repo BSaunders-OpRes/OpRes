@@ -26,7 +26,7 @@
             <tbody>
               <% @admins.each do |admin| %>
                 <tr>
-                  <td class="text-dark"><%= admin.name %></td>
+                  <td class="text-dark"><%= admin.name.present? ? admin.name : 'Not Available' %></td>
                   <td><%= admin.email %></td>
                   <td><%= admin.role.humanize %></td>
                   <td>

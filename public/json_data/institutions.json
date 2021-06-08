@@ -4,7 +4,7 @@
       {
         "Retail Bank": {
           "products": ["Current Account", "Savings Accounts", "Mortgages", "Loans", "ISA", "Credit Cards", "Foreign Exchange", "Insurance", "Financial Advice & Planning", "International Payments"],
-          "channels": ["ATM", "Branch", "Telephone", "Web", "Mobile", "Post Office"] 
+          "channels": ["ATM", "Branch", "Telephone", "Web", "Mobile", "Post Office"]
         }
       },
       {
@@ -41,6 +41,66 @@
         "Commercial Bank": {
           "products": ["Industrial Loans", "Project Finance", "Syndicated Loans", "Leasing", "Foreign Trade Financing", "Bills of Exchange", "Current Accounts", "Savings Accounts", "Certificates of Deposit"],
           "channels": ["ATM", "Branch", "Telephone", "Web", "Mobile", "Post Office"]
+        }
+      }
+    ]
+  },
+  {
+    "building_society": [
+      {
+        "Building Society": {
+          "products": ["Current Account", "Savings Accounts", "Mortgages", "Loans", "ISA", "Credit Cards", "Foreign Exchange", "Insurance", "Financial Advice & Planning", "Treasury"],
+          "channels": ["ATM", "Branch", "Telephone", "Web", "Mobile", "Electronic Trading Platform"]
+        }
+      }
+    ]
+  },
+  {
+    "insurer": [
+      {
+        "Personal Insurance": {
+          "products": ["Home Insurance", "Health Insurance", "Dental Insurance", "Motor Insurance", "Pet Insurance", "Travel Insurance", "Life Insurance", "Disability Insurance", "Pensions", "Rental Insurance", "Student Insurance"],
+          "channels": ["Mobile", "Web", "Brokers & Agents", "Telephone", "Bancassurance - (Branch Channel)", "Cover Holder Market", "Pricing Aggregators", "3rd Party Marketplace", "Affiliates", "Added Value Banking Channel"]
+        }
+      },
+      {
+        "Business Insurance": {
+          "products": ["Public Liability Insurance", "Employers' Liability Insurance", "Product Liability Insurance", "Professional Indemnity Insurance", "Business Interruption Insurance", "Business Property Coverage", "Key-man Insurance", "Credit Risk Insurance", "Cyber Insurance", "Directors Insurance", "Agricultural Insurance"],
+          "channels": [ "Mobile", "Web", "Brokers & Agents", "Telephone", "Bancassurance - (Branch Channel)", "Cover Holder Market", "Pricing Aggregators", "3rd Party Marketplace", "Affiliates" , "Added Value Banking Channel"]
+        }
+      },
+      {
+        "Commercial Insurance": {
+          "products": ["Marine Insurance", "Plane Insurance", "Disaster Insurance", "Property Insurance", "Freight Insurance", "Landlord Insurance", "Terrorism Insurance"],
+          "channels": ["Mobile", "Web", "Brokers & Agents", "Telephone", "Bancassurance - (Branch Channel)", "Cover Holder Market", "Pricing Aggregators", "3rd Party Marketplace", "Affiliates", "Added Value Banking Channel"]
+        }
+      },
+      {
+        "Reinsurance": {
+          "products": ["Life Insurance", "Pensions"],
+          "channels": ["Mobile", "Web", "Brokers & Agents", "Telephone", "Bancassurance - (Branch Channel)", "Cover Holder Market", "Pricing Aggregators", "3rd Party Marketplace", "Affiliates", "Added Value Banking Channel"]
+        }
+      },
+      {
+        "Underwriting": {
+          "products": ["Marine Insurance", "Freight Insurance", "Cargo Insurance"],
+          "channels": ["Mobile", "Web", "Brokers & Agents", "Telephone", "Bancassurance - (Branch Channel)", "Cover Holder Market", "Pricing Aggregators", "3rd Party Marketplace", "Affiliates", "Added Value Banking Channel"]
+        }
+      }
+    ]
+  },
+  {
+    "recognised_investment_exchange": [
+      {
+        "Recognised Investment Exchange": {
+          "products": ["Money Market Accounts", "Certificates of Deposits", "Money Market Funds", "Bonds", "Equities", "Mutual Funds", "Exchange Traded Funds", "Structured Products", "Private Equity Funds", "Hedge Funds", "Foreign Exchange", "Derivatives", "Fixed Income", "Market Data", "Securities", "Comodities", "Pricing & Reference Data Services", "Real-Time"],
+          "channels": ["Telephone", "Web", "Mobile", "Personal Investing Hubs", "Electronic Market Maker"]
+        }
+      },
+      {
+        "Investment Management": {
+            "products": ["Cash ISA", "Self-Invested Pensions", "Stocks and Shares ISA", "Foreign Exchange", "Derivatives", "Credit Derivatives", "Fixed Income", "Equities", "Commodities", "Bonds", "Investment Funds", "Options", "Annuities", "Retirement Plans", "Market Data", "Securities", "Comodities", "Pricing & Reference Data Services"],
+            "channels": ["Telephone", "Web", "Mobile", "Personal Investing Hubs", "Electronic Market Maker"]
         }
       }
     ]

@@ -1,39 +1,69 @@
-<%= form_for admin, url: new_or_create ? organisation_admins_path : organisation_admin_path, method: new_or_create ? :post : :patch do |f| %>
-  <%= render 'layouts/partials/shared/form_errors', instance: admin %>
-  <div class="row align-items-center mb-3">
-    <div class="col-md-6">
-      <%= f.label :first_name %>
-      <%= f.text_field :first_name, class: 'w-100 form-control font-12 h-auto py-3 shadow-none', placeholder: 'First Name' %>
-    </div>
-    <div class="col-md-6">
-      <%= f.label :last_name %>
-      <%= f.text_field :last_name, class: 'w-100 form-control font-12 h-auto py-3 shadow-none', placeholder: 'Last Name' %>
+<div class="row">
+  <div class="col-md-12">
+    <div class="card border-0 text-center">
+      <div class="card-body px-sm-5 p-3">
+        <%= form_tag organisation_admins_path, remote: true do %>
+          <% index= 0 %>
+          <h2 class="text-capitalize font-300 mb-2">Invite administrator</h2>
+          <p class="font-12 font-xxl-14">Please provide the details for users in this region. Users can be set up as a <strong>"Super User"</strong> or <strong>"Standard User"</strong>. Super user can add new, update and amend existing business service & supplier records. Standard Users can only view existing records.</p>
+          <ul class="nav nav-tabs d-flex justify-content-even flex-nowrap align-items-center mt-5 custom-tabs" id="myTab" role="tablist">
+            <li class="nav-item">
+              <a class="nav-link active border-0 p-0 pb-2 bg-transparent text-black font-12 font-xxl-14 px-1" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Name & Email Addresses</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link border-0 p-0 px-1 pb-2 bg-transparent text-black font-12 font-xxl-14" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Add Many At Once</a>
+            </li>
+          </ul>
+          <div class="tab-content py-4" id="myTabContent">
+            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+              <div class="mb-3" >
+                <%= select_tag 'single_regional_unit', options_for_select(organisational_unit.children.map{|region| [region.name, region.id]}), multiple: false, class: 'form-control w-100 font-12 shadow-none' %>
+              </div>
+              <div id="user-invitation">
+                <%= render 'organisation/journeys/partials/user_invitation', index: index %>
+              </div>
+              <div class="row mb-4 mt-2 no-gutters">
+                <div class="col-md-12 text-left px-1">
+                  <%= link_to 'javascript:void(0);', 'data-target': organisation_build_user_invitation_path, class: 'build-user-invitation d-flex align-items-center text-left text-black mt-4' do %>
+                    <i class="fa fa-plus-circle font-16"></i>
+                    <span class="ml-1 font-12">
+                      Add another
+                    </span>
+                  <% end %>
+                </div>
+              </div>
+              <div class="row no-gutters">
+                <div class="col-md-12 px-1">
+                  <%= text_area_tag 'users[single][message]', nil, class: 'form-control font-12', placeholder: 'Add a personalised invite message', cols: '30', rows: '4' %>
+                </div>
+              </div>
+            </div>
+            <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+              <div class="row">
+                <div class="col-md-12 mb-3" >
+                  <%= select_tag 'multiple_regional_unit', options_for_select(organisational_unit.children.map{|region| [region.name, region.id]}), multiple: false, class: 'form-control w-100 font-12 shadow-none' %>
+                </div>
+                <div class="col-md-9 mb-3">
+                  <%= text_area_tag 'users[multiple][csv]', nil, class: 'form-control font-12', placeholder: 'Email Addresses (Seperate emails with a comma)', cols: '30', rows: '4' %>
+                </div>
+                <div class="form-group col-md-3">
+                  <%= select_tag 'users[multiple][permission]', options_for_select(Manager.permissions.map { |k, v| [k.titleize, k] }), multiple: false, class: 'form-control w-100 font-12 shadow-none' %>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12">
+                  <%= text_area_tag 'users[multiple][message]', nil, class: 'form-control font-12', placeholder: 'Add a personalised invite message', cols: '30', rows: '4' %>
+                </div>
+              </div>
+            </div>
+            <div class="row mt-4">
+              <div class="col-md-12 text-left">
+                <%= submit_tag 'Send Invitation', class: 'btn dark-btn border-0 py-2 font-12 font-600 px-4 wait-loader'%>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
     </div>
   </div>
-
-  <div class="row align-items-center mb-3">
-    <div class="col-md-6">
-      <%= f.label :email %>
-      <%= f.email_field :email, class: 'w-100 form-control font-12 h-auto py-3 shadow-none', placeholder: 'Email', required: true %>
-    </div>
-    <div class="col-md-6">
-      <%= f.label :managing_unit, 'Unit' %>
-      <%= select_tag :managing_unit, options_for_select(organisation_dropdown_options, admin&.managing_unit&.id), multiple: false, class: 'w-100 form-control font-12 h-auto py-3 shadow-none' %>
-    </div>
-  </div>
-
-  <div class="row align-items-center mb-3">
-    <div class="col-md-6">
-      <%= f.label :password, class: 'text-capitalize font-14 font-600 mb-2' %>
-      <%= f.password_field :password, class: 'w-100 form-control font-12 h-auto py-3 shadow-none', placeholder: 'Password', required: new_or_create %>
-    </div>
-    <div class="col-md-6">
-      <%= f.label :password_confirmation, class: 'text-capitalize font-14 font-600 mb-2' %>
-      <%= f.password_field :password_confirmation, class: 'w-100 form-control font-12 h-auto py-3 shadow-none', placeholder: 'Password Confirmation', required: new_or_create %>
-    </div>
-  </div>
-
-  <div class="d-flex mt-5">
-    <%= f.submit class: 'btn btn-md font-600 text-capitalize font-12 ml-auto dark-btn w-25' %>
-  </div>
-<% end %>
+</div>
