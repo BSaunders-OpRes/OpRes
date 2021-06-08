@@ -24,8 +24,6 @@ class Organisation::AdminsController < Organisation::BaseController
   def edit; end
 
   def update
-    @unit = Unit.find(params.dig('id'))
-
     skip_password_validation?
 
     if @admin.update(user_params)
@@ -52,7 +50,6 @@ class Organisation::AdminsController < Organisation::BaseController
   def user_params
     params.require(:user)
           .permit(:first_name, :last_name, :email, :password, :password_confirmation)
-          .merge(role: @unit.organisational_unit? ? User.roles[:org_admin]: User.roles[:unit_admin], unit: organisational_unit)
   end
 
   def load_admin
@@ -63,10 +60,4 @@ class Organisation::AdminsController < Organisation::BaseController
     @admin.skip_password_validation = params.dig(:user, :password).blank? &&
                                       params.dig(:user, :password_confirmation).blank?
   end
-
-  def assign_as_manager
-    @admin.managing_unit&.update(manager_id: nil)
-    organisational_unit.find_children(params[:managing_unit].to_i)&.reload&.update(manager_id: @admin.id) if @admin.unit_admin?
-  end
-
 end
