@@ -37,4 +37,16 @@ document.addEventListener('turbolinks:load', function() {
   window.hide_loader = function() {
     $('.loader-wrapper').addClass('d-none');
   }
+
+  $('#dynamic-steps-block')
+  .on('cocoon:after-insert', function() {
+    let stepNumber = $(".step-number").eq(-2).text()[5]
+    if(typeof stepNumber === typeof undefined)
+      stepNumber = 1;
+    else
+      stepNumber = parseInt(stepNumber) + 1;
+
+    $(".step-number").last().attr('id', 'step-number-' + stepNumber);
+    $("#step-number-" + stepNumber).text("Step " + stepNumber)
+  })
 });

@@ -1,0 +1,95 @@
+<div class="modal fade add-supplier-modal my-5 py-5" id="new_supplier_modal" tabindex="-1" role="dialog" aria-labelledby="#new_supplier_modal" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header border-0 p-4">
+        <h5 class="modal-title text-capitalize font-16" id="new_supplier_modal">add supplier to step 1</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body p-4">
+        <div class="row align-items-center mb-3">
+          <div class="col-sm-12 order-3 order-sm-2">
+            <%= select_tag 'business_service_line[steps_attributes][supplier_ids][]', options_for_select(find_suppliers.map { |k, v| [k.name, k.id] }, {}), { class: 'form-control w-100 font-12 h-auto py-3 shadow-none', multiple: true } %>
+          </div>
+        </div>
+
+        <div class="row align-items-center mb-3">
+          <div class="col-sm-4 flex-sm-1 mb-2 mb-sm-0">
+            <p class="text-capitalize font-14 font-600">supplier name</p>
+          </div>
+          <div class="col-sm-7 order-3 order-sm-2">
+            <%= text_field_tag :name, "", class: "w-100 form-control font-12 h-auto py-3 shadow-none", placeholder: "Enter Name" %>
+          </div>
+          <div class="col-sm-1 text-right order-2 flex-sm-half mb-2 mb-sm-0">
+            <div class="info" data-toggle="tooltip" data-placement="top" title="supplier name" aria-hidden="true">i</div>
+          </div>
+        </div>
+        <div class="row align-items-center mb-3">
+          <div class="col-sm-4 flex-sm-1 mb-2 mb-sm-0">
+            <p class="text-capitalize font-14 font-600">supplier type</p>
+          </div>
+          <div class="col-sm-7 order-3 order-sm-2">
+            <%= select_tag :party_type, options_for_select(Supplier.party_types.map { |k, v| [k] }, {}), { include_blank: 'Select Supplier Type', class: 'form-control w-100 font-12 h-auto py-3 shadow-none' } %>
+          </div>
+          <div class="col-sm-1 text-right order-2 flex-sm-half mb-2 mb-sm-0">
+            <div class="info" data-toggle="tooltip" data-placement="top" title="supplier type" aria-hidden="true">i</div>
+          </div>
+        </div>
+        <div class="row align-items-center mb-3">
+          <div class="col-sm-4 flex-sm-1 mb-2 mb-sm-0">
+            <p class="text-capitalize font-14 font-600">supplier status</p>
+          </div>
+          <div class="col-sm-7 order-3 order-sm-2">
+            <div class="row">
+              <div class="col-sm-6 pr-sm-0 pr-md-0">
+                <div class="custom-radio">
+                  <input type="radio" name="select" id="critical" class="option-1" checked>
+                  <label for="critical" class="option option-1">
+                    <span class="font-12">Critical</span>
+                  </label>
+                </div>
+              </div>
+              <div class="col-sm-6 pl-sm-0 pl-md-0">
+                <div class="custom-radio">
+                  <input type="radio" name="select" id="important" class="option-2">
+                  <label for="important" class="option option-2">
+                    <span class="font-12">Important</span>
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-1 text-right order-2 flex-sm-half mb-2 mb-sm-0">
+            <div class="info" data-toggle="tooltip" data-placement="top" title="supplier status" aria-hidden="true">i</div>
+          </div>
+        </div>
+        <div class="row align-items-center mb-3">
+          <div class="col-sm-4 flex-sm-1 mb-2 mb-sm-0">
+            <p class="text-capitalize font-14 font-600">region</p>
+          </div>
+          <div class="col-sm-7 order-3 order-sm-2">
+            <%= render '/organisation/units/partials/drop_down', param_name: 'supplier[region]', options: managing_unit.regional_dropdown, val: {}, prompt_message: "Select your region" %>
+          </div>
+          <div class="col-sm-1 text-right order-2 flex-sm-half mb-2 mb-sm-0">
+            <div class="info" data-toggle="tooltip" data-placement="top" title="region" aria-hidden="true">i</div>
+          </div>
+        </div>
+        <div class="row align-items-center mb-3">
+          <div class="col-sm-4 flex-sm-1 mb-2 mb-sm-0">
+            <p class="text-capitalize font-14 font-600">country</p>
+          </div>
+          <div class="col-sm-7 order-3 order-sm-2" id="countries-dropdown-2">
+            <%= render 'organisation/units/partials/drop_down', param_name: 'supplier[unit_id]', options: managing_unit.country_dropdown, val: {}, prompt_message: "Select your country" %>
+          </div>
+          <div class="col-sm-1 text-right order-2 flex-sm-half mb-2 mb-sm-0">
+            <div class="info" data-toggle="tooltip" data-placement="top" title="country" aria-hidden="true">i</div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer border-0">
+        <%= submit_tag 'add supplier', id: "supplier_from_submit", class: "btn btn-lg dark-btn text-capitalize font-12 font-600" %>
+      </div>
+    </div>
+  </div>
+</div>
