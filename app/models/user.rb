@@ -32,6 +32,6 @@ class User < ApplicationRecord
   end
 
   def un_assign_manager
-    managing_unit&.update(manager_id: nil) if unit_admin?
+    managing_units&.update(manager_id: nil) if unit_admin?
   end
 end

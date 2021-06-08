@@ -27,7 +27,7 @@ class Organisation::BaseController < ApplicationController
     @managing_unit = if current_user.org_admin?
       current_user.unit.include_children
     elsif current_user.unit_admin?
-      current_user.managing_unit.include_children
+      current_user.managing_units.first.include_children
     end
   end
 end

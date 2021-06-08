@@ -1,35 +1,34 @@
 class Organisation::AdminsController < Organisation::BaseController
   before_action :authenticate_org_admin
   before_action :load_admin, only: %i[edit update show destroy]
-  before_action :load_unit,  only: %i[create update]
 
   def index
     @admins = organisational_unit.users.where(role: [User.roles[:org_admin], User.roles[:unit_admin]])
   end
 
-  def new
-    @admin = User.new
-  end
+  def new; end
 
   def create
-    @admin = User.new(user_params)
+    regional_unit_id = params.dig(:users, :multiple, :csv).blank? ? params.dig(:single_regional_unit): params.dig(:multiple_regional_unit)
+    regional_unit    = organisational_unit.children.find_by_id(regional_unit_id)
 
-    if @admin.save
-      assign_as_manager
-      InvitationMailer.invite_admin(@admin, @admin.password).deliver_later
-      redirect_to organisation_admins_path, notice: 'Admin has been created successfully!'
-    else
-      render :new
-    end
+    failing_users = Journey::SaveUserService.call(
+      organisational_unit: organisational_unit,
+      regional_unit: regional_unit,
+      params: params
+    )
+
+    redirect_to organisation_admins_path, notice: "Admins have been created successfully! #{ failing_users.present? ? "Except #{failing_users.keys.to_sentence}" : '' }"
   end
 
   def edit; end
 
   def update
+    @unit = Unit.find(params.dig('id'))
+
     skip_password_validation?
 
     if @admin.update(user_params)
-      assign_as_manager
       redirect_to organisation_admins_path, notice: 'Admin has been updated successfully!'
     else
       render :edit
@@ -70,7 +69,4 @@ class Organisation::AdminsController < Organisation::BaseController
     organisational_unit.find_children(params[:managing_unit].to_i)&.reload&.update(manager_id: @admin.id) if @admin.unit_admin?
   end
 
-  def load_unit
-    @unit = Unit.find(params.dig('managing_unit'))
-  end
 end
