@@ -1,4 +1,10 @@
 document.addEventListener('turbolinks:load', function() {
+  if ($('#onboarding-finish').length >0) {
+    setTimeout(function() {
+      window.location.href = '/organisation/dashboard';
+    }, 2000);
+  }
+
   $('body').on('click', '.build-institution', function() {
     link              = $(this);
     institution_block = link.parents('.institution-block');
@@ -27,12 +33,6 @@ document.addEventListener('turbolinks:load', function() {
     });
   });
 
-  if ($('#onboarding-finish').length >0) {
-    setTimeout(function() {
-      window.location.href = '/organisation/dashboard';
-    }, 2000);
-  }
-
   $('body').on('click', '#select-all-countries', function() {
     if(this.checked) {
       $('#countries-partial .country').prop('checked', true);
@@ -52,5 +52,23 @@ document.addEventListener('turbolinks:load', function() {
     $('#countries-partial .country-list').filter(function(index, ele) {
       $(this).toggle($(ele).text().toLowerCase().indexOf(value) > -1)
     });
+  });
+
+  $('body').on('click', '.invite-user-step-next', function() {
+    $('#invite-user-tabs #send-invitation').click();
+  });
+
+  $('body').on('click', '#journey-save-exit-institutions', function() {
+    form = $(this).parents('form');
+    action = form.attr('action').replace('invite_user', 'country_setup');
+    form.attr('action', action);
+    $('#journey-submit-institutions').click();
+  });
+
+  $('body').on('click', '#journey-save-exit-countries', function() {
+    form = $(this).parents('form');
+    action = form.attr('action').replace('country_setup', 'account_setup');
+    form.attr('action', action);
+    $('#journey-submit-countries').click();
   });
 });

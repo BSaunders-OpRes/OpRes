@@ -10,7 +10,7 @@
               <span><i class="fa fa-arrow-left" aria-hidden="true"></i></span>
               <span class="ml-2 text-black">Back</span>
             <% end %>
-            <%= link_to organisation_journey_path("country_setup/#{@region_operator.lower_name}"), class: 'text-capitalize text-dark text-decoration-none' do %>
+            <%= link_to 'javascript:void(0);', class: 'text-capitalize text-dark text-decoration-none invite-user-step-next' do %>
               <span class="mr-2 text-secondary">Next</span>
               <span><i class="fa fa-arrow-right text-secondary" aria-hidden="true"></i></span>
             <% end %>
@@ -18,7 +18,7 @@
           <h2 class="text-capitalize font-300">Invite administrator</h2>
           <p class="font-12 font-xxl-14 p-3 bg-body-color my-4">As a part of the onboarding wizard, we recommend that firms federate administration responsibilities to the various business unit and entities across their organisation</p>
           <p class="font-12 font-xxl-14">Please provide the details for users in this region. Users can be set up as a <strong>"Super User"</strong> or <strong>"Standard User"</strong>. Super user can add new, update and amend existing business service & supplier records. Standard Users can only view existing records.</p>
-          <ul class="nav nav-tabs d-flex justify-content-even flex-nowrap align-items-center mt-5 custom-tabs" id="myTab" role="tablist">
+          <ul class="nav nav-tabs d-flex justify-content-even flex-nowrap align-items-center mt-5 custom-tabs" id="invite-user-tab-links" role="tablist">
             <li class="nav-item">
               <a class="nav-link active border-0 p-0 pb-2 bg-transparent text-black font-12 font-xxl-14 px-1" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Name & Email Addresses</a>
             </li>
@@ -26,7 +26,7 @@
               <a class="nav-link border-0 p-0 px-1 pb-2 bg-transparent text-black font-12 font-xxl-14" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Add Many At Once</a>
             </li>
           </ul>
-          <div class="tab-content py-4" id="myTabContent">
+          <div class="tab-content py-4" id="invite-user-tabs">
             <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
               <div id="user-invitation">
                 <%= render 'organisation/journeys/partials/user_invitation', index: index %>
@@ -64,7 +64,7 @@
             </div>
             <div class="row mt-4">
               <div class="col-md-12 text-left">
-                <%= submit_tag 'Send Invitation', class: 'btn dark-btn border-0 py-2 font-12 font-600 px-4 wait-loader'%>
+                <%= submit_tag 'Send Invitation', class: 'btn dark-btn border-0 py-2 font-12 font-600 px-4 wait-loader', id: 'send-invitation' %>
               </div>
             </div>
           </div>

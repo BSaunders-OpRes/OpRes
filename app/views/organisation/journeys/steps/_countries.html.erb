@@ -9,11 +9,10 @@
           <span><i class="fa fa-arrow-left" aria-hidden="true"></i></span>
           <span class="ml-2 text-black">Back</span>
         <% end %>
-        <%= link_to organisation_journey_path("country_setup/#{@region_operator.lower_name}"), class: 'text-capitalize text-dark text-decoration-none' do %>
-          <span class="mr-2 text-secondary">Next</span>
-          <span><i class="fa fa-arrow-right text-secondary" aria-hidden="true"></i></span>
+        <%= button_tag type: 'submit', class: 'wait-loader text-capitalize text-dark text-decoration-none border-0 bg-transparent' do %>
+          <span class="mr-2">Next</span>
+          <span><i class="fa fa-arrow-right" aria-hidden="true"></i></span>
         <% end %>
-
         </div>
         <h1 class="text-dark font-30 text-black"><%= @region_operator.name %> Countries</h1>
         <div class="w-sm-50 w-100 mx-auto">
@@ -45,10 +44,10 @@
         <div class="w-65 mx-auto">
           <div class="row w-100 mx-auto my-3">
             <div class="col-md-4 col-sm pr-md-1 px-auto mb-sm-0 mb-3">
-              <%= submit_tag 'save & exit', class: 'text-capitalize text-decoration-none border font-500 font-12 w-100 py-2 text-black rounded border-0 w-100 d-block bg-body-color wait-loader' %>
+              <%= link_to 'save & exit', 'javascript:void(0);', class: 'text-capitalize text-decoration-none border font-500 font-12 w-100 py-2 text-black rounded border-0 w-100 d-block bg-body-color wait-loader', id: 'journey-save-exit-countries' %>
             </div>
             <div class="col-md-8 col-sm pl-md-1 px-auto">
-            <%= submit_tag 'Next', class: 'text-capitalize dark-btn font-500 font-12 w-100 py-2 rounded border-0 wait-loader' %>
+            <%= submit_tag 'Next', class: 'text-capitalize dark-btn font-500 font-12 w-100 py-2 rounded border-0 wait-loader', id: 'journey-submit-countries' %>
             </div>
           </div>
         </div>
