@@ -71,4 +71,46 @@ document.addEventListener('turbolinks:load', function() {
     form.attr('action', action);
     $('#journey-submit-countries').click();
   });
+  
+  $('body').on('click','#save-channels',function() {
+    dataTarget = $('[data-target="' + $(this).attr('data-id') + '"]');
+    channelContent = $(dataTarget).parent();
+    selectedChannels = $(this).closest('.modal').find('input:checkbox:checked');
+    selectedChannelsArr = [];
+
+    $(selectedChannels).each(function() {
+      selectedChannelsArr.push($(this).val());
+    });
+
+    if ( selectedChannelsArr.length > 0 ) {
+      selectedChannelsText = selectedChannelsArr.reverse().pop();
+      if ( selectedChannelsArr.length >= 1 ) {
+        selectedChannelsText += ", " + selectedChannelsArr.reverse().pop();
+      }
+
+      if ( selectedChannelsArr.length >= 1 ) {
+        selectedChannelsText += " + " + selectedChannelsArr.length + " More";
+      }
+      
+      channelContent.find(' > span').remove();
+      channelContent.prepend('<span class="text-left font-12 font-600">' + selectedChannelsText + '</span>');
+      dataTarget.find('i').remove();
+      dataTarget.find('span').text('EDIT');
+    } else {
+      channelContent.find(' > span').remove();
+      dataTarget.prepend('<i class="fa fa-plus-circle"></i>');
+      dataTarget.find('span').text('Add Channels');
+    }
+  });
+
+  $('body').on('click','.add-product',function(){
+    channel_id = '#'+this.id+'-channel';
+    if ($(this).is(':checked')) {
+      $(channel_id).removeClass('disable');
+    } else {
+      $(channel_id).addClass('disable');
+    }
+    
+  });
+
 });

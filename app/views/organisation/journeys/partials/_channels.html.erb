@@ -10,17 +10,19 @@
         <h5 class="text-capitalize font-300 mb-4">Add Channels</h5>
         <% unit_product_channels = selected_unit_product&.unit_product_channels || [] %>
         <div class="form-group my-3">
-          <% product.channels.each do |channel| %>
-            <label class="custom-checkbox d-flex pl-4" for="<%= "#{index}#{institution.id}#{product.id}#{channel.id}" %>">
-              <span class="font-14 text-black text-capitalize ml-2"><%= channel.name %></span>
-              <%= check_box_tag "institutions[#{institution.id}][#{index}][products][#{product.id}][channels][#{channel.id}]", channel.name, unit_product_channels&.pluck(:channel_id)&.include?(channel.id), class: 'form-control', id: "#{index}#{institution.id}#{product.id}#{channel.id}" %>
-              <span class="transparent-checkmark"></span>
-            </label>
-          <% end %>            
+          <div id="<%="#{index}#{institution.id}#{product.id}"%>">
+            <% product.channels.each do |channel| %>
+              <label class="custom-checkbox d-flex pl-4" for="<%= "#{index}#{institution.id}#{product.id}#{channel.id}" %>">
+                <span class="font-14 text-black text-capitalize ml-2"><%= channel.name %></span>
+                <%= check_box_tag "institutions[#{institution.id}][#{index}][products][#{product.id}][channels][#{channel.id}]", channel.name, unit_product_channels&.pluck(:channel_id)&.include?(channel.id), class: 'form-control', id: "#{index}#{institution.id}#{product.id}#{channel.id}" %>
+                <span class="transparent-checkmark"></span>
+              </label>
+            <% end %>  
+          </div>          
         </div>
       </div>
       <div class="modal-footer border-0">
-        <button type="button" class="btn border-0 w-100 black-btn py-2" data-dismiss="modal" aria-label="Close">
+        <button type="button" class="btn border-0 w-100 black-btn py-2" data-id="<%="#institution-#{institution.id}-#{index}-product-#{product.id}"%>" id="save-channels" data-dismiss="modal" aria-label="Close">
           Save
         </button>
       </div>
