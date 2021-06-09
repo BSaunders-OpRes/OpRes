@@ -14,6 +14,7 @@ class Organisation::JourneysController < Organisation::BaseController
         params:              params
       })
 
+      @organisational_unit = organisational_unit.include_children
       @regional_unit&.reload
       @country_unit&.reload
     end

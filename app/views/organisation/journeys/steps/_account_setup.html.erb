@@ -8,7 +8,8 @@
         </div>
         <h1 class="text-capitalize font-300 font-40 mt-4">Account Setup</h1>
         <p class="font-12 font-xxl-14 font-500 my-4">Please complete the onboarding process for your operating regions. This allow us to create the optimal data model for your  organisation.</p>
-        <div class="black-selection bg-black rounded d-flex">
+        <% organisational_decoration = journey_unit_decoration(organisational_unit) %>
+        <div class="<%= organisational_decoration[:list_class] %> rounded d-flex">
           <div class="row align-items-center flex-1 py-md-3 px-md-4 p-3">
             <div class="col-md-7">
               <div class="left-side d-flex align-items-center mb-md-0 mb-3">
@@ -23,21 +24,22 @@
             </div>
             <div class="col-md-5">
               <div class="right-side d-flex justify-content-between">
-                <a href="" class="font-13 font-xxl-14 text-green">
+                <a href="" class="font-13 font-xxl-14 <%= organisational_decoration[:text_class] %>">
                   <i class="fa fa-check"></i>
-                  <span class="text-capitalize ml-2"><%= organisational_unit.status%></span>
+                  <span class="text-capitalize ml-2"><%= organisational_decoration[:status_text] %></span>
                 </a>
 
                 <%= link_to organisation_journey_path('organisation'), class: 'font-13 font-xxl-14 text-white' do %>
-                  <span class="text-capitalize mr-2"><%= btn_text(organisational_unit.status) %></span>
+                  <span class="text-capitalize mr-2"><%= organisational_decoration[:link_text] %></span>
                   <i class="fa fa-angle-right font-16"></i>
                 <% end %>
               </div>
             </div>
           </div>
         </div>
-        <% organisational_unit.children.map{ |regional_unit| [regional_unit.region, regional_unit.status] }.each do |region, completion_status| %>
-          <div class="white-selection bg-white rounded d-flex border mt-2">
+        <% organisational_unit.children.map{ |regional_unit| [regional_unit, regional_unit.region] }.each do |regional_unit, region| %>
+          <% regional_decoration = journey_unit_decoration(regional_unit) %>
+          <div class="<%= regional_decoration[:list_class] %> rounded d-flex border mt-2">
             <div class="row align-items-center flex-1 py-md-3 px-md-4 p-3">
               <div class="col-md-7">
                 <div class="left-side d-flex align-items-center mb-md-0 mb-3">
@@ -49,12 +51,14 @@
               </div>
               <div class="col-md-5">
                 <div class="right-side d-flex justify-content-between">
-                  <a href="" class="font-13 font-xxl-14 text-dark-yellow">
-                    <i class="fa fa-check d-none"></i>
-                    <span class="text-capitalize ml-0"><%= transform_inprogress_text(completion_status) %></span>
+                  <a href="" class="font-13 font-xxl-14 <%= regional_decoration[:text_class] %> ">
+                    <% if regional_unit.completed? %>
+                      <i class="fa fa-check"></i>
+                    <% end %>
+                    <span class="text-capitalize ml-2"><%= regional_decoration[:status_text] %></span>
                   </a>
                     <%= link_to organisation_journey_path("countries/#{region.lower_name}"), class: 'font-13 font-xxl-14 text-black' do %>
-                      <span class="text-capitalize mr-2"><%= btn_text(completion_status) %></span>
+                      <span class="text-capitalize mr-2"><%= regional_decoration[:link_text] %></span>
                       <i class="fa fa-angle-right font-16"></i>
                     <% end %>
                 </div>

@@ -8,7 +8,8 @@
         </div>
         <h1 class="text-capitalize font-sm-24 font-300 font-40 mt-4"><%= @region_operator.name %> Countries Setup</h1>
         <p class="font-12 font-xxl-14 font-500 my-4">Please complete the onboarding process for your operating regions. This allow us to create the optimal data model for your  organisation.</p>
-        <div class="black-selection bg-black rounded d-flex">
+        <% regional_decoration = journey_unit_decoration(@regional_unit) %>
+        <div class="<%= regional_decoration[:list_class] %> rounded d-flex border">
           <div class="row align-items-center flex-1 py-md-3 px-md-4 p-3">
             <div class="col-md-7">
               <div class="left-side d-flex align-items-center mb-md-0 mb-3">
@@ -26,11 +27,15 @@
             <div class="col-md-5">
               <div class="right-side d-flex justify-content-between">
                 <a href="" class="font-13 font-xxl-14 text-green">
-                  <i class="fa fa-check"></i>
-                  <span class="text-capitalize ml-2"><%=transform_inprogress_text(@regional_unit.status) %> </span>
+                  <% if @regional_unit.status == 'completed' %>
+                    <i class="fa fa-check"></i>
+                  <% end %>
+                  <span class="text-capitalize ml-2 <%= regional_decoration[:text_class] %>">
+                    <%= regional_decoration[:status_text] %>
+                  </span>
                 </a>
                 <%= link_to organisation_journey_path("countries/#{@region_operator.lower_name}"), class: 'font-13 font-xxl-14 text-white' do %>
-                  <span class="text-capitalize mr-2"><%= btn_text(@regional_unit.status) %></span>
+                  <span class="text-capitalize mr-2"><%= regional_decoration[:link_text] %></span>
                   <i class="fa fa-angle-right font-16"></i>
                 <% end %>
               </div>
@@ -38,25 +43,28 @@
           </div>
         </div>
 
-        <% @regional_unit.children.map{ |country_unit| [country_unit.country, country_unit.status] }.each do |country, completion_status| %>
-          <div class="white-selection bg-white rounded d-flex border mt-2">
+        <% @regional_unit.children.map{ |country_unit| [country_unit, country_unit.country] }.each do |country_unit, country| %>
+          <% country_decoration = journey_unit_decoration(country_unit) %>
+          <div class="<%= country_decoration[:list_class] %> rounded d-flex border mt-2">
             <div class="row align-items-center flex-1 py-md-3 px-md-4 p-3">
               <div class="col-md-7">
                 <div class="left-side d-flex align-items-center mb-md-0 mb-3">
                   <i class="flag <%= country.lower_alpha2 %>"></i>
-                  <div class="d-flex flex-column ml-md-4 ml-0">
+                  <div class="d-flex flex-column ml-md-2 pl-1 ml-0">
                     <p class="text-capitalize font-13 font-xxl-14 text-black font-500"><%= country.name %></p>
                   </div>
                 </div>
               </div>
               <div class="col-md-5">
                 <div class="right-side d-flex justify-content-between">
-                  <a href="" class="font-13 font-xxl-14 text-dark-yellow">
-                    <i class="fa fa-check d-none"></i>
-                    <span class="text-capitalize ml-0"><%= transform_inprogress_text(completion_status) %></span>
+                  <a href="" class="font-13 font-xxl-14 <%= country_decoration[:text_class] %>">
+                    <% if country_unit.completed? %>
+                      <i class="fa fa-check"></i>
+                    <% end %>
+                    <span class="text-capitalize ml-2"><%= country_decoration[:status_text] %></span>
                   </a>
                 <%= link_to organisation_journey_path("institutions/#{ @region_operator.lower_name}/#{country.lower_alpha2}"), class: 'build-invite-user font-13 font-xxl-14 text-black' do %>
-                  <span class="text-capitalize mr-2"><%= btn_text(completion_status) %></span>
+                  <span class="text-capitalize mr-2"><%= country_decoration[:link_text] %></span>
                   <i class="fa fa-angle-right font-16"></i>
                 <% end %>
                 </div>
