@@ -23,6 +23,11 @@ class User < ApplicationRecord
     "#{first_name} #{last_name}"
   end
 
+  def initials
+    _initials = "#{first_name.to_s[0] || ''}#{last_name.to_s[0] || ''}"
+    _initials.upcase.presence || 'U'
+  end
+
   private
 
   def password_required?

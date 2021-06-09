@@ -2,7 +2,6 @@ document.addEventListener('turbolinks:load', function() {
   if ($('#management-dashboard').length == 1) {
     render_donut_chart('first-donut');
     render_donut_chart('second-donut');
-
     render_donut_chart('first-donut-sm');
     render_donut_chart('second-donut-sm');
     render_donut_chart('third-donut-sm');
