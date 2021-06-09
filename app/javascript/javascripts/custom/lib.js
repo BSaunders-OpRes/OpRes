@@ -23,6 +23,10 @@ document.addEventListener('turbolinks:load', function() {
   });
 
   $('body').on('click', '.wait-loader', function() {
+    if (this.tagName == 'INPUT' && !$(this).parents('form')[0].checkValidity()) {
+      return
+    }
+    
     show_loader();
   });
 

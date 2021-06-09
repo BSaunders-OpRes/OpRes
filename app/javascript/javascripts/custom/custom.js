@@ -1,5 +1,4 @@
 document.addEventListener('turbolinks:load', function() {
-
   $('[data-toggle="tooltip"]').tooltip();
 
   $('#close_sidebar').click(function() {
