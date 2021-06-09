@@ -49,23 +49,4 @@ module ApplicationHelper
     {} unless bsl.unit.institution_unit?
     [bsl.unit.name, bsl.unit.id]
   end
-
-  def name_initials
-    first_name = @current_user.first_name
-    last_name  = @current_user.last_name
-
-    if first_name.present? && last_name.present?
-      first_name[0] + last_name[0]
-    elsif first_name.present? && last_name.blank?
-      first_name[0] + first_name[1]
-    elsif first_name.blank? && last_name.present?
-      last_name[0] + last_name[1]
-    else
-      ""
-    end
-  end
-
-  def full_name
-    @current_user.first_name + " " + @current_user.last_name
-  end
 end
