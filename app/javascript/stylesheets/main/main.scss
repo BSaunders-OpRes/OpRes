@@ -10,16 +10,57 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  transition: none;
+  transition: 0;
 }
 
 html {
   height: 100%;
+  transition: none;
+  transition: 0;
 }
 
 h1, h2, h3, h4, h5, h6, p {
   margin: 0;
 }
 
+.transition {
+  transition: .4s all;
+}
+
+.pagination-active {
+  .page-item.active {
+    .page-link {
+      background: $body-bg-color;
+      color: $black;
+      font-weight: 600;
+    }
+  }
+}
+ul.nav-tabs.active-green {
+  li.nav-item {
+    a {
+      transition: .3s all;
+    }
+    a:hover {
+      color: $black;
+    }
+    a.active {
+      position: relative;
+      font-weight: bold;
+      color: $black;
+    }
+    a.active:after {
+      content: "";
+      position: absolute;
+      height: 2px;
+      width: 30px;
+      background: #6BEAB3;
+      left: 0;
+      top: 90%;
+    }
+  }
+}
 p {
   padding: 0;
 }
@@ -32,6 +73,11 @@ a {
 }
 .tooltip-inner {
   text-transform: capitalize;
+}
+.center-position {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 .loading {
   position: relative;
