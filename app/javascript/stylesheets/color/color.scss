@@ -2,12 +2,14 @@
   background: $primary-green;
 }
 .text-light-grey {
-  color: #949494;
+  color: $medium-grey;
 }
 .text-black {
   color: $black !important;
 }
-
+.light-grey-bg {
+  background: #F9FAFC;
+}
 
 .bg-black {
   background: $black;

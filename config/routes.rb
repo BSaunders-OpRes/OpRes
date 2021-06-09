@@ -23,16 +23,17 @@ Rails.application.routes.draw do
     get :build_institution,     to: 'journeys#build_institution'
     get :build_user_invitation, to: 'journeys#build_user_invitation'
     resources :dashboard, only: %i[index]
+    resources :graphs, only: %i[show]
     resources :institutions
     resources :products
     resources :channels
     resources :business_service_lines
+    resources :suppliers
     resources :units, only: [] do
       get :load_countries,         on: :collection
       get :load_institutions,      on: :collection
       get :load_products_channels, on: :collection
     end
-    resources :suppliers
     resources :admins
     resources :administration_portal, only: %i[index]
     # resources :supplier_contacts

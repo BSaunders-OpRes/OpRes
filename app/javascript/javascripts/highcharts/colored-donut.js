@@ -1,30 +1,8 @@
 document.addEventListener('turbolinks:load', function() {
-  if ($('#management-dashboard').length == 1) {
-    render_donut_chart('first-donut');
-    render_donut_chart('second-donut');
+  if ($('#sub-dash').length == 1) {
+    render_donut_chart('colored-donut');
+  }
 
-    render_donut_chart('first-donut-sm');
-    render_donut_chart('second-donut-sm');
-    render_donut_chart('third-donut-sm');
-    render_donut_chart('fourth-donut-sm');
-    render_donut_chart('fifth-donut-sm');
-    render_donut_chart('sixth-donut-sm');
-    render_donut_chart('seventh-donut-sm');
-    render_donut_chart('eight-donut-sm');
-    render_donut_chart('ninth-donut-sm');
-    render_donut_chart('tenth-donut-sm');
-    render_donut_chart('eleventh-donut-sm');
-    render_donut_chart('twelth-donut-sm');
-    render_donut_chart('third-donut');
-    render_donut_chart('fourth-donut');
-    render_donut_chart('fifth-donut');
-    render_donut_chart('sixth-donut');
-    render_donut_chart('seventh-donut');
-  }
-  if ($('#cirtical-important-system').length == 1) {
-    render_donut_chart('thirteen-donut-sm');
-    render_donut_chart('forteen-donut-sm');
-  }
   function render_donut_chart(element) {
     Highcharts.chart(element, {
       chart: {
@@ -73,23 +51,23 @@ document.addEventListener('turbolinks:load', function() {
       series: [{
         type: 'pie',
         name: 'Browser share',
-        innerSize: '70%',
+        innerSize: '80%',
         groupPadding: 0,
         data: [
           {
             name: '',
             y: 40,
-            color: '#6BEAB3'
+            color: '#E4412E'
           },
           {
             name: '',
             y: 50,
-            color: '#367C5C'
+            color: '#6BEAB3'
           },
           {
             name: '',
             y: 10,
-            color: '#CDFAF1'
+            color: '#E39A2B'
           }
         ]
       }]

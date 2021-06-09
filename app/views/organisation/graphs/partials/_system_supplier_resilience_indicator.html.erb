@@ -1,0 +1,782 @@
+<div id="sub-dash">
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="d-flex justify-content-between align-items-center">
+        <div class="left d-flex align-items-center">
+          <%= render 'layouts/partials/shared/redirect_back', path: organisation_dashboard_index_path %>
+          <h2 class="font-700 font-25 text-capitalize mb-2 ml-2">Supplier Conformance with Impact Tolerances</h2>
+        </div>
+        <div class="right d-flex">
+          <div class="white-btn d-flex align-items-center pl-2 pr-4">
+            <span><i class='fa fa-save font-16'></i></span>
+            <span class="text-capitalize font-12 font-xxl-14 ml-2">save view</span>
+          </div>
+          <div class="white-btn ml-2 p-1">
+            <i class="fa fa-ellipsis-v px-2"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row mt-5 no-gutters">
+    <div class="col-sm-3 col-xxl-2 px-1">
+      <aside class="fixed-secondary-sidebar position-static" id='sticky-sidebar-demo'>
+        <ul class="p-0 list-unstyled inner-wrapper-sticky">
+          <li class="links active-white">
+            <a href="#section1" class=" text-decoration-none text-capitalize font-13 font-xxl-14 d-block py-2">overview</a>
+          </li>
+          <li class="links">
+            <a href="#section2" class=" text-decoration-none text-capitalize font-13 font-xxl-14 d-block py-2">impact tolerance breakdown-per filter</a>
+          </li>
+          <li class="links">
+            <a href="#section3" class=" text-decoration-none text-capitalize font-13 font-xxl-14 d-block py-2">top conformant supplier</a>
+          </li>
+          <li class="links">
+            <a href="#section4" class=" text-decoration-none text-capitalize font-13 font-xxl-14 d-block py-2">top non-conformant supplier</a>
+          </li>
+        </ul>
+      </aside>
+    </div>
+    <div class="col-sm-9 col-xxl-10 px-1">
+      <section id="section1" class="section mb-4">
+        <div class="card border-0 shadow-sm rounded-50 mb-3">
+          <div class="card-body">
+            <div class="d-flex align-items-center px-1">
+              <i class="fa fa-sliders"></i>
+              <h5 class="text-capitalize ml-2">segmentation options</h5>
+            </div>
+            <div class="row no-gutters mt-3">
+              <div class="col-lg px-1 col-md-4 col-sm-6">
+                <div class="dropdown custom-dropdown">
+                  <button class="border-0 p-3 bg-body-color dropdown-toggle w-100 shadow-none mb-3" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span class="d-flex flex-column align-items-start">
+                      <h6 class="text-capitalize font-12 font-xxl-14 mb-1">
+                        <span class="font-600 text-capitalize">Regions .</span>
+                        <span class="text-light-grey">3</span>
+                      </h6>
+                      <span class="text-capitalize font-12 font-xxl-14 text-light-grey">View all</span>
+                    </span>
+                  </button>
+                  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <div class="form-group dropdown-item pl-3 m-0">
+                      <label for="ch39" class="custom-checkbox d-flex m-0">
+                        <span class="font-12 text-black text-capitalize">View All</span>
+                        <input type="checkbox" class="form-control" id="ch39">
+                        <span class="transparent-checkmark"></span>
+                      </label>                        
+                    </div>
+                    <div class="form-group dropdown-item pl-3 m-0">
+                      <label for="ch69" class="custom-checkbox d-flex m-0">
+                        <span class="font-12 text-black text-capitalize">AMERS</span>
+                        <input type="checkbox" class="form-control" id="ch69">
+                        <span class="transparent-checkmark"></span>
+                      </label>                        
+                    </div>
+                    <div class="form-group dropdown-item pl-3 m-0">
+                      <label for="ch59" class="custom-checkbox d-flex m-0">
+                        <span class="font-12 text-black text-capitalize">APAC</span>
+                        <input type="checkbox" class="form-control" id="ch59">
+                        <span class="transparent-checkmark"></span>
+                      </label>                        
+                    </div>
+                    <div class="form-group dropdown-item pl-3 m-0">
+                      <label for="ch79" class="custom-checkbox d-flex m-0">
+                        <span class="font-12 text-black text-capitalize">EMEA</span>
+                        <input type="checkbox" class="form-control" id="ch79">
+                        <span class="transparent-checkmark"></span>
+                      </label>                        
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg px-1 col-md-4 col-sm-6">
+                <div class="dropdown custom-dropdown">
+                  <button class="border-0 mb-3 bg-body-color p-3 dropdown-toggle w-100 shadow-none" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span class="d-flex flex-column align-items-start">
+                      <h6 class="text-capitalize font-12 font-xxl-14 mb-1">
+                        <span class="font-600 text-capitalize">Sub Regions .</span>
+                        <span class="text-light-grey">3</span>
+                      </h6>
+                      <span class="text-capitalize font-12 font-xxl-14 text-light-grey">View all</span>
+                    </span>
+                  </button>
+                  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <div class="form-group dropdown-item pl-3 m-0 mb-2">
+                      <label for="ch319" class="custom-checkbox d-flex m-0">
+                        <span class="font-12 text-black text-capitalize">View All</span>
+                        <input type="checkbox" class="form-control" id="ch319">
+                        <span class="transparent-checkmark"></span>
+                      </label>                        
+                    </div>
+                    <div class="form-group dropdown-item pl-3 m-0 mb-2">
+                      <label for="ch619" class="custom-checkbox d-flex m-0">
+                        <span class="font-12 text-black text-capitalize">Sub Saharan Africa
+                          <span class="text-light-grey">- 3 countries</span>
+                        </span>
+                        <input type="checkbox" class="form-control" id="ch619">
+                        <span class="transparent-checkmark"></span>
+                      </label>                        
+                    </div>
+                    <div class="form-group dropdown-item pl-3 m-0 mb-2">
+                      <label for="ch519" class="custom-checkbox d-flex m-0">
+                        <span class="font-12 text-black text-capitalize">
+                          eastern europe
+                          <span class="text-light-grey">- 3 countries</span>
+                        </span>
+                        <input type="checkbox" class="form-control" id="ch519">
+                        <span class="transparent-checkmark"></span>
+                      </label>                        
+                    </div>
+                    <div class="form-group dropdown-item pl-3 m-0 mb-2">
+                      <label for="ch719" class="custom-checkbox d-flex m-0">
+                        <span class="font-12 text-black text-capitalize">
+                          northern europe
+                          <span class="text-light-grey">- 3 countries</span>
+                        </span>
+                        <input type="checkbox" class="form-control" id="ch719">
+                        <span class="transparent-checkmark"></span>
+                      </label>                        
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg px-1 col-md-4 col-sm-6">
+                <div class="dropdown custom-dropdown">
+                  <button class="border-0 mb-3 p-3 bg-body-color dropdown-toggle w-100 shadow-none" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span class="d-flex flex-column align-items-start">
+                      <h6 class="text-capitalize font-12 font-xxl-14 mb-1">
+                        <span class="font-600 text-capitalize">countries .</span>
+                        <span class="text-light-grey">3</span>
+                      </h6>
+                      <span class="text-capitalize font-12 font-xxl-14 text-light-grey">View all</span>
+                    </span>
+                  </button>
+                  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <div class="form-group dropdown-item pl-3 m-0">
+                      <label for="ch39" class="custom-checkbox d-flex m-0">
+                        <span class="font-12 text-black text-capitalize">View All</span>
+                        <input type="checkbox" class="form-control" id="ch39">
+                        <span class="transparent-checkmark"></span>
+                      </label>                        
+                    </div>
+                    <div class="form-group dropdown-item pl-3 m-0">
+                      <label for="ch69" class="custom-checkbox d-flex m-0">
+                        <span class="font-12 text-black text-capitalize">
+                        <i class="flag belgium"></i>
+                        belgium</span>
+                        <input type="checkbox" class="form-control" id="ch69">
+                        <span class="transparent-checkmark"></span>
+                      </label>                        
+                    </div>
+                    <div class="form-group dropdown-item pl-3 m-0">
+                      <label for="ch59" class="custom-checkbox d-flex m-0">
+                        <span class="font-12 text-black text-capitalize">
+                        <i class="flag france"></i>
+                        france</span>
+                        <input type="checkbox" class="form-control" id="ch59">
+                        <span class="transparent-checkmark"></span>
+                      </label>                        
+                    </div>
+                    <div class="form-group dropdown-item pl-3 m-0">
+                      <label for="ch79" class="custom-checkbox d-flex m-0">
+                        <span class="font-12 text-black text-capitalize">
+                        <i class="flag germany"></i>
+                        germany</span>
+                        <input type="checkbox" class="form-control" id="ch79">
+                        <span class="transparent-checkmark"></span>
+                      </label>                        
+                    </div>
+                    <div class="form-group dropdown-item pl-3 m-0">
+                      <label for="ch79" class="custom-checkbox d-flex m-0">
+                        <span class="font-12 text-black text-capitalize">
+                        <i class="flag spain"></i>
+                        spain</span>
+                        <input type="checkbox" class="form-control" id="ch79">
+                        <span class="transparent-checkmark"></span>
+                      </label>                        
+                    </div>
+                    <div class="form-group dropdown-item pl-3 m-0">
+                      <label for="ch79" class="custom-checkbox d-flex m-0">
+                        <span class="font-12 text-black text-capitalize">
+                        <i class="flag uk"></i>
+                        UK</span>
+                        <input type="checkbox" class="form-control" id="ch79">
+                        <span class="transparent-checkmark"></span>
+                      </label>                        
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg px-1 col-md-4 col-sm-6">
+                <div class="dropdown custom-dropdown">
+                  <button class="border-0 mb-3 p-3 bg-body-color dropdown-toggle w-100 shadow-none" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span class="d-flex flex-column align-items-start">
+                      <h6 class="text-capitalize font-12 font-xxl-14 mb-1">
+                        <span class="font-600 text-capitalize">institutions .</span>
+                        <span class="text-light-grey">3</span>
+                      </h6>
+                      <span class="text-capitalize font-12 font-xxl-14 text-light-grey">View all</span>
+                    </span>
+                  </button>
+                  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <div class="form-group dropdown-item pl-3 m-0">
+                      <label for="ch39" class="custom-checkbox d-flex m-0">
+                        <span class="font-12 text-black text-capitalize">View All</span>
+                        <input type="checkbox" class="form-control" id="ch39">
+                        <span class="transparent-checkmark"></span>
+                      </label>                        
+                    </div>
+                    <div class="form-group dropdown-item pl-3 m-0">
+                      <label for="ch69" class="custom-checkbox d-flex m-0">
+                        <span class="font-12 text-black text-capitalize">
+                        <i class="flag belgium"></i>
+                        belgium</span>
+                        <input type="checkbox" class="form-control" id="ch69">
+                        <span class="transparent-checkmark"></span>
+                      </label>                        
+                    </div>
+                    <div class="form-group dropdown-item pl-3 m-0">
+                      <label for="ch59" class="custom-checkbox d-flex m-0">
+                        <span class="font-12 text-black text-capitalize">
+                        <i class="flag france"></i>
+                        france</span>
+                        <input type="checkbox" class="form-control" id="ch59">
+                        <span class="transparent-checkmark"></span>
+                      </label>                        
+                    </div>
+                    <div class="form-group dropdown-item pl-3 m-0">
+                      <label for="ch79" class="custom-checkbox d-flex m-0">
+                        <span class="font-12 text-black text-capitalize">
+                        <i class="flag germany"></i>
+                        germany</span>
+                        <input type="checkbox" class="form-control" id="ch79">
+                        <span class="transparent-checkmark"></span>
+                      </label>                        
+                    </div>
+                    <div class="form-group dropdown-item pl-3 m-0">
+                      <label for="ch79" class="custom-checkbox d-flex m-0">
+                        <span class="font-12 text-black text-capitalize">
+                        <i class="flag spain"></i>
+                        spain</span>
+                        <input type="checkbox" class="form-control" id="ch79">
+                        <span class="transparent-checkmark"></span>
+                      </label>                        
+                    </div>
+                    <div class="form-group dropdown-item pl-3 m-0">
+                      <label for="ch79" class="custom-checkbox d-flex m-0">
+                        <span class="font-12 text-black text-capitalize">
+                        <i class="flag uk"></i>
+                        UK</span>
+                        <input type="checkbox" class="form-control" id="ch79">
+                        <span class="transparent-checkmark"></span>
+                      </label>                        
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg px-1 col-md-4 col-sm-6">
+                <div class="dropdown custom-dropdown">
+                  <button class="border-0 mb-3 p-3 bg-body-color dropdown-toggle w-100 shadow-none" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span class="d-flex flex-column align-items-start">
+                      <h6 class="text-capitalize font-12 font-xxl-14 mb-1">
+                        <span class="font-600 text-capitalize">entities .</span>
+                        <span class="text-light-grey">3</span>
+                      </h6>
+                      <span class="text-capitalize font-12 font-xxl-14 text-light-grey">View all</span>
+                    </span>
+                  </button>
+                  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <div class="form-group dropdown-item pl-3 m-0">
+                      <label for="ch39" class="custom-checkbox d-flex m-0">
+                        <span class="font-12 text-black text-capitalize">View All</span>
+                        <input type="checkbox" class="form-control" id="ch39">
+                        <span class="transparent-checkmark"></span>
+                      </label>                        
+                    </div>
+                    <div class="form-group dropdown-item pl-3 m-0">
+                      <label for="ch69" class="custom-checkbox d-flex m-0">
+                        <span class="font-12 text-black text-capitalize">AMERS</span>
+                        <input type="checkbox" class="form-control" id="ch69">
+                        <span class="transparent-checkmark"></span>
+                      </label>                        
+                    </div>
+                    <div class="form-group dropdown-item pl-3 m-0">
+                      <label for="ch59" class="custom-checkbox d-flex m-0">
+                        <span class="font-12 text-black text-capitalize">APAC</span>
+                        <input type="checkbox" class="form-control" id="ch59">
+                        <span class="transparent-checkmark"></span>
+                      </label>                        
+                    </div>
+                    <div class="form-group dropdown-item pl-3 m-0">
+                      <label for="ch79" class="custom-checkbox d-flex m-0">
+                        <span class="font-12 text-black text-capitalize">EMEA</span>
+                        <input type="checkbox" class="form-control" id="ch79">
+                        <span class="transparent-checkmark"></span>
+                      </label>                        
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg px-1 col-md-4 col-sm-6">
+                <div class="dropdown custom-dropdown">
+                  <button class="border-0 mb-3 p-3 bg-body-color dropdown-toggle w-100 shadow-none" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span class="d-flex flex-column align-items-start">
+                      <h6 class="text-capitalize font-12 font-xxl-14 mb-1">
+                        <span class="font-600 text-capitalize">products .</span>
+                        <span class="text-light-grey">3</span>
+                      </h6>
+                      <span class="text-capitalize font-12 font-xxl-14 text-light-grey">View all</span>
+                    </span>
+                  </button>
+                  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <div class="form-group dropdown-item pl-3 m-0">
+                      <label for="ch39" class="custom-checkbox d-flex m-0">
+                        <span class="font-12 text-black text-capitalize">View All</span>
+                        <input type="checkbox" class="form-control" id="ch39">
+                        <span class="transparent-checkmark"></span>
+                      </label>                        
+                    </div>
+                    <div class="form-group dropdown-item pl-3 m-0">
+                      <label for="ch69" class="custom-checkbox d-flex m-0">
+                        <span class="font-12 text-black text-capitalize">AMERS</span>
+                        <input type="checkbox" class="form-control" id="ch69">
+                        <span class="transparent-checkmark"></span>
+                      </label>                        
+                    </div>
+                    <div class="form-group dropdown-item pl-3 m-0">
+                      <label for="ch59" class="custom-checkbox d-flex m-0">
+                        <span class="font-12 text-black text-capitalize">APAC</span>
+                        <input type="checkbox" class="form-control" id="ch59">
+                        <span class="transparent-checkmark"></span>
+                      </label>                        
+                    </div>
+                    <div class="form-group dropdown-item pl-3 m-0">
+                      <label for="ch79" class="custom-checkbox d-flex m-0">
+                        <span class="font-12 text-black text-capitalize">EMEA</span>
+                        <input type="checkbox" class="form-control" id="ch79">
+                        <span class="transparent-checkmark"></span>
+                      </label>                        
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card border-0 rounded-50">
+          <div class="card-body">
+            <div class="d-flex align-items-center justify-content-between">
+              <h5 class="font-16 font-600 text-capitalize">overview</h5>
+              <i class="fa fa-ellipsis-v"></i>
+            </div>
+            <div class="row align-items-center">
+              <div class="col-sm-4">
+                <div class="position-relative">
+                  <div id="colored-donut" class="donut-setter"></div>
+                  <span class="position-absolute center-position font-40 font-600">50%</span>
+                </div>
+              </div>
+              <div class="col-sm-8">
+                <div class="d-flex justify-content-between align-items-center font-12 font-xxl-14 my-3">
+                  <span class="font-500 text-capitalize">Total N# of 3rd Party System</span>
+                  <span class="font-700">34</span>
+                </div>
+                <div class="d-flex justify-content-between align-items-center font-12 font-xxl-14 my-3">
+                  <span class="font-500 text-capitalize">Total N# of match tolerance</span>
+                  <span class="font-700">34</span>
+                </div>
+                <div class="d-flex justify-content-between align-items-center font-12 font-xxl-14 my-3">
+                  <span class="font-500 text-capitalize">Total N# of Meet impact tolerance</span>
+                  <span class="font-700">34</span>
+                </div>
+                <div class="d-flex justify-content-between align-items-center font-12 font-xxl-14 my-3">
+                  <span class="font-500 text-capitalize">Total N# of exceeds impact tolerance</span>
+                  <span class="font-700">34</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="section2" class="section">
+        <div class="card border-0 rounded-50">
+          <div class="card-body">
+            <div class="d-flex align-items-center justify-content-between">
+              <h5 class="font-16 font-600 text-capitalize">impact tolerance breakdown - per filter</h5>
+              <i class="fa fa-ellipsis-v"></i>
+            </div>
+          </div>
+          <div class="table-responsive mt-4 bg-body-color">
+            <table class="table bg-white">
+              <thead>
+                <tr class="border-top-0">
+                  <th class="text-capitalize font-12 text-light-grey border-0">
+                    service level targets
+                  </th>
+                  <th class="text-capitalize font-12 text-light-grey border-0">
+                    total N# of match tolerance
+                  </th>
+                  <th class="text-capitalize font-12 text-light-grey border-0">
+                    Total N# of Meet impact tolerance
+                  </th>
+                  <th class="text-capitalize font-12 text-light-grey border-0">
+                    Total N# of exceeds impact tolerance
+                  </th>
+                  <th class="text-capitalize font-12 text-light-grey border-0">
+                    Total Number
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="text-uppercase font-12 font-xxl-14 font-700 py-4">SLA</td>
+                  <td class="font-12 font-xxl-14 py-4">
+                    <span class="font-700">19</span>
+                    <span class="text-capitalize text-primary font-500">breakdown</span>
+                  </td>
+                  <td class="font-12 font-xxl-14 py-4">
+                    <span class="font-700">6</span>
+                    <span class="text-capitalize text-primary font-500">breakdown</span>
+                  </td>
+                  <td class="font-12 font-xxl-14 py-4">
+                    <span class="font-700">13</span>
+                    <span class="text-capitalize text-primary font-500">breakdown</span>
+                  </td>
+                  <td class="font-12 font-xxl-14 py-4">
+                    <span class="font-700">42</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="text-uppercase font-12 font-xxl-14 font-700 py-4">sla</td>
+                  <td class="font-12 font-xxl-14 py-4">
+                    <span class="font-700">19</span>
+                    <span class="text-capitalize text-primary font-500">breakdown</span>
+                  </td>
+                  <td class="font-12 font-xxl-14 py-4">
+                    <span class="font-700">6</span>
+                    <span class="text-capitalize text-primary font-500">breakdown</span>
+                  </td>
+                  <td class="font-12 font-xxl-14 py-4">
+                    <span class="font-700">13</span>
+                    <span class="text-capitalize text-primary font-500">breakdown</span>
+                  </td>
+                  <td class="font-12 font-xxl-14 py-4">
+                    <span class="font-700">42</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="text-uppercase font-12 font-xxl-14 font-700 py-4">sla</td>
+                  <td class="font-12 font-xxl-14 py-4">
+                    <span class="font-700">19</span>
+                    <span class="text-capitalize text-primary font-500">breakdown</span>
+                  </td>
+                  <td class="font-12 font-xxl-14 py-4">
+                    <span class="font-700">6</span>
+                    <span class="text-capitalize text-primary font-500">breakdown</span>
+                  </td>
+                  <td class="font-12 font-xxl-14 py-4">
+                    <span class="font-700">13</span>
+                    <span class="text-capitalize text-primary font-500">breakdown</span>
+                  </td>
+                  <td class="font-12 font-xxl-14 py-4">
+                    <span class="font-700">42</span>
+                  </td>
+                </tr>
+              </tbody>
+              <tbody class="bg-body-color">
+                <tr class="border-0"><td colspan="5" class="font-12 font-xxl-14 text-light-grey light-grey-bg font-600 border-0 text-capitalize py-3">incident notification</td></tr>
+              </tbody>
+              <tbody>
+                <tr>
+                  <td class="text-uppercase font-12 font-xxl-14 font-700 py-4">SEV1</td>
+                  <td class="font-12 font-xxl-14 py-4">
+                    <span class="font-700">19</span>
+                    <span class="text-capitalize text-primary font-500">breakdown</span>
+                  </td>
+                  <td class="font-12 font-xxl-14 py-4">
+                    <span class="font-700">6</span>
+                    <span class="text-capitalize text-primary font-500">breakdown</span>
+                  </td>
+                  <td class="font-12 font-xxl-14 py-4">
+                    <span class="font-700">13</span>
+                    <span class="text-capitalize text-primary font-500">breakdown</span>
+                  </td>
+                  <td class="font-12 font-xxl-14 py-4">
+                    <span class="font-700">42</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="text-uppercase font-12 font-xxl-14 font-700 py-4">SEV1</td>
+                  <td class="font-12 font-xxl-14 py-4">
+                    <span class="font-700">19</span>
+                    <span class="text-capitalize text-primary font-500">breakdown</span>
+                  </td>
+                  <td class="font-12 font-xxl-14 py-4">
+                    <span class="font-700">6</span>
+                    <span class="text-capitalize text-primary font-500">breakdown</span>
+                  </td>
+                  <td class="font-12 font-xxl-14 py-4">
+                    <span class="font-700">13</span>
+                    <span class="text-capitalize text-primary font-500">breakdown</span>
+                  </td>
+                  <td class="font-12 font-xxl-14 py-4">
+                    <span class="font-700">42</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="text-uppercase font-12 font-xxl-14 font-700 py-4">SEV1</td>
+                  <td class="font-12 font-xxl-14 py-4">
+                    <span class="font-700">19</span>
+                    <span class="text-capitalize text-primary font-500">breakdown</span>
+                  </td>
+                  <td class="font-12 font-xxl-14 py-4">
+                    <span class="font-700">6</span>
+                    <span class="text-capitalize text-primary font-500">breakdown</span>
+                  </td>
+                  <td class="font-12 font-xxl-14 py-4">
+                    <span class="font-700">13</span>
+                    <span class="text-capitalize text-primary font-500">breakdown</span>
+                  </td>
+                  <td class="font-12 font-xxl-14 py-4">
+                    <span class="font-700">42</span>
+                  </td>
+                </tr>
+              </tbody>
+              <tbody class="bg-body-color">
+                <tr class="border-0"><td colspan="5" class="font-12 font-xxl-14 text-light-grey light-grey-bg font-600 border-0 text-capitalize py-3">incident restoration</td></tr>
+              </tbody>
+              <tbody>
+                <tr>
+                  <td class="text-uppercase font-12 font-xxl-14 font-700 py-4">SEV-RES</td>
+                  <td class="font-12 font-xxl-14 py-4">
+                    <span class="font-700">19</span>
+                    <span class="text-capitalize text-primary font-500">breakdown</span>
+                  </td>
+                  <td class="font-12 font-xxl-14 py-4">
+                    <span class="font-700">6</span>
+                    <span class="text-capitalize text-primary font-500">breakdown</span>
+                  </td>
+                  <td class="font-12 font-xxl-14 py-4">
+                    <span class="font-700">13</span>
+                    <span class="text-capitalize text-primary font-500">breakdown</span>
+                  </td>
+                  <td class="font-12 font-xxl-14 py-4">
+                    <span class="font-700">42</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="text-uppercase font-12 font-xxl-14 font-700 py-4">SEV-RES</td>
+                  <td class="font-12 font-xxl-14 py-4">
+                    <span class="font-700">19</span>
+                    <span class="text-capitalize text-primary font-500">breakdown</span>
+                  </td>
+                  <td class="font-12 font-xxl-14 py-4">
+                    <span class="font-700">6</span>
+                    <span class="text-capitalize text-primary font-500">breakdown</span>
+                  </td>
+                  <td class="font-12 font-xxl-14 py-4">
+                    <span class="font-700">13</span>
+                    <span class="text-capitalize text-primary font-500">breakdown</span>
+                  </td>
+                  <td class="font-12 font-xxl-14 py-4">
+                    <span class="font-700">42</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="text-uppercase font-12 font-xxl-14 font-700 py-4">SEV-RES</td>
+                  <td class="font-12 font-xxl-14 py-4">
+                    <span class="font-700">19</span>
+                    <span class="text-capitalize text-primary font-500">breakdown</span>
+                  </td>
+                  <td class="font-12 font-xxl-14 py-4">
+                    <span class="font-700">6</span>
+                    <span class="text-capitalize text-primary font-500">breakdown</span>
+                  </td>
+                  <td class="font-12 font-xxl-14 py-4">
+                    <span class="font-700">13</span>
+                    <span class="text-capitalize text-primary font-500">breakdown</span>
+                  </td>
+                  <td class="font-12 font-xxl-14 py-4">
+                    <span class="font-700">42</span>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <section id="section3" class="section">
+        <div class="card border-0 rounded-50">
+          <div class="card-body">
+            <div class="d-flex align-items-center justify-content-between">
+              <h5 class="font-16 font-600 text-capitalize flex-1">top conformant supplier</h5>
+              <div class="filter-grouped d-flex mr-2">
+                <div class="dropdown body-color-dropdown mr-2">
+                  <a id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class='dropdown-toggle text-capitalize py-2 pr-5 pl-2 d-flex align-items-center justify-content-start font-12 text-dark font-600 text-decoration-none' id='top-10'>view top 10</a>
+                  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item">Action</a>
+                    <a class="dropdown-item">Filter top 10</a>
+                    <a class="dropdown-item">Filter top 10</a>
+                  </div>
+                </div>
+              </div>
+              <i class="fa fa-ellipsis-v"></i>
+            </div>
+          </div>
+          <div class="table-responsive mt-4 bg-body-color">
+            <table class="table bg-white">
+              <thead>
+                <tr class="border-top-0">
+                  <th class="text-capitalize font-12 text-light-grey border-0">
+                    supplier name
+                  </th>
+                  <th class="text-capitalize font-12 text-light-grey border-0">
+                    Used by Total Number of Insitutions
+                  </th>
+                  <th class="text-capitalize font-12 text-light-grey border-0">
+                    Used by Total Number of business services
+                  </th>
+                  <th class="text-capitalize font-12 text-light-grey border-0">
+                    critical supplier status total
+                  </th>
+                  <th class="text-capitalize font-12 text-light-grey border-0">
+                    important supplier status total
+                  </th>
+                  <th class="text-capitalize font-12 text-light-grey border-0">
+                    supplier conformance % with impact tolerances
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="text-uppercase font-12 font-xxl-14 font-700 py-4 w-25">Name here</td>
+                  <td class="font-12 font-xxl-14 py-4">
+                    <span class="font-500">19</span>
+                  </td>
+                  <td class="font-12 font-xxl-14 py-4">
+                    <span class="font-500">6</span>
+                  </td>
+                  <td class="font-12 font-xxl-14 py-4">
+                    <span class="font-500">13</span>
+                  </td>
+                  <td class="font-12 font-xxl-14 py-4">
+                    <span class="font-500">42</span>
+                  </td>
+                  <td class="font-12 font-xxl-14 py-4">
+                    <span class="font-500">42</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="text-uppercase font-12 font-xxl-14 font-700 py-4">Name here</td>
+                  <td class="font-12 font-xxl-14 py-4">
+                    <span class="font-500">19</span>
+                  </td>
+                  <td class="font-12 font-xxl-14 py-4">
+                    <span class="font-500">6</span>
+                  </td>
+                  <td class="font-12 font-xxl-14 py-4">
+                    <span class="font-500">13</span>
+                  </td>
+                  <td class="font-12 font-xxl-14 py-4">
+                    <span class="font-500">42</span>
+                  </td>
+                  <td class="font-12 font-xxl-14 py-4">
+                    <span class="font-500">42</span>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+      <section id="section4" class="section">
+        <div class="card border-0 rounded-50">
+          <div class="card-body">
+            <div class="d-flex align-items-center justify-content-between">
+              <h5 class="font-16 font-600 text-capitalize flex-1">top non-conformant supplier</h5>
+              <div class="filter-grouped d-flex mr-2">
+                <div class="dropdown body-color-dropdown mr-2">
+                  <a id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class='dropdown-toggle text-capitalize py-2 pr-5 pl-2 d-flex align-items-center justify-content-start font-12 text-dark font-600 text-decoration-none' id='top-10'>view top 10</a>
+                  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item">Action</a>
+                    <a class="dropdown-item">Filter top 10</a>
+                    <a class="dropdown-item">Filter top 10</a>
+                  </div>
+                </div>
+              </div>
+              <i class="fa fa-ellipsis-v"></i>
+            </div>
+          </div>
+          <div class="table-responsive mt-4 bg-body-color">
+            <table class="table bg-white">
+              <thead>
+                <tr class="border-top-0">
+                  <th class="text-capitalize font-12 text-light-grey border-0">
+                    supplier name
+                  </th>
+                  <th class="text-capitalize font-12 text-light-grey border-0">
+                    Used by Total Number of Insitutions
+                  </th>
+                  <th class="text-capitalize font-12 text-light-grey border-0">
+                    Used by Total Number of business services
+                  </th>
+                  <th class="text-capitalize font-12 text-light-grey border-0">
+                    critical supplier status total
+                  </th>
+                  <th class="text-capitalize font-12 text-light-grey border-0">
+                    important supplier status total
+                  </th>
+                  <th class="text-capitalize font-12 text-light-grey border-0">
+                    supplier conformance % with impact tolerances
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="text-uppercase font-12 font-xxl-14 font-700 py-4 w-25">Name here</td>
+                  <td class="font-12 font-xxl-14 py-4">
+                    <span class="font-500">19</span>
+                  </td>
+                  <td class="font-12 font-xxl-14 py-4">
+                    <span class="font-500">6</span>
+                  </td>
+                  <td class="font-12 font-xxl-14 py-4">
+                    <span class="font-500">13</span>
+                  </td>
+                  <td class="font-12 font-xxl-14 py-4">
+                    <span class="font-500">42</span>
+                  </td>
+                  <td class="font-12 font-xxl-14 py-4">
+                    <span class="font-500">42</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="text-uppercase font-12 font-xxl-14 font-700 py-4">Name here</td>
+                  <td class="font-12 font-xxl-14 py-4">
+                    <span class="font-500">19</span>
+                  </td>
+                  <td class="font-12 font-xxl-14 py-4">
+                    <span class="font-500">6</span>
+                  </td>
+                  <td class="font-12 font-xxl-14 py-4">
+                    <span class="font-500">13</span>
+                  </td>
+                  <td class="font-12 font-xxl-14 py-4">
+                    <span class="font-500">42</span>
+                  </td>
+                  <td class="font-12 font-xxl-14 py-4">
+                    <span class="font-500">42</span>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+</div>
+
