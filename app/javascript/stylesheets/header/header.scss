@@ -60,6 +60,18 @@
         top: 18px !important;
         left: -40px !important;
         width: 200px;
+        .dropdown-item {
+          .name-initials {
+            width: 35px;
+            height: 35px;
+          }
+          .full-name {
+            width: 100%;
+            p {
+              white-space: normal;
+            }
+          }
+        }
       }
     }
     .alert-notification {
