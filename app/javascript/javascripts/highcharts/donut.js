@@ -24,6 +24,17 @@ document.addEventListener('turbolinks:load', function() {
     render_donut_chart('thirteen-donut-sm');
     render_donut_chart('forteen-donut-sm');
   }
+
+  if ($('#sub_dashboard').length == 1) {
+    render_donut_chart('thirteen-donut');
+    render_donut_chart('fourteen-donut');
+  }
+
+  if ($('#cloud_dashboard').length == 1) {
+    render_donut_chart('fifteen-donut');
+    render_donut_chart('sixteen-donut');
+  }
+
   function render_donut_chart(element) {
     Highcharts.chart(element, {
       chart: {

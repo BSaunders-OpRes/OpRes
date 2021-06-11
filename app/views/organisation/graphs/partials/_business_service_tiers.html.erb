@@ -1,0 +1,2716 @@
+<div id='sub_dashboard' class="new-dashboard">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="back-btn-header my-3 pb-4 d-inline-block align-middle w-50 pull-left">
+        <%= render 'layouts/partials/shared/redirect_back', path: organisation_dashboard_index_path %>
+        <h4 class="d-inline-block ml-4 font-25 align-middle">Business Service Tiers</h4>
+      </div>
+      <div class="custom-btns text-decoration-none mb-4 mt-3 pb-4 d-inline-block align-middle pull-right">
+        <a href="#" class="text-decoration-none white-btn ml-2 p-2">
+          <span>
+            <i class="fa fa-sliders mr-1" aria-hidden="true"></i>
+          </span>
+          Customised View
+        </a>
+        <a href="#" class="text-decoration-none white-btn ml-2 p-2">
+          <span>
+            <i class="fa fa-floppy-o mr-1" aria-hidden="true"></i>
+          </span>
+          Save View
+        </a>
+        <a href="#" class="text-decoration-none white-btn ml-2 p-2">
+          <span>
+            <i class="fa fa-ellipsis-v mx-1" aria-hidden="true"></i>
+          </span>
+        </a>
+      </div>
+    </div>
+    <div class="col-lg-3 col-md-12 col-xxl-2 px-lg-1">
+      <aside class="fixed-secondary-sidebar position-static" id='sticky-sidebar-demo'>
+        <ul class="p-0 list-unstyled inner-wrapper-sticky">
+          <li class="links active-white mb-2">
+            <a href="#section1" class=" text-decoration-none text-capitalize font-13 font-xxl-14 d-block py-2">overview</a>
+          </li>
+          <li class="links mb-2">
+            <a href="#section2" class=" text-decoration-none text-capitalize font-13 font-xxl-14 d-block py-2">Top 10 Vulnarable Tier 1 Business Services</a>
+          </li>
+          <li class="links mb-2">
+            <a href="#section3" class=" text-decoration-none text-capitalize font-13 font-xxl-14 d-block py-2">Tier N# Resilience Gaps Trend Analysis</a>
+          </li>
+          <li class="links mb-2">
+            <a href="#section4" class=" text-decoration-none text-capitalize font-13 font-xxl-14 d-block py-2">Business Services Lines</a>
+          </li>
+        </ul>
+      </aside>
+    </div>
+    <div class="col-lg-9">
+      <div class="w-100">
+        <div class="content-area">
+          <ul class="nav nav-tabs custom-tab border-0 mb-4" id="myTab" role="tablist">
+            <li class="nav-item custom-item">
+              <a class="text-decoration-none nav-link w-100 rounded custom-link border-0 active" id="tier-1-tab" data-toggle="tab" href="#tier-1" role="tab" aria-controls="tier-1" aria-selected="true">Tier 1</a>
+            </li>
+            <li class="nav-item custom-item">
+              <a class="text-decoration-none nav-link w-100 rounded custom-link border-0" id="tier-2-tab" data-toggle="tab" href="#tier-2" role="tab" aria-controls="tier-2" aria-selected="false">Tier 2</a>
+            </li>
+            <li class="nav-item custom-item">
+              <a class="text-decoration-none nav-link w-100 rounded custom-link border-0" id="tier-3-tab" data-toggle="tab" href="#tier-3" role="tab" aria-controls="tier-3" aria-selected="false">Tier 3</a>
+            </li>
+            <li class="nav-item custom-item">
+              <a class="text-decoration-none nav-link w-100 rounded custom-link border-0" id="tier-4-tab" data-toggle="tab" href="#tier-4" role="tab" aria-controls="tier-4" aria-selected="false">Tier 4</a>
+            </li>
+          </ul>
+          <div id="section1">
+            <div class="card border-0 shadow-sm rounded-50">
+              <div class="card-body px-0">
+                <div class="tab-content mb-3" id="myTabContent1">
+                  <div class="tab-pane fade show active" id="tier-1" role="tabpanel" aria-labelledby="tier-1-tab">
+                    <div class="box">
+                      <div class="d-flex align-items-center mb-2 px-4">
+                        <h5 class="text-capitalize text-left w-75">Overview</h5>
+                        <i class="fa fa-ellipsis-v w-25 text-right" aria-hidden="true"></i>
+                      </div>
+                      <div class="table-custom">
+                        <ul class="nav nav-tabs w-100 mb-2 px-4 py-2 border-0" id="myTab" role="tablist">
+                          <li class="nav-item">
+                            <a class="text-decoration-none nav-link border-0 font-12 active pl-md-0 pl-0 pr-4 position-relative" id="all-regions-tab" data-toggle="tab" href="#all-regions" role="tab" aria-controls="all-regions" aria-selected="true">All Regions</a>
+                          </li>
+                          <li class="nav-item">
+                            <a class="text-decoration-none nav-link border-0 font-12 pl-0 pr-4 position-relative" id="emea-tab" data-toggle="tab" href="#emea" role="tab" aria-controls="emea" aria-selected="false">EMEA</a>
+                          </li>
+                          <li class="nav-item">
+                            <a class="text-decoration-none nav-link border-0 font-12 pl-0 pr-4 position-relative" id="amers-tab" data-toggle="tab" href="#amers" role="tab" aria-controls="amers" aria-selected="false">AMERS</a>
+                          </li>
+                          <li class="nav-item">
+                            <a class="text-decoration-none nav-link border-0 font-12 pl-0 pr-4 position-relative" id="apac-tab" data-toggle="tab" href="#apac" role="tab" aria-controls="apac" aria-selected="false">APAC</a>
+                          </li>
+                          <li class="nav-item">
+                            <a class="text-decoration-none nav-link border-0 font-12 pl-0 pr-4 position-relative" id="latam-tab" data-toggle="tab" href="#latam" role="tab" aria-controls="latam" aria-selected="false">LATAM</a>
+                          </li>
+                        </ul>
+                        <div class="tab-content" id="myTabContent2">
+                          <div class="tab-pane fade show active" id="all-regions" role="tabpanel" aria-labelledby="all-regions-tab">
+                            <div class="table-responsive mb-4">
+                              <table class="table table-striped table-bordered">
+                                <thead>
+                                  <tr>
+                                    <th class="border-top-0 font-weight-500 font-12" scope="col"></th>
+                                    <th class="border-top-0 font-weight-500 font-12" scope="col">EMEA</th>
+                                    <th class="border-top-0 font-weight-500 font-12" scope="col">AMERS</th>
+                                    <th class="border-top-0 font-weight-500 font-12" scope="col">APAC</th>
+                                    <th class="border-top-0 font-weight-500 font-12" scope="col">LATAM</th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  <tr>
+                                    <td class="font-12">Total Business Service</td>
+                                    <td class="font-12">8</td>
+                                    <td class="font-12">8</td>
+                                    <td class="font-12">8</td>
+                                    <td class="font-12">8</td>
+                                  </tr>
+                                  <tr>
+                                    <td class="font-12">Total Resilience Gaps</td>
+                                    <td class="font-12">8</td>
+                                    <td class="font-12">8</td>
+                                    <td class="font-12">8</td>
+                                    <td class="font-12">8</td>
+                                  </tr>
+                                  <tr>
+                                    <td class="font-12">Total Internal Systems</td>
+                                    <td class="font-12">6</td>
+                                    <td class="font-12">6</td>
+                                    <td class="font-12">6</td>
+                                    <td class="font-12">6</td>
+                                  </tr>
+                                  <tr>
+                                    <td class="font-12">Total 3rd Party Suppliers</td>
+                                    <td class="font-12">4</td>
+                                    <td class="font-12">4</td>
+                                    <td class="font-12">4</td>
+                                    <td class="font-12">4</td>
+                                  </tr>
+                                  <tr>
+                                    <td class="font-12">Total 4th Party Suppliers</td>
+                                    <td class="font-12">3</td>
+                                    <td class="font-12">3</td>
+                                    <td class="font-12">3</td>
+                                    <td class="font-12">3</td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            </div>
+                            <div class="row custom-high-chart mb-4">
+                              <div class="col-lg-6 col-md-12">
+                                <div class="box">
+                                  <div class="col-md-12 mb-lg-0 mb-4 px-1">
+                                    <p class="px-2 font-14 text-capitalize font-600 chart-header-title mb-4">Service Provider Breakdown</p>
+                                    <div class="border-0 pie-high-chart overflow-hidden rounded-50 d-flex justify-content-center">
+                                      <div class="w-50 card-header p-2 bg-white text-center border-0">
+                                        <div class="donut-content">
+                                          <div id="thirteen-donut" class="donut"></div>
+                                          <div class="donut-value font-30 font-700">50</div>
+                                        </div>
+                                      </div>
+                                      <div class="card-body mt-3 p-2">
+                                        <div class="tiers d-flex justify-content-between align-items-center mb-3">
+                                          <div class="color-tier d-flex align-items-center">
+                                            <div class="circle green-1"></div>
+                                            <%= image_pack_tag 'media/images/aws.png', class: 'img-fluid ml-2' %>
+                                            <span class="font-12 font-400 ml-2">AWS</span>
+                                          </div>
+                                          <span class="font-12 font-700">24</span>
+                                        </div>
+                                        <div class="tiers d-flex justify-content-between align-items-center mb-3">
+                                          <div class="color-tier d-flex align-items-center">
+                                            <div class="circle green-2"></div>
+                                            <%= image_pack_tag 'media/images/g-cloud.png', class: 'img-fluid ml-2' %>
+                                            <span class="font-12 font-400 ml-2">GCP</span>
+                                          </div>
+                                          <span class="font-12 font-700">24</span>
+                                        </div>
+                                        <div class="tiers d-flex justify-content-between align-items-center mb-3">
+                                          <div class="color-tier d-flex align-items-center">
+                                            <div class="circle green-3"></div>
+                                            <%= image_pack_tag 'media/images/azure.png', class: 'img-fluid ml-2' %>
+                                            <span class="font-12 font-400 ml-2">Azure</span>
+                                          </div>
+                                          <span class="font-12 font-700">24</span>
+                                        </div>
+                                        <div class="tiers d-flex justify-content-between align-items-center">
+                                          <div class="color-tier d-flex align-items-center">
+                                            <div class="circle green-4"></div>
+                                            <%= image_pack_tag 'media/images/black-cloud.png', class: 'img-fluid ml-2' %>
+                                            <span class="font-12 font-400 ml-2">Private Cloud</span>
+                                          </div>
+                                          <span class="font-12 font-700">24</span>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="col-lg-6 col-md-12">
+                                <div class="box">
+                                  <div class="col-md-12 mb-lg-0 mb-4 px-1">
+                                    <p class="px-2 font-14 text-capitalize font-600 chart-header-title mb-4">Consumption Model Breakdown</p>
+                                    <div class="border-0 pie-high-chart overflow-hidden rounded-50 d-flex justify-content-center">
+                                      <div class="w-50 card-header p-2 bg-white text-center border-0">
+                                        <div class="donut-content">
+                                          <div id="fourteen-donut" class="donut"></div>
+                                          <div class="donut-value font-30 font-700">50</div>
+                                        </div>
+                                      </div>
+                                      <div class="card-body mt-3 p-2">
+                                        <div class="tiers d-flex justify-content-between align-items-center mb-3">
+                                          <div class="color-tier d-flex align-items-center">
+                                            <div class="circle green-1"></div>
+                                            <span class="font-12 font-400 ml-2">Lass</span>
+                                          </div>
+                                          <span class="font-12 font-700">24</span>
+                                        </div>
+                                        <div class="tiers d-flex justify-content-between align-items-center mb-3">
+                                          <div class="color-tier d-flex align-items-center">
+                                            <div class="circle green-2"></div>
+                                            <span class="font-12 font-400 ml-2">Saas</span>
+                                          </div>
+                                          <span class="font-12 font-700">24</span>
+                                        </div>
+                                        <div class="tiers d-flex justify-content-between align-items-center mb-3">
+                                          <div class="color-tier d-flex align-items-center">
+                                            <div class="circle green-3"></div>
+                                            <span class="font-12 font-400 ml-2">Paas</span>
+                                          </div>
+                                          <span class="font-12 font-700">24</span>
+                                        </div>
+                                        <div class="tiers d-flex justify-content-between align-items-center">
+                                          <div class="color-tier d-flex align-items-center">
+                                            <div class="circle green-4"></div>
+                                            <span class="font-12 font-400 ml-2">Private Cloud</span>
+                                          </div>
+                                          <span class="font-12 font-700">24</span>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="tab-pane fade" id="emea" role="tabpanel" aria-labelledby="emea-tab">
+                            <div class="table-responsive mb-4">
+                              <table class="table table-striped table-bordered">
+                                <thead>
+                                  <tr>
+                                    <th class="border-top-0 font-weight-500 font-12" scope="col"></th>
+                                    <th class="border-top-0 font-weight-500 font-12" scope="col">EMEA</th>
+                                    <th class="border-top-0 font-weight-500 font-12" scope="col">AMERS</th>
+                                    <th class="border-top-0 font-weight-500 font-12" scope="col">APAC</th>
+                                    <th class="border-top-0 font-weight-500 font-12" scope="col">LATAM</th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  <tr>
+                                    <td class="font-12">Total Business Service</td>
+                                    <td class="font-12">8</td>
+                                    <td class="font-12">8</td>
+                                    <td class="font-12">8</td>
+                                    <td class="font-12">8</td>
+                                  </tr>
+                                  <tr>
+                                    <td class="font-12">Total Resilience Gaps</td>
+                                    <td class="font-12">8</td>
+                                    <td class="font-12">8</td>
+                                    <td class="font-12">8</td>
+                                    <td class="font-12">8</td>
+                                  </tr>
+                                  <tr>
+                                    <td class="font-12">Total Internal Systems</td>
+                                    <td class="font-12">6</td>
+                                    <td class="font-12">6</td>
+                                    <td class="font-12">6</td>
+                                    <td class="font-12">6</td>
+                                  </tr>
+                                  <tr>
+                                    <td class="font-12">Total 3rd Party Suppliers</td>
+                                    <td class="font-12">4</td>
+                                    <td class="font-12">4</td>
+                                    <td class="font-12">4</td>
+                                    <td class="font-12">4</td>
+                                  </tr>
+                                  <tr>
+                                    <td class="font-12">Total 4th Party Suppliers</td>
+                                    <td class="font-12">3</td>
+                                    <td class="font-12">3</td>
+                                    <td class="font-12">3</td>
+                                    <td class="font-12">3</td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            </div>
+                            <div class="row custom-high-chart mb-4">
+                              <div class="col-lg-6 col-md-12">
+                                <div class="box">
+                                  <div class="col-md-12 mb-lg-0 mb-4 px-1">
+                                    <p class="px-2 font-14 text-capitalize font-600 chart-header-title mb-4">Service Provider Breakdown</p>
+                                    <div class="border-0 pie-high-chart overflow-hidden rounded-50 d-flex justify-content-center">
+                                      <div class="w-50 card-header p-2 bg-white text-center border-0">
+                                        <div class="donut-content">
+                                          <div id="thirteen-donut" class="donut"></div>
+                                          <div class="donut-value font-30 font-700">50</div>
+                                        </div>
+                                      </div>
+                                      <div class="card-body mt-3 p-2">
+                                        <div class="tiers d-flex justify-content-between align-items-center mb-3">
+                                          <div class="color-tier d-flex align-items-center">
+                                            <div class="circle green-1"></div>
+                                            <%= image_pack_tag 'media/images/aws.png', class: 'img-fluid ml-2' %>
+                                            <span class="font-12 font-400 ml-2">AWS</span>
+                                          </div>
+                                          <span class="font-12 font-700">24</span>
+                                        </div>
+                                        <div class="tiers d-flex justify-content-between align-items-center mb-3">
+                                          <div class="color-tier d-flex align-items-center">
+                                            <div class="circle green-2"></div>
+                                            <%= image_pack_tag 'media/images/g-cloud.png', class: 'img-fluid ml-2' %>
+                                            <span class="font-12 font-400 ml-2">GCP</span>
+                                          </div>
+                                          <span class="font-12 font-700">24</span>
+                                        </div>
+                                        <div class="tiers d-flex justify-content-between align-items-center mb-3">
+                                          <div class="color-tier d-flex align-items-center">
+                                            <div class="circle green-3"></div>
+                                            <%= image_pack_tag 'media/images/azure.png', class: 'img-fluid ml-2' %>
+                                            <span class="font-12 font-400 ml-2">Azure</span>
+                                          </div>
+                                          <span class="font-12 font-700">24</span>
+                                        </div>
+                                        <div class="tiers d-flex justify-content-between align-items-center">
+                                          <div class="color-tier d-flex align-items-center">
+                                            <div class="circle green-4"></div>
+                                            <%= image_pack_tag 'media/images/black-cloud.png', class: 'img-fluid ml-2' %>
+                                            <span class="font-12 font-400 ml-2">Private Cloud</span>
+                                          </div>
+                                          <span class="font-12 font-700">24</span>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="col-lg-6 col-md-12">
+                                <div class="box">
+                                  <div class="col-md-12 mb-lg-0 mb-4 px-1">
+                                    <p class="px-2 font-14 text-capitalize font-600 chart-header-title mb-4">Consumption Model Breakdown</p>
+                                    <div class="border-0 pie-high-chart overflow-hidden rounded-50 d-flex justify-content-center">
+                                      <div class="w-50 card-header p-2 bg-white text-center border-0">
+                                        <div class="donut-content">
+                                          <div id="fourteen-donut" class="donut"></div>
+                                          <div class="donut-value font-30 font-700">50</div>
+                                        </div>
+                                      </div>
+                                      <div class="card-body mt-3 p-2">
+                                        <div class="tiers d-flex justify-content-between align-items-center mb-3">
+                                          <div class="color-tier d-flex align-items-center">
+                                            <div class="circle green-1"></div>
+                                            <span class="font-12 font-400 ml-2">Lass</span>
+                                          </div>
+                                          <span class="font-12 font-700">24</span>
+                                        </div>
+                                        <div class="tiers d-flex justify-content-between align-items-center mb-3">
+                                          <div class="color-tier d-flex align-items-center">
+                                            <div class="circle green-2"></div>
+                                            <span class="font-12 font-400 ml-2">Saas</span>
+                                          </div>
+                                          <span class="font-12 font-700">24</span>
+                                        </div>
+                                        <div class="tiers d-flex justify-content-between align-items-center mb-3">
+                                          <div class="color-tier d-flex align-items-center">
+                                            <div class="circle green-3"></div>
+                                            <span class="font-12 font-400 ml-2">Paas</span>
+                                          </div>
+                                          <span class="font-12 font-700">24</span>
+                                        </div>
+                                        <div class="tiers d-flex justify-content-between align-items-center">
+                                          <div class="color-tier d-flex align-items-center">
+                                            <div class="circle green-4"></div>
+                                            <span class="font-12 font-400 ml-2">Private Cloud</span>
+                                          </div>
+                                          <span class="font-12 font-700">24</span>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="tab-pane fade" id="amers" role="tabpanel" aria-labelledby="amers-tab">
+                            <div class="table-responsive mb-4">
+                              <table class="table table-striped table-bordered">
+                                <thead>
+                                  <tr>
+                                    <th class="border-top-0 font-weight-500 font-12" scope="col"></th>
+                                    <th class="border-top-0 font-weight-500 font-12" scope="col">EMEA</th>
+                                    <th class="border-top-0 font-weight-500 font-12" scope="col">AMERS</th>
+                                    <th class="border-top-0 font-weight-500 font-12" scope="col">APAC</th>
+                                    <th class="border-top-0 font-weight-500 font-12" scope="col">LATAM</th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  <tr>
+                                    <td class="font-12">Total Business Service</td>
+                                    <td class="font-12">8</td>
+                                    <td class="font-12">8</td>
+                                    <td class="font-12">8</td>
+                                    <td class="font-12">8</td>
+                                  </tr>
+                                  <tr>
+                                    <td class="font-12">Total Resilience Gaps</td>
+                                    <td class="font-12">8</td>
+                                    <td class="font-12">8</td>
+                                    <td class="font-12">8</td>
+                                    <td class="font-12">8</td>
+                                  </tr>
+                                  <tr>
+                                    <td class="font-12">Total Internal Systems</td>
+                                    <td class="font-12">6</td>
+                                    <td class="font-12">6</td>
+                                    <td class="font-12">6</td>
+                                    <td class="font-12">6</td>
+                                  </tr>
+                                  <tr>
+                                    <td class="font-12">Total 3rd Party Suppliers</td>
+                                    <td class="font-12">4</td>
+                                    <td class="font-12">4</td>
+                                    <td class="font-12">4</td>
+                                    <td class="font-12">4</td>
+                                  </tr>
+                                  <tr>
+                                    <td class="font-12">Total 4th Party Suppliers</td>
+                                    <td class="font-12">3</td>
+                                    <td class="font-12">3</td>
+                                    <td class="font-12">3</td>
+                                    <td class="font-12">3</td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            </div>
+                            <div class="row custom-high-chart mb-4">
+                              <div class="col-lg-6 col-md-12">
+                                <div class="box">
+                                  <div class="col-md-12 mb-lg-0 mb-4 px-1">
+                                    <p class="px-2 font-14 text-capitalize font-600 chart-header-title mb-4">Service Provider Breakdown</p>
+                                    <div class="border-0 pie-high-chart overflow-hidden rounded-50 d-flex justify-content-center">
+                                      <div class="w-50 card-header p-2 bg-white text-center border-0">
+                                        <div class="donut-content">
+                                          <div id="thirteen-donut" class="donut"></div>
+                                          <div class="donut-value font-30 font-700">50</div>
+                                        </div>
+                                      </div>
+                                      <div class="card-body mt-3 p-2">
+                                        <div class="tiers d-flex justify-content-between align-items-center mb-3">
+                                          <div class="color-tier d-flex align-items-center">
+                                            <div class="circle green-1"></div>
+                                            <%= image_pack_tag 'media/images/aws.png', class: 'img-fluid ml-2' %>
+                                            <span class="font-12 font-400 ml-2">AWS</span>
+                                          </div>
+                                          <span class="font-12 font-700">24</span>
+                                        </div>
+                                        <div class="tiers d-flex justify-content-between align-items-center mb-3">
+                                          <div class="color-tier d-flex align-items-center">
+                                            <div class="circle green-2"></div>
+                                            <%= image_pack_tag 'media/images/g-cloud.png', class: 'img-fluid ml-2' %>
+                                            <span class="font-12 font-400 ml-2">GCP</span>
+                                          </div>
+                                          <span class="font-12 font-700">24</span>
+                                        </div>
+                                        <div class="tiers d-flex justify-content-between align-items-center mb-3">
+                                          <div class="color-tier d-flex align-items-center">
+                                            <div class="circle green-3"></div>
+                                            <%= image_pack_tag 'media/images/azure.png', class: 'img-fluid ml-2' %>
+                                            <span class="font-12 font-400 ml-2">Azure</span>
+                                          </div>
+                                          <span class="font-12 font-700">24</span>
+                                        </div>
+                                        <div class="tiers d-flex justify-content-between align-items-center">
+                                          <div class="color-tier d-flex align-items-center">
+                                            <div class="circle green-4"></div>
+                                            <%= image_pack_tag 'media/images/black-cloud.png', class: 'img-fluid ml-2' %>
+                                            <span class="font-12 font-400 ml-2">Private Cloud</span>
+                                          </div>
+                                          <span class="font-12 font-700">24</span>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="col-lg-6 col-md-12">
+                                <div class="box">
+                                  <div class="col-md-12 mb-lg-0 mb-4 px-1">
+                                    <p class="px-2 font-14 text-capitalize font-600 chart-header-title mb-4">Consumption Model Breakdown</p>
+                                    <div class="border-0 pie-high-chart overflow-hidden rounded-50 d-flex justify-content-center">
+                                      <div class="w-50 card-header p-2 bg-white text-center border-0">
+                                        <div class="donut-content">
+                                          <div id="fourteen-donut" class="donut"></div>
+                                          <div class="donut-value font-30 font-700">50</div>
+                                        </div>
+                                      </div>
+                                      <div class="card-body mt-3 p-2">
+                                        <div class="tiers d-flex justify-content-between align-items-center mb-3">
+                                          <div class="color-tier d-flex align-items-center">
+                                            <div class="circle green-1"></div>
+                                            <span class="font-12 font-400 ml-2">Lass</span>
+                                          </div>
+                                          <span class="font-12 font-700">24</span>
+                                        </div>
+                                        <div class="tiers d-flex justify-content-between align-items-center mb-3">
+                                          <div class="color-tier d-flex align-items-center">
+                                            <div class="circle green-2"></div>
+                                            <span class="font-12 font-400 ml-2">Saas</span>
+                                          </div>
+                                          <span class="font-12 font-700">24</span>
+                                        </div>
+                                        <div class="tiers d-flex justify-content-between align-items-center mb-3">
+                                          <div class="color-tier d-flex align-items-center">
+                                            <div class="circle green-3"></div>
+                                            <span class="font-12 font-400 ml-2">Paas</span>
+                                          </div>
+                                          <span class="font-12 font-700">24</span>
+                                        </div>
+                                        <div class="tiers d-flex justify-content-between align-items-center">
+                                          <div class="color-tier d-flex align-items-center">
+                                            <div class="circle green-4"></div>
+                                            <span class="font-12 font-400 ml-2">Private Cloud</span>
+                                          </div>
+                                          <span class="font-12 font-700">24</span>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="tab-pane fade" id="apac" role="tabpanel" aria-labelledby="apac-tab">
+                            <div class="table-responsive mb-4">
+                              <table class="table table-striped table-bordered">
+                                <thead>
+                                  <tr>
+                                    <th class="border-top-0 font-weight-500 font-12" scope="col"></th>
+                                    <th class="border-top-0 font-weight-500 font-12" scope="col">EMEA</th>
+                                    <th class="border-top-0 font-weight-500 font-12" scope="col">AMERS</th>
+                                    <th class="border-top-0 font-weight-500 font-12" scope="col">APAC</th>
+                                    <th class="border-top-0 font-weight-500 font-12" scope="col">LATAM</th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  <tr>
+                                    <td class="font-12">Total Business Service</td>
+                                    <td class="font-12">8</td>
+                                    <td class="font-12">8</td>
+                                    <td class="font-12">8</td>
+                                    <td class="font-12">8</td>
+                                  </tr>
+                                  <tr>
+                                    <td class="font-12">Total Resilience Gaps</td>
+                                    <td class="font-12">8</td>
+                                    <td class="font-12">8</td>
+                                    <td class="font-12">8</td>
+                                    <td class="font-12">8</td>
+                                  </tr>
+                                  <tr>
+                                    <td class="font-12">Total Internal Systems</td>
+                                    <td class="font-12">6</td>
+                                    <td class="font-12">6</td>
+                                    <td class="font-12">6</td>
+                                    <td class="font-12">6</td>
+                                  </tr>
+                                  <tr>
+                                    <td class="font-12">Total 3rd Party Suppliers</td>
+                                    <td class="font-12">4</td>
+                                    <td class="font-12">4</td>
+                                    <td class="font-12">4</td>
+                                    <td class="font-12">4</td>
+                                  </tr>
+                                  <tr>
+                                    <td class="font-12">Total 4th Party Suppliers</td>
+                                    <td class="font-12">3</td>
+                                    <td class="font-12">3</td>
+                                    <td class="font-12">3</td>
+                                    <td class="font-12">3</td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            </div>
+                            <div class="row custom-high-chart mb-4">
+                              <div class="col-lg-6 col-md-12">
+                                <div class="box">
+                                  <div class="col-md-12 mb-lg-0 mb-4 px-1">
+                                    <p class="px-2 font-14 text-capitalize font-600 chart-header-title mb-4">Service Provider Breakdown</p>
+                                    <div class="border-0 pie-high-chart overflow-hidden rounded-50 d-flex justify-content-center">
+                                      <div class="w-50 card-header p-2 bg-white text-center border-0">
+                                        <div class="donut-content">
+                                          <div id="thirteen-donut" class="donut"></div>
+                                          <div class="donut-value font-30 font-700">50</div>
+                                        </div>
+                                      </div>
+                                      <div class="card-body mt-3 p-2">
+                                        <div class="tiers d-flex justify-content-between align-items-center mb-3">
+                                          <div class="color-tier d-flex align-items-center">
+                                            <div class="circle green-1"></div>
+                                            <%= image_pack_tag 'media/images/aws.png', class: 'img-fluid ml-2' %>
+                                            <span class="font-12 font-400 ml-2">AWS</span>
+                                          </div>
+                                          <span class="font-12 font-700">24</span>
+                                        </div>
+                                        <div class="tiers d-flex justify-content-between align-items-center mb-3">
+                                          <div class="color-tier d-flex align-items-center">
+                                            <div class="circle green-2"></div>
+                                            <%= image_pack_tag 'media/images/g-cloud.png', class: 'img-fluid ml-2' %>
+                                            <span class="font-12 font-400 ml-2">GCP</span>
+                                          </div>
+                                          <span class="font-12 font-700">24</span>
+                                        </div>
+                                        <div class="tiers d-flex justify-content-between align-items-center mb-3">
+                                          <div class="color-tier d-flex align-items-center">
+                                            <div class="circle green-3"></div>
+                                            <%= image_pack_tag 'media/images/azure.png', class: 'img-fluid ml-2' %>
+                                            <span class="font-12 font-400 ml-2">Azure</span>
+                                          </div>
+                                          <span class="font-12 font-700">24</span>
+                                        </div>
+                                        <div class="tiers d-flex justify-content-between align-items-center">
+                                          <div class="color-tier d-flex align-items-center">
+                                            <div class="circle green-4"></div>
+                                            <%= image_pack_tag 'media/images/black-cloud.png', class: 'img-fluid ml-2' %>
+                                            <span class="font-12 font-400 ml-2">Private Cloud</span>
+                                          </div>
+                                          <span class="font-12 font-700">24</span>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="col-lg-6 col-md-12">
+                                <div class="box">
+                                  <div class="col-md-12 mb-lg-0 mb-4 px-1">
+                                    <p class="px-2 font-14 text-capitalize font-600 chart-header-title mb-4">Consumption Model Breakdown</p>
+                                    <div class="border-0 pie-high-chart overflow-hidden rounded-50 d-flex justify-content-center">
+                                      <div class="w-50 card-header p-2 bg-white text-center border-0">
+                                        <div class="donut-content">
+                                          <div id="fourteen-donut" class="donut"></div>
+                                          <div class="donut-value font-30 font-700">50</div>
+                                        </div>
+                                      </div>
+                                      <div class="card-body mt-3 p-2">
+                                        <div class="tiers d-flex justify-content-between align-items-center mb-3">
+                                          <div class="color-tier d-flex align-items-center">
+                                            <div class="circle green-1"></div>
+                                            <span class="font-12 font-400 ml-2">Lass</span>
+                                          </div>
+                                          <span class="font-12 font-700">24</span>
+                                        </div>
+                                        <div class="tiers d-flex justify-content-between align-items-center mb-3">
+                                          <div class="color-tier d-flex align-items-center">
+                                            <div class="circle green-2"></div>
+                                            <span class="font-12 font-400 ml-2">Saas</span>
+                                          </div>
+                                          <span class="font-12 font-700">24</span>
+                                        </div>
+                                        <div class="tiers d-flex justify-content-between align-items-center mb-3">
+                                          <div class="color-tier d-flex align-items-center">
+                                            <div class="circle green-3"></div>
+                                            <span class="font-12 font-400 ml-2">Paas</span>
+                                          </div>
+                                          <span class="font-12 font-700">24</span>
+                                        </div>
+                                        <div class="tiers d-flex justify-content-between align-items-center">
+                                          <div class="color-tier d-flex align-items-center">
+                                            <div class="circle green-4"></div>
+                                            <span class="font-12 font-400 ml-2">Private Cloud</span>
+                                          </div>
+                                          <span class="font-12 font-700">24</span>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="tab-pane fade" id="latam" role="tabpanel" aria-labelledby="latam-tab">
+                            <div class="table-responsive mb-4">
+                              <table class="table table-striped table-bordered">
+                                <thead>
+                                  <tr>
+                                    <th class="border-top-0 font-weight-500 font-12" scope="col"></th>
+                                    <th class="border-top-0 font-weight-500 font-12" scope="col">EMEA</th>
+                                    <th class="border-top-0 font-weight-500 font-12" scope="col">AMERS</th>
+                                    <th class="border-top-0 font-weight-500 font-12" scope="col">APAC</th>
+                                    <th class="border-top-0 font-weight-500 font-12" scope="col">LATAM</th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  <tr>
+                                    <td class="font-12">Total Business Service</td>
+                                    <td class="font-12">8</td>
+                                    <td class="font-12">8</td>
+                                    <td class="font-12">8</td>
+                                    <td class="font-12">8</td>
+                                  </tr>
+                                  <tr>
+                                    <td class="font-12">Total Resilience Gaps</td>
+                                    <td class="font-12">8</td>
+                                    <td class="font-12">8</td>
+                                    <td class="font-12">8</td>
+                                    <td class="font-12">8</td>
+                                  </tr>
+                                  <tr>
+                                    <td class="font-12">Total Internal Systems</td>
+                                    <td class="font-12">6</td>
+                                    <td class="font-12">6</td>
+                                    <td class="font-12">6</td>
+                                    <td class="font-12">6</td>
+                                  </tr>
+                                  <tr>
+                                    <td class="font-12">Total 3rd Party Suppliers</td>
+                                    <td class="font-12">4</td>
+                                    <td class="font-12">4</td>
+                                    <td class="font-12">4</td>
+                                    <td class="font-12">4</td>
+                                  </tr>
+                                  <tr>
+                                    <td class="font-12">Total 4th Party Suppliers</td>
+                                    <td class="font-12">3</td>
+                                    <td class="font-12">3</td>
+                                    <td class="font-12">3</td>
+                                    <td class="font-12">3</td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            </div>
+                            <div class="row custom-high-chart mb-4">
+                              <div class="col-lg-6 col-md-12">
+                                <div class="box">
+                                  <div class="col-md-12 mb-lg-0 mb-4 px-1">
+                                    <p class="px-2 font-14 text-capitalize font-600 chart-header-title mb-4">Service Provider Breakdown</p>
+                                    <div class="border-0 pie-high-chart overflow-hidden rounded-50 d-flex justify-content-center">
+                                      <div class="w-50 card-header p-2 bg-white text-center border-0">
+                                        <div class="donut-content">
+                                          <div id="thirteen-donut" class="donut"></div>
+                                          <div class="donut-value font-30 font-700">50</div>
+                                        </div>
+                                      </div>
+                                      <div class="card-body mt-3 p-2">
+                                        <div class="tiers d-flex justify-content-between align-items-center mb-3">
+                                          <div class="color-tier d-flex align-items-center">
+                                            <div class="circle green-1"></div>
+                                            <%= image_pack_tag 'media/images/aws.png', class: 'img-fluid ml-2' %>
+                                            <span class="font-12 font-400 ml-2">AWS</span>
+                                          </div>
+                                          <span class="font-12 font-700">24</span>
+                                        </div>
+                                        <div class="tiers d-flex justify-content-between align-items-center mb-3">
+                                          <div class="color-tier d-flex align-items-center">
+                                            <div class="circle green-2"></div>
+                                            <%= image_pack_tag 'media/images/g-cloud.png', class: 'img-fluid ml-2' %>
+                                            <span class="font-12 font-400 ml-2">GCP</span>
+                                          </div>
+                                          <span class="font-12 font-700">24</span>
+                                        </div>
+                                        <div class="tiers d-flex justify-content-between align-items-center mb-3">
+                                          <div class="color-tier d-flex align-items-center">
+                                            <div class="circle green-3"></div>
+                                            <%= image_pack_tag 'media/images/azure.png', class: 'img-fluid ml-2' %>
+                                            <span class="font-12 font-400 ml-2">Azure</span>
+                                          </div>
+                                          <span class="font-12 font-700">24</span>
+                                        </div>
+                                        <div class="tiers d-flex justify-content-between align-items-center">
+                                          <div class="color-tier d-flex align-items-center">
+                                            <div class="circle green-4"></div>
+                                            <%= image_pack_tag 'media/images/black-cloud.png', class: 'img-fluid ml-2' %>
+                                            <span class="font-12 font-400 ml-2">Private Cloud</span>
+                                          </div>
+                                          <span class="font-12 font-700">24</span>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="col-lg-6 col-md-12">
+                                <div class="box">
+                                  <div class="col-md-12 mb-lg-0 mb-4 px-1">
+                                    <p class="px-2 font-14 text-capitalize font-600 chart-header-title mb-4">Consumption Model Breakdown</p>
+                                    <div class="border-0 pie-high-chart overflow-hidden rounded-50 d-flex justify-content-center">
+                                      <div class="w-50 card-header p-2 bg-white text-center border-0">
+                                        <div class="donut-content">
+                                          <div id="fourteen-donut" class="donut"></div>
+                                          <div class="donut-value font-30 font-700">50</div>
+                                        </div>
+                                      </div>
+                                      <div class="card-body mt-3 p-2">
+                                        <div class="tiers d-flex justify-content-between align-items-center mb-3">
+                                          <div class="color-tier d-flex align-items-center">
+                                            <div class="circle green-1"></div>
+                                            <span class="font-12 font-400 ml-2">Lass</span>
+                                          </div>
+                                          <span class="font-12 font-700">24</span>
+                                        </div>
+                                        <div class="tiers d-flex justify-content-between align-items-center mb-3">
+                                          <div class="color-tier d-flex align-items-center">
+                                            <div class="circle green-2"></div>
+                                            <span class="font-12 font-400 ml-2">Saas</span>
+                                          </div>
+                                          <span class="font-12 font-700">24</span>
+                                        </div>
+                                        <div class="tiers d-flex justify-content-between align-items-center mb-3">
+                                          <div class="color-tier d-flex align-items-center">
+                                            <div class="circle green-3"></div>
+                                            <span class="font-12 font-400 ml-2">Paas</span>
+                                          </div>
+                                          <span class="font-12 font-700">24</span>
+                                        </div>
+                                        <div class="tiers d-flex justify-content-between align-items-center">
+                                          <div class="color-tier d-flex align-items-center">
+                                            <div class="circle green-4"></div>
+                                            <span class="font-12 font-400 ml-2">Private Cloud</span>
+                                          </div>
+                                          <span class="font-12 font-700">24</span>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="small-boxes row px-3">
+                      <div class="col-md-3">
+                        <div class="card h-100 border-0">
+                          <div class="card-body p-2 d-flex align-items-center rounded">
+                            <div class="color-tier d-flex align-items-center">
+                              <div class="sm-circle bg-red mr-1"></div>
+                              <div class="text">
+                                <span class="font-12 font-400 ml-2 d-block">Most Vulnerable</span>
+                                <span class="font-12 ml-2 d-block font-600">EMEA</span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-3">
+                        <div class="card h-100 border-0">
+                          <div class="card-body p-2 d-flex align-items-center rounded">
+                            <div class="color-tier d-flex align-items-center">
+                              <div class="circle green-1 mr-1"></div>
+                              <div class="text">
+                                <span class="font-12 font-400 ml-2 d-block">Most Compliant</span>
+                                <span class="font-12 ml-2 d-block font-600">AMERS</span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-3">
+                        <div class="card h-100 border-0">
+                          <div class="card-body p-2 d-flex align-items-center rounded">
+                            <div class="color-tier d-flex align-items-center">
+                              <span class="font-12 ml-2 font-600">APAC</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-3">
+                        <div class="card h-100 border-0">
+                          <div class="card-body p-2 d-flex align-items-center rounded">
+                            <div class="color-tier d-flex align-items-center">
+                              <span class="font-12 ml-2 font-600">LATAM</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="tab-pane fade" id="tier-2" role="tabpanel" aria-labelledby="tier-2-tab">
+                    <div class="box">
+                      <div class="d-flex align-items-center mb-2 px-4">
+                        <h5 class="text-capitalize text-left w-75">Overview</h5>
+                        <i class="fa fa-ellipsis-v w-25 text-right" aria-hidden="true"></i>
+                      </div>
+                      <div class="table-custom">
+                        <ul class="nav nav-tabs w-100 mb-2 px-4 py-2 border-0" id="myTab" role="tablist">
+                          <li class="nav-item">
+                            <a class="text-decoration-none nav-link border-0 font-12 active pl-md-0 pl-0 pr-4 position-relative" id="all-regions-tab" data-toggle="tab" href="#all-regions" role="tab" aria-controls="all-regions" aria-selected="true">All Regions</a>
+                          </li>
+                          <li class="nav-item">
+                            <a class="text-decoration-none nav-link border-0 font-12 pl-0 pr-4 position-relative" id="emea-tab" data-toggle="tab" href="#emea" role="tab" aria-controls="emea" aria-selected="false">EMEA</a>
+                          </li>
+                          <li class="nav-item">
+                            <a class="text-decoration-none nav-link border-0 font-12 pl-0 pr-4 position-relative" id="amers-tab" data-toggle="tab" href="#amers" role="tab" aria-controls="amers" aria-selected="false">AMERS</a>
+                          </li>
+                          <li class="nav-item">
+                            <a class="text-decoration-none nav-link border-0 font-12 pl-0 pr-4 position-relative" id="apac-tab" data-toggle="tab" href="#apac" role="tab" aria-controls="apac" aria-selected="false">APAC</a>
+                          </li>
+                          <li class="nav-item">
+                            <a class="text-decoration-none nav-link border-0 font-12 pl-0 pr-4 position-relative" id="latam-tab" data-toggle="tab" href="#latam" role="tab" aria-controls="latam" aria-selected="false">LATAM</a>
+                          </li>
+                        </ul>
+                        <div class="tab-content" id="myTabContent2">
+                          <div class="tab-pane fade show active" id="all-regions" role="tabpanel" aria-labelledby="all-regions-tab">
+                            <div class="table-responsive mb-4">
+                              <table class="table table-striped table-bordered">
+                                <thead>
+                                  <tr>
+                                    <th class="border-top-0 font-weight-500 font-12" scope="col"></th>
+                                    <th class="border-top-0 font-weight-500 font-12" scope="col">EMEA</th>
+                                    <th class="border-top-0 font-weight-500 font-12" scope="col">AMERS</th>
+                                    <th class="border-top-0 font-weight-500 font-12" scope="col">APAC</th>
+                                    <th class="border-top-0 font-weight-500 font-12" scope="col">LATAM</th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  <tr>
+                                    <td class="font-12">Total Business Service</td>
+                                    <td class="font-12">8</td>
+                                    <td class="font-12">8</td>
+                                    <td class="font-12">8</td>
+                                    <td class="font-12">8</td>
+                                  </tr>
+                                  <tr>
+                                    <td class="font-12">Total Resilience Gaps</td>
+                                    <td class="font-12">8</td>
+                                    <td class="font-12">8</td>
+                                    <td class="font-12">8</td>
+                                    <td class="font-12">8</td>
+                                  </tr>
+                                  <tr>
+                                    <td class="font-12">Total Internal Systems</td>
+                                    <td class="font-12">6</td>
+                                    <td class="font-12">6</td>
+                                    <td class="font-12">6</td>
+                                    <td class="font-12">6</td>
+                                  </tr>
+                                  <tr>
+                                    <td class="font-12">Total 3rd Party Suppliers</td>
+                                    <td class="font-12">4</td>
+                                    <td class="font-12">4</td>
+                                    <td class="font-12">4</td>
+                                    <td class="font-12">4</td>
+                                  </tr>
+                                  <tr>
+                                    <td class="font-12">Total 4th Party Suppliers</td>
+                                    <td class="font-12">3</td>
+                                    <td class="font-12">3</td>
+                                    <td class="font-12">3</td>
+                                    <td class="font-12">3</td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            </div>
+                            <div class="row custom-high-chart mb-4">
+                              <div class="col-lg-6 col-md-12">
+                                <div class="box">
+                                  <div class="col-md-12 mb-lg-0 mb-4 px-1">
+                                    <p class="px-2 font-14 text-capitalize font-600 chart-header-title mb-4">Service Provider Breakdown</p>
+                                    <div class="border-0 pie-high-chart overflow-hidden rounded-50 d-flex justify-content-center">
+                                      <div class="w-50 card-header p-2 bg-white text-center border-0">
+                                        <div class="donut-content">
+                                          <div id="thirteen-donut" class="donut"></div>
+                                          <div class="donut-value font-30 font-700">50</div>
+                                        </div>
+                                      </div>
+                                      <div class="card-body mt-3 p-2">
+                                        <div class="tiers d-flex justify-content-between align-items-center mb-3">
+                                          <div class="color-tier d-flex align-items-center">
+                                            <div class="circle green-1"></div>
+                                            <%= image_pack_tag 'media/images/aws.png', class: 'img-fluid ml-2' %>
+                                            <span class="font-12 font-400 ml-2">AWS</span>
+                                          </div>
+                                          <span class="font-12 font-700">24</span>
+                                        </div>
+                                        <div class="tiers d-flex justify-content-between align-items-center mb-3">
+                                          <div class="color-tier d-flex align-items-center">
+                                            <div class="circle green-2"></div>
+                                            <%= image_pack_tag 'media/images/g-cloud.png', class: 'img-fluid ml-2' %>
+                                            <span class="font-12 font-400 ml-2">GCP</span>
+                                          </div>
+                                          <span class="font-12 font-700">24</span>
+                                        </div>
+                                        <div class="tiers d-flex justify-content-between align-items-center mb-3">
+                                          <div class="color-tier d-flex align-items-center">
+                                            <div class="circle green-3"></div>
+                                            <%= image_pack_tag 'media/images/azure.png', class: 'img-fluid ml-2' %>
+                                            <span class="font-12 font-400 ml-2">Azure</span>
+                                          </div>
+                                          <span class="font-12 font-700">24</span>
+                                        </div>
+                                        <div class="tiers d-flex justify-content-between align-items-center">
+                                          <div class="color-tier d-flex align-items-center">
+                                            <div class="circle green-4"></div>
+                                            <%= image_pack_tag 'media/images/black-cloud.png', class: 'img-fluid ml-2' %>
+                                            <span class="font-12 font-400 ml-2">Private Cloud</span>
+                                          </div>
+                                          <span class="font-12 font-700">24</span>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="col-lg-6 col-md-12">
+                                <div class="box">
+                                  <div class="col-md-12 mb-lg-0 mb-4 px-1">
+                                    <p class="px-2 font-14 text-capitalize font-600 chart-header-title mb-4">Consumption Model Breakdown</p>
+                                    <div class="border-0 pie-high-chart overflow-hidden rounded-50 d-flex justify-content-center">
+                                      <div class="w-50 card-header p-2 bg-white text-center border-0">
+                                        <div class="donut-content">
+                                          <div id="fourteen-donut" class="donut"></div>
+                                          <div class="donut-value font-30 font-700">50</div>
+                                        </div>
+                                      </div>
+                                      <div class="card-body mt-3 p-2">
+                                        <div class="tiers d-flex justify-content-between align-items-center mb-3">
+                                          <div class="color-tier d-flex align-items-center">
+                                            <div class="circle green-1"></div>
+                                            <span class="font-12 font-400 ml-2">Lass</span>
+                                          </div>
+                                          <span class="font-12 font-700">24</span>
+                                        </div>
+                                        <div class="tiers d-flex justify-content-between align-items-center mb-3">
+                                          <div class="color-tier d-flex align-items-center">
+                                            <div class="circle green-2"></div>
+                                            <span class="font-12 font-400 ml-2">Saas</span>
+                                          </div>
+                                          <span class="font-12 font-700">24</span>
+                                        </div>
+                                        <div class="tiers d-flex justify-content-between align-items-center mb-3">
+                                          <div class="color-tier d-flex align-items-center">
+                                            <div class="circle green-3"></div>
+                                            <span class="font-12 font-400 ml-2">Paas</span>
+                                          </div>
+                                          <span class="font-12 font-700">24</span>
+                                        </div>
+                                        <div class="tiers d-flex justify-content-between align-items-center">
+                                          <div class="color-tier d-flex align-items-center">
+                                            <div class="circle green-4"></div>
+                                            <span class="font-12 font-400 ml-2">Private Cloud</span>
+                                          </div>
+                                          <span class="font-12 font-700">24</span>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="tab-pane fade" id="emea" role="tabpanel" aria-labelledby="emea-tab">
+                            <div class="row custom-high-chart mb-4">
+                              <div class="col-lg-6 col-md-12">
+                                <div class="box">
+                                  <div class="col-md-12 mb-lg-0 mb-4 px-1">
+                                    <p class="px-2 font-14 text-capitalize font-600 chart-header-title mb-4">Service Provider Breakdown</p>
+                                    <div class="border-0 pie-high-chart overflow-hidden rounded-50 d-flex justify-content-center">
+                                      <div class="w-50 card-header p-2 bg-white text-center border-0">
+                                        <div class="donut-content">
+                                          <div id="thirteen-donut" class="donut"></div>
+                                          <div class="donut-value font-30 font-700">50</div>
+                                        </div>
+                                      </div>
+                                      <div class="card-body mt-3 p-2">
+                                        <div class="tiers d-flex justify-content-between align-items-center mb-3">
+                                          <div class="color-tier d-flex align-items-center">
+                                            <div class="circle green-1"></div>
+                                            <%= image_pack_tag 'media/images/aws.png', class: 'img-fluid ml-2' %>
+                                            <span class="font-12 font-400 ml-2">AWS</span>
+                                          </div>
+                                          <span class="font-12 font-700">24</span>
+                                        </div>
+                                        <div class="tiers d-flex justify-content-between align-items-center mb-3">
+                                          <div class="color-tier d-flex align-items-center">
+                                            <div class="circle green-2"></div>
+                                            <%= image_pack_tag 'media/images/g-cloud.png', class: 'img-fluid ml-2' %>
+                                            <span class="font-12 font-400 ml-2">GCP</span>
+                                          </div>
+                                          <span class="font-12 font-700">24</span>
+                                        </div>
+                                        <div class="tiers d-flex justify-content-between align-items-center mb-3">
+                                          <div class="color-tier d-flex align-items-center">
+                                            <div class="circle green-3"></div>
+                                            <%= image_pack_tag 'media/images/azure.png', class: 'img-fluid ml-2' %>
+                                            <span class="font-12 font-400 ml-2">Azure</span>
+                                          </div>
+                                          <span class="font-12 font-700">24</span>
+                                        </div>
+                                        <div class="tiers d-flex justify-content-between align-items-center">
+                                          <div class="color-tier d-flex align-items-center">
+                                            <div class="circle green-4"></div>
+                                            <%= image_pack_tag 'media/images/black-cloud.png', class: 'img-fluid ml-2' %>
+                                            <span class="font-12 font-400 ml-2">Private Cloud</span>
+                                          </div>
+                                          <span class="font-12 font-700">24</span>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="col-lg-6 col-md-12">
+                                <div class="box">
+                                  <div class="col-md-12 mb-lg-0 mb-4 px-1">
+                                    <p class="px-2 font-14 text-capitalize font-600 chart-header-title mb-4">Consumption Model Breakdown</p>
+                                    <div class="border-0 pie-high-chart overflow-hidden rounded-50 d-flex justify-content-center">
+                                      <div class="w-50 card-header p-2 bg-white text-center border-0">
+                                        <div class="donut-content">
+                                          <div id="fourteen-donut" class="donut"></div>
+                                          <div class="donut-value font-30 font-700">50</div>
+                                        </div>
+                                      </div>
+                                      <div class="card-body mt-3 p-2">
+                                        <div class="tiers d-flex justify-content-between align-items-center mb-3">
+                                          <div class="color-tier d-flex align-items-center">
+                                            <div class="circle green-1"></div>
+                                            <span class="font-12 font-400 ml-2">Lass</span>
+                                          </div>
+                                          <span class="font-12 font-700">24</span>
+                                        </div>
+                                        <div class="tiers d-flex justify-content-between align-items-center mb-3">
+                                          <div class="color-tier d-flex align-items-center">
+                                            <div class="circle green-2"></div>
+                                            <span class="font-12 font-400 ml-2">Saas</span>
+                                          </div>
+                                          <span class="font-12 font-700">24</span>
+                                        </div>
+                                        <div class="tiers d-flex justify-content-between align-items-center mb-3">
+                                          <div class="color-tier d-flex align-items-center">
+                                            <div class="circle green-3"></div>
+                                            <span class="font-12 font-400 ml-2">Paas</span>
+                                          </div>
+                                          <span class="font-12 font-700">24</span>
+                                        </div>
+                                        <div class="tiers d-flex justify-content-between align-items-center">
+                                          <div class="color-tier d-flex align-items-center">
+                                            <div class="circle green-4"></div>
+                                            <span class="font-12 font-400 ml-2">Private Cloud</span>
+                                          </div>
+                                          <span class="font-12 font-700">24</span>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="tab-pane fade" id="amers" role="tabpanel" aria-labelledby="amers-tab">
+                            <table class="table table-striped">
+                              <thead>
+                                <tr>
+                                  <th scope="col">#</th>
+                                  <th scope="col">First</th>
+                                  <th scope="col">Last</th>
+                                  <th scope="col">Handle</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <tr>
+                                  <th scope="row">1</th>
+                                  <td class="font-12">Mark</td>
+                                  <td class="font-12">Otto</td>
+                                  <td class="font-12">@mdo</td>
+                                </tr>
+                                <tr>
+                                  <th scope="row">2</th>
+                                  <td class="font-12">Jacob</td>
+                                  <td class="font-12">Thornton</td>
+                                  <td class="font-12">@fat</td>
+                                </tr>
+                                <tr>
+                                  <th scope="row">3</th>
+                                  <td class="font-12">Larry</td>
+                                  <td class="font-12">the Bird</td>
+                                  <td class="font-12">@twitter</td>
+                                </tr>
+                              </tbody>
+                            </table>
+                          </div>
+                          <div class="tab-pane fade" id="apac" role="tabpanel" aria-labelledby="apac-tab">
+                            <table class="table table-striped">
+                              <thead>
+                                <tr>
+                                  <th scope="col">#</th>
+                                  <th scope="col">First</th>
+                                  <th scope="col">Last</th>
+                                  <th scope="col">Handle</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <tr>
+                                  <th scope="row">1</th>
+                                  <td class="font-12">Mark</td>
+                                  <td class="font-12">Otto</td>
+                                  <td class="font-12">@mdo</td>
+                                </tr>
+                                <tr>
+                                  <th scope="row">2</th>
+                                  <td class="font-12">Jacob</td>
+                                  <td class="font-12">Thornton</td>
+                                  <td class="font-12">@fat</td>
+                                </tr>
+                                <tr>
+                                  <th scope="row">3</th>
+                                  <td class="font-12">Larry</td>
+                                  <td class="font-12">the Bird</td>
+                                  <td class="font-12">@twitter</td>
+                                </tr>
+                              </tbody>
+                            </table>
+                          </div>
+                          <div class="tab-pane fade" id="latam" role="tabpanel" aria-labelledby="latam-tab">
+                            <table class="table table-striped">
+                              <thead>
+                                <tr>
+                                  <th scope="col">#</th>
+                                  <th scope="col">First</th>
+                                  <th scope="col">Last</th>
+                                  <th scope="col">Handle</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <tr>
+                                  <th scope="row">1</th>
+                                  <td class="font-12">Mark</td>
+                                  <td class="font-12">Otto</td>
+                                  <td class="font-12">@mdo</td>
+                                </tr>
+                                <tr>
+                                  <th scope="row">2</th>
+                                  <td class="font-12">Jacob</td>
+                                  <td class="font-12">Thornton</td>
+                                  <td class="font-12">@fat</td>
+                                </tr>
+                                <tr>
+                                  <th scope="row">3</th>
+                                  <td class="font-12">Larry</td>
+                                  <td class="font-12">the Bird</td>
+                                  <td class="font-12">@twitter</td>
+                                </tr>
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="small-boxes row px-3">
+                      <div class="col-md-3">
+                        <div class="card h-100 border-0">
+                          <div class="card-body p-2 d-flex align-items-center">
+                            <div class="color-tier d-flex align-items-center">
+                              <div class="sm-circle bg-red mr-1"></div>
+                              <div class="text">
+                                <span class="font-12 font-400 ml-2 d-block">Most Vulnerable</span>
+                                <span class="font-12 ml-2 d-block font-600">EMEA</span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-3">
+                        <div class="card h-100 border-0">
+                          <div class="card-body p-2 d-flex align-items-center">
+                            <div class="color-tier d-flex align-items-center">
+                              <div class="circle green-1 mr-1"></div>
+                              <div class="text">
+                                <span class="font-12 font-400 ml-2 d-block">Most Compliant</span>
+                                <span class="font-12 ml-2 d-block font-600">AMERS</span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-3">
+                        <div class="card h-100 border-0">
+                          <div class="card-body p-2 d-flex align-items-center">
+                            <div class="color-tier d-flex align-items-center">
+                              <span class="font-12 ml-2 font-600">APAC</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-3">
+                        <div class="card h-100 border-0">
+                          <div class="card-body p-2 d-flex align-items-center">
+                            <div class="color-tier d-flex align-items-center">
+                              <span class="font-12 ml-2 font-600">LATAM</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="tab-pane fade" id="tier-3" role="tabpanel" aria-labelledby="tier-3-tab">
+                    <div class="box">
+                      <div class="d-flex align-items-center mb-2 px-4">
+                        <h5 class="text-capitalize text-left w-75">Overview</h5>
+                        <i class="fa fa-ellipsis-v w-25 text-right" aria-hidden="true"></i>
+                      </div>
+                      <div class="table-custom">
+                        <ul class="nav nav-tabs w-100 mb-2 px-4 py-2 border-0" id="myTab" role="tablist">
+                          <li class="nav-item">
+                            <a class="text-decoration-none nav-link border-0 font-12 active pl-md-0 pl-0 pr-4 position-relative" id="all-regions-tab" data-toggle="tab" href="#all-regions" role="tab" aria-controls="all-regions" aria-selected="true">All Regions</a>
+                          </li>
+                          <li class="nav-item">
+                            <a class="text-decoration-none nav-link border-0 font-12 pl-0 pr-4 position-relative" id="emea-tab" data-toggle="tab" href="#emea" role="tab" aria-controls="emea" aria-selected="false">EMEA</a>
+                          </li>
+                          <li class="nav-item">
+                            <a class="text-decoration-none nav-link border-0 font-12 pl-0 pr-4 position-relative" id="amers-tab" data-toggle="tab" href="#amers" role="tab" aria-controls="amers" aria-selected="false">AMERS</a>
+                          </li>
+                          <li class="nav-item">
+                            <a class="text-decoration-none nav-link border-0 font-12 pl-0 pr-4 position-relative" id="apac-tab" data-toggle="tab" href="#apac" role="tab" aria-controls="apac" aria-selected="false">APAC</a>
+                          </li>
+                          <li class="nav-item">
+                            <a class="text-decoration-none nav-link border-0 font-12 pl-0 pr-4 position-relative" id="latam-tab" data-toggle="tab" href="#latam" role="tab" aria-controls="latam" aria-selected="false">LATAM</a>
+                          </li>
+                        </ul>
+                        <div class="tab-content" id="myTabContent2">
+                          <div class="tab-pane fade show active" id="all-regions" role="tabpanel" aria-labelledby="all-regions-tab">
+                            <div class="table-responsive mb-4">
+                              <table class="table table-striped table-bordered">
+                                <thead>
+                                  <tr>
+                                    <th class="border-top-0 font-weight-500 font-12" scope="col"></th>
+                                    <th class="border-top-0 font-weight-500 font-12" scope="col">EMEA</th>
+                                    <th class="border-top-0 font-weight-500 font-12" scope="col">AMERS</th>
+                                    <th class="border-top-0 font-weight-500 font-12" scope="col">APAC</th>
+                                    <th class="border-top-0 font-weight-500 font-12" scope="col">LATAM</th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  <tr>
+                                    <td class="font-12">Total Business Service</td>
+                                    <td class="font-12">8</td>
+                                    <td class="font-12">8</td>
+                                    <td class="font-12">8</td>
+                                    <td class="font-12">8</td>
+                                  </tr>
+                                  <tr>
+                                    <td class="font-12">Total Resilience Gaps</td>
+                                    <td class="font-12">8</td>
+                                    <td class="font-12">8</td>
+                                    <td class="font-12">8</td>
+                                    <td class="font-12">8</td>
+                                  </tr>
+                                  <tr>
+                                    <td class="font-12">Total Internal Systems</td>
+                                    <td class="font-12">6</td>
+                                    <td class="font-12">6</td>
+                                    <td class="font-12">6</td>
+                                    <td class="font-12">6</td>
+                                  </tr>
+                                  <tr>
+                                    <td class="font-12">Total 3rd Party Suppliers</td>
+                                    <td class="font-12">4</td>
+                                    <td class="font-12">4</td>
+                                    <td class="font-12">4</td>
+                                    <td class="font-12">4</td>
+                                  </tr>
+                                  <tr>
+                                    <td class="font-12">Total 4th Party Suppliers</td>
+                                    <td class="font-12">3</td>
+                                    <td class="font-12">3</td>
+                                    <td class="font-12">3</td>
+                                    <td class="font-12">3</td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            </div>
+                            <div class="row custom-high-chart mb-4">
+                              <div class="col-lg-6 col-md-12">
+                                <div class="box">
+                                  <div class="col-md-12 mb-lg-0 mb-4 px-1">
+                                    <p class="px-2 font-14 text-capitalize font-600 chart-header-title mb-4">Service Provider Breakdown</p>
+                                    <div class="border-0 pie-high-chart overflow-hidden rounded-50 d-flex justify-content-center">
+                                      <div class="w-50 card-header p-2 bg-white text-center border-0">
+                                        <div class="donut-content">
+                                          <div id="thirteen-donut" class="donut"></div>
+                                          <div class="donut-value font-30 font-700">50</div>
+                                        </div>
+                                      </div>
+                                      <div class="card-body mt-3 p-2">
+                                        <div class="tiers d-flex justify-content-between align-items-center mb-3">
+                                          <div class="color-tier d-flex align-items-center">
+                                            <div class="circle green-1"></div>
+                                            <%= image_pack_tag 'media/images/aws.png', class: 'img-fluid ml-2' %>
+                                            <span class="font-12 font-400 ml-2">AWS</span>
+                                          </div>
+                                          <span class="font-12 font-700">24</span>
+                                        </div>
+                                        <div class="tiers d-flex justify-content-between align-items-center mb-3">
+                                          <div class="color-tier d-flex align-items-center">
+                                            <div class="circle green-2"></div>
+                                            <%= image_pack_tag 'media/images/g-cloud.png', class: 'img-fluid ml-2' %>
+                                            <span class="font-12 font-400 ml-2">GCP</span>
+                                          </div>
+                                          <span class="font-12 font-700">24</span>
+                                        </div>
+                                        <div class="tiers d-flex justify-content-between align-items-center mb-3">
+                                          <div class="color-tier d-flex align-items-center">
+                                            <div class="circle green-3"></div>
+                                            <%= image_pack_tag 'media/images/azure.png', class: 'img-fluid ml-2' %>
+                                            <span class="font-12 font-400 ml-2">Azure</span>
+                                          </div>
+                                          <span class="font-12 font-700">24</span>
+                                        </div>
+                                        <div class="tiers d-flex justify-content-between align-items-center">
+                                          <div class="color-tier d-flex align-items-center">
+                                            <div class="circle green-4"></div>
+                                            <%= image_pack_tag 'media/images/black-cloud.png', class: 'img-fluid ml-2' %>
+                                            <span class="font-12 font-400 ml-2">Private Cloud</span>
+                                          </div>
+                                          <span class="font-12 font-700">24</span>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="col-lg-6 col-md-12">
+                                <div class="box">
+                                  <div class="col-md-12 mb-lg-0 mb-4 px-1">
+                                    <p class="px-2 font-14 text-capitalize font-600 chart-header-title mb-4">Consumption Model Breakdown</p>
+                                    <div class="border-0 pie-high-chart overflow-hidden rounded-50 d-flex justify-content-center">
+                                      <div class="w-50 card-header p-2 bg-white text-center border-0">
+                                        <div class="donut-content">
+                                          <div id="fourteen-donut" class="donut"></div>
+                                          <div class="donut-value font-30 font-700">50</div>
+                                        </div>
+                                      </div>
+                                      <div class="card-body mt-3 p-2">
+                                        <div class="tiers d-flex justify-content-between align-items-center mb-3">
+                                          <div class="color-tier d-flex align-items-center">
+                                            <div class="circle green-1"></div>
+                                            <span class="font-12 font-400 ml-2">Lass</span>
+                                          </div>
+                                          <span class="font-12 font-700">24</span>
+                                        </div>
+                                        <div class="tiers d-flex justify-content-between align-items-center mb-3">
+                                          <div class="color-tier d-flex align-items-center">
+                                            <div class="circle green-2"></div>
+                                            <span class="font-12 font-400 ml-2">Saas</span>
+                                          </div>
+                                          <span class="font-12 font-700">24</span>
+                                        </div>
+                                        <div class="tiers d-flex justify-content-between align-items-center mb-3">
+                                          <div class="color-tier d-flex align-items-center">
+                                            <div class="circle green-3"></div>
+                                            <span class="font-12 font-400 ml-2">Paas</span>
+                                          </div>
+                                          <span class="font-12 font-700">24</span>
+                                        </div>
+                                        <div class="tiers d-flex justify-content-between align-items-center">
+                                          <div class="color-tier d-flex align-items-center">
+                                            <div class="circle green-4"></div>
+                                            <span class="font-12 font-400 ml-2">Private Cloud</span>
+                                          </div>
+                                          <span class="font-12 font-700">24</span>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="tab-pane fade" id="emea" role="tabpanel" aria-labelledby="emea-tab">
+                            <div class="row custom-high-chart mb-4">
+                              <div class="col-lg-6 col-md-12">
+                                <div class="box">
+                                  <div class="col-md-12 mb-lg-0 mb-4 px-1">
+                                    <p class="px-2 font-14 text-capitalize font-600 chart-header-title mb-4">Service Provider Breakdown</p>
+                                    <div class="border-0 pie-high-chart overflow-hidden rounded-50 d-flex justify-content-center">
+                                      <div class="w-50 card-header p-2 bg-white text-center border-0">
+                                        <div class="donut-content">
+                                          <div id="thirteen-donut" class="donut"></div>
+                                          <div class="donut-value font-30 font-700">50</div>
+                                        </div>
+                                      </div>
+                                      <div class="card-body mt-3 p-2">
+                                        <div class="tiers d-flex justify-content-between align-items-center mb-3">
+                                          <div class="color-tier d-flex align-items-center">
+                                            <div class="circle green-1"></div>
+                                            <%= image_pack_tag 'media/images/aws.png', class: 'img-fluid ml-2' %>
+                                            <span class="font-12 font-400 ml-2">AWS</span>
+                                          </div>
+                                          <span class="font-12 font-700">24</span>
+                                        </div>
+                                        <div class="tiers d-flex justify-content-between align-items-center mb-3">
+                                          <div class="color-tier d-flex align-items-center">
+                                            <div class="circle green-2"></div>
+                                            <%= image_pack_tag 'media/images/g-cloud.png', class: 'img-fluid ml-2' %>
+                                            <span class="font-12 font-400 ml-2">GCP</span>
+                                          </div>
+                                          <span class="font-12 font-700">24</span>
+                                        </div>
+                                        <div class="tiers d-flex justify-content-between align-items-center mb-3">
+                                          <div class="color-tier d-flex align-items-center">
+                                            <div class="circle green-3"></div>
+                                            <%= image_pack_tag 'media/images/azure.png', class: 'img-fluid ml-2' %>
+                                            <span class="font-12 font-400 ml-2">Azure</span>
+                                          </div>
+                                          <span class="font-12 font-700">24</span>
+                                        </div>
+                                        <div class="tiers d-flex justify-content-between align-items-center">
+                                          <div class="color-tier d-flex align-items-center">
+                                            <div class="circle green-4"></div>
+                                            <%= image_pack_tag 'media/images/black-cloud.png', class: 'img-fluid ml-2' %>
+                                            <span class="font-12 font-400 ml-2">Private Cloud</span>
+                                          </div>
+                                          <span class="font-12 font-700">24</span>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="col-lg-6 col-md-12">
+                                <div class="box">
+                                  <div class="col-md-12 mb-lg-0 mb-4 px-1">
+                                    <p class="px-2 font-14 text-capitalize font-600 chart-header-title mb-4">Consumption Model Breakdown</p>
+                                    <div class="border-0 pie-high-chart overflow-hidden rounded-50 d-flex justify-content-center">
+                                      <div class="w-50 card-header p-2 bg-white text-center border-0">
+                                        <div class="donut-content">
+                                          <div id="fourteen-donut" class="donut"></div>
+                                          <div class="donut-value font-30 font-700">50</div>
+                                        </div>
+                                      </div>
+                                      <div class="card-body mt-3 p-2">
+                                        <div class="tiers d-flex justify-content-between align-items-center mb-3">
+                                          <div class="color-tier d-flex align-items-center">
+                                            <div class="circle green-1"></div>
+                                            <span class="font-12 font-400 ml-2">Lass</span>
+                                          </div>
+                                          <span class="font-12 font-700">24</span>
+                                        </div>
+                                        <div class="tiers d-flex justify-content-between align-items-center mb-3">
+                                          <div class="color-tier d-flex align-items-center">
+                                            <div class="circle green-2"></div>
+                                            <span class="font-12 font-400 ml-2">Saas</span>
+                                          </div>
+                                          <span class="font-12 font-700">24</span>
+                                        </div>
+                                        <div class="tiers d-flex justify-content-between align-items-center mb-3">
+                                          <div class="color-tier d-flex align-items-center">
+                                            <div class="circle green-3"></div>
+                                            <span class="font-12 font-400 ml-2">Paas</span>
+                                          </div>
+                                          <span class="font-12 font-700">24</span>
+                                        </div>
+                                        <div class="tiers d-flex justify-content-between align-items-center">
+                                          <div class="color-tier d-flex align-items-center">
+                                            <div class="circle green-4"></div>
+                                            <span class="font-12 font-400 ml-2">Private Cloud</span>
+                                          </div>
+                                          <span class="font-12 font-700">24</span>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="tab-pane fade" id="amers" role="tabpanel" aria-labelledby="amers-tab">
+                            <table class="table table-striped">
+                              <thead>
+                                <tr>
+                                  <th scope="col">#</th>
+                                  <th scope="col">First</th>
+                                  <th scope="col">Last</th>
+                                  <th scope="col">Handle</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <tr>
+                                  <th scope="row">1</th>
+                                  <td class="font-12">Mark</td>
+                                  <td class="font-12">Otto</td>
+                                  <td class="font-12">@mdo</td>
+                                </tr>
+                                <tr>
+                                  <th scope="row">2</th>
+                                  <td class="font-12">Jacob</td>
+                                  <td class="font-12">Thornton</td>
+                                  <td class="font-12">@fat</td>
+                                </tr>
+                                <tr>
+                                  <th scope="row">3</th>
+                                  <td class="font-12">Larry</td>
+                                  <td class="font-12">the Bird</td>
+                                  <td class="font-12">@twitter</td>
+                                </tr>
+                              </tbody>
+                            </table>
+                          </div>
+                          <div class="tab-pane fade" id="apac" role="tabpanel" aria-labelledby="apac-tab">
+                            <table class="table table-striped">
+                              <thead>
+                                <tr>
+                                  <th scope="col">#</th>
+                                  <th scope="col">First</th>
+                                  <th scope="col">Last</th>
+                                  <th scope="col">Handle</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <tr>
+                                  <th scope="row">1</th>
+                                  <td class="font-12">Mark</td>
+                                  <td class="font-12">Otto</td>
+                                  <td class="font-12">@mdo</td>
+                                </tr>
+                                <tr>
+                                  <th scope="row">2</th>
+                                  <td class="font-12">Jacob</td>
+                                  <td class="font-12">Thornton</td>
+                                  <td class="font-12">@fat</td>
+                                </tr>
+                                <tr>
+                                  <th scope="row">3</th>
+                                  <td class="font-12">Larry</td>
+                                  <td class="font-12">the Bird</td>
+                                  <td class="font-12">@twitter</td>
+                                </tr>
+                              </tbody>
+                            </table>
+                          </div>
+                          <div class="tab-pane fade" id="latam" role="tabpanel" aria-labelledby="latam-tab">
+                            <table class="table table-striped">
+                              <thead>
+                                <tr>
+                                  <th scope="col">#</th>
+                                  <th scope="col">First</th>
+                                  <th scope="col">Last</th>
+                                  <th scope="col">Handle</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <tr>
+                                  <th scope="row">1</th>
+                                  <td class="font-12">Mark</td>
+                                  <td class="font-12">Otto</td>
+                                  <td class="font-12">@mdo</td>
+                                </tr>
+                                <tr>
+                                  <th scope="row">2</th>
+                                  <td class="font-12">Jacob</td>
+                                  <td class="font-12">Thornton</td>
+                                  <td class="font-12">@fat</td>
+                                </tr>
+                                <tr>
+                                  <th scope="row">3</th>
+                                  <td class="font-12">Larry</td>
+                                  <td class="font-12">the Bird</td>
+                                  <td class="font-12">@twitter</td>
+                                </tr>
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="small-boxes row px-3">
+                      <div class="col-md-3">
+                        <div class="card h-100 border-0">
+                          <div class="card-body p-2 d-flex align-items-center">
+                            <div class="color-tier d-flex align-items-center">
+                              <div class="sm-circle bg-red mr-1"></div>
+                              <div class="text">
+                                <span class="font-12 font-400 ml-2 d-block">Most Vulnerable</span>
+                                <span class="font-12 ml-2 d-block font-600">EMEA</span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-3">
+                        <div class="card h-100 border-0">
+                          <div class="card-body p-2 d-flex align-items-center">
+                            <div class="color-tier d-flex align-items-center">
+                              <div class="circle green-1 mr-1"></div>
+                              <div class="text">
+                                <span class="font-12 font-400 ml-2 d-block">Most Compliant</span>
+                                <span class="font-12 ml-2 d-block font-600">AMERS</span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-3">
+                        <div class="card h-100 border-0">
+                          <div class="card-body p-2 d-flex align-items-center">
+                            <div class="color-tier d-flex align-items-center">
+                              <span class="font-12 ml-2 font-600">APAC</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-3">
+                        <div class="card h-100 border-0">
+                          <div class="card-body p-2 d-flex align-items-center">
+                            <div class="color-tier d-flex align-items-center">
+                              <span class="font-12 ml-2 font-600">LATAM</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="tab-pane fade" id="tier-4" role="tabpanel" aria-labelledby="tier-4-tab">
+                    <div class="box">
+                      <div class="d-flex align-items-center mb-2 px-4">
+                        <h5 class="text-capitalize text-left w-75">Overview</h5>
+                        <i class="fa fa-ellipsis-v w-25 text-right" aria-hidden="true"></i>
+                      </div>
+                      <div class="table-custom">
+                        <ul class="nav nav-tabs w-100 mb-2 px-4 py-2 border-0" id="myTab" role="tablist">
+                          <li class="nav-item">
+                            <a class="text-decoration-none nav-link border-0 font-12 active pl-md-0 pl-0 pr-4 position-relative" id="all-regions-tab" data-toggle="tab" href="#all-regions" role="tab" aria-controls="all-regions" aria-selected="true">All Regions</a>
+                          </li>
+                          <li class="nav-item">
+                            <a class="text-decoration-none nav-link border-0 font-12 pl-0 pr-4 position-relative" id="emea-tab" data-toggle="tab" href="#emea" role="tab" aria-controls="emea" aria-selected="false">EMEA</a>
+                          </li>
+                          <li class="nav-item">
+                            <a class="text-decoration-none nav-link border-0 font-12 pl-0 pr-4 position-relative" id="amers-tab" data-toggle="tab" href="#amers" role="tab" aria-controls="amers" aria-selected="false">AMERS</a>
+                          </li>
+                          <li class="nav-item">
+                            <a class="text-decoration-none nav-link border-0 font-12 pl-0 pr-4 position-relative" id="apac-tab" data-toggle="tab" href="#apac" role="tab" aria-controls="apac" aria-selected="false">APAC</a>
+                          </li>
+                          <li class="nav-item">
+                            <a class="text-decoration-none nav-link border-0 font-12 pl-0 pr-4 position-relative" id="latam-tab" data-toggle="tab" href="#latam" role="tab" aria-controls="latam" aria-selected="false">LATAM</a>
+                          </li>
+                        </ul>
+                        <div class="tab-content" id="myTabContent2">
+                          <div class="tab-pane fade show active" id="all-regions" role="tabpanel" aria-labelledby="all-regions-tab">
+                            <div class="table-responsive mb-4">
+                              <table class="table table-striped table-bordered">
+                                <thead>
+                                  <tr>
+                                    <th class="border-top-0 font-weight-500 font-12" scope="col"></th>
+                                    <th class="border-top-0 font-weight-500 font-12" scope="col">EMEA</th>
+                                    <th class="border-top-0 font-weight-500 font-12" scope="col">AMERS</th>
+                                    <th class="border-top-0 font-weight-500 font-12" scope="col">APAC</th>
+                                    <th class="border-top-0 font-weight-500 font-12" scope="col">LATAM</th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  <tr>
+                                    <td class="font-12">Total Business Service</td>
+                                    <td class="font-12">8</td>
+                                    <td class="font-12">8</td>
+                                    <td class="font-12">8</td>
+                                    <td class="font-12">8</td>
+                                  </tr>
+                                  <tr>
+                                    <td class="font-12">Total Resilience Gaps</td>
+                                    <td class="font-12">8</td>
+                                    <td class="font-12">8</td>
+                                    <td class="font-12">8</td>
+                                    <td class="font-12">8</td>
+                                  </tr>
+                                  <tr>
+                                    <td class="font-12">Total Internal Systems</td>
+                                    <td class="font-12">6</td>
+                                    <td class="font-12">6</td>
+                                    <td class="font-12">6</td>
+                                    <td class="font-12">6</td>
+                                  </tr>
+                                  <tr>
+                                    <td class="font-12">Total 3rd Party Suppliers</td>
+                                    <td class="font-12">4</td>
+                                    <td class="font-12">4</td>
+                                    <td class="font-12">4</td>
+                                    <td class="font-12">4</td>
+                                  </tr>
+                                  <tr>
+                                    <td class="font-12">Total 4th Party Suppliers</td>
+                                    <td class="font-12">3</td>
+                                    <td class="font-12">3</td>
+                                    <td class="font-12">3</td>
+                                    <td class="font-12">3</td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            </div>
+                            <div class="row custom-high-chart mb-4">
+                              <div class="col-lg-6 col-md-12">
+                                <div class="box">
+                                  <div class="col-md-12 mb-lg-0 mb-4 px-1">
+                                    <p class="px-2 font-14 text-capitalize font-600 chart-header-title mb-4">Service Provider Breakdown</p>
+                                    <div class="border-0 pie-high-chart overflow-hidden rounded-50 d-flex justify-content-center">
+                                      <div class="w-50 card-header p-2 bg-white text-center border-0">
+                                        <div class="donut-content">
+                                          <div id="thirteen-donut" class="donut"></div>
+                                          <div class="donut-value font-30 font-700">50</div>
+                                        </div>
+                                      </div>
+                                      <div class="card-body mt-3 p-2">
+                                        <div class="tiers d-flex justify-content-between align-items-center mb-3">
+                                          <div class="color-tier d-flex align-items-center">
+                                            <div class="circle green-1"></div>
+                                            <%= image_pack_tag 'media/images/aws.png', class: 'img-fluid ml-2' %>
+                                            <span class="font-12 font-400 ml-2">AWS</span>
+                                          </div>
+                                          <span class="font-12 font-700">24</span>
+                                        </div>
+                                        <div class="tiers d-flex justify-content-between align-items-center mb-3">
+                                          <div class="color-tier d-flex align-items-center">
+                                            <div class="circle green-2"></div>
+                                            <%= image_pack_tag 'media/images/g-cloud.png', class: 'img-fluid ml-2' %>
+                                            <span class="font-12 font-400 ml-2">GCP</span>
+                                          </div>
+                                          <span class="font-12 font-700">24</span>
+                                        </div>
+                                        <div class="tiers d-flex justify-content-between align-items-center mb-3">
+                                          <div class="color-tier d-flex align-items-center">
+                                            <div class="circle green-3"></div>
+                                            <%= image_pack_tag 'media/images/azure.png', class: 'img-fluid ml-2' %>
+                                            <span class="font-12 font-400 ml-2">Azure</span>
+                                          </div>
+                                          <span class="font-12 font-700">24</span>
+                                        </div>
+                                        <div class="tiers d-flex justify-content-between align-items-center">
+                                          <div class="color-tier d-flex align-items-center">
+                                            <div class="circle green-4"></div>
+                                            <%= image_pack_tag 'media/images/black-cloud.png', class: 'img-fluid ml-2' %>
+                                            <span class="font-12 font-400 ml-2">Private Cloud</span>
+                                          </div>
+                                          <span class="font-12 font-700">24</span>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="col-lg-6 col-md-12">
+                                <div class="box">
+                                  <div class="col-md-12 mb-lg-0 mb-4 px-1">
+                                    <p class="px-2 font-14 text-capitalize font-600 chart-header-title mb-4">Consumption Model Breakdown</p>
+                                    <div class="border-0 pie-high-chart overflow-hidden rounded-50 d-flex justify-content-center">
+                                      <div class="w-50 card-header p-2 bg-white text-center border-0">
+                                        <div class="donut-content">
+                                          <div id="fourteen-donut" class="donut"></div>
+                                          <div class="donut-value font-30 font-700">50</div>
+                                        </div>
+                                      </div>
+                                      <div class="card-body mt-3 p-2">
+                                        <div class="tiers d-flex justify-content-between align-items-center mb-3">
+                                          <div class="color-tier d-flex align-items-center">
+                                            <div class="circle green-1"></div>
+                                            <span class="font-12 font-400 ml-2">Lass</span>
+                                          </div>
+                                          <span class="font-12 font-700">24</span>
+                                        </div>
+                                        <div class="tiers d-flex justify-content-between align-items-center mb-3">
+                                          <div class="color-tier d-flex align-items-center">
+                                            <div class="circle green-2"></div>
+                                            <span class="font-12 font-400 ml-2">Saas</span>
+                                          </div>
+                                          <span class="font-12 font-700">24</span>
+                                        </div>
+                                        <div class="tiers d-flex justify-content-between align-items-center mb-3">
+                                          <div class="color-tier d-flex align-items-center">
+                                            <div class="circle green-3"></div>
+                                            <span class="font-12 font-400 ml-2">Paas</span>
+                                          </div>
+                                          <span class="font-12 font-700">24</span>
+                                        </div>
+                                        <div class="tiers d-flex justify-content-between align-items-center">
+                                          <div class="color-tier d-flex align-items-center">
+                                            <div class="circle green-4"></div>
+                                            <span class="font-12 font-400 ml-2">Private Cloud</span>
+                                          </div>
+                                          <span class="font-12 font-700">24</span>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="tab-pane fade" id="emea" role="tabpanel" aria-labelledby="emea-tab">
+                            <div class="row custom-high-chart mb-4">
+                              <div class="col-lg-6 col-md-12">
+                                <div class="box">
+                                  <div class="col-md-12 mb-lg-0 mb-4 px-1">
+                                    <p class="px-2 font-14 text-capitalize font-600 chart-header-title mb-4">Service Provider Breakdown</p>
+                                    <div class="border-0 pie-high-chart overflow-hidden rounded-50 d-flex justify-content-center">
+                                      <div class="w-50 card-header p-2 bg-white text-center border-0">
+                                        <div class="donut-content">
+                                          <div id="thirteen-donut" class="donut"></div>
+                                          <div class="donut-value font-30 font-700">50</div>
+                                        </div>
+                                      </div>
+                                      <div class="card-body mt-3 p-2">
+                                        <div class="tiers d-flex justify-content-between align-items-center mb-3">
+                                          <div class="color-tier d-flex align-items-center">
+                                            <div class="circle green-1"></div>
+                                            <%= image_pack_tag 'media/images/aws.png', class: 'img-fluid ml-2' %>
+                                            <span class="font-12 font-400 ml-2">AWS</span>
+                                          </div>
+                                          <span class="font-12 font-700">24</span>
+                                        </div>
+                                        <div class="tiers d-flex justify-content-between align-items-center mb-3">
+                                          <div class="color-tier d-flex align-items-center">
+                                            <div class="circle green-2"></div>
+                                            <%= image_pack_tag 'media/images/g-cloud.png', class: 'img-fluid ml-2' %>
+                                            <span class="font-12 font-400 ml-2">GCP</span>
+                                          </div>
+                                          <span class="font-12 font-700">24</span>
+                                        </div>
+                                        <div class="tiers d-flex justify-content-between align-items-center mb-3">
+                                          <div class="color-tier d-flex align-items-center">
+                                            <div class="circle green-3"></div>
+                                            <%= image_pack_tag 'media/images/azure.png', class: 'img-fluid ml-2' %>
+                                            <span class="font-12 font-400 ml-2">Azure</span>
+                                          </div>
+                                          <span class="font-12 font-700">24</span>
+                                        </div>
+                                        <div class="tiers d-flex justify-content-between align-items-center">
+                                          <div class="color-tier d-flex align-items-center">
+                                            <div class="circle green-4"></div>
+                                            <%= image_pack_tag 'media/images/black-cloud.png', class: 'img-fluid ml-2' %>
+                                            <span class="font-12 font-400 ml-2">Private Cloud</span>
+                                          </div>
+                                          <span class="font-12 font-700">24</span>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="col-lg-6 col-md-12">
+                                <div class="box">
+                                  <div class="col-md-12 mb-lg-0 mb-4 px-1">
+                                    <p class="px-2 font-14 text-capitalize font-600 chart-header-title mb-4">Consumption Model Breakdown</p>
+                                    <div class="border-0 pie-high-chart overflow-hidden rounded-50 d-flex justify-content-center">
+                                      <div class="w-50 card-header p-2 bg-white text-center border-0">
+                                        <div class="donut-content">
+                                          <div id="fourteen-donut" class="donut"></div>
+                                          <div class="donut-value font-30 font-700">50</div>
+                                        </div>
+                                      </div>
+                                      <div class="card-body mt-3 p-2">
+                                        <div class="tiers d-flex justify-content-between align-items-center mb-3">
+                                          <div class="color-tier d-flex align-items-center">
+                                            <div class="circle green-1"></div>
+                                            <span class="font-12 font-400 ml-2">Lass</span>
+                                          </div>
+                                          <span class="font-12 font-700">24</span>
+                                        </div>
+                                        <div class="tiers d-flex justify-content-between align-items-center mb-3">
+                                          <div class="color-tier d-flex align-items-center">
+                                            <div class="circle green-2"></div>
+                                            <span class="font-12 font-400 ml-2">Saas</span>
+                                          </div>
+                                          <span class="font-12 font-700">24</span>
+                                        </div>
+                                        <div class="tiers d-flex justify-content-between align-items-center mb-3">
+                                          <div class="color-tier d-flex align-items-center">
+                                            <div class="circle green-3"></div>
+                                            <span class="font-12 font-400 ml-2">Paas</span>
+                                          </div>
+                                          <span class="font-12 font-700">24</span>
+                                        </div>
+                                        <div class="tiers d-flex justify-content-between align-items-center">
+                                          <div class="color-tier d-flex align-items-center">
+                                            <div class="circle green-4"></div>
+                                            <span class="font-12 font-400 ml-2">Private Cloud</span>
+                                          </div>
+                                          <span class="font-12 font-700">24</span>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="tab-pane fade" id="amers" role="tabpanel" aria-labelledby="amers-tab">
+                            <table class="table table-striped">
+                              <thead>
+                                <tr>
+                                  <th scope="col">#</th>
+                                  <th scope="col">First</th>
+                                  <th scope="col">Last</th>
+                                  <th scope="col">Handle</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <tr>
+                                  <th scope="row">1</th>
+                                  <td class="font-12">Mark</td>
+                                  <td class="font-12">Otto</td>
+                                  <td class="font-12">@mdo</td>
+                                </tr>
+                                <tr>
+                                  <th scope="row">2</th>
+                                  <td class="font-12">Jacob</td>
+                                  <td class="font-12">Thornton</td>
+                                  <td class="font-12">@fat</td>
+                                </tr>
+                                <tr>
+                                  <th scope="row">3</th>
+                                  <td class="font-12">Larry</td>
+                                  <td class="font-12">the Bird</td>
+                                  <td class="font-12">@twitter</td>
+                                </tr>
+                              </tbody>
+                            </table>
+                          </div>
+                          <div class="tab-pane fade" id="apac" role="tabpanel" aria-labelledby="apac-tab">
+                            <table class="table table-striped">
+                              <thead>
+                                <tr>
+                                  <th scope="col">#</th>
+                                  <th scope="col">First</th>
+                                  <th scope="col">Last</th>
+                                  <th scope="col">Handle</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <tr>
+                                  <th scope="row">1</th>
+                                  <td class="font-12">Mark</td>
+                                  <td class="font-12">Otto</td>
+                                  <td class="font-12">@mdo</td>
+                                </tr>
+                                <tr>
+                                  <th scope="row">2</th>
+                                  <td class="font-12">Jacob</td>
+                                  <td class="font-12">Thornton</td>
+                                  <td class="font-12">@fat</td>
+                                </tr>
+                                <tr>
+                                  <th scope="row">3</th>
+                                  <td class="font-12">Larry</td>
+                                  <td class="font-12">the Bird</td>
+                                  <td class="font-12">@twitter</td>
+                                </tr>
+                              </tbody>
+                            </table>
+                          </div>
+                          <div class="tab-pane fade" id="latam" role="tabpanel" aria-labelledby="latam-tab">
+                            <table class="table table-striped">
+                              <thead>
+                                <tr>
+                                  <th scope="col">#</th>
+                                  <th scope="col">First</th>
+                                  <th scope="col">Last</th>
+                                  <th scope="col">Handle</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <tr>
+                                  <th scope="row">1</th>
+                                  <td class="font-12">Mark</td>
+                                  <td class="font-12">Otto</td>
+                                  <td class="font-12">@mdo</td>
+                                </tr>
+                                <tr>
+                                  <th scope="row">2</th>
+                                  <td class="font-12">Jacob</td>
+                                  <td class="font-12">Thornton</td>
+                                  <td class="font-12">@fat</td>
+                                </tr>
+                                <tr>
+                                  <th scope="row">3</th>
+                                  <td class="font-12">Larry</td>
+                                  <td class="font-12">the Bird</td>
+                                  <td class="font-12">@twitter</td>
+                                </tr>
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="small-boxes row px-3">
+                      <div class="col-md-3">
+                        <div class="card h-100 border-0">
+                          <div class="card-body p-2 d-flex align-items-center">
+                            <div class="color-tier d-flex align-items-center">
+                              <div class="sm-circle bg-red mr-1"></div>
+                              <div class="text">
+                                <span class="font-12 font-400 ml-2 d-block">Most Vulnerable</span>
+                                <span class="font-12 ml-2 d-block font-600">EMEA</span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-3">
+                        <div class="card h-100 border-0">
+                          <div class="card-body p-2 d-flex align-items-center">
+                            <div class="color-tier d-flex align-items-center">
+                              <div class="circle green-1 mr-1"></div>
+                              <div class="text">
+                                <span class="font-12 font-400 ml-2 d-block">Most Compliant</span>
+                                <span class="font-12 ml-2 d-block font-600">AMERS</span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-3">
+                        <div class="card h-100 border-0">
+                          <div class="card-body p-2 d-flex align-items-center">
+                            <div class="color-tier d-flex align-items-center">
+                              <span class="font-12 ml-2 font-600">APAC</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-3">
+                        <div class="card h-100 border-0">
+                          <div class="card-body p-2 d-flex align-items-center">
+                            <div class="color-tier d-flex align-items-center">
+                              <span class="font-12 ml-2 font-600">LATAM</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div id="section2">
+            <div class="row mt-4 no-gutters">
+              <div class="col-md-12 mb-4 mb-lg-0 px-1">
+                <div class="card border-0 shadow-sm rounded-50 overflow-hidden min-h-566">
+                  <div class="card-body">
+                    <div class="box">
+                      <div class="d-flex align-items-center px-1 mb-3">
+                        <h5 class="card-heading text-capitalize text-left">Top 10 Vulnerable Tier 1 Business Services</h5>
+                        <i class="fa fa-ellipsis-v text-right card-heading-icon"></i>
+                      </div>
+                      <div class="px-1">
+                        <ul class="nav nav-tabs w-100 border-0" id="myTab" role="tablist">
+                          <li class="nav-item">
+                            <a class="text-decoration-none nav-link active border-0 font-12 pl-0 pr-4 position-relative" id="emea-tab-2" data-toggle="tab" href="#emea-2" role="tab" aria-controls="emea-2" aria-selected="false">EMEA</a>
+                          </li>
+                          <li class="nav-item">
+                            <a class="text-decoration-none nav-link border-0 font-12 pl-0 pr-4 position-relative" id="amers-tab-2" data-toggle="tab" href="#amers-2" role="tab" aria-controls="amers-2" aria-selected="false">AMERS</a>
+                          </li>
+                          <li class="nav-item">
+                            <a class="text-decoration-none nav-link border-0 font-12 pl-0 pr-4 position-relative" id="apac-tab-2" data-toggle="tab" href="#apac-2" role="tab" aria-controls="apac-2" aria-selected="false">APAC</a>
+                          </li>
+                          <li class="nav-item">
+                            <a class="text-decoration-none nav-link border-0 font-12 pl-0 pr-4 position-relative" id="latam-tab-2" data-toggle="tab" href="#latam-2" role="tab" aria-controls="latam-2" aria-selected="false">LATAM</a>
+                          </li>
+                        </ul>
+                        <div class="tab-content" id="myTabContent2">
+                          <div class="tab-pane fade show active" id="emea-2" role="tabpanel" aria-labelledby="emea-tab-2">
+                            <div class="table-responsive mt-0 mt-lg-3">
+                              <table class="table custom-table mb-4">
+                                <thead>
+                                  <tr>
+                                    <th class="font-11 font-xxl-14 px-1 text-dark font-400">User flow</th>
+                                    <th class="font-11 font-xxl-14 px text-dark font-400">Resilience threat posture</th>
+                                    <th class="font-11 font-xxl-14 px text-dark font-400">Resiliece vulnerablities</th>
+                                    <th class="font-11 font-xxl-14 px text-dark font-400">Non compliant 3rd parties critical</th>
+                                    <th class="font-11 font-xxl-14 px text-dark font-400">Non compliant 3rd parties important</th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  <tr>
+                                    <td class="font-11 font-xxl-14 px-1 text-dark font-600">Onboarding</td>
+                                    <td class="font-11 font-xxl-14 text-dark font-600">
+                                      <div class="d-flex align-items-center">
+                                        <div class="sm-circle bg-red"></div>
+                                        <span class="ml-2 text-capitalize">very high</span>
+                                      </div>
+                                    </td>
+                                    <td class="font-11 font-xxl-14 text-dark font-600">3</td>
+                                    <td class="font-11 font-xxl-14 text-dark font-600">5</td>
+                                    <td class="font-11 font-xxl-14 text-dark font-600">5</td>
+                                  </tr>
+                                  <tr>
+                                    <td class="font-11 font-xxl-14 px-1 text-dark font-600">Faster payment</td>
+                                    <td class="font-11 font-xxl-14 text-dark font-600">
+                                      <div class="d-flex align-items-center">
+                                        <div class="sm-circle bg-red"></div>
+                                        <span class="ml-2 text-capitalize">very high</span>
+                                      </div>
+                                    </td>
+                                    <td class="font-11 font-xxl-14 text-dark font-600">3</td>
+                                    <td class="font-11 font-xxl-14 text-dark font-600">5</td>
+                                    <td class="font-11 font-xxl-14 text-dark font-600">5</td>
+                                  </tr>
+                                  <tr>
+                                    <td class="font-11 font-xxl-14 px-1 text-dark font-600">ATM-withdrawl</td>
+                                    <td class="font-11 font-xxl-14 text-dark font-600">
+                                      <div class="d-flex align-items-center">
+                                        <div class="sm-circle bg-red"></div>
+                                        <span class="ml-2 text-capitalize">very high</span>
+                                      </div>
+                                    </td>
+                                    <td class="font-11 font-xxl-14 text-dark font-600">3</td>
+                                    <td class="font-11 font-xxl-14 text-dark font-600">5</td>
+                                    <td class="font-11 font-xxl-14 text-dark font-600">5</td>
+                                  </tr>
+                                  <tr>
+                                    <td class="font-11 font-xxl-14 px-1 text-dark font-600">Check my balance</td>
+                                    <td class="font-11 font-xxl-14 text-dark font-600">
+                                      <div class="d-flex align-items-center">
+                                        <div class="sm-circle bg-red"></div>
+                                        <span class="ml-2 text-capitalize">very high</span>
+                                      </div>
+                                    </td>
+                                    <td class="font-11 font-xxl-14 text-dark font-600">3</td>
+                                    <td class="font-11 font-xxl-14 text-dark font-600">5</td>
+                                    <td class="font-11 font-xxl-14 text-dark font-600">5</td>
+                                  </tr>
+                                  <tr>
+                                    <td class="font-11 font-xxl-14 px-1 text-dark font-600">Log in - internet banking</td>
+                                    <td class="font-11 font-xxl-14 text-dark font-600">
+                                      <div class="d-flex align-items-center">
+                                        <div class="sm-circle bg-dark-yellow"></div>
+                                        <span class="ml-2 text-capitalize">high</span>
+                                      </div>
+                                    </td>
+                                    <td class="font-11 font-xxl-14 text-dark font-600">3</td>
+                                    <td class="font-11 font-xxl-14 text-dark font-600">5</td>
+                                    <td class="font-11 font-xxl-14 text-dark font-600">5</td>
+                                  </tr>
+                                  <tr>
+                                    <td class="font-11 font-xxl-14 px-1 text-dark font-600">Make a payment</td>
+                                    <td class="font-11 font-xxl-14 text-dark font-600">
+                                      <div class="d-flex align-items-center">
+                                        <div class="sm-circle bg-yellow"></div>
+                                        <span class="ml-2 text-capitalize">medium</span>
+                                      </div>
+                                    </td>
+                                    <td class="font-11 font-xxl-14 text-dark font-600">3</td>
+                                    <td class="font-11 font-xxl-14 text-dark font-600">5</td>
+                                    <td class="font-11 font-xxl-14 text-dark font-600">5</td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            </div>
+                          </div>
+                          <div class="tab-pane fade" id="amers-2" role="tabpanel" aria-labelledby="amers-tab-2">
+                            <div class="table-responsive mt-0 mt-lg-3">
+                              <table class="table custom-table mb-4">
+                                <thead>
+                                  <tr>
+                                    <th class="font-11 font-xxl-14 px-1 text-dark font-400">User flow</th>
+                                    <th class="font-11 font-xxl-14 px text-dark font-400">Resilience threat posture</th>
+                                    <th class="font-11 font-xxl-14 px text-dark font-400">Resiliece vulnerablities</th>
+                                    <th class="font-11 font-xxl-14 px text-dark font-400">Non compliant 3rd parties critical</th>
+                                    <th class="font-11 font-xxl-14 px text-dark font-400">Non compliant 3rd parties important</th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  <tr>
+                                    <td class="font-11 font-xxl-14 px-1 text-dark font-600">Onboarding</td>
+                                    <td class="font-11 font-xxl-14 text-dark font-600">
+                                      <div class="d-flex align-items-center">
+                                        <div class="sm-circle bg-red"></div>
+                                        <span class="ml-2 text-capitalize">very high</span>
+                                      </div>
+                                    </td>
+                                    <td class="font-11 font-xxl-14 text-dark font-600">3</td>
+                                    <td class="font-11 font-xxl-14 text-dark font-600">5</td>
+                                    <td class="font-11 font-xxl-14 text-dark font-600">5</td>
+                                  </tr>
+                                  <tr>
+                                    <td class="font-11 font-xxl-14 px-1 text-dark font-600">Faster payment</td>
+                                    <td class="font-11 font-xxl-14 text-dark font-600">
+                                      <div class="d-flex align-items-center">
+                                        <div class="sm-circle bg-red"></div>
+                                        <span class="ml-2 text-capitalize">very high</span>
+                                      </div>
+                                    </td>
+                                    <td class="font-11 font-xxl-14 text-dark font-600">3</td>
+                                    <td class="font-11 font-xxl-14 text-dark font-600">5</td>
+                                    <td class="font-11 font-xxl-14 text-dark font-600">5</td>
+                                  </tr>
+                                  <tr>
+                                    <td class="font-11 font-xxl-14 px-1 text-dark font-600">ATM-withdrawl</td>
+                                    <td class="font-11 font-xxl-14 text-dark font-600">
+                                      <div class="d-flex align-items-center">
+                                        <div class="sm-circle bg-red"></div>
+                                        <span class="ml-2 text-capitalize">very high</span>
+                                      </div>
+                                    </td>
+                                    <td class="font-11 font-xxl-14 text-dark font-600">3</td>
+                                    <td class="font-11 font-xxl-14 text-dark font-600">5</td>
+                                    <td class="font-11 font-xxl-14 text-dark font-600">5</td>
+                                  </tr>
+                                  <tr>
+                                    <td class="font-11 font-xxl-14 px-1 text-dark font-600">Check my balance</td>
+                                    <td class="font-11 font-xxl-14 text-dark font-600">
+                                      <div class="d-flex align-items-center">
+                                        <div class="sm-circle bg-red"></div>
+                                        <span class="ml-2 text-capitalize">very high</span>
+                                      </div>
+                                    </td>
+                                    <td class="font-11 font-xxl-14 text-dark font-600">3</td>
+                                    <td class="font-11 font-xxl-14 text-dark font-600">5</td>
+                                    <td class="font-11 font-xxl-14 text-dark font-600">5</td>
+                                  </tr>
+                                  <tr>
+                                    <td class="font-11 font-xxl-14 px-1 text-dark font-600">Log in - internet banking</td>
+                                    <td class="font-11 font-xxl-14 text-dark font-600">
+                                      <div class="d-flex align-items-center">
+                                        <div class="sm-circle bg-dark-yellow"></div>
+                                        <span class="ml-2 text-capitalize">high</span>
+                                      </div>
+                                    </td>
+                                    <td class="font-11 font-xxl-14 text-dark font-600">3</td>
+                                    <td class="font-11 font-xxl-14 text-dark font-600">5</td>
+                                    <td class="font-11 font-xxl-14 text-dark font-600">5</td>
+                                  </tr>
+                                  <tr>
+                                    <td class="font-11 font-xxl-14 px-1 text-dark font-600">Make a payment</td>
+                                    <td class="font-11 font-xxl-14 text-dark font-600">
+                                      <div class="d-flex align-items-center">
+                                        <div class="sm-circle bg-yellow"></div>
+                                        <span class="ml-2 text-capitalize">medium</span>
+                                      </div>
+                                    </td>
+                                    <td class="font-11 font-xxl-14 text-dark font-600">3</td>
+                                    <td class="font-11 font-xxl-14 text-dark font-600">5</td>
+                                    <td class="font-11 font-xxl-14 text-dark font-600">5</td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            </div>
+                          </div>
+                          <div class="tab-pane fade" id="apac-2" role="tabpanel" aria-labelledby="apac-tab-2">
+                            <div class="table-responsive mt-0 mt-lg-3">
+                              <table class="table custom-table mb-4">
+                                <thead>
+                                  <tr>
+                                    <th class="font-11 font-xxl-14 px-1 text-dark font-400">User flow</th>
+                                    <th class="font-11 font-xxl-14 px text-dark font-400">Resilience threat posture</th>
+                                    <th class="font-11 font-xxl-14 px text-dark font-400">Resiliece vulnerablities</th>
+                                    <th class="font-11 font-xxl-14 px text-dark font-400">Non compliant 3rd parties critical</th>
+                                    <th class="font-11 font-xxl-14 px text-dark font-400">Non compliant 3rd parties important</th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  <tr>
+                                    <td class="font-11 font-xxl-14 px-1 text-dark font-600">Onboarding</td>
+                                    <td class="font-11 font-xxl-14 text-dark font-600">
+                                      <div class="d-flex align-items-center">
+                                        <div class="sm-circle bg-red"></div>
+                                        <span class="ml-2 text-capitalize">very high</span>
+                                      </div>
+                                    </td>
+                                    <td class="font-11 font-xxl-14 text-dark font-600">3</td>
+                                    <td class="font-11 font-xxl-14 text-dark font-600">5</td>
+                                    <td class="font-11 font-xxl-14 text-dark font-600">5</td>
+                                  </tr>
+                                  <tr>
+                                    <td class="font-11 font-xxl-14 px-1 text-dark font-600">Faster payment</td>
+                                    <td class="font-11 font-xxl-14 text-dark font-600">
+                                      <div class="d-flex align-items-center">
+                                        <div class="sm-circle bg-red"></div>
+                                        <span class="ml-2 text-capitalize">very high</span>
+                                      </div>
+                                    </td>
+                                    <td class="font-11 font-xxl-14 text-dark font-600">3</td>
+                                    <td class="font-11 font-xxl-14 text-dark font-600">5</td>
+                                    <td class="font-11 font-xxl-14 text-dark font-600">5</td>
+                                  </tr>
+                                  <tr>
+                                    <td class="font-11 font-xxl-14 px-1 text-dark font-600">ATM-withdrawl</td>
+                                    <td class="font-11 font-xxl-14 text-dark font-600">
+                                      <div class="d-flex align-items-center">
+                                        <div class="sm-circle bg-red"></div>
+                                        <span class="ml-2 text-capitalize">very high</span>
+                                      </div>
+                                    </td>
+                                    <td class="font-11 font-xxl-14 text-dark font-600">3</td>
+                                    <td class="font-11 font-xxl-14 text-dark font-600">5</td>
+                                    <td class="font-11 font-xxl-14 text-dark font-600">5</td>
+                                  </tr>
+                                  <tr>
+                                    <td class="font-11 font-xxl-14 px-1 text-dark font-600">Check my balance</td>
+                                    <td class="font-11 font-xxl-14 text-dark font-600">
+                                      <div class="d-flex align-items-center">
+                                        <div class="sm-circle bg-red"></div>
+                                        <span class="ml-2 text-capitalize">very high</span>
+                                      </div>
+                                    </td>
+                                    <td class="font-11 font-xxl-14 text-dark font-600">3</td>
+                                    <td class="font-11 font-xxl-14 text-dark font-600">5</td>
+                                    <td class="font-11 font-xxl-14 text-dark font-600">5</td>
+                                  </tr>
+                                  <tr>
+                                    <td class="font-11 font-xxl-14 px-1 text-dark font-600">Log in - internet banking</td>
+                                    <td class="font-11 font-xxl-14 text-dark font-600">
+                                      <div class="d-flex align-items-center">
+                                        <div class="sm-circle bg-dark-yellow"></div>
+                                        <span class="ml-2 text-capitalize">high</span>
+                                      </div>
+                                    </td>
+                                    <td class="font-11 font-xxl-14 text-dark font-600">3</td>
+                                    <td class="font-11 font-xxl-14 text-dark font-600">5</td>
+                                    <td class="font-11 font-xxl-14 text-dark font-600">5</td>
+                                  </tr>
+                                  <tr>
+                                    <td class="font-11 font-xxl-14 px-1 text-dark font-600">Make a payment</td>
+                                    <td class="font-11 font-xxl-14 text-dark font-600">
+                                      <div class="d-flex align-items-center">
+                                        <div class="sm-circle bg-yellow"></div>
+                                        <span class="ml-2 text-capitalize">medium</span>
+                                      </div>
+                                    </td>
+                                    <td class="font-11 font-xxl-14 text-dark font-600">3</td>
+                                    <td class="font-11 font-xxl-14 text-dark font-600">5</td>
+                                    <td class="font-11 font-xxl-14 text-dark font-600">5</td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            </div>
+                          </div>
+                          <div class="tab-pane fade" id="latam-2" role="tabpanel" aria-labelledby="latam-tab-2">
+                            <div class="table-responsive mt-0 mt-lg-3">
+                              <table class="table custom-table mb-4">
+                                <thead>
+                                  <tr>
+                                    <th class="font-11 font-xxl-14 px-1 text-dark font-400">User flow</th>
+                                    <th class="font-11 font-xxl-14 px text-dark font-400">Resilience threat posture</th>
+                                    <th class="font-11 font-xxl-14 px text-dark font-400">Resiliece vulnerablities</th>
+                                    <th class="font-11 font-xxl-14 px text-dark font-400">Non compliant 3rd parties critical</th>
+                                    <th class="font-11 font-xxl-14 px text-dark font-400">Non compliant 3rd parties important</th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  <tr>
+                                    <td class="font-11 font-xxl-14 px-1 text-dark font-600">Onboarding</td>
+                                    <td class="font-11 font-xxl-14 text-dark font-600">
+                                      <div class="d-flex align-items-center">
+                                        <div class="sm-circle bg-red"></div>
+                                        <span class="ml-2 text-capitalize">very high</span>
+                                      </div>
+                                    </td>
+                                    <td class="font-11 font-xxl-14 text-dark font-600">3</td>
+                                    <td class="font-11 font-xxl-14 text-dark font-600">5</td>
+                                    <td class="font-11 font-xxl-14 text-dark font-600">5</td>
+                                  </tr>
+                                  <tr>
+                                    <td class="font-11 font-xxl-14 px-1 text-dark font-600">Faster payment</td>
+                                    <td class="font-11 font-xxl-14 text-dark font-600">
+                                      <div class="d-flex align-items-center">
+                                        <div class="sm-circle bg-red"></div>
+                                        <span class="ml-2 text-capitalize">very high</span>
+                                      </div>
+                                    </td>
+                                    <td class="font-11 font-xxl-14 text-dark font-600">3</td>
+                                    <td class="font-11 font-xxl-14 text-dark font-600">5</td>
+                                    <td class="font-11 font-xxl-14 text-dark font-600">5</td>
+                                  </tr>
+                                  <tr>
+                                    <td class="font-11 font-xxl-14 px-1 text-dark font-600">ATM-withdrawl</td>
+                                    <td class="font-11 font-xxl-14 text-dark font-600">
+                                      <div class="d-flex align-items-center">
+                                        <div class="sm-circle bg-red"></div>
+                                        <span class="ml-2 text-capitalize">very high</span>
+                                      </div>
+                                    </td>
+                                    <td class="font-11 font-xxl-14 text-dark font-600">3</td>
+                                    <td class="font-11 font-xxl-14 text-dark font-600">5</td>
+                                    <td class="font-11 font-xxl-14 text-dark font-600">5</td>
+                                  </tr>
+                                  <tr>
+                                    <td class="font-11 font-xxl-14 px-1 text-dark font-600">Check my balance</td>
+                                    <td class="font-11 font-xxl-14 text-dark font-600">
+                                      <div class="d-flex align-items-center">
+                                        <div class="sm-circle bg-red"></div>
+                                        <span class="ml-2 text-capitalize">very high</span>
+                                      </div>
+                                    </td>
+                                    <td class="font-11 font-xxl-14 text-dark font-600">3</td>
+                                    <td class="font-11 font-xxl-14 text-dark font-600">5</td>
+                                    <td class="font-11 font-xxl-14 text-dark font-600">5</td>
+                                  </tr>
+                                  <tr>
+                                    <td class="font-11 font-xxl-14 px-1 text-dark font-600">Log in - internet banking</td>
+                                    <td class="font-11 font-xxl-14 text-dark font-600">
+                                      <div class="d-flex align-items-center">
+                                        <div class="sm-circle bg-dark-yellow"></div>
+                                        <span class="ml-2 text-capitalize">high</span>
+                                      </div>
+                                    </td>
+                                    <td class="font-11 font-xxl-14 text-dark font-600">3</td>
+                                    <td class="font-11 font-xxl-14 text-dark font-600">5</td>
+                                    <td class="font-11 font-xxl-14 text-dark font-600">5</td>
+                                  </tr>
+                                  <tr>
+                                    <td class="font-11 font-xxl-14 px-1 text-dark font-600">Make a payment</td>
+                                    <td class="font-11 font-xxl-14 text-dark font-600">
+                                      <div class="d-flex align-items-center">
+                                        <div class="sm-circle bg-yellow"></div>
+                                        <span class="ml-2 text-capitalize">medium</span>
+                                      </div>
+                                    </td>
+                                    <td class="font-11 font-xxl-14 text-dark font-600">3</td>
+                                    <td class="font-11 font-xxl-14 text-dark font-600">5</td>
+                                    <td class="font-11 font-xxl-14 text-dark font-600">5</td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div id="section3">
+            <div class="row mt-4">
+              <div class="col-md-12">
+                <div class="card border-0 shadow-sm">
+                  <div class="text px-3 py-4 d-flex justify-content-center align-items-center">
+                    <h2 class="card-heading font-18 font-600 text-left">Tier N# Resilience Gaps Trend Analysis</h2>
+                    <i class="fa fa-ellipsis-v mx-1 text-right card-heading-icon" aria-hidden="true"></i>
+                  </div>
+                  <div class="card-header bg-transparent d-flex justify-content-between align-items-center border-0 pt-4">
+                    <h3 class="font-14 font-600">Number of Gaps</h3>
+                    <div class="dropdown body-color-dropdown mr-2">
+                      <a id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class='dropdown-toggle text-capitalize py-2 pr-5 pl-2 d-flex align-items-center justify-content-start font-12 text-dark font-600' id='top-10'>Last 6 Months</a>
+                      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a class="text-decoration-none dropdown-item">Action</a>
+                        <a class="text-decoration-none dropdown-item">Filter top 10</a>
+                        <a class="text-decoration-none dropdown-item">Filter top 10</a>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="card-body">
+                    <div id="area-chart"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div id="section4">
+            <div class="row mt-4 no-gutters">
+              <div class="col-md-12 mb-4 mb-lg-0 px-1">
+                <div class="card border-0 shadow-sm rounded-50 overflow-hidden min-h-566">
+                  <div class="card-body">
+                    <div class="tb-header flex-wrap d-flex justify-content-between flex-lg-row flex-column mb-3">
+                      <h5 class="font-16 text-capitalize font-600 flex-1 align-self-lg-center mb-4">high risk business service line</h5>
+                      <div class="filter-grouped d-block w-100">
+                        <div class="dropdown mr-2 d-inline-block">
+                          <a id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class='dropdown-toggle text-capitalize py-2 pr-2 pl-2 d-flex align-items-center justify-content-start font-12 text-dark font-600' id='top-10'>All Tiers</a>
+                          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a class="text-decoration-none dropdown-item">Action</a>
+                            <a class="text-decoration-none dropdown-item">Filter top 10</a>
+                            <a class="text-decoration-none dropdown-item">Filter top 10</a>
+                          </div>
+                        </div>
+                        <div class="dropdown d-inline-block">
+                          <a id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class='dropdown-toggle text-capitalize py-2 pr-2 pl-2 d-flex align-items-center justify-content-start font-12 text-dark font-600' id='top-10'>All Regions</a>
+                          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a class="text-decoration-none dropdown-item">Action</a>
+                            <a class="text-decoration-none dropdown-item">Filter top 10</a>
+                            <a class="text-decoration-none dropdown-item">Filter top 10</a>
+                          </div>
+                        </div>
+                        <div class="dropdown mr-2 d-inline-block">
+                          <a id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class='dropdown-toggle text-capitalize py-2 pr-2 pl-2 d-flex align-items-center justify-content-start font-12 text-dark font-600' id='top-10'>All Institute</a>
+                          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a class="text-decoration-none dropdown-item">Action</a>
+                            <a class="text-decoration-none dropdown-item">Filter top 10</a>
+                            <a class="text-decoration-none dropdown-item">Filter top 10</a>
+                          </div>
+                        </div>
+                        <div class="dropdown d-inline-block">
+                          <a id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class='dropdown-toggle text-capitalize py-2 pr-2 pl-2 d-flex align-items-center justify-content-start font-12 text-dark font-600' id='top-10'>All Products</a>
+                          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a class="text-decoration-none dropdown-item">Action</a>
+                            <a class="text-decoration-none dropdown-item">Filter top 10</a>
+                            <a class="text-decoration-none dropdown-item">Filter top 10</a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="form-group custom-search-bar position-relative">
+                      <span class="fa fa-search form-control-feedback d-block position-absolute text-center"></span>
+                      <input type="text" class="form-control border-0" placeholder="Search Business Service Lines...">
+                    </div>
+                    <div class="table-responsive mt-0 mt-lg-3">
+                      <table class="table custom-table mb-4">
+                        <thead>
+                          <tr>
+                            <th class="font-11 font-xxl-14 px-1 text-dark font-400">BSL Name</th>
+                            <th class="font-11 font-xxl-14 px text-dark font-400">Tier</th>
+                            <th class="font-11 font-xxl-14 px text-dark font-400">Country</th>
+                            <th class="font-11 font-xxl-14 px text-dark font-400">Region</th>
+                            <th class="font-11 font-xxl-14 px text-dark font-400">Institution</th>
+                            <th class="font-11 font-xxl-14 px text-dark font-400">Product</th>
+                            <th class="font-11 font-xxl-14 px text-dark font-400">Impact Tolerance Resilience Posture</th>
+                            <th class="font-11 font-xxl-14 px text-dark font-400">Total Resilience Gaps</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td class="font-11 font-xxl-14 px-1 text-dark font-600">Onboarding</td>
+                            <td class="font-11 font-xxl-14 text-dark font-600">3</td>
+                            <td class="font-11 font-xxl-14 text-dark font-600">5</td>
+                            <td class="font-11 font-xxl-14 text-dark font-600">5</td>
+                            <td class="font-11 font-xxl-14 text-dark font-600">3</td>
+                            <td class="font-11 font-xxl-14 text-dark font-600">5</td>
+                            <td class="font-11 font-xxl-14 text-dark font-600">
+                              <div class="d-flex align-items-center">
+                                <div class="sm-circle bg-red"></div>
+                                <span class="ml-2 text-capitalize">very high</span>
+                              </div>
+                            </td>
+                            <td class="font-11 font-xxl-14 text-dark font-600">5</td>
+                          </tr>
+                          <tr>
+                            <td class="font-11 font-xxl-14 px-1 text-dark font-600">Faster payment</td>
+                            <td class="font-11 font-xxl-14 text-dark font-600">3</td>
+                            <td class="font-11 font-xxl-14 text-dark font-600">5</td>
+                            <td class="font-11 font-xxl-14 text-dark font-600">5</td>
+                            <td class="font-11 font-xxl-14 text-dark font-600">3</td>
+                            <td class="font-11 font-xxl-14 text-dark font-600">5</td>
+                            <td class="font-11 font-xxl-14 text-dark font-600">
+                              <div class="d-flex align-items-center">
+                                <div class="sm-circle bg-red"></div>
+                                <span class="ml-2 text-capitalize">very high</span>
+                              </div>
+                            </td>
+                            <td class="font-11 font-xxl-14 text-dark font-600">5</td>
+                          </tr>
+                          <tr>
+                            <td class="font-11 font-xxl-14 px-1 text-dark font-600">ATM-withdrawl</td>
+                            <td class="font-11 font-xxl-14 text-dark font-600">3</td>
+                            <td class="font-11 font-xxl-14 text-dark font-600">5</td>
+                            <td class="font-11 font-xxl-14 text-dark font-600">5</td>
+                            <td class="font-11 font-xxl-14 text-dark font-600">3</td>
+                            <td class="font-11 font-xxl-14 text-dark font-600">5</td>
+                            <td class="font-11 font-xxl-14 text-dark font-600">
+                              <div class="d-flex align-items-center">
+                                <div class="sm-circle bg-red"></div>
+                                <span class="ml-2 text-capitalize">very high</span>
+                              </div>
+                            </td>
+                            <td class="font-11 font-xxl-14 text-dark font-600">5</td>
+                          </tr>
+                          <tr>
+                            <td class="font-11 font-xxl-14 px-1 text-dark font-600">Check my balance</td>
+                            <td class="font-11 font-xxl-14 text-dark font-600">3</td>
+                            <td class="font-11 font-xxl-14 text-dark font-600">5</td>
+                            <td class="font-11 font-xxl-14 text-dark font-600">5</td>
+                            <td class="font-11 font-xxl-14 text-dark font-600">3</td>
+                            <td class="font-11 font-xxl-14 text-dark font-600">5</td>
+                            <td class="font-11 font-xxl-14 text-dark font-600">
+                              <div class="d-flex align-items-center">
+                                <div class="sm-circle bg-red"></div>
+                                <span class="ml-2 text-capitalize">very high</span>
+                              </div>
+                            </td>
+                            <td class="font-11 font-xxl-14 text-dark font-600">5</td>
+                          </tr>
+                          <tr>
+                            <td class="font-11 font-xxl-14 px-1 text-dark font-600">Log in - internet banking</td>
+                            <td class="font-11 font-xxl-14 text-dark font-600">3</td>
+                            <td class="font-11 font-xxl-14 text-dark font-600">5</td>
+                            <td class="font-11 font-xxl-14 text-dark font-600">5</td>
+                            <td class="font-11 font-xxl-14 text-dark font-600">3</td>
+                            <td class="font-11 font-xxl-14 text-dark font-600">5</td>
+                            <td class="font-11 font-xxl-14 text-dark font-600">
+                              <div class="d-flex align-items-center">
+                                <div class="sm-circle bg-dark-yellow"></div>
+                                <span class="ml-2 text-capitalize">high</span>
+                              </div>
+                            </td>
+                            <td class="font-11 font-xxl-14 text-dark font-600">5</td>
+                          </tr>
+                          <tr>
+                            <td class="font-11 font-xxl-14 px-1 text-dark font-600">Make a payment</td>
+                            <td class="font-11 font-xxl-14 text-dark font-600">3</td>
+                            <td class="font-11 font-xxl-14 text-dark font-600">5</td>
+                            <td class="font-11 font-xxl-14 text-dark font-600">5</td>
+                            <td class="font-11 font-xxl-14 text-dark font-600">3</td>
+                            <td class="font-11 font-xxl-14 text-dark font-600">5</td>
+                            <td class="font-11 font-xxl-14 text-dark font-600">
+                              <div class="d-flex align-items-center">
+                                <div class="sm-circle bg-yellow"></div>
+                                <span class="ml-2 text-capitalize">medium</span>
+                              </div>
+                            </td>
+                            <td class="font-11 font-xxl-14 text-dark font-600">5</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

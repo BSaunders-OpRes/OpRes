@@ -1,0 +1,780 @@
+<div id='cloud_dashboard' class="new-dashboard new-cloud-dashboard">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="back-btn-header my-3 pb-4 d-inline-block align-middle w-50 pull-left">
+        <%= render 'layouts/partials/shared/redirect_back', path: organisation_dashboard_index_path %>
+        <h4 class="d-inline-block ml-4 font-25 align-middle">Cloud Service Provider Dashboard</h4>
+      </div>
+      <div class="custom-btns text-decoration-none mb-4 mt-3 pb-4 d-inline-block align-middle pull-right">
+        <a href="#" class="text-decoration-none white-btn ml-2 p-2">
+          <span>
+            <i class="fa fa-sliders mr-1" aria-hidden="true"></i>
+          </span>
+          Customised View
+        </a>
+        <a href="#" class="text-decoration-none white-btn ml-2 p-2">
+          <span>
+            <i class="fa fa-floppy-o mr-1" aria-hidden="true"></i>
+          </span>
+          Save View
+        </a>
+        <a href="#" class="text-decoration-none white-btn ml-2 p-2">
+          <span>
+            <i class="fa fa-ellipsis-v mx-1" aria-hidden="true"></i>
+          </span>
+        </a>
+      </div>
+    </div>
+    <div class="col-lg-3 col-md-12 col-xxl-2 px-lg-1">
+      <aside class="fixed-secondary-sidebar position-static" id='sticky-sidebar-demo'>
+        <ul class="p-0 list-unstyled inner-wrapper-sticky">
+          <li class="links active-white mb-2">
+            <a href="#section1" class=" text-decoration-none text-capitalize font-13 font-xxl-14 d-block py-2">overview</a>
+          </li>
+          <li class="links mb-2">
+            <a href="#section2" class=" text-decoration-none text-capitalize font-13 font-xxl-14 d-block py-2">Provider Breakdown</a>
+          </li>
+          <li class="links mb-2">
+            <a href="#section3" class=" text-decoration-none text-capitalize font-13 font-xxl-14 d-block py-2">Provider Resilience Gaps</a>
+          </li>
+        </ul>
+      </aside>
+    </div>
+    <div class="col-lg-9">
+      <div class="w-100">
+        <div class="content-area">
+          <div id="section1">
+            <div class="card border-0 shadow-sm rounded-50 mb-4">
+              <div class="card-body px-0">
+                <div class="box">
+                  <div class="d-md-flex align-items-center mb-4 px-4">
+                    <h5 class="text-capitalize text-left w-75">Overview</h5>
+                    <div class="text-right w-50">
+                      <a href="#" class="">
+                        <i class="fa fa-ellipsis-v text-right" aria-hidden="true"></i>
+                      </a>
+                    </div>
+                  </div>
+                  <div class="table-custom">
+                    <div class="">
+                      <div class="row custom-high-chart mb-4">
+                        <div class="col-lg-6 col-md-12">
+                          <div class="box">
+                            <div class="col-md-12 mb-lg-0 mb-4 px-4">
+                              <p class="font-14 text-capitalize font-600 chart-header-title mb-4">Service Provider Breakdown</p>
+                              <div class="border-0 pie-high-chart overflow-hidden rounded-50 d-flex justify-content-center">
+                                <div class="w-50 card-header p-2 bg-white text-center border-0">
+                                  <div class="donut-content">
+                                    <div id="fifteen-donut" class="donut"></div>
+                                    <div class="donut-value font-30 font-700">50</div>
+                                  </div>
+                                </div>
+                                <div class="card-body mt-3 p-2">
+                                  <div class="tiers d-flex justify-content-between align-items-center mb-3">
+                                    <div class="color-tier d-flex align-items-center">
+                                      <div class="circle green-1"></div>
+                                      <%= image_pack_tag 'media/images/aws.png', class: 'img-fluid ml-2' %>
+                                      <span class="font-12 font-400 ml-2">AWS</span>
+                                    </div>
+                                    <span class="font-12 font-700">24</span>
+                                  </div>
+                                  <div class="tiers d-flex justify-content-between align-items-center mb-3">
+                                    <div class="color-tier d-flex align-items-center">
+                                      <div class="circle green-2"></div>
+                                      <%= image_pack_tag 'media/images/g-cloud.png', class: 'img-fluid ml-2' %>
+                                      <span class="font-12 font-400 ml-2">GCP</span>
+                                    </div>
+                                    <span class="font-12 font-700">24</span>
+                                  </div>
+                                  <div class="tiers d-flex justify-content-between align-items-center mb-3">
+                                    <div class="color-tier d-flex align-items-center">
+                                      <div class="circle green-3"></div>
+                                      <%= image_pack_tag 'media/images/azure.png', class: 'img-fluid ml-2' %>
+                                      <span class="font-12 font-400 ml-2">Azure</span>
+                                    </div>
+                                    <span class="font-12 font-700">24</span>
+                                  </div>
+                                  <div class="tiers d-flex justify-content-between align-items-center">
+                                    <div class="color-tier d-flex align-items-center">
+                                      <div class="circle green-4"></div>
+                                      <%= image_pack_tag 'media/images/black-cloud.png', class: 'img-fluid ml-2' %>
+                                      <span class="font-12 font-400 ml-2">Private Cloud</span>
+                                    </div>
+                                    <span class="font-12 font-700">24</span>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-lg-6 col-md-12">
+                          <div class="box">
+                            <div class="col-md-12 mb-lg-0 mb-4 px-4">
+                              <p class="font-14 text-capitalize font-600 chart-header-title mb-4">Consumption Model Breakdown</p>
+                              <div class="border-0 pie-high-chart overflow-hidden rounded-50 d-flex justify-content-center">
+                                <div class="w-50 card-header p-2 bg-white text-center border-0">
+                                  <div class="donut-content">
+                                    <div id="sixteen-donut" class="donut"></div>
+                                    <div class="donut-value font-30 font-700">50</div>
+                                  </div>
+                                </div>
+                                <div class="card-body mt-3 p-2">
+                                  <div class="tiers d-flex justify-content-between align-items-center mb-3">
+                                    <div class="color-tier d-flex align-items-center">
+                                      <div class="circle green-1"></div>
+                                      <span class="font-12 font-400 ml-2">Lass</span>
+                                    </div>
+                                    <span class="font-12 font-700">24</span>
+                                  </div>
+                                  <div class="tiers d-flex justify-content-between align-items-center mb-3">
+                                    <div class="color-tier d-flex align-items-center">
+                                      <div class="circle green-2"></div>
+                                      <span class="font-12 font-400 ml-2">Saas</span>
+                                    </div>
+                                    <span class="font-12 font-700">24</span>
+                                  </div>
+                                  <div class="tiers d-flex justify-content-between align-items-center mb-3">
+                                    <div class="color-tier d-flex align-items-center">
+                                      <div class="circle green-3"></div>
+                                      <span class="font-12 font-400 ml-2">Paas</span>
+                                    </div>
+                                    <span class="font-12 font-700">24</span>
+                                  </div>
+                                  <div class="tiers d-flex justify-content-between align-items-center">
+                                    <div class="color-tier d-flex align-items-center">
+                                      <div class="circle green-4"></div>
+                                      <span class="font-12 font-400 ml-2">Private Cloud</span>
+                                    </div>
+                                    <span class="font-12 font-700">24</span>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div id="section2">
+            <div class="card border-0 shadow-sm rounded-50 mb-4">
+              <div class="card-body px-0">
+                <div class="box">
+                  <div class="d-md-flex align-items-center mb-4 px-4">
+                    <h5 class="text-capitalize text-left w-75 font-16">Cloud Service Provider Dashboard</h5>
+                    <div class="icon-btn text-right w-50">
+                      <a href="#" class="btn btn-sm btn-dark px-3 py-2">
+                        <i class="fa fa-expand mr-2"></i>
+                        Expand
+                      </a>
+                      <a href="#" class="">
+                        <i class="fa fa-ellipsis-v text-right" aria-hidden="true"></i>
+                      </a>
+                    </div>
+                  </div>
+                  <div class="row directory">
+                    <div class="col-lg-3 directory-box">
+                      <ul class="first-level list-unstyled px-3">
+                        <li>
+                          <a href="#" class="w-100">
+                            <%= image_pack_tag 'media/images/aws.png', class: 'img-fluid ml-2' %>
+                            <span class="font-12 font-400 ml-1">AWS</span>
+                          </a>
+                          <ul class="second-level list-unstyled pl-4">
+                            <li>
+                              <a href="#" class="w-100">
+                                <span class="font-12 font-400">Laas</span>
+                              </a>
+                              <ul class="third-level list-unstyled pl-4">
+                                <li>
+                                  <a href="#">
+                                    <span class="font-10 font-400">Component 1</span>
+                                  </a>
+                                </li>
+                                <li>
+                                  <a href="#">
+                                    <span class="font-10 font-400">Component 1</span>
+                                  </a>
+                                </li>
+                                <li>
+                                  <a href="#">
+                                    <span class="font-10 font-400">Component 1</span>
+                                  </a>
+                                </li>
+                                <li>
+                                  <a href="#">
+                                    <span class="font-10 font-400">+ 14 more</span>
+                                  </a>
+                                </li>
+                              </ul>
+                            </li>
+                            <li>
+                              <a href="#" class="w-100">
+                                <span class="font-12 font-400">Paas</span>
+                              </a>
+                              <ul class="third-level list-unstyled pl-4">
+                                <li>
+                                  <a href="#">
+                                    <span class="font-10 font-400">Component 1</span>
+                                  </a>
+                                </li>
+                                <li>
+                                  <a href="#">
+                                    <span class="font-10 font-400">Component 1</span>
+                                  </a>
+                                </li>
+                                <li>
+                                  <a href="#">
+                                    <span class="font-10 font-400">Component 1</span>
+                                  </a>
+                                </li>
+                                <li>
+                                  <a href="#">
+                                    <span class="font-10 font-400">+ 14 more</span>
+                                  </a>
+                                </li>
+                              </ul>
+                            </li>
+                            <li>
+                              <a href="#" class="w-100">
+                                <span class="font-12 font-400">Saas</span>
+                              </a>
+                              <ul class="third-level list-unstyled pl-4">
+                                <li>
+                                  <a href="#">
+                                    <span class="font-10 font-400">Component 1</span>
+                                  </a>
+                                </li>
+                                <li>
+                                  <a href="#">
+                                    <span class="font-10 font-400">Component 1</span>
+                                  </a>
+                                </li>
+                                <li>
+                                  <a href="#">
+                                    <span class="font-10 font-400">Component 1</span>
+                                  </a>
+                                </li>
+                                <li>
+                                  <a href="#">
+                                    <span class="font-10 font-400">+ 14 more</span>
+                                  </a>
+                                </li>
+                              </ul>
+                            </li>
+                          </ul>
+                        </li>
+                      </ul>
+                    </div>
+                    <div class="col-lg-3 directory-box">
+                      <ul class="first-level list-unstyled px-3">
+                        <li>
+                          <a href="#" class="w-100">
+                            <%= image_pack_tag 'media/images/g-cloud.png', class: 'img-fluid ml-2' %>
+                            <span class="font-12 font-400 ml-1">GCP</span>
+                          </a>
+                          <ul class="second-level list-unstyled pl-4">
+                            <li>
+                              <a href="#" class="w-100">
+                                <span class="font-12 font-400">Laas</span>
+                              </a>
+                              <ul class="third-level list-unstyled pl-4">
+                                <li>
+                                  <a href="#">
+                                    <span class="font-10 font-400">Component 1</span>
+                                  </a>
+                                </li>
+                                <li>
+                                  <a href="#">
+                                    <span class="font-10 font-400">Component 1</span>
+                                  </a>
+                                </li>
+                                <li>
+                                  <a href="#">
+                                    <span class="font-10 font-400">Component 1</span>
+                                  </a>
+                                </li>
+                                <li>
+                                  <a href="#">
+                                    <span class="font-10 font-400">+ 14 more</span>
+                                  </a>
+                                </li>
+                              </ul>
+                            </li>
+                            <li>
+                              <a href="#" class="w-100">
+                                <span class="font-12 font-400">Paas</span>
+                              </a>
+                              <ul class="third-level list-unstyled pl-4">
+                                <li>
+                                  <a href="#">
+                                    <span class="font-10 font-400">Component 1</span>
+                                  </a>
+                                </li>
+                                <li>
+                                  <a href="#">
+                                    <span class="font-10 font-400">Component 1</span>
+                                  </a>
+                                </li>
+                                <li>
+                                  <a href="#">
+                                    <span class="font-10 font-400">Component 1</span>
+                                  </a>
+                                </li>
+                                <li>
+                                  <a href="#">
+                                    <span class="font-10 font-400">+ 14 more</span>
+                                  </a>
+                                </li>
+                              </ul>
+                            </li>
+                            <li>
+                              <a href="#" class="w-100">
+                                <span class="font-12 font-400">Saas</span>
+                              </a>
+                              <ul class="third-level list-unstyled pl-4">
+                                <li>
+                                  <a href="#">
+                                    <span class="font-10 font-400">Component 1</span>
+                                  </a>
+                                </li>
+                                <li>
+                                  <a href="#">
+                                    <span class="font-10 font-400">Component 1</span>
+                                  </a>
+                                </li>
+                                <li>
+                                  <a href="#">
+                                    <span class="font-10 font-400">Component 1</span>
+                                  </a>
+                                </li>
+                                <li>
+                                  <a href="#">
+                                    <span class="font-10 font-400">+ 14 more</span>
+                                  </a>
+                                </li>
+                              </ul>
+                            </li>
+                          </ul>
+                        </li>
+                      </ul>
+                    </div>
+                    <div class="col-lg-3 directory-box">
+                      <ul class="first-level list-unstyled px-3">
+                        <li>
+                          <a href="#" class="w-100">
+                            <%= image_pack_tag 'media/images/azure.png', class: 'img-fluid ml-2' %>
+                            <span class="font-12 font-400 ml-1">Azure</span>
+                          </a>
+                          <ul class="second-level list-unstyled pl-4">
+                            <li>
+                              <a href="#" class="w-100">
+                                <span class="font-12 font-400">Laas</span>
+                              </a>
+                              <ul class="third-level list-unstyled pl-4">
+                                <li>
+                                  <a href="#">
+                                    <span class="font-10 font-400">Component 1</span>
+                                  </a>
+                                </li>
+                                <li>
+                                  <a href="#">
+                                    <span class="font-10 font-400">Component 1</span>
+                                  </a>
+                                </li>
+                                <li>
+                                  <a href="#">
+                                    <span class="font-10 font-400">Component 1</span>
+                                  </a>
+                                </li>
+                                <li>
+                                  <a href="#">
+                                    <span class="font-10 font-400">+ 14 more</span>
+                                  </a>
+                                </li>
+                              </ul>
+                            </li>
+                            <li>
+                              <a href="#" class="w-100">
+                                <span class="font-12 font-400">Paas</span>
+                              </a>
+                              <ul class="third-level list-unstyled pl-4">
+                                <li>
+                                  <a href="#">
+                                    <span class="font-10 font-400">Component 1</span>
+                                  </a>
+                                </li>
+                                <li>
+                                  <a href="#">
+                                    <span class="font-10 font-400">Component 1</span>
+                                  </a>
+                                </li>
+                                <li>
+                                  <a href="#">
+                                    <span class="font-10 font-400">Component 1</span>
+                                  </a>
+                                </li>
+                                <li>
+                                  <a href="#">
+                                    <span class="font-10 font-400">+ 14 more</span>
+                                  </a>
+                                </li>
+                              </ul>
+                            </li>
+                            <li>
+                              <a href="#" class="w-100">
+                                <span class="font-12 font-400">Saas</span>
+                              </a>
+                              <ul class="third-level list-unstyled pl-4">
+                                <li>
+                                  <a href="#">
+                                    <span class="font-10 font-400">Component 1</span>
+                                  </a>
+                                </li>
+                                <li>
+                                  <a href="#">
+                                    <span class="font-10 font-400">Component 1</span>
+                                  </a>
+                                </li>
+                                <li>
+                                  <a href="#">
+                                    <span class="font-10 font-400">Component 1</span>
+                                  </a>
+                                </li>
+                                <li>
+                                  <a href="#">
+                                    <span class="font-10 font-400">+ 14 more</span>
+                                  </a>
+                                </li>
+                              </ul>
+                            </li>
+                          </ul>
+                        </li>
+                      </ul>
+                    </div>
+                    <div class="col-lg-3 directory-box">
+                      <ul class="first-level list-unstyled px-3">
+                        <li>
+                          <a href="#" class="w-100">
+                            <%= image_pack_tag 'media/images/black-cloud.png', class: 'img-fluid ml-2' %>
+                            <span class="font-12 font-400 ml-1">Private Cloud</span>
+                          </a>
+                          <ul class="second-level list-unstyled pl-4">
+                            <li>
+                              <a href="#" class="w-100">
+                                <span class="font-12 font-400">Laas</span>
+                              </a>
+                              <ul class="third-level list-unstyled pl-4">
+                                <li>
+                                  <a href="#">
+                                    <span class="font-10 font-400">Component 1</span>
+                                  </a>
+                                </li>
+                                <li>
+                                  <a href="#">
+                                    <span class="font-10 font-400">Component 1</span>
+                                  </a>
+                                </li>
+                                <li>
+                                  <a href="#">
+                                    <span class="font-10 font-400">Component 1</span>
+                                  </a>
+                                </li>
+                                <li>
+                                  <a href="#">
+                                    <span class="font-10 font-400">+ 14 more</span>
+                                  </a>
+                                </li>
+                              </ul>
+                            </li>
+                            <li>
+                              <a href="#" class="w-100">
+                                <span class="font-12 font-400">Paas</span>
+                              </a>
+                              <ul class="third-level list-unstyled pl-4">
+                                <li>
+                                  <a href="#">
+                                    <span class="font-10 font-400">Component 1</span>
+                                  </a>
+                                </li>
+                                <li>
+                                  <a href="#">
+                                    <span class="font-10 font-400">Component 1</span>
+                                  </a>
+                                </li>
+                                <li>
+                                  <a href="#">
+                                    <span class="font-10 font-400">Component 1</span>
+                                  </a>
+                                </li>
+                                <li>
+                                  <a href="#" class="w-100">
+                                    <span class="font-10 font-400">+ 14 more</span>
+                                  </a>
+                                </li>
+                              </ul>
+                            </li>
+                            <li>
+                              <a href="#">
+                                <span class="font-12 font-400">Saas</span>
+                              </a>
+                              <ul class="third-level list-unstyled pl-4">
+                                <li>
+                                  <a href="#">
+                                    <span class="font-10 font-400">Component 1</span>
+                                  </a>
+                                </li>
+                                <li>
+                                  <a href="#">
+                                    <span class="font-10 font-400">Component 1</span>
+                                  </a>
+                                </li>
+                                <li>
+                                  <a href="#">
+                                    <span class="font-10 font-400">Component 1</span>
+                                  </a>
+                                </li>
+                                <li>
+                                  <a href="#">
+                                    <span class="font-10 font-400">+ 14 more</span>
+                                  </a>
+                                </li>
+                              </ul>
+                            </li>
+                          </ul>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div id="section3">
+            <div class="row mt-4 no-gutters">
+              <div class="col-md-4 mb-4 mb-lg-0 px-1">
+                <div class="card border-0 shadow-sm rounded-50 overflow-hidden">
+                  <div class="card-body p-3">
+                    <div class="box">
+                      <div class="d-flex align-items-center px-1 mb-3">
+                        <h5 class="card-heading text-capitalize text-center font-12 w-100">Resilience Gaps - LaaS Summary</h5>
+                      </div>
+                      <div class="px-1">
+                        <div class="">
+                          <div class="">
+                            <div class="table-responsive mt-0 mt-lg-3">
+                              <table class="table custom-table mb-0">
+                                <thead>
+                                  <tr>
+                                    <th class="font-10 font-xxl-14 px-1 text-dark font-400 p-2"></th>
+                                    <th class="font-10 font-xxl-14 px text-dark font-400 p-2">
+                                      Low
+                                      <div class="green-sm-cirle"></div>
+                                    </th>
+                                    <th class="font-10 font-xxl-14 px text-dark font-400 p-2">
+                                      Medium
+                                      <div class="yellow-sm-cirle"></div>
+                                    </th>
+                                    <th class="font-10 font-xxl-14 px text-dark font-400 p-2">
+                                      High
+                                      <div class="orange-sm-cirle"></div>
+                                    </th>
+                                    <th class="font-10 font-xxl-14 px text-dark font-400 p-2">
+                                      V High
+                                      <div class="red-sm-cirle"></div>
+                                    </th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  <tr>
+                                    <td class="font-11 font-xxl-14 px-1 text-dark font-600 p-2">AWS</td>
+                                    <td class="font-11 font-xxl-14 text-dark font-500 p-2">4</td>
+                                    <td class="font-11 font-xxl-14 text-dark font-500 p-2">3</td>
+                                    <td class="font-11 font-xxl-14 text-dark font-500 p-2">5</td>
+                                    <td class="font-11 font-xxl-14 text-dark font-500 p-2">5</td>
+                                  </tr>
+                                  <tr>
+                                    <td class="font-11 font-xxl-14 px-1 text-dark font-600 p-2">GCP</td>
+                                    <td class="font-11 font-xxl-14 text-dark font-500 p-2">4</td>
+                                    <td class="font-11 font-xxl-14 text-dark font-500 p-2">3</td>
+                                    <td class="font-11 font-xxl-14 text-dark font-500 p-2">5</td>
+                                    <td class="font-11 font-xxl-14 text-dark font-500 p-2">5</td>
+                                  </tr>
+                                  <tr>
+                                    <td class="font-11 font-xxl-14 px-1 text-dark font-600 p-2">Azure</td>
+                                    <td class="font-11 font-xxl-14 text-dark font-500 p-2">4</td>
+                                    <td class="font-11 font-xxl-14 text-dark font-500 p-2">3</td>
+                                    <td class="font-11 font-xxl-14 text-dark font-500 p-2">5</td>
+                                    <td class="font-11 font-xxl-14 text-dark font-500 p-2">5</td>
+                                  </tr>
+                                  <tr>
+                                    <td class="font-11 font-xxl-14 px-1 text-dark font-600 p-2">Private</td>
+                                    <td class="font-11 font-xxl-14 text-dark font-500 p-2">4</td>
+                                    <td class="font-11 font-xxl-14 text-dark font-500 p-2">3</td>
+                                    <td class="font-11 font-xxl-14 text-dark font-500 p-2">5</td>
+                                    <td class="font-11 font-xxl-14 text-dark font-500 p-2">5</td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4 mb-4 mb-lg-0 px-1">
+                <div class="card border-0 shadow-sm rounded-50 overflow-hidden">
+                  <div class="card-body p-3">
+                    <div class="box">
+                      <div class="d-flex align-items-center px-1 mb-3">
+                        <h5 class="card-heading text-capitalize text-center font-12 w-100">Resilience Gaps - PaaS Summary</h5>
+                      </div>
+                      <div class="px-1">
+                        <div class="">
+                          <div class="">
+                            <div class="table-responsive mt-0 mt-lg-3">
+                              <table class="table custom-table mb-0">
+                                <thead>
+                                  <tr>
+                                    <th class="font-10 font-xxl-14 px-1 text-dark font-400 p-2"></th>
+                                    <th class="font-10 font-xxl-14 px text-dark font-400 p-2">
+                                      Low
+                                      <div class="green-sm-cirle"></div>
+                                    </th>
+                                    <th class="font-10 font-xxl-14 px text-dark font-400 p-2">
+                                      Medium
+                                      <div class="yellow-sm-cirle"></div>
+                                    </th>
+                                    <th class="font-10 font-xxl-14 px text-dark font-400 p-2">
+                                      High
+                                      <div class="orange-sm-cirle"></div>
+                                    </th>
+                                    <th class="font-10 font-xxl-14 px text-dark font-400 p-2">
+                                      V High
+                                      <div class="red-sm-cirle"></div>
+                                    </th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  <tr>
+                                    <td class="font-11 font-xxl-14 px-1 text-dark font-600 p-2">AWS</td>
+                                    <td class="font-11 font-xxl-14 text-dark font-500 p-2">4</td>
+                                    <td class="font-11 font-xxl-14 text-dark font-500 p-2">3</td>
+                                    <td class="font-11 font-xxl-14 text-dark font-500 p-2">5</td>
+                                    <td class="font-11 font-xxl-14 text-dark font-500 p-2">5</td>
+                                  </tr>
+                                  <tr>
+                                    <td class="font-11 font-xxl-14 px-1 text-dark font-600 p-2">GCP</td>
+                                    <td class="font-11 font-xxl-14 text-dark font-500 p-2">4</td>
+                                    <td class="font-11 font-xxl-14 text-dark font-500 p-2">3</td>
+                                    <td class="font-11 font-xxl-14 text-dark font-500 p-2">5</td>
+                                    <td class="font-11 font-xxl-14 text-dark font-500 p-2">5</td>
+                                  </tr>
+                                  <tr>
+                                    <td class="font-11 font-xxl-14 px-1 text-dark font-600 p-2">Azure</td>
+                                    <td class="font-11 font-xxl-14 text-dark font-500 p-2">4</td>
+                                    <td class="font-11 font-xxl-14 text-dark font-500 p-2">3</td>
+                                    <td class="font-11 font-xxl-14 text-dark font-500 p-2">5</td>
+                                    <td class="font-11 font-xxl-14 text-dark font-500 p-2">5</td>
+                                  </tr>
+                                  <tr>
+                                    <td class="font-11 font-xxl-14 px-1 text-dark font-600 p-2">Private</td>
+                                    <td class="font-11 font-xxl-14 text-dark font-500 p-2">4</td>
+                                    <td class="font-11 font-xxl-14 text-dark font-500 p-2">3</td>
+                                    <td class="font-11 font-xxl-14 text-dark font-500 p-2">5</td>
+                                    <td class="font-11 font-xxl-14 text-dark font-500 p-2">5</td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4 mb-4 mb-lg-0 px-1">
+                <div class="card border-0 shadow-sm rounded-50 overflow-hidden">
+                  <div class="card-body p-3">
+                    <div class="box">
+                      <div class="d-flex align-items-center px-1 mb-3">
+                        <h5 class="card-heading text-capitalize text-center font-12 w-100">Resilience Gaps - SaaS Summary</h5>
+                      </div>
+                      <div class="px-1">
+                        <div class="">
+                          <div class="">
+                            <div class="table-responsive mt-0 mt-lg-3">
+                              <table class="table custom-table mb-0">
+                                <thead>
+                                  <tr>
+                                    <th class="font-10 font-xxl-14 px-1 text-dark font-400 p-2"></th>
+                                    <th class="font-10 font-xxl-14 px text-dark font-400 p-2">
+                                      Low
+                                      <div class="green-sm-cirle"></div>
+                                    </th>
+                                    <th class="font-10 font-xxl-14 px text-dark font-400 p-2">
+                                      Medium
+                                      <div class="yellow-sm-cirle"></div>
+                                    </th>
+                                    <th class="font-10 font-xxl-14 px text-dark font-400 p-2">
+                                      High
+                                      <div class="orange-sm-cirle"></div>
+                                    </th>
+                                    <th class="font-10 font-xxl-14 px text-dark font-400 p-2">
+                                      V High
+                                      <div class="red-sm-cirle"></div>
+                                    </th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  <tr>
+                                    <td class="font-11 font-xxl-14 px-1 text-dark font-600 p-2">AWS</td>
+                                    <td class="font-11 font-xxl-14 text-dark font-500 p-2">4</td>
+                                    <td class="font-11 font-xxl-14 text-dark font-500 p-2">3</td>
+                                    <td class="font-11 font-xxl-14 text-dark font-500 p-2">5</td>
+                                    <td class="font-11 font-xxl-14 text-dark font-500 p-2">5</td>
+                                  </tr>
+                                  <tr>
+                                    <td class="font-11 font-xxl-14 px-1 text-dark font-600 p-2">GCP</td>
+                                    <td class="font-11 font-xxl-14 text-dark font-500 p-2">4</td>
+                                    <td class="font-11 font-xxl-14 text-dark font-500 p-2">3</td>
+                                    <td class="font-11 font-xxl-14 text-dark font-500 p-2">5</td>
+                                    <td class="font-11 font-xxl-14 text-dark font-500 p-2">5</td>
+                                  </tr>
+                                  <tr>
+                                    <td class="font-11 font-xxl-14 px-1 text-dark font-600 p-2">Azure</td>
+                                    <td class="font-11 font-xxl-14 text-dark font-500 p-2">4</td>
+                                    <td class="font-11 font-xxl-14 text-dark font-500 p-2">3</td>
+                                    <td class="font-11 font-xxl-14 text-dark font-500 p-2">5</td>
+                                    <td class="font-11 font-xxl-14 text-dark font-500 p-2">5</td>
+                                  </tr>
+                                  <tr>
+                                    <td class="font-11 font-xxl-14 px-1 text-dark font-600 p-2">Private</td>
+                                    <td class="font-11 font-xxl-14 text-dark font-500 p-2">4</td>
+                                    <td class="font-11 font-xxl-14 text-dark font-500 p-2">3</td>
+                                    <td class="font-11 font-xxl-14 text-dark font-500 p-2">5</td>
+                                    <td class="font-11 font-xxl-14 text-dark font-500 p-2">5</td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
