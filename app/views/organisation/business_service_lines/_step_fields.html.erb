@@ -61,7 +61,7 @@
             <p class="text-capitalize font-14 font-600">supplier name</p>
           </div>
           <div class="col-sm-7 order-3 order-sm-2">
-            <%= text_field_tag :name, "", id: "name-" + stepNumber.to_s, class: "w-100 form-control font-12 h-auto py-3 shadow-none", placeholder: "Enter Name" %>
+            <%= text_field_tag :name, "", class: "w-100 form-control font-12 h-auto py-3 shadow-none", placeholder: "Enter Name" %>
           </div>
           <div class="col-sm-1 text-right order-2 flex-sm-half mb-2 mb-sm-0">
             <div class="info" data-toggle="tooltip" data-placement="top" title="supplier name" aria-hidden="true">i</div>
@@ -72,7 +72,7 @@
             <p class="text-capitalize font-14 font-600">supplier type</p>
           </div>
           <div class="col-sm-7 order-3 order-sm-2">
-            <%= select_tag :party_type, options_for_select(Supplier.party_types.map { |k, v| [k] }, {}), { include_blank: 'Select Supplier Type', id: "party_type-" + stepNumber.to_s, class: 'form-control w-100 font-12 h-auto py-3 shadow-none' } %>
+            <%= select_tag :party_type, options_for_select(Supplier.party_types.map { |k, v| [k] }, {}), { include_blank: 'Select Supplier Type', class: 'form-control w-100 font-12 h-auto py-3 shadow-none' } %>
 
           </div>
           <div class="col-sm-1 text-right order-2 flex-sm-half mb-2 mb-sm-0">
@@ -112,7 +112,7 @@
             <p class="text-capitalize font-14 font-600">region</p>
           </div>
           <div class="col-sm-7 order-3 order-sm-2">
-            <%= render '/organisation/units/partials/drop_down', param_name: 'supplier[region]', options: managing_unit.regional_dropdown, val: {}, prompt_message: "Select your region", className: 'supplier_region', idName: 'supplier_region_' + stepNumber.to_s %>
+            <%= render '/organisation/units/partials/drop_down', param_name: 'supplier[region]', options: managing_unit.regional_dropdown, val: {}, prompt_message: "Select your region"%>
           </div>
           <div class="col-sm-1 text-right order-2 flex-sm-half mb-2 mb-sm-0">
             <div class="info" data-toggle="tooltip" data-placement="top" title="region" aria-hidden="true">i</div>
@@ -122,8 +122,8 @@
           <div class="col-sm-4 flex-sm-1 mb-2 mb-sm-0">
             <p class="text-capitalize font-14 font-600">country</p>
           </div>
-          <div class="col-sm-7 order-3 order-sm-2 countries-dropdown-<% stepNumber %>">
-            <%= render 'organisation/units/partials/drop_down', param_name: 'supplier[country]', options: managing_unit.country_dropdown, val: {}, prompt_message: "Select your country", idName: 'supplier_country_' + stepNumber.to_s %>
+          <div class="col-sm-7 order-3 order-sm-2 countries-dropdown">
+            <%= render 'organisation/units/partials/drop_down', param_name: 'supplier[country]', options: managing_unit.country_dropdown, val: {}, prompt_message: "Select your country" %>
           </div>
           <div class="col-sm-1 text-right order-2 flex-sm-half mb-2 mb-sm-0">
             <div class="info" data-toggle="tooltip" data-placement="top" title="country" aria-hidden="true">i</div>
@@ -131,7 +131,7 @@
         </div>
       </div>
       <div class="modal-footer border-0">
-        <%= submit_tag 'add supplier', "data-stepid": stepNumber, class: "btn btn-lg dark-btn text-capitalize font-12 font-600 supplier_from_submit" %>
+        <%= submit_tag 'add supplier', "data-stepid": stepNumber, class: "btn btn-lg dark-btn text-capitalize font-12 font-600 supplier_form_submit_btn" %>
       </div>
     </div>
   </div>

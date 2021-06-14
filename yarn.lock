@@ -6067,7 +6067,7 @@ jquery-validation@^1.19.3:
   resolved "https://registry.yarnpkg.com/jquery-validation/-/jquery-validation-1.19.3.tgz#50b350eba8b02bcfd119ba15f199487b7eb64086"
   integrity sha512-iXxCS5W7STthSTMFX/NDZfWHBLbJ1behVK3eAgHXAV8/0vRa9M4tiqHvJMr39VGWHMGdlkhrtrkBuaL2UlE8yw==
 
-jquery@^3.3.1, jquery@^3.6.0:
+jquery@>=1.12.0, jquery@^3.3.1, jquery@^3.6.0:
   version "3.6.0"
   resolved "https://registry.yarnpkg.com/jquery/-/jquery-3.6.0.tgz#c72a09f15c1bdce142f49dbf1170bdf8adac2470"
   integrity sha512-JVzAR/AjBvVt2BmYhxRCSYysDsPcssdmTFnzyLEts9qNwmjmu4JTAMYubEfwVOSwpQ1I1sKKFcxhZCI2buerfw==
@@ -9570,6 +9570,11 @@ select-hose@^2.0.0:
   resolved "https://registry.npmjs.org/select-hose/-/select-hose-2.0.0.tgz"
   integrity sha1-Yl2GWPhlr0Psliv8N2o3NZpJlMo=
 
+select2@^4.1.0-rc.0:
+  version "4.1.0-rc.0"
+  resolved "https://registry.yarnpkg.com/select2/-/select2-4.1.0-rc.0.tgz#ba3cd3901dda0155e1c0219ab41b74ba51ea22d8"
+  integrity sha512-Hr9TdhyHCZUtwznEH2CBf7967mEM0idtJ5nMtjvk3Up5tPukOLXbHUNmh10oRfeNIhj+3GD3niu+g6sVK+gK0A==
+
 select@^1.1.2:
   version "1.1.2"
   resolved "https://registry.npmjs.org/select/-/select-1.1.2.tgz"
@@ -10503,6 +10508,13 @@ to-regex@^3.0.1, to-regex@^3.0.2:
     extend-shallow "^3.0.2"
     regex-not "^1.0.2"
     safe-regex "^1.1.0"
+
+toastr@^2.1.4:
+  version "2.1.4"
+  resolved "https://registry.yarnpkg.com/toastr/-/toastr-2.1.4.tgz#8b43be64fb9d0c414871446f2db8e8ca4e95f181"
+  integrity sha1-i0O+ZPudDEFIcURvLbjoyk6V8YE=
+  dependencies:
+    jquery ">=1.12.0"
 
 toggle-selection@^1.0.6:
   version "1.0.6"

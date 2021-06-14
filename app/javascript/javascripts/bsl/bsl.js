@@ -39,14 +39,16 @@ document.addEventListener('turbolinks:load', function() {
     }
   });
 
-  $('body').on('click', '.supplier_from_submit', function(e) {
+  $('body').on('click', '.supplier_form_submit_btn', function(e) {
     e.preventDefault();
-    let id = $(this).attr('data-stepid')
-    let name = $('#name-' + id).val();
-    let party_type = $('#party_type-' + id).val();
-    let unit_id = $('#supplier_country_' + id).val();
-    let status = "Critical";
-    let input_fields = $(this).closest('form').find("input[type=text], select");
+
+    const id = $(this).data('stepid')
+    const openedModal = $(this).closest('.modal')
+    const name = openedModal.find('#name').val();
+    const party_type = openedModal.find('#party_type').val();
+    const unit_id = openedModal.find('#supplier_country').val();
+    const input_fields = $(this).closest('form').find("input[type=text], select");
+    let   status = "Critical";
 
     if($('#important-' + id).is(':checked'))
       status = "Important";
@@ -64,14 +66,10 @@ document.addEventListener('turbolinks:load', function() {
         }
       },
       success: function(element){
-        supplier = JSON.parse(element)
+        const supplier = JSON.parse(element)
         if(supplier){
-          $('.supplier-selector').append(`
-            <option value=${supplier.resp.id}>
-              ${supplier.resp.name}
-            </option>
-          `);
-
+          const newSupplier = new Option(supplier.resp.name, supplier.resp.id, false, true)
+          $('.supplier-selector').append(newSupplier).trigger('change');
           toastr.options = { closeButton: true, progressBar: true }
           toastr.success('Supplier created successfully!')
           input_fields.val("");

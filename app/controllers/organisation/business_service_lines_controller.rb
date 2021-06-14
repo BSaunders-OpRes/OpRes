@@ -7,7 +7,6 @@ class Organisation::BusinessServiceLinesController < Organisation::BaseControlle
     @bsl.build_material_risk_taker
     @bsl.risk_appetites.build
     @bsl.steps.build
-
     @suppliers = @organisational_unit.suppliers
   end
 

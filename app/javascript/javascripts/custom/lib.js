@@ -55,11 +55,7 @@ document.addEventListener('turbolinks:load', function() {
     insertedItem.find('.important-radio').attr('id', 'important-' + step_number)
     insertedItem.find('.important-label').attr('for', 'important-' + step_number)
     insertedItem.find('.supplier-selector').attr('id', 'supplier-selector-' + step_number)
-    insertedItem.find('input[name="name"]').attr('id', 'name-' + step_number)
-    insertedItem.find('select[name="party_type"]').attr('id', 'party_type-' + step_number)
-    insertedItem.find('select[name="supplier[region]"]').addClass('supplier_region')
-    insertedItem.find('select[name="supplier[region]"]').attr('id', 'supplier_region_' + step_number)
-    insertedItem.find('.supplier_from_submit').attr('data-stepid', step_number)
+    insertedItem.find('.supplier_form_submit_btn').attr('data-stepid', step_number)
     insertedItem.find('.supplier-selector').select2();
   });
 
