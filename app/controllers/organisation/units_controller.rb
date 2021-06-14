@@ -1,6 +1,7 @@
 class Organisation::UnitsController < Organisation::BaseController
   def load_countries
     @regional_unit = organisational_unit.find_children(params[:regional_unit_id])
+    @step_id = params[:step_id] || ''
   end
 
   def load_institutions

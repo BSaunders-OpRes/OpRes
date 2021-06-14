@@ -29,8 +29,10 @@
     "react-router-dom": "^5.2.0",
     "react-toastify": "^7.0.3",
     "react_ujs": "^2.6.1",
+    "select2": "^4.1.0-rc.0",
     "styled-component": "^2.8.0",
     "styled-components": "^5.2.3",
+    "toastr": "^2.1.4",
     "turbolinks": "^5.2.0"
   },
   "version": "0.1.0",

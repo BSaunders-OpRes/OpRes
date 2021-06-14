@@ -38,15 +38,30 @@ document.addEventListener('turbolinks:load', function() {
     $('.loader-wrapper').addClass('d-none');
   }
 
-  $('#dynamic-steps-block')
-  .on('cocoon:after-insert', function() {
-    let stepNumber = $(".step-number").eq(-2).text()[5]
-    if(typeof stepNumber === typeof undefined)
-      stepNumber = 1;
-    else
-      stepNumber = parseInt(stepNumber) + 1;
+  $('#dynamic-steps-block').on('cocoon:after-insert', function(e, insertedItem) {
+    new_elem    = $(this).find('.nested-fields').last()
+    new_elem_modal = $(this).find('.modal').last()
+    step_number = $(this).find('.nested-fields').length
+    id = insertedItem.find('.step-fields').first().attr('id').split('_').slice(-2)[0]
 
-    $(".step-number").last().attr('id', 'step-number-' + stepNumber);
-    $("#step-number-" + stepNumber).text("Step " + stepNumber)
-  })
+    new_elem.find('#step-number').text('Step ' + step_number)
+    new_elem.find('.toggle-modal').attr('data-target', '#new_supplier_modal_' + step_number)
+    new_elem_modal.find('#modal-step-number').text('add supplier to step ' + step_number)
+    new_elem_modal.attr('id', 'new_supplier_modal_' + step_number)
+
+    insertedItem.find('.supplier-selector').attr('name', 'business_service_line[steps_attributes][' + id + '][supplier_ids][]')
+    insertedItem.find('.critical-radio').attr('id', 'critical-' + step_number)
+    insertedItem.find('.critical-label').attr('for', 'critical-' + step_number)
+    insertedItem.find('.important-radio').attr('id', 'important-' + step_number)
+    insertedItem.find('.important-label').attr('for', 'important-' + step_number)
+    insertedItem.find('.supplier-selector').attr('id', 'supplier-selector-' + step_number)
+    insertedItem.find('input[name="name"]').attr('id', 'name-' + step_number)
+    insertedItem.find('select[name="party_type"]').attr('id', 'party_type-' + step_number)
+    insertedItem.find('select[name="supplier[region]"]').addClass('supplier_region')
+    insertedItem.find('select[name="supplier[region]"]').attr('id', 'supplier_region_' + step_number)
+    insertedItem.find('.supplier_from_submit').attr('data-stepid', step_number)
+    insertedItem.find('.supplier-selector').select2();
+  });
+
+  $( ".supplier-selector" ).select2();
 });

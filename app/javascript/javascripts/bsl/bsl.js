@@ -39,22 +39,16 @@ document.addEventListener('turbolinks:load', function() {
     }
   });
 
-  $('body').on('click', '#create_suppliers', function() {
-    $.ajax({
-      url:  '/organisation/suppliers/new',
-      type: 'GET',
-      dataType: 'script'
-    });
-  });
-
-  $('body').on('click', '#supplier_from_submit', function(e) {
+  $('body').on('click', '.supplier_from_submit', function(e) {
     e.preventDefault();
-    var name = $('#name').val();
-    var party_type = $('#party_type').val();
-    var unit_id = $('#supplier_country').val();
-    var status = "Critical";
+    let id = $(this).attr('data-stepid')
+    let name = $('#name-' + id).val();
+    let party_type = $('#party_type-' + id).val();
+    let unit_id = $('#supplier_country_' + id).val();
+    let status = "Critical";
+    let input_fields = $(this).closest('form').find("input[type=text], select");
 
-    if($('#important').is(':checked'))
+    if($('#important-' + id).is(':checked'))
       status = "Important";
 
     $.ajax({
@@ -68,6 +62,20 @@ document.addEventListener('turbolinks:load', function() {
           unit_id,
           status
         }
+      },
+      success: function(element){
+        supplier = JSON.parse(element)
+        if(supplier){
+          $('.supplier-selector').append(`
+            <option value=${supplier.resp.id}>
+              ${supplier.resp.name}
+            </option>
+          `);
+
+          toastr.options = { closeButton: true, progressBar: true }
+          toastr.success('Supplier created successfully!')
+          input_fields.val("");
+        }
       }
     });
   });
@@ -78,6 +86,10 @@ document.addEventListener('turbolinks:load', function() {
       type: 'GET',
       dataType: 'script'
     });
+  })
+
+  $('body').on('click', '.delete-supplier', function(e){
+    //To delete a supplier from bsl steps
   })
 });
 

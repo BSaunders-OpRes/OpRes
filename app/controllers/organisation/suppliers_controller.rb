@@ -14,15 +14,17 @@ class Organisation::SuppliersController < Organisation::BaseController
   def create
     @supplier = Supplier.new(supplier_params)
 
-    if @supplier.save
-      redirect_to organisation_administration_portal_index_path, notice: 'Supplier has been created successfully.' if request.format.html?
-    else
-      render :new if request.format.html?
+    respond_to do |format|
+      if @supplier.save
+        format.json { render json: {resp: @supplier} }
+        format.html { redirect_to organisation_administration_portal_index_path, notice: 'Supplier has been created successfully.' }
+      else
+        format.html { render :new }
+      end
     end
   end
 
   def edit; end
-
 
   def update
     if @supplier.update(supplier_params)

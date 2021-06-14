@@ -1,4 +1,0 @@
-<% if @supplier.present? %>
-  $('#new_supplier').html("<%= j(render '/organisation/business_service_lines/partials/supplier', supplier: @supplier) %>");
-  $('#new_supplier_modal').modal('show');
-<% end %>

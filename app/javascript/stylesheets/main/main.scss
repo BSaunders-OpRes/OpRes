@@ -23,9 +23,27 @@ html {
 h1, h2, h3, h4, h5, h6, p {
   margin: 0;
 }
+
+.toast {
+  opacity: 1 !important;
+}
+
 .disable {
   pointer-events: none;
   color: #999 !important;
+}
+
+.select2 {
+  width: 100% !important;
+  .select2-selection--multiple {
+    padding: 10px;
+    border-color: #ced4da;
+    .select2-selection__rendered {
+      .select2-selection__choice {
+        margin: 5px;
+      }
+    }
+  }
 }
 
 .transition {
