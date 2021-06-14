@@ -48,10 +48,7 @@ document.addEventListener('turbolinks:load', function() {
     const party_type = openedModal.find('#party_type').val();
     const country_unit = openedModal.find('#supplier_country').val();
     const input_fields = $(this).closest('form').find("input[type=text], select");
-    let   status = "Critical";
-
-    if($('#important-' + id).is(':checked'))
-      status = "Important";
+    let   status = openedModal.find("input[name='supplier_status']:checked").val();
 
     $.ajax({
       url:  '/organisation/suppliers/',
@@ -69,8 +66,8 @@ document.addEventListener('turbolinks:load', function() {
         const supplier = JSON.parse(element)
 
         toastr.options = { closeButton: true, progressBar: true }
-        if(supplier.errors){
-          return supplier.errors.forEach(function(error, index){
+        if(supplier.errors) {
+          return supplier.errors.forEach(function(error, index) {
             toastr.error(error)
           })
         }
@@ -78,21 +75,34 @@ document.addEventListener('turbolinks:load', function() {
         const newSupplier = new Option(supplier.resp.name, supplier.resp.id, false, true)
         $('.supplier-selector').append(newSupplier).trigger('change');
         toastr.success('Supplier created successfully!')
-        input_fields.val("");
+        input_fields.val('');
       }
     });
   });
 
-  $('body').on('change', '#select_supplier', function(e){
-    $.ajax({
-      url:  '/organisation/suppliers/' + e.target.value,
-      type: 'GET',
-      dataType: 'script'
-    });
-  })
-
   $('body').on('click', '.delete-supplier', function(e){
     //To delete a supplier from bsl steps
-  })
+  });
+
+  $('#dynamic-bsl-steps-block').on('cocoon:after-insert', function(e, insertedItem) {
+    new_elem    = $(this).find('.nested-fields').last()
+    new_elem_modal = $(this).find('.modal').last()
+    step_number = $(this).find('.nested-fields').length
+    id = insertedItem.find('.step-fields').first().attr('id').split('_').slice(-2)[0]
+
+    new_elem.find('#step-number').text('Step ' + step_number)
+    new_elem.find('.toggle-modal').attr('data-target', '#new_supplier_modal_' + step_number)
+    new_elem_modal.find('#modal-step-number').text('add supplier to step ' + step_number)
+    new_elem_modal.attr('id', 'new_supplier_modal_' + step_number)
+
+    insertedItem.find('.supplier-selector').attr('name', 'business_service_line[steps_attributes][' + id + '][supplier_ids][]')
+    insertedItem.find('.critical-radio').attr('id', 'critical-' + step_number)
+    insertedItem.find('.critical-label').attr('for', 'critical-' + step_number)
+    insertedItem.find('.important-radio').attr('id', 'important-' + step_number)
+    insertedItem.find('.important-label').attr('for', 'important-' + step_number)
+    insertedItem.find('.supplier-selector').attr('id', 'supplier-selector-' + step_number)
+    insertedItem.find('.supplier_form_submit_btn').attr('data-stepid', step_number)
+    insertedItem.find('.supplier-selector').select2();
+  });
 });
 

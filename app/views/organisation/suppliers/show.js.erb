@@ -1,5 +1,0 @@
-<% if @supplier.present? %>
-  $('#selected_suppliers').append("<%= j(render '/organisation/business_service_lines/partials/selected_supplier', supplier: @supplier) %>");
-  // $('#selected_suppliers').append("<%= j(hidden_field_tag 'business_service_line[supplier_ids[]]', @supplier.id) %>");
-  // $('#new_supplier_modal').modal('hide');
-<% end %>

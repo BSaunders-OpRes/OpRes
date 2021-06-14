@@ -12,7 +12,7 @@ document.addEventListener('turbolinks:load', function() {
     </div>
 
   ************************************************************/
-  $('body').on('click', '.load-countries-from-region select', function() {
+  $('body').on('change', '.load-countries-from-region select', function() {
     parent = $(this).parents('.load-countries-from-region');
 
     $.ajax({
@@ -39,7 +39,7 @@ document.addEventListener('turbolinks:load', function() {
   </div>
 
   ************************************************************/
-  $('body').on('click', '.load-institutions-from-country select', function() {
+  $('body').on('change', '.load-institutions-from-country select', function() {
     parent = $(this).parents('.load-institutions-from-country');
 
     $.ajax({
@@ -66,7 +66,7 @@ document.addEventListener('turbolinks:load', function() {
   </div>
 
   ***********************************************************/
-  $('body').on('click', '.load-products-channels-from-institution select', function() {
+  $('body').on('change', '.load-products-channels-from-institution select', function() {
     parent = $(this).parents('.load-products-channels-from-institution');
 
     $.ajax({

@@ -1,6 +1,4 @@
 class Organisation::SuppliersController < Organisation::BaseController
-  include ApplicationHelper
-
   before_action :load_supplier,     only: %i[edit show update]
   before_action :load_key_contacts, only: %i[new edit]
 

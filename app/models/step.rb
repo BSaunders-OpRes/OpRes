@@ -8,11 +8,9 @@ class Step < ApplicationRecord
   # Validations #
   validates :name, :description, presence: true
 
-    # Methods #
-    #Suppliers
-    
+  # Methods #
   def supplier_ids
-    supplier.pluck(:id)
+    suppliers.pluck(:id)
   end
 
   def supplier_ids=(ids)
@@ -20,6 +18,6 @@ class Step < ApplicationRecord
   end
 
   def supplier_list
-    supplier.pluck(:name).join(', ')
+    suppliers.pluck(:name).join(', ')
   end
 end

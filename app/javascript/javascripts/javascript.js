@@ -1,5 +1,6 @@
 import JQuery     from 'jquery';
 import Highcharts from 'highcharts';
+import toastr     from 'toastr';
 
 import './journey/journey';
 import './bsl/bsl';
@@ -14,3 +15,4 @@ import './highcharts/colored-donut';
 
 window.$          = JQuery;
 window.Highcharts = Highcharts;
+window.toastr     = toastr;

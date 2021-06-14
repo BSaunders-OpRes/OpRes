@@ -18,7 +18,7 @@ class Supplier < ApplicationRecord
   # Enums #
   enum contracting_terms: %i[monthly annually]
   enum party_type: %i[3rd-party 4th-party]
-  enum status: %i[Critical Important]
+  enum status: %i[critical important]
 
   # Validations #
   # validates :name, :contracting_terms, presence: true

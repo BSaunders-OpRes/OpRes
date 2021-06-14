@@ -1,6 +1,6 @@
 <div class="tab-pane fade" id="journey-tab" role="tabpanel" aria-labelledby="profile-tab">
   <h5 class="font-600 text-capitalize">service line process</h5>
-  <div class="mt-5" id="dynamic-steps-block">
+  <div class="mt-5" id="dynamic-bsl-steps-block">
     <%= form.fields_for :steps do |step| %>
       <div id="step-block">
         <%= render '/organisation/business_service_lines/step_fields', { f: step, bslStep: step.object, stepNumber: step.index + 1 } %>

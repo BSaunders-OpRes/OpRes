@@ -7,11 +7,11 @@ class Organisation::BusinessServiceLinesController < Organisation::BaseControlle
     @bsl.build_material_risk_taker
     @bsl.risk_appetites.build
     @bsl.steps.build
-    @suppliers = @organisational_unit.suppliers
   end
 
   def create
     @bsl = BusinessServiceLine.new(bsl_params)
+
     if @bsl.save
       redirect_to organisation_administration_portal_index_path, notice: 'Business Service Line has been created successfully.'
     else
