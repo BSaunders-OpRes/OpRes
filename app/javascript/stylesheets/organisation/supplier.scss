@@ -1,9 +1,4 @@
 
-.sticky-top {
-  position: sticky;
-  position: -webkit-sticky;
-  top: 16%;
-}
 .donut-setter {
   height: 270px;
   display: flex;
@@ -50,7 +45,31 @@
     }
   }
 }
-
+.secondary-sidebar {
+  width: 20px;
+  height: 30px;
+  line-height: 32px;
+  position: fixed;
+  top: 80px;
+  text-align: center;
+  right: 0;
+  background: $primary-green;
+  top: 75px;
+  color: $white;
+  // border-top: 50px solid transparent;
+  // border-left: 100px solid #32557f;
+  // border-bottom: 50px solid transparent;
+}
+.p-300 {
+  left: 0 !important;
+}
+@media screen and (min-width: 576px) {
+  .sticky-top {
+    position: sticky;
+    position: -webkit-sticky;
+    top: 16%;
+  }
+}
 @media screen and (min-width: 1540px) {
   .sticky-top {
     position: sticky;
@@ -58,21 +77,54 @@
   }
 }
 
-@media screen and (max-width: 991px) {
-  // .sticky-top {
-  //   position: fixed;
-  //   top: 11%;
-  //   left: 4%;
-  //   ul {
-  //     border-right: 10px solid;
-  //     li {
-  //       width: 0;
-  //       overflow: hidden;
-  //       transition: .4s all;
-  //       &:hover {
-  //         width: 200px;
-  //       }
-  //     }
-  //   }
-  // }
+@media screen and (max-width: 576px) {
+  .secondary-sidebar {
+    display: block !important;
+  }
+  .fixed-secondary-sidebar.position-static {
+    position: fixed !important;
+    left: -700px;
+    top: 76px;
+    z-index: 10;
+    width: 100%;
+    background: $white;
+    ul {
+      padding: 10px !important;
+      overflow-x: hidden;
+      li {
+        overflow: hidden;
+        transition: .4s all;
+      }
+    }
+    .fa.fa-times-circle {
+      display: block !important;
+      position: absolute;
+      right: 10px;
+      top: 10px;
+      z-index: 999;
+    }
+  }
+  .sticky-top {
+    position: fixed !important;
+    left: -700px;
+    top: 76px;
+    z-index: 10;
+    width: 100%;
+    background: $white;
+    ul {
+      padding: 10px !important;
+      overflow-x: hidden;
+      li {
+        overflow: hidden;
+        transition: .4s all;
+      }
+    }
+    .fa.fa-times-circle {
+      display: block !important;
+      position: absolute;
+      right: 10px;
+      top: 10px;
+      z-index: 999;
+    }
+  }
 }

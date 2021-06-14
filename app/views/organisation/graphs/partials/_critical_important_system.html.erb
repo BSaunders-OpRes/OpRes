@@ -1,12 +1,14 @@
 <div id="cirtical-important-system">
-  <div class="row">
-    <div class="col-sm-12">
+  <div class="row no-gutters">
+    <div class="col-sm-12 px-1">
       <div class="d-flex justify-content-between align-items-center flex-wrap">
-        <div class="left d-flex align-items-center mb-lg-0 mb-3 flex-wrap">
-          <%= render 'layouts/partials/shared/redirect_back', path: organisation_dashboard_index_path %>
-          <h2 class="font-700 font-25 text-capitalize mb-1 ml-2">total number of critical & important suppliers</h2>
+        <div class="left d-flex align-items-center flex-wrap">
+          <div class="mr-4 back-btn mb-2 mb-sm-0 ">
+            <%= render 'layouts/partials/shared/redirect_back', path: organisation_dashboard_index_path %>
+          </div>
+          <h2 class="font-500 font-sm-18 font-25 text-capitalize">total number of critical & important suppliers</h2>
         </div>
-        <div class="right d-flex">
+        <div class="right d-flex mt-3 mt-lg-0">
           <div class="white-btn d-flex align-items-center pl-2 pr-4">
             <span><i class='fa fa-save font-16'></i></span>
             <span class="text-capitalize font-12 font-xxl-14 ml-2">save view</span>
@@ -18,10 +20,13 @@
       </div>
     </div>
   </div>
-
+  <div class="secondary-sidebar d-none">
+    <i class='fa fa-ellipsis-v fa-1x font-18'></i>
+  </div>
   <div class="row mt-5 no-gutters">
-    <div class="col-lg-3 col-md-12 col-xxl-2 px-1">
+    <div class="col-sm-3 col-xxl-2 px-1">
       <aside class="fixed-secondary-sidebar position-static" id='sticky-sidebar-demo'>
+        <i class="fa fa-times-circle fa-1x d-none"></i>
         <ul class="p-0 list-unstyled inner-wrapper-sticky">
           <li class="links active-white mb-2">
             <a href="#section1" class=" text-decoration-none text-capitalize font-13 font-xxl-14 d-block py-2">overview</a>
@@ -41,7 +46,7 @@
         </ul>
       </aside>
     </div>
-    <div class="col-lg-9 col-md-12 col-xxl-10 px-1">
+    <div class="col-sm-9 col-xxl-10 px-1">
       <section id="section1" class="section mb-4">
         <div class="card border-0 shadow-sm rounded-50 mb-3">
           <div class="card-body">
@@ -345,14 +350,14 @@
                       </div>
                     </div>
                   </div>
-                  <div class="border-0 pie-high-chart overflow-hidden rounded-50 d-flex justify-content-center align-items-center">
+                  <div class="border-0 pie-high-chart overflow-hidden rounded-50 d-flex justify-content-center align-items-center flex-md-nowrap flex-wrap">
                     <div class="card-header h-auto p-2 bg-white text-center border-0">
                       <div class="donut-content w-150px">
                         <div id="forteen-donut-sm" class="donut"></div>
                         <div class="donut-value font-30 font-700">50</div>
                       </div>
                     </div>
-                    <div class="card-body p-2">
+                    <div class="card-body p-3 pm-md-2">
                       <div class="color-tier d-flex align-items-center mb-2 mb-xxl-3">
                         <div class="d-flex align-items-center">
                           <div class="circle green-4"></div>
@@ -420,14 +425,14 @@
                       </div>
                     </div>
                   </div>
-                  <div class="border-0 pie-high-chart overflow-hidden rounded-50 d-flex justify-content-center align-items-center">
+                  <div class="border-0 pie-high-chart overflow-hidden rounded-50 d-flex justify-content-center align-items-center flex-md-nowrap flex-wrap">
                     <div class="card-header h-auto p-2 bg-white text-center border-0">
                       <div class="donut-content w-150px">
                         <div id="thirteen-donut-sm" class="donut"></div>
                         <div class="donut-value font-30 font-700">50</div>
                       </div>
                     </div>
-                    <div class="card-body">
+                    <div class="card-body p-3 p-md-2">
                       <div class="tiers d-flex justify-content-between align-items-center mb-3">
                         <div class="color-tier d-flex align-items-center">
                           <div class="circle green-1"></div>
@@ -468,9 +473,9 @@
       <section id="section2" class="section mb-4">
         <div class="card border-0 rounded-50">
           <div class="card-body">
-            <div class="d-flex align-items-center justify-content-between">
-              <h5 class="font-16 font-600 text-capitalize flex-1">Public cloud critical system/supplier breakdown</h5>
-              <div class="filter-grouped d-flex mr-2">
+            <div class="d-flex align-items-center justify-content-between flex-wrap">
+              <h5 class="font-16 font-600 text-capitalize flex-1 mb-3 mr-4">Public cloud critical system/supplier breakdown</h5>
+              <div class="filter-grouped d-flex mr-2 mb-3">
                 <div class="dropdown body-color-dropdown mr-2">
                   <a id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class='dropdown-toggle text-capitalize py-2 pr-5 pl-2 d-flex align-items-center justify-content-start font-12 text-dark font-600 text-decoration-none' id='top-10'>view top 10</a>
                   <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -480,7 +485,7 @@
                   </div>
                 </div>
               </div>
-              <i class="fa fa-ellipsis-v"></i>
+              <i class="fa fa-ellipsis-v mb-3"></i>
             </div>
             <ul class="nav nav-tabs border-0 active-green my-4">
               <li class="nav-item mr-3">
@@ -819,9 +824,9 @@
       <section id="section3" class="section mb-4">
         <div class="card border-0 rounded-50">
           <div class="card-body">
-            <div class="d-flex align-items-center justify-content-between">
-              <h5 class="font-16 font-600 text-capitalize flex-1">Private cloud critical system/supplier breakdown</h5>
-              <div class="filter-grouped d-flex mr-2">
+            <div class="d-flex align-items-center justify-content-between flex-wrap">
+              <h5 class="font-16 font-600 text-capitalize flex-1 mb-3 mr-4">Private cloud critical system/supplier breakdown</h5>
+              <div class="filter-grouped d-flex mr-2 mb-3">
                 <div class="dropdown body-color-dropdown mr-2">
                   <a id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class='dropdown-toggle text-capitalize py-2 pr-5 pl-2 d-flex align-items-center justify-content-start font-12 text-dark font-600 text-decoration-none' id='top-10'>view top 10</a>
                   <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -831,7 +836,7 @@
                   </div>
                 </div>
               </div>
-              <i class="fa fa-ellipsis-v"></i>
+              <i class="fa fa-ellipsis-v mb-3"></i>
             </div>
             <ul class="nav nav-tabs border-0 active-green my-4">
               <li class="nav-item mr-3">
@@ -1067,9 +1072,9 @@
       <section id="section4" class="section">
         <div class="card border-0 rounded-50">
           <div class="card-body">
-            <div class="d-flex align-items-center justify-content-between">
-              <h5 class="font-16 font-600 text-capitalize flex-1">top 10 conformant supplier</h5>
-              <div class="filter-grouped d-flex mr-2">
+            <div class="d-flex align-items-center justify-content-between flex-wrap">
+              <h5 class="font-16 font-600 text-capitalize flex-1 mb-3 mr-4">top 10 conformant supplier</h5>
+              <div class="filter-grouped d-flex mr-2 mb-3">
                 <div class="dropdown body-color-dropdown mr-2">
                   <a id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class='dropdown-toggle text-capitalize py-2 pr-5 pl-2 d-flex align-items-center justify-content-start font-12 text-dark font-600 text-decoration-none' id='top-10'>view top 10</a>
                   <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -1079,10 +1084,10 @@
                   </div>
                 </div>
               </div>
-              <i class="fa fa-ellipsis-v"></i>
+              <i class="fa fa-ellipsis-v mb-3"></i>
             </div>
           </div>
-          <div class="table-responsive mt-4 bg-body-color">
+          <div class="table-responsive bg-body-color">
             <table class="table bg-white">
               <thead>
                 <tr class="border-top-0">
@@ -1150,10 +1155,10 @@
       </section>
       <section id="section5" class="section">
         <div class="card border-0 rounded-50">
-          <div class="card-body">
-            <div class="d-flex align-items-center justify-content-between">
-              <h5 class="font-16 font-600 text-capitalize flex-1">top non-conformant supplier</h5>
-              <div class="filter-grouped d-flex mr-2">
+          <div class="card-body px-2">
+            <div class="d-flex align-items-center justify-content-between flex-wrap">
+              <h5 class="font-16 font-600 text-capitalize flex-1 mb-3 mr-4">top non-conformant supplier</h5>
+              <div class="filter-grouped d-flex mr-2 mb-3">
                 <div class="dropdown body-color-dropdown mr-2">
                   <a id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class='dropdown-toggle text-capitalize py-2 pr-5 pl-2 d-flex align-items-center justify-content-start font-12 text-dark font-600 text-decoration-none' id='top-10'>view top 10</a>
                   <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -1163,10 +1168,10 @@
                   </div>
                 </div>
               </div>
-              <i class="fa fa-ellipsis-v"></i>
+              <i class="fa fa-ellipsis-v mb-3"></i>
             </div>
           </div>
-          <div class="table-responsive mt-4 bg-body-color">
+          <div class="table-responsive bg-body-color">
             <table class="table bg-white">
               <thead>
                 <tr class="border-top-0">
@@ -1235,8 +1240,8 @@
     </div>
   </div>
 </div>
-<div class="row">
-  <div class="col-sm-12 text-right">
+<div class="row no-gutters">
+  <div class="col-sm-12 px-1 text-right">
     <button type="button" class="btn white-btn text-capitalize" data-toggle="modal" data-target="#exampleModal">
       critical & important steps
     </button>
@@ -1254,7 +1259,7 @@
         </button>
       </div>
       <div class="modal-body p-3">
-        <div class="filter d-flex justify-content-between mb-4">
+        <div class="filter d-flex justify-content-between mb-4 flex-wrap">
           <div class="left d-flex align-items-center">
             <div class="dropdown mr-3">
               <a class="text-black text-decoration-none dropdown-toggle font-12 font-400 font-xxl-14 text-capitalize text-secondary" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

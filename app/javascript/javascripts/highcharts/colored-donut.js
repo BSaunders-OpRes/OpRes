@@ -1,5 +1,5 @@
 document.addEventListener('turbolinks:load', function() {
-  if ($('#sub-dash').length == 1) {
+  if ($('#system-supplier-resilience-indicator').length == 1) {
     render_donut_chart('colored-donut');
   }
 
