@@ -39,7 +39,41 @@
   }
 
   td {
-    color: $dark-grey;
     font-weight: 600;
+    color: $dark-grey;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .listings {
+    .head {
+      padding: 15px 15px !important;
+    }
+  }
+  .table-search-field {
+    i.fa-search {
+      left: 20px;
+    }
+    input {
+      padding-left: 30px;
+    }
+  }
+  .table-search-field {
+    padding: 0 15px !important;
+  }
+  .custom-table {
+    thead {
+      th {
+        padding: 15px;
+        vertical-align: middle;
+      }
+    }
+
+    tbody {
+      td {
+        padding: 15px;
+        vertical-align: middle;
+      }
+    }
   }
 }

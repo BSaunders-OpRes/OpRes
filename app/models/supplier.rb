@@ -18,9 +18,10 @@ class Supplier < ApplicationRecord
   # Enums #
   enum contracting_terms: %i[monthly annually]
   enum party_type: %i[3rd-party 4th-party]
+  enum status: %i[critical important]
 
   # Validations #
-  validates :name, :contracting_terms, presence: true
+  # validates :name, :contracting_terms, presence: true
 
   # Nested Attributes #
   accepts_nested_attributes_for :cloud_hosting_provider, allow_destroy: true

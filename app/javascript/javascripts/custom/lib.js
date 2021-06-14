@@ -37,4 +37,6 @@ document.addEventListener('turbolinks:load', function() {
   window.hide_loader = function() {
     $('.loader-wrapper').addClass('d-none');
   }
+
+  $('.select2').select2();
 });

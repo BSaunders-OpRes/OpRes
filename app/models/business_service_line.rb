@@ -26,8 +26,9 @@ class BusinessServiceLine < ApplicationRecord
   accepts_nested_attributes_for :sla, allow_destroy: true
   accepts_nested_attributes_for :material_risk_taker, allow_destroy: true
   accepts_nested_attributes_for :risk_appetites, allow_destroy: true
+  accepts_nested_attributes_for :steps, reject_if: :all_blank, allow_destroy: true
 
-    # Methods #
+  # Methods #
   def product_ids
     products.pluck(:id)
   end

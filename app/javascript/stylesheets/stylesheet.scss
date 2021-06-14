@@ -1,5 +1,6 @@
 @import 'bootstrap';
 @import 'react-toastify/dist/ReactToastify.css';
+@import 'select2/dist/css/select2.css';  
 
 @import './variables/variables.scss';
 @import './main/main.scss';
@@ -19,3 +20,5 @@
 @import './dashboard/dashboard.scss';
 @import './wizard/wizard.scss';
 @import './organisation/supplier.scss';
+@import 'toastr/build/toastr.min';
+

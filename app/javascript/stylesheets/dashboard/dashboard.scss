@@ -2,6 +2,20 @@
   margin-top: -80px;
 }
 
+.add-step-btn {
+  color: $black;
+  &:hover {
+    color: $black;
+  }
+}
+
+.trash-btn {
+  color: $black;
+  &:hover {
+    color: $black;
+  }
+}
+
 .five-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
