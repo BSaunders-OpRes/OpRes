@@ -31,7 +31,7 @@
     <div class="col-sm-12 mt-4">
       <span data-toggle="modal" data-target="#new_supplier_modal_<%= stepNumber %>" class="cursor-pointer toggle-modal d-inline-block">
         <i class="fa fa-plus-circle" aria-hidden="true"></i>
-        <span class="font-14 font-600 ml-1 text-capitalize cursor-pointer" id="create_suppliers" >add suppliers</span>
+        <span class="font-14 font-600 ml-1 text-capitalize cursor-pointer" >add suppliers</span>
       </span>
     </div>
   </div>
@@ -51,7 +51,7 @@
         <div class="row align-items-center mb-3">
           <div class="col-sm-12 order-3 order-sm-2">
             <h5 class="font-14 mb-2">Select Suppliers</h5>
-            <%= select_tag 'business_service_line[steps_attributes][' + (stepNumber - 1).to_s + '][supplier_ids]', options_for_select(find_suppliers.pluck(:name, :id), {}), { class: 'form-control w-100 font-12 h-auto py-3 shadow-none supplier-selector', id: 'supplier-selector-' + stepNumber.to_s, multiple: true } %>
+            <%= render '/organisation/business_service_lines/partials/multi_drop_down', param_name: 'business_service_line[steps_attributes][' + (stepNumber - 1).to_s + '][supplier_ids]', options: find_suppliers.pluck(:name, :id), val: {}, idName: 'supplier-selector-' + stepNumber.to_s, prompt_message: "Select supplier" %>
           </div>
         </div>
         <hr />
@@ -111,8 +111,8 @@
           <div class="col-sm-4 flex-sm-1 mb-2 mb-sm-0">
             <p class="text-capitalize font-14 font-600">region</p>
           </div>
-          <div class="col-sm-7 order-3 order-sm-2">
-            <%= render '/organisation/units/partials/drop_down', param_name: 'supplier[region]', options: managing_unit.regional_dropdown, val: {}, prompt_message: "Select your region"%>
+          <div class="col-sm-7 order-3 order-sm-2 load-countries-from-region" data-append-countries-to="supplier_country" data-country-param-name="supplier[country]">
+            <%= render '/organisation/units/partials/drop_down', param_name: 'supplier[region]', options: managing_unit.regional_dropdown, val: {}, prompt_message: "Select your region" %>
           </div>
           <div class="col-sm-1 text-right order-2 flex-sm-half mb-2 mb-sm-0">
             <div class="info" data-toggle="tooltip" data-placement="top" title="region" aria-hidden="true">i</div>

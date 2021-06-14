@@ -16,9 +16,10 @@ class Organisation::SuppliersController < Organisation::BaseController
 
     respond_to do |format|
       if @supplier.save
-        format.json { render json: {resp: @supplier} }
+        format.json { render json: { resp: @supplier } }
         format.html { redirect_to organisation_administration_portal_index_path, notice: 'Supplier has been created successfully.' }
       else
+        format.json { render json: { errors: @supplier.errors.full_messages } }
         format.html { render :new }
       end
     end
@@ -41,7 +42,7 @@ class Organisation::SuppliersController < Organisation::BaseController
   private
 
   def supplier_params
-    params.require(:supplier).permit(:name, :party_type, :contracting_terms, :unit_id, :status,
+    params.require(:supplier).permit(:name, :party_type, :contracting_terms, :status,
                       cloud_hosting_provider_attributes: %i[name id],
                       sla_attributes: %i[id service_level_agreement service_level_objective recovery_point_objective severity1_response_time severity2_response_time severity3_response_time severity4_response_time  severity1_restoration_service_time severity2_restoration_service_time severity3_restoration_service_time severity4_restoration_service_time support_hours id],
                       key_contacts_ids: [],

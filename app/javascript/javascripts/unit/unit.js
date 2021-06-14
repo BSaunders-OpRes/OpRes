@@ -1,13 +1,17 @@
 document.addEventListener('turbolinks:load', function() {
-  // <div 
-  //   class="load-countries-from-region"
-  //   data-append-countries-to="",    // id where countries will be populated.
-  //   data-append-institutions-to="", // id where institutions will be populated.
-  //   data-country-param-name="",     // name of the country parameter.
-  //   data-institution-param-name=""  // name of the institution parameter.
-  // >
-  //   <select></select>
-  // </div>
+  /***************** Regions Dropdown Template ***************
+
+    <div 
+      class="load-countries-from-region"
+      data-append-countries-to="",    // id where countries will be populated.
+      data-append-institutions-to="", // id where institutions will be populated.
+      data-country-param-name="",     // name of the country parameter.
+      data-institution-param-name=""  // name of the institution parameter.
+    >
+      <select></select>
+    </div>
+
+  ************************************************************/
   $('body').on('click', '.load-countries-from-region select', function() {
     parent = $(this).parents('.load-countries-from-region');
 
@@ -24,13 +28,17 @@ document.addEventListener('turbolinks:load', function() {
     });
   });
 
-  // <div 
-  //   class="load-institutions-from-country"
-  //   data-append-institutions-to="", // id where institutions will be populated.
-  //   data-institution-param-name=""  // name of the institution parameter.
-  // >
-  //   <select></select>
-  // </div>
+  /***************** Countries Dropdown Template ***************
+
+  <div 
+    class="load-institutions-from-country"
+    data-append-institutions-to="", // id where institutions will be populated.
+    data-institution-param-name=""  // name of the institution parameter.
+  >
+    <select></select>
+  </div>
+
+  ************************************************************/
   $('body').on('click', '.load-institutions-from-country select', function() {
     parent = $(this).parents('.load-institutions-from-country');
 
@@ -45,15 +53,19 @@ document.addEventListener('turbolinks:load', function() {
     });
   });
 
-  // <div 
-  //   class="load-products-channels-from-institution"
-  //   data-append-products-to="",  // id where products will be populated.
-  //   data-append-channels-to=""   // id where channels will be populated.
-  //   data-products-param-name=""  // name of the product parameter.
-  //   data-channels-param-name=""  // name of the channels parameter.
-  // >
-  //   <select></select>
-  // </div>
+  /**************** Institutions Dropdown Template ***************
+
+  <div
+    class="load-products-channels-from-institution"
+    data-append-products-to="",  // id where products will be populated.
+    data-append-channels-to=""   // id where channels will be populated.
+    data-products-param-name=""  // name of the product parameter.
+    data-channels-param-name=""  // name of the channels parameter.
+  >
+    <select></select>
+  </div>
+
+  ***********************************************************/
   $('body').on('click', '.load-products-channels-from-institution select', function() {
     parent = $(this).parents('.load-products-channels-from-institution');
 

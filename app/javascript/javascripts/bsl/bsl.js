@@ -46,7 +46,7 @@ document.addEventListener('turbolinks:load', function() {
     const openedModal = $(this).closest('.modal')
     const name = openedModal.find('#name').val();
     const party_type = openedModal.find('#party_type').val();
-    const unit_id = openedModal.find('#supplier_country').val();
+    const country_unit = openedModal.find('#supplier_country').val();
     const input_fields = $(this).closest('form').find("input[type=text], select");
     let   status = "Critical";
 
@@ -61,19 +61,24 @@ document.addEventListener('turbolinks:load', function() {
         supplier: {
           name,
           party_type,
-          unit_id,
+          country_unit,
           status
         }
       },
       success: function(element){
         const supplier = JSON.parse(element)
-        if(supplier){
-          const newSupplier = new Option(supplier.resp.name, supplier.resp.id, false, true)
-          $('.supplier-selector').append(newSupplier).trigger('change');
-          toastr.options = { closeButton: true, progressBar: true }
-          toastr.success('Supplier created successfully!')
-          input_fields.val("");
+
+        toastr.options = { closeButton: true, progressBar: true }
+        if(supplier.errors){
+          return supplier.errors.forEach(function(error, index){
+            toastr.error(error)
+          })
         }
+
+        const newSupplier = new Option(supplier.resp.name, supplier.resp.id, false, true)
+        $('.supplier-selector').append(newSupplier).trigger('change');
+        toastr.success('Supplier created successfully!')
+        input_fields.val("");
       }
     });
   });
