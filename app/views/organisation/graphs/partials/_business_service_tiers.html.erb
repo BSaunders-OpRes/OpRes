@@ -1,32 +1,36 @@
-<div id='sub_dashboard' class="new-dashboard">
-  <div class="row">
-    <div class="col-md-12">
-      <div class="back-btn-header my-3 pb-4 d-inline-block align-middle w-50 pull-left">
-        <%= render 'layouts/partials/shared/redirect_back', path: organisation_dashboard_index_path %>
-        <h4 class="d-inline-block ml-4 font-25 align-middle">Business Service Tiers</h4>
-      </div>
-      <div class="custom-btns text-decoration-none mb-4 mt-3 pb-4 d-inline-block align-middle pull-right">
-        <a href="#" class="text-decoration-none white-btn ml-2 p-2">
-          <span>
-            <i class="fa fa-sliders mr-1" aria-hidden="true"></i>
-          </span>
-          Customised View
-        </a>
-        <a href="#" class="text-decoration-none white-btn ml-2 p-2">
-          <span>
-            <i class="fa fa-floppy-o mr-1" aria-hidden="true"></i>
-          </span>
-          Save View
-        </a>
-        <a href="#" class="text-decoration-none white-btn ml-2 p-2">
-          <span>
-            <i class="fa fa-ellipsis-v mx-1" aria-hidden="true"></i>
-          </span>
-        </a>
+<div id='business-service-tiers' class="new-dashboard">
+  <div class="row no-gutters">
+    <div class="col-sm-12 px-1">
+      <div class="d-flex justify-content-between align-items-center flex-wrap">
+        <div class="left d-flex align-items-center flex-wrap">
+          <div class="mr-4 back-btn mb-2 mb-sm-0 ">
+            <%= render 'layouts/partials/shared/redirect_back', path: organisation_dashboard_index_path %>
+          </div>
+          <h2 class="font-500 font-sm-18 font-25 text-capitalize">Business Service Tiers</h2>
+        </div>
+        <div class="right d-flex mt-3 mt-lg-0">
+          <div class="white-btn d-flex align-items-center pl-2 pr-2 mr-2 py-2">
+            <span><i class='fa fa-save font-16 mr-2'></i></span>
+            <span class="text-capitalize font-12 font-xxl-14 font-600">save view</span>
+          </div>
+          <div class="white-btn d-flex align-items-center pl-2 pr-2 mr-2 py-2">
+            <span> <i class="fa fa-sliders"></i></span>
+            <span class="text-capitalize font-12 font-xxl-14 ml-2 font-600">Customised View</span>
+          </div>
+          <div class="white-btn p-1 d-flex align-items-center">
+            <i class="fa fa-ellipsis-v px-2"></i>
+          </div>
+        </div>
       </div>
     </div>
-    <div class="col-lg-3 col-md-12 col-xxl-2 px-lg-1">
+  </div>
+  <div class="secondary-sidebar d-none">
+    <i class='fa fa-ellipsis-v fa-1x font-18'></i>
+  </div>
+  <div class="row no-gutters mt-5">
+    <div class="col-sm-3 col-xxl-2 px-1">
       <aside class="fixed-secondary-sidebar position-static" id='sticky-sidebar-demo'>
+        <i class="fa fa-times-circle fa-1x d-none"></i>
         <ul class="p-0 list-unstyled inner-wrapper-sticky">
           <li class="links active-white mb-2">
             <a href="#section1" class=" text-decoration-none text-capitalize font-13 font-xxl-14 d-block py-2">overview</a>
@@ -43,7 +47,7 @@
         </ul>
       </aside>
     </div>
-    <div class="col-lg-9">
+    <div class="col-sm-9 col-xxl-10 px-1">
       <div class="w-100">
         <div class="content-area">
           <ul class="nav nav-tabs custom-tab border-0 mb-4" id="myTab" role="tablist">

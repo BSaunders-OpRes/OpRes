@@ -1,0 +1,222 @@
+<div class="row no-gutters">
+  <div class="col-sm-12 px-1">
+    <div class="d-flex justify-content-between align-items-center flex-wrap">
+      <div class="left d-flex align-items-center flex-wrap">
+        <div class="mr-4 back-btn mb-2 mb-sm-0">
+          <%= render 'layouts/partials/shared/redirect_back', path: organisation_dashboard_index_path %>
+        </div>
+        <h2 class="font-500 font-sm-18 font-25 text-capitalize">Supplier Conformance with Impact Tolerances</h2>
+      </div>
+      <div class="right d-flex mt-3 mt-lg-0">
+        <div class="white-btn d-flex align-items-center pl-2 pr-4">
+          <span><i class='fa fa-save font-16'></i></span>
+          <span class="text-capitalize font-12 font-xxl-14 ml-2">save view</span>
+        </div>
+        <div class="white-btn ml-2 p-1">
+          <i class="fa fa-ellipsis-v px-2"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row mt-5">
+  <div class="col-md-12">
+    <div class="card border-0 shadow-sm rounded-50 overflow-hidden">
+      <div class="card-body">
+        <div class="tb-header align-items-center flex-wrap d-flex justify-content-between flex-lg-row flex-column">
+          <div class="form-group mb-lg-0 mb-3 flex-1 mr-0 mr-lg-2 w-100">
+            <span class="search-field d-block">
+              <i class="fa fa-search"></i>
+              <input type="text" class="bg-body-color h-auto form-control font-12 border-0 shadow-none" placeholder="Cloud System/Supplier" id="country-search-filter">
+            </span>
+          </div>
+          <div class="filter-grouped d-flex flex-1 w-100">
+            <div class="dropdown body-color-dropdown mr-2 w-100">
+              <a id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class='dropdown-toggle text-capitalize py-2 pr-5 pl-2 d-flex align-items-center justify-content-start font-12 text-dark font-600' id='top-10'>top 10</a>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item">Action</a>
+                <a class="dropdown-item">Filter top 10</a>
+                <a class="dropdown-item">Filter top 10</a>
+              </div>
+            </div>
+            <div class="dropdown body-color-dropdown w-100">
+              <a id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class='dropdown-toggle text-capitalize py-2 pr-5 pl-2 d-flex align-items-center justify-content-start font-12 text-dark font-600' id='top-10'>today</a>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item">Action</a>
+                <a class="dropdown-item">Filter top 10</a>
+                <a class="dropdown-item">Filter top 10</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="filter-header">
+          <div class="table-filter-field d-flex mt-4 mb-2 flex-wrap">
+            <div class="filter mr-3">
+              <div class="dropdown">
+                <a class="text-black text-decoration-none dropdown-toggle font-12 font-400 font-xxl-14 text-capitalize text-secondary" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  All Regions
+                </a>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                  <a class="dropdown-item" href="#">Action</a>
+                  <a class="dropdown-item" href="#">Another action</a>
+                  <a class="dropdown-item" href="#">Something else here</a>
+                </div>
+              </div>
+            </div>
+            <div class="filter mr-3">
+              <div class="dropdown">
+                <a class="text-black text-decoration-none dropdown-toggle font-12 font-400 font-xxl-14 text-capitalize text-secondary" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  All countries
+                </a>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                  <a class="dropdown-item" href="#">Action</a>
+                  <a class="dropdown-item" href="#">Another action</a>
+                  <a class="dropdown-item" href="#">Something else here</a>
+                </div>
+              </div>
+            </div>
+            <div class="filter mr-3">
+              <div class="dropdown">
+                <a class="text-black text-decoration-none dropdown-toggle font-12 font-400 font-xxl-14 text-capitalize text-secondary" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  All institution
+                </a>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                  <a class="dropdown-item" href="#">Action</a>
+                  <a class="dropdown-item" href="#">Another action</a>
+                  <a class="dropdown-item" href="#">Something else here</a>
+                </div>
+              </div>
+            </div>
+            <div class="filter mr-3">
+              <div class="dropdown">
+                <a class="text-black text-decoration-none dropdown-toggle font-12 font-400 font-xxl-14 text-capitalize text-secondary" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  All products
+                </a>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                  <a class="dropdown-item" href="#">Action</a>
+                  <a class="dropdown-item" href="#">Another action</a>
+                  <a class="dropdown-item" href="#">Something else here</a>
+                </div>
+              </div>
+            </div>
+            <div class="filter mr-3">
+              <div class="dropdown">
+                <a class="text-black text-decoration-none dropdown-toggle font-12 font-400 font-xxl-14 text-capitalize text-secondary" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  All business service
+                </a>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                  <a class="dropdown-item" href="#">Action</a>
+                  <a class="dropdown-item" href="#">Another action</a>
+                  <a class="dropdown-item" href="#">Something else here</a>
+                </div>
+              </div>
+            </div>
+            <div class="filter mr-3">
+              <div class="dropdown">
+                <a class="text-black text-decoration-none dropdown-toggle font-12 font-400 font-xxl-14 text-capitalize text-secondary" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  All resilience ID's
+                </a>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                  <a class="dropdown-item" href="#">Action</a>
+                  <a class="dropdown-item" href="#">Another action</a>
+                  <a class="dropdown-item" href="#">Something else here</a>
+                </div>
+              </div>
+            </div>
+            <div class="filter mr-3">
+              <div class="dropdown">
+                <a class="text-black text-decoration-none dropdown-toggle font-12 font-400 font-xxl-14 text-capitalize text-secondary" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  All statuses
+                </a>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                  <a class="dropdown-item" href="#">Action</a>
+                  <a class="dropdown-item" href="#">Another action</a>
+                  <a class="dropdown-item" href="#">Something else here</a>
+                </div>
+              </div>
+            </div>
+            <div class="filter mr-3">
+              <div class="dropdown">
+                <a class="text-black text-decoration-none dropdown-toggle font-12 font-400 font-xxl-14 text-capitalize text-secondary" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  All risk levels
+                </a>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                  <a class="dropdown-item" href="#">Action</a>
+                  <a class="dropdown-item" href="#">Another action</a>
+                  <a class="dropdown-item" href="#">Something else here</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="table-responsive mt-0 mt-lg-3">
+          <table class="table custom-table mb-4">
+            <thead>
+              <tr>
+                <th class="font-11 font-xxl-14 px-1 text-dark font-400 text-capitalize">region</th>
+                <th class="font-11 font-xxl-14 px text-dark font-400 text-capitalize">country</th>
+                <th class="font-11 font-xxl-14 px text-dark font-400 text-capitalize">institution</th>
+                <th class="font-11 font-xxl-14 px text-dark font-400 text-capitalize">product</th>
+                <th class="font-11 font-xxl-14 px text-dark font-400 text-capitalize">business services</th>
+                <th class="font-11 font-xxl-14 px text-dark font-400 text-capitalize">resilience ID</th>
+                <th class="font-11 font-xxl-14 px text-dark font-400 text-capitalize">status</th>
+                <th class="font-11 font-xxl-14 px text-dark font-400 text-capitalize">risk level</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="font-11 font-xxl-14 px-1 text-dark font-600">EMEA</td>
+                <td class="font-11 font-xxl-14 text-dark font-600">country</td>
+                <td class="font-11 font-xxl-14 text-dark font-600">institution</td>
+                <td class="font-11 font-xxl-14 text-dark font-600">product</td>
+                <td class="font-11 font-xxl-14 text-dark font-600">service name</td>
+                <td class="font-11 font-xxl-14 text-dark font-600">0321342442</td>
+                <td class="font-11 font-xxl-14 text-dark font-600">open</td>
+                <td class="font-11 font-xxl-14 text-dark font-600">
+                  <div class="d-flex align-items-center">
+                    <div class="sm-circle bg-red"></div>
+                    <span class="ml-2 text-capitalize flex-1">very high</span>
+                  </div>
+                </td>
+                <td class="font-11 font-xxl-14 text-dark font-600 text-capitalize">view</td>
+              </tr>
+              <tr>
+                <td class="font-11 font-xxl-14 px-1 text-dark font-600">EMEA</td>
+                <td class="font-11 font-xxl-14 text-dark font-600">country</td>
+                <td class="font-11 font-xxl-14 text-dark font-600">institution</td>
+                <td class="font-11 font-xxl-14 text-dark font-600">product</td>
+                <td class="font-11 font-xxl-14 text-dark font-600">service name</td>
+                <td class="font-11 font-xxl-14 text-dark font-600">0321342442</td>
+                <td class="font-11 font-xxl-14 text-dark font-600">open</td>
+                <td class="font-11 font-xxl-14 text-dark font-600">
+                  <div class="d-flex align-items-center">
+                    <div class="sm-circle bg-red"></div>
+                    <span class="ml-2 text-capitalize flex-1">very high</span>
+                  </div>
+                </td>
+                <td class="font-11 font-xxl-14 text-dark font-600 text-capitalize">view</td>
+              </tr>
+              <tr>
+                <td class="font-11 font-xxl-14 px-1 text-dark font-600">EMEA</td>
+                <td class="font-11 font-xxl-14 text-dark font-600">country</td>
+                <td class="font-11 font-xxl-14 text-dark font-600">institution</td>
+                <td class="font-11 font-xxl-14 text-dark font-600">product</td>
+                <td class="font-11 font-xxl-14 text-dark font-600">service name</td>
+                <td class="font-11 font-xxl-14 text-dark font-600">0321342442</td>
+                <td class="font-11 font-xxl-14 text-dark font-600">open</td>
+                <td class="font-11 font-xxl-14 text-dark font-600">
+                  <div class="d-flex align-items-center">
+                    <div class="sm-circle bg-red"></div>
+                    <span class="ml-2 text-capitalize flex-1">high</span>
+                  </div>
+                </td>
+                <td class="font-11 font-xxl-14 text-dark font-600 text-capitalize">view</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

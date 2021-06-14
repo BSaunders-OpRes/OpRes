@@ -1,12 +1,14 @@
-<div id="sub-dash">
-  <div class="row">
-    <div class="col-sm-12">
-      <div class="d-flex justify-content-between align-items-center">
-        <div class="left d-flex align-items-center">
-          <%= render 'layouts/partials/shared/redirect_back', path: organisation_dashboard_index_path %>
-          <h2 class="font-700 font-25 text-capitalize mb-2 ml-2">Supplier Conformance with Impact Tolerances</h2>
+<div id="system-supplier-resilience-indicator">
+  <div class="row no-gutters">
+    <div class="col-sm-12 px-1">
+      <div class="d-flex justify-content-between align-items-center flex-wrap">
+        <div class="left d-flex align-items-center flex-wrap">
+          <div class="mr-4 back-btn mb-2 mb-sm-0 ">
+            <%= render 'layouts/partials/shared/redirect_back', path: organisation_dashboard_index_path %>
+          </div>
+          <h2 class="font-500 font-sm-18 font-25 text-capitalize">Supplier Conformance with Impact Tolerances</h2>
         </div>
-        <div class="right d-flex">
+        <div class="right d-flex mt-3 mt-lg-0">
           <div class="white-btn d-flex align-items-center pl-2 pr-4">
             <span><i class='fa fa-save font-16'></i></span>
             <span class="text-capitalize font-12 font-xxl-14 ml-2">save view</span>
@@ -18,10 +20,13 @@
       </div>
     </div>
   </div>
-
+  <div class="secondary-sidebar d-none">
+    <i class='fa fa-ellipsis-v fa-1x font-18'></i>
+  </div>
   <div class="row mt-5 no-gutters">
     <div class="col-sm-3 col-xxl-2 px-1">
       <aside class="fixed-secondary-sidebar position-static" id='sticky-sidebar-demo'>
+        <i class="fa fa-times-circle fa-1x d-none"></i>
         <ul class="p-0 list-unstyled inner-wrapper-sticky">
           <li class="links active-white">
             <a href="#section1" class=" text-decoration-none text-capitalize font-13 font-xxl-14 d-block py-2">overview</a>
@@ -371,13 +376,13 @@
               <i class="fa fa-ellipsis-v"></i>
             </div>
             <div class="row align-items-center">
-              <div class="col-sm-4">
+              <div class="col-md-4">
                 <div class="position-relative">
                   <div id="colored-donut" class="donut-setter"></div>
-                  <span class="position-absolute center-position font-40 font-600">50%</span>
+                  <span class="position-absolute center-position font-md-30 font-40 font-600">50%</span>
                 </div>
               </div>
-              <div class="col-sm-8">
+              <div class="col-md-8">
                 <div class="d-flex justify-content-between align-items-center font-12 font-xxl-14 my-3">
                   <span class="font-500 text-capitalize">Total N# of 3rd Party System</span>
                   <span class="font-700">34</span>
@@ -695,7 +700,7 @@
       <section id="section4" class="section">
         <div class="card border-0 rounded-50">
           <div class="card-body">
-            <div class="d-flex align-items-center justify-content-between">
+            <div class="d-flex flex-wrap align-items-center justify-content-between">
               <h5 class="font-16 font-600 text-capitalize flex-1">top non-conformant supplier</h5>
               <div class="filter-grouped d-flex mr-2">
                 <div class="dropdown body-color-dropdown mr-2">
@@ -779,4 +784,3 @@
     </div>
   </div>
 </div>
-

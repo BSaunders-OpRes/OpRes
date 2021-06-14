@@ -27,6 +27,11 @@ h1, h2, h3, h4, h5, h6, p {
   pointer-events: none;
   color: #999 !important;
 }
+.back-btn {
+  .back-btn-header {
+    margin: 0 !important;
+  }
+}
 
 .transition {
   transition: .4s all;
@@ -174,7 +179,9 @@ a {
     pointer-events: none;
   }
 }
-
+.overflow-x-toggle {
+  overflow-x: unset !important; 
+}
 .form-control:disabled {
   opacity: .4 !important;
   background: #fff !important;

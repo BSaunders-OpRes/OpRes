@@ -3,8 +3,10 @@ document.addEventListener('turbolinks:load', function() {
     e.preventDefault();
     var parent = $(this).parents('.links');
     var href = $(this).attr('href');
+    var leave_margin = (window.innerWidth < 576) ? 290 : 100;
+
     $('html, body').animate({
-      scrollTop: $(href).offset().top - 100
+      scrollTop: $(href).offset().top - leave_margin
     }, '300');
 
     parent.addClass('active-white').siblings().removeClass('active-white')
@@ -19,4 +21,10 @@ document.addEventListener('turbolinks:load', function() {
       }
     });
   }
+  $('.secondary-sidebar').on('click', function(){
+    $('.fixed-secondary-sidebar').addClass('p-300');
+  })
+    $('.fixed-secondary-sidebar .fa-times-circle').on('click', function(){
+    $('.fixed-secondary-sidebar').removeClass('p-300');
+  })
 })
