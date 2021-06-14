@@ -11,30 +11,6 @@ document.addEventListener('turbolinks:load', function() {
     $(desc).removeClass('d-none');
   });
 
-  $('body').on('click', '#business_service_line_region', function() {
-    $.ajax({
-      url:  '/organisation/units/load_countries',
-      type: 'GET',
-      data: { regional_unit_id: $(this).val() },
-    });
-  });
-
-  $('body').on('change', '#business_service_line_country', function() {
-    $.ajax({
-      url: '/organisation/units/load_institutions',
-      type: 'GET',
-      data: { country_unit_id: $(this).val() },
-    });
-  });
-
-  $('body').on('change', '#business_service_line_institution', function() {
-    $.ajax({
-      url:  '/organisation/units/load_products_channels',
-      type: 'GET',
-      data: { institution_unit_id: $(this).val() },
-    });
-  });
-
   $('#bsl-proceed-btn').click(function(e) {
     e.preventDefault();
 

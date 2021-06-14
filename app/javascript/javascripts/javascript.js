@@ -2,7 +2,8 @@ import JQuery     from 'jquery';
 import Highcharts from 'highcharts';
 
 import './journey/journey';
-import './bsl/bsl_js';
+import './bsl/bsl';
+import './unit/unit';
 import './custom/custom';
 import './custom/lib';
 import './graphs/graphs';

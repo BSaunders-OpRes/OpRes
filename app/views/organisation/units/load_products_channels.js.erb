@@ -1,4 +1,4 @@
 <% if @products %>
-  $('#products-dropdown').html("<%= j(render 'organisation/units/partials/check_box', param_name: 'business_service_line[product_ids][]', options: @products.map{ |product| [product.name, product.id] }, selected_values: {}) %>");
-  $('#channels-dropdown').html("<%= j(render 'organisation/units/partials/check_box', param_name: 'business_service_line[channel_ids][]', options: @channels.map{ |channel| [channel.name, channel.id] }, selected_values: {}) %>");
+  $("#<%= params[:append_products_to] %>").html("<%= j(render 'organisation/units/partials/check_box', param_name: params[:products_param_name], options: @products.map{ |product| [product.name, product.id] }, selected_values: {}) %>");
+  $("#<%= params[:append_channels_to] %>").html("<%= j(render 'organisation/units/partials/check_box', param_name: params[:channels_param_name], options: @channels.map{ |channel| [channel.name, channel.id] }, selected_values: {}) %>");
 <% end %>

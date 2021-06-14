@@ -5,7 +5,12 @@
         <%= form_tag organisation_admins_path, remote: true do %>
           <% index= 0 %>
           <h2 class="text-capitalize font-300 mb-2">Invite administrator</h2>
-          <p class="font-12 font-xxl-14">Please provide the details for users in this region. Users can be set up as a <strong>"Super User"</strong> or <strong>"Standard User"</strong>. Super user can add new, update and amend existing business service & supplier records. Standard Users can only view existing records.</p>
+          <p class="font-12 font-xxl-14">
+            Please provide the details for users in this region. Users can be set up as <strong> "Root Users",<strong> "Super Users"</strong> or <strong>"Standard Users"</strong>.
+            Root Users have the ability to execute the OpRes Onboarding Wizard. They can also add new, update, amend and delete business service and supplier records across all regions.
+            Super Users can add new, update, amend and delete existing business service & supplier records in their region.
+            Standard Users can only view existing records in their region.
+          </p>
           <ul class="nav nav-tabs d-flex justify-content-even flex-nowrap align-items-center mt-5 custom-tabs" id="myTab" role="tablist">
             <li class="nav-item">
               <a class="nav-link active border-0 p-0 pb-2 bg-transparent text-black font-12 font-xxl-14 px-1" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Name & Email Addresses</a>

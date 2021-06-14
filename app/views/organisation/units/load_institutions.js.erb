@@ -1,5 +1,5 @@
 <% if @country_unit %>
-  $('#institutions-dropdown').html("<%= j(render 'organisation/units/partials/drop_down', param_name: 'business_service_line[institution]', options: @country_unit.institution_dropdown, val: {}, prompt_message: 'Select your institution') %>");
+  $("#<%= params[:append_institutions_to] %>").html("<%= j(render 'organisation/units/partials/drop_down', param_name: params[:institution_param_name], options: @country_unit.institution_dropdown, val: {}, prompt_message: 'Select your institution') %>");
 <% else %>
-  $('#institutions-dropdown').html("<%= j(render 'organisation/units/partials/drop_down', param_name: 'business_service_line[institution]', options: {}, val: {}, prompt_message: 'Select your institution') %>");
+  $("#<%= params[:append_institutions_to]%>").html("<%= j(render 'organisation/units/partials/drop_down', param_name: params[:institution_param_name], options: {}, val: {}, prompt_message: 'Select your institution') %>");
 <% end %>
