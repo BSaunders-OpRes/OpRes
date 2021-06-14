@@ -39,7 +39,7 @@ module ApplicationHelper
   end
 
   def find_country(bsl)
-    return {} unless @bsl.persisted?
+    return {} unless bsl.persisted?
     {} unless bsl.unit.institution_unit?
     [bsl.unit.parent.name, bsl.unit.parent.id]
   end
@@ -48,5 +48,22 @@ module ApplicationHelper
     return {} unless @bsl.persisted?
     {} unless bsl.unit.institution_unit?
     [bsl.unit.name, bsl.unit.id]
+  end
+
+  def find_supplier_region(supplier)
+    return {} unless supplier.persisted?
+    [supplier.unit.parent.name, supplier.unit.parent.id]
+  end
+
+  def find_supplier_country(supplier)
+    return {} unless supplier.persisted?
+    [supplier.unit.name, supplier.unit.id]
+  end
+
+
+  def supplier_find_country(supplier)
+    return {} unless supplier.persisted?
+    supplier_region = supplier.unit.parent
+    supplier_region.children.map{|country| [country.name, country.id]}
   end
 end

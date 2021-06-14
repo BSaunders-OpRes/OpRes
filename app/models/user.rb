@@ -20,7 +20,7 @@ class User < ApplicationRecord
 
   # Methods #
   def name
-    "#{first_name} #{last_name}"
+    "#{first_name} #{last_name}".presence || 'User'
   end
 
   def initials
