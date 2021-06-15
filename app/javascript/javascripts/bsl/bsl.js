@@ -102,7 +102,7 @@ document.addEventListener('turbolinks:load', function() {
     insertedItem.find('.important-label').attr('for', 'important-' + step_number)
     insertedItem.find('.supplier-selector').attr('id', 'supplier-selector-' + step_number)
     insertedItem.find('.supplier_form_submit_btn').attr('data-stepid', step_number)
-    insertedItem.find('.supplier-selector').select2();
+    insertedItem.find('.select2').select2();
   });
 });
 

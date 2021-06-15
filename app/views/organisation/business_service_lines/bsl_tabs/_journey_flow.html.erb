@@ -3,14 +3,14 @@
   <div class="mt-5" id="dynamic-bsl-steps-block">
     <%= form.fields_for :steps do |step| %>
       <div id="step-block">
-        <%= render '/organisation/business_service_lines/step_fields', { f: step, bslStep: step.object, stepNumber: step.index + 1 } %>
+        <%= render 'organisation/business_service_lines/partials/step_fields', { f: step, bslStep: step.object, stepNumber: step.index + 1 } %>
       </div>
     <% end %>
     <div class="input-fields mb-4 pb-4">
       <div class="row align-items-center">
         <div class="col-sm-12">
           <span>
-            <%= link_to_add_association form, :steps, class: 'add-step-btn text-decoration-none' do %>
+            <%= link_to_add_association form, :steps, class: 'add-step-btn text-decoration-none', partial: 'organisation/business_service_lines/partials/step_fields' do %>
               <i class="fa fa-plus-circle" aria-hidden="true"></i>
               <span class="font-14 font-600 ml-1 text-capitalize cursor-pointer">add another step</span>
             <% end %>
