@@ -1,5 +1,4 @@
 document.addEventListener('turbolinks:load', function() {
-
   $('#bsl-tab li').click(function() {
     href  = $(this).find('a').attr('href');
     parts = href.split('-');

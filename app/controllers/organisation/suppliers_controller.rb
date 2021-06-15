@@ -1,12 +1,9 @@
 class Organisation::SuppliersController < Organisation::BaseController
-  before_action :load_supplier,     only: %i[edit show update]
-  before_action :load_key_contacts, only: %i[new edit]
+  before_action :load_supplier, only: %i[edit update show destroy]
 
   def new
     @supplier = Supplier.new
-    @supplier.build_cloud_hosting_provider
-    @supplier.build_relationship_owner
-    @supplier.build_sla
+    prepare_form_data
   end
 
   def create
@@ -17,18 +14,22 @@ class Organisation::SuppliersController < Organisation::BaseController
         format.json { render json: { resp: @supplier } }
         format.html { redirect_to organisation_administration_portal_index_path, notice: 'Supplier has been created successfully.' }
       else
+        prepare_form_data
         format.json { render json: { errors: @supplier.errors.full_messages } }
         format.html { render :new }
       end
     end
   end
 
-  def edit; end
+  def edit
+    prepare_form_data
+  end
 
   def update
     if @supplier.update(supplier_params)
       redirect_to organisation_administration_portal_index_path, notice: 'Supplier has been updated successfully.'
     else
+      prepare_form_data
       render :edit
     end
   end
@@ -52,7 +53,11 @@ class Organisation::SuppliersController < Organisation::BaseController
     @supplier = Supplier.where(unit_id: managing_unit.inclusive_children.map(&:id)).find(params[:id])
   end
 
-  def load_key_contacts
+  def prepare_form_data
     @key_contacts = organisational_unit.key_contacts
+
+    @supplier.build_cloud_hosting_provider if @supplier.cloud_hosting_provider.blank?
+    @supplier.build_relationship_owner     if @supplier.relationship_owner.blank?
+    @supplier.build_sla                    if @supplier.sla.blank?
   end
 end
