@@ -14,7 +14,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # POST /resource
   def create
     build_resource(sign_up_params)
-    resource.role = User.roles[:org_admin]
+    resource.role = User.roles[:root_user]
 
     User.transaction do
       begin
@@ -99,9 +99,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # The path used after sign up.
   def after_sign_up_path_for(resource)
-    if resource.app_admin?
+    if resource.application_admin?
       admin_dashboard_index_path
-    elsif resource.org_admin?
+    elsif resource.root_user?
       resource.sign_in_count > 1 ? organisation_dashboard_index_path : organisation_journey_path('welcome')
     else
       root_path

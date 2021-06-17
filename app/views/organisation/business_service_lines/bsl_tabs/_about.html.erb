@@ -29,54 +29,49 @@
           <p class="text-capitalize font-14 font-600">service tier</p>
         </div>
         <div class="col-sm-7 order-3 order-sm-2">
-          <%= form.select :tier, options_for_select(BusinessServiceLine.tiers.map { |k, v| [k] }, @bsl.tier), { include_blank: 'Select your Tier' }, { class: 'form-control w-100 font-12 h-auto py-3 shadow-none arrow-select' } %>
+          <%= form.select :tier, options_for_select(BusinessServiceLine.tiers.map { |k, v| [k.titleize] }, @bsl.tier), { include_blank: 'Select your Tier' }, { class: 'form-control w-100 font-12 h-auto py-3 shadow-none arrow-select' } %>
             <i class="fa fa-sort-desc pr-2 mr-2" aria-hidden="true"></i>
         </div>
         <div class="col-sm-1 text-right order-2 flex-sm-half mb-2 mb-sm-0">
           <div class="info" data-toggle="tooltip" data-placement="top" title="service tier" aria-hidden="true">i</div>
         </div>
       </div>
-      <% if managing_unit.can_access_regional_dropdown? %>
-        <div class="row align-items-center mt-4">
-          <div class="col-sm-4 flex-sm-1 mb-2 mb-sm-0">
-            <p class="text-capitalize font-14 font-600">region</p>
-          </div>
-          <div class="col-sm-7 order-3 order-sm-2 load-countries-from-region" data-append-countries-to="countries-dropdown" data-append-institutions-to="institutions-dropdown" data-country-param-name="business_service_line[country]" data-institution-param-name="business_service_line[institution]">
-            <%= render 'organisation/units/partials/drop_down', param_name: 'business_service_line[region]', options: managing_unit.regional_dropdown, val: find_region(@bsl), prompt_message: 'Select your region' %>
-          </div>
-          <div class="col-sm-1 text-right order-2 flex-sm-half mb-2 mb-sm-0">
-            <div class="info" data-toggle="tooltip" data-placement="top" title="region" aria-hidden="true">i</div>
+      <div class="row align-items-center mt-4">
+        <div class="col-sm-4 flex-sm-1 mb-2 mb-sm-0">
+          <p class="text-capitalize font-14 font-600">region</p>
+        </div>
+        <div class="col-sm-7 order-3 order-sm-2 load-countries-from-region" data-append-countries-to="countries-dropdown" data-append-institutions-to="institutions-dropdown" data-country-param-name="business_service_line[country]" data-institution-param-name="business_service_line[institution]"
+        data-append-products-to="products-dropdown" data-product-param-name="business_service_line[product_ids][]" data-append-channels-to="channels-dropdown" data-channel-param-name="business_service_line[channel_ids][]">
+          <%= render 'organisation/units/partials/drop_down', param_name: 'business_service_line[region]', options: Unit.regional_dropdown(@managing_units), val: find_region(@bsl), prompt_message: 'Select your region' %>
+        </div>
+        <div class="col-sm-1 text-right order-2 flex-sm-half mb-2 mb-sm-0">
+          <div class="info" data-toggle="tooltip" data-placement="top" title="region" aria-hidden="true">i</div>
 
-          </div>
         </div>
-      <% end %>
-      <% if managing_unit.can_access_country_dropdown? %>
-        <div class="row align-items-center mt-4">
-          <div class="col-sm-4 flex-sm-1 mb-2 mb-sm-0">
-            <p class="text-capitalize font-14 font-600">country</p>
-          </div>
-          <div class="col-sm-7 order-3 order-sm-2 load-institutions-from-country" id="countries-dropdown" data-append-institutions-to="institutions-dropdown"data-institution-param-name="business_service_line[institution]">
-            <%= render 'organisation/units/partials/drop_down', param_name: 'business_service_line[country]', options: params[:action] == 'edit' ? [find_country(@bsl)] : managing_unit.country_dropdown, val: find_country(@bsl), prompt_message: 'Select your country' %>
-          </div>
-          <div class="col-sm-1 text-right order-2 flex-sm-half mb-2 mb-sm-0">
-            <div class="info" data-toggle="tooltip" data-placement="top" title="country" aria-hidden="true">i</div>
-          </div>
+      </div>
+      <div class="row align-items-center mt-4">
+        <div class="col-sm-4 flex-sm-1 mb-2 mb-sm-0">
+          <p class="text-capitalize font-14 font-600">country</p>
         </div>
-      <% end %>
-      <% if managing_unit.can_access_institution_dropdown? %>
-        <div class="row align-items-center mt-4">
-          <div class="col-sm-4 flex-sm-1 mb-2 mb-sm-0">
-            <p class="text-capitalize font-14 font-600">brand/institution</p>
-          </div>
-          <div class="col-sm-7 order-3 order-sm-2 load-products-channels-from-institution" id='institutions-dropdown'
-          data-append-products-to="products-dropdown" data-products-param-name="business_service_line[product_ids][]" data-append-channels-to="channels-dropdown" data-channels-param-name="business_service_line[channel_ids][]">
-            <%= render 'organisation/units/partials/drop_down', param_name: 'business_service_line[institution]',val: {}, options: params[:action] == 'edit' ? [find_institute(@bsl)] : managing_unit.institution_dropdown, val: find_institute(@bsl), prompt_message: 'Select your institution' %>
-          </div>
-          <div class="col-sm-1 text-right order-2 flex-sm-half mb-2 mb-sm-0">
-            <div class="info" data-toggle="tooltip" data-placement="top" title="brand/institution" aria-hidden="true">i</div>
-          </div>
+        <div class="col-sm-7 order-3 order-sm-2 load-institutions-from-country" id="countries-dropdown" data-append-institutions-to="institutions-dropdown"data-institution-param-name="business_service_line[institution]" data-append-products-to="products-dropdown" data-product-param-name="business_service_line[product_ids][]" data-append-channels-to="channels-dropdown" data-channel-param-name="business_service_line[channel_ids][]" >
+          <%= render 'organisation/units/partials/drop_down', param_name: 'business_service_line[country]', options: params[:action] == 'edit' ? all_countries_from_region(@bsl) : [], val: find_country(@bsl), prompt_message: 'Select your country' %>
         </div>
-      <% end %>
+        <div class="col-sm-1 text-right order-2 flex-sm-half mb-2 mb-sm-0">
+          <div class="info" data-toggle="tooltip" data-placement="top" title="country" aria-hidden="true">i</div>
+        </div>
+      </div>
+      <div class="row align-items-center mt-4">
+        <div class="col-sm-4 flex-sm-1 mb-2 mb-sm-0">
+          <p class="text-capitalize font-14 font-600">brand/institution</p>
+        </div>
+        <div class="col-sm-7 order-3 order-sm-2 load-products-channels-from-institution" id='institutions-dropdown'
+        data-append-products-to="products-dropdown" data-product-param-name="business_service_line[product_ids][]" data-append-channels-to="channels-dropdown" data-channel-param-name="business_service_line[channel_ids][]">
+          <%= render 'organisation/units/partials/drop_down', param_name: 'business_service_line[institution]',val: {}, options: params[:action] == 'edit' ? all_institution_from_country(@bsl) : [], val: find_institute(@bsl), prompt_message: 'Select your institution' %>
+        </div>
+        <div class="col-sm-1 text-right order-2 flex-sm-half mb-2 mb-sm-0">
+          <div class="info" data-toggle="tooltip" data-placement="top" title="brand/institution" aria-hidden="true">i</div>
+        </div>
+      </div>
     </div>
     <div class="checkboxes-field mb-5 pb-5 border-bottom">
       <div class="row align-items-center mt-4">
@@ -86,7 +81,7 @@
         <div class="col-sm-7 order-3 order-sm-2 mt-sm-0 mt-3">
           <div class="checkbox-container d-flex justify-content-start flex-wrap">
             <div class="form-check d-flex align-items-center mr-2 form-group" id="products-dropdown">
-              <%= render 'organisation/units/partials/check_box', options:  @bsl&.products.map{ |product| [product.name, product.id] }, selected_values:  @bsl&.products.map{ |product| [product.name, product.id] }, param_name: 'business_service_line[product_ids][]' %>
+              <%= render 'organisation/units/partials/check_box', options:  all_products_from_institution(@bsl), selected_values:  @bsl&.products.map{ |product| [product.name, product.id] }, param_name: 'business_service_line[product_ids][]' %>
             </div>
           </div>
         </div>
@@ -100,8 +95,8 @@
         </div>
         <div class="col-sm-7 order-3 order-sm-2 mt-sm-0 mt-3">
           <div class="checkbox-container d-flex justify-content-start flex-wrap">
-            <div class="form-check d-flex align-items-center mr-2 form-group" id="channels-dropdown">
-              <%= render 'organisation/units/partials/check_box', options:  @bsl&.channels.map{ |channel| [channel.name, channel.id] }, selected_values: @bsl&.channels.map{ |channel| [channel.name, channel.id] }, param_name: 'business_service_line[channel_ids][]' %>
+            <div class="form-check d-flex align-items-center mr-2 form-group flex-wrap" id="channels-dropdown">
+              <%= render 'organisation/units/partials/check_box', options: all_channels_from_product(@bsl), selected_values: @bsl&.channels.map{ |channel| [channel.name, channel.id] }, param_name: 'business_service_line[channel_ids][]' %>
             </div>
           </div>
         </div>

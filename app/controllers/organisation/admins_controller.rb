@@ -1,9 +1,9 @@
 class Organisation::AdminsController < Organisation::BaseController
-  before_action :authenticate_org_admin
+  before_action :authenticate_root_user
   before_action :load_admin, only: %i[edit update show destroy]
 
   def index
-    @admins = organisational_unit.users.where(role: [User.roles[:org_admin], User.roles[:unit_admin]])
+    @admins = organisational_unit.users
   end
 
   def new; end
@@ -11,14 +11,13 @@ class Organisation::AdminsController < Organisation::BaseController
   def create
     regional_unit_id = params.dig(:users, :multiple, :csv).blank? ? params.dig(:single_regional_unit): params.dig(:multiple_regional_unit)
     regional_unit    = organisational_unit.children.find_by_id(regional_unit_id)
-
     failing_users = Journey::SaveUserService.call(
       organisational_unit: organisational_unit,
       regional_unit: regional_unit,
       params: params
     )
 
-    redirect_to organisation_admins_path, notice: "Admins have been created successfully! #{ failing_users.present? ? "Except #{failing_users.keys.to_sentence}" : '' }"
+    redirect_to organisation_admins_path, notice: "Admins have been created successfully! #{ failing_users.present? ? "Except #{failing_users.map(&:keys).flatten.to_sentence}" : '' }"
   end
 
   def edit; end

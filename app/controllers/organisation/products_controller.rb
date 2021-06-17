@@ -1,5 +1,5 @@
 class Organisation::ProductsController < Organisation::BaseController
-  before_action :authenticate_org_admin
+  before_action :authenticate_root_user
   before_action :load_product, only: %i[edit update show destroy]
   before_action :load_form_data, only: %i[new create edit update]
 

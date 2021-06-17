@@ -35,11 +35,11 @@ class Users::SessionsController < Devise::SessionsController
   private
 
   def after_sign_in_path_for(resource)
-    if resource.app_admin?
+    if resource.application_admin?
       admin_dashboard_index_path
-    elsif resource.org_admin?
+    elsif resource.root_user?
       resource.sign_in_count > 1 ? organisation_dashboard_index_path : organisation_journey_path('welcome')
-    elsif resource.unit_admin?
+    elsif resource.super_or_standard_user?
       organisation_dashboard_index_path
     else
       root_path

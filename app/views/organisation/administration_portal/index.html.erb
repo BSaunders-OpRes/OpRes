@@ -97,7 +97,7 @@
             <% @business_service_lines&.each do |bsl| %>
               <tr>
                 <td class="font-12 font-xxl-14 pl-0 text-black"><%= bsl.name %></td>
-                <td class="w-10 font-12 font-xxl-14 px-2 font-400 text-capitalize"><%= bsl.tier %></td>
+                <td class="w-10 font-12 font-xxl-14 px-2 font-400 text-capitalize"><%= bsl.tier.titleize %></td>
                 <td class="w-10 font-12 font-xxl-14 px-2 font-400 text-capitalize"><%= bsl.unit&.parent&.parent&.name %></td>
                 <td class="w-10 font-12 font-xxl-14 px-2 font-400 text-capitalize"><%= bsl.unit&.parent&.name %></td>
                 <td class="w-10 font-12 font-xxl-14 px-2 font-400 text-capitalize"><%= bsl.unit&.name %></td>

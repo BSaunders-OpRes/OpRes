@@ -1,7 +1,7 @@
 require 'json'
 
 # Application Admin #
-user = User.create_with(first_name: 'Application', last_name: 'Admin', password: 'Adm!n123', role: User.roles[:app_admin]).find_or_create_by(email: 'admin@opres.uk')
+user = User.create_with(first_name: 'Application', last_name: 'Admin', password: 'Adm!n123', role: User.roles[:application_admin]).find_or_create_by(email: 'admin@opres.uk')
 # user.confirm
 # Application Admin #
 

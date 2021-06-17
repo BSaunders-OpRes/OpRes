@@ -8,15 +8,12 @@ class User < ApplicationRecord
   attr_accessor :skip_password_validation
 
   # Enums #
-  enum role: %i[app_admin org_admin unit_admin user]
+  enum role: %i[application_admin root_user super_user standard_user]
 
   # Devise #
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable,
          :trackable, :validatable
-
-  # Callbacks #
-  after_destroy :un_assign_manager
 
   # Methods #
   def name
@@ -28,15 +25,21 @@ class User < ApplicationRecord
     _initials.upcase.presence || 'U'
   end
 
+  def super_or_standard_user?
+    super_user? || standard_user?
+  end
+
+  class << self
+    def invitiable_users
+      User.roles.map { |k, v| [k.titleize, k] if k != 'application_admin' }.compact
+    end
+  end
+
   private
 
   def password_required?
     return false if skip_password_validation
 
     super
-  end
-
-  def un_assign_manager
-    managers.destroy_all if unit_admin?
   end
 end
