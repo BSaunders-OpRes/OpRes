@@ -1,52 +1,936 @@
-<div class="row">
-  <div class="col-sm-12 col-md-10 col-lg-8 col-xxl-8 mx-auto">
-    <div class="card border-0 shadow">
-      <div class="card-body px-4">
-        <div class="d-flex justify-content-between align-items-center py-5">
-          <h3 class="text-capitalize font-600">Supplier Show</h3>
+<div id='cloud-service-provider' class="new-dashboard new-cloud-dashboard supplier-show">
+  <div class="row no-gutters">
+    <div class="col-sm-12 px-1">
+      <div class="d-flex justify-content-between align-items-center flex-wrap">
+        <div class="left d-flex align-items-center flex-wrap">
+          <div class="mr-4 back-btn mb-2 mb-sm-0 ">
+            <%= render 'layouts/partials/shared/redirect_back', path: organisation_dashboard_index_path %>
+          </div>
+          <h2 class="font-500 font-sm-18 font-25 text-capitalize">Cloud Service Provider Dashboard</h2>
         </div>
-        <%= render 'layouts/partials/shared/redirect_back', path: organisation_administration_portal_index_path %>
-        <div class="show-page">
-          <div class="row align-items-center">
-            <div class="col-md-4">
-              <div class="show-img">
-                <%= image_pack_tag 'media/images/user-img.png', class: 'img-fluid' %>
+        <div class="right d-flex mt-3 mt-lg-0">
+          <div class="white-btn d-flex align-items-center pl-2 pr-2 mr-2 py-2">
+            <span><i class='fa fa-save font-16 mr-2'></i></span>
+            <span class="text-capitalize font-12 font-xxl-14">save view</span>
+          </div>
+          <div class="white-btn d-flex align-items-center pl-2 pr-2 mr-2 py-2">
+            <span> <i class="fa fa-sliders"></i></span>
+            <span class="text-capitalize font-12 font-xxl-14 ml-2">Customised View</span>
+          </div>
+          <div class="white-btn p-1 d-flex align-items-center">
+            <i class="fa fa-ellipsis-v px-2"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="secondary-sidebar d-none">
+    <i class='fa fa-ellipsis-v fa-1x font-18'></i>
+  </div>
+  <div class="row mt-5 no-gutters">
+    <div class="col-sm-3 col-xxl-2 px-1">
+      <aside class="fixed-secondary-sidebar position-static" id='sticky-sidebar-demo'>
+        <i class="fa fa-times-circle fa-1x d-none"></i>
+        <ul class="p-0 list-unstyled inner-wrapper-sticky">
+          <li class="links active-white mb-2">
+            <a href="#section1" class=" text-decoration-none text-capitalize font-13 font-xxl-14 d-block py-2">Overview</a>
+          </li>
+          <li class="links mb-2">
+            <a href="#section2" class=" text-decoration-none text-capitalize font-13 font-xxl-14 d-block py-2">Compound Risk Posture</a>
+          </li>
+          <li class="links mb-2">
+            <a href="#section3" class=" text-decoration-none text-capitalize font-13 font-xxl-14 d-block py-2">Service Level Indicators</a>
+          </li>
+          <li class="links mb-2">
+            <a href="#section4" class=" text-decoration-none text-capitalize font-13 font-xxl-14 d-block py-2">Contracted Agreements</a>
+          </li>
+          <li class="links mb-2">
+            <a href="#section5" class=" text-decoration-none text-capitalize font-13 font-xxl-14 d-block py-2">Cloud Provider</a>
+          </li>
+          <li class="links mb-2">
+            <a href="#section6" class=" text-decoration-none text-capitalize font-13 font-xxl-14 d-block py-2">4th party suppliers</a>
+          </li>
+          <li class="links mb-2">
+            <a href="#section7" class=" text-decoration-none text-capitalize font-13 font-xxl-14 d-block py-2">4th party suppliers</a>
+          </li>
+        </ul>
+      </aside>
+    </div>
+    <div class="col-sm-9 col-xxl-10 px-1">
+      <div class="w-100">
+        <div class="content-area">
+          <div id="section1">
+            <div class="card border-0 shadow-sm rounded-50 mb-4">
+              <div class="card-body px-0">
+                <div class="box">
+                  <div class="d-flex justify-content-between align-items-center mb-4 px-4">
+                    <h5 class="text-capitalize text-left">Overview</h5>
+                    <div class="text-right">
+                      <a href="#" class="text-black">
+                        <i class="fa fa-ellipsis-v text-right" aria-hidden="true"></i>
+                      </a>
+                    </div>
+                  </div>
+                  <div class="info-text mb-4 px-4">
+                    <h6 class="mb-3">Name of the supplier</h6>
+                    <p class="font-13">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                  </div>
+                  <hr>
+                  <div class="details mb-4 px-4">
+                    <div class="intro-box mb-3 d-flex align-items-center justify-content-center">
+                      <div class="w-25">
+                        <span class="font-12">Supplier Relationship Owner</span>
+                      </div>
+                      <div class="w-75">
+                        <strong class="font-12">John Smith</strong>
+                      </div>
+                    </div>
+                    <div class="intro-box mb-3 d-flex align-items-center justify-content-center">
+                      <div class="w-25">
+                        <span class="font-12">Supplier Key Contact</span>
+                      </div>
+                      <div class="w-75">
+                        <strong class="w-75 font-12">John Smith</strong>
+                      </div>
+                    </div>
+                    <div class="intro-box mb-3 d-flex align-items-center justify-content-center">
+                      <div class="w-25">
+                        <span class="font-12">Supplier Contact Details</span>
+                      </div>
+                      <div class="w-75">
+                        <strong class="font-12">J.doe@email.com | 071234567</strong>
+                      </div>
+                    </div>
+                    <div class="intro-box mb-3 d-flex align-items-center justify-content-center">
+                      <div class="w-25">
+                        <span class="font-12">Supplier Type: SaaS</span>
+                      </div>
+                      <div class="w-75">
+                        <strong class="font-12">SaaS</strong>
+                      </div>
+                    </div>
+                    <div class="intro-box mb-3 d-flex align-items-center justify-content-center">
+                      <div class="w-25">
+                        <span class="font-12">Contact Type: Annual</span>
+                      </div>
+                      <div class="w-75">
+                        <strong class="font-12">Annual</strong>
+                      </div>
+                    </div>
+                    <div class="intro-box mb-3 d-flex align-items-center justify-content-center">
+                      <div class="w-25">
+                        <span class="font-12">Start Date & End Date</span>
+                      </div>
+                      <div class="w-75">
+                        <strong class="font-12">12.02.2019 - Current</strong>
+                      </div>
+                    </div>
+                    <div class="intro-box mb-3 d-flex align-items-center justify-content-center">
+                      <div class="w-25">
+                        <span class="font-12">Annual Cost of Contract</span>
+                      </div>
+                      <div class="w-75">
+                        <strong class="font-12">$45.2K</strong>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="mb-4 px-4">
+                    <h5 class="text-capitalize d-block mb-4">Links</h5>
+                    <div class="small-boxes row">
+                      <div class="col-md-3 mb-3">
+                        <div class="card h-100 border-0">
+                          <div class="card-body p-2 d-block rounded">
+                            <div class="color-tier">
+                              <div class="mr-1 d-inline-block w-25px text-center align-middle">
+                                <i class="fa fa-twitter"></i>
+                              </div>
+                              <div class="text d-inline-block align-middle">
+                                <span class="font-12 font-400 ml-2 d-block">Twitter</span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-3 mb-3">
+                        <div class="card h-100 border-0">
+                          <div class="card-body p-2 d-block rounded">
+                            <div class="color-tier">
+                              <div class="mr-1 d-inline-block w-25px text-center align-middle">
+                                <i class="fa fa-facebook-official"></i>
+                              </div>
+                              <div class="text d-inline-block align-middle">
+                                <span class="font-12 font-400 ml-2 d-block">Facebook</span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-3 mb-3">
+                        <div class="card h-100 border-0">
+                          <div class="card-body p-2 d-block rounded">
+                            <div class="color-tier">
+                              <div class="mr-1 d-inline-block w-25px text-center align-middle">
+                                <i class="fa fa-linkedin-square"></i>
+                              </div>
+                              <div class="text d-inline-block align-middle">
+                                <span class="font-12 font-400 ml-2 d-block">Linked-In</span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-3 mb-3">
+                        <div class="card h-100 border-0">
+                          <div class="card-body p-2 d-block rounded">
+                            <div class="color-tier">
+                              <div class="mr-1 d-inline-block w-25px text-center align-middle">
+                                <%= image_pack_tag 'media/images/link.png', class: 'img-fluid w-100' %>
+                              </div>
+                              <div class="text d-inline-block align-middle">
+                                <span class="font-12 font-400 ml-2 d-block">suppliername.com</span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
-            <div class="col-md-8">
-              <div class="card border-0">
-                <div class="card-body">
-                  <div class="row pb-4 border-bottom">
-                    <div class="col-md-6">
-                      <h6 class="font-14 text-capitalize font-700">Supplier Name</h6>
-                    </div>
-                    <div class="col-md-6">
-                      <h5 class="font-14 text-capitalize text-secondary"><%= @supplier.name %></h5>
-                    </div>
-                  </div>
-                  <div class="row py-4 border-bottom">
-                    <div class="col-md-6">
-                      <h6 class="font-14 text-capitalize font-700">organisational name</h6>
-                    </div>
-                    <div class="col-md-6">
-                      <h5 class="font-14 text-capitalize text-secondary"><%= organisational_unit.name %></h5>
+          </div>
+          <div id="section2">
+            <div class="card border-0 shadow-sm rounded-50 mb-4">
+              <div class="card-body px-0">
+                <div class="box">
+                  <div class="d-flex justify-content-between align-items-center mb-4 px-4">
+                    <h5 class="text-capitalize text-left">Compound Risk Posture</h5>
+                    <div class="text-right">
+                      <a href="#" class="text-black">
+                        <i class="fa fa-ellipsis-v text-right" aria-hidden="true"></i>
+                      </a>
                     </div>
                   </div>
-                  <div class="row py-4">
-                    <div class="col-md-6">
-                      <h6 class="font-14 text-capitalize font-700">Party Type</h6>
-                    </div>
-                    <div class="col-md-6">
-                      <h5 class="font-14 text-capitalize text-secondary"><%= @supplier.party_type || 'N/A' %></h5>
+                  <div class="mb-4 px-4">
+                    <div class="row">
+                      <div class="col-md-6">
+                        <div class="box1 d-flex align-items-center py-3">
+                          <div class="round mr-3">
+                            <div class="sm-circle bg-dark-yellow p-4"></div>
+                          </div>
+                          <div class="text">
+                            <p class="font-13 font-400">Risk Ranking</p>
+                            <h6 class="font-13 font-600">High Risk Supplier</h6>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="box1 d-flex align-items-center py-3">
+                          <div class="round mr-3">
+                            <div class="sm-circle bg-red p-4"></div>
+                          </div>
+                          <div class="text">
+                            <p class="font-13 font-400">Open Resilience Gaps</p>
+                            <h6 class="font-13 font-600">10</h6>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
-                  <div class="row py-4">
-                    <div class="col-md-6">
-                      <h6 class="font-14 text-capitalize font-700">Contracting Terms</h6>
+                  <hr>
+                  <div class="row mt-3 d-flex no-gutters">
+                    <div class="col-md-6 col-lg-4 order-lg-1 order-2 mb-lg-0 mb-4 px-3">
+                      <div class="card border-0 pie-high-chart overflow-hidden rounded-50">
+                        <div class="card-header border-0 bg-white text-center">
+                          <p class="font-14 font-600 chart-header-title text-left mb-2">Critical & Important BSL's Supported</p>
+                          <div class="donut-content mb-2">
+                            <div id="first-donut" class="donut"></div>
+                            <div class="donut-value font-50 font-700">50</div>
+                          </div>
+                        </div>
+                        <div class="card-body">
+                          <div class="tiers d-flex justify-content-between align-items-center mb-3">
+                            <div class="color-tier d-flex align-items-center">
+                              <div class="circle green-1"></div>
+                              <span class="font-12 font-400 ml-2">Critical</span>
+                            </div>
+                            <span class="font-12 font-700">11</span>
+                          </div>
+                          <div class="tiers d-flex justify-content-between align-items-center mb-3">
+                            <div class="color-tier d-flex align-items-center">
+                              <div class="circle green-2"></div>
+                              <span class="font-12 font-400 ml-2">Important</span>
+                            </div>
+                            <span class="font-12 font-700">4</span>
+                          </div>
+                        </div>
+                      </div>
                     </div>
-                    <div class="col-md-6">
-                      <h5 class="font-14 text-capitalize text-secondary"><%= @supplier.contracting_terms || 'N/A' %></h5>
+                    <div class="col-md-6 col-lg-4 order-lg-4 order-1 mb-lg-0 mb-4 px-3">
+                      <div class="card border-0 pie-high-chart overflow-hidden rounded-50">
+                        <div class="card-header border-0 bg-white text-center">
+                          <p class="font-14 font-600 chart-header-title text-left mb-2">BSL's Where Supplier is Compliant or Non Compliant</p>
+                          <div class="donut-content mb-2">
+                            <div id="second-donut" class="donut"></div>
+                            <div class="donut-value font-50 font-700">50</div>
+                          </div>
+                        </div>
+                        <div class="card-body">
+                          <div class="tiers d-flex justify-content-between align-items-center mb-3">
+                            <div class="color-tier d-flex align-items-center">
+                              <div class="circle green-1"></div>
+                              <span class="font-12 font-400 ml-2">Compliant</span>
+                            </div>
+                            <span class="font-12 font-700">11</span>
+                          </div>
+                          <div class="tiers d-flex justify-content-between align-items-center mb-3">
+                            <div class="color-tier d-flex align-items-center">
+                              <div class="circle green-2"></div>
+                              <span class="font-12 font-400 ml-2">Non Compliant</span>
+                            </div>
+                            <span class="font-12 font-700">4</span>
+                          </div>
+                        </div>
+                      </div>
                     </div>
+                    <div class="col-md-6 col-lg-4 order-lg-4 order-1 mb-lg-0 mb-4 px-3">
+                      <div class="card border-0 pie-high-chart overflow-hidden rounded-50">
+                        <div class="card-header border-0 bg-white text-center">
+                          <p class="font-14 font-600 chart-header-title text-left mb-2">BSL's Where Supplier is Either a 3rd or 4th Party</p>
+                          <div class="donut-content mb-2">
+                            <div id="third-donut" class="donut"></div>
+                            <div class="donut-value font-50 font-700">50</div>
+                          </div>
+                        </div>
+                        <div class="card-body">
+                          <div class="tiers d-flex justify-content-between align-items-center mb-3">
+                            <div class="color-tier d-flex align-items-center">
+                              <div class="circle green-1"></div>
+                              <span class="font-12 font-400 ml-2">3rd</span>
+                            </div>
+                            <span class="font-12 font-700">11</span>
+                          </div>
+                          <div class="tiers d-flex justify-content-between align-items-center mb-3">
+                            <div class="color-tier d-flex align-items-center">
+                              <div class="circle green-2"></div>
+                              <span class="font-12 font-400 ml-2">4th</span>
+                            </div>
+                            <span class="font-12 font-700">4</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div id="section3">
+            <div class="card border-0 shadow-sm rounded-50 mb-4">
+              <div class="card-body px-0">
+                <div class="box">
+                  <div class="d-flex justify-content-between align-items-center mb-4 px-4">
+                    <h5 class="text-capitalize text-left">Service Level Indicators</h5>
+                    <div class="text-right">
+                      <a href="#" class="text-black">
+                        <i class="fa fa-ellipsis-v text-right" aria-hidden="true"></i>
+                      </a>
+                    </div>
+                  </div>
+                  <div class="mb-4 px-4">
+                    <div class="row">
+                      <div class="col-md-12">
+                        <div class="box1 d-flex align-items-center py-3">
+                          <div class="round mr-3">
+                            <div class="sm-circle bg-primary-green p-4"></div>
+                          </div>
+                          <div class="text">
+                            <p class="font-13 font-400">Active Service Status</p>
+                            <h6 class="font-13 font-600">Service Available</h6>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="row mt-3 d-flex no-gutters">
+                    <div class="table-responsive">
+                      <table class="table mb-0">
+                        <thead>
+                          <tr>
+                            <th class="border-0 px-4">Metric</th>
+                            <th class="border-0 px-4"></th>
+                            <th class="border-0 px-4">Value</th>
+                            <th class="border-0 px-4">Value</th>
+                            <th class="border-0 px-4"></th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td class="font-14 font-600 px-4">
+                              Saturation
+                            </td>
+                            <td class="px-4" width='200px' height="120px">
+                              <div id="first-line-chart" class="h-100"></div>
+                            </td>
+                            <td class="font-14 px-4">
+                              1031.33
+                            </td>
+                            <td class="font-14 px-4">
+                              <i class="fa fa-caret-up mr-2 text-green"></i>
+                              <span>-14.32(-1.2%)</span>
+                            </td>
+                            <td class="font-14 px-4">
+                              <span class="mr-2">More</span>
+                              <i class="fa fa-arrow-right"></i>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td class="font-14 font-600 px-4">
+                              Errors
+                            </td>
+                            <td class="px-4" width='200px' height="120px">
+                              <div id="second-line-chart" class="h-100"></div>
+                            </td>
+                            <td class="font-14 px-4">
+                              1031.33
+                            </td>
+                            <td class="font-14 px-4">
+                              <i class="fa fa-caret-down mr-2 text-red"></i>
+                              <span>-14.32(-1.2%)</span>
+                            </td>
+                            <td class="font-14 px-4">
+                              <span class="mr-2">More</span>
+                              <i class="fa fa-arrow-right"></i>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td class="font-14 font-600 px-4">
+                              Latency
+                            </td>
+                            <td class="px-4" width='200px' height="120px">
+                              <div id="third-line-chart" class="h-100"></div>
+                            </td>
+                            <td class="font-14 px-4">
+                              1031.33
+                            </td>
+                            <td class="font-14 px-4">
+                              <i class="fa fa-caret-down mr-2 text-red"></i>
+                              <span>-14.32(-1.2%)</span>
+                            </td>
+                            <td class="font-14 px-4">
+                              <span class="mr-2">More</span>
+                              <i class="fa fa-arrow-right"></i>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td class="font-14 font-600 px-4">
+                              Trafic
+                            </td>
+                            <td class="px-4" width='200px' height="120px">
+                              <div id="fourth-line-chart" class="h-100"></div>
+                            </td>
+                            <td class="font-14 px-4">
+                              1031.33
+                            </td>
+                            <td class="font-14 px-4">
+                              <i class="fa fa-caret-down mr-2 text-red"></i>
+                              <span>-14.32(-1.2%)</span>
+                            </td>
+                            <td class="font-14 px-4">
+                              <span class="mr-2">More</span>
+                              <i class="fa fa-arrow-right"></i>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div id="section4">
+            <div class="card border-0 shadow-sm rounded-50 mb-4">
+              <div class="card-body px-0">
+                <div class="box">
+                  <div class="d-flex justify-content-between align-items-center mb-4 px-4">
+                    <h5 class="text-capitalize text-left">Contracted Agreements</h5>
+                    <div class="text-right">
+                      <a href="#" class="text-black">
+                        <i class="fa fa-ellipsis-v text-right" aria-hidden="true"></i>
+                      </a>
+                    </div>
+                  </div>
+                  <div class="mb-4 px-4">
+                    <div class="row">
+                      <div class="col-md-3">
+                        <div class="box1 d-flex align-items-center py-3">
+                          <div class="mr-3">
+                            <div class="line-green"></div>
+                          </div>
+                          <div class="text">
+                            <p class="font-13 font-400">Contracted SLA</p>
+                            <h6 class="font-13 font-600">99.99%</h6>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-3">
+                        <div class="box1 d-flex align-items-center py-3">
+                          <div class="mr-3">
+                            <div class="line-green"></div>
+                          </div>
+                          <div class="text">
+                            <p class="font-13 font-400">Contracted RTO</p>
+                            <h6 class="font-13 font-600">20 Minutes</h6>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-3">
+                        <div class="box1 d-flex align-items-center py-3">
+                          <div class="mr-3">
+                            <div class="line-green"></div>
+                          </div>
+                          <div class="text">
+                            <p class="font-13 font-400">Contracted RPO</p>
+                            <h6 class="font-13 font-600">0 Hours</h6>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-3">
+                        <div class="box1 d-flex align-items-center py-3">
+                          <div class="mr-3">
+                            <div class="line-green"></div>
+                          </div>
+                          <div class="text">
+                            <p class="font-13 font-400">Support Hours</p>
+                            <h6 class="font-13 font-600">24/7</h6>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row mt-3 d-flex no-gutters">
+                    <div class="table-responsive">
+                      <table class="table mb-0">
+                        <thead>
+                          <tr>
+                            <th class="border-0 px-4">Incident</th>
+                            <th class="border-0 px-4">Severity 1</th>
+                            <th class="border-0 px-4">Severity 2</th>
+                            <th class="border-0 px-4">Severity 3</th>
+                            <th class="border-0 px-4">Severity 4</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td width='300px' class="font-13 px-4">
+                              Incident Response SLA
+                            </td>
+                            <td class="font-13 px-4">
+                              5 Mins
+                            </td>
+                            <td class="font-13 px-4">
+                              5 Mins
+                            </td>
+                            <td class="font-13 px-4">
+                              5 Mins
+                            </td>
+                            <td class="font-13 px-4">
+                              5 Mins
+                            </td>
+                          </tr>
+                          <tr>
+                            <td width='300px' class="font-13 px-4">
+                              Incident Restoration SLA
+                            </td>
+                            <td class="font-13 px-4">
+                              20 Mins
+                            </td>
+                            <td class="font-13 px-4">
+                              20 Mins
+                            </td>
+                            <td class="font-13 px-4">
+                              20 Mins
+                            </td>
+                            <td class="font-13 px-4">
+                              20 Mins
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div id="section5">
+            <div class="card border-0 shadow-sm rounded-50 mb-4">
+              <div class="card-body px-0">
+                <div class="box">
+                  <div class="d-flex justify-content-between align-items-center mb-4 px-4">
+                    <h5 class="text-capitalize text-left">Cloud Provider</h5>
+                    <div class="text-right">
+                      <a href="#" class="text-black">
+                        <i class="fa fa-ellipsis-v text-right" aria-hidden="true"></i>
+                      </a>
+                    </div>
+                  </div>
+                  <div class="mb-4 px-4">
+                    <div class="row">
+                      <div class="col-md-4">
+                        <div class="box1 d-flex align-items-center py-3 px-3 bg-body-color rounded">
+                          <div class="mr-3 w-25">
+                            <%= image_pack_tag 'media/images/aws.png', class: 'img-fluid w-100' %>
+                          </div>
+                          <div class="text w-75">
+                            <p class="font-13 font-400">Cloud Hosting Provider</p>
+                            <h6 class="font-13 font-600">Amazon Web Services</h6>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-4">
+                        <div class="box1 d-flex align-items-center py-3 px-3 bg-body-color rounded">
+                          <div class="mr-3 w-25">
+                            <%= image_pack_tag 'media/images/map-marker.png', class: 'img-fluid w-50 mx-auto d-block' %>
+                          </div>
+                          <div class="text w-75">
+                            <p class="font-13 font-400">Contracted SLA</p>
+                            <h6 class="font-13 font-600">99.99%</h6>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row mt-3 d-flex no-gutters">
+                    <div class="col-md-12">
+                      <div class="card border-0 px-2">
+                        <div class="card-header bg-transparent d-flex justify-content-between align-items-center border-0 pt-4">
+                          <h3 class="font-14 font-600">Resilience Risk Indicator</h3>
+                          <div class="dropdown body-color-dropdown mr-2">
+                            <a id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class='dropdown-toggle text-capitalize py-2 pr-5 pl-2 d-flex align-items-center justify-content-start font-12 text-dark font-600' id='top-10'>Last 6 Months</a>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                              <a class="dropdown-item">Action</a>
+                              <a class="dropdown-item">Filter top 10</a>
+                              <a class="dropdown-item">Filter top 10</a>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="card-body">
+                          <div id="area-chart"></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div id="section6">
+            <div class="card border-0 shadow-sm rounded-50 mb-4">
+              <div class="card-body px-0">
+                <div class="box">
+                  <div class="d-flex justify-content-between align-items-center mb-4 px-4">
+                    <h5 class="text-capitalize text-left">AWS Services Used By Supplier</h5>
+                    <div class="text-right">
+                      <a href="#" class="text-black">
+                        <i class="fa fa-ellipsis-v text-right" aria-hidden="true"></i>
+                      </a>
+                    </div>
+                  </div>
+                  <div class="mb-4 px-4">
+                    <div class="row">
+                      <div class="col-md-4">
+                        <div class="box1 d-flex align-items-center py-3 px-3 bg-body-color rounded">
+                          <div class="mr-3 w-25">
+                            <%= image_pack_tag 'media/images/aws.png', class: 'img-fluid w-100' %>
+                          </div>
+                          <div class="text w-75">
+                            <p class="font-13 font-400">Cloud Hosting Provider</p>
+                            <h6 class="font-13 font-600">Amazon Web Services</h6>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-4">
+                        <div class="box1 d-flex align-items-center py-3 px-3 bg-body-color rounded">
+                          <div class="mr-3 w-25">
+                            <%= image_pack_tag 'media/images/map-marker.png', class: 'img-fluid w-50 mx-auto d-block' %>
+                          </div>
+                          <div class="text w-75">
+                            <p class="font-13 font-400">Contracted SLA</p>
+                            <h6 class="font-13 font-600">99.99%</h6>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row mt-3 d-flex no-gutters">
+                    <div class="col-md-12">
+                      <div class="card border-0 px-2">
+                        <div class="card-header bg-transparent d-flex justify-content-between align-items-center border-0 pt-4">
+                          <h3 class="font-14 font-600">Resilience Risk Indicator</h3>
+                          <div class="dropdown body-color-dropdown mr-2">
+                            <a id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class='dropdown-toggle text-capitalize py-2 pr-5 pl-2 d-flex align-items-center justify-content-start font-12 text-dark font-600' id='top-10'>Last 6 Months</a>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                              <a class="dropdown-item">Action</a>
+                              <a class="dropdown-item">Filter top 10</a>
+                              <a class="dropdown-item">Filter top 10</a>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="table-responsive">
+                          <table class="table table-striped mb-0">
+                            <thead>
+                              <tr>
+                                <th class="border-0 px-4 font-500 font-12">AWS Service</th>
+                                <th class="border-0 px-4 font-500 font-12">20th</th>
+                                <th class="border-0 px-4 font-500 font-12">21st</th>
+                                <th class="border-0 px-4 font-500 font-12">22nd</th>
+                                <th class="border-0 px-4 font-500 font-12">23rd</th>
+                                <th class="border-0 px-4 font-500 font-12">24th</th>
+                                <th class="border-0 px-4 font-500 font-12">25th</th>
+                                <th class="border-0 px-4 font-500 font-12">26th</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <td width='200px' class="font-12 px-4 align-middle">
+                                  Fargate
+                                </td>
+                                <td class="font-12 px-4 align-middle">
+                                  <%= image_pack_tag 'media/images/tick.png', class: 'img-fluid w-100' %>
+                                </td>
+                                <td class="font-12 px-4 align-middle">
+                                  <%= image_pack_tag 'media/images/tick.png', class: 'img-fluid w-100' %>
+                                </td>
+                                <td class="font-12 px-4 align-middle">
+                                  <%= image_pack_tag 'media/images/tick.png', class: 'img-fluid w-100' %>
+                                </td>
+                                <td class="font-12 px-4 align-middle">
+                                  <%= image_pack_tag 'media/images/tick.png', class: 'img-fluid w-100' %>
+                                </td>
+                                <td class="font-12 px-4 align-middle">
+                                  <%= image_pack_tag 'media/images/tick.png', class: 'img-fluid w-100' %>
+                                </td>
+                                <td class="font-12 px-4 align-middle">
+                                  <%= image_pack_tag 'media/images/tick.png', class: 'img-fluid w-100' %>
+                                </td>
+                                <td class="font-12 px-4 align-middle">
+                                  <%= image_pack_tag 'media/images/tick.png', class: 'img-fluid w-100' %>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td width='200px' class="font-12 px-4 align-middle">
+                                  Code Pipeline
+                                </td>
+                                <td class="font-12 px-4 align-middle">
+                                  <%= image_pack_tag 'media/images/tick.png', class: 'img-fluid w-100' %>
+                                </td>
+                                <td class="font-12 px-4 align-middle">
+                                  <%= image_pack_tag 'media/images/tick.png', class: 'img-fluid w-100' %>
+                                </td>
+                                <td class="font-12 px-4 align-middle">
+                                  <%= image_pack_tag 'media/images/tick.png', class: 'img-fluid w-100' %>
+                                </td>
+                                <td class="font-12 px-4 align-middle">
+                                  <%= image_pack_tag 'media/images/tick.png', class: 'img-fluid w-100' %>
+                                </td>
+                                <td class="font-12 px-4 align-middle">
+                                  <%= image_pack_tag 'media/images/tick.png', class: 'img-fluid w-100' %>
+                                </td>
+                                <td class="font-12 px-4 align-middle">
+                                  <%= image_pack_tag 'media/images/tick.png', class: 'img-fluid w-100' %>
+                                </td>
+                                <td class="font-12 px-4 align-middle">
+                                  <%= image_pack_tag 'media/images/tick.png', class: 'img-fluid w-100' %>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td width='200px' class="font-12 px-4 align-middle">
+                                  Code Deploy
+                                </td>
+                                <td class="font-12 px-4 align-middle">
+                                  <%= image_pack_tag 'media/images/tick.png', class: 'img-fluid w-100' %>
+                                </td>
+                                <td class="font-12 px-4 align-middle">
+                                  <%= image_pack_tag 'media/images/tick.png', class: 'img-fluid w-100' %>
+                                </td>
+                                <td class="font-12 px-4 align-middle">
+                                  <%= image_pack_tag 'media/images/tick.png', class: 'img-fluid w-100' %>
+                                </td>
+                                <td class="font-12 px-4 align-middle">
+                                  <%= image_pack_tag 'media/images/tick.png', class: 'img-fluid w-100' %>
+                                </td>
+                                <td class="font-12 px-4 align-middle">
+                                  <%= image_pack_tag 'media/images/tick.png', class: 'img-fluid w-100' %>
+                                </td>
+                                <td class="font-12 px-4 align-middle">
+                                  <%= image_pack_tag 'media/images/tick.png', class: 'img-fluid w-100' %>
+                                </td>
+                                <td class="font-12 px-4 align-middle">
+                                  <%= image_pack_tag 'media/images/tick.png', class: 'img-fluid w-100' %>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td width='200px' class="font-12 px-4 align-middle">
+                                  ELB
+                                </td>
+                                <td class="font-12 px-4 align-middle">
+                                  <%= image_pack_tag 'media/images/tick.png', class: 'img-fluid w-100' %>
+                                </td>
+                                <td class="font-12 px-4 align-middle">
+                                  <%= image_pack_tag 'media/images/tick.png', class: 'img-fluid w-100' %>
+                                </td>
+                                <td class="font-12 px-4 align-middle">
+                                  <%= image_pack_tag 'media/images/tick.png', class: 'img-fluid w-100' %>
+                                </td>
+                                <td class="font-12 px-4 align-middle">
+                                  <%= image_pack_tag 'media/images/tick.png', class: 'img-fluid w-100' %>
+                                </td>
+                                <td class="font-12 px-4 align-middle">
+                                  <%= image_pack_tag 'media/images/tick.png', class: 'img-fluid w-100' %>
+                                </td>
+                                <td class="font-12 px-4 align-middle">
+                                  <%= image_pack_tag 'media/images/tick.png', class: 'img-fluid w-100' %>
+                                </td>
+                                <td class="font-12 px-4 align-middle">
+                                  <%= image_pack_tag 'media/images/tick.png', class: 'img-fluid w-100' %>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td width='200px' class="font-12 px-4 align-middle">
+                                  ALB
+                                </td>
+                                <td class="font-12 px-4 align-middle">
+                                  <%= image_pack_tag 'media/images/tick.png', class: 'img-fluid w-100' %>
+                                </td>
+                                <td class="font-12 px-4 align-middle">
+                                  <%= image_pack_tag 'media/images/tick.png', class: 'img-fluid w-100' %>
+                                </td>
+                                <td class="font-12 px-4 align-middle">
+                                  <%= image_pack_tag 'media/images/tick.png', class: 'img-fluid w-100' %>
+                                </td>
+                                <td class="font-12 px-4 align-middle">
+                                  <%= image_pack_tag 'media/images/tick.png', class: 'img-fluid w-100' %>
+                                </td>
+                                <td class="font-12 px-4 align-middle">
+                                  <%= image_pack_tag 'media/images/tick.png', class: 'img-fluid w-100' %>
+                                </td>
+                                <td class="font-12 px-4 align-middle">
+                                  <%= image_pack_tag 'media/images/tick.png', class: 'img-fluid w-100' %>
+                                </td>
+                                <td class="font-12 px-4 align-middle">
+                                  <%= image_pack_tag 'media/images/tick.png', class: 'img-fluid w-100' %>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td width='200px' class="font-12 px-4 align-middle">
+                                  RDS
+                                </td>
+                                <td class="font-12 px-4 align-middle">
+                                  <%= image_pack_tag 'media/images/tick.png', class: 'img-fluid w-100' %>
+                                </td>
+                                <td class="font-12 px-4 align-middle">
+                                  <%= image_pack_tag 'media/images/tick.png', class: 'img-fluid w-100' %>
+                                </td>
+                                <td class="font-12 px-4 align-middle">
+                                  <%= image_pack_tag 'media/images/tick.png', class: 'img-fluid w-100' %>
+                                </td>
+                                <td class="font-12 px-4 align-middle">
+                                  <%= image_pack_tag 'media/images/tick.png', class: 'img-fluid w-100' %>
+                                </td>
+                                <td class="font-12 px-4 align-middle">
+                                  <%= image_pack_tag 'media/images/tick.png', class: 'img-fluid w-100' %>
+                                </td>
+                                <td class="font-12 px-4 align-middle">
+                                  <%= image_pack_tag 'media/images/tick.png', class: 'img-fluid w-100' %>
+                                </td>
+                                <td class="font-12 px-4 align-middle">
+                                  <%= image_pack_tag 'media/images/tick.png', class: 'img-fluid w-100' %>
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div id="section7">
+            <div class="card border-0 shadow-sm rounded-50 mb-4">
+              <div class="card-body px-0">
+                <div class="box">
+                  <div class="d-flex justify-content-between align-items-center mb-4 px-4">
+                    <h5 class="text-capitalize text-left">4th Party Suppliers</h5>
+                    <div class="text-right">
+                      <a href="#" class="text-black">
+                        <i class="fa fa-ellipsis-v text-right" aria-hidden="true"></i>
+                      </a>
+                    </div>
+                  </div>
+                  <div class="table-responsive">
+                    <table class="table table-striped mb-0">
+                      <thead>
+                        <tr>
+                          <th class="border-0 px-4 font-500 font-12">Supplier Name</th>
+                          <th class="border-0 px-4 font-500 font-12">Hosting Provider</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td width='200px' class="font-12 px-4 align-middle">
+                            Supplier 1
+                          </td>
+                          <td width='200px' class="font-12 px-4 align-middle">
+                            AWS
+                          </td>
+                        </tr>
+                        <tr>
+                          <td width='200px' class="font-12 px-4 align-middle">
+                            Supplier 2
+                          </td>
+                          <td width='200px' class="font-12 px-4 align-middle">
+                            GCP
+                          </td>
+                        </tr>
+                        <tr>
+                          <td width='200px' class="font-12 px-4 align-middle">
+                            Supplier 3
+                          </td>
+                          <td width='200px' class="font-12 px-4 align-middle">
+                            AWS
+                          </td>
+                        </tr>
+                        <tr>
+                          <td width='200px' class="font-12 px-4 align-middle">
+                            Supplier 4
+                          </td>
+                          <td width='200px' class="font-12 px-4 align-middle">
+                            Private Cloud
+                          </td>
+                        </tr>
+                        <tr>
+                          <td width='200px' class="font-12 px-4 align-middle">
+                            Supplier 5
+                          </td>
+                          <td width='200px' class="font-12 px-4 align-middle">
+                            Private Cloud
+                          </td>
+                        </tr>
+                        <tr>
+                          <td width='200px' class="font-12 px-4 align-middle">
+                            Supplier 6
+                          </td>
+                          <td width='200px' class="font-12 px-4 align-middle">
+                            Private Cloud
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
                   </div>
                 </div>
               </div>
@@ -57,4 +941,3 @@
     </div>
   </div>
 </div>
-s

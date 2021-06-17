@@ -12,6 +12,7 @@ import './highcharts/donut';
 import './highcharts/semi-donut';
 import './highcharts/area-chart';
 import './highcharts/colored-donut';
+import './highcharts/sonification-chart';
 
 window.$          = JQuery;
 window.Highcharts = Highcharts;

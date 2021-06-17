@@ -50,12 +50,12 @@
   height: 30px;
   line-height: 32px;
   position: fixed;
-  top: 80px;
   text-align: center;
   left: 0;
   background: $primary-green;
   top: 75px;
   color: $white;
+  z-index: 9999;
   // border-top: 50px solid transparent;
   // border-left: 100px solid #32557f;
   // border-bottom: 50px solid transparent;

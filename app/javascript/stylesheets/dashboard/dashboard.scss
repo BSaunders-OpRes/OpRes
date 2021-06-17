@@ -1,3 +1,14 @@
+.highcharts-legend-item {
+  display: none;
+}
+.highcharts-title {
+  display: none;
+}
+
+.highcharts-background {
+  height: 50 !important;
+}
+
 .donut-chart-react {
   margin-top: -80px;
 }
@@ -480,5 +491,48 @@
         }
       }
     }
+  }
+}
+
+.my-account {
+  .custom-checkbox {
+    input:checked ~ .checkmark {
+      background: $black;
+    }
+    input:not(:checked) ~ .checkmark {
+      background: inherit !important;
+    }
+    .checkmark {
+      width: 22px !important;
+      height: 22px !important;
+      border-radius: 5px;
+      &:after {
+        left: 8px;
+        top: 4px;
+        width: 6px;
+        height: 12px;
+        border-width: 0 2px 2px 0;
+      }
+    }
+  }
+  .notification {
+    .toggle-switch {
+      a {
+        img {
+          width: 16px;
+        }
+      }
+    }
+  }
+}
+
+.supplier-show {
+  .line-green {
+    top: 10px;
+    width: 3px;
+    content: '';
+    height: 50px;
+    position: absolute;
+    background-color: $primary-green;
   }
 }

@@ -2,6 +2,11 @@ document.addEventListener('turbolinks:load', function() {
   if ($('#management-dashboard').length == 1) {
     render_donut_chart('first-donut');
     render_donut_chart('second-donut');
+    render_donut_chart('third-donut');
+    render_donut_chart('fourth-donut');
+    render_donut_chart('fifth-donut');
+    render_donut_chart('sixth-donut');
+    render_donut_chart('seventh-donut');
     render_donut_chart('first-donut-sm');
     render_donut_chart('second-donut-sm');
     render_donut_chart('third-donut-sm');
@@ -14,11 +19,6 @@ document.addEventListener('turbolinks:load', function() {
     render_donut_chart('tenth-donut-sm');
     render_donut_chart('eleventh-donut-sm');
     render_donut_chart('twelth-donut-sm');
-    render_donut_chart('third-donut');
-    render_donut_chart('fourth-donut');
-    render_donut_chart('fifth-donut');
-    render_donut_chart('sixth-donut');
-    render_donut_chart('seventh-donut');
   }
   if ($('#cirtical-important-system').length == 1) {
     render_donut_chart('thirteen-donut-sm');

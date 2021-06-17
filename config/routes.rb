@@ -12,7 +12,11 @@ Rails.application.routes.draw do
   }
 
   namespace :admin do
-    resources :dashboard, only: %i[index]
+    resources :dashboard, only: %i[index] do
+      collection do
+        get :myAccount
+      end
+    end
     resources :institutions
     resources :products
     resources :channels

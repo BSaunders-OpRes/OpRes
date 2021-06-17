@@ -24,13 +24,77 @@ h1, h2, h3, h4, h5, h6, p {
   margin: 0;
 }
 
+.toggle-switch {
+  .switch {
+    width: 60px;
+    height: 34px;
+    position: relative;
+    display: inline-block;
+    input {
+      width: 0;
+      height: 0;
+      opacity: 0;
+    }
+  }
+
+  .slider {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    transition: .4s;
+    cursor: pointer;
+    position: absolute;
+    -webkit-transition: .4s;
+    background-color: $body-bg-color;
+    &:before {
+      left: 4px;
+      content: "";
+      bottom: 4px;
+      width: 26px;
+      height: 26px;
+      transition: .4s;
+      position: absolute;
+      background-color: $white;
+      -webkit-transition: .4s;
+    }
+  }
+
+
+  input:checked + .slider {
+    background-color: $black;
+  }
+
+  input:focus + .slider {
+    box-shadow: 0 0 1px $black;
+  }
+
+  input:checked + .slider {
+    &:before {
+      transform: translateX(26px);
+      -ms-transform: translateX(26px);
+      -webkit-transform: translateX(26px);
+    }
+  }
+
+  .slider.round {
+    border-radius: 34px;
+  }
+
+  .slider.round {
+    &:before {
+      border-radius: 50%;
+    }
+  }
+}
+
 .toast {
   opacity: 1 !important;
 }
 
 .disable {
   pointer-events: none;
-  color: #999 !important;
+  color: $medium-grey !important;
 }
 .back-btn {
   .back-btn-header {
@@ -208,7 +272,7 @@ a {
 }
 .form-control:disabled {
   opacity: .4 !important;
-  background: #fff !important;
+  background: $white !important;
 }
 
 ::-webkit-input-placeholder {
@@ -230,7 +294,7 @@ textarea {
   background: $body-bg-color;
 }
 .black-border-card {
-  border: 3px solid #000;
+  border: 3px solid $black;
   background: $body-bg-color;
 }
 .cursor-pointer {
@@ -475,7 +539,7 @@ footer {
   height: 100%;
   border-radius: 0;
   box-shadow: none;
-  background: #fff;
+  background: $white;
   align-items: center;
   display: inline-flex;
   justify-content: space-evenly;
@@ -486,7 +550,7 @@ footer {
     display: flex;
     padding: 10px;
     cursor: pointer;
-    background: #fff;
+    background: $white;
     align-items: center;
     border-radius: 0.25rem;
     border: 1px solid #ced4da;
@@ -513,10 +577,10 @@ footer {
       &:checked {
         ~ {
           .option-1 {
-            background: #000000;
-            border-color: #000000;
+            background: $black;
+            border-color: $black;
             span {
-              color: #fff;
+              color: $white;
             }
           }
         }
@@ -528,10 +592,10 @@ footer {
       &:checked {
         ~ {
           .option-2 {
-            background: #000000;
-            border-color: #000000;
+            background: $black;
+            border-color: $black;
             span {
-              color: #fff;
+              color: $white;
             }
           }
         }
@@ -550,6 +614,19 @@ footer {
     .option-2 {
       border-top-left-radius: 5px;
       border-bottom-left-radius: 5px;
+    }
+  }
+  .toggle-switch {
+    .switch {
+      width: 52px;
+      height: 24px;
+      .slider {
+        &:before {
+          left: 5px;
+          width: 16px;
+          height: 16px;
+        }
+      }
     }
   }
 }

@@ -1,0 +1,312 @@
+<div id='my-account' class="my-account">
+  <div class="row no-gutters mb-md-5">
+    <div class="col-sm-12 px-1">
+      <div class="d-flex justify-content-between align-items-center flex-wrap">
+        <div class="left d-flex align-items-center flex-wrap">
+          <div class="mr-4 back-btn mb-2 mb-sm-0 ">
+            <%= render 'layouts/partials/shared/redirect_back', path: organisation_dashboard_index_path %>
+          </div>
+          <h2 class="font-500 font-sm-18 font-25 text-capitalize">My Account</h2>
+        </div>
+        <div class="right d-flex mt-3 mt-lg-0">
+          <div class="white-btn p-2 d-flex align-items-center">
+            <i class="fa fa-ellipsis-v px-2"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="secondary-sidebar d-none">
+    <i class='fa fa-ellipsis-v fa-1x font-18'></i>
+  </div>
+  <div class="row no-gutters mt-4">
+    <div class="col-sm-3 col-xxl-2 px-1">
+      <aside class="fixed-secondary-sidebar position-static" id='sticky-sidebar-demo'>
+        <i class="fa fa-times-circle fa-1x d-none"></i>
+        <ul class="p-0 list-unstyled inner-wrapper-sticky">
+          <li class="links active-white mb-2">
+            <a href="#my-details" class=" text-decoration-none text-capitalize font-13 font-xxl-14 d-block py-2">My Details</a>
+          </li>
+          <li class="links mb-2">
+            <a href="#overview" class=" text-decoration-none text-capitalize font-13 font-xxl-14 d-block py-2">Access</a>
+          </li>
+          <li class="links mb-2">
+            <a href="#notification" class=" text-decoration-none text-capitalize font-13 font-xxl-14 d-block py-2">Notification</a>
+          </li>
+        </ul>
+      </aside>
+    </div>
+    <div class="col-sm-9 col-xxl-10 px-1">
+      <div class="w-100">
+        <div class="content-area">
+          <div id="my-details">
+            <div class="card border-0 rounded-50 mb-4">
+              <div class="card-body">
+                <div class="d-flex align-items-center justify-content-between">
+                  <h5 class="font-16 font-600 text-capitalize">overview</h5>
+                  <i class="fa fa-ellipsis-v"></i>
+                </div>
+                <div class="input-fields mt-5">
+                  <div class="row align-items-center mb-4">
+                    <div class="col-sm-4 flex-sm-1 mb-2 mb-sm-0">
+                      <p class="text-capitalize font-14 font-600">first name</p>
+                    </div>
+                    <div class="col-sm-6 order-3 order-sm-2">
+                      <input type="text" class='w-100 form-control font-12 h-auto py-3 shadow-none' placeholder="First Name">
+                    </div>
+                    <div class="col-sm-2 text-right order-2 flex-sm-half mb-2 mb-sm-0">
+                      <div class="info" data-toggle="tooltip" data-placement="top" title="business service line name" aria-hidden="true">i</div>
+                    </div>
+                  </div>
+                  <div class="row align-items-center mb-4">
+                    <div class="col-sm-4 flex-sm-1 mb-2 mb-sm-0">
+                      <p class="text-capitalize font-14 font-600">last name</p>
+                    </div>
+                    <div class="col-sm-6 order-3 order-sm-2">
+                      <input type="text" class='w-100 form-control font-12 h-auto py-3 shadow-none' placeholder="last Name">
+                    </div>
+                    <div class="col-sm-2 text-right order-2 flex-sm-half mb-2 mb-sm-0">
+                      <div class="info" data-toggle="tooltip" data-placement="top" title="business service line name" aria-hidden="true">i</div>
+                    </div>
+                  </div>
+                  <div class="row align-items-center mb-4">
+                    <div class="col-sm-4 flex-sm-1 mb-2 mb-sm-0">
+                      <p class="text-capitalize font-14 font-600">title</p>
+                    </div>
+                    <div class="col-sm-6 order-3 order-sm-2">
+                      <input type="text" class='w-100 form-control font-12 h-auto py-3 shadow-none' placeholder="Mr">
+                    </div>
+                    <div class="col-sm-2 text-right order-2 flex-sm-half mb-2 mb-sm-0">
+                      <div class="info" data-toggle="tooltip" data-placement="top" title="business service line name" aria-hidden="true">i</div>
+                    </div>
+                  </div>
+                  <div class="row align-items-center mb-4">
+                    <div class="col-sm-4 flex-sm-1 mb-2 mb-sm-0">
+                      <p class="text-capitalize font-14 font-600">email address</p>
+                    </div>
+                    <div class="col-sm-6 order-3 order-sm-2">
+                      <input type="text" class='w-100 form-control font-12 h-auto py-3 shadow-none' placeholder="email@example.com">
+                    </div>
+                    <div class="col-sm-2 text-right order-2 flex-sm-half mb-2 mb-sm-0">
+                      <div class="info" data-toggle="tooltip" data-placement="top" title="business service line name" aria-hidden="true">i</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div id="overview">
+            <div class="card border-0 rounded-50 mb-4">
+              <div class="card-body">
+                <div class="d-flex align-items-center justify-content-between">
+                  <h5 class="font-16 font-600 text-capitalize">access</h5>
+                  <i class="fa fa-ellipsis-v"></i>
+                </div>
+                <div class="input-fields mt-5">
+                  <div class="row mb-4">
+                    <div class="col-sm-4 flex-sm-1 mb-2 mb-sm-0">
+                      <p class="text-capitalize font-14 font-600 mb-4">user profile permissions</p>
+                    </div>
+                    <div class="col-sm-6 order-3 order-sm-2">
+                      <div class="d-flex flex-column">
+                        <label for="ch1" class="custom-checkbox mb-4 d-flex align-items-center p-0">
+                          <span class="order-2 pl-2 text-capitalize font-13 font-xxl-14 font-400">root user</span>
+                          <input type="checkbox" id='ch1' checked="checked">
+                          <span class="checkmark position-relative order-1"></span>
+                        </label>
+                        <label for="ch2" class="custom-checkbox mb-4 d-flex align-items-center p-0">
+                          <span class="order-2 pl-2 text-capitalize font-13 font-xxl-14 font-400">super user</span>
+                          <input type="checkbox" id='ch2'>
+                          <span class="checkmark position-relative order-1"></span>
+                        </label>
+                        <label for="ch3" class="custom-checkbox mb-4 d-flex align-items-center p-0">
+                          <span class="order-2 pl-2 text-capitalize font-13 font-xxl-14 font-400">user</span>
+                          <input type="checkbox" id='ch3' checked="checked">
+                          <span class="checkmark position-relative order-1"></span>
+                        </label>
+                      </div>
+                    </div>
+                    <div class="col-sm-2 text-right order-2 flex-sm-half mb-2 mb-sm-0">
+                      <div class="info" data-toggle="tooltip" data-placement="top" title="business service line name" aria-hidden="true">i</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="input-fields mt-5">
+                  <div class="row mb-4">
+                    <div class="col-sm-4 flex-sm-1 mb-2 mb-sm-0">
+                      <p class="text-capitalize font-14 font-600 mb-4">regional data access permissions</p>
+                    </div>
+                    <div class="col-sm-6 order-3 order-sm-2">
+                      <div class="d-flex flex-column">
+                        <label for="ch4" class="custom-checkbox mb-4 d-flex align-items-center p-0">
+                          <span class="order-2 pl-2 text-capitalize font-13 font-xxl-14 font-400">root user</span>
+                          <input type="checkbox" id='ch4'>
+                          <span class="checkmark position-relative order-1"></span>
+                        </label>
+                        <label for="ch5" class="custom-checkbox mb-4 d-flex align-items-center p-0">
+                          <span class="order-2 pl-2 text-capitalize font-13 font-xxl-14 font-400">super user</span>
+                          <input type="checkbox" id='ch5' checked="checked">
+                          <span class="checkmark position-relative order-1"></span>
+                        </label>
+                        <label for="ch6" class="custom-checkbox mb-4 d-flex align-items-center p-0">
+                          <span class="order-2 pl-2 text-capitalize font-13 font-xxl-14 font-400">user</span>
+                          <input type="checkbox" id='ch6'>
+                          <span class="checkmark position-relative order-1"></span>
+                        </label>
+                      </div>
+                    </div>
+                    <div class="col-sm-2 text-right order-2 flex-sm-half mb-2 mb-sm-0">
+                      <div class="info" data-toggle="tooltip" data-placement="top" title="business service line name" aria-hidden="true">i</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div id="notification" class="notification">
+            <div class="card border-0 rounded-50">
+              <div class="card-body">
+                <div class="d-flex align-items-center justify-content-between">
+                  <h5 class="font-16 font-600 text-capitalize">notifications</h5>
+                  <i class="fa fa-ellipsis-v"></i>
+                </div>
+                <div class="input-fields mt-5">
+                  <div class="toggle-switch">
+                    <div class="row mb-4">
+                      <div class="col-sm-10 flex-sm-1 order-1 order-sm-2">
+                        <div class="toggle-btn">
+                          <label class="switch checked align-middle mb-0 mr-md-4">
+                            <input type="checkbox" checked>
+                            <span class="slider round"></span>
+                          </label>
+                          <span class="align-middle font-sm-12">Active Notification</span>
+                        </div>
+                      </div>
+                      <div class="col-sm-2 text-right order-2 flex-sm-half mb-0">
+                        <a href="#">
+                          <%= image_pack_tag 'media/images/trash.png', class: 'img-fluid' %>
+                        </a>
+                      </div>
+                    </div>
+                    <div class="row mb-4">
+                      <div class="col-sm-10 flex-sm-1 order-1 order-sm-2">
+                        <div class="toggle-btn">
+                          <label class="switch checked align-middle mb-0 mr-md-4">
+                            <input type="checkbox" checked>
+                            <span class="slider round"></span>
+                          </label>
+                          <span class="align-middle font-sm-12">Subscriptions</span>
+                        </div>
+                      </div>
+                      <div class="col-sm-2 text-right order-2 flex-sm-half mb-0">
+                        <a href="#">
+                          <%= image_pack_tag 'media/images/trash.png', class: 'img-fluid' %>
+                        </a>
+                      </div>
+                    </div>
+                    <div class="row mb-4">
+                      <div class="col-sm-10 flex-sm-1 order-1 order-sm-2">
+                        <div class="toggle-btn">
+                          <label class="switch align-middle mb-0 mr-md-4">
+                            <input type="checkbox">
+                            <span class="slider round"></span>
+                          </label>
+                          <span class="align-middle font-sm-12">Business Service ABCD</span>
+                        </div>
+                      </div>
+                      <div class="col-sm-2 text-right order-2 flex-sm-half mb-0">
+                        <a href="#">
+                          <%= image_pack_tag 'media/images/trash.png', class: 'img-fluid' %>
+                        </a>
+                      </div>
+                    </div>
+                    <div class="row mb-4">
+                      <div class="col-sm-10 flex-sm-1 order-1 order-sm-2">
+                        <div class="toggle-btn">
+                          <label class="switch checked align-middle mb-0 mr-md-4">
+                            <input type="checkbox" checked>
+                            <span class="slider round"></span>
+                          </label>
+                          <span class="align-middle font-sm-12">Supplier ABCD</span>
+                        </div>
+                      </div>
+                      <div class="col-sm-2 text-right order-2 flex-sm-half mb-0">
+                        <a href="#">
+                          <%= image_pack_tag 'media/images/trash.png', class: 'img-fluid' %>
+                        </a>
+                      </div>
+                    </div>
+                    <div class="row mb-4">
+                      <div class="col-sm-10 flex-sm-1 order-1 order-sm-2">
+                        <div class="toggle-btn">
+                          <label class="switch checked align-middle mb-0 mr-md-4">
+                            <input type="checkbox" checked>
+                            <span class="slider round"></span>
+                          </label>
+                          <span class="align-middle font-sm-12">Supplier ABCD</span>
+                        </div>
+                      </div>
+                      <div class="col-sm-2 text-right order-2 flex-sm-half mb-0">
+                        <a href="#">
+                          <%= image_pack_tag 'media/images/trash.png', class: 'img-fluid' %>
+                        </a>
+                      </div>
+                    </div>
+                    <div class="row mb-4">
+                      <div class="col-sm-10 flex-sm-1 order-1 order-sm-2">
+                        <div class="toggle-btn">
+                          <label class="switch checked align-middle mb-0 mr-md-4">
+                            <input type="checkbox" checked>
+                            <span class="slider round"></span>
+                          </label>
+                          <span class="align-middle font-sm-12">Supplier ABCD</span>
+                        </div>
+                      </div>
+                      <div class="col-sm-2 text-right order-2 flex-sm-half mb-0">
+                        <a href="#">
+                          <%= image_pack_tag 'media/images/trash.png', class: 'img-fluid' %>
+                        </a>
+                      </div>
+                    </div>
+                    <div class="row mb-4">
+                      <div class="col-sm-10 flex-sm-1 order-1 order-sm-2">
+                        <div class="toggle-btn">
+                          <label class="switch align-middle mb-0 mr-md-4">
+                            <input type="checkbox">
+                            <span class="slider round"></span>
+                          </label>
+                          <span class="align-middle font-sm-12">Resilience Gap ABCD</span>
+                        </div>
+                      </div>
+                      <div class="col-sm-2 text-right order-2 flex-sm-half mb-0">
+                        <a href="#">
+                          <%= image_pack_tag 'media/images/trash.png', class: 'img-fluid' %>
+                        </a>
+                      </div>
+                    </div>
+                    <div class="row mb-4">
+                      <div class="col-sm-10 flex-sm-1 order-1 order-sm-2">
+                        <div class="toggle-btn">
+                          <label class="switch checked align-middle mb-0 mr-md-4">
+                            <input type="checkbox" checked>
+                            <span class="slider round"></span>
+                          </label>
+                          <span class="align-middle font-sm-12">Resilience Gap ABCD</span>
+                        </div>
+                      </div>
+                      <div class="col-sm-2 text-right order-2 flex-sm-half mb-0">
+                        <a href="#">
+                          <%= image_pack_tag 'media/images/trash.png', class: 'img-fluid' %>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
