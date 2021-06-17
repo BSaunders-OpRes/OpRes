@@ -50,7 +50,7 @@ class Organisation::SuppliersController < Organisation::BaseController
   end
 
   def load_supplier
-    @supplier = Supplier.where(unit_id: managing_unit.inclusive_children.map(&:id)).find(params[:id])
+    @supplier = Supplier.where(unit_id: managing_nodes).find(params[:id])
   end
 
   def prepare_form_data

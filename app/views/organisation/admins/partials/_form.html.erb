@@ -6,7 +6,7 @@
           <% index= 0 %>
           <h2 class="text-capitalize font-300 mb-2">Invite administrator</h2>
           <p class="font-12 font-xxl-14">
-            Please provide the details for users in this region. Users can be set up as <strong> "Root Users",<strong> "Super Users"</strong> or <strong>"Standard Users"</strong>.
+            Please provide the details for users in this region. Users can be set up as <strong> "Root Users", "Super Users" or "Standard Users"</strong>.
             Root Users have the ability to execute the OpRes Onboarding Wizard. They can also add new, update, amend and delete business service and supplier records across all regions.
             Super Users can add new, update, amend and delete existing business service & supplier records in their region.
             Standard Users can only view existing records in their region.
@@ -52,7 +52,7 @@
                   <%= text_area_tag 'users[multiple][csv]', nil, class: 'form-control font-12', placeholder: 'Email Addresses (Seperate emails with a comma)', cols: '30', rows: '4' %>
                 </div>
                 <div class="form-group col-md-3">
-                  <%= select_tag 'users[multiple][permission]', options_for_select(Manager.permissions.map { |k, v| [k.titleize, k] }), multiple: false, class: 'form-control w-100 font-12 shadow-none' %>
+                  <%= select_tag 'users[multiple][role]', options_for_select(User.invitiable_users), multiple: false, class: 'form-control w-100 font-12 shadow-none' %>
                 </div>
               </div>
               <div class="row">

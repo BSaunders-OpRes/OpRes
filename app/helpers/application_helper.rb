@@ -13,11 +13,11 @@ module ApplicationHelper
   end
 
   def determine_user_redirect_path
-    if current_user&.app_admin?
+    if current_user&.application_admin?
       admin_dashboard_index_path
-    elsif current_user&.org_admin?
+    elsif current_user&.root_user?
       organisation_dashboard_index_path
-    elsif current_user&.unit_admin?
+    elsif current_user.super_or_standard_user?
       organisation_dashboard_index_path
     else
       root_path
@@ -42,6 +42,30 @@ module ApplicationHelper
     return {} unless bsl.persisted?
     {} unless bsl.unit.institution_unit?
     [bsl.unit.parent.name, bsl.unit.parent.id]
+  end
+
+  def all_countries_from_region(bsl)
+    return {} unless bsl.persisted?
+    bsl_region = bsl.unit.parent.parent
+    bsl_region.children.map{|country| [country.name, country.id]}
+  end
+
+  def all_institution_from_country(bsl)
+    return {} unless bsl.persisted?
+    bsl_country = bsl.unit.parent
+    bsl_country.children.map{ |institution| [institution.name, institution.id]}
+  end
+
+  def all_products_from_institution(bsl)
+    return {} unless bsl.persisted?
+    products = bsl.unit.unit_level_products.distinct
+    products.map{|product| [product.name, product.id]}
+  end
+
+  def all_channels_from_product(bsl)
+    return {} unless bsl.persisted?
+    channels = Channel.joins(unit_product_channels: [:unit_product]).where(unit_products: { id: bsl.unit.unit_products.ids }).distinct
+    channels.map{|channel| [channel.name, channel.id]}
   end
 
   def find_institute(bsl)

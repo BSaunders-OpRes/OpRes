@@ -11,7 +11,7 @@ module Firm::ChildrenConcern
     end
 
     def inclusive_children
-      exclusive_children.unshift(self)
+      include_children.exclusive_children.unshift(self)
     end
 
     def exclusive_children

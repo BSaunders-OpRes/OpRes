@@ -14,7 +14,7 @@ class BusinessServiceLine < ApplicationRecord
   has_many :channels, through: :business_service_line_channels
 
   # Enums #
-  enum tier: %i[1st 2nd 3rd 4th]
+  enum tier: %i[tier_1 tier_2 tier_3 tier_4]
 
   # Todo #
   # add institution in validation

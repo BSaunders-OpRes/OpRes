@@ -1,6 +1,6 @@
 class Admin::DashboardController < Admin::BaseController
   def index
-    @users_by_month = User.where('role != ?', User.roles[:app_admin])
+    @users_by_month = User.where('role != ?', User.roles[:application_admin])
                          .where(created_at: ((Time.now - 4.months).at_beginning_of_month)..(Time.now.at_end_of_month))
                          .group("date_trunc('month', created_at)").count
 

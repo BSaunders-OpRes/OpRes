@@ -112,7 +112,7 @@
             <p class="text-capitalize font-14 font-600">region</p>
           </div>
           <div class="col-sm-7 order-3 order-sm-2 load-countries-from-region" data-append-countries-to="supplier_country" data-country-param-name="supplier[country]">
-            <%= render '/organisation/units/partials/drop_down', param_name: 'supplier[region]', options: managing_unit.regional_dropdown, val: {}, prompt_message: "Select your region" %>
+            <%= render '/organisation/units/partials/drop_down', param_name: 'supplier[region]', options: Unit.regional_dropdown(@managing_units), val: {}, prompt_message: "Select your region" %>
           </div>
           <div class="col-sm-1 text-right order-2 flex-sm-half mb-2 mb-sm-0">
             <div class="info" data-toggle="tooltip" data-placement="top" title="region" aria-hidden="true">i</div>
@@ -123,7 +123,7 @@
             <p class="text-capitalize font-14 font-600">country</p>
           </div>
           <div class="col-sm-7 order-3 order-sm-2 countries-dropdown">
-            <%= render 'organisation/units/partials/drop_down', param_name: 'supplier[country]', options: managing_unit.country_dropdown, val: {}, prompt_message: "Select your country" %>
+            <%= render 'organisation/units/partials/drop_down', param_name: 'supplier[country]', options: [], val: {}, prompt_message: "Select your country" %>
           </div>
           <div class="col-sm-1 text-right order-2 flex-sm-half mb-2 mb-sm-0">
             <div class="info" data-toggle="tooltip" data-placement="top" title="country" aria-hidden="true">i</div>

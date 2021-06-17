@@ -11,12 +11,9 @@ class Organisation::BaseController < ApplicationController
 
   private
 
+  # Organisation Namespace Data Loaders #
   def authenticate_organisation_users
-    redirect_to root_path, alert: 'Access Denied!' unless current_user.org_admin? || current_user.unit_admin?
-  end
-
-  def authenticate_org_admin
-    redirect_to organisation_dashboard_index_path, alert: 'Access Denied!' unless current_user.org_admin?
+    redirect_to root_path, alert: 'Access Denied!' if current_user.application_admin?
   end
 
   def load_organisational_unit
@@ -24,10 +21,15 @@ class Organisation::BaseController < ApplicationController
   end
 
   def load_managing_unit
-    @managing_unit = if current_user.org_admin?
-      current_user.unit.include_children
-    elsif current_user.unit_admin?
-      current_user.managing_units.first.include_children
-    end
+    @managing_units = current_user.managing_units
+  end
+
+  # Organisation Namespace Helpers #
+  def authenticate_root_user
+    redirect_to organisation_dashboard_index_path, alert: 'Access Denied!' unless current_user.root_user?
+  end
+
+  def managing_nodes
+    @managing_nodes = @managing_units.map(&:inclusive_children).flatten.map(&:id)
   end
 end

@@ -9,6 +9,6 @@
     <%= email_field_tag "users[single][data][#{index}][email]", nil, class: 'form-control font-12 py-3 shadow-none', placeholder:'Email' %>
   </div>
   <div class="form-group col-md-3 px-1 mb-2">
-    <%= select_tag "users[single][data][#{index}][permission]", options_for_select(Manager.permissions.map { |k, v| [k.titleize, k] }),prompt: 'Permissions', multiple: false, class: 'form-control w-100 font-12 shadow-none' %>
+    <%= select_tag "users[single][data][#{index}][role]", options_for_select(User.invitiable_users),prompt: 'Permissions', multiple: false, class: 'form-control w-100 font-12 shadow-none' %>
   </div>
 </div>

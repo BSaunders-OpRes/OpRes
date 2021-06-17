@@ -1,5 +1,5 @@
 class Organisation::ChannelsController < Organisation::BaseController
-  before_action :authenticate_org_admin
+  before_action :authenticate_root_user
   before_action :load_channel, only: %i[edit update show destroy]
 
   def index

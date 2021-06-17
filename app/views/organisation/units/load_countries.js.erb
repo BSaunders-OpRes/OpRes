@@ -4,3 +4,5 @@
   $("#<%= params[:append_countries_to] %>").html("<%= j(render 'organisation/units/partials/drop_down', param_name: params[:country_param_name], options: {}, val: {}, prompt_message: 'Select your country') %>");
 <% end %>
 $("#<%= params[:append_institutions_to] %>").html("<%= j(render 'organisation/units/partials/drop_down', param_name: params[:institution_param_name], options: {}, val: {}, prompt_message: 'Select your institution') %>");
+$("#<%= params[:append_products_to] %>").html("<%= j(render 'organisation/units/partials/check_box', param_name: params[:product_param_name], options: {}, val: {} ) %>");
+$("#<%= params[:append_channels_to] %>").html("<%= j(render 'organisation/units/partials/check_box', param_name: params[:channel_param_name], options: {}, val: {} ) %>");

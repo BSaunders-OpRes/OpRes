@@ -2,24 +2,9 @@ module Firm::DropdownConcern
   extend ActiveSupport::Concern
 
   included do
-    def can_access_regional_dropdown?
-      organisational_unit?
-    end
 
-    def can_access_country_dropdown?
-      organisational_unit? || regional_unit?
-    end
-
-    def can_access_institution_dropdown?
-      organisational_unit? || regional_unit? || country_unit?
-    end
-
-    def regional_dropdown
-      if organisational_unit?
-        children.map { |c| [c.name, c.id] }
-      else
-        []
-      end
+    def self.regional_dropdown(managing_units)
+      managing_units.map{ |managing_unit| [managing_unit.name, managing_unit.id] }
     end
 
     def country_dropdown
