@@ -1,4 +1,14 @@
 document.addEventListener('turbolinks:load', function() {
+  /******************** Page Load Logics ********************
+  **********************************************************/
+  if ($('#bsl-risks').length >= 1) {
+    $('#bsl-risks .bsl-risk-slider').each(function() {
+      bsl_risk_slider_fill($(this));
+    });
+  }
+
+  /******************** Event Bindings ********************
+  ********************************************************/
   $('#bsl-tab li').click(function() {
     href  = $(this).find('a').attr('href');
     parts = href.split('-');
@@ -38,16 +48,9 @@ document.addEventListener('turbolinks:load', function() {
     }
   });
 
-  $('body').on('click', '.supplier_form_submit_btn', function(e) {
+  $('body').on('click', '.bsl-step-supplier-form-submit-btn', function(e) {
     e.preventDefault();
-
-    const id = $(this).data('stepid')
-    const openedModal = $(this).closest('.modal')
-    const name = openedModal.find('#name').val();
-    const party_type = openedModal.find('#party_type').val();
-    const country_unit = openedModal.find('#supplier_country').val();
-    const input_fields = $(this).closest('form').find("input[type=text], select");
-    let   status = openedModal.find("input[name='supplier_status']:checked").val();
+    var opened_modal = $(this).parents('.modal.add-supplier-modal.show');
 
     $.ajax({
       url:  '/organisation/suppliers/',
@@ -55,53 +58,91 @@ document.addEventListener('turbolinks:load', function() {
       type: 'POST',
       data: {
         supplier: {
-          name,
-          party_type,
-          country_unit,
-          status
+          name:         opened_modal.find("input[name='supplier[name]']").val(),
+          party_type:   opened_modal.find("select[name='supplier[party_type]']").val(),
+          status:       opened_modal.find("input[name='supplier[status]']:checked").val(),
+          country_unit: opened_modal.find("select[name='supplier[country]']").val()
         }
       },
-      success: function(element){
-        const supplier = JSON.parse(element)
+      success: function(element) {
+        var supplier     = JSON.parse(element);
+        var opened_modal = $('.modal.add-supplier-modal.show');
 
         toastr.options = { closeButton: true, progressBar: true }
-        if(supplier.errors) {
-          return supplier.errors.forEach(function(error, index) {
-            toastr.error(error)
-          })
-        }
 
-        const newSupplier = new Option(supplier.resp.name, supplier.resp.id, false, true)
-        $('.supplier-selector').append(newSupplier).trigger('change');
-        toastr.success('Supplier created successfully!')
-        input_fields.val('');
+        if (supplier.errors) {
+          supplier.errors.forEach(function(error, index) {
+            toastr.error(error)
+          });
+        } else {
+          var new_supplier = new Option(supplier.resp.name, supplier.resp.id, false, false);
+          $('#bsl-steps .bsl-step-supplier-selector').append(new_supplier).trigger('change');
+          var current_supplier_selector = opened_modal.find('.bsl-step-supplier-selector');
+          var current_supplier_values   = current_supplier_selector.val();
+          current_supplier_values.push(supplier.resp.id);
+          current_supplier_selector.val(current_supplier_values);
+          current_supplier_selector.select2().trigger('change');
+          opened_modal.find(":input[name^='supplier']").val('');
+          toastr.success('Supplier created successfully!');
+        }
       }
     });
   });
 
-  $('body').on('click', '.delete-supplier', function(e){
-    //To delete a supplier from bsl steps
+  $('#bsl-steps')
+  .on('cocoon:after-insert', function(e, insertedItem) {
+    bsl_assign_step_number();
+
+    new_elem  = $(insertedItem[0]);
+    timestamp = new_elem.find('.bsl-step-field:first').attr('name').split('][')[1];
+
+    new_elem.find('.select2').select2();
+
+    new_elem.find('.bsl-step-supplier-modal-opener').attr('data-target', '#bsl-step-supplier-modal-' + timestamp);
+    new_elem.find('.bsl-step-supplier-modal').attr('id', 'bsl-step-supplier-modal-' + timestamp);
+
+    new_elem.find('.bsl-step-supplier-status.critical-radio').attr('id', 'critical-' + timestamp);
+    new_elem.find('.bsl-step-supplier-status.critical-radio').siblings('label').attr('for', 'critical-' + timestamp);
+
+    new_elem.find('.bsl-step-supplier-status.important-radio').attr('id', 'important-' + timestamp);
+    new_elem.find('.bsl-step-supplier-status.important-radio').siblings('label').attr('for', 'important-' + timestamp);
+
+    new_elem.find('.load-countries-from-region').attr('data-append-countries-to', 'bsl-step-supplier-country-' + timestamp);
+    new_elem.find('.bsl-step-supplier-countries').attr('id', 'bsl-step-supplier-country-' + timestamp);
+  })
+  .on('cocoon:after-remove', function(e) {
+    bsl_assign_step_number();
   });
 
-  $('#dynamic-bsl-steps-block').on('cocoon:after-insert', function(e, insertedItem) {
-    new_elem    = $(this).find('.nested-fields').last()
-    new_elem_modal = $(this).find('.modal').last()
-    step_number = $(this).find('.nested-fields').length
-    id = insertedItem.find('.step-fields').first().attr('id').split('_').slice(-2)[0]
-
-    new_elem.find('#step-number').text('Step ' + step_number)
-    new_elem.find('.toggle-modal').attr('data-target', '#new_supplier_modal_' + step_number)
-    new_elem_modal.find('#modal-step-number').text('add supplier to step ' + step_number)
-    new_elem_modal.attr('id', 'new_supplier_modal_' + step_number)
-
-    insertedItem.find('.supplier-selector').attr('name', 'business_service_line[steps_attributes][' + id + '][supplier_ids][]')
-    insertedItem.find('.critical-radio').attr('id', 'critical-' + step_number)
-    insertedItem.find('.critical-label').attr('for', 'critical-' + step_number)
-    insertedItem.find('.important-radio').attr('id', 'important-' + step_number)
-    insertedItem.find('.important-label').attr('for', 'important-' + step_number)
-    insertedItem.find('.supplier-selector').attr('id', 'supplier-selector-' + step_number)
-    insertedItem.find('.supplier_form_submit_btn').attr('data-stepid', step_number)
-    insertedItem.find('.select2').select2();
+  $('body').on('input', '.bsl-risk-slider', function() {
+    bsl_risk_slider_fill($(this));
   });
+
+  // $('body').on('click', '#save-bsl-form', function(e) {
+  //   e.preventDefault();
+  //   form = $(this).parents('#bsl-form');
+
+  //   if (form.valid()) {
+  //     return form.submit();
+  //   } else {
+  //     return false;
+  //   }
+  // });
+
+  /******************** Helper Methods ********************
+  ********************************************************/
+  function bsl_assign_step_number() {
+    $('#bsl-steps .nested-fields').each(function(index) {
+      $(this).find('.bsl-step-number').text(index + 1);
+      $(this).find('.bsl-step-number-field').val(index + 1);
+    });
+  }
+
+  function bsl_risk_slider_fill(e) {
+    var parent = e.parents('.nested-fields');
+    var value  = e.val();
+
+    parent.find('.bsl-risk-slider-value').val(value);
+    e.css({ 'background': 'linear-gradient(to right, #000 0%, #000 ' + value + '%, #F3F5FA ' + value + '%, #F3F5FA 100%)' });
+  }
 });
-

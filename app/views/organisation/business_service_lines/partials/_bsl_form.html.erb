@@ -1,11 +1,11 @@
-<%= form_for bsl, url: new_or_create ? organisation_business_service_lines_path : organisation_business_service_line_path, method: new_or_create ? :post : :patch do |form| %>
+<%= form_for bsl, url: new_or_create ? organisation_business_service_lines_path : organisation_business_service_line_path, method: new_or_create ? :post : :patch, html: { id: 'bsl-form' } do |form| %>
   <div class="col-sm-12 col-md-10 col-lg-8 col-xxl-10 mx-auto bsl-container">
     <div class="shadow-sm card">
       <div class="card-body">
         <%= render 'layouts/partials/shared/redirect_back', path: organisation_administration_portal_index_path %>
         <div class="wizard-body">
           <div class="wizard-header my-4">
-            <h4 class="mb-4 font-weight-bold"><%= new_or_create ? 'Add a new business service line' : 'Edit business service line' %> </h4>
+            <h4 class="mb-4 font-weight-bold"><%= new_or_create ? 'Add a new business service line' : 'Edit business service line' %></h4>
             <div class="tab-content mt-5" id="bsl-desc">
               <p id="about-desc" data-toggle="tab" href="#about" role="tab" aria-controls="home" aria-selected="true">As part of adding a new business service line, you are requrired to provide context and information about it's purpose, core functionality and channels</p>
 
@@ -48,7 +48,7 @@
           <button type="button" id="bsl-previous-btn" class="btn btn-light-grey btn-sm font-600 text-capitalize font-12 mb-3 mb-sm-0">previous</button>
           <button type="proceed-btn" id="bsl-proceed-btn" class="btn btn-sm font-600 text-capitalize font-12 float-right ml-0 ml-sm-2 dark-btn w-sm-25 w-100 mb-3 mb-sm-0">proceed</button>
 
-          <%= form.submit 'Save & close', class: 'btn btn-light-grey btn-sm font-600 text-capitalize font-12 float-right btn-light-grey' %>
+          <%= form.submit 'Save & close', class: 'btn btn-light-grey btn-sm font-600 text-capitalize font-12 float-right btn-light-grey', id: 'save-bsl-form' %>
         </div>
       </div>
     </div>

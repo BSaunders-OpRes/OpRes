@@ -1,14 +1,14 @@
 <div class="progress-fields mb-5 pb-5 border-bottom nested-fields">
   <div class="row align-items-center">
     <div class="col-md-12 mb-4 custom-placeholder position-relative">
-      <%= f.text_field :name, placeholder: 'Risk appetite title',class: 'form-control border-top-0 border-left-0 border-right-0 rounded-0 text-capitalize font-14 font-600 pl-0 border-bottom shadow-none', required: true %>
+      <%= f.text_field :name, placeholder: 'Risk appetite title', class: 'form-control border-top-0 border-left-0 border-right-0 rounded-0 font-14 font-600 pl-0 border-bottom shadow-none', required: true %>
       <i class="fa fa-pencil" aria-hidden="true"></i>
     </div>
     <div class="col-md-7 d-flex align-items-center mb-sm-0 mb-2">
       <div class="slidecontainer d-flex align-items-center w-100">
         <span class="font-12 font-300 mr-2 light-text text-capitalize font-600">very low</span>
         <div class="chrome flex-1">
-          <%= f.range_field :risk_appetite_value ,min:'0', max: '100', class:'w-100 myinput', id:'myinput_one', value: '0', required: true %>
+          <%= f.range_field :risk_appetite_value, min:'0', max: '100', class: 'w-100 myinput bsl-risk-slider', required: true %>
         </div>
         <span class="font-12 font-300 ml-2 light-text text-capitalize font-600">very high</span>
       </div>
@@ -18,7 +18,7 @@
         <div class="input-group-prepend">
           <div class="input-group-text px-3 bg-white font-12">%</div>
         </div>
-        <input type="number"  value= '0' class="form-control form-control font-12 h-auto py-3 shadow-none" id="demo1" placeholder="0" value=0>
+        <input type="number" value="<%= f.object.risk_appetite_value || 0 %>" class="form-control form-control font-12 h-auto py-3 shadow-none bsl-risk-slider-value" placeholder="0" value=0>
       </div>
       <a href="" class="btn font-13 font-500 text-capitalize pink-btn font-600 ml-1 py-3">medium</a>
     </div>
@@ -37,13 +37,19 @@
         </div>
       </div>
       <div class="d-flex justify-content-between align-items-center mt-2">
-        <small class="small text-capitalize light-text font-10 font-400">jane doe 12th March 2021 14:19</small>
+        <% if f.object.persisted? %>
+          <small class="small text-capitalize light-text font-10 font-400">
+            <%= f.object.creator_info %>
+          </small>
+        <% else %>
+          <small></small>
+        <% end %>
         <%= link_to_remove_association f, class: 'font-12 text-danger text-right' do %>
           <i class="fa fa-trash" aria-hidden="true"></i>
           <span> Remove Risk Appetite </span>
         <% end %>
       </div>
-      <%= f.hidden_field "creator_id", value: @current_user.id %>
+      <%= f.number_field :creator_id, value: (f.object.creator_id.presence || current_user.id), class: 'd-none' %>
     </div>
   </div>
 </div>

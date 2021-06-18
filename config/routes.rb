@@ -29,7 +29,7 @@ Rails.application.routes.draw do
     resources :channels
     resources :business_service_lines
     resources :suppliers
-    resources :units, only: [] do
+    resources :unit_hierarchys, only: %i[] do
       get :load_countries,         on: :collection
       get :load_institutions,      on: :collection
       get :load_products_channels, on: :collection
