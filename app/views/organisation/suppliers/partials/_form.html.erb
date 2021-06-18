@@ -117,8 +117,12 @@
           <div class="col-sm-4 flex-sm-1 mb-2 mb-sm-0">
             <p class="text-capitalize font-14 font-600">region</p>
           </div>
-          <div class="col-sm-7 order-3 order-sm-2 load-countries-from-region" data-append-countries-to="countries-dropdown" data-append-institutions-to="" data-country-param-name="supplier[country_unit]" data-institution-param-name="">
-            <%= render '/organisation/units/partials/drop_down', param_name: 'supplier[region]', options: Unit.regional_dropdown(managing_units), val: find_supplier_region(supplier), prompt_message: "Select your region" %>
+          <div class="col-sm-7 order-3 order-sm-2 load-countries-from-region"
+            data-append-countries-to="countries-dropdown"
+            data-country-param-name="supplier[country_unit]"
+          >
+            <% selected_regional_unit = @supplier.unit&.selected_regional_unit %>
+            <%= render '/organisation/unit_hierarchys/partials/drop_down', param_name: 'supplier[region]', options: Unit.regional_unit_dropdown(managing_units), val: selected_regional_unit&.id, prompt_message: 'Select your region' %>
           </div>
           <div class="col-sm-1 text-right order-2 flex-sm-half mb-2 mb-sm-0">
             <div class="info" data-toggle="tooltip" data-placement="top" title="region" aria-hidden="true">i</div>
@@ -128,9 +132,9 @@
           <div class="col-sm-4 flex-sm-1 mb-2 mb-sm-0">
             <p class="text-capitalize font-14 font-600">country</p>
           </div>
-          <div class="col-sm-7 order-3 order-sm-2" id="countries-dropdown" >
-            <%= render 'organisation/units/partials/drop_down', param_name: 'supplier[country_unit]',
-            options: params[:action] == 'edit' ? supplier_find_country(supplier) : [], val: find_supplier_country(supplier), prompt_message: "Select your country" %>
+          <div class="col-sm-7 order-3 order-sm-2" id="countries-dropdown">
+            <% selected_country_unit = @supplier.unit&.selected_country_unit %>
+            <%= render 'organisation/unit_hierarchys/partials/drop_down', param_name: 'supplier[country_unit]', options: (selected_regional_unit&.country_unit_dropdown || []), val: selected_country_unit&.id, prompt_message: 'Select your country' %>
           </div>
           <div class="col-sm-1 text-right order-2 flex-sm-half mb-2 mb-sm-0">
             <div class="info" data-toggle="tooltip" data-placement="top" title="country" aria-hidden="true">i</div>
