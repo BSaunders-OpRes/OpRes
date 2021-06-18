@@ -30,6 +30,6 @@ class Organisation::BaseController < ApplicationController
   end
 
   def managing_nodes
-    @managing_nodes = @managing_units.map(&:inclusive_children).flatten.map(&:id)
+    @managing_nodes ||= @managing_units.map(&:inclusive_children).flatten.map(&:id)
   end
 end

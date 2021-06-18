@@ -2,7 +2,7 @@ class Unit < ApplicationRecord
   # Modules #
   include Firm::ChildrenConcern
   include Firm::CompletionConcern
-  include Firm::DropdownConcern
+  include Firm::UnitHierarchyConcern
 
   # Associations #
   belongs_to :parent, class_name: 'Unit', foreign_key: :parent_id,  optional: true

@@ -4,9 +4,10 @@ require('@rails/activestorage').start()
 require('channels')
 
 require('jquery');
+require('jquery-validation');
 require('popper.js');
 require('bootstrap');
-require("@nathanvda/cocoon")
+require('@nathanvda/cocoon')
 require('select2')
 require('toastr')
 

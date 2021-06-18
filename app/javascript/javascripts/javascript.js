@@ -4,7 +4,7 @@ import toastr     from 'toastr';
 
 import './journey/journey';
 import './bsl/bsl';
-import './unit/unit';
+import './unit_hierarchy/unit_hierarchy';
 import './custom/custom';
 import './custom/lib';
 import './graphs/graphs';

@@ -1,0 +1,2 @@
+$("#<%= params[:append_products_to] %>").html("<%= j(render 'organisation/unit_hierarchys/partials/check_box', param_name: params[:product_param_name], options: (@institution_unit&.products_checkboxes || []), val: nil) %>");
+$("#<%= params[:append_channels_to] %>").html("<%= j(render 'organisation/unit_hierarchys/partials/check_box', param_name: params[:channel_param_name], options: (@institution_unit&.channels_checkboxes || []), val: nil) %>");
