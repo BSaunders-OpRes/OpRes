@@ -45,7 +45,7 @@ class Organisation::SuppliersController < Organisation::BaseController
                       cloud_hosting_provider_attributes: %i[name id],
                       sla_attributes: %i[id service_level_agreement service_level_objective recovery_point_objective severity1_response_time severity2_response_time severity3_response_time severity4_response_time  severity1_restoration_service_time severity2_restoration_service_time severity3_restoration_service_time severity4_restoration_service_time support_hours id],
                       key_contacts_ids: [],
-                      relationship_owner_attributes: %i[name id]
+                      relationship_owner_attributes: %i[name email id]
                     ).merge(unit_id: params[:supplier][:country_unit])
   end
 

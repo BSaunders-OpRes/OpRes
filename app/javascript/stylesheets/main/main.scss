@@ -91,7 +91,13 @@ h1, h2, h3, h4, h5, h6, p {
 .toast {
   opacity: 1 !important;
 }
-
+#specify-text {
+  .disable {
+    pointer-events: none;
+    border: 1px solid #eee;
+    opacity: .5;
+  }
+}
 .disable {
   pointer-events: none;
   color: $medium-grey !important;
@@ -126,6 +132,27 @@ h1, h2, h3, h4, h5, h6, p {
       color: $black;
       font-weight: 600;
     }
+  }
+}
+.chevron-select {
+  position: relative;
+  &:after {
+    content: '\f0dd';
+    font-family: 'FontAwesome';
+    position: absolute;
+    right: 10px;
+    top: 44%;
+    transform: translateY(-50%);
+  }
+  select {
+    outline: none;
+    padding: 5px 10px;
+    font-size: 12px;
+    box-shadow: none;
+    appearance: none;
+    position: relative;
+    -moz-appearance: none;
+    -webkit-appearance: none;
   }
 }
 .arrow-select {
@@ -529,9 +556,86 @@ footer {
 
 /* Style the checkmark/indicator */
 
+.radio-check {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+
+  input[type='radio'] {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+  .checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 20px;
+    width: 20px;
+    background-color: $white;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+  }
+}
+
+
+.radio-check {
+  &:hover input ~ .checkmark {
+    background-color: #ccc;
+  }
+
+  input:checked ~ .checkmark {
+    background-color: $black;
+  }
+}
+
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+.radio-check input:not(:checked) ~ .checkmark {
+  border: 1px solid #ddd;
+}
+
+/* Show the checkmark when checked */
+
+.radio-check {
+  input:checked ~ .checkmark:after {
+    display: block;
+  }
+
+  .checkmark:after {
+    left: 6px;
+    top: 3px;
+    width: 6px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+  }
+}
+
+
+
+
+
+
 #container {
   height: 400px;
 }
+
 
 .custom-radio {
   padding: 0;

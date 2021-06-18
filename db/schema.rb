@@ -311,6 +311,7 @@ ActiveRecord::Schema.define(version: 2021_06_18_055338) do
     t.datetime "updated_at", precision: 6, null: false
     t.integer "party_type"
     t.integer "status"
+    t.string "other_description"
     t.index ["unit_id"], name: "index_suppliers_on_unit_id"
   end
 

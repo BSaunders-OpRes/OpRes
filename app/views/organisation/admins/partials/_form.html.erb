@@ -21,8 +21,10 @@
           </ul>
           <div class="tab-content py-4" id="myTabContent">
             <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-              <div class="mb-3" >
-                <%= select_tag 'single_regional_unit', options_for_select(organisational_unit.children.map{|region| [region.name, region.id]}), multiple: false, class: 'form-control w-100 font-12 shadow-none' %>
+              <div class="row no-gutters">
+                <div class="col-md-12 px-1 form-group chevron-select">
+                  <%= select_tag 'single_regional_unit', options_for_select(managing_units.map { |region| [region.name, region.id] }), prompt: 'Select Region', multiple: false, class: 'form-control w-100 font-12 shadow-none h-auto py-3' %>
+                </div>
               </div>
               <div id="user-invitation">
                 <%= render 'organisation/journeys/partials/user_invitation', index: index %>
@@ -44,19 +46,21 @@
               </div>
             </div>
             <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-              <div class="row">
-                <div class="col-md-12 mb-3" >
-                  <%= select_tag 'multiple_regional_unit', options_for_select(organisational_unit.children.map{|region| [region.name, region.id]}), multiple: false, class: 'form-control w-100 font-12 shadow-none' %>
+              <div class="row no-gutters">
+                <div class="col-md-9 mb-3 px-1">
+                  <%= text_area_tag 'users[multiple][csv]', nil, class: 'form-control font-12', placeholder: 'Email Addresses (Seperate emails with a comma)', cols: '30', rows: '6' %>
                 </div>
-                <div class="col-md-9 mb-3">
-                  <%= text_area_tag 'users[multiple][csv]', nil, class: 'form-control font-12', placeholder: 'Email Addresses (Seperate emails with a comma)', cols: '30', rows: '4' %>
-                </div>
-                <div class="form-group col-md-3">
-                  <%= select_tag 'users[multiple][role]', options_for_select(User.invitiable_users), multiple: false, class: 'form-control w-100 font-12 shadow-none' %>
+                <div class="col-md-3 px-1">
+                  <div class="form-group chevron-select">
+                    <%= select_tag 'users[multiple][role]', options_for_select(User.invitiable_users), multiple: false, class: 'form-control w-100 font-12 shadow-none py-3 h-auto mb-2' %>
+                  </div>
+                  <div class="form-group chevron-select">
+                    <%= select_tag 'multiple_regional_unit', options_for_select(managing_units.map{ |region| [region.name, region.id] }), prompt: 'Select Region', multiple: false, class: 'form-control w-100 font-12 shadow-none py-3 h-auto mb-2' %>
+                  </div>
                 </div>
               </div>
-              <div class="row">
-                <div class="col-md-12">
+              <div class="row no-gutters">
+                <div class="col-md-12 px-1">
                   <%= text_area_tag 'users[multiple][message]', nil, class: 'form-control font-12', placeholder: 'Add a personalised invite message', cols: '30', rows: '4' %>
                 </div>
               </div>

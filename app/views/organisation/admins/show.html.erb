@@ -55,7 +55,7 @@
                       <h6 class="font-14 text-capitalize font-700">managing unit</h6>
                     </div>
                     <div class="col-md-6">
-                      <h5 class="font-14 text-capitalize text-secondary"><%= managing_unit&.name || 'N/A' %></h5>
+                      <h5 class="font-14 text-capitalize text-secondary"><%= managing_units.pluck(:name)&.to_sentence || 'N/A' %></h5>
                     </div>
                   </div>
                 </div>

@@ -8,7 +8,7 @@ class InvitationMailer < ApplicationMailer
     if @user.root_user?
       mail(to: @user.email, subject: "Join #{@organisational_unit.name}!")
     else
-      @managing_unit =country_unit
+      @managing_unit = country_unit
       mail(to: @user.email, subject: "Join #{@managing_unit.name}!")
     end
   end

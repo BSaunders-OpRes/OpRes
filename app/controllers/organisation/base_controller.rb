@@ -2,10 +2,10 @@ class Organisation::BaseController < ApplicationController
   before_action :authenticate_user!
   before_action :authenticate_organisation_users
   before_action :load_organisational_unit
-  before_action :load_managing_unit
+  before_action :load_managing_units
 
   attr_reader :organisational_unit
-  attr_reader :managing_unit
+  attr_reader :managing_units
 
   layout 'organisation'
 
@@ -20,7 +20,7 @@ class Organisation::BaseController < ApplicationController
     @organisational_unit = current_user.unit.include_children
   end
 
-  def load_managing_unit
+  def load_managing_units
     @managing_units = current_user.managing_units
   end
 
