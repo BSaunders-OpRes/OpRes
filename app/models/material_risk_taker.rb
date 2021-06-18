@@ -1,6 +1,6 @@
 class MaterialRiskTaker < ApplicationRecord
   # Modules #
-  include ContactValidation
+  # include ContactValidation
 
   # Associations #
   belongs_to :business_service_line

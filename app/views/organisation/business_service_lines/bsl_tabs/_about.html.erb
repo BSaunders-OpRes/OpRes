@@ -29,7 +29,7 @@
           <p class="text-capitalize font-14 font-600">service tier</p>
         </div>
         <div class="col-sm-7 order-3 order-sm-2">
-          <%= form.select :tier, options_for_select(BusinessServiceLine.tiers.map { |k, v| [k.titleize, k] }, @bsl.tier), { include_blank: 'Select your Tier' }, { class: 'form-control w-100 font-12 h-auto py-3 shadow-none arrow-select' } %>
+          <%= form.select :tier, options_for_select(BusinessServiceLine.tiers.map { |k, v| [k.titleize, k] }, @bsl.tier), { include_blank: 'Select your Tier' }, { class: 'form-control w-100 font-12 h-auto py-3 shadow-none arrow-select', required: true } %>
             <i class="fa fa-sort-desc pr-2 mr-2" aria-hidden="true"></i>
         </div>
         <div class="col-sm-1 text-right order-2 flex-sm-half mb-2 mb-sm-0">

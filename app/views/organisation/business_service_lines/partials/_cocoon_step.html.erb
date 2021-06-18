@@ -19,8 +19,8 @@
   </div>
   <div class="row">
     <div class="col-sm-12">
-      <%= f.text_field :name, class: 'w-100 font-12 form-control mb-3 shadow-none h-auto py-3 bsl-step-field', placeholder: 'Enter Name' %>
-      <%= f.text_area :description, class: 'form-control font-12 shadow-none mb-3 bsl-step-field', placeholder: 'add description', cols: 30, rows: 4 %>
+      <%= f.text_field :name, class: 'w-100 font-12 form-control mb-3 shadow-none h-auto py-3 bsl-step-field', placeholder: 'Enter Name', required: true %>
+      <%= f.text_area :description, class: 'form-control font-12 shadow-none mb-3 bsl-step-field', placeholder: 'add description', cols: 30, rows: 4, required: true %>
     </div>
   </div>
   <div id="selected_suppliers" class="row">

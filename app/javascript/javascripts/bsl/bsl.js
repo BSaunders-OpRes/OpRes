@@ -118,16 +118,22 @@ document.addEventListener('turbolinks:load', function() {
     bsl_risk_slider_fill($(this));
   });
 
-  // $('body').on('click', '#save-bsl-form', function(e) {
-  //   e.preventDefault();
-  //   form = $(this).parents('#bsl-form');
+  $('body').on('click', '#save-bsl-form', function(e) {
+    e.preventDefault();
+    form = $(this).parents('#bsl-form');
 
-  //   if (form.valid()) {
-  //     return form.submit();
-  //   } else {
-  //     return false;
-  //   }
-  // });
+    form.validate({ ignore: [] });
+    if (form.valid()) {
+      return form.submit();
+    } else {
+      error_elem     = form.find(':input.error:first');
+      error_tab      = error_elem.parents('.tab-pane').attr('id');
+      error_tab_link = form.find('a[href="#'+ error_tab +'"]');
+      error_tab_link.click();
+      error_elem.focus();
+      return false;
+    }
+  });
 
   /******************** Helper Methods ********************
   ********************************************************/
