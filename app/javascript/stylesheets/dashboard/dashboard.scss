@@ -133,7 +133,6 @@
     .nav-item {
       .nav-link.active {
         position: relative;
-        border: 0;
         font-weight: 700;
         &:after {
           content: "";
@@ -173,13 +172,6 @@
 .green-4 {
   background: #58C395;
 }
-.line-progress-bar {
-  .progress {
-    .progress-bar {
-      background: #58C395;
-    }
-  }
-}
 
 .h-100px {
   height: 100px;
@@ -202,66 +194,8 @@
 .min-h-566 {
   min-height: 566px;
 }
-// @media screen and (max-width: 576px) {
-//   .pie-high-chart {
-//     .card-header {
-//       height: 260px;
-//       .donut {
-//         height: 218px;
-//         display: flex;
-//         align-items: flex-end;
-//       }
-//       .sm-donut {
-//         width: 110px;
-//         display: flex;
-//         align-items: flex-end;
-//         justify-content: center;
-//         margin: 0 auto;
-//       }
-//       .sm-donut-content {
-//         position: relative;
-//         width: 130px;
-//         .donut-value {
-//           position: absolute;
-//           top: 50%;
-//           left: 50%;
-//           transform: translate(-50%, -50%);
-//         }
-//         .donut-desc {
-//           width: 110px;
-//           display: flex;
-//           position: absolute;
-//           left: 50%;
-//           align-items: center;
-//           justify-content: flex-start;
-//           transform: translateX(-50%);
-//         }
-//       }
-//       .donut-content {
-//         position: relative;
-//         .donut-value {
-//           position: absolute;
-//           top: 46%;
-//           left: 50%;
-//           transform: translate(-50%, -50%);
-//         }
-//       }
-//     }
-//   }
-// }
 
 .new-dashboard {
-  .custom-sidebar {
-    .link {
-      a {
-        color: $black;
-        &.active {
-          background: $white;
-          border-left: 3px solid $black;
-        }
-      }
-    }
-  }
   .content-area {
     .card {
       .card-heading {

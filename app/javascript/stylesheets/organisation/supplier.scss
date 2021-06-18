@@ -45,14 +45,14 @@
     }
   }
 }
-.secondary-sidebar {
+.secondary-sidebar-icon {
   width: 20px;
   height: 30px;
   line-height: 32px;
   position: fixed;
   top: 80px;
   text-align: center;
-  right: 0;
+  left: 0;
   background: $primary-green;
   top: 75px;
   color: $white;
@@ -78,7 +78,7 @@
 }
 
 @media screen and (max-width: 576px) {
-  .secondary-sidebar {
+  .secondary-sidebar-icon {
     display: block !important;
   }
   .fixed-secondary-sidebar.position-static {
