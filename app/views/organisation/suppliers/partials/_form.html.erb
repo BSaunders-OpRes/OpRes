@@ -2,7 +2,10 @@
   <div class="wizard-body">
     <div class="wizard-header my-4 border-bottom pb-4">
       <h4 class="mb-4 font-weight-bold"><%= new_or_create ? 'Add a new supplier' : 'Edit supplier' %></h4>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. In amet aperiam, iste iusto dicta quisquam cumque mollitia veritatis</p>
+      <p class="font-400 font-14">Please use this form to create a new supplier record in OpRes. A supplier can be a
+        system that is hosted and delivered internally within your organisation. Alternatively, it
+        can be a 3rd or 4th party supplier providing technology, software or resource capability to
+        your organisation</p>
     </div>
      <h5 class="font-600">Supplier details</h5>
     <div class="mt-5">
@@ -15,29 +18,7 @@
             <%= form.text_field :name, placeholder: 'Supplier Name', required: true, class: 'w-100 form-control font-12 h-auto py-3 shadow-none' %>
           </div>
           <div class="col-sm-1 text-right order-2 flex-sm-half mb-2 mb-sm-0">
-            <div class="info" data-toggle="tooltip" data-placement="top" title="supplier name" aria-hidden="true">i</div>
-          </div>
-        </div>
-        <div class="checkboxes-field mt-4">
-          <div class="row align-items-center">
-            <div class="col-sm-4 flex-sm-1">
-              <p class="text-capitalize font-14 font-600 text-capitalize">party type</p>
-            </div>
-            <div class="col-sm-7 order-3 order-sm-2 mt-sm-0 mt-3">
-              <div class="checkbox-container d-flex justify-content-start flex-wrap">
-                <div class="form-check d-flex align-items-center mr-2 form-group mb-2 pl-0">
-                   <% Supplier.party_types&.each do |key, val| %>
-                    <div class="form-check d-flex align-items-center form-group col-12 mb-0 pl-0"  id='flexCheckDefault'>
-                      <%= form.check_box :party_type, { id: "party_type#{key}", multiple: false }, key, nil %>
-                      <%= form.label key.titleize, class: 'mb-0 ml-2 font-12 text-capitalize', for: "party_type#{key}" %><br />
-                    </div>
-                  <% end %>
-                </div>
-              </div>
-            </div>
-            <div class="col-sm-1 text-right order-2 flex-sm-half mb-2 mb-sm-0">
-              <div class="info" data-toggle="tooltip" data-placement="top" title="party type" aria-hidden="true">i</div>
-            </div>
+            <div class="info" data-toggle="tooltip" data-placement="top" title="Please provide the supplier name" aria-hidden="true">i</div>
           </div>
         </div>
         <div class="row align-items-center mt-4">
@@ -50,7 +31,7 @@
             <% end %>
           </div>
           <div class="col-sm-1 text-right order-2 flex-sm-half mb-2 mb-sm-0">
-            <div class="info" data-toggle="tooltip" data-placement="top" title="cloud hosting provider" aria-hidden="true">i</div>
+            <div class="info" data-toggle="tooltip" data-placement="top" title="Please select a cloud hosting provider" aria-hidden="true">i</div>
           </div>
         </div>
         <div class="checkboxes-field mt-4">
@@ -58,37 +39,60 @@
             <div class="col-sm-4 flex-sm-1 mb-2 mb-sm-0">
               <p class="text-capitalize font-14 font-600 text-capitalize">contracting terms</p>
             </div>
-
             <div class="col-sm-7 order-3 order-sm-2">
-              <div class="checkbox-container d-flex justify-content-start flex-wrap">
-                <div class="form-check d-flex align-items-center mr-2 form-group mb-2 pl-0">
+              <div class="checkbox-container d-flex justify-content-start">
+                <div class="form-check d-flex align-items-center mr-2 form-group mb-2 pl-0 flex-wrap justify-content-between">
                   <% Supplier.contracting_terms&.each do |key, val| %>
-                    <div class="form-check d-flex align-items-center form-group col-12 mb-0 pl-0"  id='flexCheckDefault'>
-                      <%= form.check_box :contracting_terms, { id: "contracting_terms#{key}", multiple: false }, key, nil %>
-                      <%= form.label key, class: 'mb-0 font-12 ml-2', for: "contracting_terms#{key}" %><br />
-                    </div>
+                    <label class="radio-check supplier-contracting-term p-0 d-flex align-items-center mb-2 mr-3" >
+                      <%= form.radio_button :contracting_terms, key, id: "contracting_terms#{key}" %>
+                      <%= form.label key.titleize, class: 'mb-0 ml-2 font-12 text-capitalize order-2 ml-2', for: "contracting_terms#{key}" %><br />
+                      <div class="checkmark position-relative order-1"></div>
+                    </label>
                   <% end %>
                 </div>
               </div>
             </div>
             <div class="col-sm-1 text-right order-2 flex-sm-half mb-2 mb-sm-0">
-              <div class="info" data-toggle="tooltip" data-placement="top" title="contact terms" aria-hidden="true">i</div>
+              <div class="info" data-toggle="tooltip" data-placement="top" title="Please select how you contract for the service" aria-hidden="true">i</div>
             </div>
           </div>
         </div>
-        <div class="row align-items-center mt-4">
-          <div class="col-sm-4 flex-sm-1 mb-2 mb-sm-0">
-            <p class="text-capitalize font-14 font-600">Relationship Owner</p>
-          </div>
-          <div class="col-sm-7 order-3 order-sm-2">
-            <%= form.fields_for :relationship_owner do |relationship_owner| %>
-              <%= relationship_owner.text_field :name, placeholder: 'Relationship Owner', class:'w-100 form-control font-12 h-auto py-3 shadow-none' %>
-            <% end %>
-          </div>
-          <div class="col-sm-1 text-right order-2 flex-sm-half mb-2 mb-sm-0">
-            <div class="info" data-toggle="tooltip" data-placement="top" title="Relationship Owner" aria-hidden="true">i</div>
+        <div id= "specify-text">
+          <div class="row">
+            <div class="col-sm-4 flex-sm-1 mb-2 mb-sm-0">
+            </div>
+            <div class="col-sm-7 order-3 order-sm-2">
+              <%= form.text_field :other_description, placeholder: 'Please Specify', class:'w-100 form-control font-12 h-auto py-2 shadow-none disable contracting-term-other-field' %>
+            </div>
           </div>
         </div>
+        <%= form.fields_for :relationship_owner do |relationship_owner| %>
+          <div class="row align-items-center mt-4">
+            <div class="col-sm-4 flex-sm-1 mb-2 mb-sm-0">
+              <p class="text-capitalize font-14 font-600">Relationship Owner Name</p>
+            </div>
+            <div class="col-sm-7 order-3 order-sm-2">
+                <%= relationship_owner.text_field :name, placeholder: 'Relationship Owner', class:'w-100 form-control font-12 h-auto py-3 shadow-none' %>
+            </div>
+            <div class="col-sm-1 text-right order-2 flex-sm-half mb-2 mb-sm-0">
+              <div class="info" data-toggle="tooltip" data-placement="top" title="Please provide the details of the relationship owner in your organisation" aria-hidden="true">i</div>
+            </div>
+          </div>
+
+           <div class="row align-items-center mt-4">
+            <div class="col-sm-4 flex-sm-1 mb-2 mb-sm-0">
+              <p class="text-capitalize font-14 font-600">Relationship Owner Email</p>
+            </div>
+            <div class="col-sm-7 order-3 order-sm-2">
+              <%= form.fields_for :relationship_owner do |relationship_owner| %>
+                <%= relationship_owner.email_field :email, placeholder: 'Relationship Owner Email', class:'w-100 form-control font-12 h-auto py-3 shadow-none' %>
+              <% end %>
+            </div>
+            <div class="col-sm-1 text-right order-2 flex-sm-half mb-2 mb-sm-0">
+              <div class="info" data-toggle="tooltip" data-placement="top" title="Please provide the details of the relationship owner in your organisation" aria-hidden="true">i</div>
+            </div>
+          </div>
+        <% end %>
         <div class="checkboxes-field mt-4">
           <div class="row align-items-center">
             <div class="col-sm-4 flex-sm-1 align-self-start">
@@ -113,8 +117,12 @@
           <div class="col-sm-4 flex-sm-1 mb-2 mb-sm-0">
             <p class="text-capitalize font-14 font-600">region</p>
           </div>
-          <div class="col-sm-7 order-3 order-sm-2 load-countries-from-region" data-append-countries-to="countries-dropdown" data-append-institutions-to="" data-country-param-name="supplier[country_unit]" data-institution-param-name="">
-            <%= render '/organisation/units/partials/drop_down', param_name: 'supplier[region]', options: Unit.regional_dropdown(@managing_units), val: find_supplier_region(supplier), prompt_message: "Select your region" %>
+          <div class="col-sm-7 order-3 order-sm-2 load-countries-from-region"
+            data-append-countries-to="countries-dropdown"
+            data-country-param-name="supplier[country_unit]"
+          >
+            <% selected_regional_unit = @supplier.unit&.selected_regional_unit %>
+            <%= render '/organisation/unit_hierarchys/partials/drop_down', param_name: 'supplier[region]', options: Unit.regional_unit_dropdown(managing_units), val: selected_regional_unit&.id, prompt_message: 'Select your region' %>
           </div>
           <div class="col-sm-1 text-right order-2 flex-sm-half mb-2 mb-sm-0">
             <div class="info" data-toggle="tooltip" data-placement="top" title="region" aria-hidden="true">i</div>
@@ -124,9 +132,9 @@
           <div class="col-sm-4 flex-sm-1 mb-2 mb-sm-0">
             <p class="text-capitalize font-14 font-600">country</p>
           </div>
-          <div class="col-sm-7 order-3 order-sm-2" id="countries-dropdown" >
-            <%= render 'organisation/units/partials/drop_down', param_name: 'supplier[country_unit]',
-            options: params[:action] == 'edit' ? supplier_find_country(supplier) : [], val: find_supplier_country(supplier), prompt_message: "Select your country" %>
+          <div class="col-sm-7 order-3 order-sm-2" id="countries-dropdown">
+            <% selected_country_unit = @supplier.unit&.selected_country_unit %>
+            <%= render 'organisation/unit_hierarchys/partials/drop_down', param_name: 'supplier[country_unit]', options: (selected_regional_unit&.country_unit_dropdown || []), val: selected_country_unit&.id, prompt_message: 'Select your country' %>
           </div>
           <div class="col-sm-1 text-right order-2 flex-sm-half mb-2 mb-sm-0">
             <div class="info" data-toggle="tooltip" data-placement="top" title="country" aria-hidden="true">i</div>
@@ -135,7 +143,7 @@
       </div>
       <%= form.fields_for :sla do |supplier_sla| %>
         <div class="input-fields mb-5 pb-5 border-bottom">
-          <h5 class="font-600">Supplier options</h5>
+          <h5 class="font-600">Supplier Obligations</h5>
           <div class="row align-items-center mt-5">
             <div class="col-sm-4 flex-sm-1 mb-2 mb-sm-0">
               <p class="text-capitalize font-14 font-600">contracted service level agreement</p>
@@ -149,7 +157,7 @@
               </div>
             </div>
             <div class="col-sm-1 text-right order-2 flex-sm-half mb-2 mb-sm-0">
-              <div class="info" data-toggle="tooltip" data-placement="top" title="contracted service level agreement" aria-hidden="true">i</div>
+              <div class="info" data-toggle="tooltip" data-placement="top" title="Please input your SLA with this supplier" aria-hidden="true">i</div>
             </div>
           </div>
           <div class="row align-items-center mt-4">
@@ -165,7 +173,7 @@
               </div>
             </div>
             <div class="col-sm-1 text-right order-2 flex-sm-half mb-2 mb-sm-0">
-              <div class="info" data-toggle="tooltip" data-placement="top" title="contracted service level object" aria-hidden="true">i</div>
+              <div class="info" data-toggle="tooltip" data-placement="top" title="Please input your SLO with this supplier" aria-hidden="true">i</div>
             </div>
           </div>
           <div class="row align-items-center mt-4">
@@ -180,7 +188,7 @@
                 <%= supplier_sla.number_field :recovery_point_objective, placeholder: 'Enter Target', id: 'inlineFormInputGroup', class: 'form-control form-control font-12 h-auto py-3 shadow-none' %>
               </div>              </div>
             <div class="col-sm-1 text-right order-2 flex-sm-half mb-2 mb-sm-0">
-              <div class="info" data-toggle="tooltip" data-placement="top" title="contracted recovery point object" aria-hidden="true">i</div>
+              <div class="info" data-toggle="tooltip" data-placement="top" title="Please input your RPO with this supplier" aria-hidden="true">i</div>
             </div>
           </div>
           <div class="row align-items-center mt-4">
@@ -328,7 +336,7 @@
                 </div>
               </div>
               <div class="col-sm-1 text-right order-2 flex-sm-half mb-2 mb-sm-0 align-self-start">
-                <div class="info" data-toggle="tooltip" data-placement="top" title="supplier key contacts" aria-hidden="true">i</div>
+                <div class="info" data-toggle="tooltip" data-placement="top" title="Please confirm the support hours agreement for this supplier" aria-hidden="true">i</div>
               </div>
             </div>
           </div>

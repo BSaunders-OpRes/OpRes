@@ -35,6 +35,9 @@
           </ul>
           <div class="tab-content py-4" id="invite-user-tabs">
             <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+              <div class="mb-3" >
+                <%= select_tag 'single_regional_unit', options_for_select(organisational_unit.children.map{|region| [region.name, region.id]}), prompt: 'Region', multiple: false, class: 'form-control w-100 font-12 shadow-none' %>
+              </div>
               <div id="user-invitation">
                 <%= render 'organisation/journeys/partials/user_invitation', index: index %>
               </div>
@@ -57,10 +60,15 @@
             <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
               <div class="row">
                 <div class="col-md-9 mb-3">
-                  <%= text_area_tag 'users[multiple][csv]', nil, class: 'form-control font-12', placeholder: 'Email Addresses (Seperate emails with a comma)', cols: '30', rows: '4' %>
+                  <%= text_area_tag 'users[multiple][csv]', nil, class: 'form-control font-12', placeholder: 'Email Addresses (Seperate emails with a comma)', cols: '30', rows: '6' %>
                 </div>
-                <div class="form-group col-md-3">
-                  <%= select_tag 'users[multiple][role]', options_for_select(User.invitiable_users),prompt: 'Permissions', multiple: false, class: 'form-control w-100 font-12 shadow-none' %>
+                <div class="col-md-3">
+                  <div class="form-group chevron-select">
+                    <%= select_tag 'users[multiple][role]', options_for_select(User.invitiable_users),prompt: 'Permissions', multiple: false, class: 'form-control w-100 font-12 shadow-none py-3 h-auto mb-2' %>
+                  </div>
+                  <div class="form-group chevron-select mb-0">
+                    <%= select_tag 'multiple_regional_unit', options_for_select(organisational_unit.children.map{|region| [region.name, region.id]}), prompt: 'Region', multiple: false, class: 'form-control w-100 font-12 shadow-none py-3 h-auto mb-2' %>
+                  </div>
                 </div>
               </div>
               <div class="row">
@@ -69,6 +77,7 @@
                 </div>
               </div>
             </div>
+            <%= hidden_field_tag 'user_step', 1 %>
             <div class="row mt-4">
               <div class="col-md-12 text-left">
                 <%= submit_tag 'Send Invitation', class: 'btn dark-btn border-0 py-2 font-12 font-600 px-4 wait-loader', id: 'send-invitation' %>

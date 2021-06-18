@@ -51,7 +51,7 @@
           data-channel-param-name="business_service_line[channel_ids][]"
         >
           <% selected_regional_unit = @bsl.unit&.selected_regional_unit %>
-          <%= render 'organisation/unit_hierarchys/partials/drop_down', param_name: 'business_service_line[region]', options: Unit.regional_unit_dropdown(@managing_units), val: selected_regional_unit&.id, prompt_message: 'Select your region' %>
+          <%= render 'organisation/unit_hierarchys/partials/drop_down', param_name: 'business_service_line[region]', options: Unit.regional_unit_dropdown(managing_units), val: selected_regional_unit&.id, prompt_message: 'Select your region' %>
         </div>
         <div class="col-sm-1 text-right order-2 flex-sm-half mb-2 mb-sm-0">
           <div class="info" data-toggle="tooltip" data-placement="top" title="region" aria-hidden="true">i</div>

@@ -16,7 +16,7 @@ class Supplier < ApplicationRecord
   has_many :steps, through: :supplier_steps
 
   # Enums #
-  enum contracting_terms: %i[monthly annually]
+  enum contracting_terms: %i[monthly annually other non-applicable]
   enum party_type: %i[3rd-party 4th-party]
   enum status: %i[critical important]
 

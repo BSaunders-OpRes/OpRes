@@ -4,15 +4,15 @@ class Journey::SaveDataService < ApplicationService
   end
 
   def call
-    if args.dig(:params, :organisation).present?
+    if args.dig(:params, :organisation_step).present?
       Journey::SaveOrganisationService.call(args)
-    elsif args.dig(:params, :regions).present?
+    elsif args.dig(:params, :region_step).present?
       Journey::SaveRegionService.call(args)
-    elsif args.dig(:params, :countries).present?
+    elsif args.dig(:params, :country_step).present?
       Journey::SaveCountryService.call(args)
-    elsif args.dig(:params, :institutions).present?
+    elsif args.dig(:params, :institution_step).present?
       Journey::SaveInstitutionService.call(args)
-    elsif args.dig(:params, :users).present?
+    elsif args.dig(:params, :user_step).present?
       Journey::SaveUserService.call(args)
     end
 
