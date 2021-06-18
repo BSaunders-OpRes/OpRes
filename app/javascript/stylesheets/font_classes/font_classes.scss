@@ -84,6 +84,9 @@
   }
 }
 @media only screen and (max-width: 991px) {
+  .font-md-35 {
+    font-size: 35px !important;
+  }
   .font-md-30 {
     font-size: 24px !important;
   }
@@ -111,6 +114,15 @@
 }
 
 @media only screen and (max-width: 767px) {
+  .font-sm-30 {
+    font-size: 30px !important;
+  }
+  .font-sm-25 {
+    font-size: 25px !important;
+  }
+  .font-sm-35 {
+    font-size: 35px !important;
+  }
   .font-sm-24 {
     font-size: 24px !important;
   }

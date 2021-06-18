@@ -16,6 +16,9 @@
 .w-15 {
   width: 15%;
 }
+.w-40 {
+  width: 40%;
+}
 .w-65 {
   width: 65%;
 }
@@ -111,5 +114,20 @@
   }
   .flex-sm-half {
     flex: .5;
+  }
+  .pt-xs-1 {
+    padding-top: 0.25rem !important;
+  }
+  .pt-xs-2 {
+    padding-top: 0.5rem !important;
+  }
+  .pt-xs-3 {
+    padding-top: 1rem !important;
+  }
+  .pt-xs-4 {
+    padding-top: 1.5rem !important;
+  }
+  .pt-xs-5 {
+    padding-top: 3rem !important;
   }
 }

@@ -176,15 +176,21 @@ a {
    to {-webkit-transform: rotate(360deg);}
 }
 
-.flex-point-15 {
-  flex: .15;
-}
 .flex-inherit {
   flex: inherit;
 }
 
 .rounded-50 {
   border-radius: .50rem;
+}
+.rounded-40 {
+  border-radius: .40rem;
+}
+.min-h-150 {
+  min-height: 150px;
+}
+.max-h-500 {
+  max-height: 500;
 }
 .border-bottom-black {
   border-bottom: 1px solid $black;
