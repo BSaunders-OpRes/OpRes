@@ -12,11 +12,7 @@ Rails.application.routes.draw do
   }
 
   namespace :admin do
-    resources :dashboard, only: %i[index] do
-      collection do
-        get :myAccount
-      end
-    end
+    resources :dashboard, only: %i[index]
     resources :institutions
     resources :products
     resources :channels
@@ -26,7 +22,9 @@ Rails.application.routes.draw do
     match '/journeys/*id',      to: 'journeys#show', via: %i[get post], as: :journey
     get :build_institution,     to: 'journeys#build_institution'
     get :build_user_invitation, to: 'journeys#build_user_invitation'
-    resources :dashboard, only: %i[index]
+    resources :dashboard, only: %i[index] do
+      get :account, on: :collection
+    end
     resources :graphs, only: %i[show]
     resources :institutions
     resources :products

@@ -18,7 +18,4 @@ class Admin::DashboardController < Admin::BaseController
 
     @organizations = Units::Organisational.includes(:users)
   end
-
-  def myAccount
-  end
 end
