@@ -24,7 +24,6 @@
             Standard Users can only view existing records in their region.
           </p>
 
-
           <ul class="nav nav-tabs d-flex justify-content-even flex-nowrap align-items-center mt-5 custom-tabs" id="invite-user-tab-links" role="tablist">
             <li class="nav-item">
               <a class="nav-link active border-0 p-0 pb-2 bg-transparent text-black font-12 font-xxl-14 px-1" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Name & Email Addresses</a>
@@ -35,9 +34,6 @@
           </ul>
           <div class="tab-content py-4" id="invite-user-tabs">
             <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-              <div class="mb-3" >
-                <%= select_tag 'single_regional_unit', options_for_select(organisational_unit.children.map{|region| [region.name, region.id]}), prompt: 'Region', multiple: false, class: 'form-control w-100 font-12 shadow-none' %>
-              </div>
               <div id="user-invitation">
                 <%= render 'organisation/journeys/partials/user_invitation', index: index %>
               </div>
@@ -65,9 +61,6 @@
                 <div class="col-md-3">
                   <div class="form-group chevron-select">
                     <%= select_tag 'users[multiple][role]', options_for_select(User.invitiable_users),prompt: 'Permissions', multiple: false, class: 'form-control w-100 font-12 shadow-none py-3 h-auto mb-2' %>
-                  </div>
-                  <div class="form-group chevron-select mb-0">
-                    <%= select_tag 'multiple_regional_unit', options_for_select(organisational_unit.children.map{|region| [region.name, region.id]}), prompt: 'Region', multiple: false, class: 'form-control w-100 font-12 shadow-none py-3 h-auto mb-2' %>
                   </div>
                 </div>
               </div>
