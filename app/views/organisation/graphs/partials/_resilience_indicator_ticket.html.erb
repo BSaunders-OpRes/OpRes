@@ -1,0 +1,413 @@
+<div id='cloud-service-provider' class="new-dashboard new-cloud-dashboard resilience-gap-view-page">
+  <div class="row no-gutters">
+    <div class="col-sm-12 px-1">
+      <div class="d-flex justify-content-between align-items-center flex-wrap">
+        <div class="left d-flex align-items-center flex-wrap">
+          <div class="mr-4 back-btn mb-2 mb-sm-0 ">
+            <%= render 'layouts/partials/shared/redirect_back', path: organisation_dashboard_index_path %>
+          </div>
+          <h2 class="font-500 font-sm-18 font-25 text-capitalize">Cloud Service Provider Dashboard</h2>
+        </div>
+        <div class="right d-flex mt-3 mt-lg-0">
+          <div class="white-btn d-flex align-items-center pl-2 pr-2 mr-2 py-2">
+            <span><i class='fa fa-save font-16 mr-2'></i></span>
+            <span class="text-capitalize font-12 font-xxl-14">save view</span>
+          </div>
+          <div class="white-btn d-flex align-items-center pl-2 pr-2 mr-2 py-2">
+            <span> <i class="fa fa-sliders"></i></span>
+            <span class="text-capitalize font-12 font-xxl-14 ml-2">Customised View</span>
+          </div>
+          <div class="white-btn p-1 d-flex align-items-center">
+            <i class="fa fa-ellipsis-v px-2"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="secondary-sidebar d-none">
+    <i class='fa fa-ellipsis-v fa-1x font-18'></i>
+  </div>
+  <div class="row mt-5 no-gutters">
+    <div class="col-sm-3 col-xxl-2 px-1">
+      <aside class="fixed-secondary-sidebar position-static" id='sticky-sidebar-demo'>
+        <i class="fa fa-times-circle fa-1x d-none"></i>
+        <ul class="p-0 list-unstyled inner-wrapper-sticky">
+          <li class="links active-white mb-2">
+            <a href="#section1" class=" text-decoration-none text-capitalize font-13 font-xxl-14 d-block py-2">Overview</a>
+          </li>
+          <li class="links mb-2">
+            <a href="#section2" class=" text-decoration-none text-capitalize font-13 font-xxl-14 d-block py-2">Description</a>
+          </li>
+          <li class="links mb-2">
+            <a href="#section3" class=" text-decoration-none text-capitalize font-13 font-xxl-14 d-block py-2">Resilience Gap Audit Tracker</a>
+          </li>
+        </ul>
+      </aside>
+    </div>
+    <div class="col-sm-9 col-xxl-10 px-1">
+      <div class="w-100">
+        <div class="content-area">
+          <div id="section1">
+            <div class="card border-0 shadow-sm rounded-50 mb-4">
+              <div class="card-body px-0">
+                <div class="box">
+                  <div class="d-flex justify-content-between align-items-center mb-4 pb-2 px-4">
+                    <h5 class="text-capitalize text-left">Overview</h5>
+                    <div class="text-right">
+                      <a href="#" class="text-black">
+                        <i class="fa fa-ellipsis-v text-right" aria-hidden="true"></i>
+                      </a>
+                    </div>
+                  </div>
+                  <div class="resilience-gap-text d-flex align-items-start align-items-lg-center justify-content-between flex-column flex-lg-row">
+                    <div class="info-text mb-4 pb-2 px-4">
+                      <div class="d-flex flex-wrap">
+                        <h6 class="font-14 mr-2 my-2">Resilience Gap ID: 0123456789</h6>
+                        <span class="font-12 py-1 px-2 my-2 rounded-100 bg-primary-green font-weight-bold">Low Risk</span>
+                      </div>
+                      <span class="font-12 text-light-grey">Date Created 01/01/01</span>
+                    </div>
+                    <div class="info-text mb-4 px-4">
+                      <div class="filter-grouped d-flex align-items-center justify-content-start info-text mb-4">
+                        <h6 class="mr-3 font-14 flex-1">Status</h6>
+                        <div class="dropdown body-color-dropdown flex-1 w-auto">
+                          <a id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class='dropdown-toggle text-capitalize py-2 pr-5 pl-2 d-flex align-items-center justify-content-start font-12 text-dark font-600 text-decoration-none' id='top-10'>Open</a>
+                          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item">Action</a>
+                            <a class="dropdown-item">Filter top 10</a>
+                            <a class="dropdown-item">Filter top 10</a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="details mb-4 px-4">
+                    <div class="intro-box mb-3 d-flex align-items-start justify-content-center">
+                      <div class="w-50 w-md-25">
+                        <span class="font-12">Impacted Business Service:</span>
+                      </div>
+                      <div class="w-50 w-md-75">
+                        <strong class="font-12">Impacted Business Service Name</strong>
+                      </div>
+                    </div>
+                    <div class="intro-box mb-3 d-flex align-items-start justify-content-center">
+                      <div class="w-50 w-md-25">
+                        <span class="font-12">Business Service Name:</span>
+                      </div>
+                      <div class="w-50 w-md-75">
+                        <strong class="w-75 font-12">Service Name</strong>
+                      </div>
+                    </div>
+                    <div class="intro-box mb-3 d-flex align-items-start justify-content-center">
+                      <div class="w-50 w-md-25">
+                        <span class="font-12">Material Risk Taker:</span>
+                      </div>
+                      <div class="w-50 w-md-75">
+                        <strong class="font-12">Name Here</strong>
+                      </div>
+                    </div>
+                    <div class="intro-box mb-3 d-flex align-items-start justify-content-center">
+                      <div class="w-50 w-md-25">
+                        <span class="font-12">Region:</span>
+                      </div>
+                      <div class="w-50 w-md-75">
+                        <strong class="font-12">EMEA</strong>
+                      </div>
+                    </div>
+                    <div class="intro-box mb-3 d-flex align-items-start justify-content-center">
+                      <div class="w-50 w-md-25">
+                        <span class="font-12">Country:</span>
+                      </div>
+                      <div class="w-50 w-md-75">
+                        <strong class="font-12">UK</strong>
+                      </div>
+                    </div>
+                    <div class="intro-box mb-3 d-flex align-items-start justify-content-center">
+                      <div class="w-50 w-md-25">
+                        <span class="font-12">Resilience Delegate:</span>
+                      </div>
+                      <div class="w-50 w-md-75">
+                        <strong class="font-12">Name Here</strong>
+                      </div>
+                    </div>
+                    <div class="intro-box mb-3 d-flex align-items-start justify-content-center">
+                      <div class="w-50 w-md-25">
+                        <span class="font-12">Description of Business Service:</span>
+                      </div>
+                      <div class="w-50 w-md-75">
+                        <strong class="font-12">Short example description to be added to this space</strong>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div id="section2">
+            <div class="card border-0 shadow-sm rounded-50 mb-4">
+              <div class="card-body px-0">
+                <div class="box">
+                  <div class="d-flex justify-content-between align-items-center mb-4 pb-2 px-4">
+                    <h5 class="text-capitalize text-left">Description of Resilience Gap</h5>
+                    <div class="text-right">
+                      <a href="#" class="text-black">
+                        <i class="fa fa-ellipsis-v text-right" aria-hidden="true"></i>
+                      </a>
+                    </div>
+                  </div>
+                  <div class="info-text mb-4 pb-2 px-4">
+                    <p class="font-13">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                  </div>
+                  <div class="mb-4 px-4">
+                    <h5 class="text-capitalize d-block mb-4">Total Steps Supplier Touches Across Business Service</h5>
+                    <div class="small-boxes row">
+                      <div class="col-md-6 col-lg-3 mb-3">
+                        <div class="card h-100 border-0">
+                          <div class="card-body p-3 d-block rounded">
+                            <div class="color-tier d-flex align-items-center h-100">
+                              <div class="d-inline-block w-75 text-left align-middle">
+                                <span class="font-12 font-400 d-block">Critical</span>
+                              </div>
+                              <div class="text d-inline-block align-middle w-25 text-right">
+                                <span class="font-12 d-block font-weight-bold">10</span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-6 col-lg-3 mb-3">
+                        <div class="card h-100 border-0">
+                          <div class="card-body p-3 d-block rounded">
+                            <div class="color-tier d-flex align-items-center h-100">
+                              <div class="d-inline-block w-75 text-left align-middle">
+                                <span class="font-12 font-400 d-block">Important</span>
+                              </div>
+                              <div class="text d-inline-block align-middle w-25 text-right">
+                                <span class="font-12 d-block font-weight-bold">10</span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-6 col-lg-3 mb-3">
+                        <div class="card h-100 border-0">
+                          <div class="card-body p-3 d-block rounded">
+                            <div class="color-tier d-flex align-items-center h-100">
+                              <div class="d-inline-block w-75 text-left align-middle">
+                                <span class="font-12 font-400 d-block">Operates as a 3rd Party Supplier</span>
+                              </div>
+                              <div class="text d-inline-block align-middle w-25 text-right">
+                                <span class="font-12 d-block font-weight-bold">YES</span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-6 col-lg-3 mb-3">
+                        <div class="card h-100 border-0">
+                          <div class="card-body p-3 d-block rounded">
+                            <div class="color-tier d-flex align-items-center h-100">
+                              <div class="d-inline-block w-75 text-left align-middle">
+                                <span class="font-12 font-400 d-block">Operates as a 4th Party Supplier</span>
+                              </div>
+                              <div class="text d-inline-block align-middle w-25 text-right">
+                                <span class="font-12 d-block font-weight-bold">NO</span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-6 col-lg-3 mb-3">
+                        <div class="card h-100 border-0">
+                          <div class="card-body p-3 d-block rounded">
+                            <div class="color-tier d-flex align-items-center h-100">
+                              <div class="d-inline-block w-75 text-left align-middle">
+                                <span class="font-12 font-400 d-block">Affected Impact Tolerance</span>
+                              </div>
+                              <div class="text d-inline-block align-middle w-25 text-right">
+                                <span class="font-12 d-block font-weight-bold">SLA</span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-6 col-lg-3 mb-3">
+                        <div class="card h-100 border-0">
+                          <div class="card-body p-3 d-block rounded">
+                            <div class="color-tier d-flex align-items-center h-100">
+                              <div class="d-inline-block w-75 text-left align-middle">
+                                <span class="font-12 font-400 d-block">Firms Target</span>
+                              </div>
+                              <div class="text d-inline-block align-middle w-25 text-right">
+                                <span class="font-12 d-block font-weight-bold">99%</span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-6 col-lg-3 mb-3">
+                        <div class="card h-100 border-0">
+                          <div class="card-body p-3 d-block rounded">
+                            <div class="color-tier d-flex align-items-center h-100">
+                              <div class="d-inline-block w-75 text-left align-middle">
+                                <span class="font-12 font-400 d-block">Supplier Agreement</span>
+                              </div>
+                              <div class="text d-inline-block align-middle w-25 text-right">
+                                <span class="font-12 d-block font-weight-bold">99%</span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-6 col-lg-3 mb-3">
+                        <div class="card h-100 border-0">
+                          <div class="card-body p-3 d-block rounded">
+                            <div class="color-tier d-flex align-items-center h-100">
+                              <div class="d-inline-block w-75 text-left align-middle">
+                                <span class="font-12 font-400 d-block">Difference</span>
+                              </div>
+                              <div class="text d-inline-block align-middle w-25 text-right">
+                                <span class="font-12 d-block font-weight-bold">0%</span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div id="section3" class="section-3">
+            <div class="card border-0 shadow-sm rounded-50 mb-4">
+              <div class="card-body px-0">
+                <div class="box">
+                  <div class="d-flex justify-content-between align-items-center mb-4 pb-2 px-4">
+                    <h5 class="text-capitalize text-left">Resilience Gap Audit Tracker</h5>
+                    <div class="text-right">
+                      <a href="#" class="text-black">
+                        <i class="fa fa-ellipsis-v text-right" aria-hidden="true"></i>
+                      </a>
+                    </div>
+                  </div>
+                  <div class="info-text mb-2 px-4 d-flex align-items-center justify-content-between flex-wrap">
+                    <span class="mb-3 font-500">Most Recent Update:</span>
+                    <span class="font-13 font-500">
+                      <a href="#" class="text-black">
+                        View All Updates
+                      </a>
+                    </span>
+                  </div>
+                  <div class="card mx-4 border-0 mb-4">
+                    <div class="card-body bg-body-color">
+                      <div class="recent-attachment">
+                        <div class="detail">
+                          <h6 class="font-14 mb-3">Text created by the User to update about the resilience gap and actions being taken.</h6>
+                          <span class="d-block font-13 text-light-grey mb-3">Jane Doe, 3:30pm 01/01/01</span>
+                        </div>
+                        <div class="attach font-13">
+                          <i class="fa fa-paperclip paperclip font-20"></i>
+                          <span>Nameofthefile.doc</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="buttons px-4 pb-4 mb-4 d-flex flex-column flex-md-row flex-wrap">
+                    <button type="button" class="btn btn-sm btn-dark py-2 px-3 bg-black rounded-50 mr-1 mb-2">
+                      <i class="fa fa-pencil mr-1"></i>
+                      Edit Most Recent Update
+                    </button>
+                    <button type="button" class="btn btn-sm btn-dark py-2 px-3 bg-black rounded-50 mr-1 mb-2">
+                      <i class="fa fa-plus-circle mr-1"></i>
+                      Add Update
+                    </button>
+                    <button type="button" class="btn btn-sm btn-dark py-2 px-3 bg-black rounded-50 mr-1 mb-2">
+                      <i class="fa fa-bell mr-1"></i>
+                      Subscribe to Updates
+                    </button>
+                  </div>
+                  <hr>
+                  <div class="all-attachments px-4 mb-4">
+                    <h6 class="my-4">All Attachments</h6>
+                    <div class="line-row d-flex align-items-center justify-content-between mb-4 flex-wrap">
+                      <div class="left-side d-flex align-items-center">
+                        <div class="image px-4 py-3 mr-3 bg-body-color">
+                          <i class="fa fa-paperclip paperclip font-20 align-middle"></i>
+                        </div>
+                        <div class="text">
+                          <span class="d-block font-14 font-500">Nameofthefile.doc</span>
+                          <span class="d-block font-12 text-light-grey">Jane Doe, 3:30pm 01/01/01</span>
+                        </div>
+                      </div>
+                      <div class="right-side text-right">
+                        <a href="#" class="text-black text-decoration-none">View</a>
+                        <a href="#" class="ml-2 text-black text-decoration-none">Download</a>
+                      </div>
+                    </div>
+                    <div class="line-row d-flex align-items-center justify-content-between mb-4 flex-wrap">
+                      <div class="left-side d-flex align-items-center">
+                        <div class="image px-4 py-3 mr-3 bg-body-color">
+                          <i class="fa fa-paperclip paperclip font-20 align-middle"></i>
+                        </div>
+                        <div class="text">
+                          <span class="d-block font-14 font-500">Nameofthefile.doc</span>
+                          <span class="d-block font-12 text-light-grey">Jane Doe, 3:30pm 01/01/01</span>
+                        </div>
+                      </div>
+                      <div class="right-side text-right">
+                        <a href="#" class="text-black text-decoration-none">View</a>
+                        <a href="#" class="ml-2 text-black text-decoration-none">Download</a>
+                      </div>
+                    </div>
+                    <div class="line-row d-flex align-items-center justify-content-between mb-4 flex-wrap">
+                      <div class="left-side d-flex align-items-center">
+                        <div class="image px-4 py-3 mr-3 bg-body-color">
+                          <i class="fa fa-paperclip paperclip font-20 align-middle"></i>
+                        </div>
+                        <div class="text">
+                          <span class="d-block font-14 font-500">Nameofthefile.doc</span>
+                          <span class="d-block font-12 text-light-grey">Jane Doe, 3:30pm 01/01/01</span>
+                        </div>
+                      </div>
+                      <div class="right-side text-right">
+                        <a href="#" class="text-black text-decoration-none">View</a>
+                        <a href="#" class="ml-2 text-black text-decoration-none">Download</a>
+                      </div>
+                    </div>
+                    <div class="buttons pt-3 my-4">
+                      <button type="button" class="btn btn-sm btn-dark py-2 px-3 bg-black rounded-50 mr-1">
+                        <i class="fa fa-paperclip paperclip font-20 align-middle"></i>
+                        Add Attachments
+                      </button>
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="resilience-gap-assignee px-4 mb-4">
+                    <h6 class="my-4">Resilience Gap Assignee</h6>
+                    <div class="details mb-4">
+                      <div class="intro-box mb-3 d-flex align-items-start justify-content-center">
+                        <div class="w-50 w-md-25">
+                          <span class="font-14 font-500">Name: Jane Doe</span>
+                        </div>
+                        <div class="w-50 w-md-75">
+                          <span class="font-14 font-500">Email Address: Janedoe@email.com</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="buttons my-4">
+                      <button type="button" class="btn btn-sm btn-dark py-2 px-3 bg-black rounded-50 mr-1">
+                        <i class="fa fa-pencil font-20 align-middle"></i>
+                        Edit
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
