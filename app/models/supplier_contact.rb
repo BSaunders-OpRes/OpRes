@@ -1,7 +1,7 @@
 class SupplierContact < ApplicationRecord
   # Associations #
-  belongs_to :unit
-
+  # belongs_to :unit
+  belongs_to :supplier
   has_many :supplier_contact_suppliers
   has_many :suppliers, through: :supplier_contact_suppliers
 

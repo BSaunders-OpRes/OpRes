@@ -26,9 +26,9 @@
             <p class="text-capitalize font-14 font-600">cloud hosting provider</p>
           </div>
           <div class="col-sm-7 order-3 order-sm-2">
-            <%= form.fields_for :cloud_hosting_provider do |cloud_hosting_provider| %>
-              <%= cloud_hosting_provider.text_field :name, placeholder: 'Cloud Hosting Provider', class: 'w-100 form-control font-12 h-auto py-3 shadow-none' %>
-            <% end %>
+          <%= form.select :cloud_hosting_provider_id, options_for_select(@cloud_hosting_providers.map { |cloud_hosting_provider| [cloud_hosting_provider.name, cloud_hosting_provider.id] }, @supplier&.cloud_hosting_provider&.id ),
+            { include_blank: 'Please select Cloud Hosting Provider' }, required: true, class: 'form-control w-100 font-12 h-auto py-3 shadow-none arrow-select' %>
+          <i class="fa fa-sort-desc pr-2 mr-2" aria-hidden="true"></i>
           </div>
           <div class="col-sm-1 text-right order-2 flex-sm-half mb-2 mb-sm-0">
             <div class="info" data-toggle="tooltip" data-placement="top" title="Please select a cloud hosting provider" aria-hidden="true">i</div>
@@ -57,15 +57,35 @@
             </div>
           </div>
         </div>
-        <div id= "specify-text">
-          <div class="row">
+        <div class="date-selection position-relative mt-3">
+          <div class="row align-items-center">
             <div class="col-sm-4 flex-sm-1 mb-2 mb-sm-0">
+              <p class="text-capitalize font-14 font-600 text-capitalize">Start Date</p>
             </div>
             <div class="col-sm-7 order-3 order-sm-2">
-              <%= form.text_field :other_description, placeholder: 'Please Specify', class:'w-100 form-control font-12 h-auto py-2 shadow-none disable contracting-term-other-field' %>
+              <div class="position-relative">
+                <%= form.text_field :start_date, value: @supplier&.start_date&.strftime("%d-%m-%Y"), class: 'datepicker w-100 form-control font-12 h-auto py-3 shadow-none', placeholder: 'dd/mm/yyyy', autocomplete: 'off' %>
+                <i class="fa fa-calendar font-12 position-absolute right-0-vertical-50 mr-2" aria-hidden="true"></i>
+              </div>
             </div>
           </div>
+
+          <div class="row align-items-center mt-4">
+            <div class="col-sm-4 flex-sm-1 mb-2 mb-sm-0">
+              <p class="text-capitalize font-14 font-600 text-capitalize">End Date</p>
+            </div>
+            <div class="col-sm-7 order-3 order-sm-2">
+              <div class="position-relative">
+                <%= form.text_field :end_date, value: @supplier&.end_date&.strftime("%d-%m-%Y"), class: 'datepicker w-100 form-control font-12 h-auto py-3 shadow-none', placeholder: 'dd/mm/yyyy', autocomplete: 'off'%>
+                <i class="fa fa-calendar font-12 position-absolute right-0-vertical-50 mr-2" aria-hidden="true"></i>
+              </div>
+
+
+            </div>
+          </div>
+          <div class="info position-absolute right-0-vertical-50" data-toggle="tooltip" data-placement="top" title="Please feel free to add a start and end date for your agreement with this supplier" aria-hidden="true">i</div>
         </div>
+
         <%= form.fields_for :relationship_owner do |relationship_owner| %>
           <div class="row align-items-center mt-4">
             <div class="col-sm-4 flex-sm-1 mb-2 mb-sm-0">
@@ -83,35 +103,30 @@
             <div class="col-sm-4 flex-sm-1 mb-2 mb-sm-0">
               <p class="text-capitalize font-14 font-600">Relationship Owner Email</p>
             </div>
-            <div class="col-sm-7 order-3 order-sm-2">
-              <%= form.fields_for :relationship_owner do |relationship_owner| %>
-                <%= relationship_owner.email_field :email, placeholder: 'Relationship Owner Email', class:'w-100 form-control font-12 h-auto py-3 shadow-none' %>
-              <% end %>
+            <div class="col-sm-7 order-3 order-sm-2 mb-4">
+              <%= relationship_owner.email_field :email, placeholder: 'Relationship Owner Email', class:'w-100 form-control font-12 h-auto py-3 shadow-none' %>
             </div>
             <div class="col-sm-1 text-right order-2 flex-sm-half mb-2 mb-sm-0">
               <div class="info" data-toggle="tooltip" data-placement="top" title="Please provide the details of the relationship owner in your organisation" aria-hidden="true">i</div>
             </div>
           </div>
         <% end %>
-        <div class="checkboxes-field mt-4">
-          <div class="row align-items-center">
-            <div class="col-sm-4 flex-sm-1 align-self-start">
-              <p class="text-capitalize font-14 font-600 text-capitalize">supplier Key contact</p>
-            </div>
-            <div class="col-sm-7 order-3 order-sm-2 mt-sm-0 mt-3">
-                <div class="form-check d-flex align-items-center mr-2 form-group mb-2 pl-0">
-                  <% key_contacts&.map{ |kc| [kc.name, kc.id] }&.each do |key, val| %>
-                    <div class="form-check d-flex align-items-center form-group mr-3">
-                      <%= check_box_tag 'supplier[key_contacts_ids][]', val, supplier&.key_contacts.map{ |kc| [kc.name, kc.id] }&.pluck(1).include?(val), class: 'form-check-input mt-0 shadow-none', id: "#{key} -- #{val}" %>
-                      <%= label_tag key, nil, class: 'form-check-label text-capitalize font-13', for: "#{key} -- #{val}" %>
-                    </div>
-                  <% end %>
-                </div>
-            </div>
-            <div class="col-sm-1 text-right order-2 flex-sm-half mb-2 mb-sm-0">
-              <div class="info" data-toggle="tooltip" data-placement="top" title="supplier contact" aria-hidden="true">i</div>
-            </div>
+        <!-- <div class="row mb-2">
+          <div class="col-sm-12 mt-4">
+            <span data-toggle="modal" data-target="#add_contact" class="bsl-step-supplier-modal-opener cursor-pointer toggle-modal d-inline-block">
+              <i class="fa fa-plus-circle" aria-hidden="true"></i>
+              <span class="font-14 font-600 ml-1 text-capitalize cursor-pointer" >add contact</span>
+            </span>
           </div>
+        </div> -->
+        <%= form.fields_for :supplier_social_accounts do |social_account| %>
+          <%= render 'organisation/suppliers/partials/social_account', f: social_account %>
+        <% end %>
+        <div class="">
+          <%= link_to_add_association form, :supplier_social_accounts, class: 'font-14 text-dark', partial: 'organisation/suppliers/partials/social_account' do %>
+            <i class="fa fa-plus-circle"></i>
+            <span>Add another social Account</span>
+          <% end %>
         </div>
         <div class="row align-items-center mt-4 ">
           <div class="col-sm-4 flex-sm-1 mb-2 mb-sm-0">
@@ -174,6 +189,21 @@
             </div>
             <div class="col-sm-1 text-right order-2 flex-sm-half mb-2 mb-sm-0">
               <div class="info" data-toggle="tooltip" data-placement="top" title="Please input your SLO with this supplier" aria-hidden="true">i</div>
+            </div>
+          </div>
+          <div class="row align-items-center mt-4">
+            <div class="col-sm-4 flex-sm-1 mb-2 mb-sm-0">
+              <p class="text-capitalize font-14 font-600">contracted recovery time objective</p>
+            </div>
+            <div class="col-sm-7 order-3 order-sm-2">
+              <div class="input-group mb-2">
+                <div class="input-group-prepend">
+                  <div class="input-group-text px-3 bg-white font-12 text-capitalize">minutes</div>
+                </div>
+                <%= supplier_sla.number_field :recovery_time_objective, placeholder: 'Enter Target', id: 'inlineFormInputGroup', class: 'form-control form-control font-12 h-auto py-3 shadow-none' %>
+              </div>              </div>
+            <div class="col-sm-1 text-right order-2 flex-sm-half mb-2 mb-sm-0">
+              <div class="info" data-toggle="tooltip" data-placement="top" title="Please input your RTO with this supplier" aria-hidden="true">i</div>
             </div>
           </div>
           <div class="row align-items-center mt-4">
@@ -327,11 +357,12 @@
               </div>
               <div class="col-sm-7 order-3 order-sm-2 mt-sm-0 mt-3">
                 <div class="checkbox-container d-flex justify-content-start flex-wrap">
-                  <% Sla.support_hours.each do |key, val| %>
-                    <div class="form-check d-flex align-items-center form-group mr-3 pl-0">
-                      <%= supplier_sla.check_box :support_hours, { id: "support-hours#{key}", multiple: false }, key, nil %>
-                      <%= supplier_sla.label key, class: 'mb-0 ml-2 font-12', for: "support-hours#{key}" %><br />
-                    </div>
+                  <% Sla.support_hours&.each do |key, val| %>
+                    <label class="radio-check p-0 d-flex align-items-center mb-2 mr-3" >
+                      <%= supplier_sla.radio_button :support_hours, key, id: "support-hours#{key}" %>
+                      <%= supplier_sla.label key.titleize, class: 'mb-0 ml-2 font-12 text-capitalize order-2 ml-2', for: "support-hours#{key}" %><br />
+                      <div class="checkmark position-relative order-1"></div>
+                    </label>
                   <% end %>
                 </div>
               </div>
@@ -347,4 +378,68 @@
       </div>
     </div>
   </div>
+
+<div class="modal fade add-contact-modal bsl-step-supplier-modal my-5 py-5" id="add_contact" tabindex="-1" role="dialog" aria-labelledby="new-supplier-modal-1" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header border-0 p-4">
+          <h5 class="modal-title text-capitalize font-16">
+            Add Contact
+          </h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+
+        <div class="modal-body p-4">
+          <div class="row align-items-center mb-3">
+            <div class="col-sm-12 order-3 order-sm-2">
+              <h5 class="font-14 mb-2">Select Contacts</h5>
+              <%= form.select :key_contacts_ids, options_for_select(@key_contacts.map { |key_contact| [key_contact.name, key_contact.id] }, form.object.key_contacts_ids), { prompt: 'Select Key Contact' }, class: 'form-control w-100 font-12 h-auto py-3 shadow-none select2 supplier-key-contact-field supplier-key-contact-selector', multiple: true %>
+            </div>
+          </div>
+          <hr />
+          <h5 class="font-16 mb-4">Create Contacts</h5>
+          <div class="row align-items-center mb-3">
+            <div class="col-sm-4 flex-sm-1 mb-2 mb-sm-0">
+              <p class="text-capitalize font-14 font-600">Contact Name</p>
+            </div>
+            <div class="col-sm-7 order-3 order-sm-2">
+              <%= text_field_tag 'contact[name]', nil, class: 'w-100 form-control font-12 h-auto py-3 shadow-none', placeholder: 'Enter Name' %>
+            </div>
+            <div class="col-sm-1 text-right order-2 flex-sm-half mb-2 mb-sm-0">
+              <div class="info" data-toggle="tooltip" data-placement="top" title="contact name" aria-hidden="true">i</div>
+            </div>
+          </div>
+          <div class="row align-items-center mb-3">
+            <div class="col-sm-4 flex-sm-1 mb-2 mb-sm-0">
+              <p class="text-capitalize font-14 font-600">Contact Email</p>
+            </div>
+            <div class="col-sm-7 order-3 order-sm-2">
+               <%= email_field_tag 'contact[email]', nil, class: 'w-100 form-control font-12 h-auto py-3 shadow-none', placeholder: 'Enter Email' %>
+            </div>
+            <div class="col-sm-1 text-right order-2 flex-sm-half mb-2 mb-sm-0">
+              <div class="info" data-toggle="tooltip" data-placement="top" title="contact email" aria-hidden="true">i</div>
+            </div>
+          </div>
+
+          <div class="row align-items-center mb-3">
+            <div class="col-sm-4 flex-sm-1 mb-2 mb-sm-0">
+              <p class="text-capitalize font-14 font-600">Contact Job Title</p>
+            </div>
+            <div class="col-sm-7 order-3 order-sm-2">
+               <%= email_field_tag 'contact[job_title]', nil, class: 'w-100 form-control font-12 h-auto py-3 shadow-none', placeholder: 'Enter title' %>
+            </div>
+            <div class="col-sm-1 text-right order-2 flex-sm-half mb-2 mb-sm-0">
+              <div class="info" data-toggle="tooltip" data-placement="top" title="contact job title" aria-hidden="true">i</div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer border-0">
+          <%= link_to 'add contact', 'javascript:void(0);', class: 'btn btn-lg dark-btn text-capitalize font-12 font-600 add-contact-form-submit-btn' %>
+        </div>
+      </div>
+    </div>
+  </div>
+
 <% end %>

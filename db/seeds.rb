@@ -72,3 +72,13 @@ JSON.parse(ipcs_data).each do |unit_type_data|
   end
 end
 # Import Institutions, Products, and Channels#
+
+# Cloud Hosting Providers #
+%w(Amazon_Web_Services Microsoft_Azure Google_Cloud_Platform Private_Cloud).each do |chp|
+ CloudHostingProvider.find_or_create_by(name: chp.titleize)
+end
+
+# Social Accounts #
+%w(LinkedIn Twitter Facebook Instagram Website).each do |social_account|
+  SocialAccount.find_or_create_by(name: social_account)
+end
