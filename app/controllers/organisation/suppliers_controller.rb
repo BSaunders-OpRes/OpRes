@@ -42,7 +42,7 @@ class Organisation::SuppliersController < Organisation::BaseController
 
   def supplier_params
     params.require(:supplier).permit(:name, :party_type, :contracting_terms, :contracting_terms_other, :status, :start_date, :end_date, :cloud_hosting_provider_id,
-                      sla_attributes: %i[id service_level_agreement service_level_objective recovery_time_objective recovery_point_objective severity1_response_time severity2_response_time severity3_response_time severity4_response_time  severity1_restoration_service_time severity2_restoration_service_time severity3_restoration_service_time severity4_restoration_service_time support_hours id],
+                      sla_attributes: %i[id service_level_agreement service_level_objective recovery_time_objective recovery_point_objective severity1 severity2 severity3 severity4 severity1_restoration severity2_restoration severity3_restoration severity4_restoration support_hours support_hours_other],
                       key_contacts_ids: [],
                       supplier_social_accounts_attributes: %i[id social_account_id link],
                       relationship_owner_attributes: %i[name email id]

@@ -1,12 +1,24 @@
 document.addEventListener('turbolinks:load', function() {
-  $('body').on('click', '.other-reason-selection', function() {
+  /******************** Other Field Enable/Disable Template ********************
+    <div class="other-reason-container">
+      <label class="radio-check">
+        <input id="radio" class="other-reason-selection" type="radio" value="radio" name="radio">
+        <label for="radio">radio</label>
+        <div class="checkmark position-relative order-1"></div>
+      </label>
+      <input class="other-reason-field" type="text" value="" name="other">
+    </div>
+  *****************************************************************************/
+  $('body').on('click', '.other-reason-container .other-reason-selection', function() {
     if($(this).is(':checked') && $(this).val() == 'other') {
-      $('.other-reason-field').removeClass('disable').val('');
+      $(this).parents('.other-reason-container').find('.other-reason-field').removeClass('disable').val('');
     } else {
-      $('.other-reason-field').addClass('disable').val('');
+      $(this).parents('.other-reason-container').find('.other-reason-field').addClass('disable').val('');
     }
   });
 
+  /******************** Page Loader ********************
+  *****************************************************/
   $('body').on('click', '.wait-loader', function() {
     if (this.tagName == 'INPUT' && !$(this).parents('form')[0].checkValidity()) {
       return
@@ -23,10 +35,14 @@ document.addEventListener('turbolinks:load', function() {
     $('.loader-wrapper').addClass('d-none');
   }
 
+  /******************** Select 2 ********************
+  **************************************************/
   $('.select2').select2({
     placeholder: 'Please select'
   });
 
+  /******************** Date Picker ********************
+  ******************************************************/
   $('.datepicker').datepicker({
     format: 'dd/mm/yyyy'
   });
