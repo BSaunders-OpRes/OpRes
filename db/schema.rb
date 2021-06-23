@@ -331,8 +331,8 @@ ActiveRecord::Schema.define(version: 2021_06_23_090636) do
   end
 
   create_table "supplier_social_accounts", force: :cascade do |t|
-    t.bigint "social_account_id"
     t.bigint "supplier_id"
+    t.bigint "social_account_id"
     t.text "link"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

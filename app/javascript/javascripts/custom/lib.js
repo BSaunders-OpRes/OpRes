@@ -23,7 +23,9 @@ document.addEventListener('turbolinks:load', function() {
     $('.loader-wrapper').addClass('d-none');
   }
 
-  $('.select2').select2();
+  $('.select2').select2({
+    placeholder: 'Please select'
+  });
 
   $('.datepicker').datepicker({
     format: 'dd/mm/yyyy'

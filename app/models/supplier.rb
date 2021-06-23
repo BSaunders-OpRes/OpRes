@@ -45,6 +45,10 @@ class Supplier < ApplicationRecord
     key_contacts.pluck(:name).join(', ')
   end
 
+  def cloud_hosting_provider_id
+    cloud_hosting_provider&.id
+  end
+
   def cloud_hosting_provider_id=(id)
     self.cloud_hosting_provider = CloudHostingProvider.find(id)
   end

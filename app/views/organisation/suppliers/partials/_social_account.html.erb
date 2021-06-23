@@ -1,17 +1,17 @@
 <div class= "nested-fields">
-  <div class="row align-items-center mb-4">
+  <div class="row align-items-center mt-4">
     <div class="col-sm-4 flex-sm-1 mb-2 mb-sm-0">
       <p class="text-capitalize font-14 font-600">Social Account</p>
     </div>
     <div class="col-sm-7 order-3 order-sm-2">
-      <%= f.select :social_account_id, options_for_select(@social_accounts.map { |social_account| [social_account.name, social_account.id] }),{ include_blank: 'Please select social Account' }, required: true, class: 'form-control w-100 font-12 h-auto py-3 shadow-none arrow-select' %>
+      <%= f.select :social_account_id, options_for_select(@social_accounts.map { |social_account| [social_account.name, social_account.id] }), {prompt: 'Please Select Social account'}, required: true, class: 'form-control w-100 font-12 h-auto py-3 shadow-none arrow-select' %>
         <i class="fa fa-sort-desc pr-2 mr-2" aria-hidden="true"></i>
     </div>
     <div class="col-sm-1 text-right order-2 flex-sm-half mb-2 mb-sm-0">
       <div class="info" data-toggle="tooltip" data-placement="top" title="Please provide the Social Account" aria-hidden="true">i</div>
     </div>
   </div>
-  <div class="row align-items-center mb-4">
+  <div class="row align-items-center mt-4">
     <div class="col-sm-4 flex-sm-1 mb-2 mb-sm-0">
       <p class="text-capitalize font-14 font-600">Social Account Link</p>
     </div>
@@ -22,7 +22,7 @@
       <div class="info" data-toggle="tooltip" data-placement="top" title="Please provide the Social Account Link" aria-hidden="true">i</div>
     </div>
   </div>
-  <div class="row align-items-center mb-1">
+  <div class="row align-items-center mt-4">
     <div class="col-sm-4 flex-sm-1 mb-2 mb-sm-0">
       <p class="text-capitalize font-14 font-600">Logo</p>
     </div>

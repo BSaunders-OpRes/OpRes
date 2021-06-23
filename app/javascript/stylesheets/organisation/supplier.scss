@@ -63,6 +63,29 @@
 .p-300 {
   left: 0 !important;
 }
+.key-contacts-select2 {
+  .select2-container {
+    .selection {
+      .select2-selection {
+        font-size: 12px;
+      }
+    }
+    .select2-search--inline {
+      .select2-search__field {
+        margin: 0;
+      }
+    }
+    .select2-selection--multiple {
+      border: 1px solid #c7c7c7;
+      padding: 1rem .5rem;
+    }
+    &--focus {
+      .select2-selection--multiple {
+        border: 1px solid #c7c7c7;
+      }
+    }
+  }
+}
 @media screen and (min-width: 576px) {
   .sticky-top {
     position: sticky;
