@@ -101,6 +101,7 @@ h1, h2, h3, h4, h5, h6, p {
 .disable {
   pointer-events: none;
   color: $medium-grey !important;
+  opacity: 0.5;
 }
 .back-btn {
   .back-btn-header {
@@ -206,9 +207,6 @@ a {
 }
 .justify-content-even {
   justify-content: space-evenly;
-}
-.tooltip-inner {
-  text-transform: capitalize;
 }
 .center-position {
   top: 50%;
@@ -342,91 +340,6 @@ textarea {
   min-height: 100%;
 }
 
-.faded-popover-wrapper {
-  display: inline-block;
-  position: relative;
-  margin: 5px 10px;
-  cursor: pointer;
-  .faded-popover-title {
-    position: relative;
-    .faded-popover-expandable-text {
-      width: 0;
-      opacity: 0;
-      transition: 0.4s all;
-    }
-    .faded-popover-expand-text {
-      width: 100px;
-      opacity: 1;
-    }
-    i {
-      margin-left: 0.5rem;
-    }
-  }
-  .faded-popover-content {
-    position: absolute;
-    right: 0;
-    top: 0;
-    left: 110%;
-    background: $black;
-    width: 230px;
-    padding: 10px 0 15px;
-    color: $white;
-    z-index: 1;
-    height: 300px;
-    overflow-y: auto;
-    overflow-x: hidden;
-    transition: .5s all;
-    &::-webkit-scrollbar {
-      width: 2px;
-    }
-    &::-webkit-scrollbar-track {
-      background: #f1f1f1;
-      width: 2px;
-    }
-    &::-webkit-scrollbar-thumb {
-      background: #333;
-    }
-    &::-webkit-scrollbar-thumb:hover {
-      background: #555;
-    }
-    .close-i {
-      font-size: 25px;
-    }
-    .check-field {
-      margin: 5px 20px 15px 0;
-    }
-  }
-}
-
-.accordion-wrapper {
-  display: block;
-  padding: 5px 20px;
-  cursor: pointer;
-  .accordion-title {
-    position: relative;
-    i {
-      margin-left: 0.5rem;
-    }
-  }
-  .accordion-content {
-    position: relative;
-    background: $light-grey;
-    width: 190px;
-    padding: 15px;
-    color: $white;
-    z-index: 1;
-    height: 170px;
-    overflow-y: auto;
-    i {
-      position: absolute;
-      right: 13px;
-      top: 13px;
-      font-size: 25px;
-      z-index: 3;
-    }
-  }
-}
-
 .dd-carrot-btn {
   width: 200px;
   > a {
@@ -508,16 +421,35 @@ footer {
     height: 0;
     width: 0;
   }
+  .checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 22px;
+    width: 22px;
+    background-color: $white;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+  }
+  .custom-checkbox {
+  input:checked ~ .checkmark:after {
+    display: block;
+  }
+
+    .checkmark:after {
+      left: 6px;
+      top: 3px;
+      width: 6px;
+      height: 10px;
+      border: solid white;
+      border-width: 0 3px 3px 0;
+      -webkit-transform: rotate(45deg);
+      -ms-transform: rotate(45deg);
+      transform: rotate(45deg);
+    }
+  }
 }
 
-.checkmark {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 20px;
-  width: 20px;
-  background-color: #eee;
-}
 
 .custom-checkbox {
   &:hover input ~ .checkmark {
@@ -525,7 +457,7 @@ footer {
   }
 
   input:checked ~ .checkmark {
-    background-color: $secondary-green;
+    background-color: $secondary-green !important;
   }
 }
 
@@ -537,26 +469,6 @@ footer {
 
 .custom-checkbox input:not(:checked) ~ .checkmark {
   border: 1px solid #c7c7c7;
-}
-
-/* Show the checkmark when checked */
-
-.custom-checkbox {
-  input:checked ~ .checkmark:after {
-    display: block;
-  }
-
-  .checkmark:after {
-    left: 7px;
-    top: 4px;
-    width: 6px;
-    height: 10px;
-    border: solid white;
-    border-width: 0 3px 3px 0;
-    -webkit-transform: rotate(45deg);
-    -ms-transform: rotate(45deg);
-    transform: rotate(45deg);
-  }
 }
 
 /* Style the checkmark/indicator */

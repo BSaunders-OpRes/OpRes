@@ -7,10 +7,10 @@
           <p class="text-capitalize font-14 font-600">business service line name</p>
         </div>
         <div class="col-sm-7 order-3 order-sm-2">
-          <%= form.text_field :name, class: 'w-100 form-control font-12 h-auto py-3 shadow-none', placeholder: 'BSL Name', required: true %>
+          <%= form.text_field :name, class: 'w-100 form-control font-12 h-auto py-3 shadow-none', placeholder: 'Enter Name', required: true %>
         </div>
         <div class="col-sm-1 text-right order-2 flex-sm-half mb-2 mb-sm-0">
-          <div class="info" data-toggle="tooltip" data-placement="top" title="business service line name" aria-hidden="true">i</div>
+          <div class="info" data-toggle="tooltip" data-placement="top" title="Please provide a name for your business service" aria-hidden="true">i</div>
         </div>
       </div>
       <div class="row align-items-center mt-4">
@@ -18,10 +18,10 @@
           <p class="text-capitalize font-14 font-600">business service line description </p>
         </div>
         <div class="col-sm-7 order-3 order-sm-2">
-          <%= form.text_area :description, class: 'w-100 form-control font-12 h-auto py-3 shadow-none', placeholder: 'BSL description', required: true %>
+          <%= form.text_area :description, class: 'w-100 form-control font-12 h-auto py-3 shadow-none', placeholder: 'Add Description', required: true %>
         </div>
         <div class="col-sm-1 text-right order-2 flex-sm-half mb-2 mb-sm-0">
-          <div class="info" data-toggle="tooltip" data-placement="top" title="business service line description" aria-hidden="true">i</div>
+          <div class="info" data-toggle="tooltip" data-placement="top" title="Please explain what your business service does" aria-hidden="true">i</div>
         </div>
       </div>
       <div class="row align-items-center mt-4">
@@ -29,11 +29,11 @@
           <p class="text-capitalize font-14 font-600">service tier</p>
         </div>
         <div class="col-sm-7 order-3 order-sm-2">
-          <%= form.select :tier, options_for_select(BusinessServiceLine.tiers.map { |k, v| [k.titleize, k] }, @bsl.tier), { include_blank: 'Select your Tier' }, { class: 'form-control w-100 font-12 h-auto py-3 shadow-none arrow-select', required: true } %>
+          <%= form.select :tier, options_for_select(BusinessServiceLine.tiers.map { |k, v| [k.titleize, k] }, @bsl.tier), { include_blank: 'Please select' }, { class: 'form-control w-100 font-12 h-auto py-3 shadow-none arrow-select', required: true } %>
             <i class="fa fa-sort-desc pr-2 mr-2" aria-hidden="true"></i>
         </div>
         <div class="col-sm-1 text-right order-2 flex-sm-half mb-2 mb-sm-0">
-          <div class="info" data-toggle="tooltip" data-placement="top" title="service tier" aria-hidden="true">i</div>
+          <div class="info" data-toggle="tooltip" data-placement="top" title="Please select a tier for your business service" aria-hidden="true">i</div>
         </div>
       </div>
       <div class="row align-items-center mt-4">
@@ -51,10 +51,10 @@
           data-channel-param-name="business_service_line[channel_ids][]"
         >
           <% selected_regional_unit = @bsl.unit&.selected_regional_unit %>
-          <%= render 'organisation/unit_hierarchys/partials/drop_down', param_name: 'business_service_line[region]', options: Unit.regional_unit_dropdown(managing_units), val: selected_regional_unit&.id, prompt_message: 'Select your region' %>
+          <%= render 'organisation/unit_hierarchys/partials/drop_down', param_name: 'business_service_line[region]', options: Unit.regional_unit_dropdown(managing_units), val: selected_regional_unit&.id, prompt_message: 'Please select' %>
         </div>
         <div class="col-sm-1 text-right order-2 flex-sm-half mb-2 mb-sm-0">
-          <div class="info" data-toggle="tooltip" data-placement="top" title="region" aria-hidden="true">i</div>
+          <div class="info" data-toggle="tooltip" data-placement="top" title="Please confirm the region this business service belongs to" aria-hidden="true">i</div>
         </div>
       </div>
       <div class="row align-items-center mt-4">
@@ -70,10 +70,10 @@
           data-channel-param-name="business_service_line[channel_ids][]"
         >
           <% selected_country_unit = @bsl.unit&.selected_country_unit %>
-          <%= render 'organisation/unit_hierarchys/partials/drop_down', param_name: 'business_service_line[country]', options: (selected_regional_unit&.country_unit_dropdown || []), val: selected_country_unit&.id, prompt_message: 'Select your country' %>
+          <%= render 'organisation/unit_hierarchys/partials/drop_down', param_name: 'business_service_line[country]', options: (selected_regional_unit&.country_unit_dropdown || []), val: selected_country_unit&.id, prompt_message: 'Please select' %>
         </div>
         <div class="col-sm-1 text-right order-2 flex-sm-half mb-2 mb-sm-0">
-          <div class="info" data-toggle="tooltip" data-placement="top" title="country" aria-hidden="true">i</div>
+          <div class="info" data-toggle="tooltip" data-placement="top" title="Please confirm the country this business service belongs to" aria-hidden="true">i</div>
         </div>
       </div>
       <div class="row align-items-center mt-4">
@@ -87,32 +87,17 @@
           data-channel-param-name="business_service_line[channel_ids][]"
         >
           <% selected_institution_unit = @bsl.unit&.selected_institution_unit %>
-          <%= render 'organisation/unit_hierarchys/partials/drop_down', param_name: 'business_service_line[institution]', options: (selected_country_unit&.institution_unit_dropdown || []), val: selected_institution_unit&.id, prompt_message: 'Select your institution' %>
+          <%= render 'organisation/unit_hierarchys/partials/drop_down', param_name: 'business_service_line[institution]', options: (selected_country_unit&.institution_unit_dropdown || []), val: selected_institution_unit&.id, prompt_message: 'Please select' %>
         </div>
         <div class="col-sm-1 text-right order-2 flex-sm-half mb-2 mb-sm-0">
-          <div class="info" data-toggle="tooltip" data-placement="top" title="brand/institution" aria-hidden="true">i</div>
+          <div class="info" data-toggle="tooltip" data-placement="top" title="Please confirm the brand and institution that this business service belongs to" aria-hidden="true">i</div>
         </div>
       </div>
     </div>
     <div class="checkboxes-field mb-5 pb-5 border-bottom">
-      <div class="row align-items-center mt-4">
-        <div class="col-sm-4 align-self-start flex-sm-1">
-          <p class="text-capitalize font-14 font-600 text-capitalize">product</p>
-        </div>
-        <div class="col-sm-7 order-3 order-sm-2 mt-sm-0 mt-3">
-          <div class="checkbox-container d-flex justify-content-start flex-wrap">
-            <div class="form-check d-flex align-items-center mr-2 form-group" id="bsl-products-dropdown">
-              <%= render 'organisation/unit_hierarchys/partials/check_box', options: (@bsl.unit&.products_checkboxes || []), val: @bsl.products.map(&:id), param_name: 'business_service_line[product_ids][]' %>
-            </div>
-          </div>
-        </div>
-        <div class="col-sm-1 text-right order-2 flex-sm-half align-self-start">
-          <div class="info" data-toggle="tooltip" data-placement="top" title="product" aria-hidden="true">i</div>
-        </div>
-      </div>
       <div class="row align-items-center">
         <div class="col-sm-4 align-self-start flex-sm-1">
-          <p class="text-capitalize font-14 font-600 text-capitalize">channel</p>
+          <p class="text-capitalize font-14 font-600 text-capitalize">channels</p>
         </div>
         <div class="col-sm-7 order-3 order-sm-2 mt-sm-0 mt-3">
           <div class="checkbox-container d-flex justify-content-start flex-wrap">
@@ -122,7 +107,22 @@
           </div>
         </div>
         <div class="col-sm-1 text-right order-2 flex-sm-half align-self-start">
-          <div class="info" data-toggle="tooltip" data-placement="top" title="channel" aria-hidden="true">i</div>
+          <div class="info" data-toggle="tooltip" data-placement="top" title="Please confirm the channels that this business service belongs to" aria-hidden="true">i</div>
+        </div>
+      </div>
+      <div class="row align-items-center mt-4">
+        <div class="col-sm-4 align-self-start flex-sm-1">
+          <p class="text-capitalize font-14 font-600 text-capitalize">products</p>
+        </div>
+        <div class="col-sm-7 order-3 order-sm-2 mt-sm-0 mt-3">
+          <div class="checkbox-container d-flex justify-content-start flex-wrap">
+            <div class="form-check d-flex align-items-center mr-2 form-group" id="bsl-products-dropdown">
+              <%= render 'organisation/unit_hierarchys/partials/check_box', options: (@bsl.unit&.products_checkboxes || []), val: @bsl.products.map(&:id), param_name: 'business_service_line[product_ids][]' %>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-1 text-right order-2 flex-sm-half align-self-start">
+          <div class="info" data-toggle="tooltip" data-placement="top" title="Please confirm the products that this business service belongs to" aria-hidden="true">i</div>
         </div>
       </div>
     </div>
@@ -136,7 +136,7 @@
             <%= risk_taker.text_field :name, placeholder: 'Enter Name', class: 'w-100 form-control font-12 h-auto py-3 shadow-none' %>
           </div>
           <div class="col-sm-1 text-right order-2 flex-sm-half mb-2 mb-sm-0">
-            <div class="info" data-toggle="tooltip" data-placement="top" title="Material Risk taker name" aria-hidden="true">i</div>
+            <div class="info" data-toggle="tooltip" data-placement="top" title="Please add a name for this business services material risk taker" aria-hidden="true">i</div>
           </div>
         </div>
         <div class="row align-items-center mt-4">
@@ -147,7 +147,7 @@
             <%= risk_taker.text_field :title, placeholder: 'Enter Title', class: 'w-100 form-control font-12 h-auto py-3 shadow-none' %>
           </div>
           <div class="col-sm-1 text-right order-2 flex-sm-half mb-2 mb-sm-0">
-            <div class="info" data-toggle="tooltip" data-placement="top" title="material risk taker title" aria-hidden="true">i</div>
+            <div class="info" data-toggle="tooltip" data-placement="top" title="Please add a job title for this business services material risk taker" aria-hidden="true">i</div>
           </div>
         </div>
         <div class="row align-items-center mt-4">
@@ -158,7 +158,7 @@
             <%= risk_taker.email_field :email, placeholder: 'Enter Email', class:'w-100 form-control font-12 h-auto py-3 shadow-none' %>
           </div>
           <div class="col-sm-1 text-right order-2 flex-sm-half mb-2 mb-sm-0">
-            <div class="info" data-toggle="tooltip" data-placement="top" title="email address" aria-hidden="true">i</div>
+            <div class="info" data-toggle="tooltip" data-placement="top" title="Please add an email for this business services material risk taker" aria-hidden="true">i</div>
           </div>
         </div>
       </div>

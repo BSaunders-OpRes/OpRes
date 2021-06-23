@@ -1,5 +1,5 @@
 <div class="tab-pane fade" id="internal-sla-tab" role="tabpanel" aria-labelledby="internal_sla">
-  <h5 class="font-600 text-capitalize">internal service level target</h5>
+  <h5 class="font-600 text-capitalize">internal service levels targets</h5>
   <div class="mt-5">
   <%= form.fields_for :sla do |internal_sla| %>
     <div class="input-fields mb-5 pb-5 border-bottom">
@@ -12,43 +12,59 @@
             <div class="input-group-prepend">
               <div class="input-group-text px-3 bg-white font-12">%</div>
             </div>
-            <%= internal_sla.number_field :service_level_agreement, placeholder: 'Enter Target', id: 'inlineFormInputGroup', class: 'form-control form-control font-12 h-auto py-3 shadow-none' %>
+            <%= internal_sla.number_field :service_level_agreement, placeholder: 'Enter Target', class: 'form-control form-control font-12 h-auto py-3 shadow-none' %>
           </div>
         </div>
         <div class="col-sm-1 text-right order-2 flex-sm-half mb-2 mb-sm-0">
-          <div class="info" data-toggle="tooltip" data-placement="top" title="service level agreement target" aria-hidden="true">i</div>
+          <div class="info" data-toggle="tooltip" data-placement="top" title="Please input your SLA with this supplier" aria-hidden="true">i</div>
         </div>
       </div>
       <div class="row align-items-center mt-3">
         <div class="col-sm-4 flex-sm-1 mb-2 mb-sm-0">
-          <p class="text-capitalize font-14 font-600">service level object target</p>
+          <p class="text-capitalize font-14 font-600">service level objective target</p>
         </div>
         <div class="col-sm-7 order-3 order-sm-2">
           <div class="input-group mb-2">
             <div class="input-group-prepend">
               <div class="input-group-text px-3 bg-white font-12">%</div>
             </div>
-            <%= internal_sla.number_field :service_level_objective, placeholder: 'Enter Target', id: 'inlineFormInputGroup', class: 'form-control form-control font-12 h-auto py-3 shadow-none' %>
+            <%= internal_sla.number_field :service_level_objective, placeholder: 'Enter Target', class: 'form-control form-control font-12 h-auto py-3 shadow-none' %>
           </div>
         </div>
         <div class="col-sm-1 text-right order-2 flex-sm-half mb-2 mb-sm-0">
-          <div class="info" data-toggle="tooltip" data-placement="top" title="service level object target" aria-hidden="true">i</div>
+          <div class="info" data-toggle="tooltip" data-placement="top" title="Please input your SLO with this supplier" aria-hidden="true">i</div>
         </div>
       </div>
       <div class="row align-items-center mt-3">
         <div class="col-sm-4 flex-sm-1 mb-2 mb-sm-0">
-          <p class="text-capitalize font-14 font-600">recovery point object target</p>
+          <p class="text-capitalize font-14 font-600">recovery point objective target</p>
         </div>
         <div class="col-sm-7 order-3 order-sm-2">
           <div class="input-group mb-2">
             <div class="input-group-prepend">
               <div class="input-group-text px-3 bg-white font-12">Minutes</div>
             </div>
-            <%= internal_sla.number_field :recovery_point_objective, placeholder: 'Enter Target', id: 'inlineFormInputGroup', class: 'form-control form-control font-12 h-auto py-3 shadow-none' %>
+            <%= internal_sla.number_field :recovery_point_objective, placeholder: 'Enter Target', class: 'form-control form-control font-12 h-auto py-3 shadow-none' %>
           </div>
         </div>
         <div class="col-sm-1 text-right order-2 flex-sm-half mb-2 mb-sm-0">
-          <div class="info" data-toggle="tooltip" data-placement="top" title="recovery point object target" aria-hidden="true">i</div>
+          <div class="info" data-toggle="tooltip" data-placement="top" title="Please input your RPO with this supplier" aria-hidden="true">i</div>
+        </div>
+      </div>
+      <div class="row align-items-center mt-3">
+        <div class="col-sm-4 flex-sm-1 mb-2 mb-sm-0">
+          <p class="text-capitalize font-14 font-600">recovery time objective</p>
+        </div>
+        <div class="col-sm-7 order-3 order-sm-2">
+          <div class="input-group mb-2">
+            <div class="input-group-prepend">
+              <div class="input-group-text px-3 bg-white font-12">Minutes</div>
+            </div>
+            <%= internal_sla.number_field :recovery_time_objective, placeholder: 'Enter Target', class: 'form-control form-control font-12 h-auto py-3 shadow-none' %>
+          </div>
+        </div>
+        <div class="col-sm-1 text-right order-2 flex-sm-half mb-2 mb-sm-0">
+          <div class="info" data-toggle="tooltip" data-placement="top" title="Please input your RTO with this supplier" aria-hidden="true">i</div>
         </div>
       </div>
     </div>
@@ -58,17 +74,25 @@
           <p class="text-capitalize font-14 font-600 text-capitalize">required support hours</p>
         </div>
         <div class="col-sm-7 order-3 order-sm-2 mt-sm-0 mt-3">
-          <div class="checkbox-container d-flex justify-content-start flex-wrap">
-            <% Sla.support_hours.each do |key, val| %>
-              <div class="form-check d-flex align-items-center form-group mr-2 pl-0">
-                <%= internal_sla.check_box :support_hours, { id: "support-hours-#{key}", multiple: false }, key, nil %>
-                <%= internal_sla.label key, class: 'mb-0 ml-2 font-12', for: "support-hours-#{key}" %><br />
+          <div class="checkbox-container">
+            <div class="row">
+              <% Sla.support_hours.each do |key, val| %>
+                <div class="col-sm-6 mb-3 form-check">
+                  <label class="radio-check d-flex p-0 align-items-center">
+                    <%= internal_sla.radio_button :support_hours, key, id: "support-hours-#{key}", class: 'other-reason-selection' %>
+                    <%= internal_sla.label key.titleize, class: 'mb-0 ml-2 font-12 text-capitalize order-2 ml-2', for: "support-hours-#{key}" %>
+                    <div class="checkmark position-relative order-1"></div>
+                  </label>
+                </div>
+              <% end %>
+              <div class="col-sm-6 mb-3">
+                <%= internal_sla.text_field :support_hours_other, class: 'form-control other-reason-field', placeholder: 'Please Specify' %>
               </div>
-            <% end %>
+            </div>
           </div>
         </div>
         <div class="col-sm-1 text-right order-2 flex-sm-half align-self-start">
-          <div class="info" data-toggle="tooltip" data-placement="top" title="required support hours" aria-hidden="true">i</div>
+          <div class="info" data-toggle="tooltip" data-placement="top" title="Please confirm the support hours requirement for this business service" aria-hidden="true">i</div>
         </div>
       </div>
     </div>
