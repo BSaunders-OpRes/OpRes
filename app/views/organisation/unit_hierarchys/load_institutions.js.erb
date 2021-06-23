@@ -1,3 +1,3 @@
-$("#<%= params[:append_institutions_to] %>").html("<%= j(render 'organisation/unit_hierarchys/partials/drop_down', param_name: params[:institution_param_name], options: (@country_unit&.institution_unit_dropdown || []), val: nil, prompt_message: 'Select your institution') %>");
+$("#<%= params[:append_institutions_to] %>").html("<%= j(render 'organisation/unit_hierarchys/partials/drop_down', param_name: params[:institution_param_name], options: (@country_unit&.institution_unit_dropdown || []), val: nil, prompt_message: 'Please select') %>");
 $("#<%= params[:append_products_to] %>").html("<%= j(render 'organisation/unit_hierarchys/partials/check_box', param_name: params[:product_param_name], options: [], val: nil) %>");
 $("#<%= params[:append_channels_to] %>").html("<%= j(render 'organisation/unit_hierarchys/partials/check_box', param_name: params[:channel_param_name], options: [], val: nil) %>");

@@ -10,10 +10,31 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_18_055338) do
+ActiveRecord::Schema.define(version: 2021_06_23_090636) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "active_storage_attachments", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "record_type", null: false
+    t.bigint "record_id", null: false
+    t.bigint "blob_id", null: false
+    t.datetime "created_at", null: false
+    t.index ["blob_id"], name: "index_active_storage_attachments_on_blob_id"
+    t.index ["record_type", "record_id", "name", "blob_id"], name: "index_active_storage_attachments_uniqueness", unique: true
+  end
+
+  create_table "active_storage_blobs", force: :cascade do |t|
+    t.string "key", null: false
+    t.string "filename", null: false
+    t.string "content_type"
+    t.text "metadata"
+    t.bigint "byte_size", null: false
+    t.string "checksum", null: false
+    t.datetime "created_at", null: false
+    t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
+  end
 
   create_table "business_service_line_channels", force: :cascade do |t|
     t.bigint "business_service_line_id"
@@ -52,13 +73,20 @@ ActiveRecord::Schema.define(version: 2021_06_18_055338) do
     t.index ["unit_id"], name: "index_channels_on_unit_id"
   end
 
-  create_table "cloud_hosting_providers", force: :cascade do |t|
+  create_table "cloud_hosting_provider_suppliers", force: :cascade do |t|
+    t.bigint "cloud_hosting_provider_id"
     t.bigint "supplier_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["cloud_hosting_provider_id"], name: "chp_suppliers_on_chp_id"
+    t.index ["supplier_id"], name: "chp_suppliers_on_supplier_id"
+  end
+
+  create_table "cloud_hosting_providers", force: :cascade do |t|
     t.string "name"
     t.text "description"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["supplier_id"], name: "index_cloud_hosting_providers_on_supplier_id"
   end
 
   create_table "countries", force: :cascade do |t|
@@ -252,18 +280,26 @@ ActiveRecord::Schema.define(version: 2021_06_18_055338) do
     t.float "service_level_agreement"
     t.float "service_level_objective"
     t.integer "recovery_point_objective"
-    t.integer "severity1_response_time"
-    t.integer "severity2_response_time"
-    t.integer "severity3_response_time"
-    t.integer "severity4_response_time"
-    t.integer "severity1_restoration_service_time"
-    t.integer "severity2_restoration_service_time"
-    t.integer "severity3_restoration_service_time"
-    t.integer "severity4_restoration_service_time"
+    t.integer "severity1"
+    t.integer "severity2"
+    t.integer "severity3"
+    t.integer "severity4"
+    t.integer "severity1_restoration"
+    t.integer "severity2_restoration"
+    t.integer "severity3_restoration"
+    t.integer "severity4_restoration"
     t.integer "support_hours"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "recovery_time_objective"
+    t.string "support_hours_other"
     t.index ["slaable_type", "slaable_id"], name: "index_slas_on_slaable_type_and_slaable_id"
+  end
+
+  create_table "social_accounts", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "steps", force: :cascade do |t|
@@ -286,12 +322,22 @@ ActiveRecord::Schema.define(version: 2021_06_18_055338) do
   end
 
   create_table "supplier_contacts", force: :cascade do |t|
-    t.bigint "unit_id"
     t.string "name"
     t.string "email"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "unit_id"
     t.index ["unit_id"], name: "index_supplier_contacts_on_unit_id"
+  end
+
+  create_table "supplier_social_accounts", force: :cascade do |t|
+    t.bigint "social_account_id"
+    t.bigint "supplier_id"
+    t.text "link"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["social_account_id"], name: "index_supplier_social_accounts_on_social_account_id"
+    t.index ["supplier_id"], name: "index_supplier_social_accounts_on_supplier_id"
   end
 
   create_table "supplier_steps", force: :cascade do |t|
@@ -312,6 +358,8 @@ ActiveRecord::Schema.define(version: 2021_06_18_055338) do
     t.integer "party_type"
     t.integer "status"
     t.string "other_description"
+    t.date "start_date"
+    t.date "end_date"
     t.index ["unit_id"], name: "index_suppliers_on_unit_id"
   end
 
@@ -395,13 +443,15 @@ ActiveRecord::Schema.define(version: 2021_06_18_055338) do
     t.index ["business_service_line_id"], name: "index_vulnerabilities_on_business_service_line_id"
   end
 
+  add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "business_service_line_channels", "business_service_lines"
   add_foreign_key "business_service_line_channels", "channels"
   add_foreign_key "business_service_line_products", "business_service_lines"
   add_foreign_key "business_service_line_products", "products"
   add_foreign_key "business_service_lines", "units"
   add_foreign_key "channels", "units"
-  add_foreign_key "cloud_hosting_providers", "suppliers"
+  add_foreign_key "cloud_hosting_provider_suppliers", "cloud_hosting_providers"
+  add_foreign_key "cloud_hosting_provider_suppliers", "suppliers"
   add_foreign_key "countries", "regions"
   add_foreign_key "incidents", "suppliers"
   add_foreign_key "institution_products", "institutions"
@@ -426,6 +476,8 @@ ActiveRecord::Schema.define(version: 2021_06_18_055338) do
   add_foreign_key "supplier_contact_suppliers", "supplier_contacts"
   add_foreign_key "supplier_contact_suppliers", "suppliers"
   add_foreign_key "supplier_contacts", "units"
+  add_foreign_key "supplier_social_accounts", "social_accounts"
+  add_foreign_key "supplier_social_accounts", "suppliers"
   add_foreign_key "supplier_steps", "steps"
   add_foreign_key "supplier_steps", "suppliers"
   add_foreign_key "suppliers", "units"

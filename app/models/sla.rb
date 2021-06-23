@@ -3,7 +3,7 @@ class Sla < ApplicationRecord
   belongs_to :slaable, polymorphic: true
 
   # Enums #
-  enum support_hours: %i[24/7 24/5 18/7 18/5 Other]
+  enum support_hours: %i[24/7 24/5 18/7 18/5 other]
 
   # Validations #
   # validates :service_level_agreement, :service_level_objective, :support_hours, :recovery_point_objective,
