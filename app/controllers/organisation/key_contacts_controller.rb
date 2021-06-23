@@ -17,7 +17,6 @@ class Organisation::KeyContactsController < Organisation::BaseController
         format.json { render json: { resp: @key_contact } }
         format.html { redirect_to organisation_key_contacts_path, notice: 'key Contact has been created successfully.' }
       else
-        render :new
         format.json { render json: { errors: @key_contact.errors.full_messages } }
         format.html { render :new }
       end

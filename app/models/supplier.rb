@@ -2,10 +2,10 @@ class Supplier < ApplicationRecord
   # Associations #
   belongs_to :unit
 
-  has_one  :relationship_owner,     dependent: :destroy
+  has_one  :relationship_owner,              dependent: :destroy
   has_one  :cloud_hosting_provider_supplier, dependent: :destroy
-  has_one  :cloud_hosting_provider, through: :cloud_hosting_provider_supplier
-  has_one  :sla, as: :slaable,      dependent: :destroy
+  has_one  :cloud_hosting_provider,          through: :cloud_hosting_provider_supplier
+  has_one  :sla, as: :slaable,               dependent: :destroy
 
   has_many :key_contact_suppliers, dependent: :destroy
   has_many :key_contacts, through: :key_contact_suppliers
@@ -45,15 +45,7 @@ class Supplier < ApplicationRecord
     key_contacts.pluck(:name).join(', ')
   end
 
-  def cloud_hosting_provider_id
-    cloud_hosting_provider&.id
-  end
-
   def cloud_hosting_provider_id=(id)
     self.cloud_hosting_provider = CloudHostingProvider.find(id)
-  end
-
-  def cloud_hosting_provider_name
-    cloud_hosting_provider.pluck(:name)
   end
 end
