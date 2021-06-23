@@ -1,0 +1,32 @@
+{
+  "linkedIn":{
+    "name": "LinkedIn",
+    "logo": "app/javascript/images/social-icons/linkedin.png",
+    "filename": "linkedin.png",
+    "content_type": "image/png"
+  },
+  "twitter":{
+    "name": "Twitter",
+    "logo": "app/javascript/images/social-icons/twitter.png",
+    "filename": "twitter.png",
+    "content_type": "image/png"
+  },
+  "facebook":{
+    "name": "Facebook",
+    "logo": "app/javascript/images/social-icons/facebook.png",
+    "filename": "facebook.png",
+    "content_type": "image/png"
+  },
+  "instagram":{
+    "name": "Instagram",
+    "logo": "app/javascript/images/social-icons/instagram.png",
+    "filename": "instagram.png",
+    "content_type": "image/png"
+  },
+  "website":{
+    "name": "Website",
+    "logo": "app/javascript/images/social-icons/link.png",
+    "filename": "link.png",
+    "content_type": "image/png"
+  }
+}

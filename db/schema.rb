@@ -73,15 +73,6 @@ ActiveRecord::Schema.define(version: 2021_06_23_090636) do
     t.index ["unit_id"], name: "index_channels_on_unit_id"
   end
 
-  create_table "cloud_hosting_provider_suppliers", force: :cascade do |t|
-    t.bigint "cloud_hosting_provider_id"
-    t.bigint "supplier_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["cloud_hosting_provider_id"], name: "chp_suppliers_on_chp_id"
-    t.index ["supplier_id"], name: "chp_suppliers_on_supplier_id"
-  end
-
   create_table "cloud_hosting_providers", force: :cascade do |t|
     t.string "name"
     t.text "description"
@@ -312,6 +303,15 @@ ActiveRecord::Schema.define(version: 2021_06_23_090636) do
     t.index ["business_service_line_id"], name: "index_steps_on_business_service_line_id"
   end
 
+  create_table "supplier_cloud_hosting_providers", force: :cascade do |t|
+    t.bigint "supplier_id"
+    t.bigint "cloud_hosting_provider_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["cloud_hosting_provider_id"], name: "chp_suppliers_on_chp_id"
+    t.index ["supplier_id"], name: "chp_suppliers_on_supplier_id"
+  end
+
   create_table "supplier_contact_suppliers", force: :cascade do |t|
     t.bigint "supplier_contact_id"
     t.bigint "supplier_id"
@@ -357,7 +357,7 @@ ActiveRecord::Schema.define(version: 2021_06_23_090636) do
     t.datetime "updated_at", precision: 6, null: false
     t.integer "party_type"
     t.integer "status"
-    t.string "other_description"
+    t.string "contracting_terms_other"
     t.date "start_date"
     t.date "end_date"
     t.index ["unit_id"], name: "index_suppliers_on_unit_id"
@@ -450,8 +450,6 @@ ActiveRecord::Schema.define(version: 2021_06_23_090636) do
   add_foreign_key "business_service_line_products", "products"
   add_foreign_key "business_service_lines", "units"
   add_foreign_key "channels", "units"
-  add_foreign_key "cloud_hosting_provider_suppliers", "cloud_hosting_providers"
-  add_foreign_key "cloud_hosting_provider_suppliers", "suppliers"
   add_foreign_key "countries", "regions"
   add_foreign_key "incidents", "suppliers"
   add_foreign_key "institution_products", "institutions"
@@ -473,6 +471,8 @@ ActiveRecord::Schema.define(version: 2021_06_23_090636) do
   add_foreign_key "relationship_owners", "suppliers"
   add_foreign_key "risk_appetites", "business_service_lines"
   add_foreign_key "steps", "business_service_lines"
+  add_foreign_key "supplier_cloud_hosting_providers", "cloud_hosting_providers"
+  add_foreign_key "supplier_cloud_hosting_providers", "suppliers"
   add_foreign_key "supplier_contact_suppliers", "supplier_contacts"
   add_foreign_key "supplier_contact_suppliers", "suppliers"
   add_foreign_key "supplier_contacts", "units"

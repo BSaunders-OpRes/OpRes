@@ -3,6 +3,6 @@ class CloudHostingProvider < ApplicationRecord
   validates :name, presence: true
 
   # Associations #
-  has_many :cloud_hosting_provider_suppliers, dependent: :destroy
-  has_many :suppliers, through: :cloud_hosting_provider_suppliers
+  has_many :supplier_cloud_hosting_providers, dependent: :destroy
+  has_many :suppliers, through: :supplier_cloud_hosting_providers
 end

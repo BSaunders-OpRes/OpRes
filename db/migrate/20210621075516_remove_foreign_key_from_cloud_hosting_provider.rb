@@ -6,5 +6,7 @@ class RemoveForeignKeyFromCloudHostingProvider < ActiveRecord::Migration[6.0]
     add_column       :suppliers, :end_date,   :date
 
     add_column       :slas, :recovery_time_objective, :integer
+
+    rename_column :suppliers, :other_description, :contracting_terms_other
   end
 end

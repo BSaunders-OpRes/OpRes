@@ -1,0 +1,23 @@
+<div class= "nested-fields">
+  <div class="row align-items-center mt-4">
+    <div class="col-sm-4 flex-sm-1 mb-2 mb-sm-0">
+      <p class="text-capitalize font-14 font-600"><%= f.object.social_account.name %></p>
+    </div>
+    <div class="col-sm-7 order-3 order-sm-2">
+      <div class="input-group mb-2">
+        <div class="input-group-prepend">
+          <div class="input-group-text px-3 bg-white font-12">
+            <%= image_tag f.object.social_account.logo, class: 'w-25px' %>
+          </div>
+        </div>
+        <%= f.text_field :social_account_id, value: f.object.social_account.id, class: 'd-none' %>
+        <%= f.url_field :link, class: 'form-control font-12 h-auto py-3 shadow-none', placeholder: 'Enter the url' %>
+      </div>
+    </div>
+    <div class="col-sm-1 text-right order-2 flex-sm-half mb-2 mb-sm-0">
+      <div class="info" data-toggle="tooltip" data-placement="top" title="Please provide the Social Account Link" aria-hidden="true">i</div>
+    </div>
+  </div>
+</div>
+
+

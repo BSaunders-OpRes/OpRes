@@ -3,8 +3,8 @@ class Supplier < ApplicationRecord
   belongs_to :unit
 
   has_one  :relationship_owner,              dependent: :destroy
-  has_one  :cloud_hosting_provider_supplier, dependent: :destroy
-  has_one  :cloud_hosting_provider,          through: :cloud_hosting_provider_supplier
+  has_one  :supplier_cloud_hosting_provider, dependent: :destroy
+  has_one  :cloud_hosting_provider,          through:   :supplier_cloud_hosting_provider
   has_one  :sla, as: :slaable,               dependent: :destroy
 
   has_many :key_contact_suppliers, dependent: :destroy
