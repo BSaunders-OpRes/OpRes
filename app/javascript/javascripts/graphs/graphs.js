@@ -1,5 +1,5 @@
 document.addEventListener('turbolinks:load', function() {
-  $('body').on('click', '#graph-breakdown .links a', function(e) {
+  $('body').on('click', '#sticky-sidebar-demo .links a', function(e) {
     e.preventDefault();
     var parent = $(this).parents('.links');
     var href = $(this).attr('href');

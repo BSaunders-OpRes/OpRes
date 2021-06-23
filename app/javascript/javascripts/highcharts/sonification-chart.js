@@ -1,5 +1,5 @@
 document.addEventListener('turbolinks:load', function() {
-  if ($('#cloud-service-provider').length == 1) {
+  if ($('#supplier-view').length == 1) {
     render_line_chart('first-line-chart');
     render_line_chart('second-line-chart');
     render_line_chart('third-line-chart');
@@ -39,7 +39,7 @@ document.addEventListener('turbolinks:load', function() {
       series: [
       {
         name: '',
-        data: [34.8, 43.0, 51.2, 41.4, 64.9, 72.4],
+        data: [14.8, 43.0, 90.2, 30.4, 50.9, 90.4],
         website: 'https://www.nvaccess.org',
         color: colors[2],
         accessibility: {
