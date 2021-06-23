@@ -111,14 +111,6 @@
             </div>
           </div>
         <% end %>
-        <!-- <div class="row mb-2">
-          <div class="col-sm-12 mt-4">
-            <span data-toggle="modal" data-target="#add_contact" class="bsl-step-supplier-modal-opener cursor-pointer toggle-modal d-inline-block">
-              <i class="fa fa-plus-circle" aria-hidden="true"></i>
-              <span class="font-14 font-600 ml-1 text-capitalize cursor-pointer" >add contact</span>
-            </span>
-          </div>
-        </div> -->
         <%= form.fields_for :supplier_social_accounts do |social_account| %>
           <%= render 'organisation/suppliers/partials/social_account', f: social_account %>
         <% end %>
