@@ -1,0 +1,31 @@
+[
+
+{
+  "Aws Amazon": {
+    "regions":[ "US East (Ohio) Region", "US West (Oregon) Region", "US West (Northern California) Region",
+                "US East (Northern Virginia) Region", "GovCloud (US-West) Region", "GovCloud (US-East) Region",
+                "Canada (Central) Region", "South America (São Paulo) Region", "Europe (Frankfurt) Region",
+                "Europe (London) Region", "Europe (Paris) Region", "Middle East (Bahrain) Region", "Europe (Ireland) Region",
+                "Europe (Milan) Region", "Europe (Stockholm) Region", "Africa (Cape Town) Region", "Mainland China (Beijing) Region",
+                "Asia Pacific (Sydney) Region", "Asia Pacific (Tokyo) Region", "Asia Pacific (Seoul) Region", "Mainland China (Ningxia) Region",
+                "Asia Pacific (Osaka) Region", "Asia Pacific (Mumbai) Region", "Asia Pacific (Hong Kong) Region"
+    ],
+     "services": []
+  },
+  "Microsoft Azure":{
+    "regions": [ "West Central US", "North Central US", "Canada East", "UK West", "West India", "South India",
+                 "China East 2", "China East", "China north", "China north 2", "Korea South", "Japan west",
+                 "Australia SouthEast", "Australia Central"
+    ],
+    "services": []
+  },
+  "google":{
+    "regions": [ "Oregon", "Salt Lake city", "Los Angeles", "Las Vegas", "lowa", "Montreal", "N Virginia",
+                 "S Carolina", "Sao Paulo", "London", "Belgium", "Netherlands", "Frankfurt", "Finland",
+                 "Warsaw", "Zurich", "Mumbai", "Jakarta", "Singapore", "Hong kong", "Taiwan", "Seoul", "Osaka",
+                 "Tokyo", "Sydney"
+    ],
+    "services": []
+  }
+}
+]

@@ -1,6 +1,7 @@
 import JQuery     from 'jquery';
 import Highcharts from 'highcharts';
 import toastr     from 'toastr';
+import Datepicker from 'bootstrap-datepicker';
 
 import './journey/journey';
 import './bsl/bsl';

@@ -72,3 +72,25 @@ JSON.parse(ipcs_data).each do |unit_type_data|
   end
 end
 # Import Institutions, Products, and Channels#
+
+# Cloud Hosting Providers #
+%w(Amazon_Web_Services Microsoft_Azure Google_Cloud_Platform Private_Cloud).each do |chp|
+  CloudHostingProvider.find_or_create_by(name: chp.titleize)
+end
+# Cloud Hosting Providers #
+
+# Social Accounts #
+social_accounts_file = Rails.root.join('public','json_data','social_accounts.json')
+social_account_data  = File.read(social_accounts_file)
+JSON.parse(social_account_data).each do |name, data|
+  social_account = SocialAccount.find_or_initialize_by(name: data.dig('name'))
+  next if social_account.persisted?
+
+  social_account.logo.attach(
+    io:           File.open(Rails.root.join(data.dig('logo'))),
+    filename:     data.dig('filename'),
+    content_type: data.dig('content_type')
+  )
+  social_account.save
+end
+# Social Accounts #

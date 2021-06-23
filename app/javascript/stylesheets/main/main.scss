@@ -290,6 +290,11 @@ a {
 .border-bottom-light {
   border-bottom: 1px solid #f3f3f3;
 }
+.right-0-vertical-50 {
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
 .blur {
   filter: blur(2px);
   transition: .3s all;
@@ -306,17 +311,6 @@ a {
   background: $white !important;
 }
 
-::-webkit-input-placeholder {
-  text-transform: capitalize;
-}
-
-:-ms-input-placeholder {
-  text-transform: capitalize;
-}
-
-::placeholder {
-  text-transform: capitalize;
-}
 textarea {
   resize: none;
 }

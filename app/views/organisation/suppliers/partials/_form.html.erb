@@ -2,10 +2,12 @@
   <div class="wizard-body">
     <div class="wizard-header my-4 border-bottom pb-4">
       <h4 class="mb-4 font-weight-bold"><%= new_or_create ? 'Add a new supplier' : 'Edit supplier' %></h4>
-      <p class="font-400 font-14">Please use this form to create a new supplier record in OpRes. A supplier can be a
+      <p class="font-400 font-14">
+        Please use this form to create a new supplier record in OpRes. A supplier can be a
         system that is hosted and delivered internally within your organisation. Alternatively, it
         can be a 3rd or 4th party supplier providing technology, software or resource capability to
-        your organisation</p>
+        your organisation
+      </p>
     </div>
      <h5 class="font-600">Supplier details</h5>
     <div class="mt-5">
@@ -26,9 +28,9 @@
             <p class="text-capitalize font-14 font-600">cloud hosting provider</p>
           </div>
           <div class="col-sm-7 order-3 order-sm-2">
-            <%= form.fields_for :cloud_hosting_provider do |cloud_hosting_provider| %>
-              <%= cloud_hosting_provider.text_field :name, placeholder: 'Cloud Hosting Provider', class: 'w-100 form-control font-12 h-auto py-3 shadow-none' %>
-            <% end %>
+          <%= form.select :cloud_hosting_provider_id, options_for_select(@cloud_hosting_providers.map { |cloud_hosting_provider| [cloud_hosting_provider.name, cloud_hosting_provider.id] }, @supplier&.cloud_hosting_provider&.id ),
+            { include_blank: 'Please select Cloud Hosting Provider' }, required: true, class: 'form-control w-100 font-12 h-auto py-3 shadow-none arrow-select' %>
+          <i class="fa fa-sort-desc pr-2 mr-2" aria-hidden="true"></i>
           </div>
           <div class="col-sm-1 text-right order-2 flex-sm-half mb-2 mb-sm-0">
             <div class="info" data-toggle="tooltip" data-placement="top" title="Please select a cloud hosting provider" aria-hidden="true">i</div>
@@ -40,15 +42,20 @@
               <p class="text-capitalize font-14 font-600 text-capitalize">contracting terms</p>
             </div>
             <div class="col-sm-7 order-3 order-sm-2">
-              <div class="checkbox-container d-flex justify-content-start">
-                <div class="form-check d-flex align-items-center mr-2 form-group mb-2 pl-0 flex-wrap justify-content-between">
-                  <% Supplier.contracting_terms&.each do |key, val| %>
-                    <label class="radio-check supplier-contracting-term p-0 d-flex align-items-center mb-2 mr-3" >
-                      <%= form.radio_button :contracting_terms, key, id: "contracting_terms#{key}" %>
-                      <%= form.label key.titleize, class: 'mb-0 ml-2 font-12 text-capitalize order-2 ml-2', for: "contracting_terms#{key}" %><br />
-                      <div class="checkmark position-relative order-1"></div>
-                    </label>
+              <div class="checkbox-container d-flex justify-content-start other-reason-container">
+                <div class="d-flex align-items-center mr-2 form-group mb-2 pl-0 flex-wrap justify-content-between">
+                  <% Supplier.contracting_terms.each do |key, val| %>
+                    <div class="col-sm-6 mb-3 form-check">
+                      <label class="radio-check d-flex p-0 align-items-center">
+                        <%= form.radio_button :contracting_terms, key, id: "contracting-terms-#{key}", class: 'other-reason-selection' %>
+                        <%= form.label key.titleize, class: 'mb-0 ml-2 font-12 text-capitalize order-2 ml-2', for: "contracting-terms-#{key}" %>
+                        <div class="checkmark position-relative order-1"></div>
+                      </label>
+                    </div>
                   <% end %>
+                  <div class="col-sm-6 mb-3">
+                    <%= form.text_field :contracting_terms_other, class: 'form-control other-reason-field', placeholder: 'Please Specify' %>
+                  </div>
                 </div>
               </div>
             </div>
@@ -57,15 +64,35 @@
             </div>
           </div>
         </div>
-        <div id= "specify-text">
-          <div class="row">
+        <div class="date-selection position-relative mt-3">
+          <div class="row align-items-center">
             <div class="col-sm-4 flex-sm-1 mb-2 mb-sm-0">
+              <p class="text-capitalize font-14 font-600 text-capitalize">Start Date</p>
             </div>
             <div class="col-sm-7 order-3 order-sm-2">
-              <%= form.text_field :other_description, placeholder: 'Please Specify', class:'w-100 form-control font-12 h-auto py-2 shadow-none disable contracting-term-other-field' %>
+              <div class="position-relative">
+                <%= form.text_field :start_date, value: @supplier&.start_date&.strftime("%d-%m-%Y"), class: 'datepicker w-100 form-control font-12 h-auto py-3 shadow-none', placeholder: 'dd/mm/yyyy', autocomplete: 'off' %>
+                <i class="fa fa-calendar font-12 position-absolute right-0-vertical-50 mr-2" aria-hidden="true"></i>
+              </div>
             </div>
           </div>
+
+          <div class="row align-items-center mt-4">
+            <div class="col-sm-4 flex-sm-1 mb-2 mb-sm-0">
+              <p class="text-capitalize font-14 font-600 text-capitalize">End Date</p>
+            </div>
+            <div class="col-sm-7 order-3 order-sm-2">
+              <div class="position-relative">
+                <%= form.text_field :end_date, value: @supplier&.end_date&.strftime("%d-%m-%Y"), class: 'datepicker w-100 form-control font-12 h-auto py-3 shadow-none', placeholder: 'dd/mm/yyyy', autocomplete: 'off'%>
+                <i class="fa fa-calendar font-12 position-absolute right-0-vertical-50 mr-2" aria-hidden="true"></i>
+              </div>
+
+
+            </div>
+          </div>
+          <div class="info position-absolute right-0-vertical-50" data-toggle="tooltip" data-placement="top" title="Please feel free to add a start and end date for your agreement with this supplier" aria-hidden="true">i</div>
         </div>
+
         <%= form.fields_for :relationship_owner do |relationship_owner| %>
           <div class="row align-items-center mt-4">
             <div class="col-sm-4 flex-sm-1 mb-2 mb-sm-0">
@@ -84,35 +111,29 @@
               <p class="text-capitalize font-14 font-600">Relationship Owner Email</p>
             </div>
             <div class="col-sm-7 order-3 order-sm-2">
-              <%= form.fields_for :relationship_owner do |relationship_owner| %>
-                <%= relationship_owner.email_field :email, placeholder: 'Relationship Owner Email', class:'w-100 form-control font-12 h-auto py-3 shadow-none' %>
-              <% end %>
+              <%= relationship_owner.email_field :email, placeholder: 'Relationship Owner Email', class:'w-100 form-control font-12 h-auto py-3 shadow-none' %>
             </div>
             <div class="col-sm-1 text-right order-2 flex-sm-half mb-2 mb-sm-0">
               <div class="info" data-toggle="tooltip" data-placement="top" title="Please provide the details of the relationship owner in your organisation" aria-hidden="true">i</div>
             </div>
           </div>
         <% end %>
-        <div class="checkboxes-field mt-4">
-          <div class="row align-items-center">
-            <div class="col-sm-4 flex-sm-1 align-self-start">
-              <p class="text-capitalize font-14 font-600 text-capitalize">supplier Key contact</p>
-            </div>
-            <div class="col-sm-7 order-3 order-sm-2 mt-sm-0 mt-3">
-                <div class="form-check d-flex align-items-center mr-2 form-group mb-2 pl-0">
-                  <% key_contacts&.map{ |kc| [kc.name, kc.id] }&.each do |key, val| %>
-                    <div class="form-check d-flex align-items-center form-group mr-3">
-                      <%= check_box_tag 'supplier[key_contacts_ids][]', val, supplier&.key_contacts.map{ |kc| [kc.name, kc.id] }&.pluck(1).include?(val), class: 'form-check-input mt-0 shadow-none', id: "#{key} -- #{val}" %>
-                      <%= label_tag key, nil, class: 'form-check-label text-capitalize font-13', for: "#{key} -- #{val}" %>
-                    </div>
-                  <% end %>
-                </div>
-            </div>
-            <div class="col-sm-1 text-right order-2 flex-sm-half mb-2 mb-sm-0">
-              <div class="info" data-toggle="tooltip" data-placement="top" title="supplier contact" aria-hidden="true">i</div>
-            </div>
+        <div class="row align-items-center mt-4">
+          <div class="col-sm-4 flex-sm-1 mb-2 mb-sm-0">
+            <p class="text-capitalize font-14 font-600">Key Contacts</p>
+          </div>
+          <div class="col-sm-7 order-3 order-sm-2 key-contacts-select2">
+            <%= form.select :key_contacts_ids, options_for_select(@key_contacts.map { |key_contact| [key_contact.name, key_contact.id] }, form.object.key_contacts_ids), { include_blank: 'Select Key Contact' }, class: 'form-control w-100 font-12 h-auto py-3 shadow-none select2 supplier-key-contact-selector', id: 'supplier-key-contact-select2', multiple: true %>
+          </div>
+          <div class="col-sm-1 text-right order-2 flex-sm-half mb-2 mb-sm-0">
+            <div class="info" data-toggle="tooltip" data-placement="top" title="Please provide the details of key contacts within this supplier" aria-hidden="true">i</div>
           </div>
         </div>
+        <hr>
+        <%= form.fields_for :supplier_social_accounts do |supplier_social_account| %>
+          <%= render 'organisation/suppliers/partials/social_account_fields', f: supplier_social_account %>
+        <% end %>
+        <hr>
         <div class="row align-items-center mt-4 ">
           <div class="col-sm-4 flex-sm-1 mb-2 mb-sm-0">
             <p class="text-capitalize font-14 font-600">region</p>
@@ -178,6 +199,21 @@
           </div>
           <div class="row align-items-center mt-4">
             <div class="col-sm-4 flex-sm-1 mb-2 mb-sm-0">
+              <p class="text-capitalize font-14 font-600">contracted recovery time objective</p>
+            </div>
+            <div class="col-sm-7 order-3 order-sm-2">
+              <div class="input-group mb-2">
+                <div class="input-group-prepend">
+                  <div class="input-group-text px-3 bg-white font-12 text-capitalize">minutes</div>
+                </div>
+                <%= supplier_sla.number_field :recovery_time_objective, placeholder: 'Enter Target', id: 'inlineFormInputGroup', class: 'form-control form-control font-12 h-auto py-3 shadow-none' %>
+              </div>              </div>
+            <div class="col-sm-1 text-right order-2 flex-sm-half mb-2 mb-sm-0">
+              <div class="info" data-toggle="tooltip" data-placement="top" title="Please input your RTO with this supplier" aria-hidden="true">i</div>
+            </div>
+          </div>
+          <div class="row align-items-center mt-4">
+            <div class="col-sm-4 flex-sm-1 mb-2 mb-sm-0">
               <p class="text-capitalize font-14 font-600">contracted recovery point objective</p>
             </div>
             <div class="col-sm-7 order-3 order-sm-2">
@@ -200,7 +236,7 @@
                 <div class="input-group-prepend">
                   <div class="input-group-text px-3 bg-white font-12 text-capitalize">minutes</div>
                 </div>
-                <%= supplier_sla.number_field :severity1_response_time, placeholder:'Enter Target', class: 'form-control form-control font-12 h-auto py-3 shadow-none', id: 'inlineFormInputGroup'%>
+                <%= supplier_sla.number_field :severity1, placeholder:'Enter Target', class: 'form-control form-control font-12 h-auto py-3 shadow-none', id: 'inlineFormInputGroup'%>
               </div>
             </div>
             <div class="col-sm-1 text-right order-2 flex-sm-half mb-2 mb-sm-0">
@@ -216,7 +252,7 @@
                 <div class="input-group-prepend">
                   <div class="input-group-text px-3 bg-white font-12 text-capitalize">minutes</div>
                 </div>
-                <%= supplier_sla.number_field :severity2_response_time, placeholder:'Enter Target', class: 'form-control form-control font-12 h-auto py-3 shadow-none', id: 'inlineFormInputGroup'%>
+                <%= supplier_sla.number_field :severity2, placeholder:'Enter Target', class: 'form-control form-control font-12 h-auto py-3 shadow-none', id: 'inlineFormInputGroup'%>
               </div>
             </div>
             <div class="col-sm-1 text-right order-2 flex-sm-half mb-2 mb-sm-0">
@@ -232,7 +268,7 @@
                 <div class="input-group-prepend">
                   <div class="input-group-text px-3 bg-white font-12 text-capitalize">minutes</div>
                 </div>
-               <%= supplier_sla.number_field :severity3_response_time, placeholder:'Enter Target', class: 'form-control form-control font-12 h-auto py-3 shadow-none', id: 'inlineFormInputGroup'%>
+               <%= supplier_sla.number_field :severity3, placeholder:'Enter Target', class: 'form-control form-control font-12 h-auto py-3 shadow-none', id: 'inlineFormInputGroup'%>
               </div>
             </div>
             <div class="col-sm-1 text-right order-2 flex-sm-half mb-2 mb-sm-0">
@@ -248,7 +284,7 @@
                 <div class="input-group-prepend">
                   <div class="input-group-text px-3 bg-white font-12 text-capitalize">minutes</div>
                 </div>
-                <%= supplier_sla.number_field :severity4_response_time, placeholder:'Enter Target', class: 'form-control form-control font-12 h-auto py-3 shadow-none', id: 'inlineFormInputGroup'%>
+                <%= supplier_sla.number_field :severity4, placeholder:'Enter Target', class: 'form-control form-control font-12 h-auto py-3 shadow-none', id: 'inlineFormInputGroup'%>
               </div>
             </div>
             <div class="col-sm-1 text-right order-2 flex-sm-half mb-2 mb-sm-0">
@@ -264,7 +300,7 @@
                 <div class="input-group-prepend">
                   <div class="input-group-text px-3 bg-white font-12 text-capitalize">minutes</div>
                 </div>
-               <%= supplier_sla.number_field :severity1_restoration_service_time, placeholder:'Enter Target', class: 'form-control form-control font-12 h-auto py-3 shadow-none', id: 'inlineFormInputGroup'%>
+               <%= supplier_sla.number_field :severity1_restoration, placeholder:'Enter Target', class: 'form-control form-control font-12 h-auto py-3 shadow-none', id: 'inlineFormInputGroup'%>
               </div>
             </div>
             <div class="col-sm-1 text-right order-2 flex-sm-half mb-2 mb-sm-0">
@@ -281,7 +317,7 @@
                   <div class="input-group-text px-3 bg-white font-12 text-capitalize">minutes</div>
                 </div>
 
-              <%= supplier_sla.number_field :severity2_restoration_service_time, placeholder:'Enter Target', class: 'form-control form-control font-12 h-auto py-3 shadow-none', id: 'inlineFormInputGroup'%>
+              <%= supplier_sla.number_field :severity2_restoration, placeholder:'Enter Target', class: 'form-control form-control font-12 h-auto py-3 shadow-none', id: 'inlineFormInputGroup'%>
               </div>
             </div>
             <div class="col-sm-1 text-right order-2 flex-sm-half mb-2 mb-sm-0">
@@ -297,7 +333,7 @@
                 <div class="input-group-prepend">
                   <div class="input-group-text px-3 bg-white font-12 text-capitalize">minutes</div>
                 </div>
-                <%= supplier_sla.number_field :severity3_restoration_service_time, placeholder:'Enter Target', class: 'form-control form-control font-12 h-auto py-3 shadow-none', id: 'inlineFormInputGroup'%>
+                <%= supplier_sla.number_field :severity3_restoration, placeholder:'Enter Target', class: 'form-control form-control font-12 h-auto py-3 shadow-none', id: 'inlineFormInputGroup'%>
               </div>
             </div>
             <div class="col-sm-1 text-right order-2 flex-sm-half mb-2 mb-sm-0">
@@ -313,7 +349,7 @@
                 <div class="input-group-prepend">
                   <div class="input-group-text px-3 bg-white font-12 text-capitalize">minutes</div>
                 </div>
-                <%= supplier_sla.number_field :severity4_restoration_service_time, placeholder:'Enter Target', class: 'form-control form-control font-12 h-auto py-3 shadow-none', id: 'inlineFormInputGroup'%>
+                <%= supplier_sla.number_field :severity4_restoration, placeholder:'Enter Target', class: 'form-control form-control font-12 h-auto py-3 shadow-none', id: 'inlineFormInputGroup'%>
               </div>
             </div>
             <div class="col-sm-1 text-right order-2 flex-sm-half mb-2 mb-sm-0">
@@ -326,13 +362,19 @@
                 <p class="text-capitalize font-14 font-600 text-capitalize">Support hours</p>
               </div>
               <div class="col-sm-7 order-3 order-sm-2 mt-sm-0 mt-3">
-                <div class="checkbox-container d-flex justify-content-start flex-wrap">
+                <div class="row other-reason-container">
                   <% Sla.support_hours.each do |key, val| %>
-                    <div class="form-check d-flex align-items-center form-group mr-3 pl-0">
-                      <%= supplier_sla.check_box :support_hours, { id: "support-hours#{key}", multiple: false }, key, nil %>
-                      <%= supplier_sla.label key, class: 'mb-0 ml-2 font-12', for: "support-hours#{key}" %><br />
+                    <div class="col-sm-6 mb-3 form-check">
+                      <label class="radio-check d-flex p-0 align-items-center">
+                        <%= supplier_sla.radio_button :support_hours, key, id: "support-hours-#{key}", class: 'other-reason-selection' %>
+                        <%= supplier_sla.label key.titleize, class: 'mb-0 ml-2 font-12 text-capitalize order-2 ml-2', for: "support-hours-#{key}" %>
+                        <div class="checkmark position-relative order-1"></div>
+                      </label>
                     </div>
                   <% end %>
+                  <div class="col-sm-6 mb-3">
+                    <%= supplier_sla.text_field :support_hours_other, class: 'form-control other-reason-field', placeholder: 'Please Specify' %>
+                  </div>
                 </div>
               </div>
               <div class="col-sm-1 text-right order-2 flex-sm-half mb-2 mb-sm-0 align-self-start">
@@ -343,7 +385,7 @@
         </div>
       <% end %>
       <div class="wizard-btn d-flex d-sm-block justify-content-between flex-column">
-           <%= form.submit 'Save & Add Supplier', class: 'btn btn-light-grey btn-sm font-600 text-capitalize font-12 float-right btn-light-grey' %>
+        <%= form.submit 'Save & Add Supplier', class: 'btn btn-light-grey btn-sm font-600 text-capitalize font-12 float-right btn-light-grey' %>
       </div>
     </div>
   </div>

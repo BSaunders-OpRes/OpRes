@@ -7,15 +7,24 @@ class Organisation::KeyContactsController < Organisation::BaseController
 
   def new
     @key_contact = organisational_unit.key_contacts.new
+
+    respond_to do |format|
+      format.html {}
+      format.js   {}
+    end
   end
 
   def create
     @key_contact = organisational_unit.key_contacts.new(key_contact_params)
 
-    if @key_contact.save
-      redirect_to organisation_key_contacts_path, notice: 'key Contact has been created successfully.'
-    else
-      render :new
+     respond_to do |format|
+      if @key_contact.save
+        format.html { redirect_to organisation_key_contacts_path, notice: 'key Contact has been created successfully.' }
+        format.js   {}
+      else
+        format.html { render :new }
+        format.js   {}
+      end
     end
   end
 

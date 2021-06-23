@@ -1,0 +1,4 @@
+var new_key_contact = new Option("<%= @key_contact.name %>", "<%= @key_contact.id %>", false, true);
+$('#supplier-key-contact-select2').append(new_key_contact).trigger('change');
+$('#add-contact-modal').modal('hide');
+toastr.success('Contact created successfully and selected!');
