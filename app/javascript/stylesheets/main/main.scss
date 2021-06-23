@@ -286,6 +286,9 @@ a {
 .border-bottom-black {
   border-bottom: 1px solid $black;
 }
+.border-bottom-light {
+  border-bottom: 1px solid #f3f3f3;
+}
 .blur {
   filter: blur(2px);
   transition: .3s all;
