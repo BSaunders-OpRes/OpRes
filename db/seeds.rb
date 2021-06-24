@@ -73,11 +73,6 @@ JSON.parse(ipcs_data).each do |unit_type_data|
 end
 # Import Institutions, Products, and Channels#
 
-# Cloud Hosting Providers #
-%w(Amazon_Web_Services Microsoft_Azure Google_Cloud_Platform Private_Cloud).each do |chp|
-  CloudHostingProvider.find_or_create_by(name: chp.titleize)
-end
-# Cloud Hosting Providers #
 
 # Social Accounts #
 social_accounts_file = Rails.root.join('public','json_data','social_accounts.json')
@@ -94,3 +89,22 @@ JSON.parse(social_account_data).each do |name, data|
   social_account.save
 end
 # Social Accounts #
+
+
+
+# Cloud Hosting Providers #
+cloud_hosting_provider_file  = Rails.root.join('public','json_data','cloud_hosting_providers.json')
+cloud_hosting_provider_data  = File.read(cloud_hosting_provider_file)
+JSON.parse(cloud_hosting_provider_data).each do |data|
+  data.each do |chp_name, chp_data|
+    chp = CloudHostingProvider.find_or_create_by(name: chp_name.titleize)
+    chp_data.dig('regions').each do |region|
+      CloudHostingProviderRegion.find_or_create_by(name: region, cloud_hosting_provider: chp)
+    end
+
+    chp_data.dig('services').each do  |service|
+      CloudHostingProviderService.find_or_create_by(name: service, cloud_hosting_provider: chp)
+    end
+  end
+end
+# Cloud Hosting Providers #

@@ -36,6 +36,9 @@ Rails.application.routes.draw do
       get :load_institutions,      on: :collection
       get :load_products_channels, on: :collection
     end
+    resources :cloud_hosting_providers, only: %i[] do
+      get :load_chp_regions_and_services, on: :collection
+    end
     resources :admins
     resources :administration_portal, only: %i[index]
     # resources :supplier_contacts

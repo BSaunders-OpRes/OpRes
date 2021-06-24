@@ -1,0 +1,29 @@
+<div class="col-sm-4 flex-sm-1 mb-2 mb-sm-0">
+</div>
+<div class="col-sm-7 order-3 order-sm-2">
+  <div class="card border-0">
+    <div class="card-body p-0">
+      <div class="down-arrow-collapse down-collapse">
+        <span class="position-relative d-block d-arrow">
+          <input type="text" class="w-100 form-control font-12 h-auto py-3 shadow-none" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample" placeholder="Search Service">
+        </span>
+        <div class="collapse" id="collapseExample">
+          <div class="card h-300-with-scroll overflow-auto">
+            <div class="card-body">
+            <% services.each do |service| %>
+              <div class="form-group mb-4" >
+                <label class="d-flex justify-content-between align-items-center custom-checkbox px-0 pb-4 border-bottom" for="<%= "#{service.id}" %>" >
+                  <span class="text-uppercase text-left flex-1 font-14 font-400"><%= service.name %></span>
+                  <%= check_box_tag "supplier[cloud_hosting_provider_service_ids][]", service.id, supplier&.cloud_hosting_provider_services&.ids, class: "form-control w-auto country", id: "#{service.id}" %>
+                  <span class="checkmark position-relative"></span>
+                </label>
+              </div>
+            <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="col-sm-1 text-right order-2 flex-sm-half mb-2 mb-sm-0"></div>
