@@ -37,9 +37,12 @@ document.addEventListener('turbolinks:load', function() {
 
   /******************** Select 2 ********************
   **************************************************/
-  $('.select2').select2({
-    placeholder: 'Please select'
-  });
+  window.init_select2 = function() {
+    $('.select2').select2({
+      placeholder: 'Please select'
+    });
+  }
+  init_select2();
 
   /******************** Date Picker ********************
   ******************************************************/

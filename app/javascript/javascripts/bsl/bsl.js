@@ -9,7 +9,7 @@ document.addEventListener('turbolinks:load', function() {
 
   /******************** Event Bindings ********************
   ********************************************************/
-  $('#bsl-tab li').click(function() {
+  $('body').on('click', '#bsl-tab li', function() {
     href  = $(this).find('a').attr('href');
     parts = href.split('-');
     parts.splice(-1);
@@ -20,7 +20,7 @@ document.addEventListener('turbolinks:load', function() {
     $(desc).removeClass('d-none');
   });
 
-  $('#bsl-proceed-btn').click(function(e) {
+  $('body').on('click', '#bsl-proceed-btn', function(e) {
     e.preventDefault();
 
     var current_tab = $('#bsl-tab li.nav-item a.active').parent('li.nav-item');
@@ -34,7 +34,7 @@ document.addEventListener('turbolinks:load', function() {
     }
   });
 
-  $('#bsl-previous-btn').click(function(e) {
+  $('body').on('click', '#bsl-previous-btn', function(e) {
     e.preventDefault();
 
     var current_tab  = $('#bsl-tab li.nav-item a.active').parent('li.nav-item');
@@ -96,7 +96,7 @@ document.addEventListener('turbolinks:load', function() {
     new_elem  = $(insertedItem[0]);
     timestamp = new_elem.find('.bsl-step-field:first').attr('name').split('][')[1];
 
-    new_elem.find('.select2').select2();
+    init_select2();
 
     new_elem.find('.bsl-step-supplier-modal-opener').attr('data-target', '#bsl-step-supplier-modal-' + timestamp);
     new_elem.find('.bsl-step-supplier-modal').attr('id', 'bsl-step-supplier-modal-' + timestamp);
@@ -110,9 +110,48 @@ document.addEventListener('turbolinks:load', function() {
     new_elem.find('.load-countries-from-region').attr('data-append-countries-to', 'bsl-step-supplier-country-' + timestamp);
     new_elem.find('.bsl-step-supplier-countries').attr('id', 'bsl-step-supplier-country-' + timestamp);
   })
-  .on('cocoon:after-remove', function(e) {
-    bsl_assign_step_number();
-  });
+  .on('cocoon:before-remove', function(e, elem) {
+    e.preventDefault();
+
+    $('.bsl-step-bin').removeClass('clicked');
+    elem.find('.bsl-step-bin').addClass('clicked');
+
+    Swal.fire({
+      title: 'Delete',
+      text: 'You have selected to delete this step. Press "Yes" to confirm the deletion. Press "No" to cancel.',
+      showConfirmButton: true,
+      showCancelButton:  true,
+      confirmButtonText: 'Yes',
+      cancelButtonText:  'No'
+    })
+    .then((result) => {
+      if (result.isConfirmed) {
+        step_bin = $('.bsl-step-bin.clicked');
+        step_id  = step_bin.data('step-id');
+        step     = step_bin.parents('.cocooned-step');
+
+        if (step_id == undefined) {
+          step.remove();
+          bsl_assign_step_number();
+        } else {
+          $.ajax({
+            url:      '/organisation/steps/' + step_id,
+            dataType: 'json',
+            type:     'DELETE',
+            success: function(result) {
+              if (result.deleted) {
+                step.parents('.bsl-step').next('input[type=hidden]').remove();
+                step.remove();
+                bsl_assign_step_number();
+              } else {
+                Swal.fire({ icon: 'error', title: 'Oops!', text: 'Something went wrong.' });
+              }
+            }
+          });
+        }
+      }
+    })
+  })
 
   $('body').on('input', '.bsl-risk-slider', function() {
     bsl_risk_slider_fill($(this));
@@ -138,7 +177,7 @@ document.addEventListener('turbolinks:load', function() {
   /******************** Helper Methods ********************
   ********************************************************/
   function bsl_assign_step_number() {
-    $('#bsl-steps .nested-fields').each(function(index) {
+    $('#bsl-steps .cocooned-step').each(function(index) {
       $(this).find('.bsl-step-number').text(index + 1);
       $(this).find('.bsl-step-number-field').val(index + 1);
     });

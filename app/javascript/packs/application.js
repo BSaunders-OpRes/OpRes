@@ -7,9 +7,9 @@ require('jquery');
 require('jquery-validation');
 require('popper.js');
 require('bootstrap');
-require('@nathanvda/cocoon')
-require('select2')
-require('toastr')
+require('@nathanvda/cocoon');
+require('select2');
+require('toastr');
 
 require.context('../images', true);
 
