@@ -40,5 +40,6 @@ Rails.application.routes.draw do
     resources :administration_portal, only: %i[index]
     # resources :supplier_contacts
     resources :key_contacts
+    resources :steps, only: %[destroy]
   end
 end

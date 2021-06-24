@@ -29,6 +29,12 @@ class BusinessServiceLine < ApplicationRecord
   accepts_nested_attributes_for :steps, reject_if: :all_blank, allow_destroy: true
 
   # Methods #
+  def reoder_steps
+    steps.each_with_index do |step, index|
+      step.update(number: index + 1)
+    end
+  end
+
   def product_ids
     products.pluck(:id)
   end

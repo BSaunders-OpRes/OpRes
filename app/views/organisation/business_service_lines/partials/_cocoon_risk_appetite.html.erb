@@ -8,7 +8,7 @@
       <div class="slidecontainer d-flex align-items-center w-100">
         <span class="font-12 font-300 mr-2 light-text text-capitalize font-600">very low</span>
         <div class="chrome flex-1">
-          <%= f.range_field :risk_appetite_value, min:'0', max: '100', class: 'w-100 myinput bsl-risk-slider', required: true %>
+          <%= f.range_field :risk_appetite_value, min:'0', max: '100', step: '25', class: 'w-100 myinput bsl-risk-slider', required: true %>
         </div>
         <span class="font-12 font-300 ml-2 light-text text-capitalize font-600">very high</span>
       </div>

@@ -8,7 +8,17 @@ class Step < ApplicationRecord
   # Validations #
   validates :name, :description, presence: true
 
+  # Scopes #
+  default_scope { order(number: :asc) }
+
+  # Callbacks #
+  after_destroy :reoder_steps
+
   # Methods #
+  def reoder_steps
+    business_service_line.reoder_steps
+  end
+
   def supplier_ids
     suppliers.pluck(:id)
   end
