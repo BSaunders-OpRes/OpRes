@@ -58,10 +58,10 @@ document.addEventListener('turbolinks:load', function() {
       type: 'POST',
       data: {
         supplier: {
-          name:         opened_modal.find("input[name='supplier[name]']").val(),
-          party_type:   opened_modal.find("select[name='supplier[party_type]']").val(),
-          status:       opened_modal.find("input[name='supplier[status]']:checked").val(),
-          country_unit: opened_modal.find("select[name='supplier[country]']").val()
+          name:             opened_modal.find("input[name='supplier[name]']").val(),
+          party_type:       opened_modal.find("select[name='supplier[party_type]']").val(),
+          importance_level: opened_modal.find("input[name='supplier[importance_level]']:checked").val(),
+          country_unit:     opened_modal.find("select[name='supplier[country]']").val()
         }
       },
       success: function(element) {
@@ -77,11 +77,9 @@ document.addEventListener('turbolinks:load', function() {
         } else {
           var new_supplier = new Option(supplier.resp.name, supplier.resp.id, false, false);
           $('#bsl-steps .bsl-step-supplier-selector').append(new_supplier).trigger('change');
-          var current_supplier_selector = opened_modal.find('.bsl-step-supplier-selector');
-          var current_supplier_values   = current_supplier_selector.val();
-          current_supplier_values.push(supplier.resp.id);
-          current_supplier_selector.val(current_supplier_values);
-          current_supplier_selector.select2().trigger('change');
+
+          select2_choose_option(opened_modal.find('.bsl-step-supplier-selector'), supplier.resp.id);
+
           opened_modal.find(":input[name^='supplier']").val('');
           toastr.success('Supplier created successfully!');
         }
@@ -101,11 +99,11 @@ document.addEventListener('turbolinks:load', function() {
     new_elem.find('.bsl-step-supplier-modal-opener').attr('data-target', '#bsl-step-supplier-modal-' + timestamp);
     new_elem.find('.bsl-step-supplier-modal').attr('id', 'bsl-step-supplier-modal-' + timestamp);
 
-    new_elem.find('.bsl-step-supplier-status.critical-radio').attr('id', 'critical-' + timestamp);
-    new_elem.find('.bsl-step-supplier-status.critical-radio').siblings('label').attr('for', 'critical-' + timestamp);
+    new_elem.find('.bsl-step-supplier-importance-level.critical-radio').attr('id', 'critical-' + timestamp);
+    new_elem.find('.bsl-step-supplier-importance-level.critical-radio').siblings('label').attr('for', 'critical-' + timestamp);
 
-    new_elem.find('.bsl-step-supplier-status.important-radio').attr('id', 'important-' + timestamp);
-    new_elem.find('.bsl-step-supplier-status.important-radio').siblings('label').attr('for', 'important-' + timestamp);
+    new_elem.find('.bsl-step-supplier-importance-level.important-radio').attr('id', 'important-' + timestamp);
+    new_elem.find('.bsl-step-supplier-importance-level.important-radio').siblings('label').attr('for', 'important-' + timestamp);
 
     new_elem.find('.load-countries-from-region').attr('data-append-countries-to', 'bsl-step-supplier-country-' + timestamp);
     new_elem.find('.bsl-step-supplier-countries').attr('id', 'bsl-step-supplier-country-' + timestamp);
@@ -123,12 +121,11 @@ document.addEventListener('turbolinks:load', function() {
       showCancelButton:  true,
       confirmButtonText: 'Yes',
       cancelButtonText:  'No'
-    })
-    .then((result) => {
+    }).then((result) => {
       if (result.isConfirmed) {
         step_bin = $('.bsl-step-bin.clicked');
         step_id  = step_bin.data('step-id');
-        step     = step_bin.parents('.cocooned-step');
+        step     = step_bin.parents('.bsl-step');
 
         if (step_id == undefined) {
           step.remove();
@@ -140,7 +137,7 @@ document.addEventListener('turbolinks:load', function() {
             type:     'DELETE',
             success: function(result) {
               if (result.deleted) {
-                step.parents('.bsl-step').next('input[type=hidden]').remove();
+                step.next('input[type=hidden]').remove();
                 step.remove();
                 bsl_assign_step_number();
               } else {
@@ -151,7 +148,39 @@ document.addEventListener('turbolinks:load', function() {
         }
       }
     })
-  })
+  });
+
+  $('body').on('click', '#bsl-steps .bsl-step-up', function() {
+  });
+
+  $('body').on('click', '#bsl-steps .bsl-step-supplier-selected-bin', function() {
+    container   = $(this).parents('.bsl-step-supplier-selected-container');
+    step_id     = $(this).data('step');
+    supplier_id = $(this).data('supplier');
+
+    Swal.fire({
+      title: 'Delete',
+      text: 'You have selected to delete this supplier from step. Press "Yes" to confirm the deletion. Press "No" to cancel.',
+      showConfirmButton: true,
+      showCancelButton:  true,
+      confirmButtonText: 'Yes',
+      cancelButtonText:  'No'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        $.ajax({
+          url: '/organisation/steps/'+ step_id +'/supplier_step?supplier_id='+ supplier_id,
+          dataType: 'json',
+          type: 'DELETE',
+          success: function(result) {
+            if (result.deleted) {
+              select2_remove_option(container.parents('.bsl-step').find('.bsl-step-supplier-selector'), supplier_id);
+              container.remove();
+            }
+          }
+        })
+      }
+    });
+  });
 
   $('body').on('input', '.bsl-risk-slider', function() {
     bsl_risk_slider_fill($(this));
@@ -177,7 +206,7 @@ document.addEventListener('turbolinks:load', function() {
   /******************** Helper Methods ********************
   ********************************************************/
   function bsl_assign_step_number() {
-    $('#bsl-steps .cocooned-step').each(function(index) {
+    $('#bsl-steps .bsl-step').each(function(index) {
       $(this).find('.bsl-step-number').text(index + 1);
       $(this).find('.bsl-step-number-field').val(index + 1);
     });

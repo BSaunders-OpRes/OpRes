@@ -19,9 +19,9 @@ class Supplier < ApplicationRecord
   has_many :social_accounts, through: :supplier_social_accounts
 
   # Enums #
-  enum contracting_terms: %i[monthly annually other non-applicable]
-  enum party_type: %i[3rd-party 4th-party]
-  enum status: %i[critical important]
+  enum contracting_terms: %i[monthly annually other non_applicable]
+  enum party_type: %i[firm-hosted 3rd-party 4th-party]
+  enum importance_level: %i[critical important]
 
   # Validations #
   # validates :name, :contracting_terms, presence: true
@@ -33,6 +33,16 @@ class Supplier < ApplicationRecord
   accepts_nested_attributes_for :supplier_social_accounts, allow_destroy: true
 
   # Methods #
+  def party_type_color
+    if send('firm-hosted?')
+      'turquoise'
+    elsif send('3rd-party?')
+      'black'
+    elsif send('4th-party?')
+      'blue'
+    end
+  end
+
   def key_contacts_ids
     key_contacts.pluck(:id)
   end

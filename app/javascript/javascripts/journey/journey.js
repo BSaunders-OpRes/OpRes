@@ -1,10 +1,14 @@
 document.addEventListener('turbolinks:load', function() {
+  /******************** Page Load Logics ********************
+  **********************************************************/
   if ($('#onboarding-finish').length >0) {
     setTimeout(function() {
       window.location.href = '/organisation/dashboard';
     }, 2000);
   }
 
+  /******************** Event Bindings ********************
+  ********************************************************/
   $('body').on('click', '.build-institution', function() {
     link              = $(this);
     institution_block = link.parents('.institution-block');
@@ -110,7 +114,5 @@ document.addEventListener('turbolinks:load', function() {
     } else {
       $(channel_id).addClass('disable');
     }
-    
   });
-
 });

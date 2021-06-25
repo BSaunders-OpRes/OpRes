@@ -42,6 +42,21 @@ document.addEventListener('turbolinks:load', function() {
       placeholder: 'Please select'
     });
   }
+
+  window.select2_choose_option = function(field, id) {
+    current_vals = field.val();
+    current_vals.push(id);
+    field.val(current_vals);
+    field.select2().trigger('change');
+  }
+
+  window.select2_remove_option = function(field, id) {
+    current_vals = field.val();
+    current_vals.splice(current_vals.indexOf(id), 1);
+    field.val(current_vals);
+    field.select2().trigger('change');
+  }
+
   init_select2();
 
   /******************** Date Picker ********************
