@@ -17,19 +17,16 @@ class Supplier < ApplicationRecord
   has_many :steps, through: :supplier_steps
   has_many :supplier_social_accounts, dependent: :destroy
   has_many :social_accounts, through: :supplier_social_accounts
-
   has_many :supplier_cloud_hosting_provider_regions, dependent: :destroy
   has_many :cloud_hosting_provider_regions, through: :supplier_cloud_hosting_provider_regions
-
-
   has_many :supplier_cloud_hosting_provider_services, dependent: :destroy
   has_many :cloud_hosting_provider_services, through: :supplier_cloud_hosting_provider_services
 
   # Enums #
-  enum contracting_terms: %i[monthly annually other non_applicable], _suffix: true
+  enum contracting_terms: %i[monthly annually other non_applicable], _suffix: :contracting_terms
+  enum consumption_model: %i[iaas saas paas other], _suffix: :consumption_model
   enum party_type: %i[firm-hosted 3rd-party 4th-party]
   enum importance_level: %i[critical important]
-  enum consumption_model: %i[iaas saas paas other], _prefix: :consumption_model
 
   # Validations #
   # validates :name, :contracting_terms, presence: true
@@ -76,7 +73,7 @@ class Supplier < ApplicationRecord
   end
 
   def cloud_hosting_provider_region_id=(id)
-    self.cloud_hosting_provider_regions << CloudHostingProviderRegion.find(id)
+    self.cloud_hosting_provider_regions = CloudHostingProviderRegion.find(id)
   end
 
   def cloud_hosting_provider_service_ids
@@ -84,7 +81,7 @@ class Supplier < ApplicationRecord
   end
 
   def cloud_hosting_provider_service_ids=(ids)
-    self.cloud_hosting_provider_services << CloudHostingProviderService.find(ids.reject(&:blank?))
+    self.cloud_hosting_provider_services = CloudHostingProviderService.find(ids.reject(&:blank?))
   end
 
   def cloud_hosting_provider_service_list

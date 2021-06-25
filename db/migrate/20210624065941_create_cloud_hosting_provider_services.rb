@@ -4,6 +4,7 @@ class CreateCloudHostingProviderServices < ActiveRecord::Migration[6.0]
       t.references :cloud_hosting_provider, foreign_key: true, index: { name: 'chps_on_chp_id' }
 
       t.string :name
+
       t.timestamps
     end
   end
