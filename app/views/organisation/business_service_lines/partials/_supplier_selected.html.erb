@@ -1,0 +1,19 @@
+<div class="col-sm-6 mb-2 bsl-step-supplier-selected-container">
+  <div class="card border-top-0 border-right-0 border-bottom-0 <%= "#{supplier.party_type_color}-border-card" %> h-130px">
+    <div class="card-body p-3">
+      <span class="d-flex align-items-center mb-3">
+        <i class="fa fa-ellipsis-v" aria-hidden="true"></i>
+        <i class="fa fa-ellipsis-v ml-1" aria-hidden="true"></i>
+        <span class="font-12 font-600 ml-2 text-capitalize flex-1"><%= supplier.name %></span>
+        <%= link_to 'javascript:void(0);', class: 'text-black text-decoration-none bsl-step-supplier-selected-bin', data: { step: step.id, supplier: supplier.id } do %>
+          <i class="fa fa-trash font-12 cursor-pointer delete-supplier" aria-hidden="true"></i>
+        <% end %>
+      </span>
+      <ul class="list-group p-0 list-unstyled">
+        <li class="font-12 text-capitalize font-weight-normal"><%= supplier.party_type %></li>
+        <li class="font-12 text-capitalize font-weight-normal"><%= supplier.importance_level %></li>
+        <li class="font-12 text-capitalize font-weight-normal"><%= supplier.unit.name %></li>
+      </ul>
+    </div>
+  </div>
+</div>

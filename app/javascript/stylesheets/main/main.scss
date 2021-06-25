@@ -24,6 +24,14 @@ h1, h2, h3, h4, h5, h6, p {
   margin: 0;
 }
 
+.swal2-confirm {
+  background-color: $primary-green !important;
+  box-shadow: none;
+}
+.swal2-styled.swal2-confirm:focus {
+  box-shadow: none;
+}
+
 .toggle-switch {
   .switch {
     width: 60px;
@@ -314,12 +322,16 @@ a {
 textarea {
   resize: none;
 }
-.green-border-card {
-  border: 3px solid $primary-green;
+.turquoise-border-card {
+  border: 4px solid $primary-green;
   background: $body-bg-color;
 }
 .black-border-card {
-  border: 3px solid $black;
+  border: 4px solid $black;
+  background: $body-bg-color;
+}
+.blue-border-card {
+  border: 4px solid $blue;
   background: $body-bg-color;
 }
 .cursor-pointer {

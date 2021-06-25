@@ -1,4 +1,4 @@
-<div class="input-fields mb-4 pb-4 border-bottom border-top-0 nested-fields cocooned-step">
+<div class="input-fields mb-4 pb-4 border-bottom border-top-0 nested-fields bsl-step">
   <div class="row align-items-center">
     <div class="col-sm-12 my-3 d-flex justify-content-between align-items-center">
       <span>
@@ -11,8 +11,14 @@
         </span>
       </span>
       <span>
+        <%= link_to 'javascript:void(0);', class: 'text-decoration-none text-black bsl-step-up' do %>
+          <i class="fa fa-arrow-circle-up font-20 mr-2"></i>
+        <% end %>
+        <%= link_to 'javascript:void(0);', class: 'text-decoration-none text-black bsl-step-down' do %>
+          <i class="fa fa-arrow-circle-down font-20 mr-2"></i>
+        <% end %>
         <%= link_to_remove_association f, data: { 'step-id': f.object.id }, class: 'trash-btn text-decoration-none bsl-step-bin' do %>
-          <i class="fa fa-trash font-16" aria-hidden="true"></i>
+          <i class="fa fa-trash font-20 text-danger" aria-hidden="true"></i>
         <% end %>
       </span>
     </div>
@@ -23,9 +29,9 @@
       <%= f.text_area :description, class: 'form-control font-12 shadow-none mb-3 bsl-step-field', placeholder: 'add description', cols: 30, rows: 4, required: true %>
     </div>
   </div>
-  <div id="selected_suppliers" class="row">
+  <div class="row bsl-step-supplier-selected">
     <% f.object.suppliers.each do |supplier| %>
-      <%= render '/organisation/business_service_lines/partials/selected_supplier', supplier: supplier %>
+      <%= render '/organisation/business_service_lines/partials/supplier_selected', step: f.object, supplier: supplier %>
     <% end %>
   </div>
   <div class="row">
@@ -72,10 +78,10 @@
           </div>
           <div class="row align-items-center mb-3">
             <div class="col-sm-4 flex-sm-1 mb-2 mb-sm-0">
-              <p class="text-capitalize font-14 font-600">supplier type</p>
+              <p class="text-capitalize font-14 font-600">party type</p>
             </div>
             <div class="col-sm-7 order-3 order-sm-2">
-              <%= select_tag 'supplier[party_type]', options_for_select(Supplier.party_types.map { |k, v| [k] }), { include_blank: 'Select Supplier Type', class: 'form-control w-100 font-12 h-auto py-3 shadow-none' } %>
+              <%= select_tag 'supplier[party_type]', options_for_select(Supplier.party_types.map { |k, v| [k.titleize, k] }), { include_blank: 'Select Party Type', class: 'form-control w-100 font-12 h-auto py-3 shadow-none' } %>
             </div>
             <div class="col-sm-1 text-right order-2 flex-sm-half mb-2 mb-sm-0">
               <div class="info" data-toggle="tooltip" data-placement="top" title="supplier type" aria-hidden="true">i</div>
@@ -83,13 +89,13 @@
           </div>
           <div class="row align-items-center mb-3">
             <div class="col-sm-4 flex-sm-1 mb-2 mb-sm-0">
-              <p class="text-capitalize font-14 font-600">supplier status</p>
+              <p class="font-14 font-600">Level of Importance</p>
             </div>
             <div class="col-sm-7 order-3 order-sm-2">
               <div class="row">
                 <div class="col-sm-6 pr-sm-0 pr-md-0">
                   <div class="custom-radio">
-                    <input type="radio" name="supplier[status]" value="critical" id="critical-<%= f.object.number %>" class="bsl-step-supplier-status option-1 critical-radio" checked>
+                    <input type="radio" name="supplier[importance_level]" value="critical" id="critical-<%= f.object.number %>" class="bsl-step-supplier-importance-level option-1 critical-radio" checked>
                     <label for="critical-<%= f.object.number %>" class="option option-1 critical-label">
                       <span class="font-12">Critical</span>
                     </label>
@@ -97,7 +103,7 @@
                 </div>
                 <div class="col-sm-6 pl-sm-0 pl-md-0">
                   <div class="custom-radio">
-                    <input type="radio" name="supplier[status]" value="important" id="important-<%= f.object.number %>" class="bsl-step-supplier-status option-2 important-radio">
+                    <input type="radio" name="supplier[importance_level]" value="important" id="important-<%= f.object.number %>" class="bsl-step-supplier-importance-level option-2 important-radio">
                     <label for="important-<%= f.object.number %>" class="option option-2 important-label">
                       <span class="font-12">Important</span>
                     </label>
@@ -106,7 +112,7 @@
               </div>
             </div>
             <div class="col-sm-1 text-right order-2 flex-sm-half mb-2 mb-sm-0">
-              <div class="info" data-toggle="tooltip" data-placement="top" title="supplier status" aria-hidden="true">i</div>
+              <div class="info" data-toggle="tooltip" data-placement="top" title="Level of importance" aria-hidden="true">i</div>
             </div>
           </div>
           <div class="row align-items-center mb-3">

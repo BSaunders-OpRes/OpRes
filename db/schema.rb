@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_23_090636) do
+ActiveRecord::Schema.define(version: 2021_06_25_071821) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -322,11 +322,11 @@ ActiveRecord::Schema.define(version: 2021_06_23_090636) do
   end
 
   create_table "supplier_contacts", force: :cascade do |t|
+    t.bigint "unit_id"
     t.string "name"
     t.string "email"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "unit_id"
     t.index ["unit_id"], name: "index_supplier_contacts_on_unit_id"
   end
 
@@ -356,7 +356,7 @@ ActiveRecord::Schema.define(version: 2021_06_23_090636) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "party_type"
-    t.integer "status"
+    t.integer "importance_level"
     t.string "contracting_terms_other"
     t.date "start_date"
     t.date "end_date"

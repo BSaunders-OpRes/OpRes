@@ -2,9 +2,7 @@
   <h5 class="font-600 text-capitalize">service line process</h5>
   <div class="mt-5" id="bsl-steps">
     <%= form.fields_for :steps do |step| %>
-      <div class="bsl-step">
-        <%= render 'organisation/business_service_lines/partials/cocoon_step', f: step %>
-      </div>
+      <%= render 'organisation/business_service_lines/partials/cocoon_step', f: step %>
     <% end %>
     <div class="input-fields mb-4 pb-4">
       <div class="row align-items-center">
