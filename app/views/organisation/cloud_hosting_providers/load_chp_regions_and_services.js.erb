@@ -1,2 +1,0 @@
-$("#<%= params[:append_regions_to] %>").html("<%= j(render 'organisation/unit_hierarchys/partials/drop_down', param_name: params[:regions_param_name], options: (@cloud_hosting_provider_regions.all.map{|chp_region| [chp_region.name, chp_region.id]} || []), val: nil, prompt_message: 'Please select') %>");
-$("#<%= params[:append_services_to] %>").html("<%= j(render 'organisation/suppliers/partials/cloud_hosting_provider_services', services: @cloud_hosting_provider_services, supplier: @supplier) %>");

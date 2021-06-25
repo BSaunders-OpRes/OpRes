@@ -1,8 +1,13 @@
 class Organisation::CloudHostingProvidersController < Organisation::BaseController
-  def load_chp_regions_and_services
-    cloud_hosting_provider  = CloudHostingProvider.find(params[:cloud_hosting_provider_id])
-    @cloud_hosting_provider_regions  = cloud_hosting_provider.cloud_hosting_provider_regions
-    @cloud_hosting_provider_services = cloud_hosting_provider.cloud_hosting_provider_services
-    @supplier                        = Supplier.find(params[:supplier_id]) if params[:supplier_id].present? 
+  before_action :load_cloud_hosting_provider, only: %i[regions_services]
+
+  def regions_services
+    @supplier = Supplier.find_by(id: params[:supplier_id])
+  end
+
+  private
+
+  def load_cloud_hosting_provider
+    @cloud_hosting_provider = CloudHostingProvider.find_by(id: params[:id])
   end
 end

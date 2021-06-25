@@ -40,13 +40,15 @@ class Organisation::SuppliersController < Organisation::BaseController
   private
 
   def supplier_params
-    params.require(:supplier).permit(:name, :party_type, :contracting_terms, :contracting_terms_other, :importance_level, :start_date, :end_date, :cloud_hosting_provider_id, :private_cloud_description, :cloud_hosting_provider_region_id, :consumption_model, :consumption_model_other,
-                      sla_attributes: %i[id service_level_agreement service_level_objective recovery_time_objective recovery_point_objective severity1 severity2 severity3 severity4 severity1_restoration severity2_restoration severity3_restoration severity4_restoration support_hours support_hours_other],
-                      key_contacts_ids: [],
-                      cloud_hosting_provider_service_ids: [],
-                      supplier_social_accounts_attributes: %i[id social_account_id link],
-                      relationship_owner_attributes: %i[name email id]
-                    ).merge(unit_id: params[:supplier][:country_unit])
+    params.require(:supplier)
+          .permit(
+            :name, :contracting_terms, :contracting_terms_other, :party_type, :importance_level, :start_date, :end_date,
+            :cloud_hosting_provider_description, :consumption_model, :consumption_model_other,
+            :cloud_hosting_provider_id, :cloud_hosting_provider_region_id, cloud_hosting_provider_services_ids: [],
+            key_contacts_ids: [], relationship_owner_attributes: %i[name email id],
+            supplier_social_accounts_attributes: %i[id social_account_id link],
+            sla_attributes: %i[id service_level_agreement service_level_objective recovery_time_objective recovery_point_objective severity1 severity2 severity3 severity4 severity1_restoration severity2_restoration severity3_restoration severity4_restoration support_hours support_hours_other]
+          ).merge(unit_id: params[:supplier][:country_unit])
   end
 
   def load_supplier

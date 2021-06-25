@@ -5,7 +5,7 @@ user = User.create_with(first_name: 'Application', last_name: 'Admin', password:
 # user.confirm
 # Application Admin #
 
-# Import Countries #
+# Import Regions and Countries #
 countries_file = Rails.root.join('public', 'json_data', 'countries.json')
 countries_data = File.read(countries_file)
 JSON.parse(countries_data).each do |region_with_countries|
@@ -44,10 +44,10 @@ JSON.parse(countries_data).each do |region_with_countries|
     end
   end
 end
-# Import Countries #
+# Import Regions and Countries #
 
 # Import Institutions, Products, and Channels#
-ipcs_file = Rails.root.join('public','json_data','institutions.json')
+ipcs_file = Rails.root.join('public', 'json_data', 'institutions.json')
 ipcs_data = File.read(ipcs_file)
 JSON.parse(ipcs_data).each do |unit_type_data|
   unit_type_data.each do |unit_type, institutions_data|
@@ -73,9 +73,8 @@ JSON.parse(ipcs_data).each do |unit_type_data|
 end
 # Import Institutions, Products, and Channels#
 
-
-# Social Accounts #
-social_accounts_file = Rails.root.join('public','json_data','social_accounts.json')
+# Import Social Accounts #
+social_accounts_file = Rails.root.join('public', 'json_data', 'social_accounts.json')
 social_account_data  = File.read(social_accounts_file)
 JSON.parse(social_account_data).each do |name, data|
   social_account = SocialAccount.find_or_initialize_by(name: data.dig('name'))
@@ -88,23 +87,22 @@ JSON.parse(social_account_data).each do |name, data|
   )
   social_account.save
 end
-# Social Accounts #
+# Import Social Accounts #
 
-
-
-# Cloud Hosting Providers #
-cloud_hosting_provider_file  = Rails.root.join('public','json_data','cloud_hosting_providers.json')
-cloud_hosting_provider_data  = File.read(cloud_hosting_provider_file)
+# Import Cloud Hosting Providers, Regions, and Services #
+cloud_hosting_provider_file = Rails.root.join('public', 'json_data', 'cloud_hosting_providers.json')
+cloud_hosting_provider_data = File.read(cloud_hosting_provider_file)
 JSON.parse(cloud_hosting_provider_data).each do |data|
   data.each do |chp_name, chp_data|
-    chp = CloudHostingProvider.find_or_create_by(name: chp_name.titleize)
+    chp = CloudHostingProvider.create_with(description: chp_name).find_or_create_by(name: chp_name)
+
     chp_data.dig('regions').each do |region|
-      CloudHostingProviderRegion.find_or_create_by(name: region, cloud_hosting_provider: chp)
+      chp.cloud_hosting_provider_regions.find_or_create_by(name: region)
     end
 
     chp_data.dig('services').each do  |service|
-      CloudHostingProviderService.find_or_create_by(name: service, cloud_hosting_provider: chp)
+      chp.cloud_hosting_provider_services.find_or_create_by(name: service)
     end
   end
 end
-# Cloud Hosting Providers #
+# Import Cloud Hosting Providers, Regions, and Services #

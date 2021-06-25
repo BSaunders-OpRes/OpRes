@@ -28,45 +28,15 @@
           <div class="col-sm-4 flex-sm-1 mb-2 mb-sm-0">
             <p class="text-capitalize font-14 font-600">cloud hosting provider</p>
           </div>
-          <div class="col-sm-7 order-3 order-sm-2 load-chp-region-from-chp"
-            data-append-regions-to="region-dropdown"
-            data-regions-param-name="supplier[cloud_hosting_provider_region_id]"
-            data-append-services-to="services-options"
-            data-services-param-name="supplier[cloud_hosting_provider_service_ids]"
-            data-supplier-id="<%= @supplier.id %>"
-            >
-          <%= render '/organisation/unit_hierarchys/partials/drop_down', param_name: 'supplier[cloud_hosting_provider_id]', options: @cloud_hosting_providers.map { |cloud_hosting_provider| [cloud_hosting_provider.name, cloud_hosting_provider.id] } , val: @supplier&.cloud_hosting_provider&.id, prompt_message: 'Select your cloud hosting provider' %>
-
-
+          <div class="col-sm-7 order-3 order-sm-2" id="cloud-hosting-provider">
+            <%= form.select :cloud_hosting_provider_id, options_for_select(@cloud_hosting_providers.map { |chp| [chp.name, chp.id] }, supplier.cloud_hosting_provider_id), { include_blank: 'Select your cloud hosting provider' }, class: 'form-control', id: 'load-cloud-hosting-provider-regions-services', data: { supplier: supplier&.id } %>
           </div>
           <div class="col-sm-1 text-right order-2 flex-sm-half mb-2 mb-sm-0">
             <div class="info" data-toggle="tooltip" data-placement="top" title="Please select a cloud hosting provider" aria-hidden="true">i</div>
           </div>
         </div>
-
-        <div class="row align-items-center mt-4 <%= @supplier&.private_cloud_description.present? ? '' :'d-none' %>" id="private-cloud-description">
-          <div class="col-sm-4 flex-sm-1 mb-2 mb-sm-0">
-          </div>
-          <div class="col-sm-7 order-3 order-sm-2">
-            <%= form.text_area :private_cloud_description, placeholder: 'please enter detail about private cloud', class: 'w-100 form-control font-12 h-auto py-3 shadow-none' %>
-          </div>
-          <div class="col-sm-1 text-right order-2 flex-sm-half mb-2 mb-sm-0">
-            <div class="info" data-toggle="tooltip" data-placement="top" title="please enter detail about private cloud provider" aria-hidden="true">i</div>
-          </div>
-        </div>
-        <div class="row align-items-center mt-4 <%= @supplier&.supplier_cloud_hosting_provider_regions.present? ? '' :'d-none' %>">
-          <div class="col-sm-4 flex-sm-1 mb-2 mb-sm-0">
-            <p class="text-capitalize font-14 font-600">cloud hosting provider Regions</p>
-          </div>
-          <div class="col-sm-7 order-3 order-sm-2" id="region-dropdown" >
-            <%= render '/organisation/unit_hierarchys/partials/drop_down', param_name: 'supplier[cloud_hosting_provider_region_id]', options: @supplier&.cloud_hosting_provider_regions.map{|chp_region| [chp_region.name, chp_region.id]}, val: @supplier&.cloud_hosting_provider_regions.ids, prompt_message: 'Select your cloud hosting provider region' %>
-          </div>
-          <div class="col-sm-1 text-right order-2 flex-sm-half mb-2 mb-sm-0">
-            <div class="info" data-toggle="tooltip" data-placement="top" title="Please select a cloud hosting provider region" aria-hidden="true">i</div>
-          </div>
-        </div>
-        <div class="row mt-4 d-none" id="services-options">
-          <%= render "organisation/suppliers/partials/cloud_hosting_provider_services", services: {},supplier: @supplier %>
+        <div id="cloud-hosting-provider-regions-services">
+          <%= render 'organisation/suppliers/partials/chp_regions_services_fields', supplier: supplier, cloud_hosting_provider: supplier.cloud_hosting_provider %>
         </div>
         <hr>
         <div class="checkboxes-field mt-4">

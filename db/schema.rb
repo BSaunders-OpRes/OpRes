@@ -394,7 +394,7 @@ ActiveRecord::Schema.define(version: 2021_06_25_071821) do
     t.string "contracting_terms_other"
     t.date "start_date"
     t.date "end_date"
-    t.string "private_cloud_description"
+    t.string "cloud_hosting_provider_description"
     t.integer "consumption_model", default: 0
     t.string "consumption_model_other"
     t.index ["unit_id"], name: "index_suppliers_on_unit_id"
