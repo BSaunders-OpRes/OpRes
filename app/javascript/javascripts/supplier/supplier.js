@@ -17,4 +17,13 @@ document.addEventListener('turbolinks:load', function() {
       dataType: 'script'
     });
   });
+
+  $('body').on('change', 'select#load-cloud-hosting-provider-regions-services', function() {
+    cloud_hosting_provider = $(this).val();
+    supplier_id            = $(this).data('supplier');
+    $.ajax({
+      url:  '/organisation/cloud_hosting_providers/'+ cloud_hosting_provider +'/regions_services?supplier_id='+ supplier_id,
+      type: 'GET'
+    });
+  });
 });

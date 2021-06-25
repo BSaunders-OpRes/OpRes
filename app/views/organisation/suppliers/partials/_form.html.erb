@@ -23,19 +23,22 @@
             <div class="info" data-toggle="tooltip" data-placement="top" title="Please provide the supplier name" aria-hidden="true">i</div>
           </div>
         </div>
+        <hr>
         <div class="row align-items-center mt-4">
           <div class="col-sm-4 flex-sm-1 mb-2 mb-sm-0">
             <p class="text-capitalize font-14 font-600">cloud hosting provider</p>
           </div>
-          <div class="col-sm-7 order-3 order-sm-2">
-          <%= form.select :cloud_hosting_provider_id, options_for_select(@cloud_hosting_providers.map { |cloud_hosting_provider| [cloud_hosting_provider.name, cloud_hosting_provider.id] }, @supplier&.cloud_hosting_provider&.id ),
-            { include_blank: 'Please select Cloud Hosting Provider' }, required: true, class: 'form-control w-100 font-12 h-auto py-3 shadow-none arrow-select' %>
-          <i class="fa fa-sort-desc pr-2 mr-2" aria-hidden="true"></i>
+          <div class="col-sm-7 order-3 order-sm-2" id="cloud-hosting-provider">
+            <%= form.select :cloud_hosting_provider_id, options_for_select(@cloud_hosting_providers.map { |chp| [chp.name, chp.id] }, supplier.cloud_hosting_provider_id), { include_blank: 'Select your cloud hosting provider' }, class: 'form-control', id: 'load-cloud-hosting-provider-regions-services', data: { supplier: supplier&.id } %>
           </div>
           <div class="col-sm-1 text-right order-2 flex-sm-half mb-2 mb-sm-0">
             <div class="info" data-toggle="tooltip" data-placement="top" title="Please select a cloud hosting provider" aria-hidden="true">i</div>
           </div>
         </div>
+        <div id="cloud-hosting-provider-regions-services">
+          <%= render 'organisation/suppliers/partials/chp_regions_services_fields', supplier: supplier, cloud_hosting_provider: supplier.cloud_hosting_provider %>
+        </div>
+        <hr>
         <div class="checkboxes-field mt-4">
           <div class="row align-items-center">
             <div class="col-sm-4 flex-sm-1 mb-2 mb-sm-0">
@@ -45,7 +48,7 @@
               <div class="checkbox-container d-flex justify-content-start other-reason-container">
                 <div class="d-flex align-items-center mr-2 form-group mb-2 pl-0 flex-wrap justify-content-between">
                   <% Supplier.contracting_terms.each do |key, val| %>
-                    <div class="col-sm-6 mb-3 form-check">
+                    <div class="col-sm-6 mb-3 form-check px-0">
                       <label class="radio-check d-flex p-0 align-items-center">
                         <%= form.radio_button :contracting_terms, key, id: "contracting-terms-#{key}", class: 'other-reason-selection' %>
                         <%= form.label key.titleize, class: 'mb-0 ml-2 font-12 text-capitalize order-2 ml-2', for: "contracting-terms-#{key}" %>
@@ -53,14 +56,42 @@
                       </label>
                     </div>
                   <% end %>
-                  <div class="col-sm-6 mb-3">
-                    <%= form.text_field :contracting_terms_other, class: 'form-control other-reason-field', placeholder: 'Please Specify' %>
+                  <div class="col-sm-6 mb-3 px-0">
+                    <%= form.text_field :contracting_terms_other, class: 'form-control other-reason-field font-14', placeholder: 'Please Specify' %>
                   </div>
                 </div>
               </div>
             </div>
             <div class="col-sm-1 text-right order-2 flex-sm-half mb-2 mb-sm-0">
               <div class="info" data-toggle="tooltip" data-placement="top" title="Please select how you contract for the service" aria-hidden="true">i</div>
+            </div>
+          </div>
+        </div>
+        <div class="checkboxes-field mt-4">
+          <div class="row align-items-center">
+            <div class="col-sm-4 flex-sm-1 mb-2 mb-sm-0">
+              <p class="text-capitalize font-14 font-600 text-capitalize">consumption model</p>
+            </div>
+            <div class="col-sm-7 order-3 order-sm-2">
+              <div class="checkbox-container d-flex justify-content-start other-reason-container">
+                <div class="d-flex align-items-center mr-2 form-group mb-2 pl-0 flex-wrap justify-content-between">
+                  <% Supplier.consumption_models.each do |key, val| %>
+                    <div class="col-sm-6 mb-3 form-check px-0">
+                      <label class="radio-check d-flex p-0 align-items-center">
+                        <%= form.radio_button :consumption_model, key, id: "consumption-model-#{key}", class: 'other-reason-selection' %>
+                        <%= form.label key.titleize, class: 'mb-0 ml-2 font-12 text-capitalize order-2 ml-2', for: "consumption-model-#{key}" %>
+                        <div class="checkmark position-relative order-1"></div>
+                      </label>
+                    </div>
+                  <% end %>
+                  <div class="col-sm-6 mb-3 px-0">
+                    <%= form.text_field :consumption_model_other, class: 'form-control other-reason-field font-14', placeholder: 'Please Specify' %>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-1 text-right order-2 flex-sm-half mb-2 mb-sm-0">
+              <div class="info" data-toggle="tooltip" data-placement="top" title="Please select your consumption model" aria-hidden="true">i</div>
             </div>
           </div>
         </div>
@@ -373,7 +404,7 @@
                     </div>
                   <% end %>
                   <div class="col-sm-6 mb-3">
-                    <%= supplier_sla.text_field :support_hours_other, class: 'form-control other-reason-field', placeholder: 'Please Specify' %>
+                    <%= supplier_sla.text_field :support_hours_other, class: 'form-control other-reason-field font-12', placeholder: 'Please Specify' %>
                   </div>
                 </div>
               </div>

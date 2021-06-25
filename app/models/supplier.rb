@@ -2,10 +2,12 @@ class Supplier < ApplicationRecord
   # Associations #
   belongs_to :unit
 
-  has_one  :relationship_owner,              dependent: :destroy
-  has_one  :supplier_cloud_hosting_provider, dependent: :destroy
-  has_one  :cloud_hosting_provider,          through:   :supplier_cloud_hosting_provider
-  has_one  :sla, as: :slaable,               dependent: :destroy
+  has_one :relationship_owner,                     dependent: :destroy
+  has_one :sla, as: :slaable,                      dependent: :destroy
+  has_one :supplier_cloud_hosting_provider,        dependent: :destroy
+  has_one :cloud_hosting_provider,                 through:   :supplier_cloud_hosting_provider
+  has_one :supplier_cloud_hosting_provider_region, dependent: :destroy
+  has_one :cloud_hosting_provider_region,          through:   :supplier_cloud_hosting_provider_region
 
   has_many :key_contact_suppliers, dependent: :destroy
   has_many :key_contacts, through: :key_contact_suppliers
@@ -17,9 +19,12 @@ class Supplier < ApplicationRecord
   has_many :steps, through: :supplier_steps
   has_many :supplier_social_accounts, dependent: :destroy
   has_many :social_accounts, through: :supplier_social_accounts
+  has_many :supplier_cloud_hosting_provider_services, dependent: :destroy
+  has_many :cloud_hosting_provider_services, through: :supplier_cloud_hosting_provider_services
 
   # Enums #
-  enum contracting_terms: %i[monthly annually other non_applicable]
+  enum contracting_terms: %i[monthly annually other non_applicable], _suffix: :contracting_terms
+  enum consumption_model: %i[iaas saas paas other], _suffix: :consumption_model
   enum party_type: %i[firm-hosted 3rd-party 4th-party]
   enum importance_level: %i[critical important]
 
@@ -61,5 +66,25 @@ class Supplier < ApplicationRecord
 
   def cloud_hosting_provider_id=(id)
     self.cloud_hosting_provider = CloudHostingProvider.find(id)
+  end
+
+  def cloud_hosting_provider_region_id
+    cloud_hosting_provider_region&.id
+  end
+
+  def cloud_hosting_provider_region_id=(id)
+    self.cloud_hosting_provider_region = CloudHostingProviderRegion.find(id)
+  end
+
+  def cloud_hosting_provider_services_ids
+    cloud_hosting_provider_services.pluck(:id)
+  end
+
+  def cloud_hosting_provider_services_ids=(ids)
+    self.cloud_hosting_provider_services = CloudHostingProviderService.find(ids.reject(&:blank?))
+  end
+
+  def cloud_hosting_provider_services_list
+    cloud_hosting_provider_services.pluck(:name).join(', ')
   end
 end

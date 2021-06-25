@@ -1,0 +1,132 @@
+[
+  {
+    "Amazon Web Services": {
+      "regions": [
+        "US East (Ohio) Region", "US West (Oregon) Region", "US West (Northern California) Region",
+        "US East (Northern Virginia) Region", "GovCloud (US-West) Region", "GovCloud (US-East) Region",
+        "Canada (Central) Region", "South America (São Paulo) Region", "Europe (Frankfurt) Region",
+        "Europe (London) Region", "Europe (Paris) Region", "Middle East (Bahrain) Region", "Europe (Ireland) Region",
+        "Europe (Milan) Region", "Europe (Stockholm) Region", "Africa (Cape Town) Region", "Mainland China (Beijing) Region",
+        "Asia Pacific (Sydney) Region", "Asia Pacific (Tokyo) Region", "Asia Pacific (Seoul) Region", "Mainland China (Ningxia) Region",
+        "Asia Pacific (Osaka) Region", "Asia Pacific (Mumbai) Region", "Asia Pacific (Hong Kong) Region"
+      ],
+      "services": [
+        "AWS Accounts", "AWS Amplify", "AWS App Mesh", "AWS App Mesh Preview", "AWS AppConfig", "AWS AppSync",
+        "AWS Artifact", "AWS Auto Scaling", "AWS Backup", "AWS Backup storage", "AWS Batch", "AWS Billing",
+        "AWS Budget Service", "AWS Certificate Manager", "AWS Certificate Manager Private Certificate Authority",
+        "AWS Chatbot", "AWS Cloud Map", "AWS Cloud9", "AWS CloudFormation", "AWS CloudHSM", "AWS CloudTrail",
+        "AWS Code Signing for Amazon FreeRTOS", "AWS CodeArtifact", "AWS CodeBuild", "AWS CodeCommit",
+        "AWS CodeDeploy", "AWS CodePipeline", "AWS CodeStar", "AWS CodeStar Connections", "AWS CodeStar Notifications",
+        "AWS Config", "AWS Connector Service", "AWS Cost Explorer Service", "AWS Cost and Usage Report", "AWS Data Exchange",
+        "AWS Database Migration Service", "AWS DeepComposer", "AWS DeepLens", "AWS DeepRacer", "AWS Device Farm",
+        "AWS Direct Connect", "AWS Directory Service", "AWS Elastic Beanstalk", "AWS Elemental Appliances and Software",
+        "AWS Elemental MediaConnect", "AWS Elemental MediaConvert", "AWS Elemental MediaLive", "AWS Elemental MediaPackage",
+        "AWS Elemental MediaPackage VOD", "AWS Elemental MediaStore", "AWS Elemental MediaTailor", "AWS Firewall Manager",
+        "AWS Global Accelerator", "AWS Glue", "AWS Ground Station", "AWS Health APIs and Notifications", "AWS IQ",
+        "AWS IQ Permissions", "AWS Identity Store", "AWS Import Export Disk Service", "AWS IoT", "AWS IoT 1-Click",
+        "AWS IoT Analytics", "AWS IoT Device Tester", "AWS IoT Events", "AWS IoT Greengrass", "AWS IoT SiteWise",
+        "AWS IoT Things Graph", "AWS Key Management Service", "AWS Lake Formation", "AWS Lambda", "AWS License Manager",
+        "AWS Marketplace", "AWS Marketplace Catalog", "AWS Marketplace Entitlement Service", "AWS Marketplace Image Building Service",
+        "AWS Marketplace Management Portal", "AWS Marketplace Metering Service", "AWS Marketplace Procurement Systems Integration",
+        "AWS Migration Hub", "AWS Mobile Hub", "AWS OpsWorks", "AWS OpsWorks Configuration Management", "AWS Organizations",
+        "AWS Outposts", "AWS Performance Insights", "AWS Price List", "AWS Private Marketplace", "AWS Purchase Orders Console",
+        "AWS Resource Access Manager", "AWS Resource Groups", "AWS RoboMaker", "AWS SSO", "AWS SSO Directory", "AWS Savings Plans",
+        "AWS Secrets Manager", "AWS Security Hub", "AWS Security Token Service", "AWS Server Migration Service",
+        "AWS Serverless Application Repository", "AWS Service Catalog", "AWS Shield", "AWS Snowball", "AWS Step Functions",
+        "AWS Support", "AWS Systems Manager", "AWS Tag Editor", "AWS Transfer for SFTP", "AWS Trusted Advisor", "AWS WAF",
+        "AWS WAF Regional", "AWS WAF V2", "AWS Well-Architected Tool", "AWS X-Ray", "Alexa for Business", "Amazon API Gateway",
+        "Amazon AppFlow", "Amazon AppStream 2.0", "Amazon Athena", "Amazon Braket", "Amazon Chime", "Amazon Cloud Directory",
+        "Amazon CloudFront", "Amazon CloudSearch", "Amazon CloudWatch", "Amazon CloudWatch Logs", "Amazon CloudWatch Synthetics",
+        "Amazon CodeGuru", "Amazon CodeGuru Profiler", "Amazon CodeGuru Reviewer", "Amazon Cognito Identity", "Amazon Cognito Sync",
+        "Amazon Cognito User Pools", "Amazon Comprehend", "Amazon Connect", "Amazon Data Lifecycle Manager", "Amazon Detective",
+        "Amazon DynamoDB", "Amazon DynamoDB Accelerator (DAX)", "Amazon EC2", "Amazon EC2 Auto Scaling", "Amazon EC2 Image Builder",
+        "Amazon EC2 Instance Connect", "Amazon ElastiCache", "Amazon Elastic Block Store", "Amazon Elastic Container Registry",
+        "Amazon Elastic Container Service", "Amazon Elastic Container Service for Kubernetes", "Amazon Elastic File System",
+        "Amazon Elastic Inference", "Amazon Elastic MapReduce", "Amazon Elastic Transcoder", "Amazon Elasticsearch Service",
+        "Amazon EventBridge", "Amazon EventBridge Schemas", "Amazon FSx", "Amazon Forecast", "Amazon Fraud Detector",
+        "Amazon FreeRTOS", "Amazon GameLift", "Amazon Glacier", "Amazon GroundTruth Labeling", "Amazon GuardDuty",
+        "Amazon Honeycode", "Amazon Inspector", "Amazon Interactive Video Service", "Amazon Kendra",
+        "Amazon Keyspaces (for Apache Cassandra)", "Amazon Kinesis", "Amazon Kinesis Analytics", "Amazon Kinesis Analytics V2",
+        "Amazon Kinesis Firehose", "Amazon Kinesis Video Streams", "Amazon Lex", "Amazon Lightsail", "Amazon MQ",
+        "Amazon Machine Learning", "Amazon Macie", "Amazon Macie Classic", "Amazon Managed Blockchain",
+        "Amazon Managed Streaming for Apache Kafka", "Amazon Mechanical Turk", "Amazon Message Delivery Service",
+        "Amazon Mobile Analytics", "Amazon Neptune", "Amazon Personalize", "Amazon Pinpoint", "Amazon Pinpoint Email Service",
+        "Amazon Pinpoint SMS and Voice Service", "Amazon Polly", "Amazon QLDB", "Amazon QuickSight", "Amazon RDS",
+        "Amazon RDS Data API", "Amazon RDS IAM Authentication", "Amazon Redshift", "Amazon Rekognition",
+        "Amazon Resource Group Tagging API", "Amazon Route 53", "Amazon Route 53 Resolver", "Amazon Route53 Domains",
+        "Amazon S3", "Amazon SES", "Amazon SNS", "Amazon SQS", "Amazon SageMaker", "Amazon Session Manager Message Gateway Service",
+        "Amazon Simple Workflow Service", "Amazon SimpleDB", "Amazon Storage Gateway", "Amazon Sumerian", "Amazon Textract",
+        "Amazon Transcribe", "Amazon Translate", "Amazon WorkDocs", "Amazon WorkLink", "Amazon WorkMail", "Amazon WorkMail Message Flow",
+        "Amazon WorkSpaces", "Amazon WorkSpaces Application Manager", "Application Auto Scaling", "Application Discovery",
+        "Application Discovery Arsenal", "CloudWatch Application Insights", "Comprehend Medical", "Compute Optimizer", "Data Pipeline",
+        "DataSync", "Database Query Metadata Service", "Elastic Load Balancing", "Elastic Load Balancing V2", "Elemental Activations",
+        "IAM Access Analyzer", "Identity And Access Management", "Launch Wizard", "Manage Amazon API Gateway",
+        "Network Manager", "Service Quotas"
+      ]
+    },
+    "Microsoft Azure": {
+      "regions": [
+        "West Central US", "North Central US", "Canada East", "UK West", "West India", "South India",
+        "China East 2", "China East", "China north", "China north 2", "Korea South", "Japan west",
+        "Australia SouthEast", "Australia Central"
+      ],
+      "services": [
+        "Azure VMware Solution by CloudSimple", "Virtual Machines", "SAP HANA on Azure Large Instances", "BareMetal Infrastructure",
+        "Windows Virtual Desktop", "Virtual Machine Scale Sets", "Azure functions", "Service Fabric", "Batch", "Cloud Services",
+        "Azure Spring Cloud", "Azure Quantum", "Azure VMware Solution", "Azure VM Image Builder", "Azure Lab Services", "App Configuration",
+        "Virtual Network", "Load Balancer", "Application Gateway", "VPN Gateway", "Azure DNS", "Content Delivery Network",
+        "Traffic Manager", "Network Watcher", "Network Infrastructure", "Azure ExpressRoute", "ExpressRoute circuits",
+        "ExpressRoute gateways", "Azure Firewall", "Azure Front Door", "Virtual WAN", "Azure Bastion", "Azure Private Link",
+        "Azure Firewall Manager", "Azure Internet Analyzer", "Web Application Firewall", "Azure Peering Service", "Storage Accounts",
+        "Azure NetApp Files", "StorSimple", "Azure HPC Cache", "App Service", "Web Apps", "Static Web Apps", "App Service (Linux)",
+        "Web Apps Linux", "Web App for Containers", "API Management", "Azure Cognitive Search", "Azure SignalR Service",
+        "Azure Communication Services", "Notification Hubs", "Visual Studio App Centre", "Azure Container Service",
+        "Container Instances", "Container Registry", "Azure Kubernetes Service (AKS)", "Azure Dev Spaces", "Azure Red Hat OpenShift",
+        "Azure Cosmos DB", "Azure SQL Database", "Azure Database for MySQL", "Azure Database for MariaDB", "Azure Database for PostgreSQL",
+        "Azure Cache for Redis", "SQL Server Stretch Database", "Azure API for FHIR", "Azure Synapse Analytics", "HDInsight",
+        "Data Factory", "Data Factory V1", "Azure Integration Runtime", "SSIS Integration Runtime", "Azure Stream Analytics",
+        "Data Lake Analytics", "Event Hubs", "Power BI Embedded", "Azure Analysis Services", "Data Catalog", "Azure Data Lake Storage Gen1",
+        "Azure Databricks", "Azure Data Explorer", "Azure Data Share", "Azure Purview", "Azure Bot Service", "Health Bot",
+        "Azure Machine Learning", "Machine Learning Studio", "Cognitive Services", "Anomaly detector", "Bing Speech",
+        "Computer Vision", "Content moderator", "Custom Vision", "Face", "Form Recogniser", "Immersive Reader", "Language Understanding",
+        "Personaliser", "QnA Maker", "Speaker Recognition", "Speech services", "Text Analytics", "Translator Text", "Video Indexer",
+        "Azure Metrics Advisor", "Microsoft Genomics", "Azure Open Datasets", "Azure IoT Hub", "Device Update for IoT Hub",
+        "IoT Hub Device Provisioning Service", "Azure Time Series Insights", "Event Grid", "Logic Apps", "Windows 10 IoT Core Services",
+        "Azure Maps", "Azure IoT Central", "Azure Sphere", "Azure Digital Twins", "Service Bus", "Azure Active Directory B2C",
+        "Azure Active Directory Domain Services", "Multi-Factor Authentication", "Azure Active Directory", "Enterprise State Roaming",
+        "Security Center", "Key Vault", "Azure DDoS Protection", "Azure Information Protection", "Azure Dedicated HSM",
+        "Azure Sentinel", "Azure DevOps", "Azure Artifacts", "Azure Boards",  "Azure Pipelines", "Azure Repos", "Azure Test Plans",
+        "Azure DevTest Labs", "Microsoft Azure portal", "Marketplace", "Cloud Shell", "Azure Advisor", "Azure Backup", "Azure Policy",
+        "Azure Monitor", "Activity Logs", "Metrics", "Diagnostic Logs", "AutoScale", "Action groups", "Alerts", "Alerts (Classic)",
+        "Application Insights", "Log Analyticsk", "Azure Site Recovery", "Azure Resource Manager", "Azure Managed Applications",
+        "Scheduler", "azure.microsoft.com", "Azure mobile app", "Automation", "Azure Blueprints", "Azure Lighthouse",
+        "Azure Service Health", "Cost Management + Billing", "Azure Resource Mover", "Media Services", "Azure Migrate",
+        "Azure Database Migration Service", "Spatial anchors", "Remote rendering", "Azure Blockchain Service", "Azure Stack",
+        "Azure Stack Edge", "Azure Arc", "Azure Arc enabled servers", "Azure Arc enabled Kubernetes", "Azure Arc enabled data services"
+      ]
+    },
+    "Google Cloud Platform": {
+      "regions": [
+        "Oregon", "Salt Lake city", "Los Angeles", "Las Vegas", "lowa", "Montreal", "N Virginia",
+        "S Carolina", "Sao Paulo", "London", "Belgium", "Netherlands", "Frankfurt", "Finland",
+        "Warsaw", "Zurich", "Mumbai", "Jakarta", "Singapore", "Hong kong", "Taiwan", "Seoul", "Osaka",
+        "Tokyo", "Sydney"
+      ],
+      "services": [
+        "API Gateway", "Apigee", "Cloud Asset Inventory", "Cloud Data Fusion", "Cloud Developer Tools", "Cloud Endpoints",
+        "Cloud Filestore", "Cloud Firestore", "Cloud Key Management Service", "Cloud Machine Learning", "Cloud Memorystore",
+        "Cloud Run", "Cloud Security Command Center", "Cloud Spanner", "Cloud Talent Solution - Job Search", "Cloud Workflows",
+        "Eventarc", "Google App Engine", "Google BigQuery", "Google Cloud Bigtable", "Google Cloud Composer", "Google Cloud Console",
+        "Google Cloud Dataflow", "Google Cloud Dataproc", "Google Cloud Datastore", "Google Cloud DNS", "Google Cloud Functions",
+        "Google Cloud Infrastructure Components", "Google Cloud IoT", "Google Cloud Networking", "Google Cloud Pub/Sub",
+        "Google Cloud Scheduler", "Google Cloud SQL", "Google Cloud Storage", "Google Cloud Support", "Google Cloud Tasks",
+        "Google Compute Engine", "Google Kubernetes Engine", "Healthcare and Life Sciences", "Identity and Access Management",
+        "Operations", "Secret Manager"
+      ]
+    },
+    "Private Cloud": {
+      "regions": [],
+      "services": []
+    }
+  }
+]
