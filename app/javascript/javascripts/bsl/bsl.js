@@ -91,6 +91,8 @@ document.addEventListener('turbolinks:load', function() {
   .on('cocoon:after-insert', function(e, insertedItem) {
     bsl_assign_step_number();
 
+    insertedItem.insertBefore($('#bsl-steps-links'));
+
     new_elem  = $(insertedItem[0]);
     timestamp = new_elem.find('.bsl-step-field:first').attr('name').split('][')[1];
 
@@ -151,6 +153,23 @@ document.addEventListener('turbolinks:load', function() {
   });
 
   $('body').on('click', '#bsl-steps .bsl-step-up', function() {
+    current_step  = $(this).parents('.bsl-step');
+    previous_step = current_step.prevAll('.bsl-step:first');
+
+    if (previous_step.length == 0)
+      return;
+
+    swap_bsl_steps(current_step, previous_step);
+  });
+
+  $('body').on('click', '#bsl-steps .bsl-step-down', function() {
+    current_step  = $(this).parents('.bsl-step');
+    next_step     = current_step.nextAll('.bsl-step:first');
+
+    if (next_step.length == 0)
+      return;
+
+    swap_bsl_steps(next_step, current_step);
   });
 
   $('body').on('click', '#bsl-steps .bsl-step-supplier-selected-bin', function() {
@@ -218,5 +237,14 @@ document.addEventListener('turbolinks:load', function() {
 
     parent.find('.bsl-risk-slider-value').val(value);
     e.css({ 'background': 'linear-gradient(to right, #000 0%, #000 ' + value + '%, #F3F5FA ' + value + '%, #F3F5FA 100%)' });
+  }
+
+  function swap_bsl_steps(current_step, previous_step) {
+    current_input = current_step.next('input[type="hidden"]');
+
+    $(current_step).insertBefore(previous_step);
+    $(current_input).insertAfter(current_step);
+
+    bsl_assign_step_number();
   }
 });
