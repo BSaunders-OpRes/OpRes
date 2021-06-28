@@ -20,10 +20,32 @@ document.addEventListener('turbolinks:load', function() {
 
   $('body').on('change', 'select#load-cloud-hosting-provider-regions-services', function() {
     cloud_hosting_provider = $(this).val();
-    supplier_id            = $(this).data('supplier');
-    $.ajax({
-      url:  '/organisation/cloud_hosting_providers/'+ cloud_hosting_provider +'/regions_services?supplier_id='+ supplier_id,
-      type: 'GET'
+    if(cloud_hosting_provider === '')
+    {
+      $('#cloud-hosting-provider-regions-services').html('');
+    }
+    else{
+      supplier_id = $(this).data('supplier');
+      $.ajax({
+        url:  '/organisation/cloud_hosting_providers/'+ cloud_hosting_provider +'/regions_services?supplier_id='+ supplier_id,
+        type: 'GET'
+      });
+    }
+  });
+
+  $('body').on('click', '#select-all-services', function() {
+    if(this.checked) {
+      $('#cloud-hosting-provider-service .service').prop('checked', true);
+    } else {
+      $('#cloud-hosting-provider-service .service').prop('checked', false);
+    }
+  });
+
+  $('body').on('keyup', '#service-search-filter', function() {
+    var value = $(this).val().toLowerCase();
+    $('#cloud-hosting-provider-service .service-list').filter(function(index, ele) {
+      $(this).toggle($(ele).text().toLowerCase().indexOf(value) > -1)
     });
   });
+
 });
