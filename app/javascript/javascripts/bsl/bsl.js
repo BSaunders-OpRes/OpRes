@@ -159,7 +159,7 @@ document.addEventListener('turbolinks:load', function() {
     if (previous_step.length == 0)
       return;
 
-    swap_bsl_steps(current_step, previous_step);
+    swap_bsl_steps(current_step, previous_step, current_step);
   });
 
   $('body').on('click', '#bsl-steps .bsl-step-down', function() {
@@ -169,7 +169,7 @@ document.addEventListener('turbolinks:load', function() {
     if (next_step.length == 0)
       return;
 
-    swap_bsl_steps(next_step, current_step);
+    swap_bsl_steps(next_step, current_step, current_step);
   });
 
   $('body').on('click', '#bsl-steps .bsl-step-supplier-selected-bin', function() {
@@ -239,12 +239,16 @@ document.addEventListener('turbolinks:load', function() {
     e.css({ 'background': 'linear-gradient(to right, #000 0%, #000 ' + value + '%, #F3F5FA ' + value + '%, #F3F5FA 100%)' });
   }
 
-  function swap_bsl_steps(current_step, previous_step) {
+  function swap_bsl_steps(current_step, swap_step, scroll_to) {
     current_input = current_step.next('input[type="hidden"]');
 
-    $(current_step).insertBefore(previous_step);
+    $(current_step).insertBefore(swap_step);
     $(current_input).insertAfter(current_step);
 
     bsl_assign_step_number();
+
+    $('html, body').animate({
+      'scrollTop' : $(scroll_to).position().top
+    });
   }
 });
