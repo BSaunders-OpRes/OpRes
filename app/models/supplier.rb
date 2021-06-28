@@ -65,7 +65,7 @@ class Supplier < ApplicationRecord
   end
 
   def cloud_hosting_provider_id=(id)
-    self.cloud_hosting_provider = CloudHostingProvider.find(id)
+    self.cloud_hosting_provider = CloudHostingProvider.find_by(id: id)
   end
 
   def cloud_hosting_provider_region_id
@@ -73,7 +73,7 @@ class Supplier < ApplicationRecord
   end
 
   def cloud_hosting_provider_region_id=(id)
-    self.cloud_hosting_provider_region = CloudHostingProviderRegion.find(id)
+    self.cloud_hosting_provider_region = CloudHostingProviderRegion.find_by(id: id)
   end
 
   def cloud_hosting_provider_services_ids
