@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_25_071821) do
+ActiveRecord::Schema.define(version: 2021_06_28_142012) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -271,14 +271,14 @@ ActiveRecord::Schema.define(version: 2021_06_25_071821) do
 
   create_table "risk_appetites", force: :cascade do |t|
     t.bigint "business_service_line_id"
-    t.integer "creator_id"
     t.string "name"
-    t.text "description"
-    t.integer "risk_appetite_value"
+    t.text "justification"
+    t.float "amount"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "kind", default: 0
+    t.integer "label", default: 0
     t.index ["business_service_line_id"], name: "index_risk_appetites_on_business_service_line_id"
-    t.index ["creator_id"], name: "index_risk_appetites_on_creator_id"
   end
 
   create_table "slas", force: :cascade do |t|

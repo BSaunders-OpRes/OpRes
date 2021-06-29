@@ -1,13 +1,39 @@
 class RiskAppetite < ApplicationRecord
   # Associations #
   belongs_to :business_service_line
-  belongs_to :creator, class_name: 'User', foreign_key: :creator_id, optional: true
+
+  # Attr Accessors #
+  attr_accessor :user
+
+  # Enums #
+  # Kind enum is based on the SLA columns. In future introduce user defined kind.
+  enum kind:  %w[service_level_agreement service_level_objective recovery_time_objective recovery_point_objective severity1 severity2 severity3 severity4 severity1_restoration severity2_restoration severity3_restoration severity4_restoration]
+  enum label: %w[very_low low medium high very_high]
 
   # Validations #
-  validates :name, :risk_appetite_value, presence: true
-  validates :risk_appetite_value, numericality: true
+  validates :name, :kind, :label, presence: true
+  validates :amount, numericality: true, allow_nil: true
 
-  def creator_info
-    "#{creator.name} #{created_at.strftime('%dth %B %Y %H:%M')}"
+  # Scopes #
+  default_scope { order(id: :asc) }
+
+  # Methods #
+  def percentage_amount?
+    kind.in? %w[service_level_agreement service_level_objective]
+  end
+
+  def minutes_amount?
+    kind.in? %w[recovery_time_objective recovery_point_objective severity1 severity2 severity3 severity4 severity1_restoration severity2_restoration severity3_restoration severity4_restoration]
+  end
+
+  class << self
+    def kind_display_name
+      {
+        service_level_agreement: 'SLA', service_level_objective: 'SLO', recovery_time_objective: 'RTO', recovery_point_objective: 'RPO',
+        severity1: 'Severity 1', severity2: 'Severity 2', severity3: 'Severity 3', severity4: 'Severity 4',
+        severity1_restoration: 'Restoration Severity 1', severity2_restoration: 'Restoration Severity 2',
+        severity3_restoration: 'Restoration Severity 3', severity4_restoration: 'Restoration Severity 4'
+      }.stringify_keys
+    end
   end
 end
