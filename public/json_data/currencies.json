@@ -1,0 +1,1597 @@
+{
+  "AF": [
+    {
+      "Name": "Afghan Afghani",
+      "Code": "AFN",
+      "ISOCode": "971"
+    }
+  ],
+  "AL": [
+    {
+      "Name": "Albanian Lek",
+      "Code": "ALL",
+      "ISOCode": "8"
+    }
+  ],
+  "DZ": [
+    {
+      "Name": "Algerian Dinar",
+      "Code": "DZD",
+      "ISOCode": "12"
+    }
+  ],
+  "AS": [
+    {
+      "Name": "US Dollar",
+      "Code": "USD",
+      "ISOCode": "840"
+    }
+  ],
+  "AD": [
+    {
+      "Name": "Euro",
+      "Code": "EUR",
+      "ISOCode": "978"
+    }
+  ],
+  "AO": [
+    {
+      "Name": "Angolan Kwanza",
+      "Code": "AOA",
+      "ISOCode": "973"
+    }
+  ],
+  "AI": [
+    {
+      "Name": "East Caribbean Dollar",
+      "Code": "XCD",
+      "ISOCode": "951"
+    }
+  ],
+  "AQ": [
+    {
+      "Name": "",
+      "Code": "",
+      "ISOCode": ""
+    }
+  ],
+ "AG": [
+    {
+      "Name": "East Caribbean Dollar",
+      "Code": "XCD",
+      "ISOCode": "951"
+    }
+  ],
+  "AR": [
+    {
+      "Name": "Argentine Peso",
+      "Code": "ARS",
+      "ISOCode": "32"
+    }
+  ],
+  "AM": [
+    {
+      "Name": "Armenian Dram",
+      "Code": "AMD",
+      "ISOCode": "51"
+    }
+  ],
+  "AW": [
+    {
+      "Name": "Aruban Florin",
+      "Code": "AWG",
+      "ISOCode": "533"
+    }
+  ],
+  "AU": [
+    {
+      "Name": "Australian Dollar",
+      "Code": "AUD",
+      "ISOCode": "36"
+    }
+  ],
+  "AT": [
+    {
+      "Name": "Euro",
+      "Code": "EUR",
+      "ISOCode": "978"
+    }
+  ],
+  "AZ": [
+    {
+      "Name": "Azerbaijan Manat",
+      "Code": "AZN",
+      "ISOCode": "AZN"
+    }
+  ],
+  "BS": [
+    {
+      "Name": "Bahamian Dollar",
+      "Code": "BSD",
+      "ISOCode": "44"
+    }
+  ],
+  "BH": [
+    {
+      "Name": "Bahraini Dinar",
+      "Code": "BHD",
+      "ISOCode": "48"
+    }
+  ],
+  "BD": [
+    {
+      "Name": "Bangladeshi Taka",
+      "Code": "BDT",
+      "ISOCode": "50"
+    }
+  ],
+  "BB": [
+    {
+      "Name": "Barbados Dollar",
+      "Code": "BBD",
+      "ISOCode": "52"
+    }
+  ],
+  "BY": [
+    {
+      "Name": "Belarusian Ruble",
+      "Code": "BYR",
+      "ISOCode": "974"
+    }
+  ],
+  "BE": [
+    {
+      "Name": "Euro",
+      "Code": "EUR",
+      "ISOCode": "978"
+    }
+  ],
+  "BZ": [
+    {
+      "Name": "Belize Dollar",
+      "Code": "BZD",
+      "ISOCode": "84"
+    }
+  ],
+  "BJ": [
+    {
+      "Name": "CFA Franc BCEAO",
+      "Code": "XOF",
+      "ISOCode": "952"
+    }
+  ],
+  "BM": [
+    {
+      "Name": "Bermudian Dollar",
+      "Code": "BMD",
+      "ISOCode": "60"
+    }
+  ],
+  "BT": [
+    {
+      "Name": "Bhutanese Ngultrum",
+      "Code": "BTN",
+      "ISOCode": "064"
+    }
+  ],
+  "BA": [
+    {
+      "Name": "Convertible Mark",
+      "Code": "BAM",
+      "ISOCode": "977"
+    }
+  ],
+  "BW": [
+    {
+      "Name": "Pula",
+      "Code": "BWP",
+      "ISOCode": "72"
+    }
+  ],
+  "BR": [
+    {
+      "Name": "Brazilian Real",
+      "Code": "BRL",
+      "ISOCode": "986"
+    }
+  ],
+  "BN": [
+    {
+      "Name": "Brunei Dollar",
+      "Code": "BND",
+      "ISOCode": "96"
+    }
+  ],
+  "BG": [
+    {
+      "Name": "Bulgarian Lev",
+      "Code": "BGN",
+      "ISOCode": "975"
+    }
+  ],
+  "BF": [
+    {
+      "Name": "CFA Franc BCEAO",
+      "Code": "XOF",
+      "ISOCode": "952"
+    }
+  ],
+  "BI": [
+    {
+      "Name": "Burundi Franc",
+      "Code": "BIF",
+      "ISOCode": "108"
+    }
+  ],
+  "KH": [
+    {
+      "Name": "Cambodian Riel (the US Dollar is the de facto currency)",
+      "Code": "KHR",
+      "ISOCode": "116"
+    }
+  ],
+  "CM": [
+    {
+      "Name": "CFA Franc BEAC",
+      "Code": "XAF",
+      "ISOCode": "950"
+    }
+  ],
+  "CA": [
+    {
+      "Name": "Canadian Dollar",
+      "Code": "CAD",
+      "ISOCode": "124"
+    }
+  ],
+  "KY": [
+    {
+      "Name": "Cayman Islands Dollar",
+      "Code": "KYD",
+      "ISOCode": "136"
+    }
+  ],
+  "CF": [
+    {
+      "Name": "CFA Franc BEAC",
+      "Code": "XAF",
+      "ISOCode": "950"
+    }
+  ],
+  "TD": [
+    {
+      "Name": "CFA Franc BEAC",
+      "Code": "XAF",
+      "ISOCode": "950"
+    }
+  ],
+  "CL": [
+    {
+      "Name": "Chilean Peso",
+      "Code": "CLP",
+      "ISOCode": "152"
+    }
+  ],
+  "CN": [
+    {
+      "Name": "Renminbi (Yuan)",
+      "Code": "CNY",
+      "ISOCode": "156"
+    }
+  ],
+  "CX": [
+    {
+      "Name": "Australian Dollar",
+      "Code": "AUD",
+      "ISOCode": "36"
+    }
+  ],
+  "CC": [
+    {
+      "Name": "Australian Dollar",
+      "Code": "AUD",
+      "ISOCode": "36"
+    }
+  ],
+  "CO": [
+    {
+      "Name": "Colombian Peso",
+      "Code": "COP",
+      "ISOCode": "170"
+    }
+  ],
+  "KM": [
+    {
+      "Name": "Comoro Franc",
+      "Code": "KMF",
+      "ISOCode": "174"
+    }
+  ],
+  "CK": [
+    {
+      "Name": "New Zealand Dollar",
+      "Code": "NZD",
+      "ISOCode": "554"
+    }
+  ],
+  "CR": [
+    {
+      "Name": "Costa Rican Colón",
+      "Code": "CRC",
+      "ISOCode": "188"
+    }
+  ],
+  "HR": [
+    {
+      "Name": "Croatian Kuna",
+      "Code": "HRK",
+      "ISOCode": "191"
+    }
+  ],
+  "CU": [
+    {
+      "Name": "Cuban Peso",
+      "Code": "CUP",
+      "ISOCode": "192"
+    }
+  ],
+  "CY": [
+    {
+      "Name": "Euro",
+      "Code": "EUR",
+      "ISOCode": "978"
+    }
+  ],
+  "CZ": [
+    {
+      "Name": "Czech Koruna",
+      "Code": "CZK",
+      "ISOCode": "203"
+    }
+  ],
+  "DK": [
+    {
+      "Name": "Danish Kroner",
+      "Code": "DKK",
+      "ISOCode": "208"
+    }
+  ],
+  "DJ": [
+    {
+      "Name": "Djibouti Franc",
+      "Code": "DJF",
+      "ISOCode": "262"
+    }
+  ],
+  "DM": [
+    {
+      "Name": "East Caribbean Dollar",
+      "Code": "XCD",
+      "ISOCode": "951"
+    }
+  ],
+  "DO": [
+    {
+      "Name": "Dominican Peso",
+      "Code": "DOP",
+      "ISOCode": "DOP"
+    }
+  ],
+  "EC": [
+    {
+      "Name": "US Dollar",
+      "Code": "USD",
+      "ISOCode": "840"
+    }
+  ],
+  "EG": [
+    {
+      "Name": "Egyptian Pound",
+      "Code": "EGP",
+      "ISOCode": "818"
+    }
+  ],
+  "SV": [
+    {
+      "Name": "Salvadoran Colón",
+      "Code": "SVC",
+      "ISOCode": "222"
+    }
+  ],
+  "GQ": [
+    {
+      "Name": "CFA Franc BEAC",
+      "Code": "XAF",
+      "ISOCode": "950"
+    }
+  ],
+  "ER": [
+    {
+      "Name": "Nakfa",
+      "Code": "ERN",
+      "ISOCode": "232"
+    }
+  ],
+  "EE": [
+    {
+      "Name": "Estonian Kroon",
+      "Code": "EEK",
+      "ISOCode": "233"
+    }
+  ],
+  "ET": [
+    {
+      "Name": "Ethiopian Birr",
+      "Code": "ETB",
+      "ISOCode": "230"
+    }
+  ],
+  "FK": [
+    {
+      "Name": "Falkland Islands pound",
+      "Code": "FKP",
+      "ISOCode": "238"
+    }
+  ],
+  "FO": [
+    {
+      "Name": "Faroese króna",
+      "Code": "FOK",
+      "ISOCode": "208"
+    }
+  ],
+  "FJ": [
+    {
+      "Name": "Fiji Dollar",
+      "Code": "FJD",
+      "ISOCode": "242"
+    }
+  ],
+  "FI": [
+    {
+      "Name": "Euro",
+      "Code": "EUR",
+      "ISOCode": "978"
+    }
+  ],
+  "FR": [
+    {
+      "Name": "Euro",
+      "Code": "EUR",
+      "ISOCode": "978"
+    }
+  ],
+  "GF": [
+    {
+      "Name": "Euro",
+      "Code": "EUR",
+      "ISOCode": "978"
+    }
+  ],
+  "PF": [
+    {
+      "Name": "CFP Franc",
+      "Code": "XPF",
+      "ISOCode": "953"
+    }
+  ],
+  "TF": [
+    {
+      "Name": "Euro",
+      "Code": "EUR",
+      "ISOCode": "978"
+    }
+  ],
+
+  "GA": [
+    {
+      "Name": "CFA Franc BEAC",
+      "Code": "XAF",
+      "ISOCode": "950"
+    }
+  ],
+
+  "GM": [
+    {
+      "Name": "Dalasi",
+      "Code": "GMD",
+      "ISOCode": "270"
+    }
+  ],
+
+  "GE": [
+    {
+      "Name": "Lari",
+      "Code": "GEL",
+      "ISOCode": "981"
+    }
+  ],
+  "DE": [
+    {
+      "Name": "Deutsche Mark",
+      "Code": "DEM",
+      "ISOCode": "280"
+    }
+  ],
+  "GH": [
+    {
+      "Name": "Cedi",
+      "Code": "GHC",
+      "ISOCode": "288"
+    }
+  ],
+  "GI": [
+    {
+      "Name": "Gibraltar Pound",
+      "Code": "GIP",
+      "ISOCode": "292"
+    }
+  ],
+  "GR": [
+    {
+      "Name": "Euro",
+      "Code": "EUR",
+      "ISOCode": "978"
+    }
+  ],
+  "GL": [
+    {
+      "Name": "Danish Krone",
+      "Code": "DKK",
+      "ISOCode": "208"
+    }
+  ],
+  "GD": [
+    {
+      "Name": "East Caribbean Dollar",
+      "Code": "XCD",
+      "ISOCode": "951"
+    }
+  ],
+  "GP": [
+    {
+      "Name": "Euro",
+      "Code": "EUR",
+      "ISOCode": "978"
+    }
+  ],
+  "GU": [
+    {
+      "Name": "US Dollar",
+      "Code": "USD",
+      "ISOCode": "840"
+    }
+  ],
+  "GT": [
+    {
+      "Name": "Quetzal",
+      "Code": "GTQ",
+      "ISOCode": "320"
+    }
+  ],
+  "GN": [
+    {
+      "Name": "Guinea Franc",
+      "Code": "GNF",
+      "ISOCode": "324"
+    }
+  ],
+  "GW": [
+    {
+      "Name": "Guinea-Bissau Peso",
+      "Code": "GWP",
+      "ISOCode": "624"
+    }
+  ],
+  "GY": [
+    {
+      "Name": "Guyana Dollar",
+      "Code": "GYD",
+      "ISOCode": "328"
+    }
+  ],
+  "HT": [
+    {
+      "Name": "Haitian Gourde",
+      "Code": "HTG",
+      "ISOCode": "HTG"
+    }
+  ],
+  "VA": [
+    {
+      "Name": "Euro",
+      "Code": "EUR",
+      "ISOCode": "978"
+    }
+  ],
+
+  "HN": [
+    {
+      "Name": "Lempira",
+      "Code": "HNL",
+      "ISOCode": "340"
+    }
+  ],
+
+  "HK": [
+    {
+      "Name": "Hong Kong Dollar",
+      "Code": "HKD",
+      "ISOCode": "344"
+    }
+  ],
+  "HU": [
+    {
+      "Name": "Forint",
+      "Code": "HUF",
+      "ISOCode": "348"
+    }
+  ],
+  "IS": [
+    {
+      "Name": "Iceland Krona",
+      "Code": "ISK",
+      "ISOCode": "352"
+    }
+  ],
+  "IN": [
+    {
+      "Name": "Indian Rupee",
+      "Code": "INR",
+      "ISOCode": "356"
+    }
+  ],
+  "ID": [
+    {
+      "Name": "Rupiah",
+      "Code": "IDR",
+      "ISOCode": "360"
+    }
+  ],
+  "IQ": [
+    {
+      "Name": "Iraqi Dinar",
+      "Code": "IQD",
+      "ISOCode": "368"
+    }
+  ],
+ "IE": [
+    {
+      "Name": "Euro",
+      "Code": "EUR",
+      "ISOCode": "EUR"
+    }
+  ],
+  "IT": [
+    {
+      "Name": "Euro",
+      "Code": "EUR",
+      "ISOCode": "978"
+    }
+  ],
+  "JM": [
+    {
+      "Name": "Jamaican Dollar",
+      "Code": "JMD",
+      "ISOCode": "388"
+    }
+  ],
+  "JP": [
+    {
+      "Name": "Yen",
+      "Code": "JPY",
+      "ISOCode": "392"
+    }
+  ],
+  "JO": [
+    {
+      "Name": "Jordanian Dinar",
+      "Code": "JOD",
+      "ISOCode": "400"
+    }
+  ],
+  "KZ": [
+    {
+      "Name": "Tenge",
+      "Code": "KZT",
+      "ISOCode": "398"
+    }
+  ],
+  "KE": [
+    {
+      "Name": "Kenyan Shilling",
+      "Code": "KES",
+      "ISOCode": "404"
+    }
+  ],
+  "KI": [
+    {
+      "Name": "Australian Dollar",
+      "Code": "AUD",
+      "ISOCode": "36"
+    }
+  ],
+  "KP": [
+    {
+      "Name": "North Korean Won",
+      "Code": "KPW",
+      "ISOCode": "408"
+    }
+  ],
+  "KR": [
+    {
+      "Name": "Won",
+      "Code": "KRW",
+      "ISOCode": "410"
+    }
+  ],
+  "KR": [
+    {
+      "Name": "Won",
+      "Code": "KRW",
+      "ISOCode": "410"
+    }
+  ],
+  "KW": [
+    {
+      "Name": "Kuwaiti Dinar",
+      "Code": "KWD",
+      "ISOCode": "414"
+    }
+  ],
+  "KG": [
+    {
+      "Name": "Som",
+      "Code": "KGS",
+      "ISOCode": "417"
+    }
+  ],
+  "LV": [
+    {
+      "Name": "Euro",
+      "Code": "EUR",
+      "ISOCode": "978"
+    }
+  ],
+  "LB": [
+    {
+      "Name": "Lebanese Pound",
+      "Code": "LBP",
+      "ISOCode": "422"
+    }
+  ],
+  "LS": [
+    {
+      "Name": "Loti",
+      "Code": "LSL",
+      "ISOCode": "426"
+    }
+  ],
+  "LR": [
+    {
+      "Name": "Liberian Dollar",
+      "Code": "LRD",
+      "ISOCode": "430"
+    }
+  ],
+  "LY": [
+    {
+      "Name": "Lybian Dinar",
+      "Code": "LYD",
+      "ISOCode": "434"
+    }
+  ],
+  "LI": [
+    {
+      "Name": "Swiss Franc",
+      "Code": "CHF",
+      "ISOCode": "756"
+    }
+  ],
+  "LT": [
+    {
+      "Name": "Euro",
+      "Code": "Eur",
+      "ISOCode": "440"
+    }
+  ],
+  "LU": [
+    {
+      "Name": "Euro",
+      "Code": "Eur",
+      "ISOCode": "978"
+    }
+  ],
+  "MO": [
+    {
+      "Name": "Macanese Pataca",
+      "Code": "MOP",
+      "ISOCode": "446"
+    }
+  ],
+  "MK": [
+    {
+      "Name": "Macedonian Denar",
+      "Code": "MKD",
+      "ISOCode": "807"
+    }
+  ],
+  "MG": [
+    {
+      "Name": "Malagasy Franc",
+      "Code": "MGF",
+      "ISOCode": "MGF"
+    }
+  ],
+  "MW": [
+    {
+      "Name": "Kwacha",
+      "Code": "MWK",
+      "ISOCode": "454"
+    }
+  ],
+  "MY": [
+    {
+      "Name": "Malaysian Ringgit",
+      "Code": "MYR",
+      "ISOCode": "458"
+    }
+  ],
+  "MV": [
+    {
+      "Name": "Rufiyaa",
+      "Code": "MVR",
+      "ISOCode": "462"
+    }
+  ],
+  "ML": [
+    {
+      "Name": "CFA Franc BCEAO",
+      "Code": "XOF",
+      "ISOCode": "952"
+    }
+  ],
+  "MT": [
+    {
+      "Name": "Maltese Lira",
+      "Code": "MTL",
+      "ISOCode": "470"
+    }
+  ],
+  "MH": [
+    {
+      "Name": "US Dollar",
+      "Code": "USD",
+      "ISOCode": "840"
+    }
+  ],
+  "MQ": [
+    {
+      "Name": "Euro",
+      "Code": "EUR",
+      "ISOCode": "978"
+    }
+  ],
+  "MR": [
+    {
+      "Name": "Ouguiya",
+      "Code": "MRO",
+      "ISOCode": "478"
+    }
+  ],
+  "MU": [
+    {
+      "Name": "Mauritius Rupee",
+      "Code": "MUR",
+      "ISOCode": "480"
+    }
+  ],
+  "YT": [
+    {
+      "Name": "Euro",
+      "Code": "EUR",
+      "ISOCode": "978"
+    }
+  ],
+  "MX": [
+    {
+      "Name": "Mexican Peso",
+      "Code": "MXN",
+      "ISOCode": "484"
+    }
+  ],
+  "FM": [
+    {
+      "Name": "US Dollar",
+      "Code": "USD",
+      "ISOCode": "840"
+    }
+  ],
+  "MD": [
+    {
+      "Name": "Moldovan Leu",
+      "Code": "MDL",
+      "ISOCode": "498"
+    }
+  ],
+  "MC": [
+    {
+      "Name": "Euro",
+      "Code": "EUR",
+      "ISOCode": "978"
+    }
+  ],
+  "MN": [
+    {
+      "Name": "Mongolia Tughrik",
+      "Code": "MNT",
+      "ISOCode": "MNT"
+    }
+  ],
+  "ME": [
+    {
+      "Name": "Euro",
+      "Code": "Eur",
+      "ISOCode": "978"
+    }
+  ],
+  "MS": [
+    {
+      "Name": "East Caribbean Dollar",
+      "Code": "XCD",
+      "ISOCode": "951"
+    }
+  ],
+  "MA": [
+    {
+      "Name": "Moroccan Dirham",
+      "Code": "MAD",
+      "ISOCode": "504"
+    }
+  ],
+  "MZ": [
+    {
+      "Name": "Mozambican Metical",
+      "Code": "MZM",
+      "ISOCode": "508"
+    }
+  ],
+  "MM": [
+    {
+      "Name": "Burmese Kyat",
+      "Code": "MMK",
+      "ISOCode": "104"
+    }
+  ],
+  "NA": [
+    {
+      "Name": "Namibia Dollar",
+      "Code": "NAD",
+      "ISOCode": "516"
+    }
+  ],
+  "NR": [
+    {
+      "Name": "Australian Dollar",
+      "Code": "AUD",
+      "ISOCode": "36"
+    }
+  ],
+  "NP": [
+    {
+      "Name": "Nepalese Rupee",
+      "Code": "NPR",
+      "ISOCode": "524"
+    }
+  ],
+  "NL": [
+    {
+      "Name": "Euro",
+      "Code": "EUR",
+      "ISOCode": "978"
+    }
+  ],
+  "CW": [
+    {
+      "Name": "Netherlands Antilles Guilder",
+      "Code": "ANG",
+      "ISOCode": "532"
+    }
+  ],
+  "NC": [
+    {
+      "Name": "CFP Franc (South Pacific Franc)",
+      "Code": "XPF",
+      "ISOCode": "953"
+    }
+  ],
+  "NZ": [
+    {
+      "Name": "New Zealand Dollar",
+      "Code": "NZD",
+      "ISOCode": "554"
+    }
+  ],
+  "NI": [
+    {
+      "Name": "Nicaraguan Córdoba (córdoba oro)",
+      "Code": "NIO",
+      "ISOCode": "558"
+    }
+  ],
+  "NE": [
+    {
+      "Name": "West African CFA Franc",
+      "Code": "XOF",
+      "ISOCode": "XOF"
+    }
+  ],
+  "NG": [
+    {
+      "Name": "Nigerian Naira",
+      "Code": "NGN",
+      "ISOCode": "566"
+    }
+  ],
+  "NU": [
+    {
+      "Name": "New Zealand Dollar",
+      "Code": "NZD",
+      "ISOCode": "554"
+    }
+  ],
+  "MP": [
+    {
+      "Name": "US Dollar",
+      "Code": "USD",
+      "ISOCode": "USD"
+    }
+  ],
+  "NO": [
+    {
+      "Name": "Norwegian Krone",
+      "Code": "NOK",
+      "ISOCode": "578"
+    }
+  ],
+  "OM": [
+    {
+      "Name": "Omani Rial",
+      "Code": "OMR",
+      "ISOCode": "512"
+    }
+  ],
+  "PK": [
+    {
+      "Name": "Pakistan Rupee",
+      "Code": "PKR",
+      "ISOCode": "586"
+    }
+  ],
+  "PW": [
+    {
+      "Name": "US Dollar",
+      "Code": "USD",
+      "ISOCode": "840"
+    }
+  ],
+  "PS": [
+    {
+      "Name": "Egyptian Pound",
+      "Code": "EGP",
+      "ISOCode": ""
+    }
+  ],
+  "PA": [
+    {
+      "Name": "Panamanian Balboa",
+      "Code": "PAB",
+      "ISOCode": "590"
+    }
+  ],
+  "PG": [
+    {
+      "Name": "Papua New Guinean Kina",
+      "Code": "PGK",
+      "ISOCode": "598"
+    }
+  ],
+  "PY": [
+    {
+      "Name": "Paraguayan Guarani",
+      "Code": "PYG",
+      "ISOCode": "600"
+    }
+  ],
+  "PE": [
+    {
+      "Name": "Peruvian (Nuevo) Sol",
+      "Code": "PEN",
+      "ISOCode": "604"
+    }
+  ],
+  "PH": [
+    {
+      "Name": "Philippine Peso",
+      "Code": "PHP",
+      "ISOCode": "608"
+    }
+  ],
+  "PN": [
+    {
+      "Name": "New Zealand Dollar",
+      "Code": "NZD",
+      "ISOCode": "554"
+    }
+  ],
+  "PL": [
+    {
+      "Name": "Polish Zloty (złoty)",
+      "Code": "PLN",
+      "ISOCode": "985"
+    }
+  ],
+  "PT": [
+    {
+      "Name": "Euro",
+      "Code": "EUR",
+      "ISOCode": "978"
+    }
+  ],
+  "PR": [
+    {
+      "Name": "US Dollar",
+      "Code": "USD",
+      "ISOCode": "840"
+    }
+  ],
+  "QA": [
+    {
+      "Name": "Qatari Rial",
+      "Code": "QAR",
+      "ISOCode": "634"
+    }
+  ],
+  "RE": [
+    {
+      "Name": "Euro",
+      "Code": "EUR",
+      "ISOCode": "978"
+    }
+  ],
+  "RO": [
+    {
+      "Name": "Leu",
+      "Code": "ROL",
+      "ISOCode": "642"
+    }
+  ],
+  "RU": [
+    {
+      "Name": "Russian Ruble",
+      "Code": "RUR",
+      "ISOCode": "810"
+    }
+  ],
+  "RW": [
+    {
+      "Name": "Rwanda Franc",
+      "Code": "RWF",
+      "ISOCode": "646"
+    }
+  ],
+  "SH": [
+    {
+      "Name": "Saint Helena Pound",
+      "Code": "SHP",
+      "ISOCode": "654"
+    }
+  ],
+  "KN": [
+    {
+      "Name": "East Caribbean Dollar",
+      "Code": "XCD",
+      "ISOCode": "951"
+    }
+  ],
+  "LC": [
+    {
+      "Name": "East Caribbean Dollar",
+      "Code": "XCD",
+      "ISOCode": "951"
+    }
+  ],
+  "VC": [
+    {
+      "Name": "East Caribbean Dollar",
+      "Code": "XCD",
+      "ISOCode": "951"
+    }
+  ],
+  "WS": [
+    {
+      "Name": "Tala",
+      "Code": "WST",
+      "ISOCode": "882"
+    }
+  ],
+  "SM": [
+    {
+      "Name": "Euro",
+      "Code": "EUR",
+      "ISOCode": "978"
+    }
+  ],
+  "ST": [
+    {
+      "Name": "Dobra",
+      "Code": "STD",
+      "ISOCode": "678"
+    }
+  ],
+  "SA": [
+    {
+      "Name": "Saudi Riyal",
+      "Code": "SAR",
+      "ISOCode": "682"
+    }
+  ],
+  "SN": [
+    {
+      "Name": "CFA Franc BCEAO",
+      "Code": "XOF",
+      "ISOCode": "952"
+    }
+  ],
+  "RS": [
+    {
+      "Name": "Serbian Dinar",
+      "Code": "CSD",
+      "ISOCode": "891"
+    }
+  ],
+  "SC": [
+    {
+      "Name": "Seychelles Rupee",
+      "Code": "SCR",
+      "ISOCode": "690"
+    }
+  ],
+  "SL": [
+    {
+      "Name": "Leone",
+      "Code": "SLL",
+      "ISOCode": "694"
+    }
+  ],
+  "SG": [
+    {
+      "Name": "Singapore Dollar",
+      "Code": "SGD",
+      "ISOCode": "702"
+    }
+  ],
+  "SK": [
+    {
+      "Name": "Euro",
+      "Code": "EUR",
+      "ISOCode": "978"
+    }
+  ],
+  "SI": [
+    {
+      "Name": "Euro",
+      "Code": "EUR",
+      "ISOCode": "978"
+    }
+  ],
+  "SB": [
+    {
+      "Name": "Solomon Islands Dollar",
+      "Code": "SBD",
+      "ISOCode": "90"
+    }
+  ],
+  "SO": [
+    {
+      "Name": "Somali Shilling",
+      "Code": "SOS",
+      "ISOCode": "706"
+    }
+  ],
+  "ZA": [
+    {
+      "Name": "Rand",
+      "Code": "ZAR",
+      "ISOCode": "710"
+    }
+  ],
+  "SS": [
+    {
+      "Name": "South Sudanese pound",
+      "Code": "SSP",
+      "ISOCode": "728"
+    }
+  ],
+  "ES": [
+    {
+      "Name": "Euro",
+      "Code": "EUR",
+      "ISOCode": "978"
+    }
+  ],
+  "LK": [
+    {
+      "Name": "Sri Lanka Rupee",
+      "Code": "LKR",
+      "ISOCode": "144"
+    }
+  ],
+  "SD": [
+    {
+      "Name": "Sudanese Dinar [obsolete]",
+      "Code": "SDD",
+      "ISOCode": "736"
+    }
+  ],
+  "SR": [
+    {
+      "Name": "Suriname Guilder",
+      "Code": "SRG",
+      "ISOCode": "740"
+    }
+  ],
+  "SZ": [
+    {
+      "Name": "Lilangeni",
+      "Code": "SZL",
+      "ISOCode": "748"
+    }
+  ],
+  "SE": [
+    {
+      "Name": "Swedish Krona",
+      "Code": "SEK",
+      "ISOCode": "752"
+    }
+  ],
+  "CH": [
+    {
+      "Name": "Swiss Franc",
+      "Code": "CHF",
+      "ISOCode": "756"
+    }
+  ],
+  "SY": [
+    {
+      "Name": "Syrian Pound",
+      "Code": "SYP",
+      "ISOCode": "760"
+    }
+  ],
+  "TW": [
+    {
+      "Name": "New Taiwan Dollar",
+      "Code": "TWD",
+      "ISOCode": "901"
+    }
+  ],
+  "TJ": [
+    {
+      "Name": "Somoni",
+      "Code": "TJS",
+      "ISOCode": "972"
+    }
+  ],
+  "TZ": [
+    {
+      "Name": "Tanzanian Shilling",
+      "Code": "TZS",
+      "ISOCode": "834"
+    }
+  ],
+  "TH": [
+    {
+      "Name": "Thai Baht",
+      "Code": "THB",
+      "ISOCode": "764"
+    }
+  ],
+  "TL": [
+    {
+      "Name": "US Dollar",
+      "Code": "USD",
+      "ISOCode": "840"
+    }
+  ],
+  "TG": [
+    {
+      "Name": "CFA Franc BCEAO",
+      "Code": "XOF",
+      "ISOCode": "952"
+    }
+  ],
+  "TK": [
+    {
+      "Name": "New Zealand Dollar",
+      "Code": "NZD",
+      "ISOCode": "554"
+    }
+  ],
+  "TO": [
+    {
+      "Name": "Paʻanga",
+      "Code": "TOP",
+      "ISOCode": "776"
+    }
+  ],
+  "TT": [
+    {
+      "Name": "Trinidad and Tobago Dollar",
+      "Code": "TTD",
+      "ISOCode": "780"
+    }
+  ],
+  "TN": [
+    {
+      "Name": "Tunisian Dinar",
+      "Code": "TND",
+      "ISOCode": "788"
+    }
+  ],
+  "TR": [
+    {
+      "Name": "Yeni Türk Liras (YTL)",
+      "Code": "TRY",
+      "ISOCode": "949"
+    }
+  ],
+  "TM": [
+    {
+      "Name": "Manat",
+      "Code": "TMM",
+      "ISOCode": "795"
+    }
+  ],
+  "TC": [
+    {
+      "Name": "US Dollar",
+      "Code": "USD",
+      "ISOCode": "840"
+    }
+  ],
+  "TV": [
+    {
+      "Name": "Australian Dollar",
+      "Code": "AUD",
+      "ISOCode": "36"
+    }
+  ],
+  "UG": [
+    {
+      "Name": "Uganda Shilling",
+      "Code": "UGX",
+      "ISOCode": "800"
+    }
+  ],
+  "UA": [
+    {
+      "Name": "Ukrainian Hryvnia",
+      "Code": "UAH",
+      "ISOCode": "980"
+    }
+  ],
+  "AE": [
+    {
+      "Name": "UAE Dirham",
+      "Code": "AED",
+      "ISOCode": "784"
+    }
+  ],
+  "GB": [
+    {
+      "Name": "Pound Sterling",
+      "Code": "GBP",
+      "ISOCode": "826"
+    }
+  ],
+  "US": [
+    {
+      "Name": "US Dollar",
+      "Code": "USS",
+      "ISOCode": "998"
+    }
+  ],
+  "UY": [
+    {
+      "Name": "Uruguayan Peso",
+      "Code": "UYU",
+      "ISOCode": "858"
+    }
+  ],
+  "UZ": [
+    {
+      "Name": "Uzbekistan Sum",
+      "Code": "UZS",
+      "ISOCode": "860"
+    }
+  ],
+  "VU": [
+    {
+      "Name": "Vanuatu Vatu",
+      "Code": "VUV",
+      "ISOCode": "548"
+    }
+  ],
+  "VA": [
+    {
+      "Name": "Euro",
+      "Code": "EUR",
+      "ISOCode": "978"
+    }
+  ],
+  "VE": [
+    {
+      "Name": "Venezuelan Bolívar",
+      "Code": "VEF",
+      "ISOCode": "937"
+    }
+  ],
+  "VN": [
+    {
+      "Name": "Vietnamese Dong",
+      "Code": "VND",
+      "ISOCode": "704"
+    }
+  ],
+  "VG": [
+    {
+      "Name": "US Dollar",
+      "Code": "USD",
+      "ISOCode": "840"
+    }
+  ],
+  "VI": [
+    {
+      "Name": "US Dollar",
+      "Code": "USD",
+      "ISOCode": "840"
+    }
+  ],
+  "WF": [
+    {
+      "Name": "CFP Franc",
+      "Code": "XPF",
+      "ISOCode": "953"
+    }
+  ],
+  "EH": [
+    {
+      "Name": "Moroccan Dirham",
+      "Code": "MAD",
+      "ISOCode": "504"
+    }
+  ],
+  "YE": [
+    {
+      "Name": "Yemeni Rial",
+      "Code": "YER",
+      "ISOCode": "886"
+    }
+  ],
+  "ZM": [
+    {
+      "Name": "Zambian Kwacha",
+      "Code": "ZMW",
+      "ISOCode": "894"
+    }
+  ],
+  "ZW": [
+    {
+      "Name": "Zimbabwe Dollar",
+      "Code": "ZWD",
+      "ISOCode": "716"
+    }
+  ]
+}
+
