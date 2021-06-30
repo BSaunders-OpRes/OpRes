@@ -219,9 +219,21 @@ document.addEventListener('turbolinks:load', function() {
       error_tab      = error_elem.parents('.tab-pane').attr('id');
       error_tab_link = form.find('a[href="#'+ error_tab +'"]');
       error_tab_link.click();
-      error_elem.focus();
+      setTimeout(function() {
+        $('html, body').animate({
+          'scrollTop' : error_elem.parents('.field-scroll').position().top
+        });
+        if (error_elem.hasClass('expandable') && !error_elem.parents('.collapse').hasClass('show')) {
+          error_elem.parents('.field-scroll').find('a[data-toggle="collapse"]').click();
+        }
+        error_elem.focus();
+      }, 500);
       return false;
     }
+  });
+
+  $('body').on('change', '#bsl-risks .justification-requirer', function() {
+    $(this).parents('.bsl-risk').find('.justification-required').attr('required', true);
   });
 
   /******************** Helper Methods ********************

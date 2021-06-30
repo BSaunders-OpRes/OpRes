@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_28_142012) do
+ActiveRecord::Schema.define(version: 2021_06_30_064338) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -269,10 +269,19 @@ ActiveRecord::Schema.define(version: 2021_06_28_142012) do
     t.index ["supplier_id"], name: "index_relationship_owners_on_supplier_id"
   end
 
+  create_table "risk_appetite_justifications", force: :cascade do |t|
+    t.bigint "risk_appetite_id"
+    t.bigint "user_id"
+    t.text "justification"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["risk_appetite_id"], name: "index_risk_appetite_justifications_on_risk_appetite_id"
+    t.index ["user_id"], name: "index_risk_appetite_justifications_on_user_id"
+  end
+
   create_table "risk_appetites", force: :cascade do |t|
     t.bigint "business_service_line_id"
     t.string "name"
-    t.text "justification"
     t.float "amount"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -508,6 +517,8 @@ ActiveRecord::Schema.define(version: 2021_06_28_142012) do
   add_foreign_key "product_channels", "products"
   add_foreign_key "products", "units"
   add_foreign_key "relationship_owners", "suppliers"
+  add_foreign_key "risk_appetite_justifications", "risk_appetites"
+  add_foreign_key "risk_appetite_justifications", "users"
   add_foreign_key "risk_appetites", "business_service_lines"
   add_foreign_key "steps", "business_service_lines"
   add_foreign_key "supplier_cloud_hosting_provider_regions", "cloud_hosting_provider_regions"

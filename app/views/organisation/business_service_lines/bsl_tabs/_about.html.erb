@@ -6,7 +6,7 @@
         <div class="col-sm-4 flex-sm-1 mb-2 mb-sm-0">
           <p class="text-capitalize font-14 font-600">business service line name</p>
         </div>
-        <div class="col-sm-7 order-3 order-sm-2">
+        <div class="col-sm-7 order-3 order-sm-2 field-scroll">
           <%= form.text_field :name, class: 'w-100 form-control font-12 h-auto py-3 shadow-none', placeholder: 'Enter Name', required: true %>
         </div>
         <div class="col-sm-1 text-right order-2 flex-sm-half mb-2 mb-sm-0">
@@ -17,7 +17,7 @@
         <div class="col-sm-4 flex-sm-1 mb-2 mb-sm-0">
           <p class="text-capitalize font-14 font-600">business service line description </p>
         </div>
-        <div class="col-sm-7 order-3 order-sm-2">
+        <div class="col-sm-7 order-3 order-sm-2 field-scroll">
           <%= form.text_area :description, class: 'w-100 form-control font-12 h-auto py-3 shadow-none', placeholder: 'Add Description', required: true %>
         </div>
         <div class="col-sm-1 text-right order-2 flex-sm-half mb-2 mb-sm-0">
@@ -28,7 +28,7 @@
         <div class="col-sm-4 flex-sm-1 mb-2 mb-sm-0">
           <p class="text-capitalize font-14 font-600">service tier</p>
         </div>
-        <div class="col-sm-7 order-3 order-sm-2">
+        <div class="col-sm-7 order-3 order-sm-2 field-scroll">
           <%= form.select :tier, options_for_select(BusinessServiceLine.tiers.map { |k, v| [k.titleize, k] }, @bsl.tier), { include_blank: 'Please select' }, { class: 'form-control w-100 font-12 h-auto py-3 shadow-none arrow-select', required: true } %>
             <i class="fa fa-sort-desc pr-2 mr-2" aria-hidden="true"></i>
         </div>

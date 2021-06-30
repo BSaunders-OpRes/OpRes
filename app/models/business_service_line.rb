@@ -16,9 +16,6 @@ class BusinessServiceLine < ApplicationRecord
   # Enums #
   enum tier: %i[tier_1 tier_2 tier_3 tier_4]
 
-  # Todo #
-  # add institution in validation
-
   # Validations #
   validates :name, :description, :tier, presence: true
 

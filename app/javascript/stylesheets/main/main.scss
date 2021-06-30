@@ -23,6 +23,9 @@ html {
 h1, h2, h3, h4, h5, h6, p {
   margin: 0;
 }
+.resize-vertical {
+  resize: vertical !important;
+}
 .h-300-with-scroll {
   height: 300px;
   &::-webkit-scrollbar {
