@@ -16,4 +16,10 @@ module Organisation::RisksHelper
       ''
     end 
   end
+
+  def risk_appetite_amount_value(risk_appetite)
+    return nil if risk_appetite.amount.blank?
+
+    risk_appetite.minutes_amount? ? risk_appetite.amount.to_i : risk_appetite.amount
+  end
 end

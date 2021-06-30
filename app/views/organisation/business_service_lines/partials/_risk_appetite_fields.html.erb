@@ -16,7 +16,7 @@
       <div class="slidecontainer d-flex align-items-center w-100">
         <span class="font-12 font-300 mr-2 light-text text-capitalize font-400">very low</span>
         <div class="chrome flex-1">
-          <input type="range" name="risk_slider" class="w-100 myinput bsl-risk-slider" min="0" max="4" step="1" value="<%= RiskAppetite.labels[risk_appetite.object.label] %>">
+          <input type="range" name="risk_slider" class="w-100 myinput bsl-risk-slider justification-requirer" min="0" max="4" step="1" value="<%= RiskAppetite.labels[risk_appetite.object.label] %>">
           <%= risk_appetite.text_field :label, class: 'd-none bsl-risk-slider-value' %>
         </div>
         <span class="font-12 font-300 ml-2 light-text text-capitalize font-400">very high</span>
@@ -27,7 +27,7 @@
         <div class="input-group-prepend">
           <div class="input-group-text px-3 bg-white font-12"><%= risk_appetite.object.percentage_amount? ? '%' : 'Mins' %></div>
         </div>
-        <%= risk_appetite.number_field :amount, class: 'form-control form-control font-12 h-auto py-3 shadow-none', value: (risk_appetite.object.minutes_amount? ? risk_appetite.object.amount.to_i : risk_appetite.object.amount), min: 0, step: (risk_appetite.object.percentage_amount? ? 0.01 : 1) %>
+        <%= risk_appetite.number_field :amount, class: 'form-control form-control font-12 h-auto py-3 shadow-none justification-requirer', value: risk_appetite_amount_value(risk_appetite.object), min: 0, step: (risk_appetite.object.percentage_amount? ? 0.01 : 1) %>
       </div>
     </div>
     <div class="col-md-2 pl-1">
@@ -39,7 +39,7 @@
     </div>
   </div>
   <div class="row">
-    <div class="col-md-12 mt-4">
+    <div class="col-md-12 mt-4 field-scroll">
       <a class="card cursor-pointer text-decoration-none text-dark" href="#justification-expand-<%= risk_appetite.object.kind %>" data-toggle="collapse" aria-expanded="false">
         <div class="card-body d-flex align-items-center justify-content-between p-3">
           <span class="text-capitalize light-text font-12 ">add justification</span>
@@ -50,15 +50,53 @@
         <div class="card">
           <div class="card-body">
             <%= risk_appetite.fields_for :risk_appetite_justifications, risk_appetite.object.risk_appetite_justifications.build do |risk_appetite_justification| %>
-              <%= risk_appetite_justification.text_area :justification, placeholder: 'Add Justification', cols: '30', rows: '3', class: 'form-control' %>
+              <%= risk_appetite_justification.text_area :justification, placeholder: 'Add Justification', cols: '30', rows: '3', class: 'form-control expandable justification-required resize-vertical font-12' %>
             <% end %>
           </div>
         </div>
       </div>
       <div class="d-flex justify-content-between align-items-center mt-4">
-        <span class="p-2 flex-1 bg-body-color text-light-grey mr-1"><small class='font-600 font-14'>Created By</small></span>
-        <span class="p-2 flex-1 bg-body-color text-light-grey ml-1"><small class='font-600 font-14'>Updated By</small></span>
-        <i class="fa fa-binoculars ml-2"></i>
+        <% justifications = risk_appetite.object.risk_appetite_justifications.includes(:user).select(&:persisted?) %>
+        <% if justifications.present? %>
+          <span class="p-2 flex-1 bg-body-color text-light-grey mr-1"><small class='font-600 font-14'><%= justifications.first.creation_info %></small></span>
+          <span class="p-2 flex-1 bg-body-color text-light-grey ml-1"><small class='font-600 font-14'><%= justifications.last.modification_info %></small></span>
+          <%= link_to 'javascript:void(0);', data: { toggle: 'modal', target: "#justification-details-#{risk_appetite.object.kind.dasherize}-modal" }, class: 'text-black' do %>
+            <i class="fa fa-binoculars ml-2"></i>
+          <% end %>
+
+          <div class="modal fade my-5 py-5" tabindex="-1" role="dialog" id="<%= "justification-details-#{risk_appetite.object.kind.dasherize}-modal" %>">
+            <div class="modal-dialog max-700px" role="document">
+              <div class="modal-content">
+                <div class="modal-header border-0 p-4">
+                  <h5 class="modal-title text-capitalize font-16">All Modifications</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body p-4">
+                  <table class="table">
+                    <thead>
+                      <tr>
+                        <th class='text-light-grey font-12 border-0 w-25'>Date Of Update</th>
+                        <th class='text-light-grey font-12 border-0 w-25'>Update Made By</th>
+                        <th class='text-light-grey font-12 border-0'>Update Description</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <% justifications.each do |justification| %>
+                        <tr>
+                          <td class="font-12 font-600 border-bottom py-3"><%= justification.strf_created_at %></td>
+                          <td class="font-12 font-600 border-bottom py-3"><%= justification.user.name %></td>
+                          <td class="font-12 font-600 border-bottom py-3"><%= justification.justification %></td>
+                        </tr>
+                      <% end %>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        <% end %>
       </div>
       <%= risk_appetite.text_field :kind, class: 'd-none' %>
     </div>
