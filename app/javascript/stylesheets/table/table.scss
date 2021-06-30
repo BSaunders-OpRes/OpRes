@@ -25,7 +25,21 @@
     font-weight: 500;
   }
 }
-
+.table-striped {
+  tbody {
+    tr:nth-of-type(even) {
+      background: #F8F9FC !important;
+    }
+    tr:nth-of-type(odd) {
+      background: $white !important;
+    }
+    tr {
+      td:last-child {
+        border-right: 0 !important;
+      }
+    }
+  }
+}
 .custom-table {
   thead {
     th {

@@ -16,20 +16,25 @@ document.addEventListener('turbolinks:load', function() {
         text: ''
       },
       xAxis: {
-        categories: ['1 Jan 2021', '1 Feb 2021', '1 Mar 2021', '1 Apr 2021', '1 May 2021'],
+        categories: ['1 Jan 2021', '1 Feb 2021', '1 Mar 2021', '1 Apr 2021', '1 May 2021' , '1 May 2021'],
         tickmarkPlacement: 'off',
         title: {
           enabled: false
-        }
+        },
+        align: 'left',
+        x: 0,
       },
       yAxis: {
         title: {
-          text: 'Number of Vulnerablities'
+          text: null
         },
         labels: {
           formatter: function () {
             return this.value / 100;
-          }
+          },
+          align: 'left',
+          x: 0,
+          y: 0
         }
       },
       tooltip: {
@@ -51,10 +56,6 @@ document.addEventListener('turbolinks:load', function() {
         name: 'Critical',
         data: [1000, 900, 809, 947, 1402, 30],
         color: 'rgba(233,252,247,.7)'
-      }, {
-        name: 'Important',
-        data: [1000, 900, 809, 133, 221, 50],
-        color: '#D1E2DE'
       }]
     });
   }
