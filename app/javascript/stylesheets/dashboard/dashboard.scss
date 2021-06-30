@@ -213,14 +213,6 @@ i.paperclip {
 
 .new-dashboard {
   .content-area {
-    .card {
-      .card-heading {
-        width: 90%;
-      }
-      .card-heading-icon {
-        width: 10%;
-      }
-    }
     .custom-tab {
       margin: 0 -1%;
       .custom-item {
@@ -303,23 +295,6 @@ i.paperclip {
     .input-group {
       .btn {
         padding: 0 10px;
-      }
-    }
-  }
-  .custom-search-bar {
-    .form-control-feedback {
-      z-index: 2;
-      color: $black;
-      width: 2.375rem;
-      height: 2.375rem;
-      pointer-events: none;
-      line-height: 2.375rem;
-    }
-    input {
-      padding: 0 10px 0 40px;
-      background-color: $body-bg-color;
-      &:focus {
-        box-shadow: none;
       }
     }
   }

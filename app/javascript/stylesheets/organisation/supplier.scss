@@ -4,7 +4,16 @@
   display: flex;
   align-items: center;
 }
-
+.label-field {
+  height: 70px;
+  line-height: 13px;
+  span {
+    color: $secondary-green;
+  }
+  input:placeholder-shown ~ span {
+    color: $black;
+  }
+}
 .fixed-secondary-sidebar {
   -webkit-backface-visibility: hidden;
   transition: .5s all;
