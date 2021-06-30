@@ -1,9 +1,7 @@
 class RiskAppetite < ApplicationRecord
   # Associations #
   belongs_to :business_service_line
-
-  # Attr Accessors #
-  attr_accessor :user
+  has_many :risk_appetite_justifications, dependent: :destroy
 
   # Enums #
   # Kind enum is based on the SLA columns. In future introduce user defined kind.
@@ -13,6 +11,9 @@ class RiskAppetite < ApplicationRecord
   # Validations #
   validates :name, :kind, :label, presence: true
   validates :amount, numericality: true, allow_nil: true
+
+  # Nested Attributes #
+  accepts_nested_attributes_for :risk_appetite_justifications, reject_if: :all_blank, allow_destroy: true
 
   # Scopes #
   default_scope { order(id: :asc) }

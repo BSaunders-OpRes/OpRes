@@ -3,6 +3,7 @@ class User < ApplicationRecord
   belongs_to :unit, optional: true
   has_many :managers, dependent: :destroy
   has_many :managing_units, through: :managers, source: :unit
+  has_many :risk_appetite_justifications, dependent: :nullify
 
   # Attribute Accessors #
   attr_accessor :skip_password_validation

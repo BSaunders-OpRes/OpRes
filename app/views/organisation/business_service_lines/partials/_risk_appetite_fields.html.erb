@@ -2,12 +2,12 @@
   <div class="row align-items-center mb-4">
     <div class="col-sm-11 flex-sm-1 mb-2 mb-sm-0">
       <p class="text-capitalize font-14 font-600">
-        <%= f.object.name %>
-        <%= f.text_field :name, placeholder: 'Risk appetite title', class: 'd-none' %>
+        <%= risk_appetite.object.name %>
+        <%= risk_appetite.text_field :name, placeholder: 'Risk appetite title', class: 'd-none' %>
       </p>
     </div>
     <div class="col-sm-1 text-right order-2 flex-sm-half mb-2 mb-sm-0">
-      <div class="info" data-toggle="tooltip" data-placement="top" title="<%= risk_appetite_tooltip(f.object) %>" aria-hidden="true">i</div>
+      <div class="info" data-toggle="tooltip" data-placement="top" title="<%= risk_appetite_tooltip(risk_appetite.object) %>" aria-hidden="true">i</div>
     </div>
   </div>
 
@@ -16,8 +16,8 @@
       <div class="slidecontainer d-flex align-items-center w-100">
         <span class="font-12 font-300 mr-2 light-text text-capitalize font-400">very low</span>
         <div class="chrome flex-1">
-          <input type="range" name="risk_slider" class="w-100 myinput bsl-risk-slider" min="0" max="4" step="1" value="<%= RiskAppetite.labels[f.object.label] %>">
-          <%= f.text_field :label, class: 'd-none bsl-risk-slider-value' %>
+          <input type="range" name="risk_slider" class="w-100 myinput bsl-risk-slider" min="0" max="4" step="1" value="<%= RiskAppetite.labels[risk_appetite.object.label] %>">
+          <%= risk_appetite.text_field :label, class: 'd-none bsl-risk-slider-value' %>
         </div>
         <span class="font-12 font-300 ml-2 light-text text-capitalize font-400">very high</span>
       </div>
@@ -25,14 +25,14 @@
     <div class="col-md-3 d-flex align-items-center pr-1">
       <div class="input-group mr-1">
         <div class="input-group-prepend">
-          <div class="input-group-text px-3 bg-white font-12"><%= f.object.percentage_amount? ? '%' : 'Mins' %></div>
+          <div class="input-group-text px-3 bg-white font-12"><%= risk_appetite.object.percentage_amount? ? '%' : 'Mins' %></div>
         </div>
-        <%= f.number_field :amount, class: 'form-control form-control font-12 h-auto py-3 shadow-none', value: (f.object.minutes_amount? ? f.object.amount.to_i : f.object.amount), min: 0, step: (f.object.percentage_amount? ? 0.01 : 1) %>
+        <%= risk_appetite.number_field :amount, class: 'form-control form-control font-12 h-auto py-3 shadow-none', value: (risk_appetite.object.minutes_amount? ? risk_appetite.object.amount.to_i : risk_appetite.object.amount), min: 0, step: (risk_appetite.object.percentage_amount? ? 0.01 : 1) %>
       </div>
     </div>
     <div class="col-md-2 pl-1">
       <% RiskAppetite.labels.each do |k, v| %>
-        <%= link_to 'javascript:void(0);', class: "w-100 btn font-13 font-500 text-capitalize pink-btn font-600 ml-1 py-3 #{ f.object.label == k ? '' : 'd-none' } bsl-risk-#{k.dasherize} bsl-risk-slider-indicator bsl-risk-slider-indicator-#{v}" do %>
+        <%= link_to 'javascript:void(0);', class: "w-100 btn font-13 font-500 text-capitalize pink-btn font-600 ml-1 py-3 #{ risk_appetite.object.label == k ? '' : 'd-none' } bsl-risk-#{k.dasherize} bsl-risk-slider-indicator bsl-risk-slider-indicator-#{v}" do %>
           <%= k.titleize %>
         <% end %>
       <% end %>
@@ -40,16 +40,18 @@
   </div>
   <div class="row">
     <div class="col-md-12 mt-4">
-      <a class="card cursor-pointer text-decoration-none text-dark" href="#justification-expand-<%= f.object.kind %>" data-toggle="collapse" aria-expanded="false">
+      <a class="card cursor-pointer text-decoration-none text-dark" href="#justification-expand-<%= risk_appetite.object.kind %>" data-toggle="collapse" aria-expanded="false">
         <div class="card-body d-flex align-items-center justify-content-between p-3">
           <span class="text-capitalize light-text font-12 ">add justification</span>
           <span class="font-600 text-capitalize font-12">expand</span>
         </div>
       </a>
-      <div class="collapse w-100" id="justification-expand-<%= f.object.kind %>">
+      <div class="collapse w-100" id="justification-expand-<%= risk_appetite.object.kind %>">
         <div class="card">
           <div class="card-body">
-            <%= f.text_area :justification, placeholder: 'Add Justification', cols: '30', rows: '3', class: 'form-control' %>
+            <%= risk_appetite.fields_for :risk_appetite_justifications, risk_appetite.object.risk_appetite_justifications.build do |risk_appetite_justification| %>
+              <%= risk_appetite_justification.text_area :justification, placeholder: 'Add Justification', cols: '30', rows: '3', class: 'form-control' %>
+            <% end %>
           </div>
         </div>
       </div>
@@ -58,8 +60,7 @@
         <span class="p-2 flex-1 bg-body-color text-light-grey ml-1"><small class='font-600 font-14'>Updated By</small></span>
         <i class="fa fa-binoculars ml-2"></i>
       </div>
-      <%= f.text_field :kind, class: 'd-none' %>
-      <%#= f.number_field :creator_id, value: (f.object.creator_id.presence || current_user.id), class: 'd-none' %>
+      <%= risk_appetite.text_field :kind, class: 'd-none' %>
     </div>
   </div>
 </div>

@@ -2,7 +2,7 @@
   <h5 class="font-600">Impact Tolerances</h5>
   <div class="mt-5 risk-appetites" id="bsl-risks">
     <%= form.fields_for :risk_appetites do |risk_appetite| %>
-      <%= render 'organisation/business_service_lines/partials/cocoon_risk_appetite', f: risk_appetite %>
+      <%= render 'organisation/business_service_lines/partials/risk_appetite_fields', risk_appetite: risk_appetite %>
     <% end %>
   </div>
 </div>
