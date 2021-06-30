@@ -1,6 +1,8 @@
 document.addEventListener('turbolinks:load', function() {
   /******************** Page Load Logics ********************
   **********************************************************/
+  window.RISK_LABELS = ['very_low', 'low', 'medium', 'high', 'very_high'];
+
   if ($('#bsl-risks').length >= 1) {
     $('#bsl-risks .bsl-risk-slider').each(function() {
       bsl_risk_slider_fill($(this));
@@ -232,11 +234,15 @@ document.addEventListener('turbolinks:load', function() {
   }
 
   function bsl_risk_slider_fill(e) {
-    var parent = e.parents('.nested-fields');
-    var value  = e.val();
+    var parent = e.parents('.bsl-risk');
+    var value  = parseInt(e.val());
 
-    parent.find('.bsl-risk-slider-value').val(value);
-    e.css({ 'background': 'linear-gradient(to right, #000 0%, #000 ' + value + '%, #F3F5FA ' + value + '%, #F3F5FA 100%)' });
+    parent.find('.bsl-risk-slider-value').val(RISK_LABELS[value]);
+    parent.find('.bsl-risk-slider-indicator').addClass('d-none');
+    parent.find('.bsl-risk-slider-indicator-'+ value).removeClass('d-none');
+
+    fill = (value / 4) * 100;
+    e.css({ 'background': 'linear-gradient(to right, #000 0%, #000 ' + fill + '%, #F3F5FA ' + fill + '%, #F3F5FA 100%)' });
   }
 
   function swap_bsl_steps(current_step, swap_step, scroll_to) {

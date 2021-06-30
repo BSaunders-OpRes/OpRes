@@ -45,8 +45,15 @@ class Organisation::BusinessServiceLinesController < Organisation::BaseControlle
 
     @bsl.build_sla                 if @bsl.sla.blank?
     @bsl.build_material_risk_taker if @bsl.material_risk_taker.blank?
-    @bsl.risk_appetites.build      if @bsl.risk_appetites.blank?
     @bsl.steps.build(number: 1)    if @bsl.steps.blank?
+
+    RiskAppetite.kinds.each do |k, v|
+      # FIX: N + 1
+      @bsl.risk_appetites.build(
+        name: "#{RiskAppetite.kind_display_name[k]} Risk Appetite Rules Engine",
+        kind: k
+      ) if @bsl.risk_appetites.send(k).blank?
+    end
   end
 
   def bsl_params
@@ -57,7 +64,7 @@ class Organisation::BusinessServiceLinesController < Organisation::BaseControlle
             material_risk_taker_attributes: %i[id name title email],
             sla_attributes: %i[id service_level_agreement service_level_objective recovery_point_objective recovery_time_objective severity1 severity2 severity3 severity4 severity1_restoration severity2_restoration severity3_restoration severity4_restoration support_hours support_hours_other],
             steps_attributes: [:id, :name, :description, :number, :_destroy, supplier_ids: []],
-            risk_appetites_attributes: %i[id name risk_appetite_value description creator_id _destroy],
+            risk_appetites_attributes: %i[id name justification amount label kind _destroy],
           ).merge(unit_id: institution_id.id)
   end
 end

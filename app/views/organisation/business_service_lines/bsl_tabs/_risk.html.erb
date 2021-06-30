@@ -1,16 +1,8 @@
 <div class="tab-pane fade" id="risk-tab" role="tabpanel" aria-labelledby="home-tab">
-  <h5 class="font-600">Set Risk Appetite</h5>
+  <h5 class="font-600">Impact Tolerances</h5>
   <div class="mt-5 risk-appetites" id="bsl-risks">
     <%= form.fields_for :risk_appetites do |risk_appetite| %>
-      <div class="bsl-risk">
-        <%= render 'organisation/business_service_lines/partials/cocoon_risk_appetite', f: risk_appetite %>
-      </div>
+      <%= render 'organisation/business_service_lines/partials/cocoon_risk_appetite', f: risk_appetite %>
     <% end %>
-    <div class="links text-right mb-5">
-      <%= link_to_add_association form, :risk_appetites, class: 'font-14 text-dark', partial: 'organisation/business_service_lines/partials/cocoon_risk_appetite' do %>
-        <i class="fa fa-plus-circle"></i>
-        <span>Add Risk</span>
-      <% end %>
-    </div>
   </div>
 </div>

@@ -35,7 +35,37 @@
     }
   }
 }
-
+.bsl-risk-very-low {
+  background: $red;
+  color: $white;
+}
+.bsl-risk-low {
+  background: $yellow;
+  color: $white;
+}
+.bsl-risk-low {
+  background: $yellow;
+  color: $white;
+}
+.bsl-risk-medium {
+  background: orange;
+  color: $white;
+}
+.bsl-risk-high {
+  background: #80b7ec;
+  color: $white;
+}
+.bsl-risk-very-high {
+  background: $primary-green;
+  color: $white;
+}
+.bsl-risk-slider-indicator {
+  transition: 0.3s all;
+}
+.bsl-risk-slider-indicator:hover {
+  color: $white !important;
+  opacity: 0.7;
+}
 .add-supplier-modal {
   .modal-dialog {
     max-width: 700px;
