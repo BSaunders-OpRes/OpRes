@@ -2,12 +2,12 @@ class Supplier < ApplicationRecord
   # Associations #
   belongs_to :unit
 
-  has_one :relationship_owner,                     dependent: :destroy
-  has_one :sla, as: :slaable,                      dependent: :destroy
-  has_one :supplier_cloud_hosting_provider,        dependent: :destroy
-  has_one :cloud_hosting_provider,                 through:   :supplier_cloud_hosting_provider
-  has_one :supplier_cloud_hosting_provider_region, dependent: :destroy
-  has_one :cloud_hosting_provider_region,          through:   :supplier_cloud_hosting_provider_region
+  has_one :relationship_owner,                      dependent: :destroy
+  has_one :sla, as: :slaable,                       dependent: :destroy
+  has_one :cloud_hosting_provider_recipient,        as: :chp_recipientable,  dependent: :destroy
+  has_one :cloud_hosting_provider,                  through:   :cloud_hosting_provider_recipient
+  has_one :cloud_hosting_provider_region_recipient, as: :chpr_recipientable, dependent: :destroy
+  has_one :cloud_hosting_provider_region,           through:   :cloud_hosting_provider_region_recipient
 
   has_many :key_contact_suppliers, dependent: :destroy
   has_many :key_contacts, through: :key_contact_suppliers
@@ -19,8 +19,9 @@ class Supplier < ApplicationRecord
   has_many :steps, through: :supplier_steps
   has_many :supplier_social_accounts, dependent: :destroy
   has_many :social_accounts, through: :supplier_social_accounts
-  has_many :supplier_cloud_hosting_provider_services, dependent: :destroy
-  has_many :cloud_hosting_provider_services, through: :supplier_cloud_hosting_provider_services
+  has_many :cloud_hosting_provider_service_recipients, as: :chps_recipientable, dependent: :destroy
+  has_many :cloud_hosting_provider_services, through: :cloud_hosting_provider_service_recipients
+  has_many :sub_suppliers, dependent: :destroy
 
   # Enums #
   enum contracting_terms: %i[monthly annually other non_applicable], _suffix: :contracting_terms
