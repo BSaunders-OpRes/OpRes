@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_30_064338) do
+ActiveRecord::Schema.define(version: 2021_06_30_113624) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -73,12 +73,42 @@ ActiveRecord::Schema.define(version: 2021_06_30_064338) do
     t.index ["unit_id"], name: "index_channels_on_unit_id"
   end
 
+  create_table "cloud_hosting_provider_recipients", force: :cascade do |t|
+    t.bigint "cloud_hosting_provider_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "chp_recipientable_type"
+    t.bigint "chp_recipientable_id"
+    t.index ["chp_recipientable_type", "chp_recipientable_id"], name: "chp_on_recipient_id"
+    t.index ["cloud_hosting_provider_id"], name: "chp_suppliers_on_chp_id"
+  end
+
+  create_table "cloud_hosting_provider_region_recipients", force: :cascade do |t|
+    t.bigint "cloud_hosting_provider_region_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "chpr_recipientable_type"
+    t.bigint "chpr_recipientable_id"
+    t.index ["chpr_recipientable_type", "chpr_recipientable_id"], name: "chpr_on_recipient_id"
+    t.index ["cloud_hosting_provider_region_id"], name: "supplier_chpr_on_chp_id"
+  end
+
   create_table "cloud_hosting_provider_regions", force: :cascade do |t|
     t.bigint "cloud_hosting_provider_id"
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["cloud_hosting_provider_id"], name: "chpr_on_chp_id"
+  end
+
+  create_table "cloud_hosting_provider_service_recipients", force: :cascade do |t|
+    t.bigint "cloud_hosting_provider_service_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "chps_recipientable_type"
+    t.bigint "chps_recipientable_id"
+    t.index ["chps_recipientable_type", "chps_recipientable_id"], name: "chps_on_recipient_id"
+    t.index ["cloud_hosting_provider_service_id"], name: "supplier_chps_on_chps_id"
   end
 
   create_table "cloud_hosting_provider_services", force: :cascade do |t|
@@ -285,8 +315,8 @@ ActiveRecord::Schema.define(version: 2021_06_30_064338) do
     t.float "amount"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "kind", default: 0
     t.integer "label", default: 0
+    t.integer "kind", default: 0
     t.index ["business_service_line_id"], name: "index_risk_appetites_on_business_service_line_id"
   end
 
@@ -328,31 +358,14 @@ ActiveRecord::Schema.define(version: 2021_06_30_064338) do
     t.index ["business_service_line_id"], name: "index_steps_on_business_service_line_id"
   end
 
-  create_table "supplier_cloud_hosting_provider_regions", force: :cascade do |t|
+  create_table "sub_suppliers", force: :cascade do |t|
     t.bigint "supplier_id"
-    t.bigint "cloud_hosting_provider_region_id"
+    t.string "type"
+    t.string "name"
+    t.string "cloud_hosting_provider_description"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["cloud_hosting_provider_region_id"], name: "supplier_chpr_on_chp_id"
-    t.index ["supplier_id"], name: "supplier_chpr_on_supplier_id"
-  end
-
-  create_table "supplier_cloud_hosting_provider_services", force: :cascade do |t|
-    t.bigint "supplier_id"
-    t.bigint "cloud_hosting_provider_service_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["cloud_hosting_provider_service_id"], name: "supplier_chps_on_chps_id"
-    t.index ["supplier_id"], name: "supplier_chps_on_supplier_id"
-  end
-
-  create_table "supplier_cloud_hosting_providers", force: :cascade do |t|
-    t.bigint "supplier_id"
-    t.bigint "cloud_hosting_provider_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["cloud_hosting_provider_id"], name: "chp_suppliers_on_chp_id"
-    t.index ["supplier_id"], name: "chp_suppliers_on_supplier_id"
+    t.index ["supplier_id"], name: "index_sub_suppliers_on_supplier_id"
   end
 
   create_table "supplier_contact_suppliers", force: :cascade do |t|
@@ -406,6 +419,8 @@ ActiveRecord::Schema.define(version: 2021_06_30_064338) do
     t.string "cloud_hosting_provider_description"
     t.integer "consumption_model", default: 0
     t.string "consumption_model_other"
+    t.integer "supplier_id"
+    t.string "type"
     t.index ["unit_id"], name: "index_suppliers_on_unit_id"
   end
 
@@ -496,7 +511,10 @@ ActiveRecord::Schema.define(version: 2021_06_30_064338) do
   add_foreign_key "business_service_line_products", "products"
   add_foreign_key "business_service_lines", "units"
   add_foreign_key "channels", "units"
+  add_foreign_key "cloud_hosting_provider_recipients", "cloud_hosting_providers"
+  add_foreign_key "cloud_hosting_provider_region_recipients", "cloud_hosting_provider_regions"
   add_foreign_key "cloud_hosting_provider_regions", "cloud_hosting_providers"
+  add_foreign_key "cloud_hosting_provider_service_recipients", "cloud_hosting_provider_services"
   add_foreign_key "cloud_hosting_provider_services", "cloud_hosting_providers"
   add_foreign_key "countries", "regions"
   add_foreign_key "incidents", "suppliers"
@@ -521,12 +539,7 @@ ActiveRecord::Schema.define(version: 2021_06_30_064338) do
   add_foreign_key "risk_appetite_justifications", "users"
   add_foreign_key "risk_appetites", "business_service_lines"
   add_foreign_key "steps", "business_service_lines"
-  add_foreign_key "supplier_cloud_hosting_provider_regions", "cloud_hosting_provider_regions"
-  add_foreign_key "supplier_cloud_hosting_provider_regions", "suppliers"
-  add_foreign_key "supplier_cloud_hosting_provider_services", "cloud_hosting_provider_services"
-  add_foreign_key "supplier_cloud_hosting_provider_services", "suppliers"
-  add_foreign_key "supplier_cloud_hosting_providers", "cloud_hosting_providers"
-  add_foreign_key "supplier_cloud_hosting_providers", "suppliers"
+  add_foreign_key "sub_suppliers", "suppliers"
   add_foreign_key "supplier_contact_suppliers", "supplier_contacts"
   add_foreign_key "supplier_contact_suppliers", "suppliers"
   add_foreign_key "supplier_contacts", "units"
