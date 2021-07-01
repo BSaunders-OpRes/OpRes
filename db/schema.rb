@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_30_113624) do
+ActiveRecord::Schema.define(version: 2021_07_01_054133) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -61,6 +61,7 @@ ActiveRecord::Schema.define(version: 2021_06_30_113624) do
     t.integer "tier"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "cost_centre_id"
     t.index ["unit_id"], name: "index_business_service_lines_on_unit_id"
   end
 
@@ -158,6 +159,33 @@ ActiveRecord::Schema.define(version: 2021_06_30_113624) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["region_id"], name: "index_countries_on_region_id"
+  end
+
+  create_table "country_currencies", force: :cascade do |t|
+    t.bigint "country_id"
+    t.bigint "currency_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["country_id"], name: "index_country_currencies_on_country_id"
+    t.index ["currency_id"], name: "index_country_currencies_on_currency_id"
+  end
+
+  create_table "currencies", force: :cascade do |t|
+    t.string "name"
+    t.string "code"
+    t.string "iso_code"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "currency_recipients", force: :cascade do |t|
+    t.bigint "currency_id"
+    t.string "currency_recipientable_type"
+    t.bigint "currency_recipientable_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["currency_id"], name: "index_currency_recipients_on_currency_id"
+    t.index ["currency_recipientable_type", "currency_recipientable_id"], name: "currency_recipient_on_recipientable_type_id"
   end
 
   create_table "incidents", force: :cascade do |t|
@@ -315,8 +343,8 @@ ActiveRecord::Schema.define(version: 2021_06_30_113624) do
     t.float "amount"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "label", default: 0
     t.integer "kind", default: 0
+    t.integer "label", default: 0
     t.index ["business_service_line_id"], name: "index_risk_appetites_on_business_service_line_id"
   end
 
@@ -419,8 +447,6 @@ ActiveRecord::Schema.define(version: 2021_06_30_113624) do
     t.string "cloud_hosting_provider_description"
     t.integer "consumption_model", default: 0
     t.string "consumption_model_other"
-    t.integer "supplier_id"
-    t.string "type"
     t.index ["unit_id"], name: "index_suppliers_on_unit_id"
   end
 
@@ -517,6 +543,8 @@ ActiveRecord::Schema.define(version: 2021_06_30_113624) do
   add_foreign_key "cloud_hosting_provider_service_recipients", "cloud_hosting_provider_services"
   add_foreign_key "cloud_hosting_provider_services", "cloud_hosting_providers"
   add_foreign_key "countries", "regions"
+  add_foreign_key "country_currencies", "countries"
+  add_foreign_key "country_currencies", "currencies"
   add_foreign_key "incidents", "suppliers"
   add_foreign_key "institution_products", "institutions"
   add_foreign_key "institution_products", "products"

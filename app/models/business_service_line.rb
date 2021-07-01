@@ -4,6 +4,8 @@ class BusinessServiceLine < ApplicationRecord
 
   has_one  :material_risk_taker, dependent: :destroy
   has_one  :sla, as: :slaable,   dependent: :destroy
+  has_one  :currency_recipient, as: :currency_recipientable, dependent: :destroy
+  has_one  :currency, through: :currency_recipient
 
   has_many :steps,           dependent: :destroy
   has_many :risk_appetites,  dependent: :destroy
