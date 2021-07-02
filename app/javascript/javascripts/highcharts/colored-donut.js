@@ -1,6 +1,10 @@
 document.addEventListener('turbolinks:load', function() {
   if ($('#system-supplier-resilience-indicator').length == 1) {
     render_donut_chart('colored-donut');
+    render_donut_chart('colored-donut-resilience-posture');
+  }
+  if ($('#compounded-resilience-posture').length == 1) {
+    render_donut_chart('colored-donut-resilience-posture');
   }
 
   function render_donut_chart(element) {
@@ -51,7 +55,7 @@ document.addEventListener('turbolinks:load', function() {
       series: [{
         type: 'pie',
         name: 'Browser share',
-        innerSize: '80%',
+        innerSize: '75%',
         groupPadding: 0,
         data: [
           {
@@ -61,12 +65,12 @@ document.addEventListener('turbolinks:load', function() {
           },
           {
             name: '',
-            y: 50,
+            y: 20,
             color: '#6BEAB3'
           },
           {
             name: '',
-            y: 10,
+            y: 70,
             color: '#E39A2B'
           }
         ]

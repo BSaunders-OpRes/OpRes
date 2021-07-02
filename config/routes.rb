@@ -29,7 +29,11 @@ Rails.application.routes.draw do
     resources :institutions
     resources :products
     resources :channels
-    resources :business_service_lines
+    resources :business_service_lines do
+      get :compound_resilience,          on: :collection
+      get :cloud_service_provider,       on: :collection
+      get :critical_important_suppliers, on: :collection
+    end
     resources :suppliers
     resources :unit_hierarchys, only: %i[] do
       get :load_countries,         on: :collection

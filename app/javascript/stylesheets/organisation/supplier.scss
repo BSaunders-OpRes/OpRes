@@ -74,16 +74,56 @@
 .p-300 {
   left: 0 !important;
 }
+
 .key-contacts-select2 {
   .select2-container {
+    &--focus {
+      .select2-search {
+        &--inline {
+          visibility: hidden;
+        }
+      }
+    }
     .selection {
       .select2-selection {
         font-size: 12px;
+        padding: 0 10px;
+        display: flex;
+        align-items: center;
+        &__rendered {
+          margin: 0;
+          display: flex;
+          flex-wrap: wrap;
+        }
+        &__choice {
+          background: $secondary-green;
+          color: $white;
+          height: 35px;
+          width: 100px;
+          display: flex;
+          align-items: center;
+          padding-left: 30px;
+          &__display {
+            white-space: initial;
+            line-height: 12px;
+          }
+          &__remove {
+            border-right: 1px solid $white;
+            bottom: 0;
+            padding: 0 8px;
+            span {
+              color: $white;
+              font-size: 16px;
+            }
+          }
+        }
       }
     }
     .select2-search--inline {
       .select2-search__field {
         margin: 0;
+        height: 50px;
+        line-height: 50px;
       }
     }
     .select2-selection--multiple {

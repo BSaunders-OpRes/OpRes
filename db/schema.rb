@@ -343,8 +343,8 @@ ActiveRecord::Schema.define(version: 2021_07_02_070916) do
     t.float "amount"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "kind", default: 0
     t.integer "label", default: 0
+    t.integer "kind", default: 0
     t.index ["business_service_line_id"], name: "index_risk_appetites_on_business_service_line_id"
   end
 
