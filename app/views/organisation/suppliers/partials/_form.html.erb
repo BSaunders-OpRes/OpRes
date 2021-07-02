@@ -1,4 +1,4 @@
-<%= form_for supplier, url: new_or_create ? organisation_suppliers_path : organisation_supplier_path, method: new_or_create ? :post : :patch do |form| %>
+<%= form_for supplier, url: new_or_create ? organisation_suppliers_path : organisation_supplier_path, method: new_or_create ? :post : :patch, html: { class: 'vamoose' } do |form| %>
   <div class="wizard-body">
     <div class="wizard-header my-4 border-bottom pb-4">
       <h4 class="mb-4 font-weight-bold"><%= new_or_create ? 'Add a new supplier' : 'Edit supplier' %></h4>
