@@ -64,4 +64,20 @@ document.addEventListener('turbolinks:load', function() {
   $('.datepicker').datepicker({
     format: 'dd/mm/yyyy'
   });
+
+  /******************** Form Vamoose ********************
+  ******************************************************/
+  window.bind_vamoose = function() {
+    window.onbeforeunload = function() {
+      return ''
+    }
+  }
+
+  $('body').on('change', '.vamoose input, .vamoose select', function() {
+    bind_vamoose();
+  });
+
+  $('body').on('keyup', '.vamoose input', function() {
+    bind_vamoose();
+  });
 });
