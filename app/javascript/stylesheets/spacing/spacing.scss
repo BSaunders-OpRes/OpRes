@@ -1,8 +1,14 @@
 .flex-1 {
   flex: 1;
 }
+.flex-half {
+  flex: .5;
+}
 .h-130px {
   height: 130px;
+}
+.h-230px {
+  height: 230px !important;
 }
 .white-space-nowrap {
   white-space: nowrap;

@@ -26,6 +26,12 @@ h1, h2, h3, h4, h5, h6, p {
 .resize-vertical {
   resize: vertical !important;
 }
+.large-green-circle {
+  width: 100px;
+  background: $primary-green;
+  border-radius: 100px;
+  height: 100px;
+}
 .h-300-with-scroll {
   height: 300px;
   &::-webkit-scrollbar {
@@ -238,6 +244,9 @@ p {
 
 a {
   text-decoration: none;
+}
+.text-decoration-line {
+  text-decoration: underline !important;
 }
 .justify-content-even {
   justify-content: space-evenly;
