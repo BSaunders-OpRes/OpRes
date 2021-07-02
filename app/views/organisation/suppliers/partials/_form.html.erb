@@ -103,7 +103,7 @@
             </div>
             <div class="col-sm-7 order-3 order-sm-2">
               <div class="position-relative">
-                <%= form.text_field :start_date, value: @supplier&.start_date&.strftime("%d-%m-%Y"), class: 'datepicker w-100 form-control font-12 h-auto py-3 shadow-none', placeholder: 'dd/mm/yyyy', autocomplete: 'off' %>
+                <%= form.text_field :start_date, value: @supplier&.start_date&.strftime("%d-%m-%Y"), class: 'datepicker w-100 form-control font-12 h-auto py-3 shadow-none', placeholder: 'dd/mm/yyyy', autocomplete: 'off', id: 'start-date' %>
                 <i class="fa fa-calendar font-12 position-absolute right-0-vertical-50 mr-2" aria-hidden="true"></i>
               </div>
             </div>
@@ -115,10 +115,12 @@
             </div>
             <div class="col-sm-7 order-3 order-sm-2">
               <div class="position-relative">
-                <%= form.text_field :end_date, value: @supplier&.end_date&.strftime("%d-%m-%Y"), class: 'datepicker w-100 form-control font-12 h-auto py-3 shadow-none', placeholder: 'dd/mm/yyyy', autocomplete: 'off'%>
+                <%= form.text_field :end_date, value: @supplier&.end_date&.strftime("%d-%m-%Y"), class: 'datepicker w-100 form-control font-12 h-auto py-3 shadow-none', placeholder: 'dd/mm/yyyy', autocomplete: 'off', id: 'end-date'%>
                 <i class="fa fa-calendar font-12 position-absolute right-0-vertical-50 mr-2" aria-hidden="true"></i>
               </div>
-
+              <div class="end-date-errors mt-2 font-12 text-danger d-none">
+                <p>*End date should be greater than start Date</p>
+              </div>
 
             </div>
           </div>
@@ -199,14 +201,14 @@
           <h5 class="font-600">Supplier Obligations</h5>
           <div class="row align-items-center mt-5">
             <div class="col-sm-4 flex-sm-1 mb-2 mb-sm-0">
-              <p class="text-capitalize font-14 font-600">contracted service level agreement</p>
+              <p class="text-capitalize font-14 font-600">service level agreement</p>
             </div>
             <div class="col-sm-7 order-3 order-sm-2">
               <div class="input-group mb-2">
                 <div class="input-group-prepend">
                   <div class="input-group-text px-3 bg-white font-12">%</div>
                 </div>
-                 <%= supplier_sla.number_field :service_level_agreement, placeholder: 'Enter Target', id: 'inlineFormInputGroup', class: 'form-control form-control font-12 h-auto py-3 shadow-none' %>
+                <%= supplier_sla.number_field :service_level_agreement, placeholder: 'Enter Target', id: 'inlineFormInputGroup', class: 'form-control form-control font-12 h-auto py-3 shadow-none' %>
               </div>
             </div>
             <div class="col-sm-1 text-right order-2 flex-sm-half mb-2 mb-sm-0">
@@ -215,7 +217,7 @@
           </div>
           <div class="row align-items-center mt-4">
             <div class="col-sm-4 flex-sm-1 mb-2 mb-sm-0">
-              <p class="text-capitalize font-14 font-600">contracted service level objective</p>
+              <p class="text-capitalize font-14 font-600">service level objective</p>
             </div>
             <div class="col-sm-7 order-3 order-sm-2">
               <div class="input-group mb-2">
@@ -231,7 +233,7 @@
           </div>
           <div class="row align-items-center mt-4">
             <div class="col-sm-4 flex-sm-1 mb-2 mb-sm-0">
-              <p class="text-capitalize font-14 font-600">contracted recovery time objective</p>
+              <p class="text-capitalize font-14 font-600">recovery time objective</p>
             </div>
             <div class="col-sm-7 order-3 order-sm-2">
               <div class="input-group mb-2">
@@ -246,7 +248,7 @@
           </div>
           <div class="row align-items-center mt-4">
             <div class="col-sm-4 flex-sm-1 mb-2 mb-sm-0">
-              <p class="text-capitalize font-14 font-600">contracted recovery point objective</p>
+              <p class="text-capitalize font-14 font-600">recovery point objective</p>
             </div>
             <div class="col-sm-7 order-3 order-sm-2">
               <div class="input-group mb-2">
@@ -261,7 +263,7 @@
           </div>
           <div class="row align-items-center mt-4">
             <div class="col-sm-4 flex-sm-1 mb-2 mb-sm-0">
-              <p class="text-capitalize font-14 font-600">Contracted Severity 1 Response Time</p>
+              <p class="text-capitalize font-14 font-600">Contracted Severity 1 Notification Timeframe</p>
             </div>
             <div class="col-sm-7 order-3 order-sm-2">
               <div class="input-group mb-2">
@@ -272,12 +274,12 @@
               </div>
             </div>
             <div class="col-sm-1 text-right order-2 flex-sm-half mb-2 mb-sm-0">
-              <div class="info" data-toggle="tooltip" data-placement="top" title="contracted recovery point object" aria-hidden="true">i</div>
+              <div class="info" data-toggle="tooltip" data-placement="top" title="Please input the incident notification timeframe with this supplier" aria-hidden="true">i</div>
             </div>
           </div>
           <div class="row align-items-center mt-4">
             <div class="col-sm-4 flex-sm-1 mb-2 mb-sm-0">
-              <p class="text-capitalize font-14 font-600">Contracted Severity 2 Response Time</p>
+              <p class="text-capitalize font-14 font-600">Contracted Severity 2 Notification Timeframe</p>
             </div>
             <div class="col-sm-7 order-3 order-sm-2">
               <div class="input-group mb-2">
@@ -288,12 +290,12 @@
               </div>
             </div>
             <div class="col-sm-1 text-right order-2 flex-sm-half mb-2 mb-sm-0">
-              <div class="info" data-toggle="tooltip" data-placement="top" title="contracted recovery point object" aria-hidden="true">i</div>
+              <div class="info" data-toggle="tooltip" data-placement="top" title="Please input the incident notification timeframe with this supplier" aria-hidden="true">i</div>
             </div>
           </div>
           <div class="row align-items-center mt-4">
             <div class="col-sm-4 flex-sm-1 mb-2 mb-sm-0">
-              <p class="text-capitalize font-14 font-600">Contracted Severity 3 Response Time</p>
+              <p class="text-capitalize font-14 font-600">Contracted Severity 3 Notification Timeframe</p>
             </div>
             <div class="col-sm-7 order-3 order-sm-2">
               <div class="input-group mb-2">
@@ -304,12 +306,12 @@
               </div>
             </div>
             <div class="col-sm-1 text-right order-2 flex-sm-half mb-2 mb-sm-0">
-              <div class="info" data-toggle="tooltip" data-placement="top" title="contracted recovery point object" aria-hidden="true">i</div>
+              <div class="info" data-toggle="tooltip" data-placement="top" title="Please input the incident notification timeframe with this supplier" aria-hidden="true">i</div>
             </div>
           </div>
           <div class="row align-items-center mt-4">
             <div class="col-sm-4 flex-sm-1 mb-2 mb-sm-0">
-              <p class="text-capitalize font-14 font-600">Contracted Severity 4 Response Time</p>
+              <p class="text-capitalize font-14 font-600">Contracted Severity 4 Notification Timeframe</p>
             </div>
             <div class="col-sm-7 order-3 order-sm-2">
               <div class="input-group mb-2">
@@ -320,12 +322,12 @@
               </div>
             </div>
             <div class="col-sm-1 text-right order-2 flex-sm-half mb-2 mb-sm-0">
-              <div class="info" data-toggle="tooltip" data-placement="top" title="contracted recovery point object" aria-hidden="true">i</div>
+              <div class="info" data-toggle="tooltip" data-placement="top" title="Please input the incident notification timeframe with this supplier" aria-hidden="true">i</div>
             </div>
           </div>
           <div class="row align-items-center mt-4">
             <div class="col-sm-4 flex-sm-1 mb-2 mb-sm-0">
-              <p class="text-capitalize font-14 font-600">Contracted Severity 1 Restoration of Service Time</p>
+              <p class="text-capitalize font-14 font-600">Contracted Severity 1 Restoration Timeframe</p>
             </div>
             <div class="col-sm-7 order-3 order-sm-2">
               <div class="input-group mb-2">
@@ -336,12 +338,12 @@
               </div>
             </div>
             <div class="col-sm-1 text-right order-2 flex-sm-half mb-2 mb-sm-0">
-              <div class="info" data-toggle="tooltip" data-placement="top" title="contracted recovery point object" aria-hidden="true">i</div>
+              <div class="info" data-toggle="tooltip" data-placement="top" title="Please input the incident restoration timeframe with this supplier" aria-hidden="true">i</div>
             </div>
           </div>
           <div class="row align-items-center mt-4">
             <div class="col-sm-4 flex-sm-1 mb-2 mb-sm-0">
-              <p class="text-capitalize font-14 font-600">Contracted Severity 2 Restoration of Service Time</p>
+              <p class="text-capitalize font-14 font-600">Contracted Severity 2 Restoration Timeframe</p>
             </div>
             <div class="col-sm-7 order-3 order-sm-2">
               <div class="input-group mb-2">
@@ -353,12 +355,12 @@
               </div>
             </div>
             <div class="col-sm-1 text-right order-2 flex-sm-half mb-2 mb-sm-0">
-              <div class="info" data-toggle="tooltip" data-placement="top" title="contracted recovery point object" aria-hidden="true">i</div>
+              <div class="info" data-toggle="tooltip" data-placement="top" title="Please input the incident restoration timeframe with this supplier" aria-hidden="true">i</div>
             </div>
           </div>
           <div class="row align-items-center mt-4">
             <div class="col-sm-4 flex-sm-1 mb-2 mb-sm-0">
-              <p class="text-capitalize font-14 font-600">Contracted Severity 3 Restoration of Service Time</p>
+              <p class="text-capitalize font-14 font-600">Contracted Severity 3 Restoration Timeframe</p>
             </div>
             <div class="col-sm-7 order-3 order-sm-2">
               <div class="input-group mb-2">
@@ -369,12 +371,12 @@
               </div>
             </div>
             <div class="col-sm-1 text-right order-2 flex-sm-half mb-2 mb-sm-0">
-              <div class="info" data-toggle="tooltip" data-placement="top" title="contracted recovery point object" aria-hidden="true">i</div>
+              <div class="info" data-toggle="tooltip" data-placement="top" title="Please input the incident restoration timeframe with this supplier" aria-hidden="true">i</div>
             </div>
           </div>
           <div class="row align-items-center mt-4">
             <div class="col-sm-4 flex-sm-1 mb-2 mb-sm-0">
-              <p class="text-capitalize font-14 font-600">Contracted Severity 4 Restoration of Service Time</p>
+              <p class="text-capitalize font-14 font-600">Contracted Severity 4 Restoration Timeframe</p>
             </div>
             <div class="col-sm-7 order-3 order-sm-2">
               <div class="input-group mb-2">
@@ -385,7 +387,7 @@
               </div>
             </div>
             <div class="col-sm-1 text-right order-2 flex-sm-half mb-2 mb-sm-0">
-              <div class="info" data-toggle="tooltip" data-placement="top" title="contracted recovery point object" aria-hidden="true">i</div>
+              <div class="info" data-toggle="tooltip" data-placement="top" title="Please input the incident restoration timeframe with this supplier" aria-hidden="true">i</div>
             </div>
           </div>
           <div class="checkboxes-field mt-4">
@@ -415,6 +417,38 @@
             </div>
           </div>
         </div>
+        <div class="row no-gutters">
+          <div class="col-md-12 px-1 mb-4">
+            <p class="text-capitalize font-14 font-600 text-capitalize">3rd Party supplier</p>
+          </div>
+        </div>
+        <div id="third-party-suppliers">
+          <%= form.fields_for :third_party_suppliers do |third_party_supplier| %>
+            <%= render 'organisation/suppliers/partials/sub_supplier_fields', f: third_party_supplier %>
+          <% end %>
+        </div>
+        <span>
+          <%= link_to_add_association form, :third_party_suppliers, class: 'add-step-btn text-decoration-none mb-4 d-inline-block', partial: 'organisation/suppliers/partials/sub_supplier_fields' do %>
+            <i class="fa fa-plus-circle" aria-hidden="true"></i>
+            <span class="font-14 font-600 ml-1 text-capitalize cursor-pointer">add another third supplier </span>
+          <% end %>
+        </span>
+        <div class="row no-gutters">
+          <div class="col-md-12 px-1 mb-4">
+            <p class="text-capitalize font-14 font-600 text-capitalize">4th Party supplier</p>
+          </div>
+        </div>
+        <div id="fourth-party-suppliers">
+          <%= form.fields_for :fourth_party_suppliers do |fourth_party_supplier| %>
+            <%= render 'organisation/suppliers/partials/sub_supplier_fields', f: fourth_party_supplier %>
+          <% end %>
+        </div>
+        <span>
+          <%= link_to_add_association form, :fourth_party_suppliers, class: 'add-step-btn text-decoration-none mb-4 d-inline-block', partial: 'organisation/suppliers/partials/sub_supplier_fields' do %>
+            <i class="fa fa-plus-circle" aria-hidden="true"></i>
+            <span class="font-14 font-600 ml-1 text-capitalize cursor-pointer">add another fourth supplier</span>
+          <% end %>
+        </span>
       <% end %>
       <div class="wizard-btn d-flex d-sm-block justify-content-between flex-column">
         <%= form.submit 'Save & Add Supplier', class: 'btn btn-light-grey btn-sm font-600 text-capitalize font-12 float-right btn-light-grey' %>

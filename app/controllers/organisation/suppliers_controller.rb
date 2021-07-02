@@ -45,10 +45,28 @@ class Organisation::SuppliersController < Organisation::BaseController
             :name, :contracting_terms, :contracting_terms_other, :party_type, :importance_level, :start_date, :end_date,
             :cloud_hosting_provider_description, :consumption_model, :consumption_model_other,
             :cloud_hosting_provider_id, :cloud_hosting_provider_region_id, cloud_hosting_provider_services_ids: [],
-            key_contacts_ids: [], relationship_owner_attributes: %i[name email id],
-            supplier_social_accounts_attributes: %i[id social_account_id link],
-            sla_attributes: %i[id service_level_agreement service_level_objective recovery_time_objective recovery_point_objective severity1 severity2 severity3 severity4 severity1_restoration severity2_restoration severity3_restoration severity4_restoration support_hours support_hours_other]
+            key_contacts_ids: [], relationship_owner_attributes: relationship_owner_attributes,
+            supplier_social_accounts_attributes: supplier_social_accounts_attributes,
+            sla_attributes: sla_attributes,
+            third_party_suppliers_attributes: sub_supplier_attributes,
+            fourth_party_suppliers_attributes: sub_supplier_attributes
           ).merge(unit_id: params[:supplier][:country_unit])
+  end
+
+  def sla_attributes
+    %i[id service_level_agreement service_level_objective recovery_time_objective recovery_point_objective severity1 severity2 severity3 severity4 severity1_restoration severity2_restoration severity3_restoration severity4_restoration support_hours support_hours_other]
+  end
+
+  def relationship_owner_attributes
+    %i[name email id]
+  end
+
+  def supplier_social_accounts_attributes
+    %i[id social_account_id link]
+  end
+
+  def sub_supplier_attributes
+    [:id, :name, :cloud_hosting_provider_id, :cloud_hosting_provider_description, :_destroy, sla_attributes: sla_attributes]
   end
 
   def load_supplier
@@ -59,8 +77,10 @@ class Organisation::SuppliersController < Organisation::BaseController
     @key_contacts            = organisational_unit.key_contacts
     @cloud_hosting_providers = CloudHostingProvider.all
 
-    @supplier.build_relationship_owner           if @supplier.relationship_owner.blank?
-    @supplier.build_sla                          if @supplier.sla.blank?
+    @supplier.build_relationship_owner     if @supplier.relationship_owner.blank?
+    @supplier.build_sla                    if @supplier.sla.blank?
+    @supplier.third_party_suppliers.build  if @supplier.third_party_suppliers.blank?
+    @supplier.fourth_party_suppliers.build if @supplier.fourth_party_suppliers.blank?
 
     SocialAccount.all.each do |social_account|
       # FIX: N + 1

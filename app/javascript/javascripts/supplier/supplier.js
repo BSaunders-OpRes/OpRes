@@ -45,4 +45,33 @@ document.addEventListener('turbolinks:load', function() {
       $(this).toggle($(ele).text().toLowerCase().indexOf(value) > -1)
     });
   });
+
+  $('body').on('change', '.sub-supplier-chp', function() {
+    chp                  = $(this);
+    sub_supplier         = chp.parents('.sub-supplier');
+    description_block    = sub_supplier.find('.sub-supplier-chp-description');
+    selected_option_text = chp.find('option:selected').text();
+    if (selected_option_text == 'Private Cloud') {
+      description_block.removeClass('disable');
+    } else {
+      description_block.addClass('disable');
+    }
+  });
+
+  $('body').on('change', '#end-date, #start-date', function() {
+    var startDate = process_date($('#start-date').val());
+    var endDate   = process_date($('#end-date').val());
+    if (startDate > endDate) {
+      $('#end-date').val('');
+      $('.end-date-errors').addClass('d-block')
+    } else {
+      $('.end-date-errors').removeClass('d-block')
+    }
+  });
+
+  function process_date(date){
+    parts = date.split('/');
+    date  = new Date(parts[1] + '/' + parts[0] + '/' + parts[2]);
+    return date.getTime();
+  }
 });

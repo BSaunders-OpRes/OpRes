@@ -1,0 +1,102 @@
+<% f.object.build_sla if f.object.sla.blank? %>
+<div class="nested-fields sub-supplier">
+  <div class="row no-gutters">
+    <div class="col-md-6 px-1 form-group">
+      <%= f.text_field :name, placeholder: 'Supplier Name', required: true, class: 'w-100 form-control font-12 h-auto py-3 shadow-none' %>
+    </div>
+    <div class="col-md-6 px-1 form-group">
+      <%= f.select :cloud_hosting_provider_id, options_for_select(@cloud_hosting_providers&.map { |chp| [chp.name, chp.id] }, f.object.cloud_hosting_provider_id), { include_blank: 'Select your cloud hosting provider' }, class: 'form-control w-100 font-12 h-auto py-3 shadow-none arrow-select sub-supplier-chp', required: true %>
+      <i class="fa fa-sort-desc pr-2 mr-2" aria-hidden="true"></i>
+    </div>
+  </div>
+  <div class="row no-gutters">
+    <div class="col-md-12 form-group px-1">
+      <%= f.text_area :cloud_hosting_provider_description, placeholder: 'Enter details of cloud hosting provider ', class: "form-control font-12 sub-supplier-chp-description #{f.object.cloud_hosting_provider_description.present? ? '' : 'disable'}", cols:"30", rows:"4" %>
+    </div>
+  </div>
+  <%= f.fields_for :sla do |supplier_sla| %>
+    <div class="row no-gutters">
+      <div class="col-md-2 form-group px-1">
+        <label for="ch1" class="rounded border label-field p-2 d-flex align-items-start flex-column justify-content-between">
+          <%= supplier_sla.number_field :service_level_agreement, placeholder: 'Enter Target', class: 'border-0 shadow-none h-auto form-control order-2 text-left p-0 font-12 font-12' %>
+          <span class="font-12 font-500 text-capitalize">SLA</span>
+        </label>
+      </div>
+      <div class="col-md-2 form-group px-1">
+        <label for="ch1" class="border label-field rounded p-2 d-flex align-items-start flex-column justify-content-between">
+          <%= supplier_sla.number_field :service_level_objective, placeholder: 'Enter Target', id: 'inlineFormInputGroup', class: 'border-0 shadow-none h-auto form-control order-2 text-left p-0 font-12' %>
+          <span class="font-12 font-500 text-capitalize">SLO</span>
+        </label>
+      </div>
+      <div class="col-md-2 form-group px-1">
+        <label for="ch1" class="border label-field rounded p-2 d-flex align-items-start flex-column justify-content-between">
+          <%= supplier_sla.number_field :recovery_time_objective, placeholder: 'Enter Target', id: 'inlineFormInputGroup', class: 'border-0 shadow-none h-auto form-control order-2 text-left p-0 font-12' %>
+          <span class="font-12 font-500 text-capitalize">RTO</span>
+        </label>
+      </div>
+      <div class="col-md-2 form-group px-1">
+        <label for="ch1" class="border label-field rounded p-2 d-flex align-items-start flex-column justify-content-between">
+          <%= supplier_sla.number_field :recovery_point_objective, placeholder: 'Enter Target', id: 'inlineFormInputGroup', class: 'border-0 shadow-none h-auto form-control order-2 text-left p-0 font-12' %>
+          <span class="font-12 font-500 text-capitalize">RPO</span>
+        </label>
+      </div>
+      <div class="col-md-2 form-group px-1">
+        <label for="ch1" class="border label-field rounded p-2 d-flex align-items-start flex-column justify-content-between">
+          <%= supplier_sla.number_field :severity1, placeholder:'Enter Target', class: 'border-0 shadow-none h-auto form-control order-2 text-left p-0 font-12', id: 'inlineFormInputGroup'%>
+          <span class="font-12 font-500 text-capitalize">incident sev 1 notification</span>
+        </label>
+      </div>
+      <div class="col-md-2 form-group px-1">
+        <label for="ch1" class="border label-field rounded p-2 d-flex align-items-start flex-column justify-content-between">
+          <%= supplier_sla.number_field :severity2, placeholder:'Enter Target', class: 'border-0 shadow-none h-auto form-control order-2 text-left p-0 font-12', id: 'inlineFormInputGroup'%>
+          <span class="font-12 font-500 text-capitalize">incident sev 2 notification</span>
+        </label>
+      </div>
+      <div class="col-md-2 form-group px-1">
+        <label for="ch1" class="border label-field rounded p-2 d-flex align-items-start flex-column justify-content-between">
+          <%= supplier_sla.number_field :severity3, placeholder:'Enter Target', class: 'border-0 shadow-none h-auto form-control order-2 text-left p-0 font-12', id: 'inlineFormInputGroup'%>
+          <span class="font-12 font-500 text-capitalize">incident sev 3 notification</span>
+        </label>
+      </div>
+      <div class="col-md-2 form-group px-1">
+        <label for="ch1" class="border label-field rounded p-2 d-flex align-items-start flex-column justify-content-between">
+          <%= supplier_sla.number_field :severity4, placeholder:'Enter Target', class: 'border-0 shadow-none h-auto form-control order-2 text-left p-0 font-12', id: 'inlineFormInputGroup'%>
+          <span class="font-12 font-500 text-capitalize">incident sev 4 notification</span>
+        </label>
+      </div>
+      <div class="col-md-2 form-group px-1">
+        <label for="ch1" class="border label-field rounded p-2 d-flex align-items-start flex-column justify-content-between">
+          <%= supplier_sla.number_field :severity1_restoration, placeholder:'Enter Target', class: 'border-0 shadow-none h-auto form-control order-2 text-left p-0 font-12', id: 'inlineFormInputGroup'%>
+          <span class="font-12 font-500 text-capitalize">incident sev 1 restoration</span>
+        </label>
+      </div>
+      <div class="col-md-2 form-group px-1">
+        <label for="ch1" class="border label-field rounded p-2 d-flex align-items-start flex-column justify-content-between">
+          <%= supplier_sla.number_field :severity2_restoration, placeholder:'Enter Target', class: 'border-0 shadow-none h-auto form-control order-2 text-left p-0 font-12', id: 'inlineFormInputGroup'%>
+          <span class="font-12 font-500 text-capitalize">incident sev 2 restoration</span>
+        </label>
+      </div>
+      <div class="col-md-2 form-group px-1">
+        <label for="ch1" class="border label-field rounded p-2 d-flex align-items-start flex-column justify-content-between">
+          <%= supplier_sla.number_field :severity3_restoration, placeholder:'Enter Target', class: 'border-0 shadow-none h-auto form-control order-2 text-left p-0 font-12', id: 'inlineFormInputGroup'%>
+          <span class="font-12 font-500 text-capitalize">incident sev 3 restoration</span>
+        </label>
+      </div>
+      <div class="col-md-2 form-group px-1">
+        <label for="ch1" class="border label-field rounded p-2 d-flex align-items-start flex-column justify-content-between">
+          <%= supplier_sla.number_field :severity4_restoration, placeholder:'Enter Target', class: 'border-0 shadow-none h-auto form-control order-2 text-left p-0 font-12', id: 'inlineFormInputGroup'%>
+          <span class="font-12 font-500 text-capitalize">incident sev 4 restoration</span>
+        </label>
+      </div>
+
+    </div>
+  <% end %>
+<div class="row">
+  <div class="col-sm-12 text-right">
+    <%= link_to_remove_association f, class: 'font-12 text-danger' do %>
+      <i class="fa fa-trash" aria-hidden="true"></i>
+      <span> Remove </span>
+    <% end %>
+  </div>
+</div>
+</div>
