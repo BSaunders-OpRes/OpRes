@@ -22,6 +22,8 @@ class Supplier < ApplicationRecord
   has_many :cloud_hosting_provider_service_recipients, as: :chps_recipientable, dependent: :destroy
   has_many :cloud_hosting_provider_services, through: :cloud_hosting_provider_service_recipients
   has_many :sub_suppliers, dependent: :destroy
+  has_many :third_party_suppliers,  class_name:'SubSuppliers::ThirdPartySupplier',  dependent: :destroy
+  has_many :fourth_party_suppliers, class_name:'SubSuppliers::FourthPartySupplier', dependent: :destroy
 
   # Enums #
   enum contracting_terms: %i[monthly annually other non_applicable], _suffix: :contracting_terms
@@ -30,13 +32,15 @@ class Supplier < ApplicationRecord
   enum importance_level: %i[critical important]
 
   # Validations #
-  # validates :name, :contracting_terms, presence: true
+  validates :start_date, :end_date, presence: true
 
   # Nested Attributes #
-  accepts_nested_attributes_for :cloud_hosting_provider, allow_destroy: true
-  accepts_nested_attributes_for :relationship_owner, allow_destroy: true
+  accepts_nested_attributes_for :cloud_hosting_provider,   allow_destroy: true
+  accepts_nested_attributes_for :relationship_owner,       allow_destroy: true
   accepts_nested_attributes_for :sla, allow_destroy: true
   accepts_nested_attributes_for :supplier_social_accounts, allow_destroy: true
+  accepts_nested_attributes_for :third_party_suppliers,    allow_destroy: true
+  accepts_nested_attributes_for :fourth_party_suppliers,   allow_destroy: true
 
   # Methods #
   def party_type_color

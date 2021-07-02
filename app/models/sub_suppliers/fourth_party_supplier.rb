@@ -1,2 +1,2 @@
-class Subsuppliers::FourthPartySupplier < Subsupplier
+class SubSuppliers::FourthPartySupplier < SubSupplier
 end
