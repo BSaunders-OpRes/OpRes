@@ -38,6 +38,28 @@
       </div>
       <div class="row align-items-center mt-4">
         <div class="col-sm-4 flex-sm-1 mb-2 mb-sm-0">
+          <p class="text-capitalize font-14 font-600">Currency</p>
+        </div>
+        <div class="col-sm-7 order-3 order-sm-2 field-scroll single-select2">
+          <%= form.select :currency_id, options_for_select(@currencies.map { |c| ["#{c.name} - #{c.code}", c.id] }, @bsl.currency_id), { include_blank: 'Please select' }, class: 'w-100 form-control font-12 h-auto py-3 shadow-none select2' %>
+        </div>
+        <div class="col-sm-1 text-right order-2 flex-sm-half mb-2 mb-sm-0">
+          <div class="info" data-toggle="tooltip" data-placement="top" title="Please select the currency this business service operates within" aria-hidden="true">i</div>
+        </div>
+      </div>
+      <div class="row align-items-center mt-4">
+        <div class="col-sm-4 flex-sm-1 mb-2 mb-sm-0">
+          <p class="text-capitalize font-14 font-600">Cost Centre ID?</p>
+        </div>
+        <div class="col-sm-7 order-3 order-sm-2 field-scroll">
+          <%= form.text_field :cost_centre_id, class: 'w-100 form-control font-12 h-auto py-3 shadow-none', placeholder: 'Enter Cost Centre ID' %>
+        </div>
+        <div class="col-sm-1 text-right order-2 flex-sm-half mb-2 mb-sm-0">
+          <div class="info" data-toggle="tooltip" data-placement="top" title="Optional: Please provide a cost centre for your business service" aria-hidden="true">i</div>
+        </div>
+      </div>
+      <div class="row align-items-center mt-4">
+        <div class="col-sm-4 flex-sm-1 mb-2 mb-sm-0">
           <p class="text-capitalize font-14 font-600">region</p>
         </div>
         <div class="col-sm-7 order-3 order-sm-2 load-countries-from-region" id="bsl-regions-dropdown"

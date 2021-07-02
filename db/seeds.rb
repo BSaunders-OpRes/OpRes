@@ -106,3 +106,19 @@ JSON.parse(cloud_hosting_provider_data).each do |data|
   end
 end
 # Import Cloud Hosting Providers, Regions, and Services #
+
+# Import Currencies #
+currencies_file = Rails.root.join('public', 'json_data', 'currencies.json')
+currencies_data = File.read(currencies_file)
+JSON.parse(currencies_data).each do |country_alpha2, currencies|
+  country = Country.find_by(alpha2: country_alpha2)
+  next if country.blank?
+
+  country_currencies = []
+  currencies.each do |currency|
+    country_currencies << Currency.create_with(currency).find_or_create_by(code: currency['code'])
+  end
+
+  country.currencies = country_currencies
+end
+# Import Currencies #

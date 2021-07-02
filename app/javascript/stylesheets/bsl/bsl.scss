@@ -35,6 +35,30 @@
     }
   }
 }
+.single-select2 {
+  .select2-container--default {
+    .select2-selection--single {
+      height: 55px;
+      display: flex;
+      align-items: center;
+      border: 1px solid #ced4da;
+      .select2-selection__placeholder {
+        font-size: 14px;
+        color: #999;
+      }
+      .select2-selection__arrow {
+        top: 50%;
+        transform: translateY(-50%);
+        right: 6px;
+        b {
+          border-color: $black transparent transparent transparent;
+          border-style: solid;
+          border-width: 5px 5px 0 5px;
+        }
+      }
+    }
+  }
+}
 .bsl-risk-very-low {
   background: $red;
   color: $white;
