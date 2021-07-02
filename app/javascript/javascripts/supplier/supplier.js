@@ -52,9 +52,9 @@ document.addEventListener('turbolinks:load', function() {
     description_block    = sub_supplier.find('.sub-supplier-chp-description');
     selected_option_text = chp.find('option:selected').text();
     if (selected_option_text == 'Private Cloud') {
-      description_block.removeClass('disable');
+      description_block.removeClass('d-none').val('');
     } else {
-      description_block.addClass('disable');
+      description_block.addClass('d-none').val('');
     }
   });
 

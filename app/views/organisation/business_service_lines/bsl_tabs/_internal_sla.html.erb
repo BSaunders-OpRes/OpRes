@@ -12,7 +12,7 @@
             <div class="input-group-prepend">
               <div class="input-group-text px-3 bg-white font-12">%</div>
             </div>
-            <%= internal_sla.number_field :service_level_agreement, placeholder: 'Enter Target', class: 'form-control form-control font-12 h-auto py-3 shadow-none' %>
+            <%= internal_sla.number_field :service_level_agreement, step: 0.01, min: 0, placeholder: 'Enter Target', class: 'form-control form-control font-12 h-auto py-3 shadow-none' %>
           </div>
         </div>
         <div class="col-sm-1 text-right order-2 flex-sm-half mb-2 mb-sm-0">
@@ -28,7 +28,7 @@
             <div class="input-group-prepend">
               <div class="input-group-text px-3 bg-white font-12">%</div>
             </div>
-            <%= internal_sla.number_field :service_level_objective, placeholder: 'Enter Target', class: 'form-control form-control font-12 h-auto py-3 shadow-none' %>
+            <%= internal_sla.number_field :service_level_objective, step: 0.01, min: 0, placeholder: 'Enter Target', class: 'form-control form-control font-12 h-auto py-3 shadow-none' %>
           </div>
         </div>
         <div class="col-sm-1 text-right order-2 flex-sm-half mb-2 mb-sm-0">
@@ -44,7 +44,7 @@
             <div class="input-group-prepend">
               <div class="input-group-text px-3 bg-white font-12">Minutes</div>
             </div>
-            <%= internal_sla.number_field :recovery_point_objective, placeholder: 'Enter Target', class: 'form-control form-control font-12 h-auto py-3 shadow-none' %>
+            <%= internal_sla.number_field :recovery_point_objective, min: 0, placeholder: 'Enter Target', class: 'form-control form-control font-12 h-auto py-3 shadow-none' %>
           </div>
         </div>
         <div class="col-sm-1 text-right order-2 flex-sm-half mb-2 mb-sm-0">
@@ -60,7 +60,7 @@
             <div class="input-group-prepend">
               <div class="input-group-text px-3 bg-white font-12">Minutes</div>
             </div>
-            <%= internal_sla.number_field :recovery_time_objective, placeholder: 'Enter Target', class: 'form-control form-control font-12 h-auto py-3 shadow-none' %>
+            <%= internal_sla.number_field :recovery_time_objective, min: 0, placeholder: 'Enter Target', class: 'form-control form-control font-12 h-auto py-3 shadow-none' %>
           </div>
         </div>
         <div class="col-sm-1 text-right order-2 flex-sm-half mb-2 mb-sm-0">
