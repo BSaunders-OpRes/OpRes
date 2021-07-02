@@ -96,23 +96,29 @@
           flex-wrap: wrap;
         }
         &__choice {
-          background: $secondary-green;
+          background: $primary-green;
           color: $white;
           height: 35px;
-          width: 100px;
           display: flex;
           align-items: center;
-          padding-left: 30px;
+          padding-left: 35px;
+          padding-right: 10px;
+          border: 0;
           &__display {
             white-space: initial;
             line-height: 12px;
+            color: $black;
           }
           &__remove {
             border-right: 1px solid $white;
             bottom: 0;
             padding: 0 8px;
+            &:hover,
+            &:focus {
+              background: $primary-green;
+            }
             span {
-              color: $white;
+              color: $black;
               font-size: 16px;
             }
           }
