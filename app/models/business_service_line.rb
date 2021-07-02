@@ -57,4 +57,12 @@ class BusinessServiceLine < ApplicationRecord
   def channel_list
     channels.pluck(:name).join(', ')
   end
+
+  def currency_id
+    currency&.id
+  end
+
+  def currency_id=(id)
+    self.currency = Currency.find_by(id: id)
+  end
 end
