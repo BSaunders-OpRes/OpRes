@@ -17,8 +17,8 @@ class Supplier < ApplicationRecord
   has_many :incidents, dependent: :destroy
   has_many :supplier_steps, dependent: :destroy
   has_many :steps, through: :supplier_steps
-  has_many :supplier_social_accounts, dependent: :destroy
-  has_many :social_accounts, through: :supplier_social_accounts
+  has_many :social_account_recipients, as: :social_account_recipientable, dependent: :destroy
+  has_many :social_accounts, through: :social_account_recipients
   has_many :cloud_hosting_provider_service_recipients, as: :chps_recipientable, dependent: :destroy
   has_many :cloud_hosting_provider_services, through: :cloud_hosting_provider_service_recipients
   has_many :sub_suppliers, dependent: :destroy
@@ -35,12 +35,12 @@ class Supplier < ApplicationRecord
   validates :start_date, :end_date, presence: true
 
   # Nested Attributes #
-  accepts_nested_attributes_for :cloud_hosting_provider,   allow_destroy: true
-  accepts_nested_attributes_for :relationship_owner,       allow_destroy: true
-  accepts_nested_attributes_for :sla, allow_destroy: true
-  accepts_nested_attributes_for :supplier_social_accounts, allow_destroy: true
-  accepts_nested_attributes_for :third_party_suppliers,    allow_destroy: true
-  accepts_nested_attributes_for :fourth_party_suppliers,   allow_destroy: true
+  accepts_nested_attributes_for :cloud_hosting_provider,    allow_destroy: true
+  accepts_nested_attributes_for :relationship_owner,        allow_destroy: true
+  accepts_nested_attributes_for :sla,                       allow_destroy: true
+  accepts_nested_attributes_for :social_account_recipients, allow_destroy: true
+  accepts_nested_attributes_for :third_party_suppliers,     allow_destroy: true
+  accepts_nested_attributes_for :fourth_party_suppliers,    allow_destroy: true
 
   # Methods #
   def party_type_color

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_01_054133) do
+ActiveRecord::Schema.define(version: 2021_07_02_070916) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -343,8 +343,8 @@ ActiveRecord::Schema.define(version: 2021_07_01_054133) do
     t.float "amount"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "kind", default: 0
     t.integer "label", default: 0
+    t.integer "kind", default: 0
     t.index ["business_service_line_id"], name: "index_risk_appetites_on_business_service_line_id"
   end
 
@@ -368,6 +368,17 @@ ActiveRecord::Schema.define(version: 2021_07_01_054133) do
     t.integer "recovery_time_objective"
     t.string "support_hours_other"
     t.index ["slaable_type", "slaable_id"], name: "index_slas_on_slaable_type_and_slaable_id"
+  end
+
+  create_table "social_account_recipients", force: :cascade do |t|
+    t.bigint "social_account_id"
+    t.text "link"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "social_account_recipientable_type"
+    t.bigint "social_account_recipientable_id"
+    t.index ["social_account_id"], name: "index_social_account_recipients_on_social_account_id"
+    t.index ["social_account_recipientable_type", "social_account_recipientable_id"], name: "sar_social_account_id"
   end
 
   create_table "social_accounts", force: :cascade do |t|
@@ -412,16 +423,6 @@ ActiveRecord::Schema.define(version: 2021_07_01_054133) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["unit_id"], name: "index_supplier_contacts_on_unit_id"
-  end
-
-  create_table "supplier_social_accounts", force: :cascade do |t|
-    t.bigint "supplier_id"
-    t.bigint "social_account_id"
-    t.text "link"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["social_account_id"], name: "index_supplier_social_accounts_on_social_account_id"
-    t.index ["supplier_id"], name: "index_supplier_social_accounts_on_supplier_id"
   end
 
   create_table "supplier_steps", force: :cascade do |t|
@@ -566,13 +567,12 @@ ActiveRecord::Schema.define(version: 2021_07_01_054133) do
   add_foreign_key "risk_appetite_justifications", "risk_appetites"
   add_foreign_key "risk_appetite_justifications", "users"
   add_foreign_key "risk_appetites", "business_service_lines"
+  add_foreign_key "social_account_recipients", "social_accounts"
   add_foreign_key "steps", "business_service_lines"
   add_foreign_key "sub_suppliers", "suppliers"
   add_foreign_key "supplier_contact_suppliers", "supplier_contacts"
   add_foreign_key "supplier_contact_suppliers", "suppliers"
   add_foreign_key "supplier_contacts", "units"
-  add_foreign_key "supplier_social_accounts", "social_accounts"
-  add_foreign_key "supplier_social_accounts", "suppliers"
   add_foreign_key "supplier_steps", "steps"
   add_foreign_key "supplier_steps", "suppliers"
   add_foreign_key "suppliers", "units"

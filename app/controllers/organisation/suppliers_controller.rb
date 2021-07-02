@@ -46,7 +46,7 @@ class Organisation::SuppliersController < Organisation::BaseController
             :cloud_hosting_provider_description, :consumption_model, :consumption_model_other,
             :cloud_hosting_provider_id, :cloud_hosting_provider_region_id, cloud_hosting_provider_services_ids: [],
             key_contacts_ids: [], relationship_owner_attributes: relationship_owner_attributes,
-            supplier_social_accounts_attributes: supplier_social_accounts_attributes,
+            social_account_recipients_attributes: social_account_recipients_attributes,
             sla_attributes: sla_attributes,
             third_party_suppliers_attributes: sub_supplier_attributes,
             fourth_party_suppliers_attributes: sub_supplier_attributes
@@ -61,7 +61,7 @@ class Organisation::SuppliersController < Organisation::BaseController
     %i[name email id]
   end
 
-  def supplier_social_accounts_attributes
+  def social_account_recipients_attributes
     %i[id social_account_id link]
   end
 
@@ -84,7 +84,7 @@ class Organisation::SuppliersController < Organisation::BaseController
 
     SocialAccount.all.each do |social_account|
       # FIX: N + 1
-      @supplier.supplier_social_accounts.build(social_account: social_account) if @supplier.supplier_social_accounts.where(social_account: social_account).blank?
+      @supplier.social_account_recipients.build(social_account: social_account) if @supplier.social_account_recipients.where(social_account: social_account).blank?
     end
   end
 end

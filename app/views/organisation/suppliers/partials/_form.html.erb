@@ -164,7 +164,7 @@
           </div>
         </div>
         <hr>
-        <%= form.fields_for :supplier_social_accounts do |supplier_social_account| %>
+        <%= form.fields_for :social_account_recipients do |supplier_social_account| %>
           <%= render 'organisation/suppliers/partials/social_account_fields', f: supplier_social_account %>
         <% end %>
         <hr>
