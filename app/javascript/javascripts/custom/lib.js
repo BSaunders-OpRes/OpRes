@@ -73,11 +73,19 @@ document.addEventListener('turbolinks:load', function() {
     }
   }
 
+  window.unbind_vamoose = function() {
+    window.onbeforeunload = null;
+  }
+
   $('body').on('change', '.vamoose input, .vamoose select', function() {
     bind_vamoose();
   });
 
-  $('body').on('keyup', '.vamoose input', function() {
+  $('body').on('keyup', '.vamoose input, .vamoose textarea', function() {
     bind_vamoose();
+  });
+
+  $('body').on('submit', 'form.vamoose', function() {
+    unbind_vamoose();
   });
 });
