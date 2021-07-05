@@ -70,8 +70,6 @@ document.addEventListener('turbolinks:load', function() {
         var supplier     = JSON.parse(element);
         var opened_modal = $('.modal.add-supplier-modal.show');
 
-        toastr.options = { closeButton: true, progressBar: true }
-
         if (supplier.errors) {
           supplier.errors.forEach(function(error, index) {
             toastr.error(error)

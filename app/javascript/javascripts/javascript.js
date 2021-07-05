@@ -21,3 +21,5 @@ window.$          = JQuery;
 window.Highcharts = Highcharts;
 window.toastr     = toastr;
 window.Swal       = Swal;
+
+toastr.options = { closeButton: true, progressBar: true }
