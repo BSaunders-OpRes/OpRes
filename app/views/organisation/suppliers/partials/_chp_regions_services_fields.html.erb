@@ -54,6 +54,15 @@
         <div class="info" data-toggle="tooltip" data-placement="top" title="Please select a cloud hosting provider service" aria-hidden="true">i</div>
       </div>
     </div>
+    <div class="row align-items-center">
+      <div class="col-sm-4 flex-sm-1 mb-2 mb-sm-0">
+      </div>
+      <div class="col-sm-7 mt-1 order-3 order-sm-2 selected-service-count text-right font-13 text-capitalize font-400 text-secondary-green <%= selected_services&.present? ? '' : 'd-none' %>">
+        selected services: <%= selected_services.count %>
+      </div>
+      <div class="col-sm-1 text-right order-2 flex-sm-half mb-2 mb-sm-0">
+      </div>
+    </div>
     <%= text_area_tag 'supplier[cloud_hosting_provider_description]', nil, placeholder: 'Enter details', class: 'w-100 form-control font-12 h-auto py-3 shadow-none d-none' %>
   <% else %>
     <%= select_tag 'supplier[cloud_hosting_provider_region_id]', options_for_select([], nil), include_blank: 'Select your cloud hosting provider region', class: 'form-control d-none' %>
