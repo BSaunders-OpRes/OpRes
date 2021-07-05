@@ -5,6 +5,7 @@ document.addEventListener('turbolinks:load', function() {
   .select2()
   .on('select2:open', function() {
     $('.select2-results:not(:has(a))').append('<a href="javascript:void(0);" id="supplier-key-contact-new" class="btn p-1 btn-sm primary-btn m-1 pull-right">New contact</a>');
+
   });
 
   /******************** Event Bindings ********************
@@ -46,11 +47,16 @@ document.addEventListener('turbolinks:load', function() {
     });
   });
 
+  $('body').on('click', '#chp-service-search-filter, .service-list .service', function() {
+    count_chp_services();
+  });
+
   $('body').on('change', '.sub-supplier-chp', function() {
     chp                  = $(this);
     sub_supplier         = chp.parents('.sub-supplier');
     description_block    = sub_supplier.find('.sub-supplier-chp-description');
     selected_option_text = chp.find('option:selected').text();
+
     if (selected_option_text == 'Private Cloud') {
       description_block.removeClass('d-none').val('');
     } else {
@@ -73,5 +79,11 @@ document.addEventListener('turbolinks:load', function() {
     parts = date.split('/');
     date  = new Date(parts[1] + '/' + parts[0] + '/' + parts[2]);
     return date.getTime();
+  }
+
+  function count_chp_services() {
+    $('.selected-service-count').removeClass('d-none');
+    var selected_service_count = $('#cloud-hosting-provider-service .service-list').find('input[type="checkbox"]').filter(':checked').length
+    $('.selected-service-count').text('selected services: ' + selected_service_count);
   }
 });
