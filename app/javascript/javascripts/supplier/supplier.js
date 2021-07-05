@@ -47,10 +47,8 @@ document.addEventListener('turbolinks:load', function() {
     });
   });
 
-  $('body').on('click', '#chp-service-search-filter', function() {
-    $('.selected-service-count').removeClass('d-none');
-    var selected_service_count = $('#cloud-hosting-provider-service .service-list').find('input[type="checkbox"]').filter(':checked').length
-    $('.selected-service-count').text('selected services: ' + selected_service_count);
+  $('body').on('click', '#chp-service-search-filter, .service-list .service', function() {
+    count_chp_services();
   });
 
   $('body').on('change', '.sub-supplier-chp', function() {
@@ -81,5 +79,11 @@ document.addEventListener('turbolinks:load', function() {
     parts = date.split('/');
     date  = new Date(parts[1] + '/' + parts[0] + '/' + parts[2]);
     return date.getTime();
+  }
+
+  function count_chp_services() {
+    $('.selected-service-count').removeClass('d-none');
+    var selected_service_count = $('#cloud-hosting-provider-service .service-list').find('input[type="checkbox"]').filter(':checked').length
+    $('.selected-service-count').text('selected services: ' + selected_service_count);
   }
 });
