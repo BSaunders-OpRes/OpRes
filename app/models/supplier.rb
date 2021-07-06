@@ -53,6 +53,10 @@ class Supplier < ApplicationRecord
     end
   end
 
+  def strf_attr(attr)
+    send(attr)&.strftime('%d.%m.%Y')
+  end
+
   def key_contacts_ids
     key_contacts.pluck(:id)
   end

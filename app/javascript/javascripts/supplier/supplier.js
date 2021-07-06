@@ -47,7 +47,7 @@ document.addEventListener('turbolinks:load', function() {
     });
   });
 
-  $('body').on('click', '#chp-service-search-filter, .service-list .service', function() {
+  $('body').on('click', '#chp-service-search-filter, .service-list .service, #select-all-chp-services', function() {
     count_chp_services();
   });
 

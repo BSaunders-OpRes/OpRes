@@ -36,13 +36,13 @@
             <a href="#section1" class=" text-decoration-none text-capitalize font-13 font-xxl-14 d-block py-2">overview</a>
           </li>
           <li class="links mb-2">
-            <a href="#section2" class=" text-decoration-none text-capitalize font-13 font-xxl-14 d-block py-2">Compound Risk Posture</a>
+            <a href="#section2" class=" text-decoration-none text-capitalize font-13 font-xxl-14 d-block py-2">Contracted Agreements</a>
           </li>
           <li class="links mb-2">
-            <a href="#section3" class=" text-decoration-none text-capitalize font-13 font-xxl-14 d-block py-2">Service Level Indicators</a>
+            <a href="#section3" class=" text-decoration-none text-capitalize font-13 font-xxl-14 d-block py-2">Aggregated Risk Posture</a>
           </li>
           <li class="links mb-2">
-            <a href="#section4" class=" text-decoration-none text-capitalize font-13 font-xxl-14 d-block py-2">Contracted Agreements</a>
+            <a href="#section4" class=" text-decoration-none text-capitalize font-13 font-xxl-14 d-block py-2">Service Level Indicators</a>
           </li>
           <li class="links mb-2">
             <a href="#section5" class=" text-decoration-none text-capitalize font-13 font-xxl-14 d-block py-2">Cloud Provider</a>
@@ -71,8 +71,10 @@
                   </div>
                 </div>
                 <div class="info-text mb-4 px-4">
-                  <h6 class="mb-3">Name of the supplier</h6>
-                  <p class="font-13">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                  <h6 class="mb-3"><%= @supplier.name %></h6>
+                  <p class="font-13">
+                    <%= @supplier.description %>
+                  </p>
                 </div>
                 <hr>
                 <div class="details mb-4 px-4">
@@ -81,7 +83,7 @@
                       <span class="font-12">Supplier Relationship Owner</span>
                     </div>
                     <div class="w-75">
-                      <strong class="font-12">John Smith</strong>
+                      <strong class="font-12"><%= @supplier.relationship_owner&.name %></strong>
                     </div>
                   </div>
                   <div class="intro-box mb-3 d-flex align-items-center justify-content-center">
@@ -89,31 +91,33 @@
                       <span class="font-12">Supplier Key Contact</span>
                     </div>
                     <div class="w-75">
-                      <strong class="w-75 font-12">John Smith</strong>
+                      <strong class="w-75 font-12"><%= @supplier.key_contacts_list %></strong>
                     </div>
                   </div>
                   <div class="intro-box mb-3 d-flex align-items-center justify-content-center">
                     <div class="w-25">
-                      <span class="font-12">Supplier Contact Details</span>
+                      <span class="font-12">Supplier Key Contact Details</span>
                     </div>
                     <div class="w-75">
-                      <strong class="font-12">J.doe@email.com | 071234567</strong>
+                      <strong class="font-12">
+                        <%= @supplier.key_contacts.pluck(:email).join(', ') %>
+                      </strong>
                     </div>
                   </div>
                   <div class="intro-box mb-3 d-flex align-items-center justify-content-center">
                     <div class="w-25">
-                      <span class="font-12">Supplier Type: SaaS</span>
+                      <span class="font-12">Supplier Type:</span>
                     </div>
                     <div class="w-75">
-                      <strong class="font-12">SaaS</strong>
+                      <strong class="font-12"><%= @supplier.consumption_model&.upcase %></strong>
                     </div>
                   </div>
                   <div class="intro-box mb-3 d-flex align-items-center justify-content-center">
                     <div class="w-25">
-                      <span class="font-12">Contact Type: Annual</span>
+                      <span class="font-12">Contact Type:</span>
                     </div>
                     <div class="w-75">
-                      <strong class="font-12">Annual</strong>
+                      <strong class="font-12"><%= @supplier.contracting_terms&.capitalize %></strong>
                     </div>
                   </div>
                   <div class="intro-box mb-3 d-flex align-items-center justify-content-center">
@@ -121,7 +125,9 @@
                       <span class="font-12">Start Date & End Date</span>
                     </div>
                     <div class="w-75">
-                      <strong class="font-12">12.02.2019 - Current</strong>
+                      <strong class="font-12">
+                        <%= "#{@supplier.strf_attr('start_date')} - #{@supplier.strf_attr('end_date')}" %>
+                      </strong>
                     </div>
                   </div>
                   <div class="intro-box mb-3 d-flex align-items-center justify-content-center">
@@ -129,69 +135,34 @@
                       <span class="font-12">Annual Cost of Contract</span>
                     </div>
                     <div class="w-75">
-                      <strong class="font-12">$45.2K</strong>
+                      <strong class="font-12"><%= @supplier.annual_cost_of_contract %></strong>
                     </div>
                   </div>
                 </div>
                 <div class="mb-4 px-4">
                   <h5 class="text-capitalize d-block mb-4">Links</h5>
                   <div class="small-boxes row">
-                    <div class="col-md-3 mb-3">
-                      <div class="card">
-                        <div class="card-body p-2 d-block rounded">
-                          <div class="color-tier">
-                            <div class="mr-1 d-inline-block w-25px text-center align-middle">
-                              <%= image_pack_tag 'media/images/social-icons/twitter.png', class: 'img-fluid w-100' %>
+                    <% @supplier.social_account_recipients.each do |social_account_recipient| %>
+                      <div class="col-md-3 mb-3">
+                        <%= link_to social_account_recipient.link, target: '_blank' do %>
+                            <div class="card">
+                              <div class="card-body p-2 d-block rounded">
+                                <div class="color-tier">
+                                  <div class="mr-1 d-inline-block w-25px text-center align-middle">
+                                    <% social_account = social_account_recipient.social_account %>
+                                    <%= image_tag social_account.logo, class: 'img-fluid w-100' %>
+                                  </div>
+                                  <div class="text d-inline-block align-middle">
+                                    <span class="font-12 font-400 ml-2 d-block">
+                                      <%= social_account.name %>
+                                    </span>
+                                  </div>
+                                </div>
+                              </div>
                             </div>
-                            <div class="text d-inline-block align-middle">
-                              <span class="font-12 font-400 ml-2 d-block">Twitter</span>
-                            </div>
-                          </div>
-                        </div>
+                        <% end %>
                       </div>
-                    </div>
-                    <div class="col-md-3 mb-3">
-                      <div class="card">
-                        <div class="card-body p-2 d-block rounded">
-                          <div class="color-tier">
-                            <div class="mr-1 d-inline-block w-25px text-center align-middle">
-                              <%= image_pack_tag 'media/images/social-icons/facebook.png', class: 'img-fluid w-100' %>
-                            </div>
-                            <div class="text d-inline-block align-middle">
-                              <span class="font-12 font-400 ml-2 d-block">Facebook</span>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-md-3 mb-3">
-                      <div class="card">
-                        <div class="card-body p-2 d-block rounded">
-                          <div class="color-tier">
-                            <div class="mr-1 d-inline-block w-25px text-center align-middle">
-                             <%= image_pack_tag 'media/images/social-icons/linkedin.png', class: 'img-fluid w-100' %>
-                            </div>
-                            <div class="text d-inline-block align-middle">
-                              <span class="font-12 font-400 ml-2 d-block">Linked-In</span>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-md-3 mb-3">
-                      <div class="card">
-                        <div class="card-body p-2 d-block rounded">
-                          <div class="color-tier">
-                            <div class="mr-1 d-inline-block w-25px text-center align-middle">
-                              <%= image_pack_tag 'media/images/social-icons/link.png', class: 'img-fluid w-100' %>
-                            </div>
-                            <div class="text d-inline-block align-middle">
-                              <span class="font-12 font-400 ml-2 d-block">suppliername.com</span>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
+                    <% end %>
                   </div>
                 </div>
               </div>
@@ -203,7 +174,122 @@
             <div class="card-body px-0">
               <div class="box">
                 <div class="d-flex justify-content-between align-items-center mb-4 px-4">
-                  <h5 class="text-capitalize text-left">Compound Risk Posture</h5>
+                  <h5 class="text-capitalize text-left">Contracted Agreements</h5>
+                  <div class="text-right">
+                    <a href="#" class="text-black">
+                      <i class="fa fa-ellipsis-v text-right" aria-hidden="true"></i>
+                    </a>
+                  </div>
+                </div>
+                <div class="mb-4 px-4">
+                  <div class="row">
+                    <div class="col-md-3">
+                      <div class="box1 d-flex align-items-center py-3">
+                        <div class="mr-3">
+                          <div class="line-green"></div>
+                        </div>
+                        <div class="text">
+                          <p class="font-13 font-400">Contracted SLA</p>
+                          <h6 class="font-13 font-600"><%= @supplier.sla&.service_level_agreement %>%</h6>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-3">
+                      <div class="box1 d-flex align-items-center py-3">
+                        <div class="mr-3">
+                          <div class="line-green"></div>
+                        </div>
+                        <div class="text">
+                          <p class="font-13 font-400">Contracted RTO</p>
+                          <h6 class="font-13 font-600"><%= @supplier.sla&.recovery_time_objective %> Minutes</h6>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-3">
+                      <div class="box1 d-flex align-items-center py-3">
+                        <div class="mr-3">
+                          <div class="line-green"></div>
+                        </div>
+                        <div class="text">
+                          <p class="font-13 font-400">Contracted RPO</p>
+                          <h6 class="font-13 font-600"><%= @supplier.sla&.recovery_point_objective %> Minutes</h6>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-3">
+                      <div class="box1 d-flex align-items-center py-3">
+                        <div class="mr-3">
+                          <div class="line-green"></div>
+                        </div>
+                        <div class="text">
+                          <p class="font-13 font-400">Support Hours</p>
+                          <h6 class="font-13 font-600"><%= @supplier.sla&.support_hours %></h6>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row mt-3 d-flex no-gutters">
+                  <div class="table-responsive">
+                    <table class="table mb-0">
+                      <thead>
+                        <tr>
+                          <th class="border-0 px-4">Incident</th>
+                          <th class="border-0 px-4">Severity 1</th>
+                          <th class="border-0 px-4">Severity 2</th>
+                          <th class="border-0 px-4">Severity 3</th>
+                          <th class="border-0 px-4">Severity 4</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td width='300px' class="font-13 px-4">
+                            Incident Response SLA
+                          </td>
+                          <td class="font-13 px-4">
+                            <%= @supplier.sla&.severity1 %> Mins
+                          </td>
+                          <td class="font-13 px-4">
+                            <%= @supplier.sla&.severity2 %> Mins
+                          </td>
+                          <td class="font-13 px-4">
+                            <%= @supplier.sla&.severity3 %> Mins
+                          </td>
+                          <td class="font-13 px-4">
+                            <%= @supplier.sla&.severity4 %> Mins
+                          </td>
+                        </tr>
+                        <tr>
+                          <td width='300px' class="font-13 px-4">
+                            Incident Restoration SLA
+                          </td>
+                          <td class="font-13 px-4">
+                            <%= @supplier.sla&.severity1_restoration %> Mins
+                          </td>
+                          <td class="font-13 px-4">
+                            <%= @supplier.sla&.severity1_restoration %> Mins
+                          </td>
+                          <td class="font-13 px-4">
+                            <%= @supplier.sla&.severity1_restoration %> Mins
+                          </td>
+                          <td class="font-13 px-4">
+                            <%= @supplier.sla&.severity1_restoration %> Mins
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="section3">
+          <div class="card border-0 shadow-sm rounded-50 mb-4">
+            <div class="card-body px-0">
+              <div class="box">
+                <div class="d-flex justify-content-between align-items-center mb-4 px-4">
+                  <h5 class="text-capitalize text-left">Aggregated Risk Posture</h5>
                   <div class="text-right">
                     <a href="#" class="text-black">
                       <i class="fa fa-ellipsis-v text-right" aria-hidden="true"></i>
@@ -213,24 +299,30 @@
                 <div class="mb-4 px-4">
                   <div class="row">
                     <div class="col-md-6">
-                      <div class="box1 d-flex align-items-center py-3">
-                        <div class="round mr-3">
-                          <div class="sm-circle bg-dark-yellow p-4"></div>
-                        </div>
-                        <div class="text">
-                          <p class="font-13 font-400 mb-2">Risk Ranking</p>
-                          <h6 class="font-13 font-600">High Risk Supplier</h6>
+                      <div class="card border-0 pie-high-chart overflow-hidden">
+                        <div class="card-header border-0 bg-white text-center">
+                          <div class="donut-content">
+                            <div id="two-colored-green-donut-1" class="donut"></div>
+                            <div class="donut-value font-50 font-700 text-black">50</div>
+                          </div>
+                          <h6 class="font-13 font-600 w-75 mx-auto mt-3">Supplier Conformance with Impact Tolerances</h6>
                         </div>
                       </div>
                     </div>
-                    <div class="col-md-6">
-                      <div class="box1 d-flex align-items-center py-3">
-                        <div class="round mr-3">
-                          <div class="sm-circle bg-red p-4"></div>
-                        </div>
-                        <div class="text">
-                          <p class="font-13 font-400 mb-2">Open Resilience Gaps</p>
-                          <h6 class="font-13 font-600">10</h6>
+                    <div class="col-md-6 d-flex align-items-center justify-content-center">
+                      <div class="card border-0 pie-high-chart">
+                        <div class="card-header border-0 bg-white text-center">
+                          <div class="donut-content">
+                            <div class="donut align-items-center justify-content-center">
+                              <div class="round p-5 bg-pink">
+                                <i class="fa fa-exclamation-triangle font-40 text-red"></i>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="text text-center mt-3">
+                            <p class="font-13 font-400">Open Resilience Gaps</p>
+                            <h6 class="font-13 font-600">10</h6>
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -241,11 +333,15 @@
                   <div class="col-md-6 col-lg-4 order-lg-1 order-2 mb-lg-0 mb-4 px-3">
                     <div class="card border-0 pie-high-chart overflow-hidden rounded-50">
                       <div class="card-header border-0 bg-white text-center">
-                        <p class="font-14 font-600 chart-header-title text-left mb-2">Critical & Important BSL's Supported</p>
-                        <div class="donut-content mb-2">
-                          <div id="first-donut" class="donut"></div>
-                          <div class="donut-value font-50 font-700">50</div>
-                        </div>
+                        <p class="font-14 font-600 chart-header-title text-left mb-2">
+                          Critical & Important BSL's Supported
+                        </p>
+                        <%= link_to critical_important_suppliers_organisation_business_service_lines_path do %>
+                          <div class="donut-content mb-2">
+                            <div id="two-colored-donut-1" class="donut"></div>
+                            <div class="donut-value font-50 font-700 text-black">50</div>
+                          </div>
+                        <% end %>
                       </div>
                       <div class="card-body">
                         <div class="tiers d-flex justify-content-between align-items-center mb-3">
@@ -268,24 +364,33 @@
                   <div class="col-md-6 col-lg-4 order-lg-4 order-1 mb-lg-0 mb-4 px-3">
                     <div class="card border-0 pie-high-chart overflow-hidden rounded-50">
                       <div class="card-header border-0 bg-white text-center">
-                        <p class="font-14 font-600 chart-header-title text-left mb-2">BSL's Where Supplier is Compliant or Non Compliant</p>
-                        <div class="donut-content mb-2">
-                          <div id="second-donut" class="donut"></div>
-                          <div class="donut-value font-50 font-700">50</div>
-                        </div>
+                        <p class="font-14 font-600 chart-header-title text-left mb-2">Conformance with Business Service Impact Tolerances</p>
+                        <%= link_to compound_resilience_organisation_business_service_lines_path do %>
+                          <div class="donut-content mb-2">
+                            <div id="two-colored-donut-2" class="donut"></div>
+                            <div class="donut-value font-50 font-700 text-black">50</div>
+                          </div>
+                        <% end %>
                       </div>
                       <div class="card-body">
                         <div class="tiers d-flex justify-content-between align-items-center mb-3">
                           <div class="color-tier d-flex align-items-center">
                             <div class="circle green-1"></div>
-                            <span class="font-12 font-400 ml-2">Compliant</span>
+                            <span class="font-12 font-400 ml-2">Matches Impact Tolerances</span>
                           </div>
                           <span class="font-12 font-700">11</span>
                         </div>
                         <div class="tiers d-flex justify-content-between align-items-center mb-3">
                           <div class="color-tier d-flex align-items-center">
                             <div class="circle green-2"></div>
-                            <span class="font-12 font-400 ml-2">Non Compliant</span>
+                            <span class="font-12 font-400 ml-2">Meets Impact Tolerances</span>
+                          </div>
+                          <span class="font-12 font-700">4</span>
+                        </div>
+                        <div class="tiers d-flex justify-content-between align-items-center mb-3">
+                          <div class="color-tier d-flex align-items-center">
+                            <div class="circle green-2"></div>
+                            <span class="font-12 font-400 ml-2">Exceeds Impact Tolerances</span>
                           </div>
                           <span class="font-12 font-700">4</span>
                         </div>
@@ -297,8 +402,8 @@
                       <div class="card-header border-0 bg-white text-center">
                         <p class="font-14 font-600 chart-header-title text-left mb-2">BSL's Where Supplier is Either a 3rd or 4th Party</p>
                         <div class="donut-content mb-2">
-                          <div id="third-donut" class="donut"></div>
-                          <div class="donut-value font-50 font-700">50</div>
+                          <div id="two-colored-donut-3" class="donut"></div>
+                          <div class="donut-value font-50 font-700 text-black">50</div>
                         </div>
                       </div>
                       <div class="card-body">
@@ -324,7 +429,7 @@
             </div>
           </div>
         </div>
-        <div id="section3">
+        <div id="section4">
           <div class="card border-0 shadow-sm rounded-50 mb-4">
             <div class="card-body px-0">
               <div class="box">
@@ -439,121 +544,6 @@
                           <td class="font-14 px-4">
                             <span class="mr-2">More</span>
                             <i class="fa fa-arrow-right"></i>
-                          </td>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div id="section4">
-          <div class="card border-0 shadow-sm rounded-50 mb-4">
-            <div class="card-body px-0">
-              <div class="box">
-                <div class="d-flex justify-content-between align-items-center mb-4 px-4">
-                  <h5 class="text-capitalize text-left">Contracted Agreements</h5>
-                  <div class="text-right">
-                    <a href="#" class="text-black">
-                      <i class="fa fa-ellipsis-v text-right" aria-hidden="true"></i>
-                    </a>
-                  </div>
-                </div>
-                <div class="mb-4 px-4">
-                  <div class="row">
-                    <div class="col-md-3">
-                      <div class="box1 d-flex align-items-center py-3">
-                        <div class="mr-3">
-                          <div class="line-green"></div>
-                        </div>
-                        <div class="text">
-                          <p class="font-13 font-400">Contracted SLA</p>
-                          <h6 class="font-13 font-600">99.99%</h6>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-md-3">
-                      <div class="box1 d-flex align-items-center py-3">
-                        <div class="mr-3">
-                          <div class="line-green"></div>
-                        </div>
-                        <div class="text">
-                          <p class="font-13 font-400">Contracted RTO</p>
-                          <h6 class="font-13 font-600">20 Minutes</h6>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-md-3">
-                      <div class="box1 d-flex align-items-center py-3">
-                        <div class="mr-3">
-                          <div class="line-green"></div>
-                        </div>
-                        <div class="text">
-                          <p class="font-13 font-400">Contracted RPO</p>
-                          <h6 class="font-13 font-600">0 Hours</h6>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-md-3">
-                      <div class="box1 d-flex align-items-center py-3">
-                        <div class="mr-3">
-                          <div class="line-green"></div>
-                        </div>
-                        <div class="text">
-                          <p class="font-13 font-400">Support Hours</p>
-                          <h6 class="font-13 font-600">24/7</h6>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="row mt-3 d-flex no-gutters">
-                  <div class="table-responsive">
-                    <table class="table mb-0">
-                      <thead>
-                        <tr>
-                          <th class="border-0 px-4">Incident</th>
-                          <th class="border-0 px-4">Severity 1</th>
-                          <th class="border-0 px-4">Severity 2</th>
-                          <th class="border-0 px-4">Severity 3</th>
-                          <th class="border-0 px-4">Severity 4</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <td width='300px' class="font-13 px-4">
-                            Incident Response SLA
-                          </td>
-                          <td class="font-13 px-4">
-                            5 Mins
-                          </td>
-                          <td class="font-13 px-4">
-                            5 Mins
-                          </td>
-                          <td class="font-13 px-4">
-                            5 Mins
-                          </td>
-                          <td class="font-13 px-4">
-                            5 Mins
-                          </td>
-                        </tr>
-                        <tr>
-                          <td width='300px' class="font-13 px-4">
-                            Incident Restoration SLA
-                          </td>
-                          <td class="font-13 px-4">
-                            20 Mins
-                          </td>
-                          <td class="font-13 px-4">
-                            20 Mins
-                          </td>
-                          <td class="font-13 px-4">
-                            20 Mins
-                          </td>
-                          <td class="font-13 px-4">
-                            20 Mins
                           </td>
                         </tr>
                       </tbody>

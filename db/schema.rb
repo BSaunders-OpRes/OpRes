@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_02_070916) do
+ActiveRecord::Schema.define(version: 2021_07_06_105612) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -448,6 +448,8 @@ ActiveRecord::Schema.define(version: 2021_07_02_070916) do
     t.string "cloud_hosting_provider_description"
     t.integer "consumption_model", default: 0
     t.string "consumption_model_other"
+    t.text "description"
+    t.float "annual_cost_of_contract"
     t.index ["unit_id"], name: "index_suppliers_on_unit_id"
   end
 
