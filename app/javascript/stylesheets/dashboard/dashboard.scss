@@ -2,6 +2,10 @@ i.paperclip {
   transform: rotate(225deg);
 }
 
+.highcharts-legend {
+  display: none;
+}
+
 .highcharts-legend-item {
   display: none;
 }
@@ -11,7 +15,7 @@ i.paperclip {
 }
 
 .highcharts-background {
-  height: 50 !important;
+  height: 50px !important;
 }
 
 .donut-chart-react {
@@ -175,6 +179,15 @@ i.paperclip {
   width: 15px;
   height: 15px;
   border-radius: 100px;
+}
+.red-circle {
+  background: $red;
+}
+.orange-circle {
+  background: $dark-yellow;
+}
+.yellow-circle {
+  background: $yellow;
 }
 .green-1 {
   background: $primary-green;
@@ -507,5 +520,139 @@ i.paperclip {
     height: 50px;
     position: absolute;
     background-color: $primary-green;
+  }
+}
+
+.bsl-dashboard {
+  .red {
+    width: 227px;
+    height: 270px;
+    .full-red-donut {
+      width: 206px;
+      height: 206px;
+      border-radius: 100%;
+      background-color: $red;
+      .highcharts-series-group {
+        display: none;
+      }
+    }
+  }
+  #section6 {
+    .card {
+      .tab-content {
+        .accordion {
+          .card {
+            .card-header {
+              .btn {
+                position: relative;
+                &[aria-expanded="false"]:after {
+                  top: 16px;
+                  right: 20px;
+                  width: 20px;
+                  height: 20px;
+                  font-size: 12px;
+                  content: '\f067';
+                  line-height: 19px;
+                  position: absolute;
+                  border-radius: 100%;
+                  border: 2px solid $black;
+                  font-family: FontAwesome;
+                }
+                &[aria-expanded="true"]:after {
+                  top: 16px;
+                  right: 20px;
+                  width: 20px;
+                  height: 20px;
+                  font-size: 12px;
+                  content: '\f068';
+                  line-height: 19px;
+                  position: absolute;
+                  border-radius: 100%;
+                  border: 2px solid $black;
+                  font-family: FontAwesome;
+                }
+                &:focus {
+                  box-shadow: none;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  #section7 {
+    .dependency-map {
+      .map-boxes {
+        height: 400px;
+        overflow-x: scroll;
+        padding-bottom: 20px;
+        white-space: nowrap;
+        ::-webkit-scrollbar {
+          width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+          background-color: #ebebeb;
+          -webkit-border-radius: 10px;
+          border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+          -webkit-border-radius: 10px;
+          border-radius: 10px;
+          background: #6d6d6d;
+        }
+
+        .box-1 {
+          vertical-align: top;
+          display: inline-block;
+          h6 {
+            height: 45px;
+            display: flex;
+            text-align: center;
+            position: relative;
+            white-space: normal;
+            align-items: center;
+            word-break: break-word;
+            &:after {
+              top: 25px;
+              content: '';
+              height: 2px;
+              width: 22px;
+              right: -21px;
+              position: absolute;
+              background-color: $black;
+            }
+          }
+          &:last-child {
+            h6 {
+              &:after {
+                display: none;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .bsl-dashboard {
+    #section7 {
+      .dependency-map {
+        .map-boxes {
+          .box-1 {
+            width: 100px;
+            .heading {
+              h6 {
+                text-align: center;
+              }
+            }
+          }
+        }
+      }
+    }
   }
 }
