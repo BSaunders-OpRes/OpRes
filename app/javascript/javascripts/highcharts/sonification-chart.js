@@ -6,6 +6,13 @@ document.addEventListener('turbolinks:load', function() {
     render_line_chart('fourth-line-chart');
   }
 
+  if ($('#bsl').length == 1) {
+    render_line_chart('first-line-chart');
+    render_line_chart('second-line-chart');
+    render_line_chart('third-line-chart');
+    render_line_chart('fourth-line-chart');
+  }
+
   function render_line_chart(element) {
     var colors = Highcharts.getOptions().colors;
 

@@ -7,6 +7,13 @@ document.addEventListener('turbolinks:load', function() {
     render_donut_chart('colored-donut-resilience-posture');
   }
 
+
+  if ($('#bsl').length == 1) {
+    render_donut_chart('colored-donut-1');
+    render_donut_chart('colored-donut-2');
+    render_donut_chart('colored-donut-3');
+  }
+
   function render_donut_chart(element) {
     Highcharts.chart(element, {
       chart: {
