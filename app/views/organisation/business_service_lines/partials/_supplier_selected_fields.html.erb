@@ -1,0 +1,13 @@
+<%=
+  SupplierStep.selected_supplier_html
+              .gsub('{{PARTY_TYPE_CLASS}}', f.object.party_type)
+              .gsub('{{SUPPLIER_NAME}}',    f.object.supplier.name)
+              .gsub('{{SUPPLIER_FIELD}}',   (f.text_field :supplier_id))
+              .gsub('{{BIN_STEP_ID}}',      f.object.step.id.to_s)
+              .gsub('{{BIN_SUPPLIER_ID}}',  f.object.supplier.id.to_s)
+              .gsub('{{SUPPLIER_STEP_PARTY_TYPE}}',             f.object.party_type)
+              .gsub('{{SUPPLIER_STEP_PARTY_TYPE_FIELD}}',       (f.text_field :party_type))
+              .gsub('{{SUPPLIER_STEP_IMPORTANCE_LEVEL}}',       f.object.importance_level)
+              .gsub('{{SUPPLIER_STEP_IMPORTANCE_LEVEL_FIELD}}', (f.text_field :importance_level))
+              .html_safe
+%>

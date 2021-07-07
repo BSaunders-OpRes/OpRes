@@ -343,8 +343,8 @@ ActiveRecord::Schema.define(version: 2021_07_06_105612) do
     t.float "amount"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "label", default: 0
     t.integer "kind", default: 0
+    t.integer "label", default: 0
     t.index ["business_service_line_id"], name: "index_risk_appetites_on_business_service_line_id"
   end
 
@@ -430,6 +430,8 @@ ActiveRecord::Schema.define(version: 2021_07_06_105612) do
     t.bigint "supplier_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "party_type"
+    t.integer "importance_level"
     t.index ["step_id"], name: "index_supplier_steps_on_step_id"
     t.index ["supplier_id"], name: "index_supplier_steps_on_supplier_id"
   end
@@ -440,8 +442,6 @@ ActiveRecord::Schema.define(version: 2021_07_06_105612) do
     t.integer "contracting_terms"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "party_type"
-    t.integer "importance_level"
     t.string "contracting_terms_other"
     t.date "start_date"
     t.date "end_date"

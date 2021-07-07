@@ -35,7 +35,9 @@ Rails.application.routes.draw do
       get :cloud_service_provider,       on: :collection
       get :critical_important_suppliers, on: :collection
     end
-    resources :suppliers
+    resources :suppliers do
+      get :all_suppliers, on: :collection
+    end
     resources :unit_hierarchys, only: %i[] do
       get :load_countries,         on: :collection
       get :load_institutions,      on: :collection

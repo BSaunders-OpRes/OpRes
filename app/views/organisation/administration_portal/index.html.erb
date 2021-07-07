@@ -169,7 +169,6 @@
           <thead>
             <tr>
               <th class="text-capitalize font-12 font-xxl-14 pl-0">Supplier Name</th>
-              <th class="font-12 font-xxl-14 px-2 text-capitalize">party</th>
               <th class="font-12 font-xxl-14 px-2 text-capitalize">country</th>
               <th class="font-12 font-xxl-14 px-2 text-capitalize">region</th>
               <th></th>
@@ -179,7 +178,6 @@
             <% @suppliers&.each do |supplier| %>
               <tr>
                 <td class="font-12 font-xxl-14 pl-0 text-black"><%= supplier.name %></td>
-                <td class="font-12 font-xxl-14 px-2 font-400 text-capitalize"><%= supplier.party_type %></td>
                 <td class="font-12 font-xxl-14 px-2 font-400 text-capitalize"><%= supplier.unit&.name %></td>
                 <td class="font-12 font-xxl-14 px-2 font-400 text-capitalize"><%= supplier.unit&.parent&.name %></td>
                 <td class= 'px-1 font-12 d-flex'>
