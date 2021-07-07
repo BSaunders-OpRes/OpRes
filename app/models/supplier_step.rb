@@ -19,7 +19,7 @@ class SupplierStep < ApplicationRecord
                 <i class='fa fa-ellipsis-v ml-1' aria-hidden='true'></i>
                 <span class='font-12 font-600 ml-2 text-capitalize flex-1'>
                   {{SUPPLIER_NAME}}
-                  {{SUPPLIER_FIELD}}
+                  <span class='d-none'>{{SUPPLIER_FIELD}}</span>
                 </span>
                 <a href='javascript:void(0);' class='text-black text-decoration-none bsl-step-supplier-selected-bin' data-step='{{BIN_STEP_ID}}' data-supplier='{{BIN_SUPPLIER_ID}}'>
                   <i class='fa fa-trash font-12 cursor-pointer delete-supplier' aria-hidden='true'></i>
@@ -28,11 +28,11 @@ class SupplierStep < ApplicationRecord
               <ul class='list-group p-0 list-unstyled'>
                 <li class='font-12 text-capitalize font-weight-normal'>
                   {{SUPPLIER_STEP_PARTY_TYPE}}
-                  {{SUPPLIER_STEP_PARTY_TYPE_FIELD}}
+                  <span class='d-none'>{{SUPPLIER_STEP_PARTY_TYPE_FIELD}}</span>
                 </li>
                 <li class='font-12 text-capitalize font-weight-normal'>
                   {{SUPPLIER_STEP_IMPORTANCE_LEVEL}}
-                  {{SUPPLIER_STEP_IMPORTANCE_LEVEL_FIELD}}
+                  <span class='d-none'>{{SUPPLIER_STEP_IMPORTANCE_LEVEL_FIELD}}</span>
                 </li>
               </ul>
             </div>

@@ -59,8 +59,8 @@
                 <div class="col-sm-4 flex-sm-1 mb-2 mb-sm-0">
                   <p class="text-capitalize font-14 font-600">party type</p>
                 </div>
-                <div class="col-sm-7 order-3 order-sm-2">
-                  <%= select_tag 'supplier[party_type]', options_for_select(SupplierStep.party_types.map { |k, v| [k.titleize, k] }), { include_blank: 'Select Party Type', class: 'form-control w-100 font-12 h-auto py-3 shadow-none' } %>
+                <div class="col-sm-7 order-3 order-sm-2 single-select2">
+                  <%= select_tag 'supplier[party_type]', options_for_select(SupplierStep.party_types.map { |k, v| [k.titleize, k] }), { include_blank: 'Select Party Type', class: 'form-control w-100 font-12 h-auto py-3 shadow-none select2' } %>
                 </div>
                 <div class="col-sm-1 text-right order-2 flex-sm-half mb-2 mb-sm-0">
                   <div class="info" data-toggle="tooltip" data-placement="top" title="Party type" aria-hidden="true">i</div>

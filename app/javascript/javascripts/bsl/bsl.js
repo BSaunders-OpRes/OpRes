@@ -155,51 +155,36 @@ document.addEventListener('turbolinks:load', function() {
   $('body').on('click', '#bsl-step-supplier-modal-submit-btn', function(e) {
     e.preventDefault();
 
-    supplier         = $('#bsl-step-supplier-modal-container').find('select[name="supplier[supplier]"]').val();
-    party_type       = $('#bsl-step-supplier-modal-container').find('select[name="supplier[party_type]"]').val();
-    importance_level = $('#bsl-step-supplier-modal-container').find('input[name="supplier[importance_level]"]').val();
+    bsl_step_modal        = $('#bsl-step-supplier-modal-container #bsl-step-supplier-modal');
+    supplier_fore         = bsl_step_modal.find('select[name="supplier[supplier]"] option:selected').text();
+    supplier_back         = bsl_step_modal.find('select[name="supplier[supplier]"] option:selected').val();
+    party_type_fore       = bsl_step_modal.find('select[name="supplier[party_type]"] option:selected').text();
+    party_type_back       = bsl_step_modal.find('select[name="supplier[party_type]"] option:selected').val();
+    importance_level_fore = bsl_step_modal.find('input[name="supplier[importance_level]"]:checked').parent().find('label span').text();
+    importance_level_back = bsl_step_modal.find('input[name="supplier[importance_level]"]:checked').val();
 
-    if (supplier.length == 0 || party_type.length == 0 || importance_level.length == 0) {
+    if (supplier_back.length == 0 || party_type_back.length == 0 || importance_level_back.length == 0) {
       toastr.error('Please fill all fields');
       return false;
     }
-    // debugger
-    bsl_step = $('.bsl-step.functional');
-    template = $('#bsl-step-supplier-selected-supplier-html').data('template');
-    // timestamp = new_elem.find('.bsl-step-field:first').attr('name').split('][')[1];
-    // var opened_modal = $(this).parents('.modal.add-supplier-modal.show');
 
-    // $.ajax({
-    //   // url:  '/organisation/suppliers/',
-    //   // dataType: 'script',
-    //   // type: 'POST',
-    //   // data: {
-    //     // supplier: {
-    //       // name:             opened_modal.find("input[name='supplier[name]']").val(),
-    //       // party_type:       opened_modal.find("select[name='supplier[party_type]']").val(),
-    //       // importance_level: opened_modal.find("input[name='supplier[importance_level]']:checked").val(),
-    //       // country_unit:     opened_modal.find("select[name='supplier[country]']").val()
-    //     // }
-    //   // },
-    //   // success: function(element) {
-    //   //   // var supplier     = JSON.parse(element);
-    //   //   // var opened_modal = $('.modal.add-supplier-modal.show');
+    bsl_step             = $('.bsl-step.functional');
+    template             = $('#bsl-step-supplier-selected-supplier-html').data('template');
+    supplier_step_number = $.now();
+    input_name           = bsl_step.find('.bsl-step-name').attr('name').replace('[name]', '') + '[supplier_steps_attributes][' + supplier_step_number + ']';
 
-    //   //   // if (supplier.errors) {
-    //   //   //   // supplier.errors.forEach(function(error, index) {
-    //   //   //   //   toastr.error(error)
-    //   //   //   // });
-    //   //   // } else {
-    //   //   //   // var new_supplier = new Option(supplier.resp.name, supplier.resp.id, false, false);
-    //   //   //   // $('#bsl-steps .bsl-step-supplier-selector').append(new_supplier).trigger('change');
+    template = template.replace('{{PARTY_TYPE_CLASS}}', party_type_back)
+                       .replace('{{SUPPLIER_NAME}}',    supplier_fore)
+                       .replace('{{SUPPLIER_FIELD}}',   "<input type='text' value='"+ supplier_back +"' name='"+ input_name +"[supplier_id]'>")
+                       .replace('{{BIN_STEP_ID}}',      '')
+                       .replace('{{BIN_SUPPLIER_ID}}',  '')
+                       .replace('{{SUPPLIER_STEP_PARTY_TYPE}}',             party_type_fore)
+                       .replace('{{SUPPLIER_STEP_PARTY_TYPE_FIELD}}',       "<input type='text' value='"+ party_type_back +"' name='"+ input_name +"[party_type]'>")
+                       .replace('{{SUPPLIER_STEP_IMPORTANCE_LEVEL}}',       importance_level_fore)
+                       .replace('{{SUPPLIER_STEP_IMPORTANCE_LEVEL_FIELD}}', "<input type='text' value='"+ importance_level_back +"' name='"+ input_name +"[importance_level]'>")
 
-    //   //   //   // select2_choose_option(opened_modal.find('.bsl-step-supplier-selector'), supplier.resp.id);
-
-    //   //   //   // opened_modal.find(":input[name^='supplier']").val('');
-    //   //   //   // toastr.success('Supplier created successfully!');
-    //   //   // }
-    //   // }
-    // });
+    bsl_step.find('.bsl-step-supplier-selected').append(template);
+    bsl_step_modal.modal('hide');
   });
 
   $('body').on('click', '#bsl-steps .bsl-step-supplier-selected-bin', function() {
@@ -216,23 +201,31 @@ document.addEventListener('turbolinks:load', function() {
       cancelButtonText:  'No'
     }).then((result) => {
       if (result.isConfirmed) {
-        $.ajax({
-          url: '/organisation/steps/'+ step_id +'/supplier_step?supplier_id='+ supplier_id,
-          dataType: 'json',
-          type: 'DELETE',
-          success: function(result) {
-            if (result.deleted) {
-              select2_remove_option(container.parents('.bsl-step').find('.bsl-step-supplier-selector'), supplier_id);
-              container.remove();
+        if (step_id == '') {
+          container.remove();
+        } else {
+          $.ajax({
+            url: '/organisation/steps/'+ step_id +'/supplier_step?supplier_id='+ supplier_id,
+            dataType: 'json',
+            type: 'DELETE',
+            success: function(result) {
+              if (result.deleted) {
+                container.next('input[type="hidden"]').remove();
+                container.remove();
+              }
             }
-          }
-        })
+          })
+        }
       }
     });
   });
 
   $('body').on('input', '.bsl-risk-slider', function() {
     bsl_risk_slider_fill($(this));
+  });
+
+  $('body').on('change', '#bsl-risks .justification-requirer', function() {
+    $(this).parents('.bsl-risk').find('.justification-required').attr('required', true);
   });
 
   $('body').on('click', '#save-bsl-form', function(e) {
@@ -258,10 +251,6 @@ document.addEventListener('turbolinks:load', function() {
       }, 500);
       return false;
     }
-  });
-
-  $('body').on('change', '#bsl-risks .justification-requirer', function() {
-    $(this).parents('.bsl-risk').find('.justification-required').attr('required', true);
   });
 
   /******************** Helper Methods ********************
