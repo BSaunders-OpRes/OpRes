@@ -8,6 +8,9 @@ class Step < ApplicationRecord
   # Validations #
   validates :name, :description, presence: true
 
+  # Nested Attributes #
+  accepts_nested_attributes_for :supplier_steps, reject_if: :all_blank, allow_destroy: true
+
   # Scopes #
   default_scope { order(number: :asc) }
 

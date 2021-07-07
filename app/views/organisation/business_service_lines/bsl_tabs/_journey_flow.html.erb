@@ -16,5 +16,92 @@
         </div>
       </div>
     </div>
+    <div id="bsl-step-supplier-modal-container">
+      <div class="modal fade add-supplier-modal bsl-step-supplier-modal my-5 py-5" id="bsl-step-supplier-modal" role="dialog" aria-labelledby="new-supplier-modal-1" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header border-0 p-4">
+              <h5 class="modal-title text-capitalize font-16">
+                add supplier to step
+                <span id="bsl-step-supplier-modal-number"></span>
+              </h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body p-4">
+              <div class="row align-items-center mb-1">
+                <div class="col-sm-4 flex-sm-1 mb-2 mb-sm-0">
+                  <p class="text-capitalize font-14 font-600">search supplier</p>
+                </div>
+                <div class="col-sm-7 order-3 order-sm-2 single-select2">
+                  <%= select_tag 'supplier[supplier]', options_for_select(@suppliers.map { |supplier| [supplier.name, supplier.id] }), prompt: 'Select Supplier', class: 'form-control w-100 font-12 h-auto py-3 shadow-none select2 bsl-step-field', id: 'bsl-step-supplier-modal-suppliers' %>
+                </div>
+                <div class="col-sm-1 text-right order-2 flex-sm-half mb-2 mb-sm-0">
+                  <div class="info" data-toggle="tooltip" data-placement="top" title="supplier" aria-hidden="true">i</div>
+                </div>
+              </div>
+              <div class="row mb-3">
+                <div class="col-sm-4"></div>
+                <div class="col-sm-7 text-right">
+                  <%= link_to new_organisation_supplier_path, target: '_blank', class: 'badge badge-success' do %>
+                    <i class="fa fa-plus"></i>
+                    Create Supplier
+                  <% end %>
+                  <%= link_to 'javascript:void(0);', id: 'bsl-step-supplier-modal-refresh-list', class: 'badge badge-info' do %>
+                    <i class="fa fa-refresh"></i>
+                    Refresh List
+                  <% end %>
+                </div>
+                <div class="col-sm-1"></div>
+              </div>
+              <div class="row align-items-center mb-3 ">
+                <div class="col-sm-4 flex-sm-1 mb-2 mb-sm-0">
+                  <p class="text-capitalize font-14 font-600">party type</p>
+                </div>
+                <div class="col-sm-7 order-3 order-sm-2 single-select2">
+                  <%= select_tag 'supplier[party_type]', options_for_select(SupplierStep.party_types.map { |k, v| [k.titleize, k] }), { include_blank: 'Select Party Type', class: 'form-control w-100 font-12 h-auto py-3 shadow-none select2' } %>
+                </div>
+                <div class="col-sm-1 text-right order-2 flex-sm-half mb-2 mb-sm-0">
+                  <div class="info" data-toggle="tooltip" data-placement="top" title="Party type" aria-hidden="true">i</div>
+                </div>
+              </div>
+              <div class="row align-items-center mb-3">
+                <div class="col-sm-4 flex-sm-1 mb-2 mb-sm-0">
+                  <p class="font-14 font-600">Level of Importance</p>
+                </div>
+                <div class="col-sm-7 order-3 order-sm-2">
+                  <div class="row">
+                    <div class="col-sm-6 pr-sm-0 pr-md-0">
+                      <div class="custom-radio">
+                        <input type="radio" name="supplier[importance_level]" value="critical" id="critical" class="bsl-step-supplier-importance-level option-1 critical-radio" checked>
+                        <label for="critical" class="option option-1 critical-label">
+                          <span class="font-12">Critical</span>
+                        </label>
+                      </div>
+                    </div>
+                    <div class="col-sm-6 pl-sm-0 pl-md-0">
+                      <div class="custom-radio">
+                        <input type="radio" name="supplier[importance_level]" value="important" id="important" class="bsl-step-supplier-importance-level option-2 important-radio">
+                        <label for="important" class="option option-2 important-label">
+                          <span class="font-12">Important</span>
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-1 text-right order-2 flex-sm-half mb-2 mb-sm-0">
+                  <div class="info" data-toggle="tooltip" data-placement="top" title="Level of importance" aria-hidden="true">i</div>
+                </div>
+              </div>
+            </div>
+            <div class="modal-footer border-0">
+              <%= link_to 'add supplier', 'javascript:void(0);', class: 'btn btn-lg dark-btn text-capitalize font-12 font-600', id: 'bsl-step-supplier-modal-submit-btn' %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="bsl-step-supplier-selected-supplier-html" data-template="<%= SupplierStep.selected_supplier_html %>"></div>
   </div>
 </div>

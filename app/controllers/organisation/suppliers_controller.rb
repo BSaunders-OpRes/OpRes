@@ -37,12 +37,20 @@ class Organisation::SuppliersController < Organisation::BaseController
 
   def destroy; end
 
+  def all_suppliers
+    @suppliers = Supplier.where(unit_id: managing_nodes)
+
+    respond_to do |format|
+      format.json { render json: @suppliers }
+    end
+  end
+
   private
 
   def supplier_params
     params.require(:supplier)
           .permit(
-            :name, :contracting_terms, :contracting_terms_other, :party_type, :importance_level, :start_date, :end_date, :description, :annual_cost_of_contract,
+            :name, :contracting_terms, :contracting_terms_other, :start_date, :end_date, :description, :annual_cost_of_contract,
             :cloud_hosting_provider_description, :consumption_model, :consumption_model_other,
             :cloud_hosting_provider_id, :cloud_hosting_provider_region_id, cloud_hosting_provider_services_ids: [],
             key_contacts_ids: [], relationship_owner_attributes: relationship_owner_attributes,

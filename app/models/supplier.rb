@@ -28,8 +28,6 @@ class Supplier < ApplicationRecord
   # Enums #
   enum contracting_terms: %i[monthly annually other non_applicable], _suffix: :contracting_terms
   enum consumption_model: %i[iaas saas paas other], _suffix: :consumption_model
-  enum party_type: %i[firm-hosted 3rd-party 4th-party]
-  enum importance_level: %i[critical important]
 
   # Validations #
   validates :start_date, :end_date, presence: true
@@ -43,16 +41,6 @@ class Supplier < ApplicationRecord
   accepts_nested_attributes_for :fourth_party_suppliers,    allow_destroy: true
 
   # Methods #
-  def party_type_color
-    if send('firm-hosted?')
-      'turquoise'
-    elsif send('3rd-party?')
-      'black'
-    elsif send('4th-party?')
-      'blue'
-    end
-  end
-
   def strf_attr(attr)
     send(attr)&.strftime('%d.%m.%Y')
   end

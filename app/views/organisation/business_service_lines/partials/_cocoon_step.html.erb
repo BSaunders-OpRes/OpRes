@@ -25,126 +25,21 @@
   </div>
   <div class="row">
     <div class="col-sm-12 field-scroll">
-      <%= f.text_field :name, class: 'w-100 font-12 form-control mb-3 shadow-none h-auto py-3 bsl-step-field', placeholder: 'Enter Name', required: true %>
+      <%= f.text_field :name, class: 'w-100 font-12 form-control mb-3 shadow-none h-auto py-3 bsl-step-field bsl-step-name', placeholder: 'Enter Name', required: true %>
       <%= f.text_area :description, class: 'form-control font-12 shadow-none mb-3 bsl-step-field', placeholder: 'add description', cols: 30, rows: 4, required: true %>
     </div>
   </div>
   <div class="row bsl-step-supplier-selected">
-    <% f.object.suppliers.each do |supplier| %>
-      <%= render '/organisation/business_service_lines/partials/supplier_selected', step: f.object, supplier: supplier %>
+    <%= f.fields_for :supplier_steps do |supplier_step| %>
+      <%= render '/organisation/business_service_lines/partials/supplier_selected_fields', f: supplier_step %>
     <% end %>
   </div>
   <div class="row">
     <div class="col-sm-12 mt-4">
-      <span data-toggle="modal" data-target="#bsl-step-supplier-modal-<%= f.object.number %>" class="bsl-step-supplier-modal-opener cursor-pointer toggle-modal d-inline-block">
+      <span class="bsl-step-supplier-modal-opener cursor-pointer toggle-modal d-inline-block">
         <i class="fa fa-plus-circle" aria-hidden="true"></i>
         <span class="font-14 font-600 ml-1 text-capitalize cursor-pointer" >add suppliers</span>
       </span>
-    </div>
-  </div>
-
-  <div class="modal fade add-supplier-modal bsl-step-supplier-modal my-5 py-5" id="bsl-step-supplier-modal-<%= f.object.number %>" tabindex="-1" role="dialog" aria-labelledby="new-supplier-modal-1" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header border-0 p-4">
-          <h5 class="modal-title text-capitalize font-16">
-            add supplier to step
-            <span class="bsl-step-number"><%= f.object.number %></span>
-          </h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-
-        <div class="modal-body p-4">
-          <div class="row align-items-center mb-3">
-            <div class="col-sm-12 order-3 order-sm-2 key-contacts-select2">
-              <h5 class="font-14 mb-2">Select Suppliers</h5>
-              <%= f.select :supplier_ids, options_for_select(@suppliers.map { |supplier| [supplier.name, supplier.id] }, f.object.supplier_ids), { prompt: 'Select Suppliers' }, class: 'form-control w-100 font-12 h-auto py-3 shadow-none select2 bsl-step-field bsl-step-supplier-selector', multiple: true %>
-            </div>
-          </div>
-          <hr />
-          <h5 class="font-16 mb-4">Create Suppliers</h5>
-          <div class="row align-items-center mb-3">
-            <div class="col-sm-4 flex-sm-1 mb-2 mb-sm-0">
-              <p class="text-capitalize font-14 font-600">supplier name</p>
-            </div>
-            <div class="col-sm-7 order-3 order-sm-2">
-              <%= text_field_tag 'supplier[name]', nil, class: 'w-100 form-control font-12 h-auto py-3 shadow-none', placeholder: 'Enter Name' %>
-            </div>
-            <div class="col-sm-1 text-right order-2 flex-sm-half mb-2 mb-sm-0">
-              <div class="info" data-toggle="tooltip" data-placement="top" title="supplier name" aria-hidden="true">i</div>
-            </div>
-          </div>
-          <div class="row align-items-center mb-3">
-            <div class="col-sm-4 flex-sm-1 mb-2 mb-sm-0">
-              <p class="text-capitalize font-14 font-600">party type</p>
-            </div>
-            <div class="col-sm-7 order-3 order-sm-2">
-              <%= select_tag 'supplier[party_type]', options_for_select(Supplier.party_types.map { |k, v| [k.titleize, k] }), { include_blank: 'Select Party Type', class: 'form-control w-100 font-12 h-auto py-3 shadow-none' } %>
-            </div>
-            <div class="col-sm-1 text-right order-2 flex-sm-half mb-2 mb-sm-0">
-              <div class="info" data-toggle="tooltip" data-placement="top" title="supplier type" aria-hidden="true">i</div>
-            </div>
-          </div>
-          <div class="row align-items-center mb-3">
-            <div class="col-sm-4 flex-sm-1 mb-2 mb-sm-0">
-              <p class="font-14 font-600">Level of Importance</p>
-            </div>
-            <div class="col-sm-7 order-3 order-sm-2">
-              <div class="row">
-                <div class="col-sm-6 pr-sm-0 pr-md-0">
-                  <div class="custom-radio">
-                    <input type="radio" name="supplier[importance_level]" value="critical" id="critical-<%= f.object.number %>" class="bsl-step-supplier-importance-level option-1 critical-radio" checked>
-                    <label for="critical-<%= f.object.number %>" class="option option-1 critical-label">
-                      <span class="font-12">Critical</span>
-                    </label>
-                  </div>
-                </div>
-                <div class="col-sm-6 pl-sm-0 pl-md-0">
-                  <div class="custom-radio">
-                    <input type="radio" name="supplier[importance_level]" value="important" id="important-<%= f.object.number %>" class="bsl-step-supplier-importance-level option-2 important-radio">
-                    <label for="important-<%= f.object.number %>" class="option option-2 important-label">
-                      <span class="font-12">Important</span>
-                    </label>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-sm-1 text-right order-2 flex-sm-half mb-2 mb-sm-0">
-              <div class="info" data-toggle="tooltip" data-placement="top" title="Level of importance" aria-hidden="true">i</div>
-            </div>
-          </div>
-          <div class="row align-items-center mb-3">
-            <div class="col-sm-4 flex-sm-1 mb-2 mb-sm-0">
-              <p class="text-capitalize font-14 font-600">region</p>
-            </div>
-            <div class="col-sm-7 order-3 order-sm-2 load-countries-from-region"
-              data-append-countries-to="bsl-step-supplier-country-<%= f.object.number %>"
-              data-country-param-name="supplier[country]"
-            >
-              <%= render 'organisation/unit_hierarchys/partials/drop_down', param_name: 'supplier[region]', options: Unit.regional_unit_dropdown(@managing_units), val: nil, prompt_message: 'Select your region' %>
-            </div>
-            <div class="col-sm-1 text-right order-2 flex-sm-half mb-2 mb-sm-0">
-              <div class="info" data-toggle="tooltip" data-placement="top" title="region" aria-hidden="true">i</div>
-            </div>
-          </div>
-          <div class="row align-items-center mb-3">
-            <div class="col-sm-4 flex-sm-1 mb-2 mb-sm-0">
-              <p class="text-capitalize font-14 font-600">country</p>
-            </div>
-            <div class="col-sm-7 order-3 order-sm-2 bsl-step-supplier-countries" id="bsl-step-supplier-country-<%= f.object.number %>">
-              <%= render 'organisation/unit_hierarchys/partials/drop_down', param_name: 'supplier[country]', options: [], val: nil, prompt_message: 'Select your country' %>
-            </div>
-            <div class="col-sm-1 text-right order-2 flex-sm-half mb-2 mb-sm-0">
-              <div class="info" data-toggle="tooltip" data-placement="top" title="country" aria-hidden="true">i</div>
-            </div>
-          </div>
-        </div>
-        <div class="modal-footer border-0">
-          <%= link_to 'add supplier', 'javascript:void(0);', class: 'btn btn-lg dark-btn text-capitalize font-12 font-600 bsl-step-supplier-form-submit-btn' %>
-        </div>
-      </div>
     </div>
   </div>
 </div>
