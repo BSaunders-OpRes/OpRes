@@ -34,9 +34,6 @@ class Organisation::BusinessServiceLinesController < Organisation::BaseControlle
 
   def destroy; end
 
-  def bsl_show
-  end
-
   private
 
   def load_bsl
