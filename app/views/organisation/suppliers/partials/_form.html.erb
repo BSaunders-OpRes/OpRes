@@ -23,6 +23,17 @@
             <div class="info" data-toggle="tooltip" data-placement="top" title="Please provide the supplier name" aria-hidden="true">i</div>
           </div>
         </div>
+        <div class="row align-items-center mt-3">
+          <div class="col-sm-4 flex-sm-1 mb-2 mb-sm-0">
+            <p class="text-capitalize font-14 font-600">supplier description</p>
+          </div>
+          <div class="col-sm-7 order-3 order-sm-2">
+            <%= form.text_area :description, placeholder: 'Supplier Description', required: true, class: 'w-100 form-control font-12 h-auto py-3 shadow-none' %>
+          </div>
+          <div class="col-sm-1 text-right order-2 flex-sm-half mb-2 mb-sm-0">
+            <div class="info" data-toggle="tooltip" data-placement="top" title="Please provide the supplier Description" aria-hidden="true">i</div>
+          </div>
+        </div>
         <hr>
         <div class="row align-items-center mt-4">
           <div class="col-sm-4 flex-sm-1 mb-2 mb-sm-0">
@@ -94,6 +105,17 @@
             <div class="col-sm-1 text-right order-2 flex-sm-half mb-2 mb-sm-0">
               <div class="info" data-toggle="tooltip" data-placement="top" title="Please select your consumption model" aria-hidden="true">i</div>
             </div>
+          </div>
+        </div>
+        <div class="row align-items-center mt-4">
+          <div class="col-sm-4 flex-sm-1 mb-2 mb-sm-0">
+            <p class="text-capitalize font-14 font-600">Annual cost of contract</p>
+          </div>
+          <div class="col-sm-7 order-3 order-sm-2">
+            <%= form.number_field :annual_cost_of_contract, min: 0, placeholder:'Enter Annual cost of contract', class: 'w-100 form-control font-12 h-auto py-3 shadow-none', id: 'inlineFormInputGroup'%>
+          </div>
+          <div class="col-sm-1 text-right order-2 flex-sm-half mb-2 mb-sm-0">
+            <div class="info" data-toggle="tooltip" data-placement="top" title="Please enter the value for Annual cost of contract" aria-hidden="true">i</div>
           </div>
         </div>
         <div class="date-selection position-relative mt-3">

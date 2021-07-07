@@ -38,11 +38,15 @@ document.addEventListener('turbolinks:load', function() {
 
 
   if ($('#compounded-resilience-posture').length == 1) {
-    render_dual_colored_donut_chart('twenty-one-donut');
+    render_dual_green_colored_donut_chart('twenty-one-donut');
+    render_dual_green_colored_donut_chart('posture-donut-1');
   }
 
-  if ($('#compounded-resilience-posture').length == 1) {
-    render_dual_green_colored_donut_chart('ninteen-donut');
+  if ($('#supplier-view').length == 1) {
+    render_dual_green_black_colored_donut_chart('two-colored-donut-1');
+    render_dual_green_black_colored_donut_chart('two-colored-donut-2');
+    render_dual_green_black_colored_donut_chart('two-colored-donut-3');
+    render_dual_green_colored_donut_chart('two-colored-green-donut-1');
   }
 
   function render_three_colored_donut_chart(element) {
@@ -116,7 +120,7 @@ document.addEventListener('turbolinks:load', function() {
     });
   };
 
-  function render_dual_colored_donut_chart(element) {
+  function render_dual_green_black_colored_donut_chart(element) {
     Highcharts.chart(element, {
       chart: {
         margin: [0, 0, 0, 0],
@@ -175,7 +179,7 @@ document.addEventListener('turbolinks:load', function() {
           {
             name: '',
             y: 10,
-            color: '#f7f7f7'
+            color: '#000'
           }
         ]
       }]
