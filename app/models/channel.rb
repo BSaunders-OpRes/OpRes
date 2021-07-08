@@ -8,4 +8,26 @@ class Channel < ApplicationRecord
 
   # Validations #
   validates :name, :description, presence: true
+
+  # Methods #
+  def icon
+    case name.downcase
+    when /atm/
+      'fa-credit-card'
+    when /branch/
+      'fa-building'
+    when /phone/
+      'fa-phone'
+    when /web/
+      'fa-globe'
+    when /mobile/
+      'fa-mobile'
+    when /electronic trad/
+      'fa-line-chart'
+    when /invest/
+      'fa-usd'
+    else
+      'fa-check'
+    end
+  end
 end

@@ -4,9 +4,11 @@
       <div class="d-flex justify-content-between align-items-center flex-wrap">
         <div class="left d-flex align-items-center flex-wrap">
           <div class="mr-4 back-btn mb-2 mb-sm-0 ">
-            <%= render 'layouts/partials/shared/redirect_back', path: organisation_dashboard_index_path %>
+            <%= render 'layouts/partials/shared/redirect_back', path: organisation_administration_portal_index_path %>
           </div>
-          <h2 class="font-500 font-sm-18 font-25 text-capitalize">Onboarding - Mobile & Web business service line</h2>
+          <h2 class="font-500 font-sm-18 font-25 text-capitalize">
+            <%= @bsl.name %>
+          </h2>
         </div>
         <div class="right d-flex mt-3 mt-lg-0">
           <div class="white-btn d-flex align-items-center pl-2 pr-2 mr-2 py-2">
@@ -33,25 +35,25 @@
         <i class="fa fa-times-circle fa-1x d-none"></i>
         <ul class="p-0 list-unstyled inner-wrapper-sticky">
           <li class="links active-white mb-2">
-            <a href="#section1" class=" text-decoration-none text-capitalize font-13 font-xxl-14 d-block py-2">overview</a>
+            <a href="#overview-section" class=" text-decoration-none text-capitalize font-13 font-xxl-14 d-block py-2">overview</a>
           </li>
           <li class="links mb-2">
-            <a href="#section2" class=" text-decoration-none text-capitalize font-13 font-xxl-14 d-block py-2">Service Levels</a>
+            <a href="#service-levels-section" class=" text-decoration-none text-capitalize font-13 font-xxl-14 d-block py-2">Service Levels</a>
           </li>
           <li class="links mb-2">
-            <a href="#section3" class=" text-decoration-none text-capitalize font-13 font-xxl-14 d-block py-2">Compunded Risk Posture</a>
+            <a href="#compound-risk-posture-section" class=" text-decoration-none text-capitalize font-13 font-xxl-14 d-block py-2">Compunded Risk Posture</a>
           </li>
           <li class="links mb-2">
-            <a href="#section4" class=" text-decoration-none text-capitalize font-13 font-xxl-14 d-block py-2">Cloud Service Providers</a>
+            <a href="#cloud-service-provider-section" class=" text-decoration-none text-capitalize font-13 font-xxl-14 d-block py-2">Cloud Service Providers</a>
           </li>
           <li class="links mb-2">
-            <a href="#section5" class=" text-decoration-none text-capitalize font-13 font-xxl-14 d-block py-2">Redilience Issues</a>
+            <a href="#redilience-issues-section" class=" text-decoration-none text-capitalize font-13 font-xxl-14 d-block py-2">Redilience Issues</a>
           </li>
           <li class="links mb-2">
-            <a href="#section6" class=" text-decoration-none text-capitalize font-13 font-xxl-14 d-block py-2">3rd/4th Parties</a>
+            <a href="#third-fourth-parties-section" class=" text-decoration-none text-capitalize font-13 font-xxl-14 d-block py-2">3rd/4th Parties</a>
           </li>
           <li class="links mb-2">
-            <a href="#section7" class=" text-decoration-none text-capitalize font-13 font-xxl-14 d-block py-2">Dependency Map</a>
+            <a href="#dependency-map-section" class=" text-decoration-none text-capitalize font-13 font-xxl-14 d-block py-2">Dependency Map</a>
           </li>
         </ul>
       </aside>
@@ -59,7 +61,7 @@
     <div class="col-sm-9 col-xxl-10 px-1">
       <div class="w-100">
         <div class="content-area">
-          <div id="section1">
+          <div id="overview-section">
             <div class="card border-0 shadow-sm rounded-50 mb-4">
               <div class="card-body px-0">
                 <div class="d-flex align-items-center mb-4 px-4">
@@ -74,7 +76,7 @@
                           <i class="fa fa-certificate"></i>
                           <div class="text">
                             <span class="font-12 font-400 ml-2 d-block">Service Tier:</span>
-                            <span class="font-12 ml-2 d-block font-600">Tier 1</span>
+                            <span class="font-12 ml-2 d-block font-600"><%= @bsl.tier.titleize %></span>
                           </div>
                         </div>
                       </div>
@@ -87,34 +89,36 @@
                           <i class="fa fa-folder"></i>
                           <div class="text">
                             <span class="font-12 font-400 ml-2 d-block">Product:</span>
-                            <span class="font-12 ml-2 d-block font-600">Current Account</span>
+                            <span class="font-12 ml-2 d-block font-600"><%= @bsl.product_list %></span>
                           </div>
                         </div>
                       </div>
                     </div>
                   </div>
                   <div class="col-md-3">
-                    <div class="card h-100 border-0 bg-body-color mb-2">
-                      <div class="card-body p-2 d-flex align-items-center rounded">
-                        <div class="color-tier d-flex align-items-center">
-                          <i class="fa fa-exclamation-triangle text-danger"></i>
-                          <div class="text">
-                            <span class="font-12 font-400 ml-2 d-block">Critical Systems:</span>
-                            <span class="font-12 ml-2 d-block font-600">6</span>
+                    <div class="card h-100 border-0 bg-body-color mb-2 d-flex justify-content-center">
+                      <%= link_to critical_important_suppliers_organisation_business_service_line_path(@bsl), class: 'text-black text-decoration-none' do %>
+                        <div class="card-body p-2 d-flex align-items-center rounded">
+                          <div class="color-tier d-flex align-items-center">
+                            <i class="fa fa-exclamation-triangle text-danger"></i>
+                            <div class="text">
+                              <span class="font-12 font-400 ml-2 d-block">Critical Systems:</span>
+                              <span class="font-12 ml-2 d-block font-600"><%= @bsl.critical_supplier_steps.size %></span>
+                            </div>
                           </div>
                         </div>
-                      </div>
+                      <% end %>
                     </div>
                   </div>
                   <div class="col-md-3">
-                    <div class="card h-100 border-0 bg-body-color mb-2">
-                      <%= link_to critical_important_suppliers_organisation_business_service_lines_path, class: 'text-black text-decoration-none' do %>
+                    <div class="card h-100 border-0 bg-body-color mb-2 d-flex justify-content-center">
+                      <%= link_to critical_important_suppliers_organisation_business_service_line_path(@bsl), class: 'text-black text-decoration-none' do %>
                         <div class="card-body p-2 d-flex align-items-center rounded">
                           <div class="color-tier d-flex align-items-center">
                             <i class="fa fa-exclamation-circle text-warning"></i>
                             <div class="text">
                               <span class="font-12 font-400 ml-2 d-block">Important Systems:</span>
-                              <span class="font-12 ml-2 d-block font-600">4</span>
+                              <span class="font-12 ml-2 d-block font-600"><%= @bsl.important_supplier_steps.size %></span>
                             </div>
                           </div>
                         </div>
@@ -124,51 +128,33 @@
                 </div>
                 <div class="decription px-4 mb-4">
                   <h6 class="mb-3 font-14">Description</h6>
-                  <p class="font-12">The Onboarding - Mobile & Web Business Servie Line is used to provide new customers with a fast and secure method of opening a new account with the Bank. It executes a series of steps and business process such as KYC, KYB, PEP's & sanctions checks and credit history validation before the opening of a new customer account can be completed.</p>
+                  <p class="font-12">
+                    <%= @bsl.description %>
+                  </p>
                 </div>
                 <div class="channels px-4 mb-4">
                   <h6 class="mb-3 font-14">Channels</h6>
                   <div class="small-boxes row">
-                    <div class="col-md-3 mb-2">
-                      <div class="card h-100">
-                        <div class="card-body p-2 d-flex align-items-center rounded">
-                          <div class="color-tier d-flex align-items-center">
-                            <i class="fa fa-mobile font-22"></i>
-                            <div class="text">
-                              <span class="font-12 font-400 ml-2 d-block">Mobile App</span>
+                    <% @bsl.channels.each do |channel| %>
+                      <div class="col-md-3 mb-2">
+                        <div class="card h-100">
+                          <div class="card-body p-2 d-flex align-items-center rounded">
+                            <div class="color-tier d-flex align-items-center">
+                              <i class="fa <%= channel.icon %> font-22"></i>
+                              <div class="text">
+                                <span class="font-12 font-400 ml-2 d-block"><%= channel.name %></span>
+                              </div>
                             </div>
                           </div>
                         </div>
                       </div>
-                    </div>
-                    <div class="col-md-3 mb-2">
-                      <div class="card h-100">
-                        <div class="card-body p-2 d-flex align-items-center rounded">
-                          <div class="color-tier d-flex align-items-center">
-                            <i class="fa fa-laptop font-22"></i>
-                            <div class="text">
-                              <span class="font-12 font-400 ml-2 d-block">Online</span>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-md-3 mb-2">
-                      <div class="card h-100">
-                        <div class="card-body p-2 d-flex align-items-center rounded">
-                          <div class="color-tier d-flex align-items-center">
-                            <i class="fa fa-home font-22"></i>
-                            <span class="font-12 font-400 ml-2 d-block">In Branch</span>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
+                    <% end %>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-          <div id="section2">
+          <div id="service-levels-section">
             <div class="card border-0 shadow-sm rounded-50 mb-4">
               <div class="card-body px-0">
                 <div class="d-flex align-items-center mb-4 px-4">
@@ -327,7 +313,7 @@
               </div>
             </div>
           </div>
-          <div id="section3">
+          <div id="compound-risk-posture-section">
             <div class="row mt-4">
               <div class="col-md-12">
                 <div class="card border-0 shadow-sm">
@@ -576,7 +562,7 @@
               </div>
             </div>
           </div>
-          <div id="section4">
+          <div id="cloud-service-provider-section">
             <div class="card mt-4 no-gutters">
               <div class="card-body">
                 <div class="row custom-high-chart ml-md-3 px-md-3">
@@ -977,7 +963,7 @@
               </div>
             </div>
           </div>
-          <div id="section5">
+          <div id="redilience-issues-section">
             <div class="row mt-4">
               <div class="col-md-12">
                 <div class="card border-0 shadow-sm">
@@ -1223,7 +1209,7 @@
               </div>
             </div>
           </div>
-          <div id="section6">
+          <div id="third-fourth-parties-section">
             <div class="row mt-4">
               <div class="col-md-12">
                 <div class="card border-0 shadow-sm">
@@ -3437,7 +3423,7 @@
               </div>
             </div>
           </div>
-          <div id="section7">
+          <div id="dependency-map-section">
             <div class="row mt-4">
               <div class="col-md-12">
                 <div class="card border-0 shadow-sm d-block">
