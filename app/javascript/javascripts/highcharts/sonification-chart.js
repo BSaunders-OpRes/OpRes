@@ -13,6 +13,14 @@ document.addEventListener('turbolinks:load', function() {
     render_line_chart('fourth-line-chart');
   }
 
+  if ($('#resilience-calculator').length == 1) {
+    render_line_chart('first-line-chart');
+    render_line_chart('second-line-chart');
+    render_line_chart('third-line-chart');
+    render_line_chart('fourth-line-chart');
+    render_line_chart('five-line-chart');
+  }
+
   function render_line_chart(element) {
     var colors = Highcharts.getOptions().colors;
 
@@ -46,7 +54,7 @@ document.addEventListener('turbolinks:load', function() {
       series: [
       {
         name: '',
-        data: [14.8, 43.0, 90.2, 30.4, 50.9, 90.4],
+        data: [30, 10.0, 90.2, 50.9],
         website: 'https://www.nvaccess.org',
         color: colors[2],
         accessibility: {

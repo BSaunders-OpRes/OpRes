@@ -1,0 +1,2351 @@
+<div id='resilience-calculator' class="resilience-calculator-dashboard">
+  <div class="row no-gutters">
+    <div class="col-sm-12 px-1">
+      <div class="d-flex justify-content-between align-items-center flex-wrap">
+        <div class="left d-flex align-items-center flex-wrap">
+          <div class="mr-4 back-btn mb-2 mb-sm-0 ">
+            <%= render 'layouts/partials/shared/redirect_back', path: organisation_dashboard_index_path %>
+          </div>
+          <h2 class="font-500 font-sm-18 font-25 text-capitalize">Onboarding - Mobile & Web Business Service Line</h2>
+        </div>
+        <div class="right d-flex mt-3 mt-lg-0">
+          <div class="white-btn d-flex align-items-center pl-2 pr-2 mr-2 py-2">
+            <span><i class='fa fa-save font-16 mr-2'></i></span>
+            <span class="text-capitalize font-12 font-xxl-14 font-600">save view</span>
+          </div>
+          <div class="white-btn d-flex align-items-center pl-2 pr-2 mr-2 py-2">
+            <span> <i class="fa fa-sliders"></i></span>
+            <span class="text-capitalize font-12 font-xxl-14 ml-2 font-600">Customised View</span>
+          </div>
+          <div class="white-btn p-1 d-flex align-items-center">
+            <i class="fa fa-ellipsis-v px-2"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="secondary-sidebar-icon d-none">
+    <i class='fa fa-ellipsis-v fa-1x font-18'></i>
+  </div>
+  <div class="row no-gutters mt-5">
+    <div class="col-sm-3 col-xxl-2 px-1">
+      <aside class="fixed-secondary-sidebar position-static" id='sticky-sidebar-demo'>
+        <i class="fa fa-times-circle fa-1x d-none"></i>
+        <ul class="p-0 list-unstyled inner-wrapper-sticky">
+          <li class="links active-white mb-2">
+            <a href="#section1" class=" text-decoration-none text-capitalize font-13 font-xxl-14 d-block py-2">overview</a>
+          </li>
+          <li class="links mb-2">
+            <a href="#section2" class=" text-decoration-none text-capitalize font-13 font-xxl-14 d-block py-2">Service Levels</a>
+          </li>
+          <li class="links mb-2">
+            <a href="#section3" class=" text-decoration-none text-capitalize font-13 font-xxl-14 d-block py-2">Compunded Risk Posture</a>
+          </li>
+          <li class="links mb-2">
+            <a href="#section4" class=" text-decoration-none text-capitalize font-13 font-xxl-14 d-block py-2">Business Management Information</a>
+          </li>
+          <li class="links mb-2">
+            <a href="#section5" class=" text-decoration-none text-capitalize font-13 font-xxl-14 d-block py-2">Historical Incident Data</a>
+          </li>
+          <li class="links mb-2">
+            <a href="#section6" class=" text-decoration-none text-capitalize font-13 font-xxl-14 d-block py-2">Dependency Map</a>
+          </li>
+          <li class="links mb-2">
+            <a href="#section7" class=" text-decoration-none text-capitalize font-13 font-xxl-14 d-block py-2">Impact Analysis Simulator</a>
+          </li>
+          <li class="links mb-2">
+            <a href="#section8" class=" text-decoration-none text-capitalize font-13 font-xxl-14 d-block py-2">Impact Analysis</a>
+          </li>
+          <li class="links mb-2">
+            <a href="#section9" class=" text-decoration-none text-capitalize font-13 font-xxl-14 d-block py-2">Potential Impact Analysis</a>
+          </li>
+        </ul>
+      </aside>
+    </div>
+    <div class="col-sm-9 col-xxl-10 px-1">
+      <div class="w-100">
+        <div class="content-area">
+          <div id="section1">
+            <div class="card border-0 shadow-sm rounded-50 mb-4">
+              <div class="card-body px-0">
+                <div class="d-flex align-items-center mb-4 px-4">
+                  <h5 class="text-capitalize text-left w-75">Overview</h5>
+                  <i class="fa fa-ellipsis-v w-25 text-right" aria-hidden="true"></i>
+                </div>
+                <div class="small-boxes row px-4 mb-4">
+                  <div class="col-md-3">
+                    <div class="card h-100 border-0 bg-body-color mb-2">
+                      <div class="card-body p-2 d-flex align-items-center rounded">
+                        <div class="color-tier d-flex align-items-center">
+                          <i class="fa fa-certificate"></i>
+                          <div class="text">
+                            <span class="font-12 font-400 ml-2 d-block">Service Tier:</span>
+                            <span class="font-12 ml-2 d-block font-600">Tier 1</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-3">
+                    <div class="card h-100 border-0 bg-body-color mb-2">
+                      <div class="card-body p-2 d-flex align-items-center rounded">
+                        <div class="color-tier d-flex align-items-center">
+                          <i class="fa fa-folder"></i>
+                          <div class="text">
+                            <span class="font-12 font-400 ml-2 d-block">Product:</span>
+                            <span class="font-12 ml-2 d-block font-600">Current Account</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-3">
+                    <div class="card h-100 border-0 bg-body-color mb-2">
+                      <div class="card-body p-2 d-flex align-items-center rounded">
+                        <div class="color-tier d-flex align-items-center">
+                          <i class="fa fa-exclamation-triangle text-danger"></i>
+                          <div class="text">
+                            <span class="font-12 font-400 ml-2 d-block">Critical Systems:</span>
+                            <span class="font-12 ml-2 d-block font-600">6</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-3">
+                    <div class="card h-100 border-0 bg-body-color mb-2">
+                      <div class="card-body p-2 d-flex align-items-center rounded">
+                        <div class="color-tier d-flex align-items-center">
+                          <i class="fa fa-exclamation-circle text-warning"></i>
+                          <div class="text">
+                            <span class="font-12 font-400 ml-2 d-block">Important Systems:</span>
+                            <span class="font-12 ml-2 d-block font-600">4</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="decription px-4 mb-4">
+                  <h6 class="mb-3 font-14">Description</h6>
+                  <p class="font-12">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.</p>
+                </div>
+                <div class="channels px-4 mb-4">
+                  <h6 class="mb-3 font-14">Channels</h6>
+                  <div class="small-boxes row">
+                    <div class="col-md-3 mb-2">
+                      <div class="card h-100">
+                        <div class="card-body p-2 d-flex align-items-center rounded">
+                          <div class="color-tier d-flex align-items-center">
+                            <i class="fa fa-mobile font-22"></i>
+                            <div class="text">
+                              <span class="font-12 font-400 ml-2 d-block">Mobile App</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-3 mb-2">
+                      <div class="card h-100">
+                        <div class="card-body p-2 d-flex align-items-center rounded">
+                          <div class="color-tier d-flex align-items-center">
+                            <i class="fa fa-laptop font-22"></i>
+                            <div class="text">
+                              <span class="font-12 font-400 ml-2 d-block">Online</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-3 mb-2">
+                      <div class="card h-100">
+                        <div class="card-body p-2 d-flex align-items-center rounded">
+                          <div class="color-tier d-flex align-items-center">
+                            <i class="fa fa-home font-22"></i>
+                            <span class="font-12 font-400 ml-2 d-block">In Branch</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div id="section2">
+            <div class="card border-0 shadow-sm rounded-50 mb-4">
+              <div class="card-body px-0">
+                <div class="d-flex align-items-center mb-4 px-4">
+                  <h5 class="text-capitalize text-left w-75">Service Levels</h5>
+                  <i class="fa fa-ellipsis-v w-25 text-right" aria-hidden="true"></i>
+                </div>
+                <div class="small-boxes row px-4 mb-4">
+                  <div class="col-md-3 mb-2">
+                    <div class="card h-100 border-top-0 border-right-0 border-bottom-0 bg-white turquoise-border-card rounded-0">
+                      <div class="card-body p-2 d-flex align-items-center">
+                        <div class="color-tier d-flex align-items-center">
+                          <div class="text">
+                            <span class="font-12 font-400 ml-2 d-block">Service Tier:</span>
+                            <span class="font-12 ml-2 d-block font-600">Tier 1</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-3 mb-2">
+                    <div class="card h-100 border-top-0 border-right-0 border-bottom-0 bg-white turquoise-border-card rounded-0">
+                      <div class="card-body p-2 d-flex align-items-center">
+                        <div class="color-tier d-flex align-items-center">
+                          <div class="text">
+                            <span class="font-12 font-400 ml-2 d-block">Product:</span>
+                            <span class="font-12 ml-2 d-block font-600">Current Account</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-3 mb-2">
+                    <div class="card h-100 border-top-0 border-right-0 border-bottom-0 bg-white turquoise-border-card rounded-0">
+                      <div class="card-body p-2 d-flex align-items-center">
+                        <div class="color-tier d-flex align-items-center">
+                          <div class="text">
+                            <span class="font-12 font-400 ml-2 d-block">Critical Systems:</span>
+                            <span class="font-12 ml-2 d-block font-600">6</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-3 mb-2">
+                    <div class="card h-100 border-top-0 border-right-0 border-bottom-0 bg-white turquoise-border-card rounded-0">
+                      <div class="card-body p-2 d-flex align-items-center">
+                        <div class="color-tier d-flex align-items-center">
+                          <div class="text">
+                            <span class="font-12 font-400 ml-2 d-block">Important Systems:</span>
+                            <span class="font-12 ml-2 d-block font-600">4</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <hr>
+                <div class="box">
+                  <div class="d-flex justify-content-between align-items-center my-5 px-4">
+                    <h5 class="text-capitalize text-left">Service Level Indicators</h5>
+                  </div>
+                  <div class="row mt-3 d-flex no-gutters">
+                    <div class="table-responsive">
+                      <table class="table mb-0">
+                        <thead>
+                          <tr>
+                            <th class="border-0 px-4 font-14 text-light-grey">Metric</th>
+                            <th class="border-0 px-4 font-14 text-light-grey"></th>
+                            <th class="border-0 px-4 font-14 text-light-grey">Value</th>
+                            <th class="border-0 px-4 font-14 text-light-grey">Value</th>
+                            <th class="border-0 px-4 font-14 text-light-grey"></th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td class="font-14 font-600 px-4">
+                              Trafic
+                            </td>
+                            <td class="px-4" width='250px' height="100px">
+                              <div id="fourth-line-chart" class="h-100"></div>
+                            </td>
+                            <td class="font-14 px-4">
+                              1031.33
+                            </td>
+                            <td class="font-14 px-4">
+                              <i class="fa fa-caret-down mr-2 text-red d-inline-block align-middle w-10"></i>
+                              <span class="d-inline-block align-middle w-75">-14.32(-1.2%)</span>
+                            </td>
+                            <td class="font-14 px-4">
+                              <span class="mr-2 d-inline-block align-middle">More</span>
+                              <i class="fa fa-arrow-right d-inline-block align-middle"></i>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td class="font-14 font-600 px-4">
+                              Latency
+                            </td>
+                            <td class="px-4" width='250px' height="100px">
+                              <div id="third-line-chart" class="h-100"></div>
+                            </td>
+                            <td class="font-14 px-4">
+                              1031.33
+                            </td>
+                            <td class="font-14 px-4">
+                              <i class="fa fa-caret-down mr-2 text-red d-inline-block align-middle w-10"></i>
+                              <span class="d-inline-block align-middle w-75">-14.32(-1.2%)</span>
+                            </td>
+                            <td class="font-14 px-4">
+                              <span class="mr-2">More</span>
+                              <i class="fa fa-arrow-right"></i>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td class="font-14 font-600 px-4">
+                              Saturation
+                            </td>
+                            <td class="px-4" width='250px' height="100px">
+                              <div id="first-line-chart" class="h-100"></div>
+                            </td>
+                            <td class="font-14 px-4">
+                              1031.33
+                            </td>
+                            <td class="font-14 px-4">
+                              <i class="fa fa-caret-up mr-2 text-greend-inline-block align-middle w-10"></i>
+                              <span class="d-inline-block align-middle w-75">-14.32(-1.2%)</span>
+                            </td>
+                            <td class="font-14 px-4">
+                              <span class="mr-2">More</span>
+                              <i class="fa fa-arrow-right"></i>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td class="font-14 font-600 px-4">
+                              Errors
+                            </td>
+                            <td class="px-4" width='250px' height="100px">
+                              <div id="second-line-chart" class="h-100"></div>
+                            </td>
+                            <td class="font-14 px-4">
+                              1031.33
+                            </td>
+                            <td class="font-14 px-4">
+                              <i class="fa fa-caret-down mr-2 text-red d-inline-block align-middle w-10"></i>
+                              <span class="d-inline-block align-middle w-75">-14.32(-1.2%)</span>
+                            </td>
+                            <td class="font-14 px-4">
+                              <span class="mr-2">More</span>
+                              <i class="fa fa-arrow-right"></i>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div id="section3">
+            <div class="row mt-4">
+              <div class="col-md-12">
+                <div class="card border-0 shadow-sm">
+                  <div class="text px-4 py-4 mb-4 d-flex justify-content-between align-items-center">
+                    <h2 class="card-heading font-18 font-600 text-left">Compound Risk Posture</h2>
+                    <i class="fa fa-ellipsis-v mx-1 text-right card-heading-icon" aria-hidden="true"></i>
+                  </div>
+                  <div class="row d-flex no-gutters">
+                    <div class="col-md-6 col-lg-4 order-lg-4 order-1 mb-lg-0 mb-4 px-1">
+                      <div class="card border-0 rounded-50">
+                        <div class="card-body">
+                          <div class="d-flex align-items-center justify-content-between">
+                            <h5 class="font-14 font-600 text-capitalize">Aggregated Resilience Figure</h5>
+                          </div>
+                          <div class="row align-items-center">
+                            <div class="col-md-12">
+                              <div class="position-relative">
+                                <div class="red d-flex align-items-center justify-content-center w-100">
+                                  <div id="colored-donut-1" class="donut-setter full-red-donut"></div>
+                                  <span class="position-absolute center-position font-md-30 font-25 font-600 text-white text-center">Very<br>High</span>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="col-md-12">
+                              <div class="card-body">
+                                <div class="tiers d-flex justify-content-between align-items-center mb-3">
+                                  <div class="color-tier d-flex align-items-center">
+                                    <div class="circle green-1 p-2"></div>
+                                    <span class="font-12 font-400 ml-2">AWS</span>
+                                  </div>
+                                  <span class="font-12 font-700">24</span>
+                                </div>
+                                <div class="tiers d-flex justify-content-between align-items-center mb-3">
+                                  <div class="color-tier d-flex align-items-center">
+                                    <div class="circle yellow-circle p-2"></div>
+                                    <span class="font-12 font-400 ml-2">GCP</span>
+                                  </div>
+                                  <span class="font-12 font-700">24</span>
+                                </div>
+                                <div class="tiers d-flex justify-content-between align-items-center mb-3">
+                                  <div class="color-tier d-flex align-items-center">
+                                    <div class="circle orange-circle p-2"></div>
+                                    <span class="font-12 font-400 ml-2 text-capitalize">Azure</span>
+                                  </div>
+                                  <span class="font-12 font-700">24</span>
+                                </div>
+                                <div class="tiers d-flex justify-content-between align-items-center mb-3">
+                                  <div class="color-tier d-flex align-items-center">
+                                    <div class="circle red-circle p-2"></div>
+                                    <span class="font-12 font-400 ml-2 text-capitalize">Azure</span>
+                                  </div>
+                                  <span class="font-12 font-700">24</span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4 order-lg-4 order-1 mb-lg-0 mb-4 px-1">
+                      <div class="card border-0 rounded-50">
+                        <div class="card-body">
+                          <div class="d-flex align-items-center justify-content-between">
+                            <h5 class="font-14 font-600 text-capitalize">Critical System Resilience RAG</h5>
+                          </div>
+                          <div class="row align-items-center">
+                            <div class="col-md-12">
+                              <div class="position-relative">
+                                <div id="colored-donut-2" class="donut-setter"></div>
+                                <span class="position-absolute center-position font-md-30 font-25 font-600 text-center">14 suppliers</span>
+                              </div>
+                            </div>
+                            <div class="col-md-12">
+                              <div class="card-body">
+                                <div class="tiers d-flex justify-content-between align-items-center mb-3">
+                                  <div class="color-tier d-flex align-items-center">
+                                    <div class="circle green-1 p-2"></div>
+                                    <span class="font-12 font-400 ml-2">AWS</span>
+                                  </div>
+                                  <span class="font-12 font-700">24</span>
+                                </div>
+                                <div class="tiers d-flex justify-content-between align-items-center mb-3">
+                                  <div class="color-tier d-flex align-items-center">
+                                    <div class="circle orange-circle p-2"></div>
+                                    <span class="font-12 font-400 ml-2">GCP</span>
+                                  </div>
+                                  <span class="font-12 font-700">24</span>
+                                </div>
+                                <div class="tiers d-flex justify-content-between align-items-center mb-3">
+                                  <div class="color-tier d-flex align-items-center">
+                                    <div class="circle red-circle p-2"></div>
+                                    <span class="font-12 font-400 ml-2 text-capitalize">Azure</span>
+                                  </div>
+                                  <span class="font-12 font-700">24</span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4 order-lg-4 order-1 mb-lg-0 mb-4 px-1">
+                      <div class="card border-0 rounded-50">
+                        <div class="card-body">
+                          <div class="d-flex align-items-center justify-content-between">
+                            <h5 class="font-14 font-600 text-capitalize">Important System Resilience RAG</h5>
+                          </div>
+                          <div class="row align-items-center">
+                            <div class="col-md-12">
+                              <div class="position-relative">
+                                <div id="colored-donut-3" class="donut-setter"></div>
+                                <span class="position-absolute center-position font-md-30 font-25 font-600 text-center">15 suppliers</span>
+                              </div>
+                            </div>
+                            <div class="col-md-12">
+                              <div class="card-body">
+                                <div class="tiers d-flex justify-content-between align-items-center mb-3">
+                                  <div class="color-tier d-flex align-items-center">
+                                    <div class="circle green-1 p-2"></div>
+                                    <span class="font-12 font-400 ml-2">AWS</span>
+                                  </div>
+                                  <span class="font-12 font-700">24</span>
+                                </div>
+                                <div class="tiers d-flex justify-content-between align-items-center mb-3">
+                                  <div class="color-tier d-flex align-items-center">
+                                    <div class="circle orange-circle p-2"></div>
+                                    <span class="font-12 font-400 ml-2">GCP</span>
+                                  </div>
+                                  <span class="font-12 font-700">24</span>
+                                </div>
+                                <div class="tiers d-flex justify-content-between align-items-center mb-3">
+                                  <div class="color-tier d-flex align-items-center">
+                                    <div class="circle red-circle p-2"></div>
+                                    <span class="font-12 font-400 ml-2 text-capitalize">Azure</span>
+                                  </div>
+                                  <span class="font-12 font-700">24</span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div id="section4">
+            <div class="row mt-4">
+              <div class="col-md-12">
+                <div class="card border-0 shadow-sm">
+                  <div class="text px-4 py-4 d-flex justify-content-between align-items-center">
+                    <h2 class="card-heading font-18 font-600 text-left">Business Management Information</h2>
+                    <i class="fa fa-ellipsis-v mx-1 text-right card-heading-icon" aria-hidden="true"></i>
+                  </div>
+                  <div class="card-header bg-transparent d-flex justify-content-between align-items-center border-0 px-4 flex-wrap">
+                    <h3 class="font-14 font-600 mb-4 mb-md-0">Customers Onboarded</h3>
+                    <div class="customised-dropdowns d-flex align-items-center justify-content-center flex-wrap">
+                      <div class="dropdown body-color-dropdown mr-2 w-auto rounded mb-2">
+                        <a id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle text-capitalize py-2 pr-5 pl-2 d-flex align-items-center justify-content-start font-12 text-dark font-600">All Years</a>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                          <a class="text-decoration-none dropdown-item">Action</a>
+                          <a class="text-decoration-none dropdown-item">Filter top 10</a>
+                          <a class="text-decoration-none dropdown-item">Filter top 10</a>
+                        </div>
+                      </div>
+                      <div class="dropdown body-color-dropdown mr-2 w-auto rounded mb-2">
+                        <a id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle text-capitalize py-2 pr-5 pl-2 d-flex align-items-center justify-content-start font-12 text-dark font-600">All Months</a>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                          <a class="text-decoration-none dropdown-item">Action</a>
+                          <a class="text-decoration-none dropdown-item">Filter top 10</a>
+                          <a class="text-decoration-none dropdown-item">Filter top 10</a>
+                        </div>
+                      </div>
+                      <div class="dropdown body-color-dropdown mr-2 w-auto rounded mb-2">
+                        <a id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle text-capitalize py-2 pr-5 pl-2 d-flex align-items-center justify-content-start font-12 text-dark font-600">All Times</a>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                          <a class="text-decoration-none dropdown-item">Action</a>
+                          <a class="text-decoration-none dropdown-item">Filter top 10</a>
+                          <a class="text-decoration-none dropdown-item">Filter top 10</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="custom-stacked-graph px-4">
+                    <div id="stacked"></div>
+                  </div>
+                  <hr class="mb-0">
+                  <div class="peak-transaction px-4">
+                    <div class="row">
+                      <div class="col-md-8 border-right">
+                        <div class="graph-box">
+                          <div class="card-header bg-transparent d-flex justify-content-between align-items-center border-0 px-0">
+                            <h3 class="font-14 font-600">Average Peak Transaction Per Hour PCM</h3>
+                            <div class="customised-dropdowns d-flex align-items-center justify-content-center">
+                              <div class="dropdown body-color-dropdown mr-2 w-auto rounded">
+                                <a id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle text-capitalize py-2 pr-4 pl-2 d-flex align-items-center justify-content-start font-12 text-dark font-600">Jan</a>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                  <a class="text-decoration-none dropdown-item">Action</a>
+                                  <a class="text-decoration-none dropdown-item">Filter top 10</a>
+                                  <a class="text-decoration-none dropdown-item">Filter top 10</a>
+                                </div>
+                              </div>
+                              <div class="dropdown body-color-dropdown mr-2 w-auto rounded">
+                                <a id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle text-capitalize py-2 pr-4 pl-2 d-flex align-items-center justify-content-start font-12 text-dark font-600">2020</a>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                  <a class="text-decoration-none dropdown-item">Action</a>
+                                  <a class="text-decoration-none dropdown-item">Filter top 10</a>
+                                  <a class="text-decoration-none dropdown-item">Filter top 10</a>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="graph">
+                            <div id="five-line-chart" class="h-100"></div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-4">
+                        <div class="card-header bg-transparent d-flex justify-content-between align-items-center border-0 px-0">
+                          <h3 class="font-14 font-600">Business MI</h3>
+                          <div class="customised-dropdowns d-flex align-items-center justify-content-center">
+                            <div class="dropdown body-color-dropdown mr-2 w-auto rounded">
+                              <a id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle text-capitalize py-2 pr-4 pl-2 d-flex align-items-center justify-content-start font-12 text-dark font-600">Jan</a>
+                              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a class="text-decoration-none dropdown-item">Action</a>
+                                <a class="text-decoration-none dropdown-item">Filter top 10</a>
+                                <a class="text-decoration-none dropdown-item">Filter top 10</a>
+                              </div>
+                            </div>
+                            <div class="dropdown body-color-dropdown mr-2 w-auto rounded">
+                              <a id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle text-capitalize py-2 pr-4 pl-2 d-flex align-items-center justify-content-start font-12 text-dark font-600">2020</a>
+                              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a class="text-decoration-none dropdown-item">Action</a>
+                                <a class="text-decoration-none dropdown-item">Filter top 10</a>
+                                <a class="text-decoration-none dropdown-item">Filter top 10</a>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="row align-items-center">
+                          <div class="col-md-12">
+                            <div class="position-relative">
+                              <div id="colored-donut-4" class="donut-setter"></div>
+                              <span class="position-absolute center-position font-md-30 font-25 font-600 text-center">$</span>
+                            </div>
+                          </div>
+                          <div class="col-md-12">
+                            <div class="card-body px-0">
+                              <div class="tiers d-flex justify-content-between align-items-center mb-3">
+                                <div class="color-tier d-flex align-items-center">
+                                  <span class="font-12 font-400 ml-2">Total Revenue Generated</span>
+                                </div>
+                                <span class="font-12 font-700">$3.25M</span>
+                              </div>
+                              <div class="tiers d-flex justify-content-between align-items-center mb-3">
+                                <div class="color-tier d-flex align-items-center">
+                                  <span class="font-12 font-400 ml-2">Total Customers Acquired</span>
+                                </div>
+                                <span class="font-12 font-700">4000</span>
+                              </div>
+                              <div class="tiers d-flex justify-content-between align-items-center mb-3">
+                                <div class="color-tier d-flex align-items-center">
+                                  <span class="font-12 font-400 ml-2">Avg Revenue Per Customer</span>
+                                </div>
+                                <span class="font-12 font-700">$812.51M</span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div id="section5">
+            <div class="row mt-4">
+              <div class="col-md-12">
+                <div class="card border-0 shadow-sm">
+                  <div class="text px-4 py-4 d-flex justify-content-between align-items-center">
+                    <h2 class="card-heading font-18 font-600 text-left">Historical Incident Data</h2>
+                    <i class="fa fa-ellipsis-v mx-1 text-right card-heading-icon" aria-hidden="true"></i>
+                  </div>
+                  <div class="table-responsive">
+                    <table class="table table-striped table-bordered mb-0">
+                      <thead>
+                        <tr>
+                          <th class="font-12 font-500 border-left-0 px-4 border-top-0 border-bottom-0">
+                            <strong class="w-100 d-block mb-3"></strong>
+                            <div class="text d-flex align-items-center justify-content-between text-light-grey">
+                              <em>Year</em>
+                            </div>
+                          </th>
+                          <th class="font-12 font-500 px-4 border-top-0 border-bottom-0">
+                            <strong class="w-100 d-block mb-3">Severity 1</strong>
+                            <div class="text d-flex align-items-center justify-content-between text-light-grey">
+                              <em>Total<br>Incidents</em>
+                              <em>MTTR</em>
+                            </div>
+                          </th>
+                          <th class="font-12 font-500 px-4 border-top-0 border-bottom-0">
+                            <strong class="w-100 d-block mb-3">Severity 1</strong>
+                            <div class="text d-flex align-items-center justify-content-between text-light-grey">
+                              <em>Total<br>Incidents</em>
+                              <em>MTTR</em>
+                            </div>
+                          </th>
+                          <th class="font-12 font-500 px-4 border-top-0 border-bottom-0">
+                            <strong class="w-100 d-block mb-3">Severity 1</strong>
+                            <div class="text d-flex align-items-center justify-content-between text-light-grey">
+                              <em>Total<br>Incidents</em>
+                              <em>MTTR</em>
+                            </div>
+                          </th>
+                          <th class="font-12 font-500 px-4 border-top-0 border-bottom-0 border-right-0">
+                            <strong class="w-100 d-block mb-3">Severity 1</strong>
+                            <div class="text d-flex align-items-center justify-content-between text-light-grey">
+                              <em>Total<br>Incidents</em>
+                              <em>MTTR</em>
+                            </div>
+                          </th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td class="font-12 border-left-0 px-4">2015</td>
+                          <td class="font-12 px-4">
+                            <div class="text d-flex align-items-center justify-content-between">
+                              <em>8</em>
+                              <em>15 Min</em>
+                            </div>
+                          </td>
+                          <td class="font-12 px-4">
+                            <div class="text d-flex align-items-center justify-content-between">
+                              <em>8</em>
+                              <em>15 Min</em>
+                            </div>
+                          </td>
+                          <td class="font-12 px-4">
+                            <div class="text d-flex align-items-center justify-content-between">
+                              <em>8</em>
+                              <em>15 Min</em>
+                            </div>
+                          </td>
+                          <td class="font-12 border-right-0 px-4">
+                            <div class="text d-flex align-items-center justify-content-between">
+                              <em>8</em>
+                              <em>15 Min</em>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td class="font-12 border-left-0 px-4">2015</td>
+                          <td class="font-12 px-4">
+                            <div class="text d-flex align-items-center justify-content-between">
+                              <em>8</em>
+                              <em>15 Min</em>
+                            </div>
+                          </td>
+                          <td class="font-12 px-4">
+                            <div class="text d-flex align-items-center justify-content-between">
+                              <em>8</em>
+                              <em>15 Min</em>
+                            </div>
+                          </td>
+                          <td class="font-12 px-4">
+                            <div class="text d-flex align-items-center justify-content-between">
+                              <em>8</em>
+                              <em>15 Min</em>
+                            </div>
+                          </td>
+                          <td class="font-12 border-right-0 px-4">
+                            <div class="text d-flex align-items-center justify-content-between">
+                              <em>8</em>
+                              <em>15 Min</em>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td class="font-12 border-left-0 px-4">2015</td>
+                          <td class="font-12 px-4">
+                            <div class="text d-flex align-items-center justify-content-between">
+                              <em>8</em>
+                              <em>15 Min</em>
+                            </div>
+                          </td>
+                          <td class="font-12 px-4">
+                            <div class="text d-flex align-items-center justify-content-between">
+                              <em>8</em>
+                              <em>15 Min</em>
+                            </div>
+                          </td>
+                          <td class="font-12 px-4">
+                            <div class="text d-flex align-items-center justify-content-between">
+                              <em>8</em>
+                              <em>15 Min</em>
+                            </div>
+                          </td>
+                          <td class="font-12 border-right-0 px-4">
+                            <div class="text d-flex align-items-center justify-content-between">
+                              <em>8</em>
+                              <em>15 Min</em>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td class="font-12 border-left-0 px-4">2015</td>
+                          <td class="font-12 px-4">
+                            <div class="text d-flex align-items-center justify-content-between">
+                              <em>8</em>
+                              <em>15 Min</em>
+                            </div>
+                          </td>
+                          <td class="font-12 px-4">
+                            <div class="text d-flex align-items-center justify-content-between">
+                              <em>8</em>
+                              <em>15 Min</em>
+                            </div>
+                          </td>
+                          <td class="font-12 px-4">
+                            <div class="text d-flex align-items-center justify-content-between">
+                              <em>8</em>
+                              <em>15 Min</em>
+                            </div>
+                          </td>
+                          <td class="font-12 border-right-0 px-4">
+                            <div class="text d-flex align-items-center justify-content-between">
+                              <em>8</em>
+                              <em>15 Min</em>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td class="font-12 border-left-0 px-4">2015</td>
+                          <td class="font-12 px-4">
+                            <div class="text d-flex align-items-center justify-content-between">
+                              <em>8</em>
+                              <em>15 Min</em>
+                            </div>
+                          </td>
+                          <td class="font-12 px-4">
+                            <div class="text d-flex align-items-center justify-content-between">
+                              <em>8</em>
+                              <em>15 Min</em>
+                            </div>
+                          </td>
+                          <td class="font-12 px-4">
+                            <div class="text d-flex align-items-center justify-content-between">
+                              <em>8</em>
+                              <em>15 Min</em>
+                            </div>
+                          </td>
+                          <td class="font-12 border-right-0 px-4">
+                            <div class="text d-flex align-items-center justify-content-between">
+                              <em>8</em>
+                              <em>15 Min</em>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td class="font-12 border-left-0 px-4">2015</td>
+                          <td class="font-12 px-4">
+                            <div class="text d-flex align-items-center justify-content-between">
+                              <em>8</em>
+                              <em>15 Min</em>
+                            </div>
+                          </td>
+                          <td class="font-12 px-4">
+                            <div class="text d-flex align-items-center justify-content-between">
+                              <em>8</em>
+                              <em>15 Min</em>
+                            </div>
+                          </td>
+                          <td class="font-12 px-4">
+                            <div class="text d-flex align-items-center justify-content-between">
+                              <em>8</em>
+                              <em>15 Min</em>
+                            </div>
+                          </td>
+                          <td class="font-12 border-right-0 px-4">
+                            <div class="text d-flex align-items-center justify-content-between">
+                              <em>8</em>
+                              <em>15 Min</em>
+                            </div>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div id="section6">
+            <div class="row mt-4">
+              <div class="col-md-12">
+                <div class="card border-0 shadow-sm d-block">
+                  <div class="row px-4">
+                    <div class="col-md-6 text py-4">
+                      <h2 class="card-heading font-18 font-600 py-2">Dependency Map</h2>
+                    </div>
+                    <div class="col-md-6 text py-4 text-right">
+                      <button class="btn btn-dark btn-sm py-2 bg-black">
+                        <i class="fa fa-expand"></i>
+                        Expand
+                      </button>
+                      <i class="fa fa-ellipsis-v mx-1 text-right card-heading-icon" aria-hidden="true"></i>
+                    </div>
+                  </div>
+                  <div class="dependency-map px-4">
+                    <ul class="nav nav-tabs mb-5 border-0" id="myTab" role="tablist">
+                      <li class="nav-item mr-1">
+                        <a class="nav-link active font-12 text-black" id="first-tab" data-toggle="tab" href="#first" role="tab" aria-controls="first" aria-selected="false">All 3rd Parties</a>
+                      </li>
+                      <li class="nav-item mr-1">
+                        <a class="nav-link font-12 text-black" id="two-tab" data-toggle="tab" href="#two" role="tab" aria-controls="two" aria-selected="false">All 4th Parties</a>
+                      </li>
+                      <li class="nav-item mr-1">
+                        <a class="nav-link font-12 text-black" id="three-tab" data-toggle="tab" href="#three" role="tab" aria-controls="three" aria-selected="false">All Bank Hosted</a>
+                      </li>
+                      <li class="nav-item mr-1">
+                        <a class="nav-link font-12 text-black" id="four-tab" data-toggle="tab" href="#four" role="tab" aria-controls="four" aria-selected="true">Supplier Name</a>
+                      </li>
+                      <li class="nav-item mr-1">
+                        <a class="nav-link font-12 text-black" id="five-tab" data-toggle="tab" href="#five" role="tab" aria-controls="five" aria-selected="false">Supplier Name</a>
+                      </li>
+                      <li class="nav-item mr-1">
+                        <a class="nav-link font-12 text-black" id="six-tab" data-toggle="tab" href="#six" role="tab" aria-controls="six" aria-selected="false">Supplier Name</a>
+                      </li>
+                      <li class="nav-item mr-1">
+                        <a class="nav-link font-12 text-black" id="seven-tab" data-toggle="tab" href="#seven" role="tab" aria-controls="seven" aria-selected="false">More</a>
+                      </li>
+                    </ul>
+                    <div class="tab-content" id="myTabContent">
+                      <div class="tab-pane fade show active" id="one" role="tabpanel" aria-labelledby="one-tab">
+                        <div class="map-boxes">
+                          <div class="box-1 mr-3 mb-4 w-15">
+                            <div class="heading bg-body-color d-flex align-items-center justify-content-center mb-2">
+                              <h6 class="font-11 py-2 px-3 font-400">Personal/Business</h6>
+                            </div>
+                            <div class="map-text font-11">
+                              <p class="pl-2 border-left-green">Provider</p>
+                            </div>
+                          </div>
+                          <div class="box-1 mr-3 mb-4 w-15">
+                            <div class="heading bg-body-color d-flex align-items-center justify-content-center mb-2">
+                              <h6 class="font-11 py-2 px-3 font-400">Phone Number</h6>
+                            </div>
+                            <div class="map-text font-11">
+                              <p class="pl-2 border-left-green mb-2">Provider</p>
+                              <p class="pl-2 border-left-black mb-2">Provider</p>
+                              <p class="pl-2 border-left-blue mb-2">Provider</p>
+                              <p class="pl-2 border-left-black mb-2">Provider</p>
+                            </div>
+                          </div>
+                          <div class="box-1 mr-3 mb-4 w-15">
+                            <div class="pink-bg heading bg-body-color d-flex align-items-center justify-content-center mb-2">
+                              <h6 class="font-11 py-2 px-3 font-400">SMS Verify</h6>
+                            </div>
+                            <div class="map-text font-11">
+                              <p class="pink-text pl-2 border-left-green">Provider</p>
+                            </div>
+                          </div>
+                          <div class="box-1 mr-3 mb-4 w-15">
+                            <div class="heading bg-body-color d-flex align-items-center justify-content-center mb-2">
+                              <h6 class="font-11 py-2 px-3 font-400">Personal Information</h6>
+                            </div>
+                            <div class="map-text font-11">
+                              <p class="pl-2 border-left-green mb-2">Provider</p>
+                              <p class="pl-2 border-left-blue mb-2">Provider</p>
+                              <p class="pl-2 border-left-black mb-2">Provider</p>
+                            </div>
+                          </div>
+                          <div class="box-1 mr-3 mb-4 w-15">
+                            <div class="pink-bg heading bg-body-color d-flex align-items-center justify-content-center mb-2">
+                              <h6 class="font-11 py-2 px-3 font-400">Facial Scan</h6>
+                            </div>
+                            <div class="map-text font-11">
+                              <p class="pink-text pl-2 border-left-green">Provider</p>
+                            </div>
+                          </div>
+                          <div class="box-1 mr-3 mb-4 w-15">
+                            <div class="pink-bg heading bg-body-color d-flex align-items-center justify-content-center mb-2">
+                              <h6 class="font-11 py-2 px-3 font-400">KYC Check</h6>
+                            </div>
+                            <div class="map-text font-11">
+                              <p class="pl-2 border-left-green mb-2">Provider</p>
+                              <p class="pink-text pl-2 border-left-black mb-2">Provider</p>
+                              <p class="pl-2 border-left-blue mb-2">Provider</p>
+                            </div>
+                          </div>
+                          <div class="box-1 mr-3 mb-4 w-15">
+                            <div class="heading bg-body-color d-flex align-items-center justify-content-center mb-2">
+                              <h6 class="font-11 py-2 px-3 font-400">Address Check</h6>
+                            </div>
+                            <div class="map-text font-11">
+                              <p class="pl-2 border-left-green">Provider</p>
+                            </div>
+                          </div>
+                          <div class="box-1 mr-3 mb-4 w-15">
+                            <div class="heading bg-body-color d-flex align-items-center justify-content-center mb-2">
+                              <h6 class="font-11 py-2 px-3 font-400">Personal Business</h6>
+                            </div>
+                            <div class="map-text font-11">
+                              <p class="pl-2 border-left-green">Provider</p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="tab-pane fade" id="two" role="tabpanel" aria-labelledby="two-tab">
+                        <div class="map-boxes">
+                          <div class="box-1 mr-3 mb-4 w-15">
+                            <div class="heading bg-body-color d-flex align-items-center justify-content-center mb-2">
+                              <h6 class="font-11 py-2 px-3 font-400">Personal/Business</h6>
+                            </div>
+                            <div class="map-text font-11">
+                              <p class="pl-2 border-left-green">Provider</p>
+                            </div>
+                          </div>
+                          <div class="box-1 mr-3 mb-4 w-15">
+                            <div class="heading bg-body-color d-flex align-items-center justify-content-center mb-2">
+                              <h6 class="font-11 py-2 px-3 font-400">Phone Number</h6>
+                            </div>
+                            <div class="map-text font-11">
+                              <p class="pl-2 border-left-green mb-2">Provider</p>
+                              <p class="pl-2 border-left-black mb-2">Provider</p>
+                              <p class="pl-2 border-left-blue mb-2">Provider</p>
+                              <p class="pl-2 border-left-black mb-2">Provider</p>
+                            </div>
+                          </div>
+                          <div class="box-1 mr-3 mb-4 w-15">
+                            <div class="pink-bg heading bg-body-color d-flex align-items-center justify-content-center mb-2">
+                              <h6 class="font-11 py-2 px-3 font-400">SMS Verify</h6>
+                            </div>
+                            <div class="map-text font-11">
+                              <p class="pink-text pl-2 border-left-green">Provider</p>
+                            </div>
+                          </div>
+                          <div class="box-1 mr-3 mb-4 w-15">
+                            <div class="heading bg-body-color d-flex align-items-center justify-content-center mb-2">
+                              <h6 class="font-11 py-2 px-3 font-400">Personal Information</h6>
+                            </div>
+                            <div class="map-text font-11">
+                              <p class="pl-2 border-left-green mb-2">Provider</p>
+                              <p class="pl-2 border-left-blue mb-2">Provider</p>
+                              <p class="pl-2 border-left-black mb-2">Provider</p>
+                            </div>
+                          </div>
+                          <div class="box-1 mr-3 mb-4 w-15">
+                            <div class="pink-bg heading bg-body-color d-flex align-items-center justify-content-center mb-2">
+                              <h6 class="font-11 py-2 px-3 font-400">Facial Scan</h6>
+                            </div>
+                            <div class="map-text font-11">
+                              <p class="pink-text pl-2 border-left-green">Provider</p>
+                            </div>
+                          </div>
+                          <div class="box-1 mr-3 mb-4 w-15">
+                            <div class="pink-bg heading bg-body-color d-flex align-items-center justify-content-center mb-2">
+                              <h6 class="font-11 py-2 px-3 font-400">KYC Check</h6>
+                            </div>
+                            <div class="map-text font-11">
+                              <p class="pl-2 border-left-green mb-2">Provider</p>
+                              <p class="pink-text pl-2 border-left-black mb-2">Provider</p>
+                              <p class="pl-2 border-left-blue mb-2">Provider</p>
+                            </div>
+                          </div>
+                          <div class="box-1 mr-3 mb-4 w-15">
+                            <div class="heading bg-body-color d-flex align-items-center justify-content-center mb-2">
+                              <h6 class="font-11 py-2 px-3 font-400">Address Check</h6>
+                            </div>
+                            <div class="map-text font-11">
+                              <p class="pl-2 border-left-green">Provider</p>
+                            </div>
+                          </div>
+                          <div class="box-1 mr-3 mb-4 w-15">
+                            <div class="heading bg-body-color d-flex align-items-center justify-content-center mb-2">
+                              <h6 class="font-11 py-2 px-3 font-400">Personal Business</h6>
+                            </div>
+                            <div class="map-text font-11">
+                              <p class="pl-2 border-left-green">Provider</p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="tab-pane fade" id="three" role="tabpanel" aria-labelledby="three-tab">
+                        <div class="map-boxes">
+                          <div class="box-1 mr-3 mb-4 w-15">
+                            <div class="heading bg-body-color d-flex align-items-center justify-content-center mb-2">
+                              <h6 class="font-11 py-2 px-3 font-400">Personal/Business</h6>
+                            </div>
+                            <div class="map-text font-11">
+                              <p class="pl-2 border-left-green">Provider</p>
+                            </div>
+                          </div>
+                          <div class="box-1 mr-3 mb-4 w-15">
+                            <div class="heading bg-body-color d-flex align-items-center justify-content-center mb-2">
+                              <h6 class="font-11 py-2 px-3 font-400">Phone Number</h6>
+                            </div>
+                            <div class="map-text font-11">
+                              <p class="pl-2 border-left-green mb-2">Provider</p>
+                              <p class="pl-2 border-left-black mb-2">Provider</p>
+                              <p class="pl-2 border-left-blue mb-2">Provider</p>
+                              <p class="pl-2 border-left-black mb-2">Provider</p>
+                            </div>
+                          </div>
+                          <div class="box-1 mr-3 mb-4 w-15">
+                            <div class="pink-bg heading bg-body-color d-flex align-items-center justify-content-center mb-2">
+                              <h6 class="font-11 py-2 px-3 font-400">SMS Verify</h6>
+                            </div>
+                            <div class="map-text font-11">
+                              <p class="pink-text pl-2 border-left-green">Provider</p>
+                            </div>
+                          </div>
+                          <div class="box-1 mr-3 mb-4 w-15">
+                            <div class="heading bg-body-color d-flex align-items-center justify-content-center mb-2">
+                              <h6 class="font-11 py-2 px-3 font-400">Personal Information</h6>
+                            </div>
+                            <div class="map-text font-11">
+                              <p class="pl-2 border-left-green mb-2">Provider</p>
+                              <p class="pl-2 border-left-blue mb-2">Provider</p>
+                              <p class="pl-2 border-left-black mb-2">Provider</p>
+                            </div>
+                          </div>
+                          <div class="box-1 mr-3 mb-4 w-15">
+                            <div class="pink-bg heading bg-body-color d-flex align-items-center justify-content-center mb-2">
+                              <h6 class="font-11 py-2 px-3 font-400">Facial Scan</h6>
+                            </div>
+                            <div class="map-text font-11">
+                              <p class="pink-text pl-2 border-left-green">Provider</p>
+                            </div>
+                          </div>
+                          <div class="box-1 mr-3 mb-4 w-15">
+                            <div class="pink-bg heading bg-body-color d-flex align-items-center justify-content-center mb-2">
+                              <h6 class="font-11 py-2 px-3 font-400">KYC Check</h6>
+                            </div>
+                            <div class="map-text font-11">
+                              <p class="pl-2 border-left-green mb-2">Provider</p>
+                              <p class="pink-text pl-2 border-left-black mb-2">Provider</p>
+                              <p class="pl-2 border-left-blue mb-2">Provider</p>
+                            </div>
+                          </div>
+                          <div class="box-1 mr-3 mb-4 w-15">
+                            <div class="heading bg-body-color d-flex align-items-center justify-content-center mb-2">
+                              <h6 class="font-11 py-2 px-3 font-400">Address Check</h6>
+                            </div>
+                            <div class="map-text font-11">
+                              <p class="pl-2 border-left-green">Provider</p>
+                            </div>
+                          </div>
+                          <div class="box-1 mr-3 mb-4 w-15">
+                            <div class="heading bg-body-color d-flex align-items-center justify-content-center mb-2">
+                              <h6 class="font-11 py-2 px-3 font-400">Personal Business</h6>
+                            </div>
+                            <div class="map-text font-11">
+                              <p class="pl-2 border-left-green">Provider</p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="tab-pane fade" id="four" role="tabpanel" aria-labelledby="four-tab">
+                        <div class="map-boxes">
+                          <div class="box-1 mr-3 mb-4 w-15">
+                            <div class="heading bg-body-color d-flex align-items-center justify-content-center mb-2">
+                              <h6 class="font-11 py-2 px-3 font-400">Personal/Business</h6>
+                            </div>
+                            <div class="map-text font-11">
+                              <p class="pl-2 border-left-green">Provider</p>
+                            </div>
+                          </div>
+                          <div class="box-1 mr-3 mb-4 w-15">
+                            <div class="heading bg-body-color d-flex align-items-center justify-content-center mb-2">
+                              <h6 class="font-11 py-2 px-3 font-400">Phone Number</h6>
+                            </div>
+                            <div class="map-text font-11">
+                              <p class="pl-2 border-left-green mb-2">Provider</p>
+                              <p class="pl-2 border-left-black mb-2">Provider</p>
+                              <p class="pl-2 border-left-blue mb-2">Provider</p>
+                              <p class="pl-2 border-left-black mb-2">Provider</p>
+                            </div>
+                          </div>
+                          <div class="box-1 mr-3 mb-4 w-15">
+                            <div class="pink-bg heading bg-body-color d-flex align-items-center justify-content-center mb-2">
+                              <h6 class="font-11 py-2 px-3 font-400">SMS Verify</h6>
+                            </div>
+                            <div class="map-text font-11">
+                              <p class="pink-text pl-2 border-left-green">Provider</p>
+                            </div>
+                          </div>
+                          <div class="box-1 mr-3 mb-4 w-15">
+                            <div class="heading bg-body-color d-flex align-items-center justify-content-center mb-2">
+                              <h6 class="font-11 py-2 px-3 font-400">Personal Information</h6>
+                            </div>
+                            <div class="map-text font-11">
+                              <p class="pl-2 border-left-green mb-2">Provider</p>
+                              <p class="pl-2 border-left-blue mb-2">Provider</p>
+                              <p class="pl-2 border-left-black mb-2">Provider</p>
+                            </div>
+                          </div>
+                          <div class="box-1 mr-3 mb-4 w-15">
+                            <div class="pink-bg heading bg-body-color d-flex align-items-center justify-content-center mb-2">
+                              <h6 class="font-11 py-2 px-3 font-400">Facial Scan</h6>
+                            </div>
+                            <div class="map-text font-11">
+                              <p class="pink-text pl-2 border-left-green">Provider</p>
+                            </div>
+                          </div>
+                          <div class="box-1 mr-3 mb-4 w-15">
+                            <div class="pink-bg heading bg-body-color d-flex align-items-center justify-content-center mb-2">
+                              <h6 class="font-11 py-2 px-3 font-400">KYC Check</h6>
+                            </div>
+                            <div class="map-text font-11">
+                              <p class="pl-2 border-left-green mb-2">Provider</p>
+                              <p class="pink-text pl-2 border-left-black mb-2">Provider</p>
+                              <p class="pl-2 border-left-blue mb-2">Provider</p>
+                            </div>
+                          </div>
+                          <div class="box-1 mr-3 mb-4 w-15">
+                            <div class="heading bg-body-color d-flex align-items-center justify-content-center mb-2">
+                              <h6 class="font-11 py-2 px-3 font-400">Address Check</h6>
+                            </div>
+                            <div class="map-text font-11">
+                              <p class="pl-2 border-left-green">Provider</p>
+                            </div>
+                          </div>
+                          <div class="box-1 mr-3 mb-4 w-15">
+                            <div class="heading bg-body-color d-flex align-items-center justify-content-center mb-2">
+                              <h6 class="font-11 py-2 px-3 font-400">Personal Business</h6>
+                            </div>
+                            <div class="map-text font-11">
+                              <p class="pl-2 border-left-green">Provider</p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="tab-pane fade" id="five" role="tabpanel" aria-labelledby="five-tab">
+                        <div class="map-boxes">
+                          <div class="box-1 mr-3 mb-4 w-15">
+                            <div class="heading bg-body-color d-flex align-items-center justify-content-center mb-2">
+                              <h6 class="font-11 py-2 px-3 font-400">Personal/Business</h6>
+                            </div>
+                            <div class="map-text font-11">
+                              <p class="pl-2 border-left-green">Provider</p>
+                            </div>
+                          </div>
+                          <div class="box-1 mr-3 mb-4 w-15">
+                            <div class="heading bg-body-color d-flex align-items-center justify-content-center mb-2">
+                              <h6 class="font-11 py-2 px-3 font-400">Phone Number</h6>
+                            </div>
+                            <div class="map-text font-11">
+                              <p class="pl-2 border-left-green mb-2">Provider</p>
+                              <p class="pl-2 border-left-black mb-2">Provider</p>
+                              <p class="pl-2 border-left-blue mb-2">Provider</p>
+                              <p class="pl-2 border-left-black mb-2">Provider</p>
+                            </div>
+                          </div>
+                          <div class="box-1 mr-3 mb-4 w-15">
+                            <div class="pink-bg heading bg-body-color d-flex align-items-center justify-content-center mb-2">
+                              <h6 class="font-11 py-2 px-3 font-400">SMS Verify</h6>
+                            </div>
+                            <div class="map-text font-11">
+                              <p class="pink-text pl-2 border-left-green">Provider</p>
+                            </div>
+                          </div>
+                          <div class="box-1 mr-3 mb-4 w-15">
+                            <div class="heading bg-body-color d-flex align-items-center justify-content-center mb-2">
+                              <h6 class="font-11 py-2 px-3 font-400">Personal Information</h6>
+                            </div>
+                            <div class="map-text font-11">
+                              <p class="pl-2 border-left-green mb-2">Provider</p>
+                              <p class="pl-2 border-left-blue mb-2">Provider</p>
+                              <p class="pl-2 border-left-black mb-2">Provider</p>
+                            </div>
+                          </div>
+                          <div class="box-1 mr-3 mb-4 w-15">
+                            <div class="pink-bg heading bg-body-color d-flex align-items-center justify-content-center mb-2">
+                              <h6 class="font-11 py-2 px-3 font-400">Facial Scan</h6>
+                            </div>
+                            <div class="map-text font-11">
+                              <p class="pink-text pl-2 border-left-green">Provider</p>
+                            </div>
+                          </div>
+                          <div class="box-1 mr-3 mb-4 w-15">
+                            <div class="pink-bg heading bg-body-color d-flex align-items-center justify-content-center mb-2">
+                              <h6 class="font-11 py-2 px-3 font-400">KYC Check</h6>
+                            </div>
+                            <div class="map-text font-11">
+                              <p class="pl-2 border-left-green mb-2">Provider</p>
+                              <p class="pink-text pl-2 border-left-black mb-2">Provider</p>
+                              <p class="pl-2 border-left-blue mb-2">Provider</p>
+                            </div>
+                          </div>
+                          <div class="box-1 mr-3 mb-4 w-15">
+                            <div class="heading bg-body-color d-flex align-items-center justify-content-center mb-2">
+                              <h6 class="font-11 py-2 px-3 font-400">Address Check</h6>
+                            </div>
+                            <div class="map-text font-11">
+                              <p class="pl-2 border-left-green">Provider</p>
+                            </div>
+                          </div>
+                          <div class="box-1 mr-3 mb-4 w-15">
+                            <div class="heading bg-body-color d-flex align-items-center justify-content-center mb-2">
+                              <h6 class="font-11 py-2 px-3 font-400">Personal Business</h6>
+                            </div>
+                            <div class="map-text font-11">
+                              <p class="pl-2 border-left-green">Provider</p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="tab-pane fade" id="six" role="tabpanel" aria-labelledby="six-tab">
+                        <div class="map-boxes">
+                          <div class="box-1 mr-3 mb-4 w-15">
+                            <div class="heading bg-body-color d-flex align-items-center justify-content-center mb-2">
+                              <h6 class="font-11 py-2 px-3 font-400">Personal/Business</h6>
+                            </div>
+                            <div class="map-text font-11">
+                              <p class="pl-2 border-left-green">Provider</p>
+                            </div>
+                          </div>
+                          <div class="box-1 mr-3 mb-4 w-15">
+                            <div class="heading bg-body-color d-flex align-items-center justify-content-center mb-2">
+                              <h6 class="font-11 py-2 px-3 font-400">Phone Number</h6>
+                            </div>
+                            <div class="map-text font-11">
+                              <p class="pl-2 border-left-green mb-2">Provider</p>
+                              <p class="pl-2 border-left-black mb-2">Provider</p>
+                              <p class="pl-2 border-left-blue mb-2">Provider</p>
+                              <p class="pl-2 border-left-black mb-2">Provider</p>
+                            </div>
+                          </div>
+                          <div class="box-1 mr-3 mb-4 w-15">
+                            <div class="pink-bg heading bg-body-color d-flex align-items-center justify-content-center mb-2">
+                              <h6 class="font-11 py-2 px-3 font-400">SMS Verify</h6>
+                            </div>
+                            <div class="map-text font-11">
+                              <p class="pink-text pl-2 border-left-green">Provider</p>
+                            </div>
+                          </div>
+                          <div class="box-1 mr-3 mb-4 w-15">
+                            <div class="heading bg-body-color d-flex align-items-center justify-content-center mb-2">
+                              <h6 class="font-11 py-2 px-3 font-400">Personal Information</h6>
+                            </div>
+                            <div class="map-text font-11">
+                              <p class="pl-2 border-left-green mb-2">Provider</p>
+                              <p class="pl-2 border-left-blue mb-2">Provider</p>
+                              <p class="pl-2 border-left-black mb-2">Provider</p>
+                            </div>
+                          </div>
+                          <div class="box-1 mr-3 mb-4 w-15">
+                            <div class="pink-bg heading bg-body-color d-flex align-items-center justify-content-center mb-2">
+                              <h6 class="font-11 py-2 px-3 font-400">Facial Scan</h6>
+                            </div>
+                            <div class="map-text font-11">
+                              <p class="pink-text pl-2 border-left-green">Provider</p>
+                            </div>
+                          </div>
+                          <div class="box-1 mr-3 mb-4 w-15">
+                            <div class="pink-bg heading bg-body-color d-flex align-items-center justify-content-center mb-2">
+                              <h6 class="font-11 py-2 px-3 font-400">KYC Check</h6>
+                            </div>
+                            <div class="map-text font-11">
+                              <p class="pl-2 border-left-green mb-2">Provider</p>
+                              <p class="pink-text pl-2 border-left-black mb-2">Provider</p>
+                              <p class="pl-2 border-left-blue mb-2">Provider</p>
+                            </div>
+                          </div>
+                          <div class="box-1 mr-3 mb-4 w-15">
+                            <div class="heading bg-body-color d-flex align-items-center justify-content-center mb-2">
+                              <h6 class="font-11 py-2 px-3 font-400">Address Check</h6>
+                            </div>
+                            <div class="map-text font-11">
+                              <p class="pl-2 border-left-green">Provider</p>
+                            </div>
+                          </div>
+                          <div class="box-1 mr-3 mb-4 w-15">
+                            <div class="heading bg-body-color d-flex align-items-center justify-content-center mb-2">
+                              <h6 class="font-11 py-2 px-3 font-400">Personal Business</h6>
+                            </div>
+                            <div class="map-text font-11">
+                              <p class="pl-2 border-left-green">Provider</p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="tab-pane fade" id="seven" role="tabpanel" aria-labelledby="seven-tab">
+                        <div class="map-boxes">
+                          <div class="box-1 mr-3 mb-4 w-15">
+                            <div class="heading bg-body-color d-flex align-items-center justify-content-center mb-2">
+                              <h6 class="font-11 py-2 px-3 font-400">Personal/Business</h6>
+                            </div>
+                            <div class="map-text font-11">
+                              <p class="pl-2 border-left-green">Provider</p>
+                            </div>
+                          </div>
+                          <div class="box-1 mr-3 mb-4 w-15">
+                            <div class="heading bg-body-color d-flex align-items-center justify-content-center mb-2">
+                              <h6 class="font-11 py-2 px-3 font-400">Phone Number</h6>
+                            </div>
+                            <div class="map-text font-11">
+                              <p class="pl-2 border-left-green mb-2">Provider</p>
+                              <p class="pl-2 border-left-black mb-2">Provider</p>
+                              <p class="pl-2 border-left-blue mb-2">Provider</p>
+                              <p class="pl-2 border-left-black mb-2">Provider</p>
+                            </div>
+                          </div>
+                          <div class="box-1 mr-3 mb-4 w-15">
+                            <div class="pink-bg heading bg-body-color d-flex align-items-center justify-content-center mb-2">
+                              <h6 class="font-11 py-2 px-3 font-400">SMS Verify</h6>
+                            </div>
+                            <div class="map-text font-11">
+                              <p class="pink-text pl-2 border-left-green">Provider</p>
+                            </div>
+                          </div>
+                          <div class="box-1 mr-3 mb-4 w-15">
+                            <div class="heading bg-body-color d-flex align-items-center justify-content-center mb-2">
+                              <h6 class="font-11 py-2 px-3 font-400">Personal Information</h6>
+                            </div>
+                            <div class="map-text font-11">
+                              <p class="pl-2 border-left-green mb-2">Provider</p>
+                              <p class="pl-2 border-left-blue mb-2">Provider</p>
+                              <p class="pl-2 border-left-black mb-2">Provider</p>
+                            </div>
+                          </div>
+                          <div class="box-1 mr-3 mb-4 w-15">
+                            <div class="pink-bg heading bg-body-color d-flex align-items-center justify-content-center mb-2">
+                              <h6 class="font-11 py-2 px-3 font-400">Facial Scan</h6>
+                            </div>
+                            <div class="map-text font-11">
+                              <p class="pink-text pl-2 border-left-green">Provider</p>
+                            </div>
+                          </div>
+                          <div class="box-1 mr-3 mb-4 w-15">
+                            <div class="pink-bg heading bg-body-color d-flex align-items-center justify-content-center mb-2">
+                              <h6 class="font-11 py-2 px-3 font-400">KYC Check</h6>
+                            </div>
+                            <div class="map-text font-11">
+                              <p class="pl-2 border-left-green mb-2">Provider</p>
+                              <p class="pink-text pl-2 border-left-black mb-2">Provider</p>
+                              <p class="pl-2 border-left-blue mb-2">Provider</p>
+                            </div>
+                          </div>
+                          <div class="box-1 mr-3 mb-4 w-15">
+                            <div class="heading bg-body-color d-flex align-items-center justify-content-center mb-2">
+                              <h6 class="font-11 py-2 px-3 font-400">Address Check</h6>
+                            </div>
+                            <div class="map-text font-11">
+                              <p class="pl-2 border-left-green">Provider</p>
+                            </div>
+                          </div>
+                          <div class="box-1 mr-3 mb-4 w-15">
+                            <div class="heading bg-body-color d-flex align-items-center justify-content-center mb-2">
+                              <h6 class="font-11 py-2 px-3 font-400">Personal Business</h6>
+                            </div>
+                            <div class="map-text font-11">
+                              <p class="pl-2 border-left-green">Provider</p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="helping-points px-3 pt-0 py-4 d-flex align-items-center justify-content-start">
+                    <div class="black mr-3">
+                      <div class="box-1">
+                        <div class="map-text font-11">
+                          <p class="pl-2 border-left-green">Bank Hosted System</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="blue mr-3">
+                      <div class="box-1">
+                        <div class="map-text font-11">
+                          <p class="pl-2 border-left-black">3rd Party</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="green mr-3">
+                      <div class="box-1">
+                        <div class="map-text font-11">
+                          <p class="pl-2 border-left-blue">4th Party</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div id="section7">
+            <div class="row mt-4">
+              <div class="col-md-12">
+                <div class="card border-0 shadow-sm">
+                  <div class="text px-4 py-4 d-flex justify-content-between align-items-center">
+                    <h2 class="card-heading font-18 font-600 text-left">Historical Incident Data</h2>
+                    <i class="fa fa-ellipsis-v mx-1 text-right card-heading-icon" aria-hidden="true"></i>
+                  </div>
+                  <div class="dropdowns px-4">
+                    <div class="row">
+                      <div class="col-md-12">
+                        <div class="dropdown custom-dropdown mb-3">
+                          <h6 class="mb-2 font-12">Selected Systems</h6>
+                          <button class="border-0 rounded py-2 px-3 bg-body-color dropdown-toggle w-100 shadow-none mb-3" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <h6 class="d-flex flex-column align-items-start text-capitalize font-12 font-xxl-14">
+                              <span class="font-500 text-capitalize">countries</span>                        </h6>
+                          </button>
+                          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" style="">
+                            <div class="form-group dropdown-item pl-3 m-0">
+                              <label for="ch39" class="custom-checkbox d-flex m-0">
+                                <span class="font-12 text-black text-capitalize">View All</span>
+                                <input type="checkbox" class="form-control" id="ch39">
+                                <span class="transparent-checkmark"></span>
+                              </label>                        
+                            </div>
+                            <div class="form-group dropdown-item pl-3 m-0">
+                              <label for="ch69" class="custom-checkbox d-flex m-0">
+                                <span class="font-12 text-black text-capitalize">
+                                <i class="flag belgium"></i>
+                                belgium</span>
+                                <input type="checkbox" class="form-control" id="ch69">
+                                <span class="transparent-checkmark"></span>
+                              </label>                        
+                            </div>
+                            <div class="form-group dropdown-item pl-3 m-0">
+                              <label for="ch59" class="custom-checkbox d-flex m-0">
+                                <span class="font-12 text-black text-capitalize">
+                                <i class="flag france"></i>
+                                france</span>
+                                <input type="checkbox" class="form-control" id="ch59">
+                                <span class="transparent-checkmark"></span>
+                              </label>                        
+                            </div>
+                            <div class="form-group dropdown-item pl-3 m-0">
+                              <label for="ch79" class="custom-checkbox d-flex m-0">
+                                <span class="font-12 text-black text-capitalize">
+                                <i class="flag germany"></i>
+                                germany</span>
+                                <input type="checkbox" class="form-control" id="ch79">
+                                <span class="transparent-checkmark"></span>
+                              </label>                        
+                            </div>
+                            <div class="form-group dropdown-item pl-3 m-0">
+                              <label for="ch79" class="custom-checkbox d-flex m-0">
+                                <span class="font-12 text-black text-capitalize">
+                                <i class="flag spain"></i>
+                                spain</span>
+                                <input type="checkbox" class="form-control" id="ch79">
+                                <span class="transparent-checkmark"></span>
+                              </label>                        
+                            </div>
+                            <div class="form-group dropdown-item pl-3 m-0">
+                              <label for="ch79" class="custom-checkbox d-flex m-0">
+                                <span class="font-12 text-black text-capitalize">
+                                <i class="flag uk"></i>
+                                UK</span>
+                                <input type="checkbox" class="form-control" id="ch79">
+                                <span class="transparent-checkmark"></span>
+                              </label>                        
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-4">
+                        <div class="dropdown custom-dropdown mb-3">
+                          <h6 class="mb-2 font-12">Stage in Flow</h6>
+                          <button class="border-0 rounded py-2 px-3 bg-body-color dropdown-toggle w-100 shadow-none mb-3" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <h6 class="d-flex flex-column align-items-start text-capitalize font-12 font-xxl-14">
+                              <span class="font-500 text-capitalize">countries</span>                        </h6>
+                          </button>
+                          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" style="">
+                            <div class="form-group dropdown-item pl-3 m-0">
+                              <label for="ch39" class="custom-checkbox d-flex m-0">
+                                <span class="font-12 text-black text-capitalize">View All</span>
+                                <input type="checkbox" class="form-control" id="ch39">
+                                <span class="transparent-checkmark"></span>
+                              </label>                        
+                            </div>
+                            <div class="form-group dropdown-item pl-3 m-0">
+                              <label for="ch69" class="custom-checkbox d-flex m-0">
+                                <span class="font-12 text-black text-capitalize">
+                                <i class="flag belgium"></i>
+                                belgium</span>
+                                <input type="checkbox" class="form-control" id="ch69">
+                                <span class="transparent-checkmark"></span>
+                              </label>                        
+                            </div>
+                            <div class="form-group dropdown-item pl-3 m-0">
+                              <label for="ch59" class="custom-checkbox d-flex m-0">
+                                <span class="font-12 text-black text-capitalize">
+                                <i class="flag france"></i>
+                                france</span>
+                                <input type="checkbox" class="form-control" id="ch59">
+                                <span class="transparent-checkmark"></span>
+                              </label>                        
+                            </div>
+                            <div class="form-group dropdown-item pl-3 m-0">
+                              <label for="ch79" class="custom-checkbox d-flex m-0">
+                                <span class="font-12 text-black text-capitalize">
+                                <i class="flag germany"></i>
+                                germany</span>
+                                <input type="checkbox" class="form-control" id="ch79">
+                                <span class="transparent-checkmark"></span>
+                              </label>                        
+                            </div>
+                            <div class="form-group dropdown-item pl-3 m-0">
+                              <label for="ch79" class="custom-checkbox d-flex m-0">
+                                <span class="font-12 text-black text-capitalize">
+                                <i class="flag spain"></i>
+                                spain</span>
+                                <input type="checkbox" class="form-control" id="ch79">
+                                <span class="transparent-checkmark"></span>
+                              </label>                        
+                            </div>
+                            <div class="form-group dropdown-item pl-3 m-0">
+                              <label for="ch79" class="custom-checkbox d-flex m-0">
+                                <span class="font-12 text-black text-capitalize">
+                                <i class="flag uk"></i>
+                                UK</span>
+                                <input type="checkbox" class="form-control" id="ch79">
+                                <span class="transparent-checkmark"></span>
+                              </label>                        
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-4">
+                        <div class="dropdown custom-dropdown mb-3">
+                          <h6 class="mb-2 font-12">Supplier Type</h6>
+                          <button class="border-0 rounded py-2 px-3 bg-body-color dropdown-toggle w-100 shadow-none mb-3" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <h6 class="d-flex flex-column align-items-start text-capitalize font-12 font-xxl-14">
+                              <span class="font-500 text-capitalize">countries</span>                        </h6>
+                          </button>
+                          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" style="">
+                            <div class="form-group dropdown-item pl-3 m-0">
+                              <label for="ch39" class="custom-checkbox d-flex m-0">
+                                <span class="font-12 text-black text-capitalize">View All</span>
+                                <input type="checkbox" class="form-control" id="ch39">
+                                <span class="transparent-checkmark"></span>
+                              </label>                        
+                            </div>
+                            <div class="form-group dropdown-item pl-3 m-0">
+                              <label for="ch69" class="custom-checkbox d-flex m-0">
+                                <span class="font-12 text-black text-capitalize">
+                                <i class="flag belgium"></i>
+                                belgium</span>
+                                <input type="checkbox" class="form-control" id="ch69">
+                                <span class="transparent-checkmark"></span>
+                              </label>                        
+                            </div>
+                            <div class="form-group dropdown-item pl-3 m-0">
+                              <label for="ch59" class="custom-checkbox d-flex m-0">
+                                <span class="font-12 text-black text-capitalize">
+                                <i class="flag france"></i>
+                                france</span>
+                                <input type="checkbox" class="form-control" id="ch59">
+                                <span class="transparent-checkmark"></span>
+                              </label>                        
+                            </div>
+                            <div class="form-group dropdown-item pl-3 m-0">
+                              <label for="ch79" class="custom-checkbox d-flex m-0">
+                                <span class="font-12 text-black text-capitalize">
+                                <i class="flag germany"></i>
+                                germany</span>
+                                <input type="checkbox" class="form-control" id="ch79">
+                                <span class="transparent-checkmark"></span>
+                              </label>                        
+                            </div>
+                            <div class="form-group dropdown-item pl-3 m-0">
+                              <label for="ch79" class="custom-checkbox d-flex m-0">
+                                <span class="font-12 text-black text-capitalize">
+                                <i class="flag spain"></i>
+                                spain</span>
+                                <input type="checkbox" class="form-control" id="ch79">
+                                <span class="transparent-checkmark"></span>
+                              </label>                        
+                            </div>
+                            <div class="form-group dropdown-item pl-3 m-0">
+                              <label for="ch79" class="custom-checkbox d-flex m-0">
+                                <span class="font-12 text-black text-capitalize">
+                                <i class="flag uk"></i>
+                                UK</span>
+                                <input type="checkbox" class="form-control" id="ch79">
+                                <span class="transparent-checkmark"></span>
+                              </label>                        
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-4">
+                        <div class="dropdown custom-dropdown mb-3">
+                          <h6 class="mb-2 font-12">Critical/Important</h6>
+                          <button class="border-0 rounded py-2 px-3 bg-body-color dropdown-toggle w-100 shadow-none mb-3" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <h6 class="d-flex flex-column align-items-start text-capitalize font-12 font-xxl-14">
+                              <span class="font-500 text-capitalize">countries</span>                        </h6>
+                          </button>
+                          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" style="">
+                            <div class="form-group dropdown-item pl-3 m-0">
+                              <label for="ch39" class="custom-checkbox d-flex m-0">
+                                <span class="font-12 text-black text-capitalize">View All</span>
+                                <input type="checkbox" class="form-control" id="ch39">
+                                <span class="transparent-checkmark"></span>
+                              </label>                        
+                            </div>
+                            <div class="form-group dropdown-item pl-3 m-0">
+                              <label for="ch69" class="custom-checkbox d-flex m-0">
+                                <span class="font-12 text-black text-capitalize">
+                                <i class="flag belgium"></i>
+                                belgium</span>
+                                <input type="checkbox" class="form-control" id="ch69">
+                                <span class="transparent-checkmark"></span>
+                              </label>                        
+                            </div>
+                            <div class="form-group dropdown-item pl-3 m-0">
+                              <label for="ch59" class="custom-checkbox d-flex m-0">
+                                <span class="font-12 text-black text-capitalize">
+                                <i class="flag france"></i>
+                                france</span>
+                                <input type="checkbox" class="form-control" id="ch59">
+                                <span class="transparent-checkmark"></span>
+                              </label>                        
+                            </div>
+                            <div class="form-group dropdown-item pl-3 m-0">
+                              <label for="ch79" class="custom-checkbox d-flex m-0">
+                                <span class="font-12 text-black text-capitalize">
+                                <i class="flag germany"></i>
+                                germany</span>
+                                <input type="checkbox" class="form-control" id="ch79">
+                                <span class="transparent-checkmark"></span>
+                              </label>                        
+                            </div>
+                            <div class="form-group dropdown-item pl-3 m-0">
+                              <label for="ch79" class="custom-checkbox d-flex m-0">
+                                <span class="font-12 text-black text-capitalize">
+                                <i class="flag spain"></i>
+                                spain</span>
+                                <input type="checkbox" class="form-control" id="ch79">
+                                <span class="transparent-checkmark"></span>
+                              </label>                        
+                            </div>
+                            <div class="form-group dropdown-item pl-3 m-0">
+                              <label for="ch79" class="custom-checkbox d-flex m-0">
+                                <span class="font-12 text-black text-capitalize">
+                                <i class="flag uk"></i>
+                                UK</span>
+                                <input type="checkbox" class="form-control" id="ch79">
+                                <span class="transparent-checkmark"></span>
+                              </label>                        
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-4">
+                        <div class="dropdown custom-dropdown mb-3">
+                          <h6 class="mb-2 font-12">Severity of Incident</h6>
+                          <button class="border-0 rounded py-2 px-3 bg-body-color dropdown-toggle w-100 shadow-none mb-3" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <h6 class="d-flex flex-column align-items-start text-capitalize font-12 font-xxl-14">
+                              <span class="font-500 text-capitalize">countries</span>                        </h6>
+                          </button>
+                          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" style="">
+                            <div class="form-group dropdown-item pl-3 m-0">
+                              <label for="ch39" class="custom-checkbox d-flex m-0">
+                                <span class="font-12 text-black text-capitalize">View All</span>
+                                <input type="checkbox" class="form-control" id="ch39">
+                                <span class="transparent-checkmark"></span>
+                              </label>                        
+                            </div>
+                            <div class="form-group dropdown-item pl-3 m-0">
+                              <label for="ch69" class="custom-checkbox d-flex m-0">
+                                <span class="font-12 text-black text-capitalize">
+                                <i class="flag belgium"></i>
+                                belgium</span>
+                                <input type="checkbox" class="form-control" id="ch69">
+                                <span class="transparent-checkmark"></span>
+                              </label>                        
+                            </div>
+                            <div class="form-group dropdown-item pl-3 m-0">
+                              <label for="ch59" class="custom-checkbox d-flex m-0">
+                                <span class="font-12 text-black text-capitalize">
+                                <i class="flag france"></i>
+                                france</span>
+                                <input type="checkbox" class="form-control" id="ch59">
+                                <span class="transparent-checkmark"></span>
+                              </label>                        
+                            </div>
+                            <div class="form-group dropdown-item pl-3 m-0">
+                              <label for="ch79" class="custom-checkbox d-flex m-0">
+                                <span class="font-12 text-black text-capitalize">
+                                <i class="flag germany"></i>
+                                germany</span>
+                                <input type="checkbox" class="form-control" id="ch79">
+                                <span class="transparent-checkmark"></span>
+                              </label>                        
+                            </div>
+                            <div class="form-group dropdown-item pl-3 m-0">
+                              <label for="ch79" class="custom-checkbox d-flex m-0">
+                                <span class="font-12 text-black text-capitalize">
+                                <i class="flag spain"></i>
+                                spain</span>
+                                <input type="checkbox" class="form-control" id="ch79">
+                                <span class="transparent-checkmark"></span>
+                              </label>                        
+                            </div>
+                            <div class="form-group dropdown-item pl-3 m-0">
+                              <label for="ch79" class="custom-checkbox d-flex m-0">
+                                <span class="font-12 text-black text-capitalize">
+                                <i class="flag uk"></i>
+                                UK</span>
+                                <input type="checkbox" class="form-control" id="ch79">
+                                <span class="transparent-checkmark"></span>
+                              </label>                        
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-4">
+                        <div class="dropdown custom-dropdown mb-3">
+                          <h6 class="mb-2 font-12">Duration of Incident</h6>
+                          <button class="border-0 rounded py-2 px-3 bg-body-color dropdown-toggle w-100 shadow-none mb-3" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <h6 class="d-flex flex-column align-items-start text-capitalize font-12 font-xxl-14">
+                              <span class="font-500 text-capitalize">countries</span>                        </h6>
+                          </button>
+                          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" style="">
+                            <div class="form-group dropdown-item pl-3 m-0">
+                              <label for="ch39" class="custom-checkbox d-flex m-0">
+                                <span class="font-12 text-black text-capitalize">View All</span>
+                                <input type="checkbox" class="form-control" id="ch39">
+                                <span class="transparent-checkmark"></span>
+                              </label>                        
+                            </div>
+                            <div class="form-group dropdown-item pl-3 m-0">
+                              <label for="ch69" class="custom-checkbox d-flex m-0">
+                                <span class="font-12 text-black text-capitalize">
+                                <i class="flag belgium"></i>
+                                belgium</span>
+                                <input type="checkbox" class="form-control" id="ch69">
+                                <span class="transparent-checkmark"></span>
+                              </label>                        
+                            </div>
+                            <div class="form-group dropdown-item pl-3 m-0">
+                              <label for="ch59" class="custom-checkbox d-flex m-0">
+                                <span class="font-12 text-black text-capitalize">
+                                <i class="flag france"></i>
+                                france</span>
+                                <input type="checkbox" class="form-control" id="ch59">
+                                <span class="transparent-checkmark"></span>
+                              </label>                        
+                            </div>
+                            <div class="form-group dropdown-item pl-3 m-0">
+                              <label for="ch79" class="custom-checkbox d-flex m-0">
+                                <span class="font-12 text-black text-capitalize">
+                                <i class="flag germany"></i>
+                                germany</span>
+                                <input type="checkbox" class="form-control" id="ch79">
+                                <span class="transparent-checkmark"></span>
+                              </label>                        
+                            </div>
+                            <div class="form-group dropdown-item pl-3 m-0">
+                              <label for="ch79" class="custom-checkbox d-flex m-0">
+                                <span class="font-12 text-black text-capitalize">
+                                <i class="flag spain"></i>
+                                spain</span>
+                                <input type="checkbox" class="form-control" id="ch79">
+                                <span class="transparent-checkmark"></span>
+                              </label>                        
+                            </div>
+                            <div class="form-group dropdown-item pl-3 m-0">
+                              <label for="ch79" class="custom-checkbox d-flex m-0">
+                                <span class="font-12 text-black text-capitalize">
+                                <i class="flag uk"></i>
+                                UK</span>
+                                <input type="checkbox" class="form-control" id="ch79">
+                                <span class="transparent-checkmark"></span>
+                              </label>                        
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-4">
+                        <div class="dropdown custom-dropdown mb-3">
+                          <h6 class="mb-2 font-12">Timeframe of Incident</h6>
+                          <button class="border-0 rounded py-2 px-3 bg-body-color dropdown-toggle w-100 shadow-none mb-3" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <h6 class="d-flex flex-column align-items-start text-capitalize font-12 font-xxl-14">
+                              <span class="font-500 text-capitalize">countries</span>                        </h6>
+                          </button>
+                          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" style="">
+                            <div class="form-group dropdown-item pl-3 m-0">
+                              <label for="ch39" class="custom-checkbox d-flex m-0">
+                                <span class="font-12 text-black text-capitalize">View All</span>
+                                <input type="checkbox" class="form-control" id="ch39">
+                                <span class="transparent-checkmark"></span>
+                              </label>                        
+                            </div>
+                            <div class="form-group dropdown-item pl-3 m-0">
+                              <label for="ch69" class="custom-checkbox d-flex m-0">
+                                <span class="font-12 text-black text-capitalize">
+                                <i class="flag belgium"></i>
+                                belgium</span>
+                                <input type="checkbox" class="form-control" id="ch69">
+                                <span class="transparent-checkmark"></span>
+                              </label>                        
+                            </div>
+                            <div class="form-group dropdown-item pl-3 m-0">
+                              <label for="ch59" class="custom-checkbox d-flex m-0">
+                                <span class="font-12 text-black text-capitalize">
+                                <i class="flag france"></i>
+                                france</span>
+                                <input type="checkbox" class="form-control" id="ch59">
+                                <span class="transparent-checkmark"></span>
+                              </label>                        
+                            </div>
+                            <div class="form-group dropdown-item pl-3 m-0">
+                              <label for="ch79" class="custom-checkbox d-flex m-0">
+                                <span class="font-12 text-black text-capitalize">
+                                <i class="flag germany"></i>
+                                germany</span>
+                                <input type="checkbox" class="form-control" id="ch79">
+                                <span class="transparent-checkmark"></span>
+                              </label>                        
+                            </div>
+                            <div class="form-group dropdown-item pl-3 m-0">
+                              <label for="ch79" class="custom-checkbox d-flex m-0">
+                                <span class="font-12 text-black text-capitalize">
+                                <i class="flag spain"></i>
+                                spain</span>
+                                <input type="checkbox" class="form-control" id="ch79">
+                                <span class="transparent-checkmark"></span>
+                              </label>                        
+                            </div>
+                            <div class="form-group dropdown-item pl-3 m-0">
+                              <label for="ch79" class="custom-checkbox d-flex m-0">
+                                <span class="font-12 text-black text-capitalize">
+                                <i class="flag uk"></i>
+                                UK</span>
+                                <input type="checkbox" class="form-control" id="ch79">
+                                <span class="transparent-checkmark"></span>
+                              </label>                        
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="add-system px-4 mb-4">
+                    <a class="font-600 text-capitalize font-12 ml-auto text-black text-decoration-none d-flex mb-3" href="/organisation/business_service_lines/new">
+                      <i class="fa fa-plus-circle mr-1 font-20"></i>
+                      <span class="ml-2 font-14">Add Another System</span>
+                    </a>
+                    <button type="proceed-btn" id="bsl-proceed-btn" class="btn btn-sm font-600 text-capitalize font-12 float-right ml-0 ml-sm-2 dark-btn w-sm-25 w-100 mb-3 mb-sm-0 rounded-50">Run Simulation</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div id="section8">
+            <div class="row mt-4">
+              <div class="col-md-12">
+                <div class="card border-0 shadow-sm">
+                  <div class="text px-4 py-4 d-flex justify-content-between align-items-center">
+                    <h2 class="card-heading font-18 font-600 text-left d-flex align-items-center justify-content-start w-75">
+                      Impact Analysis Result
+                      <div class="text ml-3">
+                        <span class="mini-dot"></span>
+                        <span class="text-danger">High Risk</span>
+                        <i class="fa fa-exclamation-triangle text-danger"></i>
+                      </div>
+                    </h2>
+                    <i class="fa fa-ellipsis-v mx-1 text-right card-heading-icon" aria-hidden="true"></i>
+                  </div>
+                  <div class="impact-result px-4 mt-3 mb-5">
+                    <div class="row">
+                      <div class="col-md-3">
+                        <h6 class="font-11 mb-2">Onboarded Customers</h6>
+                        <p class="font-500">$XXXXX</p>
+                      </div>
+                      <div class="col-md-3">
+                        <h6 class="font-11 mb-2">New Customer Revenue Loss</h6>
+                        <p class="font-500">$XXXXX</p>
+                      </div>
+                      <div class="col-md-3">
+                        <h6 class="font-11 mb-2">Active Customer Revenue Loss</h6>
+                        <p class="font-500">$XXXXX</p>
+                      </div>
+                      <div class="col-md-3">
+                        <h6 class="font-11 mb-2">Total Revenue Loss</h6>
+                        <p class="font-500">$XXXXX</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="table-responsive">
+                    <table class="table table-striped table-bordered mb-0">
+                      <thead>
+                        <tr>
+                          <th class="font-18 font-500 border-left-0 px-4 border-top-0 border-bottom-0 border-right-0">
+                            Breakdown
+                          </th>
+                          <th class="font-12 font-500 px-4 border-top-0 border-bottom-0 border-left-0 border-right-0 text-light-grey">
+                            Per Second
+                          </th>
+                          <th class="font-12 font-500 px-4 border-top-0 border-bottom-0 border-left-0 border-right-0 text-light-grey">
+                            Per Minute
+                          </th>
+                          <th class="font-12 font-500 px-4 border-top-0 border-bottom-0 border-left-0 border-right-0 text-light-grey">
+                            Per Hour
+                          </th>
+                          <th class="font-12 font-500 px-4 border-top-0 border-bottom-0 border-right-0 border-left-0 text-light-grey">
+                            Per Total Outage
+                          </th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td class="font-12 border-left-0 px-4 border-right-0">
+                            Onboarder Customers
+                          </td>
+                          <td class="font-12 px-4 border-left-0 border-right-0">
+                            Value
+                          </td>
+                          <td class="font-12 px-4 border-left-0 border-right-0">
+                            Value
+                          </td>
+                          <td class="font-12 px-4 border-left-0 border-right-0">
+                            Value
+                          </td>
+                          <td class="font-12 border-right-0 px-4 border-left-0">
+                            Value
+                          </td>
+                        </tr>
+                        <tr>
+                          <td class="font-12 border-left-0 px-4 border-right-0">
+                            New Customer Revenue Loss
+                          </td>
+                          <td class="font-12 px-4 border-left-0 border-right-0">
+                            Value
+                          </td>
+                          <td class="font-12 px-4 border-left-0 border-right-0">
+                            Value
+                          </td>
+                          <td class="font-12 px-4 border-left-0 border-right-0">
+                            Value
+                          </td>
+                          <td class="font-12 border-right-0 px-4 border-left-0">
+                            Value
+                          </td>
+                        </tr>
+                        <tr>
+                          <td class="font-12 border-left-0 px-4 border-right-0">
+                            Active Customer Revenue Loss
+                          </td>
+                          <td class="font-12 px-4 border-left-0 border-right-0">
+                            Value
+                          </td>
+                          <td class="font-12 px-4 border-left-0 border-right-0">
+                            Value
+                          </td>
+                          <td class="font-12 px-4 border-left-0 border-right-0">
+                            Value
+                          </td>
+                          <td class="font-12 border-right-0 px-4 border-left-0">
+                            Value
+                          </td>
+                        </tr>
+                        <tr>
+                          <td class="font-14 border-left-0 px-4 border-right-0 font-600">
+                            Total Revenue Loss
+                          </td>
+                          <td class="font-14 px-4 border-left-0 border-right-0 font-600">
+                            Value
+                          </td>
+                          <td class="font-14 px-4 border-left-0 border-right-0 font-600">
+                            Value
+                          </td>
+                          <td class="font-14 px-4 border-left-0 border-right-0 font-600">
+                            Value
+                          </td>
+                          <td class="font-14 border-right-0 px-4 border-left-0 font-600">
+                            Value
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div id="section9">
+            <div class="row mt-4">
+              <div class="col-md-12">
+                <div class="card border-0 shadow-sm d-block">
+                  <div class="text px-4 py-4 d-flex justify-content-between align-items-center">
+                    <h2 class="card-heading font-18 font-600 py-2">Wider Business Service Lines - Potential Impact Analysis</h2>
+                    <i class="fa fa-ellipsis-v mx-1 text-right card-heading-icon" aria-hidden="true"></i>
+                  </div>
+                  <div class="text px-4 pb-4 font-12">
+                    <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.</p>
+                  </div>
+                  <div class="px-4 py-4">
+                    <div class="row">
+                      <div class="col-md-4">
+                        <div class="position-relative">
+                          <div id="colored-donut-5" class="donut-setter"></div>
+                          <span class="position-absolute center-position font-md-30 font-25 font-600 text-center"></span>
+                        </div>
+                      </div>
+                      <div class="col-md-8">
+                        <div class="breakdown-impact">
+                          <h6 class="font-12 mb-5">
+                            % Breakdown of Risk Impacts Across Business Service Lines
+                          </h6>
+                          <div class="row">
+                            <div class="col-md-6">
+                              <div class="d-flex align-items-center justify-content-between mb-2">
+                                <div class="font-12 d-flex align-items-center">
+                                  <div class="min-sm-circle p-1 bg-red"></div>
+                                  <span class="ml-2 text-capitalize">Make A Faster Payment</span>
+                                </div>
+                                <div class="d-flex align-items-center">
+                                  <p class="font-12">10%</p>
+                                </div>
+                              </div>
+                              <div class="d-flex align-items-center justify-content-between mb-2">
+                                <div class="font-12 d-flex align-items-center">
+                                  <div class="min-sm-circle p-1 bg-dark-yellow"></div>
+                                  <span class="ml-2 text-capitalize">Make A Faster Payment</span>
+                                </div>
+                                <div class="d-flex align-items-center">
+                                  <p class="font-12">10%</p>
+                                </div>
+                              </div>
+                              <div class="d-flex align-items-center justify-content-between mb-2">
+                                <div class="font-12 d-flex align-items-center">
+                                  <div class="min-sm-circle p-1 bg-ternary-green"></div>
+                                  <span class="ml-2 text-capitalize">Make A Faster Payment</span>
+                                </div>
+                                <div class="d-flex align-items-center">
+                                  <p class="font-12">10%</p>
+                                </div>
+                              </div>
+                              <div class="d-flex align-items-center justify-content-between mb-2">
+                                <div class="font-12 d-flex align-items-center">
+                                  <div class="min-sm-circle p-1 bg-primary-green"></div>
+                                  <span class="ml-2 text-capitalize">Make A Faster Payment</span>
+                                </div>
+                                <div class="d-flex align-items-center">
+                                  <p class="font-12">10%</p>
+                                </div>
+                              </div>
+                              <div class="d-flex align-items-center justify-content-between mb-2">
+                                <div class="font-12 d-flex align-items-center">
+                                  <div class="min-sm-circle p-1 bg-purple"></div>
+                                  <span class="ml-2 text-capitalize">Make A Faster Payment</span>
+                                </div>
+                                <div class="d-flex align-items-center">
+                                  <p class="font-12">10%</p>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="col-md-6">
+                              <div class="d-flex align-items-center justify-content-between mb-2">
+                                <div class="font-12 d-flex align-items-center">
+                                  <div class="min-sm-circle p-1 bg-blue"></div>
+                                  <span class="ml-2 text-capitalize">Make A Faster Payment</span>
+                                </div>
+                                <div class="d-flex align-items-center">
+                                  <p class="font-12">10%</p>
+                                </div>
+                              </div>
+                              <div class="d-flex align-items-center justify-content-between mb-2">
+                                <div class="font-12 d-flex align-items-center">
+                                  <div class="min-sm-circle p-1 bg-brown"></div>
+                                  <span class="ml-2 text-capitalize">Make A Faster Payment</span>
+                                </div>
+                                <div class="d-flex align-items-center">
+                                  <p class="font-12">10%</p>
+                                </div>
+                              </div>
+                              <div class="d-flex align-items-center justify-content-between mb-2">
+                                <div class="font-12 d-flex align-items-center">
+                                  <div class="min-sm-circle p-1 bg-secondary-green"></div>
+                                  <span class="ml-2 text-capitalize">Make A Faster Payment</span>
+                                </div>
+                                <div class="d-flex align-items-center">
+                                  <p class="font-12">10%</p>
+                                </div>
+                              </div>
+                              <div class="d-flex align-items-center justify-content-between mb-2">
+                                <div class="font-12 d-flex align-items-center">
+                                  <div class="min-sm-circle p-1 bg-black"></div>
+                                  <span class="ml-2 text-capitalize">Make A Faster Payment</span>
+                                </div>
+                                <div class="d-flex align-items-center">
+                                  <p class="font-12">10%</p>
+                                </div>
+                              </div>
+                              <div class="d-flex align-items-center justify-content-between mb-2">
+                                <div class="font-12 d-flex align-items-center">
+                                  <div class="min-sm-circle p-1 bg-grey"></div>
+                                  <span class="ml-2 text-capitalize">Make A Faster Payment</span>
+                                </div>
+                                <div class="d-flex align-items-center">
+                                  <p class="font-12">10%</p>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="table-responsive">
+                    <table class="table table-striped table-bordered">
+                      <thead>
+                        <tr>
+                          <th class="font-11 font-500 border-left-0 px-4 border-top-0 border-bottom-0 border-right-0 text-light-grey">
+                            Business Service Line Name
+                          </th>
+                          <th class="font-11 font-500 px-4 border-top-0 border-bottom-0 border-left-0 border-right-0 text-light-grey">
+                            Service Tier
+                          </th>
+                          <th class="font-11 font-500 px-4 border-top-0 border-bottom-0 border-left-0 border-right-0 text-light-grey">
+                            Impact to Bank
+                          </th>
+                          <th class="font-11 font-500 px-4 border-top-0 border-bottom-0 border-left-0 border-right-0 text-light-grey">
+                            Impact to Customers
+                          </th>
+                          <th class="font-11 font-500 px-4 border-top-0 border-bottom-0 border-right-0 border-left-0 text-light-grey">
+                            Impact to Financial Market
+                          </th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td class="font-11 font-500 border-left-0 px-4 border-right-0">
+                            Make A Faster Payment
+                          </td>
+                          <td class="font-11 font-500 px-4 border-left-0 border-right-0">
+                            Tier 1
+                          </td>
+                          <td class="font-11 font-500 px-4 border-left-0 border-right-0">
+                            High Impact
+                          </td>
+                          <td class="font-11 font-500 px-4 border-left-0 border-right-0">
+                            High Impact
+                          </td>
+                          <td class="font-11 font-500 border-right-0 px-4 border-left-0">
+                            High Impact
+                          </td>
+                        </tr>
+                        <tr>
+                          <td class="font-11 font-500 border-left-0 px-4 border-right-0">
+                            Take Out Money - ATM
+                          </td>
+                          <td class="font-11 font-500 px-4 border-left-0 border-right-0">
+                            Tier 1
+                          </td>
+                          <td class="font-11 font-500 px-4 border-left-0 border-right-0">
+                            High Impact
+                          </td>
+                          <td class="font-11 font-500 px-4 border-left-0 border-right-0">
+                            High Impact
+                          </td>
+                          <td class="font-11 font-500 border-right-0 px-4 border-left-0">
+                            High Impact
+                          </td>
+                        </tr>
+                        <tr>
+                          <td class="font-11 font-500 border-left-0 px-4 border-right-0">
+                            Check My Balance
+                          </td>
+                          <td class="font-11 font-500 px-4 border-left-0 border-right-0">
+                            Tier 1
+                          </td>
+                          <td class="font-11 font-500 px-4 border-left-0 border-right-0">
+                            High Impact
+                          </td>
+                          <td class="font-11 font-500 px-4 border-left-0 border-right-0">
+                            High Impact
+                          </td>
+                          <td class="font-11 font-500 border-right-0 px-4 border-left-0">
+                            High Impact
+                          </td>
+                        </tr>
+                        <tr>
+                          <td class="font-11 font-500 border-left-0 px-4 border-right-0">
+                            Logon - Internet Banking
+                          </td>
+                          <td class="font-11 font-500 px-4 border-left-0 border-right-0">
+                            Tier 1
+                          </td>
+                          <td class="font-11 font-500 px-4 border-left-0 border-right-0">
+                            High Impact
+                          </td>
+                          <td class="font-11 font-500 px-4 border-left-0 border-right-0">
+                            High Impact
+                          </td>
+                          <td class="font-11 font-500 border-right-0 px-4 border-left-0">
+                            High Impact
+                          </td>
+                        </tr>
+                        <tr>
+                          <td class="font-11 font-500 border-left-0 px-4 border-right-0">
+                            Make A Direct Debit
+                          </td>
+                          <td class="font-11 font-500 px-4 border-left-0 border-right-0">
+                            Tier 1
+                          </td>
+                          <td class="font-11 font-500 px-4 border-left-0 border-right-0">
+                            High Impact
+                          </td>
+                          <td class="font-11 font-500 px-4 border-left-0 border-right-0">
+                            High Impact
+                          </td>
+                          <td class="font-11 font-500 border-right-0 px-4 border-left-0">
+                            High Impact
+                          </td>
+                        </tr>
+                        <tr>
+                          <td class="font-11 font-500 border-left-0 px-4 border-right-0">
+                            Ammend A Direct Debit
+                          </td>
+                          <td class="font-11 font-500 px-4 border-left-0 border-right-0">
+                            Tier 1
+                          </td>
+                          <td class="font-11 font-500 px-4 border-left-0 border-right-0">
+                            High Impact
+                          </td>
+                          <td class="font-11 font-500 px-4 border-left-0 border-right-0">
+                            High Impact
+                          </td>
+                          <td class="font-11 font-500 border-right-0 px-4 border-left-0">
+                            High Impact
+                          </td>
+                        </tr>
+                        <tr>
+                          <td class="font-11 font-500 border-left-0 px-4 border-right-0">
+                            Add A Payee
+                          </td>
+                          <td class="font-11 font-500 px-4 border-left-0 border-right-0">
+                            Tier 1
+                          </td>
+                          <td class="font-11 font-500 px-4 border-left-0 border-right-0">
+                            High Impact
+                          </td>
+                          <td class="font-11 font-500 px-4 border-left-0 border-right-0">
+                            High Impact
+                          </td>
+                          <td class="font-11 font-500 border-right-0 px-4 border-left-0">
+                            High Impact
+                          </td>
+                        </tr>
+                        <tr>
+                          <td class="font-11 font-500 border-left-0 px-4 border-right-0">
+                            Ammend A Payee
+                          </td>
+                          <td class="font-11 font-500 px-4 border-left-0 border-right-0">
+                            Tier 1
+                          </td>
+                          <td class="font-11 font-500 px-4 border-left-0 border-right-0">
+                            High Impact
+                          </td>
+                          <td class="font-11 font-500 px-4 border-left-0 border-right-0">
+                            High Impact
+                          </td>
+                          <td class="font-11 font-500 border-right-0 px-4 border-left-0">
+                            High Impact
+                          </td>
+                        </tr>
+                        <tr>
+                          <td class="font-11 font-500 border-left-0 px-4 border-right-0">
+                            Pay In Money - Branch
+                          </td>
+                          <td class="font-11 font-500 px-4 border-left-0 border-right-0">
+                            Tier 1
+                          </td>
+                          <td class="font-11 font-500 px-4 border-left-0 border-right-0">
+                            High Impact
+                          </td>
+                          <td class="font-11 font-500 px-4 border-left-0 border-right-0">
+                            High Impact
+                          </td>
+                          <td class="font-11 font-500 border-right-0 px-4 border-left-0">
+                            High Impact
+                          </td>
+                        </tr>
+                        <tr>
+                          <td class="font-11 font-500 border-left-0 px-4 border-right-0">
+                            Pay In Money - ATM
+                          </td>
+                          <td class="font-11 font-500 px-4 border-left-0 border-right-0">
+                            Tier 1
+                          </td>
+                          <td class="font-11 font-500 px-4 border-left-0 border-right-0">
+                            High Impact
+                          </td>
+                          <td class="font-11 font-500 px-4 border-left-0 border-right-0">
+                            High Impact
+                          </td>
+                          <td class="font-11 font-500 border-right-0 px-4 border-left-0">
+                            High Impact
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

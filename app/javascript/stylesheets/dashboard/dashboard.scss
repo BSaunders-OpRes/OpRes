@@ -18,6 +18,16 @@ i.paperclip {
   height: 50px !important;
 }
 
+.highcharts-axis {
+  display: none;
+}
+
+.highcharts-markers {
+  .highcharts-point {
+    display: none;
+  }
+}
+
 .donut-chart-react {
   margin-top: -80px;
 }
@@ -638,9 +648,136 @@ i.paperclip {
   }
 }
 
+.resilience-calculator-dashboard {
+  .red {
+    width: 227px;
+    height: 270px;
+    .full-red-donut {
+      width: 206px;
+      height: 206px;
+      border-radius: 100%;
+      background-color: $red;
+      .highcharts-series-group {
+        display: none;
+      }
+    }
+  }
+  #section6 {
+    .dependency-map {
+      ul {
+        li {
+          a {
+            width: 100%;
+            display: block;
+            border-radius: 25px;
+            color: $black !important;
+            padding: 5px 10px !important;
+            border: 1px solid $light-grey;
+            background-color: $body-bg-color;
+            &.active {
+              background-color: $black;
+              color: $white !important;
+              border: 1px solid $black;
+            }
+          }
+        }
+      }
+      .map-boxes {
+        height: 400px;
+        overflow-x: scroll;
+        padding-bottom: 20px;
+        white-space: nowrap;
+        ::-webkit-scrollbar {
+          width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+          background-color: #ebebeb;
+          -webkit-border-radius: 10px;
+          border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+          -webkit-border-radius: 10px;
+          border-radius: 10px;
+          background: #6d6d6d;
+        }
+
+        .box-1 {
+          position: relative;
+          vertical-align: top;
+          display: inline-block;
+          h6 {
+            height: 45px;
+            display: flex;
+            text-align: center;
+            white-space: normal;
+            align-items: center;
+            word-break: break-word;
+          }
+          &:after {
+            top: 25px;
+            content: '';
+            height: 2px;
+            width: 22px;
+            right: -21px;
+            position: absolute;
+            background-color: $black;
+          }
+        }
+        .pink-bg {
+          color: #ec1b00;
+          background-color: #fcc3bc;
+        }
+        .pink-text {
+          color: #ec1b00;
+        }
+        &:last-child {
+          .box-1 {
+            &:after {
+              display: none;
+            }
+          }
+        }
+      }
+    }
+  }
+  #section8 {
+    .text {
+      position: relative;
+      .mini-dot {
+        top: 8px;
+        left: -11px;
+        width: 6px;
+        height: 6px;
+        content: '';
+        position: absolute;
+        border-radius: 100%;
+        background-color: $black;
+      }
+    }
+  }
+}
+
 @media only screen and (max-width: 767px) {
   .bsl-dashboard {
     #section7 {
+      .dependency-map {
+        .map-boxes {
+          .box-1 {
+            width: 100px;
+            .heading {
+              h6 {
+                text-align: center;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  .resilience-calculator-dashboard {
+    #section6 {
       .dependency-map {
         .map-boxes {
           .box-1 {

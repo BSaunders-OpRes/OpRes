@@ -1,16 +1,9 @@
 .bg-primary-green {
   background: $primary-green;
 }
-.text-light-grey {
-  color: $medium-grey;
-}
-.text-black {
-  color: $black !important;
-}
 .light-grey-bg {
   background: #F9FAFC;
 }
-
 .bg-black {
   background: $black;
 }
@@ -35,6 +28,21 @@
 .bg-body-color {
   background: $body-bg-color;
 }
+.bg-purple {
+  background: $bg-purple;
+}
+.bg-blue {
+  background: $bg-blue;
+}
+.bg-brown {
+  background: $bg-brown;
+}
+.bg-pink {
+  background: $pink;
+}
+.bg-grey {
+  background: $light-grey;
+}
 
 
 .text-red {
@@ -55,10 +63,13 @@
 .text-dark-yellow {
   color: $dark-yellow;
 }
-
-.bg-pink {
-  background: $pink;
+.text-light-grey {
+  color: $medium-grey;
 }
+.text-black {
+  color: $black !important;
+}
+
 
 .border-left-green {
   border-left: 2px solid $primary-green;
@@ -72,7 +83,6 @@
 .border-bottom-green {
   border-bottom: 2px solid $primary-green;
 }
-
 .border-left-red {
   border-left: 2px solid $red;
 }
@@ -85,7 +95,6 @@
 .border-bottom-red {
   border-bottom: 2px solid $red;
 }
-
 .border-left-orange {
   border-left: 2px solid $dark-yellow;
 }
@@ -98,7 +107,6 @@
 .border-bottom-orange {
   border-bottom: 2px solid $dark-yellow;
 }
-
 .border-left-yellow  {
   border-left: 2px solid $yellow;
 }
@@ -111,7 +119,6 @@
 .border-bottom-yellow {
   border-bottom: 2px solid $yellow;
 }
-
 .border-left-black  {
   border-left: 2px solid $black;
 }
@@ -124,7 +131,6 @@
 .border-bottom-black {
   border-bottom: 2px solid $black;
 }
-
 .border-left-blue  {
   border-left: 2px solid $blue;
 }
