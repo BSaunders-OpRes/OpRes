@@ -20,6 +20,10 @@ document.addEventListener('turbolinks:load', function() {
 
     $('#bsl-desc p').addClass('d-none');
     $(desc).removeClass('d-none');
+
+    setTimeout(function() {
+      handle_bsl_previous_proceed();
+    }, 500);
   });
 
   $('body').on('click', '#bsl-proceed-btn', function(e) {
@@ -255,6 +259,22 @@ document.addEventListener('turbolinks:load', function() {
 
   /******************** Helper Methods ********************
   ********************************************************/
+  function handle_bsl_previous_proceed() {
+    var current_tab  = $('#bsl-tab li.nav-item a.active').parent('li.nav-item');
+    var next_tab     = current_tab.next('li.nav-item');
+    var previous_tab = current_tab.prev('li.nav-item');
+
+    if (previous_tab.length == 0)
+      $('#bsl-previous-btn').addClass('d-none');
+    else
+      $('#bsl-previous-btn').removeClass('d-none');
+
+    if (next_tab.length == 0)
+      $('#bsl-proceed-btn').addClass('d-none');
+    else
+      $('#bsl-proceed-btn').removeClass('d-none');
+  }
+
   function bsl_assign_step_number() {
     $('#bsl-steps .bsl-step').each(function(index) {
       $(this).find('.bsl-step-number').text(index + 1);

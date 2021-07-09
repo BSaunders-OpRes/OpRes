@@ -1,6 +1,10 @@
 [
   {
     "Amazon Web Services": {
+      "short_name": "AWS",
+      "logo": "app/javascript/images/chp-icons/aws.png",
+      "filename": "aws.png",
+      "content_type": "image/png",
       "regions": [
         "US East (Ohio) Region", "US West (Oregon) Region", "US West (Northern California) Region",
         "US East (Northern Virginia) Region", "GovCloud (US-West) Region", "GovCloud (US-East) Region",
@@ -65,6 +69,10 @@
       ]
     },
     "Microsoft Azure": {
+      "short_name": "Azure",
+      "logo": "app/javascript/images/chp-icons/azure.png",
+      "filename": "azure.png",
+      "content_type": "image/png",
       "regions": [
         "West Central US", "North Central US", "Canada East", "UK West", "West India", "South India",
         "China East 2", "China East", "China north", "China north 2", "Korea South", "Japan west",
@@ -106,6 +114,10 @@
       ]
     },
     "Google Cloud Platform": {
+      "short_name": "GCP",
+      "logo": "app/javascript/images/chp-icons/gcp.png",
+      "filename": "gcp.png",
+      "content_type": "image/png",
       "regions": [
         "Oregon", "Salt Lake city", "Los Angeles", "Las Vegas", "lowa", "Montreal", "N Virginia",
         "S Carolina", "Sao Paulo", "London", "Belgium", "Netherlands", "Frankfurt", "Finland",
@@ -125,6 +137,10 @@
       ]
     },
     "Private Cloud": {
+      "short_name": "Private Cloud",
+      "logo": "app/javascript/images/chp-icons/cloud.png",
+      "filename": "cloud.png",
+      "content_type": "image/png",
       "regions": [],
       "services": []
     }

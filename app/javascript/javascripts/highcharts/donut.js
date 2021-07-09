@@ -49,8 +49,7 @@ document.addEventListener('turbolinks:load', function() {
     render_dual_green_colored_donut_chart('two-colored-green-donut-1');
   }
 
-  if ($('#bsl').length == 1) {
-    render_donut_chart('fifteen-donut');
+  if ($('#bsl-details').length == 1) {
     render_donut_chart('1-donut-sm');
     render_donut_chart('2-donut-sm');
     render_donut_chart('3-donut-sm');

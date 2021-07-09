@@ -30,7 +30,9 @@ class Organisation::BusinessServiceLinesController < Organisation::BaseControlle
     end
   end
 
-  def show; end
+  def show
+    @chp_data = Graphs::BslStepSupplierChpService.call(@bsl)
+  end
 
   def destroy; end
 

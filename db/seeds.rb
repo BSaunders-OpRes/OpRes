@@ -94,7 +94,15 @@ cloud_hosting_provider_file = Rails.root.join('public', 'json_data', 'cloud_host
 cloud_hosting_provider_data = File.read(cloud_hosting_provider_file)
 JSON.parse(cloud_hosting_provider_data).each do |data|
   data.each do |chp_name, chp_data|
-    chp = CloudHostingProvider.create_with(description: chp_name).find_or_create_by(name: chp_name)
+    chp = CloudHostingProvider.create_with(description: chp_name, short_name: chp_data['short_name']).find_or_create_by(name: chp_name)
+
+    if chp.logo.blank?
+      chp.logo.attach(
+        io:           File.open(Rails.root.join(chp_data.dig('logo'))),
+        filename:     chp_data.dig('filename'),
+        content_type: chp_data.dig('content_type')
+      )
+    end
 
     chp_data.dig('regions').each do |region|
       chp.cloud_hosting_provider_regions.find_or_create_by(name: region)

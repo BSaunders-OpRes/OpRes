@@ -35,7 +35,7 @@ let chartOptions = {
   plotOptions: {
     pie: {
       dataLabels: {
-        enabled: true,
+        enabled: false,
         distance: -50,
         style: {
           fontWeight: 'bold',
