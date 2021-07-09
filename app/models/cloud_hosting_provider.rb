@@ -3,6 +3,7 @@ class CloudHostingProvider < ApplicationRecord
   validates :name, presence: true
 
   # Associations #
+  has_one_attached :logo, dependent: :destroy
   has_many :cloud_hosting_provider_recipients, dependent: :destroy
   has_many :cloud_hosting_provider_regions,   dependent: :destroy
   has_many :cloud_hosting_provider_services,  dependent: :destroy

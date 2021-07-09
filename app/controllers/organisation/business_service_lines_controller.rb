@@ -1,5 +1,5 @@
 class Organisation::BusinessServiceLinesController < Organisation::BaseController
-  before_action :load_bsl, only: %i[edit update show destroy]
+  before_action :load_bsl, only: %i[edit update show destroy critical_important_suppliers]
 
   def new
     @bsl = BusinessServiceLine.new
@@ -30,9 +30,16 @@ class Organisation::BusinessServiceLinesController < Organisation::BaseControlle
     end
   end
 
-  def show; end
+  def show
+    @chp_data = Graphs::BslStepSupplierChpService.call(@bsl)
+  end
 
   def destroy; end
+
+  def critical_important_suppliers
+    @critical_ss  = @bsl.critical_supplier_steps
+    @important_ss = @bsl.important_supplier_steps
+  end
 
   private
 

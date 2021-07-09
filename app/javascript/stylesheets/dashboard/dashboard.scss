@@ -591,7 +591,7 @@ i.paperclip {
       }
     }
   }
-  #section7 {
+  #section7, #dependency-map-section {
     .dependency-map {
       .map-boxes {
         height: 400px;
@@ -761,7 +761,7 @@ i.paperclip {
 
 @media only screen and (max-width: 767px) {
   .bsl-dashboard {
-    #section7 {
+    #section7, #dependency-map-section {
       .dependency-map {
         .map-boxes {
           .box-1 {
