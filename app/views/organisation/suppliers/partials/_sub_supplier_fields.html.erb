@@ -5,8 +5,10 @@
       <%= f.text_field :name, placeholder: 'Supplier Name', required: true, class: 'w-100 form-control font-12 h-auto py-3 shadow-none' %>
     </div>
     <div class="col-md-6 px-1 form-group">
-      <%= f.select :cloud_hosting_provider_id, options_for_select(@cloud_hosting_providers&.map { |chp| [chp.name, chp.id] }, f.object.cloud_hosting_provider_id), { include_blank: 'Select your cloud hosting provider' }, class: 'form-control w-100 font-12 h-auto py-3 shadow-none arrow-select sub-supplier-chp', required: true %>
-      <i class="fa fa-sort-desc pr-2 mr-2" aria-hidden="true"></i>
+      <div class="select-arrow">
+        <%= f.select :cloud_hosting_provider_id, options_for_select(@cloud_hosting_providers&.map { |chp| [chp.name, chp.id] }, f.object.cloud_hosting_provider_id), { include_blank: 'Select your cloud hosting provider' }, class: 'form-control w-100 font-12 h-auto py-3 shadow-none sub-supplier-chp', required: true %>
+        <i class="fa fa-sort-desc pr-2 position-absolute" aria-hidden="true"></i>
+      </div>
     </div>
   </div>
   <div class="row no-gutters">
@@ -91,7 +93,7 @@
 
     </div>
   <% end %>
-<div class="row">
+<div class="row mb-4">
   <div class="col-sm-12 text-right">
     <%= link_to_remove_association f, class: 'font-12 text-danger' do %>
       <i class="fa fa-trash" aria-hidden="true"></i>

@@ -6,7 +6,7 @@
           <div class="mr-4 back-btn mb-2 mb-sm-0 ">
             <%= render 'layouts/partials/shared/redirect_back', path: organisation_dashboard_index_path %>
           </div>
-          <h2 class="font-500 font-sm-18 font-25 text-capitalize">Cloud Service Provider Dashboard</h2>
+          <h2 class="font-500 font-sm-18 font-25 text-capitalize">name of the supplier</h2>
         </div>
         <div class="right d-flex mt-3 mt-lg-0">
           <div class="white-btn d-flex align-items-center pl-2 pr-2 mr-2 py-2">
@@ -71,7 +71,7 @@
                   </div>
                 </div>
                 <div class="info-text mb-4 px-4">
-                  <h6 class="mb-3"><%= @supplier.name %></h6>
+                  <h6 class="mb-3 text-capitalize"><%= @supplier.name %></h6>
                   <p class="font-13">
                     <%= @supplier.description %>
                   </p>
@@ -139,12 +139,12 @@
                     </div>
                   </div>
                 </div>
-                <div class="mb-4 px-4">
+                <div class="px-4">
                   <h5 class="text-capitalize d-block mb-4">Links</h5>
                   <div class="small-boxes row">
                     <% @supplier.social_account_recipients.each do |social_account_recipient| %>
                       <div class="col-md-3 mb-3">
-                        <%= link_to social_account_recipient.link, target: '_blank' do %>
+                        <%= link_to social_account_recipient.link, target: '_blank', class: 'text-decoration-none text-black' do %>
                             <div class="card">
                               <div class="card-body p-2 d-block rounded">
                                 <div class="color-tier">
@@ -917,6 +917,89 @@
                         <td width='200px' class="font-12 px-4 align-middle">
                           Private Cloud
                         </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="section8">
+          <div class="card border-0 shadow-sm rounded-50 mb-4">
+            <div class="card-body">
+              <div class="box">
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                  <h5 class="text-capitalize text-left">supplier complience documentation</h5>
+                  <div class="text-right">
+                    <a href="#" class="text-black">
+                      <i class="fa fa-ellipsis-v text-right" aria-hidden="true"></i>
+                    </a>
+                  </div>
+                </div>
+                <div class="table-responsive mt-0 mt-lg-3">
+                  <table class="table custom-table mb-4 text-capitalize">
+                    <thead class="font-600">
+                      <tr>
+                        <th class="font-12 font-xxl-14 px-1 text-light-grey font-400 text-capitalize font-600">document title</th>
+                        <th class="font-12 font-xxl-14 px text-light-grey font-400 text-capitalize font-600">Date added</th>
+                        <th class="font-12 font-xxl-14 px text-light-grey font-400 text-capitalize font-600">days until new compliance document requried</th>
+                        <th class="font-12 font-xxl-14 px text-light-grey font-400 text-capitalize font-600">level of importance</th>
+                        <th class="font-12 font-xxl-14 px text-light-grey font-400 text-capitalize font-600">RAG Status</th>
+                        <th class="font-12 font-xxl-14 px text-light-grey font-400 text-capitalize font-600">update notification rules</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td class="font-11 font-xxl-14 px-1 text-dark font-600">
+                          <div class="d-flex align-items-center">
+                            <i class="fa fa-paperclip paperclip font-20" aria-hidden="true"></i>
+                            <span class="ml-2">Evidence document 1</span>
+                          </div>
+                        </td>
+                        <td class="font-11 font-xxl-14 text-dark font-600">01.01.2021</td>
+                        <td class="font-11 font-xxl-14 text-dark font-600">10</td>
+                        <td class="font-11 font-xxl-14 text-dark font-600">high</td>
+                        <td class="font-11 font-xxl-14 text-dark font-600">
+                          <div class="d-flex align-items-center">
+                            <div class="sm-circle bg-red"></div>
+                          </div>
+                        </td>
+                        <td class="font-11 font-xxl-14 text-dark font-600">edit rules</td>
+                      </tr>
+                      <tr>
+                        <td class="font-11 font-xxl-14 px-1 text-dark font-600">
+                          <div class="d-flex align-items-center">
+                            <i class="fa fa-paperclip paperclip font-20" aria-hidden="true"></i>
+                            <span class="ml-2">Evidence document 1</span>
+                          </div>
+                        </td>
+                        <td class="font-11 font-xxl-14 text-dark font-600">01.01.2021</td>
+                        <td class="font-11 font-xxl-14 text-dark font-600">10</td>
+                        <td class="font-11 font-xxl-14 text-dark font-600">high</td>
+                        <td class="font-11 font-xxl-14 text-dark font-600">
+                          <div class="d-flex align-items-center">
+                            <div class="sm-circle bg-yellow"></div>
+                          </div>
+                        </td>
+                        <td class="font-11 font-xxl-14 text-dark font-600">edit rules</td>
+                      </tr>
+                      <tr>
+                        <td class="font-11 font-xxl-14 px-1 text-dark font-600">
+                          <div class="d-flex align-items-center">
+                            <i class="fa fa-paperclip paperclip font-20" aria-hidden="true"></i>
+                            <span class="ml-2">Evidence document 1</span>
+                          </div>
+                        </td>
+                        <td class="font-11 font-xxl-14 text-dark font-600">01.01.2021</td>
+                        <td class="font-11 font-xxl-14 text-dark font-600">10</td>
+                        <td class="font-11 font-xxl-14 text-dark font-600">high</td>
+                        <td class="font-11 font-xxl-14 text-dark font-600">
+                          <div class="d-flex align-items-center">
+                            <div class="sm-circle bg-primary-green"></div>
+                          </div>
+                        </td>
+                        <td class="font-11 font-xxl-14 text-dark font-600">edit rules</td>
                       </tr>
                     </tbody>
                   </table>
