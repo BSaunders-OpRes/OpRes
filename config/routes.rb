@@ -20,8 +20,10 @@ Rails.application.routes.draw do
 
   namespace :organisation do
     match '/journeys/*id',      to: 'journeys#show', via: %i[get post], as: :journey
+
     get :build_institution,     to: 'journeys#build_institution'
     get :build_user_invitation, to: 'journeys#build_user_invitation'
+    get :resilience_calculator, to: 'journeys#resilience_calculator'
     resources :dashboard, only: %i[index]
     resources :accounts, only: %i[index] do
       post :save_account, on: :collection
