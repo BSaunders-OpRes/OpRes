@@ -2,25 +2,25 @@ document.addEventListener('turbolinks:load', function() {
   $('[data-toggle="tooltip"]').tooltip();
 
   $('#close_sidebar').click(function() {
+    $('body').removeClass('overflow-hidden')
     $('.sidebar').css('width', '0');
     $('.content').removeClass('blur');
     $('.header').removeClass('blur');
-    $('body').removeClass('overflow-hidden')
   });
 
   $('#open_sidebar').click(function(e) {
     e.stopPropagation();
+    $('body').addClass('overflow-hidden')
     $('.sidebar').css('width', '290');
     $('.content').addClass('blur');
     $('.header').addClass('blur');
-    $('body').addClass('overflow-hidden')
   });
 
-  $('.content, .header').click(function(e) {
+  $('.container, .header').click(function(e) {
+    $('body').removeClass('overflow-hidden')
     $('.sidebar').css('width', '0');
     $('.content').removeClass('blur');
     $('.header').removeClass('blur');
-    $('body').removeClass('overflow-hidden')
   });
 
   $('.custom-dropdown .dropdown-menu').click(function(e) {

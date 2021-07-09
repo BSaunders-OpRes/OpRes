@@ -1,2 +1,4 @@
-<%= select_tag param_name, options_for_select(options, val), prompt: prompt_message, class: "form-control w-100 font-12 h-auto py-3 shadow-none arrow-select" %>
-<i class="fa fa-sort-desc pr-2 mr-2" aria-hidden="true"></i>
+<div class="select-arrow">
+  <%= select_tag param_name, options_for_select(options, val), prompt: prompt_message, class: "form-control w-100 font-12 h-auto py-3 shadow-none" %>
+  <i class="fa fa-sort-desc pr-2 mr-2 position-absolute" aria-hidden="true"></i>
+</div>
