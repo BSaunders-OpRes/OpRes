@@ -49,20 +49,6 @@ document.addEventListener('turbolinks:load', function() {
     render_dual_green_colored_donut_chart('two-colored-green-donut-1');
   }
 
-  if ($('#bsl-details').length == 1) {
-    render_donut_chart('1-donut-sm');
-    render_donut_chart('2-donut-sm');
-    render_donut_chart('3-donut-sm');
-    render_donut_chart('4-donut-sm');
-    render_donut_chart('5-donut-sm');
-    render_donut_chart('6-donut-sm');
-    render_donut_chart('7-donut-sm');
-    render_donut_chart('8-donut-sm');
-    render_donut_chart('9-donut-sm');
-    render_donut_chart('10-donut-sm');
-    render_donut_chart('11-donut-sm');
-  }
-
   function render_three_colored_donut_chart(element) {
     Highcharts.chart(element, {
       chart: {
