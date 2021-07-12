@@ -1,0 +1,67 @@
+.introjs-fixedTooltip {
+  position: absolute !important;
+  font-family: 'DM Sans', sans-serif;
+}
+.introjs-tooltip {
+  min-width: 350px;
+  .introjs-tooltip-header {
+    .introjs-skipbutton {
+      position: absolute;
+      right: 0;
+      top: 5px;
+    }
+    .introjs-tooltip-title {
+      margin-top: 20px;
+      font-family: 'DM Sans', sans-serif;
+      color: $black;
+      font-size: 20px;
+    }
+  }
+  .introjs-tooltiptext {
+    font-size: 14px;
+    color: $black;
+    padding-top: 10px;
+  }
+  .introjs-bullets {
+    display: none;
+  }
+  .introjs-tooltipbuttons {
+    border: 0;
+    padding: 10px 20px;
+    display: flex;
+    .introjs-prevbutton {
+      flex: .7;
+      background: $white;
+      color: $black;
+      border: 1px solid #ddd;
+      box-shadow: none;
+    }
+    .introjs-prevbutton {
+      flex: .6;
+      color: $black;
+      background: $white;
+      box-shadow: none;
+      text-align: center;
+      border-radius: 6px;
+      margin-right: 10px;
+    }
+    .introjs-nextbutton {
+      flex: 1;
+      color: $white;
+      background: $black;
+      box-shadow: none;
+      text-align: center;
+      border-radius: 6px;
+      text-shadow: none;
+
+    }
+    .introjs-fullbutton {
+      width: 100px !important;
+      text-align: center;
+      flex: initial;
+      margin-left: auto;
+      border-radius: 6px;
+      text-shadow: none;
+    }
+  }
+}

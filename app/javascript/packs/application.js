@@ -10,6 +10,7 @@ require('bootstrap');
 require('@nathanvda/cocoon');
 require('select2');
 require('toastr');
+require('intro.js');
 
 require.context('../images', true);
 
