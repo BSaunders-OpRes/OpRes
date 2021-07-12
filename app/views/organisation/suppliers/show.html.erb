@@ -6,7 +6,7 @@
           <div class="mr-4 back-btn mb-2 mb-sm-0 ">
             <%= render 'layouts/partials/shared/redirect_back', path: organisation_dashboard_index_path %>
           </div>
-          <h2 class="font-500 font-sm-18 font-25 text-capitalize">name of the supplier</h2>
+          <h2 class="font-500 font-sm-18 font-25 text-capitalize"><%= @supplier.name %></h2>
         </div>
         <div class="right d-flex mt-3 mt-lg-0">
           <div class="white-btn d-flex align-items-center pl-2 pr-2 mr-2 py-2">
@@ -267,13 +267,13 @@
                             <%= @supplier.sla&.severity1_restoration %> Mins
                           </td>
                           <td class="font-13 px-4">
-                            <%= @supplier.sla&.severity1_restoration %> Mins
+                            <%= @supplier.sla&.severity2_restoration %> Mins
                           </td>
                           <td class="font-13 px-4">
-                            <%= @supplier.sla&.severity1_restoration %> Mins
+                            <%= @supplier.sla&.severity3_restoration %> Mins
                           </td>
                           <td class="font-13 px-4">
-                            <%= @supplier.sla&.severity1_restoration %> Mins
+                            <%= @supplier.sla&.severity4_restoration %> Mins
                           </td>
                         </tr>
                       </tbody>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_09_055112) do
+ActiveRecord::Schema.define(version: 2021_07_09_122654) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -344,8 +344,8 @@ ActiveRecord::Schema.define(version: 2021_07_09_055112) do
     t.float "amount"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "kind", default: 0
     t.integer "label", default: 0
+    t.integer "kind", default: 0
     t.index ["business_service_line_id"], name: "index_risk_appetites_on_business_service_line_id"
   end
 
@@ -519,6 +519,7 @@ ActiveRecord::Schema.define(version: 2021_07_09_055112) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "job_title"
+    t.json "introjs"
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
