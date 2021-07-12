@@ -63,7 +63,7 @@ document.addEventListener('turbolinks:load', function() {
     render_donut_chart('11-donut-sm');
   }
 
-  function render_donut_chart(element) {
+  function render_three_colored_donut_chart(element) {
     Highcharts.chart(element, {
       chart: {
         margin: [0, 0, 0, 0],

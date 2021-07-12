@@ -1,0 +1,22 @@
+<% if current_user.introjs.dig('dashboard').blank? || current_user.introjs.dig('dashboard') == 'false' %>
+  <div class="modal fade mt-5 pt-5" id="dashboard-tour-modal" role="dialog" aria-labelledby="welcome-tour-modal" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header border-0 pb-0">
+          <h5 class="modal-title mt-4 font-22" id="welcome-tour-modal">Welcome to your Resilience Dashboard</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body pt-0 pb-4">
+          <p class="font-20 font-400">Would you like a quick tour of the layout?</p>
+        </div>
+        <div class="modal-footer border-0 pb-5 d-flex justify-content-start">
+          <button type="button" id="dashboard-tour-dont-ask" class="btn btn-outline-secondary text-black font-500 rounded-50 bg-white border py-2 shadow-none" data-dismiss="modal">No. Don't ask again </button>
+          <button type="button" class="btn btn-outline-secondary text-black font-500 rounded-50 bg-white border py-2 shadow-none" data-dismiss="modal">Maybe Later</button>
+          <button type="button" class="btn font-500 black-btn rounded-50 border py-2 px-4 shadow-none" id="dashboard-tour-start">Yes, Please</button>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>

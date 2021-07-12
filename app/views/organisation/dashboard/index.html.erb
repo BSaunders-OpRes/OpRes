@@ -6,7 +6,7 @@
     </div>
   </div>
 </div>
-<div class="card mt-5 border-0 shadow-sm mx-1 rounded-50">
+<div class="card mt-5 border-0 shadow-sm mx-1 rounded-50" id="dashboard-segmentation-option">
   <div class="card-body pb-0">
     <div class="d-flex align-items-center px-1">
       <i class="fa fa-sliders"></i>
@@ -331,7 +331,7 @@
   </div>
 </div>
 <div class="row mt-5 d-flex no-gutters">
-  <div class="col-md-6 col-lg-3 order-lg-1 order-2 mb-lg-0 mb-4 px-1">
+  <div class="col-md-6 col-lg-3 order-lg-1 order-2 mb-lg-0 mb-4 px-1" id="bsl-tour">
     <div class="card border-0 shadow-sm pie-high-chart overflow-hidden rounded-50 min-h-560">
       <div class="card-header bg-white text-center">
         <p class="font-14 text-capitalize font-600 chart-header-title">business services</p>
@@ -376,8 +376,8 @@
     </div>
   </div>
 
-  <div class="col-md-12 col-lg-3 order-lg-2 order-3 mb-lg-0 mb-4 px-1">
-    <div class="card border-0 shadow-sm pie-high-chart overflow-hidden rounded-50 min-h-560">
+  <div class="col-md-12 col-lg-3 order-lg-2 order-3 mb-lg-0 mb-4 px-">
+    <div class="card border-0 shadow-sm pie-high-chart overflow-hidden rounded-50 min-h-560"id="system-supplier-resilience-indicator" >
       <div class="card-header bg-white text-center border-0 text-decoration-none">
         <p class="font-14 text-capitalize font-600 chart-header-title text-black text-decoration-none">system & supplier resilience indicators</p>
         <div class="row flex-sm-wrap flex-nowrap">
@@ -497,7 +497,7 @@
   </div>
 
   <div class="col-md-12 col-lg-3 order-lg-3 order-4 mb-lg-0 mb-4 px-1">
-    <div class="card border-0 shadow-sm pie-high-chart overflow-hidden rounded-50 min-h-560">
+    <div class="card border-0 shadow-sm pie-high-chart overflow-hidden rounded-50 min-h-560" id="critical-important-system" >
       <div class="card-header bg-white text-center border-0">
         <p class="font-14 text-capitalize font-600 chart-header-title text-black">Critical & Important System</p>
         <div class="row flex-sm-wrap flex-nowrap">
@@ -594,7 +594,8 @@
   </div>
 
   <div class="col-md-6 col-lg-3 order-lg-4 order-1 mb-lg-0 mb-4 px-1">
-    <div class="card border-0 shadow-sm pie-high-chart overflow-hidden rounded-50 min-h-560">
+    <div class="card border-0 shadow-sm pie-high-chart overflow-hidden rounded-50 min-h-560"
+    id="cloud-service-provider-breakdown" >
       <div class="card-header bg-white text-center">
         <p class="font-14 text-capitalize font-600 chart-header-title">Cloud Service Provider breakdown</p>
         <div class="donut-content">
@@ -640,7 +641,7 @@
 </div>
 <div class="row mt-4 no-gutters">
   <div class="col-md-6 col-lg-9 mb-4 mb-lg-0 px-1">
-    <div class="card border-0 shadow-sm rounded-50 overflow-hidden min-h-566">
+    <div class="card border-0 shadow-sm rounded-50 overflow-hidden min-h-566" id="high-risk-bsl">
       <div class="card-body">
         <div class="tb-header flex-wrap d-flex justify-content-between flex-lg-row flex-column">
           <h5 class="font-16 text-capitalize font-600 flex-1 align-self-lg-center mb-lg-0 mb-4">high risk business service line</h5>
@@ -757,7 +758,7 @@
     </div>
   </div>
   <div class="col-md-6 col-lg-3 px-1">
-    <div class="card resiliece-indicator border-0 shadow-sm rounded-50 overflow-hidden min-h-566">
+    <div class="card resiliece-indicator border-0 shadow-sm rounded-50 overflow-hidden min-h-566" id="impact-tolerance">
       <div class="card-header p-2 bg-transparent border-0">
         <div class="header-wrapper text-center p-4">
           <div class="d-flex justify-content-center align-items-center">
@@ -1559,184 +1560,6 @@
     </div>
   </div>
 </div>
-<!-- <div class="row mt-4">
-  <div class="col-md-6 col-lg-3 mb-lg-0 mb-4">
-    <div class="card pie-high-chart">
-      <div class="card-header bg-white text-center">
-        <h5 class="text-capitalize font-600 font-12 font-xxl-14 mb-2">Retail current account journey</h5>
-        <p class="text-capitalize font-10 font-xxl-12 font-400">Resilience posture status</p>
-        <div class="semi-donut-content">
-          <div id="semi-donut-1" class="donut mt-3 semi-circle"></div>
-          <div class="donut-value font-50 font-700 w-100">
-            <p class="text-capitalize font-12 font-600 mb-2">Sub Optimal resilience posture </p>
-            <span class="text-capitalize font-11 font-300">Risk Appetite Validation required</span>
-          </div>
-        </div>
-      </div>
-      <div class="card-body">
-        <div class="tiers d-flex justify-content-between align-items-center mb-3">
-          <div class="color-tier d-flex align-items-center">
-            <span class="font-12 font-400 text-capitalize">Total Journeys</span>
-          </div>
-          <span class="font-12 font-700">24</span>
-        </div>
-        <div class="tiers d-flex justify-content-between align-items-center mb-3">
-          <div class="color-tier d-flex align-items-center">
-            <span class="font-12 font-400 text-capitalize">Resilience gaps</span>
-          </div>
-          <span class="font-12 font-700">24</span>
-        </div>
-        <div class="tiers d-flex justify-content-between align-items-center mb-3">
-          <div class="color-tier d-flex align-items-center">
-            <span class="font-12 font-400 text-capitalize">3rd party suppliers</span>
-          </div>
-          <span class="font-12 font-700">24</span>
-        </div>
-        <div class="tiers d-flex justify-content-between align-items-center mb-3">
-          <div class="color-tier d-flex align-items-center">
-            <span class="font-12 font-400 text-capitalize">4th party suppliers</span>
-          </div>
-          <span class="font-12 font-700">24</span>
-        </div>
-      </div>
-      <div class="d-flex card-footer py-2 bg-transparent justify-content-center view-all">
-        <a href="" class="text-capitalize font-12 font-xxl-14 border-bottom text-black">view all</a>
-      </div>
-    </div>
-  </div>
-  <div class="col-md-6 col-lg-3 mb-lg-0 mb-4">
-    <div class="card pie-high-chart">
-      <div class="card-header bg-white text-center">
-        <h5 class="text-capitalize font-600 font-12 font-xxl-14 mb-2">business current account journeys</h5>
-        <p class="text-capitalize font-10 font-xxl-12 font-400">Resilience posture status</p>
-        <div class="semi-donut-content">
-          <div id="semi-donut-2" class="donut mt-3 semi-circle"></div>
-          <div class="donut-value font-50 font-700 w-100">
-            <p class="text-capitalize font-12 font-600 mb-2">Sub Optimal resilience posture </p>
-            <span class="text-capitalize font-11 font-300">Risk Appetite Validation required</span>
-          </div>
-        </div>
-      </div>
-      <div class="card-body">
-        <div class="tiers d-flex justify-content-between align-items-center mb-3">
-          <div class="color-tier d-flex align-items-center">
-            <span class="font-12 font-400 text-capitalize">Total Journeys</span>
-          </div>
-          <span class="font-12 font-700">24</span>
-        </div>
-        <div class="tiers d-flex justify-content-between align-items-center mb-3">
-          <div class="color-tier d-flex align-items-center">
-            <span class="font-12 font-400 text-capitalize">Resilience gaps</span>
-          </div>
-          <span class="font-12 font-700">24</span>
-        </div>
-        <div class="tiers d-flex justify-content-between align-items-center mb-3">
-          <div class="color-tier d-flex align-items-center">
-            <span class="font-12 font-400 text-capitalize">3rd party suppliers</span>
-          </div>
-          <span class="font-12 font-700">24</span>
-        </div>
-        <div class="tiers d-flex justify-content-between align-items-center mb-3">
-          <div class="color-tier d-flex align-items-center">
-            <span class="font-12 font-400 text-capitalize">4th party suppliers</span>
-          </div>
-          <span class="font-12 font-700">24</span>
-        </div>
-      </div>
-      <div class="d-flex card-footer py-2 bg-transparent justify-content-center view-all">
-        <a href="" class="text-capitalize font-12 font-xxl-14 border-bottom text-black">view all</a>
-      </div>
-    </div>
-  </div>
-  <div class="col-md-6 col-lg-3 mb-lg-0 mb-4">
-    <div class="card pie-high-chart">
-      <div class="card-header bg-white text-center">
-        <h5 class="text-capitalize font-600 font-12 font-xxl-14 mb-2">loans journeys</h5>
-        <p class="text-capitalize font-10 font-xxl-12 font-400">Resilience posture status</p>
-        <div class="semi-donut-content">
-          <div id="semi-donut-3" class="donut mt-3 semi-circle"></div>
-          <div class="donut-value font-50 font-700 w-100">
-            <p class="text-capitalize font-12 font-600 mb-2">Sub Optimal resilience posture </p>
-            <span class="text-capitalize font-11 font-300">Risk Appetite Validation required</span>
-          </div>
-        </div>
-      </div>
-      <div class="card-body">
-        <div class="tiers d-flex justify-content-between align-items-center mb-3">
-          <div class="color-tier d-flex align-items-center">
-            <span class="font-12 font-400 text-capitalize">Total Journeys</span>
-          </div>
-          <span class="font-12 font-700">24</span>
-        </div>
-        <div class="tiers d-flex justify-content-between align-items-center mb-3">
-          <div class="color-tier d-flex align-items-center">
-            <span class="font-12 font-400 text-capitalize">Resilience gaps</span>
-          </div>
-          <span class="font-12 font-700">24</span>
-        </div>
-        <div class="tiers d-flex justify-content-between align-items-center mb-3">
-          <div class="color-tier d-flex align-items-center">
-            <span class="font-12 font-400 text-capitalize">3rd party suppliers</span>
-          </div>
-          <span class="font-12 font-700">24</span>
-        </div>
-        <div class="tiers d-flex justify-content-between align-items-center mb-3">
-          <div class="color-tier d-flex align-items-center">
-            <span class="font-12 font-400 text-capitalize">4th party suppliers</span>
-          </div>
-          <span class="font-12 font-700">24</span>
-        </div>
-      </div>
-      <div class="d-flex card-footer py-2 bg-transparent justify-content-center view-all">
-        <a href="" class="text-capitalize font-12 font-xxl-14 border-bottom text-black">view all</a>
-      </div>
-    </div>
-  </div>
-  <div class="col-md-6 col-lg-3 mb-lg-0">
-    <div class="card pie-high-chart">
-      <div class="card-header bg-white text-center">
-        <h5 class="text-capitalize font-600 font-12 font-xxl-14 mb-2">Mortgage journeys</h5>
-        <p class="text-capitalize font-10 font-xxl-12 font-400">Resilience posture status</p>
-        <div class="semi-donut-content">
-          <div id="semi-donut-4" class="donut mt-3 semi-circle"></div>
-          <div class="donut-value font-50 font-700 w-100">
-            <p class="text-capitalize font-12 font-600 mb-2">Sub Optimal resilience posture </p>
-            <span class="text-capitalize font-11 font-300">Risk Appetite Validation required</span>
-          </div>
-        </div>
-      </div>
-      <div class="card-body">
-        <div class="tiers d-flex justify-content-between align-items-center mb-3">
-          <div class="color-tier d-flex align-items-center">
-            <span class="font-12 font-400 text-capitalize">Total Journeys</span>
-          </div>
-          <span class="font-12 font-700">24</span>
-        </div>
-        <div class="tiers d-flex justify-content-between align-items-center mb-3">
-          <div class="color-tier d-flex align-items-center">
-            <span class="font-12 font-400 text-capitalize">Resilience gaps</span>
-          </div>
-          <span class="font-12 font-700">24</span>
-        </div>
-        <div class="tiers d-flex justify-content-between align-items-center mb-3">
-          <div class="color-tier d-flex align-items-center">
-            <span class="font-12 font-400 text-capitalize">3rd party suppliers</span>
-          </div>
-          <span class="font-12 font-700">24</span>
-        </div>
-        <div class="tiers d-flex justify-content-between align-items-center mb-3">
-          <div class="color-tier d-flex align-items-center">
-            <span class="font-12 font-400 text-capitalize">4th party suppliers</span>
-          </div>
-          <span class="font-12 font-700">24</span>
-        </div>
-      </div>
-      <div class="d-flex card-footer py-2 bg-transparent justify-content-center view-all">
-        <a href="" class="text-capitalize font-12 font-xxl-14 border-bottom text-black">view all</a>
-      </div>
-    </div>
-  </div>
-</div> -->
 <div class="row mt-5">
   <div class="col-md-12 text-center d-flex justify-content-center">
     <a href="" class="text-decoration-none dark-btn py-3 px-4 rounded align-items-center d-flex text-decoration-none">
@@ -1745,3 +1568,6 @@
     </a>
   </div>
 </div>
+<%= render 'organisation/dashboard/partials/introjs_opening_modal' %>
+<%= render 'organisation/dashboard/partials/introjs_closing_modal'%>
+

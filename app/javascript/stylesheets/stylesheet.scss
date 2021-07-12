@@ -2,6 +2,7 @@
 @import 'bootstrap-datepicker/dist/css/bootstrap-datepicker3.standalone.css';
 @import 'react-toastify/dist/ReactToastify.css';
 @import 'select2/dist/css/select2.css';  
+@import 'intro.js/introjs.css';
 
 @import './variables/variables.scss';
 @import './main/main.scss';
@@ -23,4 +24,4 @@
 @import './organisation/supplier.scss';
 @import './supplier/supplier_view.scss';
 @import 'toastr/build/toastr.min';
-
+@import './introjs/introjs.scss'
