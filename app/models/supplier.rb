@@ -27,7 +27,7 @@ class Supplier < ApplicationRecord
 
   # Enums #
   enum contracting_terms: %i[monthly annually other non_applicable], _suffix: :contracting_terms
-  enum consumption_model: %i[iaas saas paas other], _suffix: :consumption_model
+  enum consumption_model: %i[laas paas saas other], _suffix: :consumption_model
 
   # Validations #
   validates :start_date, :end_date, presence: true
@@ -43,6 +43,10 @@ class Supplier < ApplicationRecord
   # Methods #
   def strf_attr(attr)
     send(attr)&.strftime('%d.%m.%Y')
+  end
+
+  def self.real_consumption_models
+    consumption_models.reject { |k, v| k == 'other' }
   end
 
   def key_contacts_ids

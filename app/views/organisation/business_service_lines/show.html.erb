@@ -613,332 +613,41 @@
                   <% end %>
                   </div>
                   <div class="col-md-9">
-                    <div class="content-box mb-4 mt-3 px-2">
-                      <div class="heading d-flex align-items-center justify-content-start mb-4">
-                        <div class="w-10 mr-3">
-                          <%= image_pack_tag 'media/images/aws.png', class: 'img-fluid w-75' %>
-                        </div>
-                        <h5 class="font-20 font-500 text-capitalize">Amazon Web Series</h5>
-                      </div>
-                      <div class="row resiliece-indicator">
-                        <div class="col-md-4">
-                          <div class="row mt-4">
-                            <div class="col-md-12">
-                              <h5 class="font-12 font-xxl-14 font-700 text-capitalize">Laas</h5>
-                            </div>
-                            <div class="col-md-5">
-                              <div id="1-donut-sm" class="sm-donut mx-auto"></div>
-                            </div>
-                            <div class="col-md-7 mt-3">
-                              <div class="tiers d-flex justify-content-between align-items-center mt-2 ml-2">
-                                <div class="color-tier d-flex align-items-center">
-                                  <div class="circle green-4"></div>
-                                  <span class="font-11 font-400 ml-2 text-capitalize flex-1 cursor-pointer" data-toggle="tooltip" data-placement="top" title="Critical System Matches Impact Tolerances">Critical</span>
-                                </div>
-                                <span class="font-11 font-700">8</span>
-                              </div>
-                              <div class="tiers d-flex justify-content-between align-items-center mt-2 ml-2">
-                                <div class="color-tier d-flex align-items-center">
-                                  <div class="circle green-2"></div>
-                                  <span class="font-11 font-400 ml-2 text-capitalize flex-1 cursor-pointer" data-toggle="tooltip" data-placement="top" title="Critical System Meets Impact Tolerances">Important</span>
-                                </div>
-                                <span class="font-11 font-700 ml-1">3</span>
-                              </div>
-                            </div>
+                    <% @chp_data.dig(:breakdown).each do |chp_name, chp_data| %>
+                      <div class="content-box mb-4 mt-3 px-2">
+                        <div class="heading d-flex align-items-center justify-content-start mb-4">
+                          <div class="w-10 mr-3">
+                            <%= image_tag chp_data.dig(:logo), class: 'img-fluid w-75' %>
                           </div>
+                          <h5 class="font-20 font-500 text-capitalize"><%= chp_data.dig(:name) %></h5>
                         </div>
-                        <div class="col-md-4">
-                          <div class="row mt-4">
-                            <div class="col-md-12">
-                              <h5 class="font-12 font-xxl-14 font-700 text-capitalize">Paas</h5>
-                            </div>
-                            <div class="col-md-5">
-                              <div id="2-donut-sm" class="sm-donut mx-auto"></div>
-                            </div>
-                            <div class="col-md-7 mt-3">
-                              <div class="tiers d-flex justify-content-between align-items-center mt-2 ml-2">
-                                <div class="color-tier d-flex align-items-center">
-                                  <div class="circle green-4"></div>
-                                  <span class="font-11 font-400 ml-2 text-capitalize flex-1 cursor-pointer" data-toggle="tooltip" data-placement="top" title="Critical System Matches Impact Tolerances">Critical</span>
+                        <div class="row resiliece-indicator">
+                          <% chp_data.dig(:consumption_models).each do |cm_name, cm_data| %>
+                            <div class="col-md-4">
+                              <div class="row mt-4">
+                                <div class="col-md-12">
+                                  <h5 class="font-12 font-xxl-14 font-700 text-capitalize"><%= cm_name %></h5>
                                 </div>
-                                <span class="font-11 font-700">8</span>
-                              </div>
-                              <div class="tiers d-flex justify-content-between align-items-center mt-2 ml-2">
-                                <div class="color-tier d-flex align-items-center">
-                                  <div class="circle green-2"></div>
-                                  <span class="font-11 font-400 ml-2 text-capitalize flex-1 cursor-pointer" data-toggle="tooltip" data-placement="top" title="Critical System Meets Impact Tolerances">Important</span>
+                                <div class="col-md-5 pl-0">
+                                  <%= react_component('highcharts/donut', { data: cm_data.dig(:graph), render_to: 'donut' }, { class: 'sm-donut mx-auto' }) %>
                                 </div>
-                                <span class="font-11 font-700 ml-1">3</span>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="col-md-4">
-                          <div class="row mt-4">
-                            <div class="col-md-12">
-                              <h5 class="font-12 font-xxl-14 font-700 text-capitalize">Saas</h5>
-                            </div>
-                            <div class="col-md-5">
-                              <div id="3-donut-sm" class="sm-donut mx-auto"></div>
-                            </div>
-                            <div class="col-md-7 mt-3">
-                              <div class="tiers d-flex justify-content-between align-items-center mt-2 ml-2">
-                                <div class="color-tier d-flex align-items-center">
-                                  <div class="circle green-4"></div>
-                                  <span class="font-11 font-400 ml-2 text-capitalize flex-1 cursor-pointer" data-toggle="tooltip" data-placement="top" title="Critical System Matches Impact Tolerances">Critical</span>
+                                <div class="col-md-7 mt-3">
+                                  <% cm_data.dig(:graph).each_with_index do |graph, index| %>
+                                    <div class="tiers d-flex justify-content-between align-items-center mt-2 ml-2">
+                                      <div class="color-tier d-flex align-items-center">
+                                        <div class="circle" style="background-color: <%= graph.dig(:color) %>"></div>
+                                        <span class="font-11 font-400 ml-2 text-capitalize flex-1 cursor-pointer" data-toggle="tooltip" data-placement="top" title="<%= index.zero? ? 'Critical System Matches Impact Tolerances' : 'Critical System Meets Impact Tolerances' %>"><%= graph.dig(:name) %></span>
+                                      </div>
+                                      <span class="font-11 font-700"><span class="mr-1 ml-1">:</span><span><%= graph.dig(:value) %></span></span>
+                                    </div>
+                                  <% end %>
                                 </div>
-                                <span class="font-11 font-700">8</span>
-                              </div>
-                              <div class="tiers d-flex justify-content-between align-items-center mt-2 ml-2">
-                                <div class="color-tier d-flex align-items-center">
-                                  <div class="circle green-2"></div>
-                                  <span class="font-11 font-400 ml-2 text-capitalize flex-1 cursor-pointer" data-toggle="tooltip" data-placement="top" title="Critical System Meets Impact Tolerances">Important</span>
-                                </div>
-                                <span class="font-11 font-700 ml-1">3</span>
                               </div>
                             </div>
-                          </div>
+                          <% end %>
                         </div>
                       </div>
-                    </div>
-                    <div class="content-box mt-3 mb-4 px-2">
-                      <div class="heading d-flex align-items-center justify-content-start mb-4">
-                        <div class="w-10 mr-3">
-                          <%= image_pack_tag 'media/images/g-cloud.png', class: 'img-fluid w-75' %>
-                        </div>
-                        <h5 class="font-20 font-500 text-capitalize">Google Cloud Platform</h5>
-                      </div>
-                      <div class="row resiliece-indicator">
-                        <div class="col-md-4">
-                          <div class="row mt-4">
-                            <div class="col-md-12">
-                              <h5 class="font-12 font-xxl-14 font-700 text-capitalize">Laas</h5>
-                            </div>
-                            <div class="col-md-5">
-                              <div id="4-donut-sm" class="sm-donut mx-auto"></div>
-                            </div>
-                            <div class="col-md-7 mt-3">
-                              <div class="tiers d-flex justify-content-between align-items-center mt-2 ml-2">
-                                <div class="color-tier d-flex align-items-center">
-                                  <div class="circle green-4"></div>
-                                  <span class="font-11 font-400 ml-2 text-capitalize flex-1 cursor-pointer" data-toggle="tooltip" data-placement="top" title="Critical System Matches Impact Tolerances">Critical</span>
-                                </div>
-                                <span class="font-11 font-700">8</span>
-                              </div>
-                              <div class="tiers d-flex justify-content-between align-items-center mt-2 ml-2">
-                                <div class="color-tier d-flex align-items-center">
-                                  <div class="circle green-2"></div>
-                                  <span class="font-11 font-400 ml-2 text-capitalize flex-1 cursor-pointer" data-toggle="tooltip" data-placement="top" title="Critical System Meets Impact Tolerances">Important</span>
-                                </div>
-                                <span class="font-11 font-700 ml-1">3</span>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="col-md-4">
-                          <div class="row mt-4">
-                            <div class="col-md-12">
-                              <h5 class="font-12 font-xxl-14 font-700 text-capitalize">Paas</h5>
-                            </div>
-                            <div class="col-md-5">
-                              <div id="5-donut-sm" class="sm-donut mx-auto"></div>
-                            </div>
-                            <div class="col-md-7 mt-3">
-                              <div class="tiers d-flex justify-content-between align-items-center mt-2 ml-2">
-                                <div class="color-tier d-flex align-items-center">
-                                  <div class="circle green-4"></div>
-                                  <span class="font-11 font-400 ml-2 text-capitalize flex-1 cursor-pointer" data-toggle="tooltip" data-placement="top" title="Critical System Matches Impact Tolerances">Critical</span>
-                                </div>
-                                <span class="font-11 font-700">8</span>
-                              </div>
-                              <div class="tiers d-flex justify-content-between align-items-center mt-2 ml-2">
-                                <div class="color-tier d-flex align-items-center">
-                                  <div class="circle green-2"></div>
-                                  <span class="font-11 font-400 ml-2 text-capitalize flex-1 cursor-pointer" data-toggle="tooltip" data-placement="top" title="Critical System Meets Impact Tolerances">Important</span>
-                                </div>
-                                <span class="font-11 font-700 ml-1">3</span>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="col-md-4">
-                          <div class="row mt-4">
-                            <div class="col-md-12">
-                              <h5 class="font-12 font-xxl-14 font-700 text-capitalize">Saas</h5>
-                            </div>
-                            <div class="col-md-5">
-                              <div id="6-donut-sm" class="sm-donut mx-auto"></div>
-                            </div>
-                            <div class="col-md-7 mt-3">
-                              <div class="tiers d-flex justify-content-between align-items-center mt-2 ml-2">
-                                <div class="color-tier d-flex align-items-center">
-                                  <div class="circle green-4"></div>
-                                  <span class="font-11 font-400 ml-2 text-capitalize flex-1 cursor-pointer" data-toggle="tooltip" data-placement="top" title="Critical System Matches Impact Tolerances">Critical</span>
-                                </div>
-                                <span class="font-11 font-700">8</span>
-                              </div>
-                              <div class="tiers d-flex justify-content-between align-items-center mt-2 ml-2">
-                                <div class="color-tier d-flex align-items-center">
-                                  <div class="circle green-2"></div>
-                                  <span class="font-11 font-400 ml-2 text-capitalize flex-1 cursor-pointer" data-toggle="tooltip" data-placement="top" title="Critical System Meets Impact Tolerances">Important</span>
-                                </div>
-                                <span class="font-11 font-700 ml-1">3</span>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="content-box mt-3 mb-4 px-2">
-                      <div class="heading d-flex align-items-center justify-content-start mb-4">
-                        <div class="w-10 mr-3">
-                          <%= image_pack_tag 'media/images/azure.png', class: 'img-fluid w-75' %>
-                        </div>
-                        <h5 class="font-20 font-500 text-capitalize">Azure</h5>
-                      </div>
-                      <div class="row resiliece-indicator">
-                        <div class="col-md-4">
-                          <div class="row mt-4">
-                            <div class="col-md-12">
-                              <h5 class="font-12 font-xxl-14 font-700 text-capitalize">Laas</h5>
-                            </div>
-                            <div class="col-md-5">
-                              <div id="7-donut-sm" class="sm-donut mx-auto"></div>
-                            </div>
-                            <div class="col-md-7 mt-3">
-                              <div class="tiers d-flex justify-content-between align-items-center mt-2 ml-2">
-                                <div class="color-tier d-flex align-items-center">
-                                  <div class="circle green-4"></div>
-                                  <span class="font-11 font-400 ml-2 text-capitalize flex-1 cursor-pointer" data-toggle="tooltip" data-placement="top" title="Critical System Matches Impact Tolerances">Critical</span>
-                                </div>
-                                <span class="font-11 font-700">8</span>
-                              </div>
-                              <div class="tiers d-flex justify-content-between align-items-center mt-2 ml-2">
-                                <div class="color-tier d-flex align-items-center">
-                                  <div class="circle green-2"></div>
-                                  <span class="font-11 font-400 ml-2 text-capitalize flex-1 cursor-pointer" data-toggle="tooltip" data-placement="top" title="Critical System Meets Impact Tolerances">Important</span>
-                                </div>
-                                <span class="font-11 font-700 ml-1">3</span>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="col-md-4">
-                          <div class="row mt-4">
-                            <div class="col-md-12">
-                              <h5 class="font-12 font-xxl-14 font-700 text-capitalize">Paas</h5>
-                            </div>
-                            <div class="col-md-5">
-                              <div id="8-donut-sm" class="sm-donut mx-auto"></div>
-                            </div>
-                            <div class="col-md-7 mt-3">
-                              <div class="tiers d-flex justify-content-between align-items-center mt-2 ml-2">
-                                <div class="color-tier d-flex align-items-center">
-                                  <div class="circle green-4"></div>
-                                  <span class="font-11 font-400 ml-2 text-capitalize flex-1 cursor-pointer" data-toggle="tooltip" data-placement="top" title="Critical System Matches Impact Tolerances">Critical</span>
-                                </div>
-                                <span class="font-11 font-700">8</span>
-                              </div>
-                              <div class="tiers d-flex justify-content-between align-items-center mt-2 ml-2">
-                                <div class="color-tier d-flex align-items-center">
-                                  <div class="circle green-2"></div>
-                                  <span class="font-11 font-400 ml-2 text-capitalize flex-1 cursor-pointer" data-toggle="tooltip" data-placement="top" title="Critical System Meets Impact Tolerances">Important</span>
-                                </div>
-                                <span class="font-11 font-700 ml-1">3</span>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="col-md-4">
-                          <div class="row mt-4">
-                            <div class="col-md-12">
-                              <h5 class="font-12 font-xxl-14 font-700 text-capitalize">Saas</h5>
-                            </div>
-                            <div class="col-md-5">
-                              <div id="9-donut-sm" class="sm-donut mx-auto"></div>
-                            </div>
-                            <div class="col-md-7 mt-3">
-                              <div class="tiers d-flex justify-content-between align-items-center mt-2 ml-2">
-                                <div class="color-tier d-flex align-items-center">
-                                  <div class="circle green-4"></div>
-                                  <span class="font-11 font-400 ml-2 text-capitalize flex-1 cursor-pointer" data-toggle="tooltip" data-placement="top" title="Critical System Matches Impact Tolerances">Critical</span>
-                                </div>
-                                <span class="font-11 font-700">8</span>
-                              </div>
-                              <div class="tiers d-flex justify-content-between align-items-center mt-2 ml-2">
-                                <div class="color-tier d-flex align-items-center">
-                                  <div class="circle green-2"></div>
-                                  <span class="font-11 font-400 ml-2 text-capitalize flex-1 cursor-pointer" data-toggle="tooltip" data-placement="top" title="Critical System Meets Impact Tolerances">Important</span>
-                                </div>
-                                <span class="font-11 font-700 ml-1">3</span>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="content-box mt-3 mb-4 px-2">
-                      <div class="heading d-flex align-items-center justify-content-start mb-4">
-                        <div class="w-10 mr-3">
-                          <%= image_pack_tag 'media/images/black-cloud.png', class: 'img-fluid w-75' %>
-                        </div>
-                        <h5 class="font-20 font-500 text-capitalize">Private Cloud</h5>
-                      </div>
-                      <div class="row resiliece-indicator">
-                        <div class="col-md-4">
-                          <div class="row mt-4">
-                            <div class="col-md-12">
-                              <h5 class="font-12 font-xxl-14 font-700 text-capitalize">Laas</h5>
-                            </div>
-                            <div class="col-md-5">
-                              <div id="10-donut-sm" class="sm-donut mx-auto"></div>
-                            </div>
-                            <div class="col-md-7 mt-3">
-                              <div class="tiers d-flex justify-content-between align-items-center mt-2 ml-2">
-                                <div class="color-tier d-flex align-items-center">
-                                  <div class="circle green-4"></div>
-                                  <span class="font-11 font-400 ml-2 text-capitalize flex-1 cursor-pointer" data-toggle="tooltip" data-placement="top" title="Critical System Matches Impact Tolerances">Critical</span>
-                                </div>
-                                <span class="font-11 font-700">8</span>
-                              </div>
-                              <div class="tiers d-flex justify-content-between align-items-center mt-2 ml-2">
-                                <div class="color-tier d-flex align-items-center">
-                                  <div class="circle green-2"></div>
-                                  <span class="font-11 font-400 ml-2 text-capitalize flex-1 cursor-pointer" data-toggle="tooltip" data-placement="top" title="Critical System Meets Impact Tolerances">Important</span>
-                                </div>
-                                <span class="font-11 font-700 ml-1">3</span>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="col-md-4">
-                          <div class="row mt-4">
-                            <div class="col-md-12">
-                              <h5 class="font-12 font-xxl-14 font-700 text-capitalize">Paas</h5>
-                            </div>
-                            <div class="col-md-5">
-                              <div id="11-donut-sm" class="sm-donut mx-auto"></div>
-                            </div>
-                            <div class="col-md-7 mt-3">
-                              <div class="tiers d-flex justify-content-between align-items-center mt-2 ml-2">
-                                <div class="color-tier d-flex align-items-center">
-                                  <div class="circle green-4"></div>
-                                  <span class="font-11 font-400 ml-2 text-capitalize flex-1 cursor-pointer" data-toggle="tooltip" data-placement="top" title="Critical System Matches Impact Tolerances">Critical</span>
-                                </div>
-                                <span class="font-11 font-700">8</span>
-                              </div>
-                              <div class="tiers d-flex justify-content-between align-items-center mt-2 ml-2">
-                                <div class="color-tier d-flex align-items-center">
-                                  <div class="circle green-2"></div>
-                                  <span class="font-11 font-400 ml-2 text-capitalize flex-1 cursor-pointer" data-toggle="tooltip" data-placement="top" title="Critical System Meets Impact Tolerances">Important</span>
-                                </div>
-                                <span class="font-11 font-700 ml-1">3</span>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
+                    <% end %>
                   </div>
                 </div>
               </div>

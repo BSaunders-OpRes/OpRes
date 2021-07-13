@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { render } from 'react-dom';
-import Highcharts from 'highcharts';
-import HighchartsReact from 'highcharts-react-official'
+import { render }          from 'react-dom';
+import Highcharts          from 'highcharts';
+import HighchartsReact     from 'highcharts-react-official';
 
 let chartOptions = {
   renderto: '',
@@ -58,10 +58,10 @@ let chartOptions = {
 }
 
 export default function donut(props) {
-  chartOptions['series'][0]['data'] = props['data']
-  chartOptions['renderto'] = props['render_to']
+  chartOptions['series'][0]['data'] = props['data'];
+  chartOptions['renderto']          = props['render_to'];
 
   return(
-    <HighchartsReact highcharts={Highcharts} options={chartOptions} />
+     <HighchartsReact highcharts={Highcharts} options={chartOptions} />
   )
 }
