@@ -32,6 +32,9 @@ h1, h2, h3, h4, h5, h6, p {
   border-radius: 100px;
   height: 100px;
 }
+.white-space-break {
+  white-space: break-spaces;
+}
 .h-300-with-scroll {
   height: 300px;
   &::-webkit-scrollbar {
