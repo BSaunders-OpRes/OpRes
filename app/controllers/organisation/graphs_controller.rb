@@ -1,11 +1,6 @@
 class Organisation::GraphsController  < Organisation::BaseController
-  before_action :load_graph, only: %i[show]
-
-  def show; end
-
-  private
-
-  def load_graph
-    @graph = params[:id]
+  def compose
+    service = "Graphs::#{params[:key].titleize.delete(' ')}Service".constantize
+    @data   = service.call(params[:args].permit!.to_h)
   end
 end

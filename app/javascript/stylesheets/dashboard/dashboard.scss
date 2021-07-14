@@ -1,3 +1,30 @@
+@-webkit-keyframes blinker {
+  to {opacity: 0.0;}
+  from {opacity: 1.0;}
+}
+
+.empty-donut-block {
+  width: 100%;
+  height: 100%;
+  background: $lightest-grey;
+  -webkit-animation-name: blinker;
+  -webkit-animation-duration: 0.9s;
+  -webkit-animation-direction: alternate;
+  -webkit-animation-iteration-count:infinite;
+  -webkit-animation-timing-function:ease-in;
+}
+
+.empty-donut-line {
+  width: 100%;
+  height: 20px;
+  background: $lightest-grey;
+  -webkit-animation-name: blinker;
+  -webkit-animation-duration: 0.9s;
+  -webkit-animation-direction: alternate;
+  -webkit-animation-iteration-count:infinite;
+  -webkit-animation-timing-function:ease-in;
+}
+
 i.paperclip {
   transform: rotate(225deg);
 }
