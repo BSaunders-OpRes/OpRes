@@ -20,7 +20,6 @@ import './highcharts/colored-donut';
 import './highcharts/sonification-chart';
 import './highcharts/stacked-chart';
 
-
 window.$          = JQuery;
 window.Highcharts = Highcharts;
 window.toastr     = toastr;

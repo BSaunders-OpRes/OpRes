@@ -10,6 +10,6 @@ require 'rails_helper'
 #     end
 #   end
 # end
-RSpec.describe Organisation::ResilienceHelper, type: :helper do
+RSpec.describe Organisation::ResiliencesHelper, type: :helper do
   pending "add some examples to (or delete) #{__FILE__}"
 end

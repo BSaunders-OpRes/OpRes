@@ -1,0 +1,2 @@
+module Organisation::ResiliencesHelper
+end

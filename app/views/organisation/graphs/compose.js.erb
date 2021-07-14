@@ -1,0 +1,2 @@
+$('#<%= params[:key].dasherize %>').html('<%= j(render "organisation/graphs/partials/#{params[:key]}", data: @data) %>');
+ReactRailsUJS.mountComponents();

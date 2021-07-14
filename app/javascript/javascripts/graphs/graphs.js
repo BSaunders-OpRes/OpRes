@@ -1,31 +1,20 @@
 document.addEventListener('turbolinks:load', function() {
-  $('body').on('click', '#sticky-sidebar-demo .links a', function(e) {
-    e.preventDefault();
-    var parent = $(this).parents('.links');
-    var href = $(this).attr('href');
-    var leave_margin = (window.innerWidth < 576) ? 290 : 100;
-
-    $('html, body').animate({
-      scrollTop: $(href).offset().top - leave_margin
-    }, '300');
-    $('#section1').addClass('pt-xs-5');
-    parent.addClass('active-white').siblings().removeClass('active-white')
-  });
-
-  if ($('.fixed-secondary-sidebar').length >= 1) {
-    $(window).scroll(function() {
-      if($(window).scrollTop() > 10) {
-        $('.fixed-secondary-sidebar').addClass('sticky-top').removeClass('position-static');
-      } else {
-        $('.fixed-secondary-sidebar').addClass('position-static').removeClass('sticky-top');
-      }
+  /******************** Lazy Graph Template ********************
+    <div id="key-of-graph" class="lazy-graph" data-key="key_of_graph" data-args="<%= { k1: v1, k2: v2 }.to_json %>">
+      <%= render 'organisation/graphs/partials/key_of_graph', data: {} %>
+    </div>
+  *************************************************************/
+  if ($('.lazy-graph').length >= 1) {
+    $('.lazy-graph').each(function() {
+      $.ajax({
+        url:      '/organisation/graphs/compose',
+        dataType: 'script',
+        type:     'GET',
+        data:     {
+          key:  $(this).data('key'),
+          args: $(this).data('args')
+        }
+      });
     });
   }
-  $('.secondary-sidebar-icon').on('click', function(){
-    $('.fixed-secondary-sidebar').addClass('p-300');
-  })
-    $('.fixed-secondary-sidebar .fa-times-circle').on('click', function(){
-    $('.fixed-secondary-sidebar').removeClass('p-300');
-    $('#section1').removeClass('pt-xs-5');
-  })
-})
+});

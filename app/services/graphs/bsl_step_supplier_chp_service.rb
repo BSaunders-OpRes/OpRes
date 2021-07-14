@@ -1,8 +1,8 @@
 class Graphs::BslStepSupplierChpService < ApplicationService
   COLORS = %w[#6BEAB3 #367C5C #CDFAF1 #05b368]
 
-  def initialize(bsl)
-    @bsl  = bsl
+  def initialize(args)
+    @bsl  = BusinessServiceLine.find(args[:bsl])
     @data = {}
   end
 
@@ -27,7 +27,8 @@ class Graphs::BslStepSupplierChpService < ApplicationService
     datum[:total] = chp_suppliers.values.flatten.size
     datum[:graph] = []
 
-    chp_suppliers.each_with_index do |(chp, suppliers), index|
+    CloudHostingProvider.all.each_with_index do |chp, index|
+      suppliers = chp_suppliers[chp] || []
       datum[:graph] << {
         name:  chp.short_name,
         y:     datum[:total].zero? ? 0 : ((suppliers.size / datum[:total].to_f) * 100).round(2),
