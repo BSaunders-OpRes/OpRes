@@ -75,23 +75,24 @@ document.addEventListener('turbolinks:load', function() {
         data: [
           {
             name: '',
-            y: 40,
+            y: 0,
             color: '#E4412E'
           },
           {
             name: '',
-            y: 20,
+            y: 0,
             color: '#6BEAB3'
           },
           {
             name: '',
-            y: 70,
+            y: 0,
             color: '#E39A2B'
           }
         ]
       }]
     });
   }
+
   function render_two_colored_donut_chart(element) {
     Highcharts.chart(element, {
       chart: {
@@ -145,18 +146,19 @@ document.addEventListener('turbolinks:load', function() {
         data: [
           {
             name: '',
-            y: 40,
+            y: 0,
             color: '#6BEAB3'
           },
           {
             name: '',
-            y: 20,
+            y: 0,
             color: '#E4412E'
           }
         ]
       }]
     });
   }
+
   function render_colored_donut_chart(element) {
     Highcharts.chart(element, {
       chart: {
@@ -210,52 +212,52 @@ document.addEventListener('turbolinks:load', function() {
         data: [
           {
             name: '',
-            y: 60,
+            y: 0,
             color: '#E4412E'
           },
           {
             name: '',
-            y: 60,
+            y: 0,
             color: '#E39A2B'
           },
           {
             name: '',
-            y: 60,
+            y: 0,
             color: '#6BEAB3'
           },
           {
             name: '',
-            y: 60,
+            y: 0,
             color: '#367C5C'
           },
           {
             name: '',
-            y: 60,
+            y: 0,
             color: '#c363ff'
           },
           {
             name: '',
-            y: 60,
+            y: 0,
             color: '#418dff'
           },
           {
             name: '',
-            y: 40,
+            y: 0,
             color: '#965b00'
           },
           {
             name: '',
-            y: 40,
+            y: 0,
             color: '#CDFAF1'
           },
           {
             name: '',
-            y: 40,
+            y: 0,
             color: '#717070'
           },
           {
             name: '',
-            y: 40,
+            y: 0,
             color: '#bbbbbb'
           }
         ]

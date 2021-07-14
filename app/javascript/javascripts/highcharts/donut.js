@@ -102,17 +102,17 @@ document.addEventListener('turbolinks:load', function() {
         data: [
           {
             name: '',
-            y: 40,
+            y: 0,
             color: '#6BEAB3'
           },
           {
             name: '',
-            y: 50,
+            y: 0,
             color: '#367C5C'
           },
           {
             name: '',
-            y: 10,
+            y: 0,
             color: '#CDFAF1'
           }
         ]
@@ -173,18 +173,19 @@ document.addEventListener('turbolinks:load', function() {
         data: [
           {
             name: '',
-            y: 40,
+            y: 0,
             color: '#6BEAB3'
           },
           {
             name: '',
-            y: 10,
+            y: 0,
             color: '#000'
           }
         ]
       }]
     });
   }
+
   function render_dual_green_colored_donut_chart(element) {
     Highcharts.chart(element, {
       chart: {
@@ -238,17 +239,16 @@ document.addEventListener('turbolinks:load', function() {
         data: [
           {
             name: '',
-            y: 40,
+            y: 0,
             color: '#6BEAB3'
           },
           {
             name: '',
-            y: 10,
+            y: 0,
             color: '#367C5C'
           }
         ]
       }]
     });
   }
-
 });

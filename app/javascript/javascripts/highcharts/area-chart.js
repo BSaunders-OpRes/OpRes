@@ -54,7 +54,7 @@ document.addEventListener('turbolinks:load', function() {
       },
       series: [{
         name: 'Critical',
-        data: [1000, 900, 809, 947, 1402, 30],
+        data: [0, 0, 0, 0, 0, 0],
         color: 'rgba(233,252,247,.7)'
       }]
     });
