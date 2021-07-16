@@ -5,7 +5,7 @@ class RiskAppetite < ApplicationRecord
 
   # Enums #
   # Kind enum is based on the SLA columns. In future introduce user defined kind.
-  enum kind:  %w[service_level_agreement service_level_objective recovery_time_objective recovery_point_objective severity1 severity2 severity3 severity4 severity1_restoration severity2_restoration severity3_restoration severity4_restoration]
+  enum kind:  %w[service_level_agreement service_level_objective recovery_time_objective recovery_point_objective transactions_per_second response_time severity1 severity2 severity3 severity4 severity1_restoration severity2_restoration severity3_restoration severity4_restoration]
   enum label: %w[very_low low medium high very_high]
 
   # Validations #
@@ -27,10 +27,19 @@ class RiskAppetite < ApplicationRecord
     kind.in? %w[recovery_time_objective recovery_point_objective severity1 severity2 severity3 severity4 severity1_restoration severity2_restoration severity3_restoration severity4_restoration]
   end
 
+  def tps_amount?
+    kind.in? %w[transactions_per_second]
+  end
+
+  def ms_amount?
+    kind.in? %w[response_time]
+  end
+
   class << self
     def kind_display_name
       {
         service_level_agreement: 'SLA', service_level_objective: 'SLO', recovery_time_objective: 'RTO', recovery_point_objective: 'RPO',
+        transactions_per_second: 'TPS', response_time: 'Response Time',
         severity1: 'Severity 1', severity2: 'Severity 2', severity3: 'Severity 3', severity4: 'Severity 4',
         severity1_restoration: 'Restoration Severity 1', severity2_restoration: 'Restoration Severity 2',
         severity3_restoration: 'Restoration Severity 3', severity4_restoration: 'Restoration Severity 4'

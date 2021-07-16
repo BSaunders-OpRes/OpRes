@@ -12,9 +12,25 @@ module Organisation::RisksHelper
       else
         "Please set the impact tolerance threshold for your #{display_name}. This should be a time based figure you are willing to deviate from your target #{display_name}."
       end
+    elsif risk_appetite.tps_amount?
+      "Please set the impact tolerance threshold for your #{display_name}. This should be TPS figure you are willing to deviate from your target #{display_name}."
+    elsif risk_appetite.ms_amount?
+      "Please set the impact tolerance threshold for your #{display_name}. This should be milisecond figure you are willing to deviate from your target #{display_name}."
     else
       ''
     end 
+  end
+
+  def risk_appetite_icon(risk_appetite)
+    if risk_appetite.percentage_amount?
+      '%'
+    elsif risk_appetite.minutes_amount?
+      'Mins'
+    elsif risk_appetite.tps_amount?
+      'TPS'
+    elsif risk_appetite.ms_amount?
+      'm/s'
+    end
   end
 
   def risk_appetite_amount_value(risk_appetite)

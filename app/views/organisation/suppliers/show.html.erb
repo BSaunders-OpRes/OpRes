@@ -222,6 +222,28 @@
                           <div class="line-green"></div>
                         </div>
                         <div class="text">
+                          <p class="font-13 font-400">Contracted TPS</p>
+                          <h6 class="font-13 font-600"><%= @supplier.sla&.transactions_per_second %> TPS</h6>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-3">
+                      <div class="box1 d-flex align-items-center py-3">
+                        <div class="mr-3">
+                          <div class="line-green"></div>
+                        </div>
+                        <div class="text">
+                          <p class="font-13 font-400">Response Time</p>
+                          <h6 class="font-13 font-600"><%= @supplier.sla&.response_time %> m/s</h6>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-3">
+                      <div class="box1 d-flex align-items-center py-3">
+                        <div class="mr-3">
+                          <div class="line-green"></div>
+                        </div>
+                        <div class="text">
                           <p class="font-13 font-400">Support Hours</p>
                           <h6 class="font-13 font-600"><%= @supplier.sla&.support_hours %></h6>
                         </div>
