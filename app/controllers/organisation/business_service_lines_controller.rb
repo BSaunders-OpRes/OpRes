@@ -73,7 +73,7 @@ class Organisation::BusinessServiceLinesController < Organisation::BaseControlle
           .permit(:unit_id, :name, :description, :tier, :cost_centre_id, :currency_id,
             product_ids: [], channel_ids: [],
             material_risk_taker_attributes: %i[id name title email],
-            sla_attributes: %i[id service_level_agreement service_level_objective recovery_point_objective recovery_time_objective severity1 severity2 severity3 severity4 severity1_restoration severity2_restoration severity3_restoration severity4_restoration support_hours support_hours_other],
+            sla_attributes: %i[id service_level_agreement service_level_objective recovery_point_objective recovery_time_objective transactions_per_second response_time severity1 severity2 severity3 severity4 severity1_restoration severity2_restoration severity3_restoration severity4_restoration support_hours support_hours_other],
             steps_attributes: [:id, :name, :description, :number, :_destroy, supplier_steps_attributes: %i[id supplier_id party_type importance_level]],
             risk_appetites_attributes: [:id, :name, :amount, :label, :kind, :_destroy, risk_appetite_justifications_attributes: %i[user_id justification]]
           ).merge(unit_id: institution_unit.id)

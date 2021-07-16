@@ -165,7 +165,7 @@
                     <p class="text-capitalize font-14 font-400 mb-3">service level targets</p>
                   </div>
                 <div class="small-boxes row px-4 mb-4">
-                  <div class="col-lg col-md-6 mb-2">
+                  <div class="col-lg-3 col-md-6 mb-3">
                     <div class="card h-100 border-top-0 border-right-0 border-bottom-0 bg-white border-left-green rounded-0">
                       <div class="card-body px-2 py-2 d-flex align-items-center">
                         <div class="color-tier d-flex align-items-center">
@@ -177,7 +177,7 @@
                       </div>
                     </div>
                   </div>
-                  <div class="col-lg col-md-6 mb-2">
+                  <div class="col-lg-3 col-md-6 mb-3">
                     <div class="card h-100 border-top-0 border-right-0 border-bottom-0 bg-white border-left-green rounded-0">
                       <div class="card-body px-2 py-2 d-flex align-items-center">
                         <div class="color-tier d-flex align-items-center">
@@ -189,7 +189,7 @@
                       </div>
                     </div>
                   </div>
-                  <div class="col-lg col-md-6 mb-2">
+                  <div class="col-lg-3 col-md-6 mb-3">
                     <div class="card h-100 border-top-0 border-right-0 border-bottom-0 bg-white border-left-green rounded-0">
                       <div class="card-body px-2 py-2 d-flex align-items-center">
                         <div class="color-tier d-flex align-items-center">
@@ -201,7 +201,7 @@
                       </div>
                     </div>
                   </div>
-                  <div class="col-lg col-md-6 mb-2">
+                  <div class="col-lg-3 col-md-6 mb-3">
                     <div class="card h-100 border-top-0 border-right-0 border-bottom-0 bg-white border-left-green rounded-0">
                       <div class="card-body px-2 py-2 d-flex align-items-center">
                         <div class="color-tier d-flex align-items-center">
@@ -213,7 +213,31 @@
                       </div>
                     </div>
                   </div>
-                  <div class="col-lg col-md-6 mb-2">
+                  <div class="col-lg-3 col-md-6 mb-3">
+                    <div class="card h-100 border-top-0 border-right-0 border-bottom-0 bg-white border-left-green rounded-0">
+                      <div class="card-body px-2 py-2 d-flex align-items-center">
+                        <div class="color-tier d-flex align-items-center">
+                          <div class="text">
+                            <span class="font-12 font-400 ml-2 d-block">Target TPS</span>
+                            <span class="font-12 ml-2 d-block font-600"><%= @bsl.sla&.transactions_per_second %></span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-lg-3 col-md-6 mb-3">
+                    <div class="card h-100 border-top-0 border-right-0 border-bottom-0 bg-white border-left-green rounded-0">
+                      <div class="card-body px-2 py-2 d-flex align-items-center">
+                        <div class="color-tier d-flex align-items-center">
+                          <div class="text">
+                            <span class="font-12 font-400 ml-2 d-block">Response Time</span>
+                            <span class="font-12 ml-2 d-block font-600"><%= @bsl.sla&.response_time %></span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-lg-3 col-md-6 mb-3">
                     <div class="card h-100 border-top-0 border-right-0 border-bottom-0 bg-white border-left-green rounded-0">
                       <div class="card-body px-2 py-2 d-flex align-items-center">
                         <div class="color-tier d-flex align-items-center">
@@ -935,6 +959,34 @@
                               </div>
                               <div class="d-flex align-items-center justify-content-between">
                                 <div class="text-box w-40">
+                                  <p>Contracted TPS</p>
+                                </div>
+                                <div class="text-box w-40">
+                                  <p class="text-left">100 TPS</p>
+                                </div>
+                                <div class="text-box w-20">
+                                  <div class="color-tier d-flex align-items-center justify-content-start">
+                                    <div class="circle orange-circle p-2"></div>
+                                    <span class="font-11 font-400 ml-2">High Risk</span>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="d-flex align-items-center justify-content-between">
+                                <div class="text-box w-40">
+                                  <p>Contracted Response Time</p>
+                                </div>
+                                <div class="text-box w-40">
+                                  <p class="text-left">1 m/s</p>
+                                </div>
+                                <div class="text-box w-20">
+                                  <div class="color-tier d-flex align-items-center justify-content-start">
+                                    <div class="circle orange-circle p-2"></div>
+                                    <span class="font-11 font-400 ml-2">High Risk</span>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="d-flex align-items-center justify-content-between">
+                                <div class="text-box w-40">
                                   <p>Support Hours</p>
                                 </div>
                                 <div class="text-box w-40">
@@ -1142,6 +1194,34 @@
                                 </div>
                                 <div class="text-box w-40">
                                   <p class="text-left">1 min</p>
+                                </div>
+                                <div class="text-box w-20">
+                                  <div class="color-tier d-flex align-items-center justify-content-start">
+                                    <div class="circle orange-circle p-2"></div>
+                                    <span class="font-11 font-400 ml-2">High Risk</span>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="d-flex align-items-center justify-content-between">
+                                <div class="text-box w-40">
+                                  <p>Contracted TPS</p>
+                                </div>
+                                <div class="text-box w-40">
+                                  <p class="text-left">100 TPS</p>
+                                </div>
+                                <div class="text-box w-20">
+                                  <div class="color-tier d-flex align-items-center justify-content-start">
+                                    <div class="circle orange-circle p-2"></div>
+                                    <span class="font-11 font-400 ml-2">High Risk</span>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="d-flex align-items-center justify-content-between">
+                                <div class="text-box w-40">
+                                  <p>Contracted Response Time</p>
+                                </div>
+                                <div class="text-box w-40">
+                                  <p class="text-left">1 m/s</p>
                                 </div>
                                 <div class="text-box w-20">
                                   <div class="color-tier d-flex align-items-center justify-content-start">
@@ -1369,6 +1449,34 @@
                               </div>
                               <div class="d-flex align-items-center justify-content-between">
                                 <div class="text-box w-40">
+                                  <p>Contracted TPS</p>
+                                </div>
+                                <div class="text-box w-40">
+                                  <p class="text-left">100 TPS</p>
+                                </div>
+                                <div class="text-box w-20">
+                                  <div class="color-tier d-flex align-items-center justify-content-start">
+                                    <div class="circle orange-circle p-2"></div>
+                                    <span class="font-11 font-400 ml-2">High Risk</span>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="d-flex align-items-center justify-content-between">
+                                <div class="text-box w-40">
+                                  <p>Contracted Response Time</p>
+                                </div>
+                                <div class="text-box w-40">
+                                  <p class="text-left">1 m/s</p>
+                                </div>
+                                <div class="text-box w-20">
+                                  <div class="color-tier d-flex align-items-center justify-content-start">
+                                    <div class="circle orange-circle p-2"></div>
+                                    <span class="font-11 font-400 ml-2">High Risk</span>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="d-flex align-items-center justify-content-between">
+                                <div class="text-box w-40">
                                   <p>Support Hours</p>
                                 </div>
                                 <div class="text-box w-40">
@@ -1540,7 +1648,7 @@
                               </button>
                             </h2>
                           </div>
-                          <div id="collapseFour" class="collapse show" aria-labelledby="headingFour" data-parent="#accordionExample">
+                          <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordionExample">
                             <div class="card-body">
                               <div class="d-flex align-items-center justify-content-between">
                                 <div class="text-box w-40">
@@ -1576,6 +1684,34 @@
                                 </div>
                                 <div class="text-box w-40">
                                   <p class="text-left">1 min</p>
+                                </div>
+                                <div class="text-box w-20">
+                                  <div class="color-tier d-flex align-items-center justify-content-start">
+                                    <div class="circle orange-circle p-2"></div>
+                                    <span class="font-11 font-400 ml-2">High Risk</span>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="d-flex align-items-center justify-content-between">
+                                <div class="text-box w-40">
+                                  <p>Contracted TPS</p>
+                                </div>
+                                <div class="text-box w-40">
+                                  <p class="text-left">100 TPS</p>
+                                </div>
+                                <div class="text-box w-20">
+                                  <div class="color-tier d-flex align-items-center justify-content-start">
+                                    <div class="circle orange-circle p-2"></div>
+                                    <span class="font-11 font-400 ml-2">High Risk</span>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="d-flex align-items-center justify-content-between">
+                                <div class="text-box w-40">
+                                  <p>Contracted Response Time</p>
+                                </div>
+                                <div class="text-box w-40">
+                                  <p class="text-left">1 m/s</p>
                                 </div>
                                 <div class="text-box w-20">
                                   <div class="color-tier d-flex align-items-center justify-content-start">
@@ -1803,6 +1939,34 @@
                               </div>
                               <div class="d-flex align-items-center justify-content-between">
                                 <div class="text-box w-40">
+                                  <p>Contracted TPS</p>
+                                </div>
+                                <div class="text-box w-40">
+                                  <p class="text-left">100 TPS</p>
+                                </div>
+                                <div class="text-box w-20">
+                                  <div class="color-tier d-flex align-items-center justify-content-start">
+                                    <div class="circle orange-circle p-2"></div>
+                                    <span class="font-11 font-400 ml-2">High Risk</span>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="d-flex align-items-center justify-content-between">
+                                <div class="text-box w-40">
+                                  <p>Contracted Response Time</p>
+                                </div>
+                                <div class="text-box w-40">
+                                  <p class="text-left">1 m/s</p>
+                                </div>
+                                <div class="text-box w-20">
+                                  <div class="color-tier d-flex align-items-center justify-content-start">
+                                    <div class="circle orange-circle p-2"></div>
+                                    <span class="font-11 font-400 ml-2">High Risk</span>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="d-flex align-items-center justify-content-between">
+                                <div class="text-box w-40">
                                   <p>Support Hours</p>
                                 </div>
                                 <div class="text-box w-40">
@@ -2010,6 +2174,34 @@
                                 </div>
                                 <div class="text-box w-40">
                                   <p class="text-left">1 min</p>
+                                </div>
+                                <div class="text-box w-20">
+                                  <div class="color-tier d-flex align-items-center justify-content-start">
+                                    <div class="circle orange-circle p-2"></div>
+                                    <span class="font-11 font-400 ml-2">High Risk</span>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="d-flex align-items-center justify-content-between">
+                                <div class="text-box w-40">
+                                  <p>Contracted TPS</p>
+                                </div>
+                                <div class="text-box w-40">
+                                  <p class="text-left">100 TPS</p>
+                                </div>
+                                <div class="text-box w-20">
+                                  <div class="color-tier d-flex align-items-center justify-content-start">
+                                    <div class="circle orange-circle p-2"></div>
+                                    <span class="font-11 font-400 ml-2">High Risk</span>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="d-flex align-items-center justify-content-between">
+                                <div class="text-box w-40">
+                                  <p>Contracted Response Time</p>
+                                </div>
+                                <div class="text-box w-40">
+                                  <p class="text-left">1 m/s</p>
                                 </div>
                                 <div class="text-box w-20">
                                   <div class="color-tier d-flex align-items-center justify-content-start">
@@ -2237,6 +2429,34 @@
                               </div>
                               <div class="d-flex align-items-center justify-content-between">
                                 <div class="text-box w-40">
+                                  <p>Contracted TPS</p>
+                                </div>
+                                <div class="text-box w-40">
+                                  <p class="text-left">100 TPS</p>
+                                </div>
+                                <div class="text-box w-20">
+                                  <div class="color-tier d-flex align-items-center justify-content-start">
+                                    <div class="circle orange-circle p-2"></div>
+                                    <span class="font-11 font-400 ml-2">High Risk</span>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="d-flex align-items-center justify-content-between">
+                                <div class="text-box w-40">
+                                  <p>Contracted Response Time</p>
+                                </div>
+                                <div class="text-box w-40">
+                                  <p class="text-left">1 m/s</p>
+                                </div>
+                                <div class="text-box w-20">
+                                  <div class="color-tier d-flex align-items-center justify-content-start">
+                                    <div class="circle orange-circle p-2"></div>
+                                    <span class="font-11 font-400 ml-2">High Risk</span>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="d-flex align-items-center justify-content-between">
+                                <div class="text-box w-40">
                                   <p>Support Hours</p>
                                 </div>
                                 <div class="text-box w-40">
@@ -2454,6 +2674,34 @@
                               </div>
                               <div class="d-flex align-items-center justify-content-between">
                                 <div class="text-box w-40">
+                                  <p>Contracted TPS</p>
+                                </div>
+                                <div class="text-box w-40">
+                                  <p class="text-left">100 TPS</p>
+                                </div>
+                                <div class="text-box w-20">
+                                  <div class="color-tier d-flex align-items-center justify-content-start">
+                                    <div class="circle orange-circle p-2"></div>
+                                    <span class="font-11 font-400 ml-2">High Risk</span>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="d-flex align-items-center justify-content-between">
+                                <div class="text-box w-40">
+                                  <p>Contracted Response Time</p>
+                                </div>
+                                <div class="text-box w-40">
+                                  <p class="text-left">1 m/s</p>
+                                </div>
+                                <div class="text-box w-20">
+                                  <div class="color-tier d-flex align-items-center justify-content-start">
+                                    <div class="circle orange-circle p-2"></div>
+                                    <span class="font-11 font-400 ml-2">High Risk</span>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="d-flex align-items-center justify-content-between">
+                                <div class="text-box w-40">
                                   <p>Support Hours</p>
                                 </div>
                                 <div class="text-box w-40">
@@ -2627,7 +2875,7 @@
                               </button>
                             </h2>
                           </div>
-                          <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                          <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
                             <div class="card-body">
                               <div class="d-flex align-items-center justify-content-between">
                                 <div class="text-box w-40">
@@ -2663,6 +2911,34 @@
                                 </div>
                                 <div class="text-box w-40">
                                   <p class="text-left">1 min</p>
+                                </div>
+                                <div class="text-box w-20">
+                                  <div class="color-tier d-flex align-items-center justify-content-start">
+                                    <div class="circle orange-circle p-2"></div>
+                                    <span class="font-11 font-400 ml-2">High Risk</span>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="d-flex align-items-center justify-content-between">
+                                <div class="text-box w-40">
+                                  <p>Contracted TPS</p>
+                                </div>
+                                <div class="text-box w-40">
+                                  <p class="text-left">100 TPS</p>
+                                </div>
+                                <div class="text-box w-20">
+                                  <div class="color-tier d-flex align-items-center justify-content-start">
+                                    <div class="circle orange-circle p-2"></div>
+                                    <span class="font-11 font-400 ml-2">High Risk</span>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="d-flex align-items-center justify-content-between">
+                                <div class="text-box w-40">
+                                  <p>Contracted Response Time</p>
+                                </div>
+                                <div class="text-box w-40">
+                                  <p class="text-left">1 m/s</p>
                                 </div>
                                 <div class="text-box w-20">
                                   <div class="color-tier d-flex align-items-center justify-content-start">
@@ -2846,7 +3122,7 @@
                               </button>
                             </h2>
                           </div>
-                          <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                          <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
                             <div class="card-body">
                               <div class="d-flex align-items-center justify-content-between">
                                 <div class="text-box w-40">
@@ -2882,6 +3158,34 @@
                                 </div>
                                 <div class="text-box w-40">
                                   <p class="text-left">1 min</p>
+                                </div>
+                                <div class="text-box w-20">
+                                  <div class="color-tier d-flex align-items-center justify-content-start">
+                                    <div class="circle orange-circle p-2"></div>
+                                    <span class="font-11 font-400 ml-2">High Risk</span>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="d-flex align-items-center justify-content-between">
+                                <div class="text-box w-40">
+                                  <p>Contracted TPS</p>
+                                </div>
+                                <div class="text-box w-40">
+                                  <p class="text-left">100 TPS</p>
+                                </div>
+                                <div class="text-box w-20">
+                                  <div class="color-tier d-flex align-items-center justify-content-start">
+                                    <div class="circle orange-circle p-2"></div>
+                                    <span class="font-11 font-400 ml-2">High Risk</span>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="d-flex align-items-center justify-content-between">
+                                <div class="text-box w-40">
+                                  <p>Contracted Response Time</p>
+                                </div>
+                                <div class="text-box w-40">
+                                  <p class="text-left">1 m/s</p>
                                 </div>
                                 <div class="text-box w-20">
                                   <div class="color-tier d-flex align-items-center justify-content-start">

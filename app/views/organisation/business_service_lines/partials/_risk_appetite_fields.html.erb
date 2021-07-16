@@ -25,7 +25,7 @@
     <div class="col-md-3 d-flex align-items-center pr-1">
       <div class="input-group mr-1">
         <div class="input-group-prepend">
-          <div class="input-group-text px-3 bg-white font-12"><%= risk_appetite.object.percentage_amount? ? '%' : 'Mins' %></div>
+          <div class="input-group-text px-3 bg-white font-12"><%= risk_appetite_icon(risk_appetite.object) %></div>
         </div>
         <%= risk_appetite.number_field :amount, class: 'form-control form-control font-12 h-auto py-3 shadow-none justification-requirer', value: risk_appetite_amount_value(risk_appetite.object), min: 0, step: (risk_appetite.object.percentage_amount? ? 0.01 : 1) %>
       </div>

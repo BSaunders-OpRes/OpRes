@@ -67,7 +67,7 @@ class Organisation::SuppliersController < Organisation::BaseController
   end
 
   def sla_attributes
-    %i[id service_level_agreement service_level_objective recovery_time_objective recovery_point_objective severity1 severity2 severity3 severity4 severity1_restoration severity2_restoration severity3_restoration severity4_restoration support_hours support_hours_other]
+    %i[id service_level_agreement service_level_objective recovery_time_objective recovery_point_objective transactions_per_second response_time severity1 severity2 severity3 severity4 severity1_restoration severity2_restoration severity3_restoration severity4_restoration support_hours support_hours_other]
   end
 
   def relationship_owner_attributes
