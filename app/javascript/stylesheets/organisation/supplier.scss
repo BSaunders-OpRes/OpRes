@@ -19,7 +19,7 @@
 .fixed-secondary-sidebar {
   -webkit-backface-visibility: hidden;
   transition: .5s all;
-  z-index: 21;
+  z-index: 19;
   ul.inner-wrapper-sticky {
     transition: .5s all;
 
@@ -67,7 +67,7 @@
   background: $primary-green;
   top: 75px;
   color: $white;
-  z-index: 20;
+  z-index: 18;
   // border-top: 50px solid transparent;
   // border-left: 100px solid #32557f;
   // border-bottom: 50px solid transparent;
@@ -169,7 +169,7 @@
     position: fixed !important;
     left: -700px;
     top: 76px;
-    z-index: 21;
+    z-index: 19;
     width: 100%;
     background: $white;
     ul {
@@ -192,7 +192,7 @@
     position: fixed !important;
     left: -700px;
     top: 76px;
-    z-index: 21;
+    z-index: 19;
     width: 100%;
     background: $white;
     ul {
