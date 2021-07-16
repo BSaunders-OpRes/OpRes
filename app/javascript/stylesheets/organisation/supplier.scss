@@ -19,7 +19,7 @@
 .fixed-secondary-sidebar {
   -webkit-backface-visibility: hidden;
   transition: .5s all;
-  z-index: 99999;
+  z-index: 21;
   ul.inner-wrapper-sticky {
     transition: .5s all;
 
@@ -60,16 +60,20 @@
 .secondary-sidebar-icon {
   width: 20px;
   height: 30px;
-  line-height: 32px;
+  line-height: 25px;
   position: fixed;
   text-align: center;
   left: 0;
   background: $primary-green;
   top: 75px;
   color: $white;
+  z-index: 20;
   // border-top: 50px solid transparent;
   // border-left: 100px solid #32557f;
   // border-bottom: 50px solid transparent;
+  img {
+    width: 15px;
+  }
 }
 .p-300 {
   left: 0 !important;
@@ -165,7 +169,7 @@
     position: fixed !important;
     left: -700px;
     top: 76px;
-    z-index: 10;
+    z-index: 21;
     width: 100%;
     background: $white;
     ul {
@@ -181,14 +185,14 @@
       position: absolute;
       right: 10px;
       top: 10px;
-      z-index: 999;
+      z-index: 22;
     }
   }
   .sticky-top {
     position: fixed !important;
     left: -700px;
     top: 76px;
-    z-index: 10;
+    z-index: 21;
     width: 100%;
     background: $white;
     ul {
@@ -204,7 +208,7 @@
       position: absolute;
       right: 10px;
       top: 10px;
-      z-index: 999;
+      z-index: 22;
     }
   }
 }

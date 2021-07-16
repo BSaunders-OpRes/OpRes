@@ -21,26 +21,26 @@
     </div>
   </div>
   <div class="secondary-sidebar-icon d-none">
-    <i class='fa fa-ellipsis-v fa-1x font-18'></i>
+    <%= image_pack_tag 'media/images/dots.png' %>
   </div>
   <div class="row mt-5 no-gutters">
     <div class="col-sm-3 col-xxl-2 px-1">
       <aside class="fixed-secondary-sidebar position-static" id='sticky-sidebar-demo'>
-        <i class="fa fa-times-circle fa-1x d-none"></i>
+        <i class="fa fa-times-circle fa-1x d-none font-20"></i>
         <ul class="p-0 list-unstyled inner-wrapper-sticky">
-          <li class="links active-white mb-3">
+          <li class="links active-white mb-2 mb-sm-3">
             <a href="#section1" class=" text-decoration-none text-capitalize font-13 font-xxl-14 d-block py-2">overview</a>
           </li>
-          <li class="links mb-3">
+          <li class="links mb-2 mb-sm-3">
             <a href="#section2" class=" text-decoration-none text-capitalize font-13 font-xxl-14 d-block py-2">public cloud critical system/supplier breakdown</a>
           </li>
-          <li class="links mb-3">
+          <li class="links mb-2 mb-sm-3">
             <a href="#section3" class=" text-decoration-none text-capitalize font-13 font-xxl-14 d-block py-2">private cloud critical system/supplier breakdown</a>
           </li>
-          <li class="links mb-3">
+          <li class="links mb-2 mb-sm-3">
             <a href="#section4" class=" text-decoration-none text-capitalize font-13 font-xxl-14 d-block py-2">top 10 conformant suppliers</a>
           </li>
-          <li class="links mb-3">
+          <li class="links mb-2 mb-sm-3">
             <a href="#section5" class=" text-decoration-none text-capitalize font-13 font-xxl-14 d-block py-2">top non-conformant suppliers</a>
           </li>
         </ul>
@@ -337,8 +337,8 @@
             <div class="row custom-high-chart">
               <div class="col-lg-6 col-md-12">
                 <div class="box">
-                  <div class="d-flex flex-wrap justify-content-between align-items-center">
-                    <p class="px-2 font-16 text-capitalize font-400 chart-header-title flex-1">critical supplier by hosting modal</p>
+                  <div class="d-flex flex-wrap flex-column flex-sm-row justify-content-between align-items-start align-items-sm-center">
+                    <p class="px-2 font-16 text-capitalize font-400 chart-header-title flex-1 mb-3 mb-sm-0">critical supplier by hosting modal</p>
                     <div class="filter-grouped d-flex mr-2">
                       <div class="dropdown body-color-dropdown w-auto mr-2">
                         <a id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class='dropdown-toggle text-capitalize py-2 pr-5 pl-2 d-flex align-items-center justify-content-start font-12 text-dark font-400 text-decoration-none' id='top-10'>high to low</a>
@@ -412,8 +412,8 @@
               </div>
               <div class="col-lg-6 col-md-12">
                 <div class="box">
-                  <div class="d-flex flex-wrap justify-content-between align-items-center">
-                    <p class="px-2 font-16 text-capitalize font-400 chart-header-title flex-1">critical/important systems by consumption modal</p>
+                  <div class="d-flex flex-wrap flex-column flex-sm-row justify-content-between align-items-start align-items-sm-center">
+                    <p class="px-2 font-16 text-capitalize font-400 chart-header-title flex-1 mb-3 mb-sm-0">critical/important systems by consumption modal</p>
                     <div class="filter-grouped d-flex mr-2">
                       <div class="dropdown body-color-dropdown w-auto mr-2">
                         <a id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class='dropdown-toggle text-capitalize py-2 pr-5 pl-2 d-flex align-items-center justify-content-start font-12 text-dark font-400 text-decoration-none' id='top-10'>high to low</a>
@@ -473,9 +473,9 @@
       <section id="section2" class="section mb-4">
         <div class="card border-0 rounded-50">
           <div class="card-body">
-            <div class="d-flex align-items-center justify-content-between flex-wrap">
+            <div class="d-flex align-items-start align-items-sm-center justify-content-between flex-wrap flex-sm-row flex-column">
               <h5 class="font-400 text-capitalize text-capitalize flex-1 mb-3 mr-4">Public cloud critical system/supplier breakdown</h5>
-              <div class="filter-grouped d-flex mr-2 mb-3">
+              <div class="filter-grouped d-flex mr-2 mb-3 align-items-center justify-content-between">
                 <div class="dropdown body-color-dropdown mr-2">
                   <a id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class='dropdown-toggle text-capitalize py-2 pr-5 pl-2 d-flex align-items-center justify-content-start font-12 text-dark font-400 text-decoration-none' id='top-10'>view top 10</a>
                   <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -484,8 +484,8 @@
                     <a class="dropdown-item">Filter top 10</a>
                   </div>
                 </div>
+                <i class="fa fa-ellipsis-v"></i>
               </div>
-              <i class="fa fa-ellipsis-v mb-3"></i>
             </div>
             <ul class="nav nav-tabs border-0 active-green my-4">
               <li class="nav-item mr-3">
@@ -1240,17 +1240,10 @@
     </div>
   </div>
 </div>
-<div class="row no-gutters">
-  <div class="col-sm-12 px-1 text-right">
-    <button type="button" class="btn white-btn text-capitalize" data-toggle="modal" data-target="#exampleModal">
-      critical & important steps
-    </button>
-  </div>
-</div>
 
 <!-- Modal -->
 <div class="modal px-2 fade mt-5 pt-5" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog max-width-100 w-75 mx-auto">
+  <div class="modal-dialog max-width-100 w-100 w-sm-75 mx-auto">
     <div class="modal-content">
       <div class="modal-header border-0">
         <h5 class="modal-title text-capitalize font-400 mt-4" id="exampleModalLabel">"supplier ABC" critical & important steps across business services.</h5>
@@ -1260,7 +1253,7 @@
       </div>
       <div class="modal-body p-3">
         <div class="filter d-flex justify-content-between mb-4 flex-wrap">
-          <div class="left d-flex align-items-center">
+          <div class="left d-flex align-items-center mb-3">
             <div class="dropdown mr-3">
               <a class="text-black text-decoration-none dropdown-toggle font-12 font-400 font-xxl-14 text-capitalize text-secondary" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 All party types
@@ -1282,8 +1275,8 @@
               </div>
             </div>
           </div>
-          <div class="right d-flex">
-            <div class="dropdown body-color-dropdown mr-2">
+          <div class="right d-flex mb-3">
+            <div class="dropdown body-color-dropdown w-auto mr-2">
               <a id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class='dropdown-toggle text-capitalize py-2 pr-5 pl-2 d-flex align-items-center justify-content-start font-12 text-dark font-400 text-decoration-none' id='top-10'>10 per page</a>
               <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                 <a class="dropdown-item">Action</a>
@@ -1291,7 +1284,7 @@
                 <a class="dropdown-item">Filter top 10</a>
               </div>
             </div>
-            <div class="dropdown body-color-dropdown mr-2">
+            <div class="dropdown body-color-dropdown w-auto mr-2">
               <a id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class='dropdown-toggle text-capitalize py-2 pr-5 pl-2 d-flex align-items-center justify-content-start font-12 text-dark font-400 text-decoration-none' id='top-10'>high to low</a>
               <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                 <a class="dropdown-item">Action</a>
