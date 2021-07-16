@@ -4,7 +4,7 @@
       <div class="d-flex justify-content-between align-items-center flex-wrap">
         <div class="left d-flex align-items-center flex-wrap">
           <div class="mr-4 back-btn mb-2 mb-sm-0 ">
-            <%= render 'layouts/partials/shared/redirect_back', path: organisation_dashboard_index_path %>
+            <%= render 'layouts/partials/shared/redirect_back', path: organisation_administration_portal_index_path %>
           </div>
           <h2 class="font-500 font-sm-18 font-25 text-capitalize"><%= @supplier.name %></h2>
         </div>
@@ -303,7 +303,7 @@
                         <div class="card-header border-0 bg-white text-center">
                           <div class="donut-content">
                             <div id="two-colored-green-donut-1" class="donut"></div>
-                            <div class="donut-value font-50 font-700 text-black">50</div>
+                            <div class="donut-value font-50 font-700 text-black">0</div>
                           </div>
                           <h6 class="font-13 font-600 w-75 mx-auto mt-3">Supplier Conformance with Impact Tolerances</h6>
                         </div>
@@ -331,34 +331,8 @@
                 <hr>
                 <div class="row mt-3 d-flex no-gutters">
                   <div class="col-md-6 col-lg-4 order-lg-1 order-2 mb-lg-0 mb-4 px-3">
-                    <div class="card border-0 pie-high-chart overflow-hidden rounded-50">
-                      <div class="card-header border-0 bg-white text-center">
-                        <p class="font-14 font-600 chart-header-title text-left mb-2">
-                          Critical & Important BSL's Supported
-                        </p>
-                        <%= link_to 'javascript:void(0);' do %>
-                          <div class="donut-content mb-2">
-                            <div id="two-colored-donut-1" class="donut"></div>
-                            <div class="donut-value font-50 font-700 text-black">50</div>
-                          </div>
-                        <% end %>
-                      </div>
-                      <div class="card-body">
-                        <div class="tiers d-flex justify-content-between align-items-center mb-3">
-                          <div class="color-tier d-flex align-items-center">
-                            <div class="circle green-1"></div>
-                            <span class="font-12 font-400 ml-2">Critical</span>
-                          </div>
-                          <span class="font-12 font-700">11</span>
-                        </div>
-                        <div class="tiers d-flex justify-content-between align-items-center mb-3">
-                          <div class="color-tier d-flex align-items-center">
-                            <div class="circle green-2"></div>
-                            <span class="font-12 font-400 ml-2">Important</span>
-                          </div>
-                          <span class="font-12 font-700">4</span>
-                        </div>
-                      </div>
+                    <div id="supplier-critical-important-bsl" class="row custom-high-chart px-md-3 lazy-graph" data-key="supplier_critical_important_bsl" data-args="<%= { supplier: @supplier.id }.to_json %>">
+                      <%= render 'organisation/graphs/partials/supplier_critical_important_bsl', data: {} %>
                     </div>
                   </div>
                   <div class="col-md-6 col-lg-4 order-lg-4 order-1 mb-lg-0 mb-4 px-3">
@@ -367,8 +341,8 @@
                         <p class="font-14 font-600 chart-header-title text-left mb-2">Conformance with Business Service Impact Tolerances</p>
                         <%= link_to compound_resilience_organisation_business_service_lines_path do %>
                           <div class="donut-content mb-2">
-                            <div id="two-colored-donut-2" class="donut"></div>
-                            <div class="donut-value font-50 font-700 text-black">50</div>
+                            <div id="two-colored-donut-1" class="donut"></div>
+                            <div class="donut-value font-50 font-700 text-black">0</div>
                           </div>
                         <% end %>
                       </div>
@@ -378,51 +352,27 @@
                             <div class="circle green-1"></div>
                             <span class="font-12 font-400 ml-2">Matches Impact Tolerances</span>
                           </div>
-                          <span class="font-12 font-700">11</span>
+                          <span class="font-12 font-700">0</span>
                         </div>
                         <div class="tiers d-flex justify-content-between align-items-center mb-3">
                           <div class="color-tier d-flex align-items-center">
                             <div class="circle green-2"></div>
                             <span class="font-12 font-400 ml-2">Meets Impact Tolerances</span>
                           </div>
-                          <span class="font-12 font-700">4</span>
+                          <span class="font-12 font-700">0</span>
                         </div>
                         <div class="tiers d-flex justify-content-between align-items-center mb-3">
                           <div class="color-tier d-flex align-items-center">
                             <div class="circle green-2"></div>
                             <span class="font-12 font-400 ml-2">Exceeds Impact Tolerances</span>
                           </div>
-                          <span class="font-12 font-700">4</span>
+                          <span class="font-12 font-700">0</span>
                         </div>
                       </div>
                     </div>
                   </div>
-                  <div class="col-md-6 col-lg-4 order-lg-4 order-1 mb-lg-0 mb-4 px-3">
-                    <div class="card border-0 pie-high-chart overflow-hidden rounded-50">
-                      <div class="card-header border-0 bg-white text-center">
-                        <p class="font-14 font-600 chart-header-title text-left mb-2">BSL's Where Supplier is Either a 3rd or 4th Party</p>
-                        <div class="donut-content mb-2">
-                          <div id="two-colored-donut-3" class="donut"></div>
-                          <div class="donut-value font-50 font-700 text-black">50</div>
-                        </div>
-                      </div>
-                      <div class="card-body">
-                        <div class="tiers d-flex justify-content-between align-items-center mb-3">
-                          <div class="color-tier d-flex align-items-center">
-                            <div class="circle green-1"></div>
-                            <span class="font-12 font-400 ml-2">3rd</span>
-                          </div>
-                          <span class="font-12 font-700">11</span>
-                        </div>
-                        <div class="tiers d-flex justify-content-between align-items-center mb-3">
-                          <div class="color-tier d-flex align-items-center">
-                            <div class="circle green-2"></div>
-                            <span class="font-12 font-400 ml-2">4th</span>
-                          </div>
-                          <span class="font-12 font-700">4</span>
-                        </div>
-                      </div>
-                    </div>
+                  <div id="supplier-third-fourth-party-bsl" class="lazy-graph col-md-6 col-lg-4 order-lg-4 order-1 mb-lg-0 mb-4 px-3" data-key="supplier_third_fourth_party_bsl" data-args="<%= { supplier: @supplier.id }.to_json %>">
+                    <%= render 'organisation/graphs/partials/supplier_third_fourth_party_bsl', data: {} %>
                   </div>
                 </div>
               </div>

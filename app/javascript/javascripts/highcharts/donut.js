@@ -42,10 +42,8 @@ document.addEventListener('turbolinks:load', function() {
     render_dual_green_colored_donut_chart('posture-donut-1');
   }
 
-  if ($('#supplier-view').length == 1) {
+  if ($('#supplier-view').length >= 1) {
     render_dual_green_black_colored_donut_chart('two-colored-donut-1');
-    render_dual_green_black_colored_donut_chart('two-colored-donut-2');
-    render_dual_green_black_colored_donut_chart('two-colored-donut-3');
     render_dual_green_colored_donut_chart('two-colored-green-donut-1');
   }
 

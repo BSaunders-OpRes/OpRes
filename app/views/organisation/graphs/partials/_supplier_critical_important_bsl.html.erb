@@ -1,0 +1,42 @@
+<% if data.blank? %>
+  <div class="card border-0 pie-high-chart overflow-hidden rounded-50">
+    <div class="card-header border-0 bg-white text-center h-auto">
+      <p class="font-14 font-600 chart-header-title text-left mb-2">Critical & Important BSL's Supported</p>
+      <div class="col-md-12 card-header h-230px d-flex align-items-center px-0 py-0 bg-body-color text-center border-0">
+        <div class="empty-donut-block py-3 px-5"></div>
+      </div> 
+    </div>
+    <div class="card-body py-0">
+      <div class="col-md-12 card-body py-3 px-0">
+        <div class="empty-donut-line px-5 mb-2"></div>
+        <div class="empty-donut-line px-5 mb-2"></div>
+      </div>
+    </div>
+  </div>
+<% else %>
+  <div class="card border-0 pie-high-chart overflow-hidden rounded-50">
+    <div class="card-header border-0 bg-white text-center h-auto">
+      <p class="font-14 font-600 chart-header-title text-left mb-2">
+        Critical & Important BSL's Supported
+      </p>
+      <%= link_to critical_important_suppliers_organisation_supplier_path(data.dig(:overall, :supplier)), class: 'd-flex h-230px align-items-center justify-content-center' do %>
+        <div class="donut-content mb-2 w-100">
+          <%= react_component('highcharts/donut', { data: data.dig(:overall, :graph), render_to: 'donut' }, { class: 'h-100' }) %>
+          <div class="donut-value font-50 font-700 text-black"><%= data.dig(:overall, :total) %></div>
+        </div>
+      <% end %>
+    </div>
+    <div class="card-body">
+      <% data.dig(:overall, :graph).each do |graph| %>
+        <div class="tiers d-flex justify-content-between align-items-center mb-3">
+          <div class="color-tier d-flex align-items-center">
+            <div class="circle" style="background-color: <%= graph.dig(:color) %>"></div>
+            <span class="font-12 font-400 ml-2"><%= graph.dig(:name) %></span>
+          </div>
+          <span class="font-12 font-700"><%= graph.dig(:count) %></span>
+        </div>
+      <% end %>
+    </div>
+  </div>
+<% end %>
+

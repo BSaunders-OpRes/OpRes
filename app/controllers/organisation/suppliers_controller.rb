@@ -1,5 +1,5 @@
 class Organisation::SuppliersController < Organisation::BaseController
-  before_action :load_supplier, only: %i[edit update show destroy]
+  before_action :load_supplier, only: %i[edit update show destroy critical_important_suppliers]
 
   def new
     @supplier = Supplier.new
@@ -43,6 +43,11 @@ class Organisation::SuppliersController < Organisation::BaseController
     respond_to do |format|
       format.json { render json: @suppliers }
     end
+  end
+
+  def critical_important_suppliers
+    @critical_ss  = @supplier.critical_supplier_steps
+    @important_ss = @supplier.important_supplier_steps
   end
 
   private
