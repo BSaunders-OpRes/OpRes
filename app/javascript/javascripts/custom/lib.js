@@ -17,6 +17,42 @@ document.addEventListener('turbolinks:load', function() {
     }
   });
 
+  /******************** Expand To Full Screen Template ********************
+    <div class="expand-to-full-screen">
+      <button class="expand-to-full-screen-btn">
+        <i class="fa fa-expand"></i>
+        <span>Expand</span>
+      </button>
+      <div>
+        content
+      </div>
+    </div>
+  ************************************************************************/
+  $('body').on('click', '.expand-to-full-screen-btn', function() {
+    if ($(this).hasClass('expanded')) {
+      document.exitFullscreen;
+      document.exitFullscreen();
+
+      $(this).find('i').removeClass('fa-compress').addClass('fa-expand');
+      $(this).find('span').text('Expand');
+
+      $(this).removeClass('expanded');
+    } else {
+      section = $(this).parents('.expand-to-full-screen');
+      section[0].requestFullscreen;
+      section[0].requestFullscreen();
+
+      $(this).find('i').removeClass('fa-expand').addClass('fa-compress');
+      $(this).find('span').text('Back');
+
+      $(this).addClass('expanded');
+    }
+
+    $('html, body').animate({
+      'scrollTop' : $(this).parents('.expand-to-full-screen').parent().position().top
+    });
+  });
+
   /******************** Page Loader ********************
   *****************************************************/
   $('body').on('click', '.wait-loader', function() {

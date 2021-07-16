@@ -48,6 +48,12 @@ class BusinessServiceLine < ApplicationRecord
                 .where(supplier_steps: { importance_level: SupplierStep.importance_levels[:important] })
   end
 
+  def supplier_steps
+    SupplierStep.joins(step: [:business_service_line])
+                .includes(:supplier, :step)
+                .where(business_service_lines: { id: id })
+  end
+
   def product_ids
     products.pluck(:id)
   end
