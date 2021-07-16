@@ -178,6 +178,9 @@ h1, h2, h3, h4, h5, h6, p {
     }
   }
 }
+.z-index-9999 {
+  z-index: 9999;
+}
 .chevron-select {
   position: relative;
   &:after {

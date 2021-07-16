@@ -16,6 +16,13 @@ document.addEventListener('turbolinks:load', function() {
     $('.header').addClass('blur');
   });
 
+  $('.sidebar .list-unstyled li a').on('click', function() {
+    $('body').removeClass('overflow-hidden')
+    $('.sidebar').css('width', '0');
+    $('.content').removeClass('blur');
+    $('.header').removeClass('blur');
+  })
+
   $('.container, .header').click(function(e) {
     $('body').removeClass('overflow-hidden')
     $('.sidebar').css('width', '0');
