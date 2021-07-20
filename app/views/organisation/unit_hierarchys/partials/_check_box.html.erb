@@ -2,7 +2,7 @@
   <% options.each do |k, v| %>
     <div class="form-check d-flex align-items-center form-group mr-2">
       <%= check_box_tag param_name, v, val&.include?(v), class: 'form-check-input mt-0 shadow-none', id: "#{k} -- #{v}" %>
-      <%= label_tag k, nil, class: 'form-check-label text-capitalize font-13', for: "#{k} -- #{v}" %>
+      <label class="form-check-label text-capitalize font-13" for="<% "#{k} -- #{v}" %>"><%= k %></label>
     </div>
   <% end %>
 <% else %>

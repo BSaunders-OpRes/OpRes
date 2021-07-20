@@ -5,15 +5,18 @@
         <%= render 'layouts/partials/shared/redirect_back', path: organisation_administration_portal_index_path %>
         <div class="wizard-body">
           <div class="wizard-header my-4">
-            <h4 class="mb-4 font-weight-bold"><%= new_or_create ? 'Add a new business service line' : 'Edit business service line' %></h4>
+            <h4 class="mb-4 font-weight-bold"><%= new_or_create ? 'Add a New Business Service Line' : 'Edit Business Service Line' %></h4>
             <div class="tab-content mt-5" id="bsl-desc">
-              <p id="about-desc" data-toggle="tab" href="#about" role="tab" aria-controls="home" aria-selected="true">As part of adding a new business service line, you are requrired to provide context and information about it's purpose, core functionality and channels</p>
+              <p id="about-desc" data-toggle="tab" href="#about" role="tab" aria-controls="home" aria-selected="true">As part of adding a new business service, you are required to provide context and information about its purpose, core functionality, and channels.</p>
 
               <p class="d-none" id="internal-sla-desc">As part of adding a new business service line, you are required to provide the internal SLA, SLO, RTO and RPO targets that your firm wishes to meet.</p>
 
               <p class="d-none" id="supplier-sla-target-desc">Over the next phase of creating a new business service line, you are required to define the response and restoration times (in minutes) that your supplier need to adhere to when an incident occurs to the systems and services they are providing to your organisation.</p>
 
-              <p class="d-none" id="journey-desc">Over the next phase of creating a new business service line, you are required to add each step that a customer would execute as part of the business service line being completed. you are then required to map the technology that support each step. Whether this is a bank hosted system or a system hosted by a third or 4th party supplier. This is where you must also depict whether a supplier deemed to be either "critical" or "important" to the successful delivery of your service line to end customer.</p>
+              <p class="d-none" id="journey-desc">
+                  Over the next phase of creating a new business service, you are required to add each step that a customer would execute, as part of the business service line being completed. You are then required to map the technology that supports each step of the journey.<br/>
+                  Whether this is a firm-hosted system or a system hosted by a 3rd or 4th party supplier. This is where you must also capture whether a supplier is deemed to be either "Critical" or "Important" to the successful delivery of the business service to your firm's end customers.
+              </p>
 
               <p class="d-none" id="risk-desc">Over the next phase of creating a new business service line, you will set your organisation's tolerance levels across key service-level data points. This will enables your organisation to identify where service levels with your suppliers either match or do not match your service level targets and defined tolerance levels. You will be required to populate the justification field to document your rationale for setting these thresholds.</p>
             </div>
