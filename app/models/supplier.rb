@@ -30,7 +30,7 @@ class Supplier < ApplicationRecord
 
   # Enums #
   enum contracting_terms: %i[monthly annually other non_applicable], _suffix: :contracting_terms
-  enum consumption_model: %i[laas paas saas other], _suffix: :consumption_model
+  enum consumption_model: %i[iaas paas saas other], _suffix: :consumption_model
 
   # Validations #
   validates :start_date, :end_date, presence: true

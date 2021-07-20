@@ -33,7 +33,10 @@ class Organisation::SuppliersController < Organisation::BaseController
     end
   end
 
-  def show; end
+  def show
+    @chp        = @supplier.cloud_hosting_provider
+    @chp_region = @supplier.cloud_hosting_provider_region
+  end
 
   def destroy; end
 
