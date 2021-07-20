@@ -82,7 +82,7 @@ export default function login(props) {
                       </div>
                       <div className='forget-password-text text-center col-md-12'>
                         <p className="mb-3">
-                          <a href='/users/password/new' className="text-decoration-none">Forgotten password</a>
+                          <a href='/users/password/new' className="text-decoration-none">Forgot password</a>
                         </p>
                       </div>
                     </div>
