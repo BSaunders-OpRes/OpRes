@@ -3,22 +3,22 @@
     <div class="col-sm-12 px-1">
       <div class="d-flex justify-content-between align-items-center flex-wrap">
         <div class="left d-flex align-items-center flex-wrap">
-          <div class="mr-4 back-btn mb-2 mb-sm-0 ">
+          <div class="mr-4 back-btn">
             <%= render 'layouts/partials/shared/redirect_back', path: organisation_administration_portal_index_path %>
           </div>
-          <h2 class="font-500 font-sm-18 font-25 text-capitalize"><%= @supplier.name %></h2>
+          <h2 class="font-500 font-sm-18 font-25 text-capitalize my-3"><%= @supplier.name %></h2>
         </div>
-        <div class="right d-flex mt-3 mt-lg-0">
-          <div class="white-btn d-flex align-items-center pl-2 pr-2 mr-2 py-2">
-            <span><i class='fa fa-save font-16 mr-2'></i></span>
-            <span class="text-capitalize font-12 font-xxl-14">save view</span>
-          </div>
-          <div class="white-btn d-flex align-items-center pl-2 pr-2 mr-2 py-2">
+        <div class="right d-flex mt-lg-0">
+          <div class="white-btn d-flex align-items-center pl-2 px-3 rounded-50 mr-2 pr-2 mr-2 py-2 cursor-pointer">
             <span> <i class="fa fa-sliders"></i></span>
-            <span class="text-capitalize font-12 font-xxl-14 ml-2">Customised View</span>
+            <span class="text-capitalize font-12 font-xxl-14 ml-2 font-600">Customise View</span>
           </div>
-          <div class="white-btn p-1 d-flex align-items-center">
-            <i class="fa fa-ellipsis-v px-2"></i>
+          <div class="white-btn d-flex align-items-center pl-2 mr-2 rounded-50 px-3 pr-2 py-2 cursor-pointer">
+            <span><i class='fa fa-save font-16 mr-2'></i></span>
+            <span class="text-capitalize font-12 font-xxl-14 font-600">save view</span>
+          </div>
+          <div class="white-btn p-1 d-flex align-items-center rounded-50 cursor-pointer">
+            <i class="fa fa-ellipsis-v px-2 mx-1"></i>
           </div>
         </div>
       </div>
@@ -52,6 +52,9 @@
           </li>
           <li class="links mb-2">
             <a href="#section7" class=" text-decoration-none text-capitalize font-13 font-xxl-14 d-block py-2">Provider Resilience Gaps</a>
+          </li>
+          <li class="links mb-2">
+            <a href="#section8" class=" text-decoration-none text-capitalize font-13 font-xxl-14 d-block py-2">supplier compliance documentation</a>
           </li>
         </ul>
       </aside>

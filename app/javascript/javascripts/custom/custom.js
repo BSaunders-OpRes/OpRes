@@ -16,7 +16,7 @@ document.addEventListener('turbolinks:load', function() {
     $('.header').addClass('blur');
   });
 
-  $('.sidebar .list-unstyled li a').on('click', function() {
+  $('.sidebar .list-unstyled li a.close-bar').on('click', function() {
     $('body').removeClass('overflow-hidden')
     $('.sidebar').css('width', '0');
     $('.content').removeClass('blur');
