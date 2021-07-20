@@ -1,7 +1,7 @@
 // Routes //
 export const newUserSession   = '/users/sign_in.json';
 export const userRegistration = '/users.json';
-
+export const resetPassword    = '/users/password';
 // Enums //
 export const organisationTypes = {
   bank:             'Bank',

@@ -15,6 +15,14 @@ export default function login(props) {
 
   const handleSubmit = (e)=> {
     e.preventDefault();
+    if (email === '') {
+      setError('Field is required');
+      return;
+    }
+    const user = { user: { email: email } };
+    authentication.reset_password(user)
+    .then(resp => redirection(resp))
+    .catch(err => error_handling(err))
   }
 
   const error_handling = (err) => {
@@ -22,7 +30,11 @@ export default function login(props) {
   }
 
   const redirection = (resp) => {
-    window.location.href = resp.redirect_url
+    if (resp){
+      toast.success('Request has been sent successfully to your email.', { autoClose:3000 });
+    }else{
+      toast.error('User not exists', { autoClose:3000 });
+    }
   }
 
   const Eye = <i class="fa fa-eye" aria-hidden="true"></i>
