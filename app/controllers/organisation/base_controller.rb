@@ -32,4 +32,12 @@ class Organisation::BaseController < ApplicationController
   def managing_nodes
     @managing_nodes ||= @managing_units.map(&:inclusive_children).flatten.map(&:id)
   end
+
+  def managing_country_units
+    @managing_country_units ||= Units::Country.joins(:parent).where(parents_units: { id: managing_units.map(&:id) })
+  end
+
+  def managing_institution_units
+    @managing_institution_units ||= Units::Institution.joins(parent: [:parent]).where(parents_units_2: { id: managing_units.map(&:id) })
+  end
 end

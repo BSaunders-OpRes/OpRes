@@ -9,6 +9,7 @@ import './journey/journey';
 import './bsl/bsl';
 import './unit_hierarchy/unit_hierarchy';
 import './supplier/supplier';
+import './administration_portal/administration_portal';
 import './introjs/dashboard';
 import './custom/custom';
 import './custom/lib';
