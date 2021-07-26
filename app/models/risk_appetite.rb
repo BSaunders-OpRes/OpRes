@@ -40,9 +40,9 @@ class RiskAppetite < ApplicationRecord
       {
         service_level_agreement: 'SLA', service_level_objective: 'SLO', recovery_time_objective: 'RTO', recovery_point_objective: 'RPO',
         transactions_per_second: 'TPS', response_time: 'Response Time',
-        severity1: 'Severity 1', severity2: 'Severity 2', severity3: 'Severity 3', severity4: 'Severity 4',
-        severity1_restoration: 'Restoration Severity 1', severity2_restoration: 'Restoration Severity 2',
-        severity3_restoration: 'Restoration Severity 3', severity4_restoration: 'Restoration Severity 4'
+        severity1: 'Incident Notification Severity 1', severity2: 'Incident Notification Severity 2', severity3: 'Incident Notification Severity 3', severity4: 'Incident Notification Severity 4',
+        severity1_restoration: 'Incident Restoration Severity 1', severity2_restoration: 'Incident Restoration Severity 2',
+        severity3_restoration: 'Incident Restoration Severity 3', severity4_restoration: 'Incident Restoration Severity 4'
       }.stringify_keys
     end
   end
