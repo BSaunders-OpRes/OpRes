@@ -10,6 +10,9 @@ class Organisation::AdministrationPortalController < Organisation::BaseControlle
     @bsls = @bsls.joins(:products).where(products: { id: params.dig(:bsl, :products) })                              if params.dig(:bsl, :products).present?
 
     @suppliers = Supplier.where(unit_id: managing_nodes).order(id: :desc)
+    @suppliers = @suppliers.where('suppliers.name iLike ?', "%#{params.dig(:supplier, :name)}%")                      if params.dig(:supplier, :name).present?
+    @suppliers = @suppliers.where(unit_id: params.dig(:supplier, :country_units))                                     if params.dig(:supplier, :country_units).present?
+    @suppliers = @suppliers.joins(unit: :parent).where(parents_units: { id: params.dig(:supplier, :regional_units) }) if params.dig(:supplier, :regional_units).present?
 
     respond_to do |format|
       format.html
