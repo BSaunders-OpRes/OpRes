@@ -1,5 +1,5 @@
 class Organisation::AdminsController < Organisation::BaseController
-  load_and_authorize_resource :user, :class => 'User', :parent => false
+  load_and_authorize_resource :user, class: 'User', parent: false
 
   before_action :load_admin, only: %i[edit update show destroy]
 
