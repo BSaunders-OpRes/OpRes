@@ -17,7 +17,7 @@ module ApplicationHelper
       admin_dashboard_index_path
     elsif current_user&.root_user?
       organisation_dashboard_index_path
-    elsif current_user.super_or_standard_user?
+    elsif current_user&.super_or_standard_user?
       organisation_dashboard_index_path
     else
       root_path
