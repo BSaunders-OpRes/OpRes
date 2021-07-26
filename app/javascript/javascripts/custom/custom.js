@@ -62,7 +62,7 @@ document.addEventListener('turbolinks:load', function() {
     $('#section1').removeClass('pt-xs-5');
   });
 
-  $('.custom-dropdown .dropdown-menu').click(function(e) {
+  $('.custom-dropdown .dropdown-menu, .dropdown .dropdown-menu').click(function(e) {
     e.stopPropagation()
   });
 

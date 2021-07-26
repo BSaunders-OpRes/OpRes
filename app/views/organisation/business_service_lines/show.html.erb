@@ -3368,7 +3368,7 @@
                   </div>
                   <div class="dependency-map px-4">
                     <div class="map-boxes">
-                      <% @bsl.steps.includes(supplier_steps: [:supplier]).each do |step| %>
+                      <% @bsl.steps.each do |step| %>
                         <div class="box-1 mr-3 mb-4 w-15">
                           <div class="heading bg-body-color">
                             <h6 class="font-12 py-2 px-2 font-400 mb-2"><%= step.name %></h6>
