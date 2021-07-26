@@ -1,4 +1,6 @@
 class Organisation::BusinessServiceLinesController < Organisation::BaseController
+  load_and_authorize_resource
+  
   before_action :load_bsl, only: %i[edit update show destroy critical_important_suppliers]
 
   def new

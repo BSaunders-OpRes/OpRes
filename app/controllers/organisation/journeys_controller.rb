@@ -1,6 +1,8 @@
 require 'csv'
 
 class Organisation::JourneysController < Organisation::BaseController
+  authorize_resource :class => false
+
   before_action :load_step_data, only: %i[show]
 
   def show

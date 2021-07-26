@@ -34,6 +34,14 @@ class User < ApplicationRecord
     def invitiable_users
       User.roles.map { |k, v| [k.titleize, k] if k != 'application_admin' }.compact
     end
+
+    def super_user_invitiable_users
+      User.roles.map { |k, v| [k.titleize, k] if k!= 'application_admin' && k!= 'root_user' }.compact
+    end
+
+    def standard_user_invitiable_users
+      User.roles.map { |k, v| [k.titleize, k] if k!= 'application_admin' && k!= 'root_user' && k!= 'super_user' }.compact
+    end
   end
 
   private

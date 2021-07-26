@@ -8,8 +8,21 @@
   <div class="form-group col-md-3 px-1 mb-2">
     <%= email_field_tag "users[single][data][#{index}][email]", nil, class: 'form-control font-12 py-3 shadow-none h-auto', placeholder:'Email' %>
   </div>
-  <div class="form-group col-md-3 px-1 mb-2">
-    <%= select_tag "users[single][data][#{index}][role]", options_for_select(User.invitiable_users),prompt: 'Permissions', multiple: false, class: 'form-control w-100 font-12 py-3 shadow-none arrow-select h-auto' %>
-    <i class="fa fa-sort-desc mr-2"></i>
-  </div>
+  <% if current_user.root_user? %>
+    <div class="form-group col-md-3 px-1 mb-2">
+      <%= select_tag "users[single][data][#{index}][role]", options_for_select(User.invitiable_users),prompt: 'Permissions', multiple: false, class: 'form-control w-100 font-12 py-3 shadow-none arrow-select h-auto' %>
+      <i class="fa fa-sort-desc mr-2"></i>
+    </div>
+  <% elsif current_user.super_user? %>
+    <div class="form-group col-md-3 px-1 mb-2">
+      <%= select_tag "users[single][data][#{index}][role]", options_for_select(User.super_user_invitiable_users),prompt: 'Permissions', multiple: false, class: 'form-control w-100 font-12 py-3 shadow-none arrow-select h-auto' %>
+      <i class="fa fa-sort-desc mr-2"></i>
+    </div>
+  <% else %>
+    <div class="form-group col-md-3 px-1 mb-2">
+      <%= select_tag "users[single][data][#{index}][role]", options_for_select(User.standard_user_invitiable_users),prompt: 'Permissions', multiple: false, class: 'form-control w-100 font-12 py-3 shadow-none arrow-select h-auto' %>
+      <i class="fa fa-sort-desc mr-2"></i>
+    </div>
+  <% end %>
+
 </div>

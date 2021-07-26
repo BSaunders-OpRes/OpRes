@@ -41,18 +41,18 @@
               </div>
               <div class="row no-gutters">
                 <div class="col-md-12 px-1">
-                  <%= text_area_tag 'users[single][message]', nil, class: 'form-control font-12', placeholder: 'Add a personalised invite message', cols: '30', rows: '4' %>
+                  <%= text_area_tag 'user[single][message]', nil, class: 'form-control font-12', placeholder: 'Add a personalised invite message', cols: '30', rows: '4' %>
                 </div>
               </div>
             </div>
             <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
               <div class="row no-gutters">
                 <div class="col-md-9 mb-3 px-1">
-                  <%= text_area_tag 'users[multiple][csv]', nil, class: 'form-control font-12', placeholder: 'Email Addresses (Seperate emails with a comma)', cols: '30', rows: '6' %>
+                  <%= text_area_tag 'user[multiple][csv]', nil, class: 'form-control font-12', placeholder: 'Email Addresses (Seperate emails with a comma)', cols: '30', rows: '6' %>
                 </div>
                 <div class="col-md-3 px-1">
                   <div class="form-group chevron-select">
-                    <%= select_tag 'users[multiple][role]', options_for_select(User.invitiable_users), multiple: false, class: 'form-control w-100 font-12 shadow-none py-3 h-auto mb-2' %>
+                    <%= select_tag 'user[multiple][role]', options_for_select(User.invitiable_users), multiple: false, class: 'form-control w-100 font-12 shadow-none py-3 h-auto mb-2' %>
                   </div>
                   <div class="form-group chevron-select">
                     <%= select_tag 'multiple_regional_unit', options_for_select(managing_units.map{ |region| [region.name, region.id] }), prompt: 'Select Region', multiple: false, class: 'form-control w-100 font-12 shadow-none py-3 h-auto mb-2' %>
@@ -61,7 +61,7 @@
               </div>
               <div class="row no-gutters">
                 <div class="col-md-12 px-1">
-                  <%= text_area_tag 'users[multiple][message]', nil, class: 'form-control font-12', placeholder: 'Add a personalised invite message', cols: '30', rows: '4' %>
+                  <%= text_area_tag 'user[multiple][message]', nil, class: 'form-control font-12', placeholder: 'Add a personalised invite message', cols: '30', rows: '4' %>
                 </div>
               </div>
             </div>

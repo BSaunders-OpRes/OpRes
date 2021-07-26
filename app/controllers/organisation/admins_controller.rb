@@ -1,5 +1,6 @@
 class Organisation::AdminsController < Organisation::BaseController
-  before_action :authenticate_root_user
+  load_and_authorize_resource :user, :class => 'User', :parent => false
+
   before_action :load_admin, only: %i[edit update show destroy]
 
   def index
