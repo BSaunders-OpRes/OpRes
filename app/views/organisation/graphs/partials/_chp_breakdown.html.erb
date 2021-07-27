@@ -23,39 +23,20 @@
     <div class="card-header bg-white text-center">
       <p class="font-14 text-capitalize font-600 chart-header-title">Cloud Service Provider breakdown</p>
       <div class="donut-content">
-        <div id="second-donut" class="donut"></div>
-        <div class="donut-value font-50 font-700">0</div>
+        <%= react_component('highcharts/donut', { data: data.dig(:graph), render_to: 'chp-breakdown' }, { class: 'h-200-highchart' }) %>
+        <div class="donut-value font-50 font-700"><%= data.dig(:total)%></div>
       </div>
     </div>
     <div class="card-body">
+      <% data.dig(:graph).each do |graph| %>
       <div class="tiers d-flex justify-content-between align-items-center mb-3">
         <div class="color-tier d-flex align-items-center">
-          <div class="circle green-1"></div>
-          <span class="font-12 font-400 ml-2">AWS</span>
+          <div class="circle" style="background-color: <%= graph.dig(:color) %>"></div>
+          <span class="font-12 font-400 ml-2"><%= graph.dig(:name) %></span>
         </div>
-        <span class="font-12 font-700">0</span>
+        <span class="font-12 font-700"><%= graph.dig(:value) %></span>
       </div>
-      <div class="tiers d-flex justify-content-between align-items-center mb-3">
-        <div class="color-tier d-flex align-items-center">
-          <div class="circle green-2"></div>
-          <span class="font-12 font-400 ml-2">GCP</span>
-        </div>
-        <span class="font-12 font-700">0</span>
-      </div>
-      <div class="tiers d-flex justify-content-between align-items-center mb-3">
-        <div class="color-tier d-flex align-items-center">
-          <div class="circle green-3"></div>
-          <span class="font-12 font-400 ml-2 text-capitalize">Azure</span>
-        </div>
-        <span class="font-12 font-700">0</span>
-      </div>
-      <div class="tiers d-flex justify-content-between align-items-center">
-        <div class="color-tier d-flex align-items-center">
-          <div class="circle green-4"></div>
-          <span class="font-12 font-400 ml-2 text-capitalize">Private Cloud</span>
-        </div>
-        <span class="font-12 font-700">0</span>
-      </div>
+      <% end %>
     </div>
     <div class="card-footer text-center bg-white">
       <%= link_to 'view all', organisation_dashboard_path('cloud_service_provider_breakdown'),class: 'font-12 text-capitalize font-600 border-bottom-black text-dark text-decoration-none' %>
