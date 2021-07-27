@@ -553,51 +553,8 @@
       </div>
     </div>
   </div>
-
-  <div class="col-md-6 col-lg-3 order-lg-4 order-1 mb-lg-0 mb-4 px-1">
-    <div class="card border-0 shadow-sm pie-high-chart overflow-hidden rounded-50 min-h-560"
-    id="cloud-service-provider-breakdown" >
-      <div class="card-header bg-white text-center">
-        <p class="font-14 text-capitalize font-600 chart-header-title">Cloud Service Provider breakdown</p>
-        <div class="donut-content">
-          <div id="second-donut" class="donut"></div>
-          <div class="donut-value font-50 font-700">0</div>
-        </div>
-      </div>
-      <div class="card-body">
-        <div class="tiers d-flex justify-content-between align-items-center mb-3">
-          <div class="color-tier d-flex align-items-center">
-            <div class="circle green-1"></div>
-            <span class="font-12 font-400 ml-2">AWS</span>
-          </div>
-          <span class="font-12 font-700">0</span>
-        </div>
-        <div class="tiers d-flex justify-content-between align-items-center mb-3">
-          <div class="color-tier d-flex align-items-center">
-            <div class="circle green-2"></div>
-            <span class="font-12 font-400 ml-2">GCP</span>
-          </div>
-          <span class="font-12 font-700">0</span>
-        </div>
-        <div class="tiers d-flex justify-content-between align-items-center mb-3">
-          <div class="color-tier d-flex align-items-center">
-            <div class="circle green-3"></div>
-            <span class="font-12 font-400 ml-2 text-capitalize">Azure</span>
-          </div>
-          <span class="font-12 font-700">0</span>
-        </div>
-        <div class="tiers d-flex justify-content-between align-items-center">
-          <div class="color-tier d-flex align-items-center">
-            <div class="circle green-4"></div>
-            <span class="font-12 font-400 ml-2 text-capitalize">Private Cloud</span>
-          </div>
-          <span class="font-12 font-700">0</span>
-        </div>
-      </div>
-      <div class="card-footer text-center bg-white">
-        <%= link_to 'view all', organisation_dashboard_path('cloud_service_provider_breakdown'),class: 'font-12 text-capitalize font-600 border-bottom-black text-dark text-decoration-none' %>
-      </div>
-    </div>
+  <div id="chp-breakdown" class="col-md-6 col-lg-3 order-lg-4 order-1 mb-lg-0 mb-4 px-1 custom-high-chart lazy-graph" data-key="chp_breakdown" data-args="<%= {}.to_json %>">
+    <%= render 'organisation/graphs/partials/chp_breakdown', data: {} %>
   </div>
 </div>
 <div class="row mt-4 no-gutters">

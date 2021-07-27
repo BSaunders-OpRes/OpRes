@@ -1,11 +1,10 @@
 require 'csv'
 
 class Organisation::JourneysController < Organisation::BaseController
-  authorize_resource :class => false
-
   before_action :load_step_data, only: %i[show]
 
   def show
+    authorize! :can_do_onboarding, Journey
     if request.post?
       Journey::SaveDataService.call({
         organisational_unit: organisational_unit,

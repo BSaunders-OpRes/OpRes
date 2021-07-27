@@ -9,6 +9,7 @@ class Ability
     user ||= User.new # guest user (not logged in)
     if user.root_user?
       can :manage, :all
+      can :can_do_onbaording, Journey
     elsif user.super_user?
       can :manage, BusinessServiceLine
       can :manage, Supplier

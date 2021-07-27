@@ -1,4 +1,4 @@
-module Supplier::SupplierStepConcern
+module Suppliers::SupplierStepConcern
   extend ActiveSupport::Concern
   included do
     def included_supplier_steps

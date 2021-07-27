@@ -1,16 +1,16 @@
 class Organisation::BusinessServiceLinesController < Organisation::BaseController
-  load_and_authorize_resource
-  
   before_action :load_bsl, only: %i[edit update show destroy critical_important_suppliers]
+
+  load_and_authorize_resource except: :create
 
   def new
     @bsl = BusinessServiceLine.new
     prepare_form_data
   end
 
-  def create
+  def create 
     @bsl = BusinessServiceLine.new(bsl_params)
-
+    authorize! :create, @bsl
     if @bsl.save
       redirect_to organisation_administration_portal_index_path, notice: 'Business Service Line has been created successfully.'
     else
