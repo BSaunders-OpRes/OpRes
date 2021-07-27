@@ -50,7 +50,7 @@
       {
         "Building Society": {
           "products": ["Current Account", "Savings Accounts", "Mortgages", "Loans", "ISA", "Credit Cards", "Foreign Exchange", "Insurance", "Financial Advice & Planning", "Treasury"],
-          "channels": ["ATM", "Branch", "Telephone", "Web", "Mobile", "Electronic Trading Platform", "Personal Investing Hubs", "Electronic Market Maker"]
+          "channels": ["ATM", "Branch", "Telephone", "Web", "Mobile", "Post Office", "Electronic Trading Platform", "Personal Investing Hubs", "Electronic Market Maker"]
         }
       }
     ]

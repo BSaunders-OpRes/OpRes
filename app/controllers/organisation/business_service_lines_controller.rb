@@ -62,7 +62,7 @@ class Organisation::BusinessServiceLinesController < Organisation::BaseControlle
     RiskAppetite.kinds.each do |k, v|
       # FIX: N + 1
       @bsl.risk_appetites.build(
-        name: "#{RiskAppetite.kind_display_name[k]} Risk Appetite Rules Engine",
+        name: "#{RiskAppetite.kind_display_name[k]} - Risk Appetite Rules Engine",
         kind: k
       ) if @bsl.risk_appetites.send(k).blank?
     end

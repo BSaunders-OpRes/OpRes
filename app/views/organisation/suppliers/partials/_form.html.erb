@@ -1,12 +1,9 @@
 <%= form_for supplier, url: new_or_create ? organisation_suppliers_path : organisation_supplier_path, method: new_or_create ? :post : :patch, html: { class: 'vamoose' } do |form| %>
   <div class="wizard-body">
     <div class="wizard-header my-4 border-bottom pb-4">
-      <h4 class="mb-4 font-weight-bold"><%= new_or_create ? 'Add a new supplier' : 'Edit supplier' %></h4>
+      <h4 class="mb-4 font-weight-bold"><%= new_or_create ? 'Add a New Supplier' : 'Edit supplier' %></h4>
       <p class="font-400 font-14">
-        Please use this form to create a new supplier record in OpRes. A supplier can be a
-        system that is hosted and delivered internally within your organisation. Alternatively, it
-        can be a 3rd or 4th party supplier providing technology, software or resource capability to
-        your organisation
+        Please use this form to create a new supplier record in OpRes. A supplier can be a system that is hosted and delivered internally within your organisation. Alternatively, it can be a 3rd or 4th party supplier providing technology capabilities to your organisation.
       </p>
     </div>
      <h5 class="font-600">Supplier details</h5>
@@ -31,7 +28,7 @@
             <%= form.text_area :description, placeholder: 'Supplier Description', required: true, class: 'w-100 form-control font-12 h-auto py-3 shadow-none' %>
           </div>
           <div class="col-sm-1 text-right order-2 flex-sm-half mb-2 mb-sm-0">
-            <div class="info" data-toggle="tooltip" data-placement="top" title="Please provide the supplier Description" aria-hidden="true">i</div>
+            <div class="info" data-toggle="tooltip" data-placement="top" title="Please provide the supplier description" aria-hidden="true">i</div>
           </div>
         </div>
         <hr>
@@ -204,7 +201,7 @@
             <%= render '/organisation/unit_hierarchys/partials/drop_down', param_name: 'supplier[region]', options: Unit.regional_unit_dropdown(managing_units), val: selected_regional_unit&.id, prompt_message: 'Select your region' %>
           </div>
           <div class="col-sm-1 text-right order-2 flex-sm-half mb-2 mb-sm-0">
-            <div class="info" data-toggle="tooltip" data-placement="top" title="region" aria-hidden="true">i</div>
+            <div class="info" data-toggle="tooltip" data-placement="top" title="Please state which region this supplier is contracted from" aria-hidden="true">i</div>
           </div>
         </div>
         <div class="row align-items-center mt-4">
@@ -216,7 +213,7 @@
             <%= render 'organisation/unit_hierarchys/partials/drop_down', param_name: 'supplier[country_unit]', options: (selected_regional_unit&.country_unit_dropdown || []), val: selected_country_unit&.id, prompt_message: 'Select your country' %>
           </div>
           <div class="col-sm-1 text-right order-2 flex-sm-half mb-2 mb-sm-0">
-            <div class="info" data-toggle="tooltip" data-placement="top" title="country" aria-hidden="true">i</div>
+            <div class="info" data-toggle="tooltip" data-placement="top" title="Please state which country this supplier is contracted from" aria-hidden="true">i</div>
           </div>
         </div>
       </div>
@@ -477,7 +474,7 @@
         </div>
         <div class="row no-gutters">
           <div class="col-md-12 px-1 mb-4">
-            <p class="text-capitalize font-14 font-600 text-capitalize">3rd Party supplier</p>
+            <p class="text-capitalize font-14 font-600 text-capitalize">3rd Party suppliers</p>
           </div>
         </div>
         <div id="third-party-suppliers">
@@ -488,12 +485,12 @@
         <span>
           <%= link_to_add_association form, :third_party_suppliers, class: 'add-step-btn text-decoration-none mb-4 d-inline-block', partial: 'organisation/suppliers/partials/sub_supplier_fields' do %>
             <i class="fa fa-plus-circle" aria-hidden="true"></i>
-            <span class="font-14 font-600 ml-1 text-capitalize cursor-pointer">add another third supplier </span>
+            <span class="font-14 font-600 ml-1 text-capitalize cursor-pointer">add another third party supplier </span>
           <% end %>
         </span>
         <div class="row no-gutters">
           <div class="col-md-12 px-1 mb-4">
-            <p class="text-capitalize font-14 font-600 text-capitalize">4th Party supplier</p>
+            <p class="text-capitalize font-14 font-600 text-capitalize">4th Party suppliers</p>
           </div>
         </div>
         <div id="fourth-party-suppliers">
@@ -504,7 +501,7 @@
         <span>
           <%= link_to_add_association form, :fourth_party_suppliers, class: 'add-step-btn text-decoration-none mb-4 d-inline-block', partial: 'organisation/suppliers/partials/sub_supplier_fields' do %>
             <i class="fa fa-plus-circle" aria-hidden="true"></i>
-            <span class="font-14 font-600 ml-1 text-capitalize cursor-pointer">add another fourth supplier</span>
+            <span class="font-14 font-600 ml-1 text-capitalize cursor-pointer">add another fourth party supplier</span>
           <% end %>
         </span>
       <% end %>

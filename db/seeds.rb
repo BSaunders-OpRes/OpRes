@@ -54,19 +54,14 @@ JSON.parse(ipcs_data).each do |unit_type_data|
     institutions_data.each do |institution_data|
       institution_data.each do |institution_name, pc_data|
         pre_institution = PreInstitution.create_with(description: institution_name).find_or_create_by(name: institution_name, unit_type: unit_type)
-
-        pre_products = []
         pc_data.dig('products').each do |product|
           pre_product   = PreProduct.create_with(description: product).find_or_create_by(name: product)
-          pre_products << pre_product
-
-          pre_channels = []
+          PreInstitutionProduct.find_or_create_by(pre_institution_id: pre_institution.id, pre_product_id: pre_product.id)
           pc_data.dig('channels').each do |channel|
-            pre_channels << PreChannel.create_with(description: channel).find_or_create_by(name: channel)
+            pre_channel = PreChannel.create_with(description: channel).find_or_create_by(name: channel)
+            PreProductChannel.find_or_create_by(pre_product_id: pre_product.id, pre_channel_id: pre_channel.id)
           end
-          pre_product.pre_channel_ids = pre_channels.map(&:id)
         end
-        pre_institution.pre_product_ids = pre_products.map(&:id)
       end
     end
   end
