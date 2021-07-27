@@ -1,0 +1,18 @@
+<% if data.blank? %>
+  <div class="card border-0 pie-high-chart overflow-hidden">
+    <div class="card-header border-0 bg-white text-center">
+      <div class="empty-donut-block w-150px mx-auto"></div>
+      <h6 class="empty-donut-line px-5 mb-2"></h6>
+    </div>
+  </div>
+<% else %>
+  <div class="card border-0 pie-high-chart overflow-hidden">
+    <div class="card-header border-0 bg-white text-center">
+      <div class="donut-content w-150px mx-auto">
+        <%= react_component('highcharts/donut', { data: data.dig(:overall, :graph), render_to: 'donut-chp' }, { class: 'h-130px d-flex align-items-center' }) %>
+        <div class="donut-value font-30 font-700"><%= data.dig(:overall, :graph).first[:count] %></div>
+      </div>
+      <h6 class="font-13 font-600 w-75 mx-auto mt-3">Supplier Conformance with Impact Tolerances</h6>
+    </div>
+  </div>
+<% end %>

@@ -1,0 +1,38 @@
+<div class="card border-0 shadow-sm rounded-50 mb-4">
+  <div class="card-body px-0">
+    <div class="box">
+      <div class="d-flex justify-content-between align-items-center mb-4 px-4">
+        <h5 class="text-capitalize text-left">4th Party Suppliers</h5>
+        <div class="text-right">
+          <a href="#" class="text-black">
+            <i class="fa fa-ellipsis-v text-right" aria-hidden="true"></i>
+          </a>
+        </div>
+      </div>
+      <div class="table-responsive">
+        <table class="table table-striped mb-0">
+          <thead>
+            <tr>
+              <th class="border-0 px-4 font-500 font-12">Supplier Name</th>
+              <th class="border-0 px-4 font-500 font-12">Hosting Provider</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @fourth_party_suppliers&.each do |fourth_party_supplier| %>
+              <tr>
+                <td width='200px' class="font-12 px-4 align-middle">
+                  <%= fourth_party_supplier.name %>
+                </td>
+                <td width='200px' class="font-12 px-4 align-middle">
+                  AWS
+                  <%= fourth_party_supplier.cloud_hosting_provider&.name %>
+                </td>
+              </tr>
+            <% end %>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
