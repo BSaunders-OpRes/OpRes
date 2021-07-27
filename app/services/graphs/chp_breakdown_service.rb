@@ -1,30 +1,27 @@
-class Graphs::BslStepSupplierChpService < ApplicationService
+class Graphs::ChpBreakdownService < ApplicationService
   COLORS = %w[#6BEAB3 #367C5C #CDFAF1 #05b368]
 
   def initialize(args)
-    @bsl  = BusinessServiceLine.find(args['bsl'])
     @data = {}
+    @organisational_unit = args['organisational_unit']
+    @current_user = args['current_user']
   end
-
-  attr_reader :bsl, :data
-
+  attr_reader :data
+  
   def call
     data[:overall]   = overall
-    data[:breakdown] = breakdown
+    #data[:breakdown] = breakdown
 
-    data
+    data  
   end
 
   private
 
   def overall
     datum = {}
+    chp_suppliers = Supplier.where(unit_id: @organisational_unit.inclusive_children.pluck(:id))
 
-    chp_suppliers = Supplier.joins(supplier_steps: [step: [:business_service_line]])
-                            .where(business_service_lines: { id: bsl.id })
-                            .group_by { |s| s.cloud_hosting_provider }
-
-    datum[:total] = chp_suppliers.values.flatten.size
+    datum[:total] = chp_suppliers.size
     datum[:graph] = []
 
     CloudHostingProvider.all.each_with_index do |chp, index|

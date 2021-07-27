@@ -1,6 +1,6 @@
 class Supplier < ApplicationRecord
   # Modules #
-  include Supplier::SupplierStepConcern
+  include Suppliers::SupplierStepConcern
 
   # Associations #
   belongs_to :unit
