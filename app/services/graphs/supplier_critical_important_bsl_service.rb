@@ -2,7 +2,7 @@ class Graphs::SupplierCriticalImportantBslService < ApplicationService
   COLORS = %w[#6BEAB3 #367C5C #CDFAF1 #05b368]
 
   def initialize(args)
-    @supplier = Supplier.find(args[:supplier])
+    @supplier = Supplier.find(args['supplier'])
     @data     = {}
   end
 
