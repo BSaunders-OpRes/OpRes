@@ -1,16 +1,13 @@
-class Graphs::BslStepSupplierChpService < ApplicationService
+class Graphs::BslStepSupplierChpService < Graphs::BaseService
   # CHP breakdown of suppliers selected on BSL steps.
 
   COLORS = %w[#6BEAB3 #367C5C #CDFAF1 #05b368]
 
-  def initialize(args)
-    @bsl  = BusinessServiceLine.find(args['bsl'])
-    @data = {}
-  end
-
-  attr_reader :bsl, :data
+  attr_reader :bsl
 
   def call
+    @bsl = BusinessServiceLine.find(args['bsl'])
+
     data[:overall]   = overall
     data[:breakdown] = breakdown
 
