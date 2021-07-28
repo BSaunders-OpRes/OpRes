@@ -1,15 +1,13 @@
-class Graphs::SupplierThirdFourthPartyBslService < ApplicationService
+class Graphs::SupplierThirdFourthPartyBslService < Graphs::BaseService
+  # Third & fourth party breakdown of suppliers selected on BSL steps.
+
   COLORS = %w[#6BEAB3 #367C5C #CDFAF1 #05b368]
 
-  def initialize(args)
-    @supplier = Supplier.find(args['supplier'])
-    @data     = {}
-  end
-
-  attr_reader :supplier, :data
+  attr_reader :supplier
 
   def call
-    data[:overall]   = overall
+    @supplier      = Supplier.find(args['supplier'])
+    data[:overall] = overall
 
     data
   end
