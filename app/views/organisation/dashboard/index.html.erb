@@ -452,7 +452,7 @@
         </div>
       </div>
       <div class="card-footer text-center bg-white">
-        <%= link_to 'view all', organisation_dashboard_path('system_supplier_resilience_indicator'),class: 'font-12 text-capitalize font-600 border-bottom-black text-dark text-decoration-none' %>
+        <%= link_to 'view all', system_supplier_resilience_indicator_organisation_dashboard_break_downs_path, class: 'font-12 text-capitalize font-600 border-bottom-black text-dark text-decoration-none' %>
       </div>
     </div>
   </div>
@@ -549,14 +549,13 @@
         </div>
       </div>
       <div class="card-footer text-center bg-white">
-        <%= link_to 'View All', organisation_dashboard_path('critical_important_system'), class: 'font-12 text-capitalize font-600 border-bottom-black text-dark text-decoration-none'%>
+        <%= link_to 'View All', critical_important_system_organisation_dashboard_break_downs_path, class: 'font-12 text-capitalize font-600 border-bottom-black text-dark text-decoration-none'%>
       </div>
     </div>
   </div>
   <div id="chp-breakdown" class="col-md-6 col-lg-3 order-lg-4 order-1 mb-lg-0 mb-4 px-1 custom-high-chart lazy-graph" data-key="chp_breakdown" data-args="<%= {}.to_json %>">
     <%= render 'organisation/graphs/partials/chp_breakdown', data: {} %>
   </div>
-</div>
 <div class="row mt-4 no-gutters">
   <div class="col-md-6 col-lg-9 mb-4 mb-lg-0 px-1">
     <div class="card border-0 shadow-sm rounded-50 overflow-hidden min-h-566" id="high-risk-bsl">
@@ -765,7 +764,7 @@
               </div>
             </div>
             <div class="d-flex py-2 justify-content-center view-all">
-              <%= link_to 'view all', organisation_dashboard_path('impact_tolerance_appetite'),class: 'text-capitalize font-12 font-xxl-14 border-bottom-black font-600 text-black text-decoration-none' %>
+              <%= link_to 'view all', impact_tolerance_appetite_organisation_dashboard_break_downs_path, class: 'text-capitalize font-12 font-xxl-14 border-bottom-black font-600 text-black text-decoration-none' %>
             </div>
           </div>
           <div class="tab-pane fade pb-3" id="tier-2" role="tabpanel" aria-labelledby="profile-tab">

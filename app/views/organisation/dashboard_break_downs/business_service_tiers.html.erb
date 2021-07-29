@@ -90,9 +90,6 @@
                               <li class="nav-item">
                                 <a class="text-decoration-none nav-link border-0 font-12 pl-0 pr-4 position-relative" id="apac-tab" data-toggle="tab" href="#apac" role="tab" aria-controls="apac" aria-selected="false">APAC</a>
                               </li>
-                              <li class="nav-item">
-                                <a class="text-decoration-none nav-link border-0 font-12 pl-0 pr-4 position-relative" id="latam-tab" data-toggle="tab" href="#latam" role="tab" aria-controls="latam" aria-selected="false">LATAM</a>
-                              </li>
                             </ul>
                             <div class="tab-content" id="myTabContent2">
                               <div class="tab-pane fade show active" id="all-regions" role="tabpanel" aria-labelledby="all-regions-tab">
@@ -104,20 +101,17 @@
                                         <th class="border-bottom-0 border-top-0 border-right font-weight-500 font-12 px-4" scope="col">EMEA</th>
                                         <th class="border-bottom-0 border-top-0 border-right font-weight-500 font-12 px-4" scope="col">AMERS</th>
                                         <th class="border-bottom-0 border-top-0 border-right font-weight-500 font-12 px-4" scope="col">APAC</th>
-                                        <th class="border-bottom-0 border-top-0 font-weight-500 font-12 px-4" scope="col">LATAM</th>
                                       </tr>
                                     </thead>
                                     <tbody>
                                       <tr>
                                         <td class="font-12 border-right font-500 py-3 px-4">Total Business Service</td>
-                                        <td class="font-12 border-right font-500 py-3 px-4">8</td>
-                                        <td class="font-12 border-right font-500 py-3 px-4">8</td>
-                                        <td class="font-12 border-right font-500 py-3 px-4">8</td>
-                                        <td class="font-12 border-right font-500 py-3 px-4">8</td>
+                                        <td class="font-12 border-right font-500 py-3 px-4"><%=  @bsl_regional_tiers.dig('EMEA', 'tier_1').present? ? @bsl_regional_tiers.dig('EMEA', 'tier_1').size : '0' %></td>
+                                        <td class="font-12 border-right font-500 py-3 px-4"><%= @bsl_regional_tiers.dig('AMERS', 'tier_1').present? ? @bsl_regional_tiers.dig('AMERS', 'tier_1').size : '0' %></td>
+                                        <td class="font-12 border-right font-500 py-3 px-4"><%= @bsl_regional_tiers.dig('APAC', 'tier_1').present? ? @bsl_regional_tiers.dig('APAC', 'tier_1').size : '0' %></td>
                                       </tr>
                                       <tr>
                                         <td class="font-12 border-right font-500 py-3 px-4">Total Resilience Gaps</td>
-                                        <td class="font-12 border-right font-500 py-3 px-4">8</td>
                                         <td class="font-12 border-right font-500 py-3 px-4">8</td>
                                         <td class="font-12 border-right font-500 py-3 px-4">8</td>
                                         <td class="font-12 border-right font-500 py-3 px-4">8</td>
@@ -127,21 +121,18 @@
                                         <td class="font-12 border-right font-500 py-3 px-4">6</td>
                                         <td class="font-12 border-right font-500 py-3 px-4">6</td>
                                         <td class="font-12 border-right font-500 py-3 px-4">6</td>
-                                        <td class="font-12 border-right font-500 py-3 px-4">6</td>
                                       </tr>
-                                      <tr>
+                                      <tr>                                        
                                         <td class="font-12 border-right font-500 py-3 px-4">Total 3rd Party Suppliers</td>
-                                        <td class="font-12 border-right font-500 py-3 px-4">4</td>
-                                        <td class="font-12 border-right font-500 py-3 px-4">4</td>
-                                        <td class="font-12 border-right font-500 py-3 px-4">4</td>
-                                        <td class="font-12 border-right font-500 py-3 px-4">4</td>
+                                        <td class="font-12 border-right font-500 py-3 px-4"><%= @bsl_tiers.dig('emea_tier_1_third_party_suppliers')&.size %></td>
+                                        <td class="font-12 border-right font-500 py-3 px-4"><%= @bsl_tiers.dig('amers_tier_1_third_party_suppliers')&.size %></td>
+                                        <td class="font-12 border-right font-500 py-3 px-4"><%= @bsl_tiers.dig('apac_tier_1_third_party_suppliers')&.size %></td>
                                       </tr>
                                       <tr>
                                         <td class="font-12 border-right font-500 py-3 px-4">Total 4th Party Suppliers</td>
-                                        <td class="font-12 border-right font-500 py-3 px-4">3</td>
-                                        <td class="font-12 border-right font-500 py-3 px-4">3</td>
-                                        <td class="font-12 border-right font-500 py-3 px-4">3</td>
-                                        <td class="font-12 border-right font-500 py-3 px-4">3</td>
+                                        <td class="font-12 border-right font-500 py-3 px-4"><%= @bsl_tiers.dig('emea_tier_1_fourth_party_suppliers')&.size %></td>
+                                        <td class="font-12 border-right font-500 py-3 px-4"><%= @bsl_tiers.dig('amers_tier_1_fourth_party_suppliers')&.size %></td>
+                                        <td class="font-12 border-right font-500 py-3 px-4"><%= @bsl_tiers.dig('apac_tier_1_fourth_party_suppliers')&.size %></td>
                                       </tr>
                                     </tbody>
                                   </table>
@@ -250,13 +241,11 @@
                                         <th class="border-bottom-0 border-top-0 border-right font-weight-500 font-12 px-4" scope="col">EMEA</th>
                                         <th class="border-bottom-0 border-top-0 border-right font-weight-500 font-12 px-4" scope="col">AMERS</th>
                                         <th class="border-bottom-0 border-top-0 border-right font-weight-500 font-12 px-4" scope="col">APAC</th>
-                                        <th class="border-bottom-0 border-top-0 font-weight-500 font-12 px-4" scope="col">LATAM</th>
                                       </tr>
                                     </thead>
                                     <tbody>
                                       <tr>
                                         <td class="font-12 border-right font-500 py-3 px-4">Total Business Service</td>
-                                        <td class="font-12 border-right font-500 py-3 px-4">8</td>
                                         <td class="font-12 border-right font-500 py-3 px-4">8</td>
                                         <td class="font-12 border-right font-500 py-3 px-4">8</td>
                                         <td class="font-12 border-right font-500 py-3 px-4">8</td>
@@ -266,11 +255,9 @@
                                         <td class="font-12 border-right font-500 py-3 px-4">8</td>
                                         <td class="font-12 border-right font-500 py-3 px-4">8</td>
                                         <td class="font-12 border-right font-500 py-3 px-4">8</td>
-                                        <td class="font-12 border-right font-500 py-3 px-4">8</td>
                                       </tr>
                                       <tr>
                                         <td class="font-12 border-right font-500 py-3 px-4">Total Internal Systems</td>
-                                        <td class="font-12 border-right font-500 py-3 px-4">6</td>
                                         <td class="font-12 border-right font-500 py-3 px-4">6</td>
                                         <td class="font-12 border-right font-500 py-3 px-4">6</td>
                                         <td class="font-12 border-right font-500 py-3 px-4">6</td>
@@ -280,11 +267,9 @@
                                         <td class="font-12 border-right font-500 py-3 px-4">4</td>
                                         <td class="font-12 border-right font-500 py-3 px-4">4</td>
                                         <td class="font-12 border-right font-500 py-3 px-4">4</td>
-                                        <td class="font-12 border-right font-500 py-3 px-4">4</td>
                                       </tr>
                                       <tr>
                                         <td class="font-12 border-right font-500 py-3 px-4">Total 4th Party Suppliers</td>
-                                        <td class="font-12 border-right font-500 py-3 px-4">3</td>
                                         <td class="font-12 border-right font-500 py-3 px-4">3</td>
                                         <td class="font-12 border-right font-500 py-3 px-4">3</td>
                                         <td class="font-12 border-right font-500 py-3 px-4">3</td>
@@ -398,13 +383,11 @@
                                         <th class="border-bottom-0 border-top-0 border-right font-weight-500 font-12 px-4" scope="col">EMEA</th>
                                         <th class="border-bottom-0 border-top-0 border-right font-weight-500 font-12 px-4" scope="col">AMERS</th>
                                         <th class="border-bottom-0 border-top-0 border-right font-weight-500 font-12 px-4" scope="col">APAC</th>
-                                        <th class="border-bottom-0 border-top-0 font-weight-500 font-12 px-4" scope="col">LATAM</th>
                                       </tr>
                                     </thead>
                                     <tbody>
                                       <tr>
                                         <td class="font-12 border-right font-500 py-3 px-4">Total Business Service</td>
-                                        <td class="font-12 border-right font-500 py-3 px-4">8</td>
                                         <td class="font-12 border-right font-500 py-3 px-4">8</td>
                                         <td class="font-12 border-right font-500 py-3 px-4">8</td>
                                         <td class="font-12 border-right font-500 py-3 px-4">8</td>
@@ -414,11 +397,9 @@
                                         <td class="font-12 border-right font-500 py-3 px-4">8</td>
                                         <td class="font-12 border-right font-500 py-3 px-4">8</td>
                                         <td class="font-12 border-right font-500 py-3 px-4">8</td>
-                                        <td class="font-12 border-right font-500 py-3 px-4">8</td>
                                       </tr>
                                       <tr>
                                         <td class="font-12 border-right font-500 py-3 px-4">Total Internal Systems</td>
-                                        <td class="font-12 border-right font-500 py-3 px-4">6</td>
                                         <td class="font-12 border-right font-500 py-3 px-4">6</td>
                                         <td class="font-12 border-right font-500 py-3 px-4">6</td>
                                         <td class="font-12 border-right font-500 py-3 px-4">6</td>
@@ -428,11 +409,9 @@
                                         <td class="font-12 border-right font-500 py-3 px-4">4</td>
                                         <td class="font-12 border-right font-500 py-3 px-4">4</td>
                                         <td class="font-12 border-right font-500 py-3 px-4">4</td>
-                                        <td class="font-12 border-right font-500 py-3 px-4">4</td>
                                       </tr>
                                       <tr>
                                         <td class="font-12 border-right font-500 py-3 px-4">Total 4th Party Suppliers</td>
-                                        <td class="font-12 border-right font-500 py-3 px-4">3</td>
                                         <td class="font-12 border-right font-500 py-3 px-4">3</td>
                                         <td class="font-12 border-right font-500 py-3 px-4">3</td>
                                         <td class="font-12 border-right font-500 py-3 px-4">3</td>
@@ -546,13 +525,11 @@
                                         <th class="border-bottom-0 border-top-0 border-right font-weight-500 font-12 px-4" scope="col">EMEA</th>
                                         <th class="border-bottom-0 border-top-0 border-right font-weight-500 font-12 px-4" scope="col">AMERS</th>
                                         <th class="border-bottom-0 border-top-0 border-right font-weight-500 font-12 px-4" scope="col">APAC</th>
-                                        <th class="border-bottom-0 border-top-0 font-weight-500 font-12 px-4" scope="col">LATAM</th>
                                       </tr>
                                     </thead>
                                     <tbody>
                                       <tr>
                                         <td class="font-12 border-right font-500 py-3 px-4">Total Business Service</td>
-                                        <td class="font-12 border-right font-500 py-3 px-4">8</td>
                                         <td class="font-12 border-right font-500 py-3 px-4">8</td>
                                         <td class="font-12 border-right font-500 py-3 px-4">8</td>
                                         <td class="font-12 border-right font-500 py-3 px-4">8</td>
@@ -562,11 +539,9 @@
                                         <td class="font-12 border-right font-500 py-3 px-4">8</td>
                                         <td class="font-12 border-right font-500 py-3 px-4">8</td>
                                         <td class="font-12 border-right font-500 py-3 px-4">8</td>
-                                        <td class="font-12 border-right font-500 py-3 px-4">8</td>
                                       </tr>
                                       <tr>
                                         <td class="font-12 border-right font-500 py-3 px-4">Total Internal Systems</td>
-                                        <td class="font-12 border-right font-500 py-3 px-4">6</td>
                                         <td class="font-12 border-right font-500 py-3 px-4">6</td>
                                         <td class="font-12 border-right font-500 py-3 px-4">6</td>
                                         <td class="font-12 border-right font-500 py-3 px-4">6</td>
@@ -576,159 +551,9 @@
                                         <td class="font-12 border-right font-500 py-3 px-4">4</td>
                                         <td class="font-12 border-right font-500 py-3 px-4">4</td>
                                         <td class="font-12 border-right font-500 py-3 px-4">4</td>
-                                        <td class="font-12 border-right font-500 py-3 px-4">4</td>
                                       </tr>
                                       <tr>
                                         <td class="font-12 border-right font-500 py-3 px-4">Total 4th Party Suppliers</td>
-                                        <td class="font-12 border-right font-500 py-3 px-4">3</td>
-                                        <td class="font-12 border-right font-500 py-3 px-4">3</td>
-                                        <td class="font-12 border-right font-500 py-3 px-4">3</td>
-                                        <td class="font-12 border-right font-500 py-3 px-4">3</td>
-                                      </tr>
-                                    </tbody>
-                                  </table>
-                                </div>
-                                <div class="row custom-high-chart mb-4">
-                                  <div class="col-lg-6 col-md-12">
-                                    <div class="box">
-                                      <div class="col-md-12 mb-lg-0 mb-4 px-1">
-                                        <p class="px-2 font-14 text-capitalize font-600 chart-header-title mb-4">Service Provider Breakdown</p>
-                                        <div class="border-0 pie-high-chart overflow-hidden rounded-50 d-flex justify-content-center">
-                                          <div class="w-50 card-header p-2 bg-white text-center border-0">
-                                            <div class="donut-content">
-                                              <div id="thirteen-donut" class="donut"></div>
-                                              <div class="donut-value font-30 font-700">50</div>
-                                            </div>
-                                          </div>
-                                          <div class="card-body mt-3 p-2">
-                                            <div class="tiers d-flex justify-content-between align-items-center mb-3">
-                                              <div class="color-tier d-flex align-items-center">
-                                                <div class="circle green-1"></div>
-                                                <%= image_pack_tag 'media/images/aws.png', class: 'img-fluid ml-2' %>
-                                                <span class="font-12 font-400 ml-2">AWS</span>
-                                              </div>
-                                              <span class="font-12 font-700">24</span>
-                                            </div>
-                                            <div class="tiers d-flex justify-content-between align-items-center mb-3">
-                                              <div class="color-tier d-flex align-items-center">
-                                                <div class="circle green-2"></div>
-                                                <%= image_pack_tag 'media/images/g-cloud.png', class: 'img-fluid ml-2' %>
-                                                <span class="font-12 font-400 ml-2">GCP</span>
-                                              </div>
-                                              <span class="font-12 font-700">24</span>
-                                            </div>
-                                            <div class="tiers d-flex justify-content-between align-items-center mb-3">
-                                              <div class="color-tier d-flex align-items-center">
-                                                <div class="circle green-3"></div>
-                                                <%= image_pack_tag 'media/images/azure.png', class: 'img-fluid ml-2' %>
-                                                <span class="font-12 font-400 ml-2">Azure</span>
-                                              </div>
-                                              <span class="font-12 font-700">24</span>
-                                            </div>
-                                            <div class="tiers d-flex justify-content-between align-items-center">
-                                              <div class="color-tier d-flex align-items-center">
-                                                <div class="circle green-4"></div>
-                                                <%= image_pack_tag 'media/images/black-cloud.png', class: 'img-fluid ml-2' %>
-                                                <span class="font-12 font-400 ml-2">Private Cloud</span>
-                                              </div>
-                                              <span class="font-12 font-700">24</span>
-                                            </div>
-                                          </div>
-                                        </div>
-                                      </div>
-                                    </div>
-                                  </div>
-                                  <div class="col-lg-6 col-md-12">
-                                    <div class="box">
-                                      <div class="col-md-12 mb-lg-0 mb-4 px-1">
-                                        <p class="px-2 font-14 text-capitalize font-600 chart-header-title mb-4">Consumption Model Breakdown</p>
-                                        <div class="border-0 pie-high-chart overflow-hidden rounded-50 d-flex justify-content-center">
-                                          <div class="w-50 card-header p-2 bg-white text-center border-0">
-                                            <div class="donut-content">
-                                              <div id="fourteen-donut" class="donut"></div>
-                                              <div class="donut-value font-30 font-700">50</div>
-                                            </div>
-                                          </div>
-                                          <div class="card-body mt-3 p-2">
-                                            <div class="tiers d-flex justify-content-between align-items-center mb-3">
-                                              <div class="color-tier d-flex align-items-center">
-                                                <div class="circle green-1"></div>
-                                                <span class="font-12 font-400 ml-2">Lass</span>
-                                              </div>
-                                              <span class="font-12 font-700">24</span>
-                                            </div>
-                                            <div class="tiers d-flex justify-content-between align-items-center mb-3">
-                                              <div class="color-tier d-flex align-items-center">
-                                                <div class="circle green-2"></div>
-                                                <span class="font-12 font-400 ml-2">Saas</span>
-                                              </div>
-                                              <span class="font-12 font-700">24</span>
-                                            </div>
-                                            <div class="tiers d-flex justify-content-between align-items-center mb-3">
-                                              <div class="color-tier d-flex align-items-center">
-                                                <div class="circle green-3"></div>
-                                                <span class="font-12 font-400 ml-2">Paas</span>
-                                              </div>
-                                              <span class="font-12 font-700">24</span>
-                                            </div>
-                                            <div class="tiers d-flex justify-content-between align-items-center">
-                                              <div class="color-tier d-flex align-items-center">
-                                                <div class="circle green-4"></div>
-                                                <span class="font-12 font-400 ml-2">Private Cloud</span>
-                                              </div>
-                                              <span class="font-12 font-700">24</span>
-                                            </div>
-                                          </div>
-                                        </div>
-                                      </div>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                              <div class="tab-pane fade" id="latam" role="tabpanel" aria-labelledby="latam-tab">
-                                <div class="table-responsive mb-4">
-                                  <table class="table table-striped border-bottom">
-                                    <thead>
-                                      <tr>
-                                        <th class="border-bottom-0 border-top-0 border-right font-weight-500 font-12 px-4 w-250px" scope="col"></th>
-                                        <th class="border-bottom-0 border-top-0 border-right font-weight-500 font-12 px-4" scope="col">EMEA</th>
-                                        <th class="border-bottom-0 border-top-0 border-right font-weight-500 font-12 px-4" scope="col">AMERS</th>
-                                        <th class="border-bottom-0 border-top-0 border-right font-weight-500 font-12 px-4" scope="col">APAC</th>
-                                        <th class="border-bottom-0 border-top-0 font-weight-500 font-12 px-4" scope="col">LATAM</th>
-                                      </tr>
-                                    </thead>
-                                    <tbody>
-                                      <tr>
-                                        <td class="font-12 border-right font-500 py-3 px-4">Total Business Service</td>
-                                        <td class="font-12 border-right font-500 py-3 px-4">8</td>
-                                        <td class="font-12 border-right font-500 py-3 px-4">8</td>
-                                        <td class="font-12 border-right font-500 py-3 px-4">8</td>
-                                        <td class="font-12 border-right font-500 py-3 px-4">8</td>
-                                      </tr>
-                                      <tr>
-                                        <td class="font-12 border-right font-500 py-3 px-4">Total Resilience Gaps</td>
-                                        <td class="font-12 border-right font-500 py-3 px-4">8</td>
-                                        <td class="font-12 border-right font-500 py-3 px-4">8</td>
-                                        <td class="font-12 border-right font-500 py-3 px-4">8</td>
-                                        <td class="font-12 border-right font-500 py-3 px-4">8</td>
-                                      </tr>
-                                      <tr>
-                                        <td class="font-12 border-right font-500 py-3 px-4">Total Internal Systems</td>
-                                        <td class="font-12 border-right font-500 py-3 px-4">6</td>
-                                        <td class="font-12 border-right font-500 py-3 px-4">6</td>
-                                        <td class="font-12 border-right font-500 py-3 px-4">6</td>
-                                        <td class="font-12 border-right font-500 py-3 px-4">6</td>
-                                      </tr>
-                                      <tr>
-                                        <td class="font-12 border-right font-500 py-3 px-4">Total 3rd Party Suppliers</td>
-                                        <td class="font-12 border-right font-500 py-3 px-4">4</td>
-                                        <td class="font-12 border-right font-500 py-3 px-4">4</td>
-                                        <td class="font-12 border-right font-500 py-3 px-4">4</td>
-                                        <td class="font-12 border-right font-500 py-3 px-4">4</td>
-                                      </tr>
-                                      <tr>
-                                        <td class="font-12 border-right font-500 py-3 px-4">Total 4th Party Suppliers</td>
-                                        <td class="font-12 border-right font-500 py-3 px-4">3</td>
                                         <td class="font-12 border-right font-500 py-3 px-4">3</td>
                                         <td class="font-12 border-right font-500 py-3 px-4">3</td>
                                         <td class="font-12 border-right font-500 py-3 px-4">3</td>
@@ -872,15 +697,6 @@
                               </div>
                             </div>
                           </div>
-                          <div class="col-md-6 col-lg-3">
-                            <div class="card h-100 border-0">
-                              <div class="card-body mb-2 mb-lg-0 p-2 d-flex bg-body-color align-items-center rounded">
-                                <div class="color-tier d-flex align-items-center">
-                                  <span class="font-12 ml-2 font-600">LATAM</span>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
                         </div>
                       </div>
                       <div class="tab-pane fade" id="tier-2" role="tabpanel" aria-labelledby="tier-2-tab">
@@ -903,9 +719,6 @@
                               <li class="nav-item">
                                 <a class="text-decoration-none nav-link border-0 font-12 pl-0 pr-4 position-relative" id="apac-tab" data-toggle="tab" href="#apac" role="tab" aria-controls="apac" aria-selected="false">APAC</a>
                               </li>
-                              <li class="nav-item">
-                                <a class="text-decoration-none nav-link border-0 font-12 pl-0 pr-4 position-relative" id="latam-tab" data-toggle="tab" href="#latam" role="tab" aria-controls="latam" aria-selected="false">LATAM</a>
-                              </li>
                             </ul>
                             <div class="tab-content" id="myTabContent2">
                               <div class="tab-pane fade show active" id="all-regions" role="tabpanel" aria-labelledby="all-regions-tab">
@@ -917,44 +730,38 @@
                                         <th class="border-top-0 font-weight-500 font-12" scope="col">EMEA</th>
                                         <th class="border-top-0 font-weight-500 font-12" scope="col">AMERS</th>
                                         <th class="border-top-0 font-weight-500 font-12" scope="col">APAC</th>
-                                        <th class="border-top-0 font-weight-500 font-12" scope="col">LATAM</th>
                                       </tr>
                                     </thead>
                                     <tbody>
                                       <tr>
-                                        <td class="font-12">Total Business Service</td>
-                                        <td class="font-12">8</td>
-                                        <td class="font-12">8</td>
-                                        <td class="font-12">8</td>
-                                        <td class="font-12">8</td>
+                                        <td class="font-12 border-right font-500 py-3 px-4">Total Business Service</td>
+                                        <td class="font-12 border-right font-500 py-3 px-4"><%= @bsl_regional_tiers.dig('EMEA', 'tier_2').present? ? @bsl_regional_tiers.dig('EMEA', 'tier_2').size : '0' %></td>
+                                        <td class="font-12 border-right font-500 py-3 px-4"><%= @bsl_regional_tiers.dig('AMERS', 'tier_2').present? ? @bsl_regional_tiers.dig('AMERS', 'tier_2').size : '0' %></td>
+                                        <td class="font-12 border-right font-500 py-3 px-4"><%= @bsl_regional_tiers.dig('APAC', 'tier_2').present? ? @bsl_regional_tiers.dig('APAC', 'tier_2').size : '0' %></td>
                                       </tr>
                                       <tr>
-                                        <td class="font-12">Total Resilience Gaps</td>
-                                        <td class="font-12">8</td>
-                                        <td class="font-12">8</td>
-                                        <td class="font-12">8</td>
-                                        <td class="font-12">8</td>
+                                        <td class="font-12 border-right font-500 py-3 px-4">Total Resilience Gaps</td>
+                                        <td class="font-12 border-right font-500 py-3 px-4">8</td>
+                                        <td class="font-12 border-right font-500 py-3 px-4">8</td>
+                                        <td class="font-12 border-right font-500 py-3 px-4">8</td>
                                       </tr>
                                       <tr>
-                                        <td class="font-12">Total Internal Systems</td>
-                                        <td class="font-12">6</td>
-                                        <td class="font-12">6</td>
-                                        <td class="font-12">6</td>
-                                        <td class="font-12">6</td>
+                                        <td class="font-12 border-right font-500 py-3 px-4">Total Internal Systems</td>
+                                        <td class="font-12 border-right font-500 py-3 px-4">6</td>
+                                        <td class="font-12 border-right font-500 py-3 px-4">6</td>
+                                        <td class="font-12 border-right font-500 py-3 px-4">6</td>
+                                      </tr>
+                                       <tr>                                        
+                                        <td class="font-12 border-right font-500 py-3 px-4">Total 3rd Party Suppliers</td>
+                                        <td class="font-12 border-right font-500 py-3 px-4"><%= @bsl_tiers.dig('emea_tier_2_third_party_suppliers')&.size %></td>
+                                        <td class="font-12 border-right font-500 py-3 px-4"><%= @bsl_tiers.dig('amers_tier_2_third_party_suppliers')&.size %></td>
+                                        <td class="font-12 border-right font-500 py-3 px-4"><%= @bsl_tiers.dig('apac_tier_2_third_party_suppliers')&.size %></td>
                                       </tr>
                                       <tr>
-                                        <td class="font-12">Total 3rd Party Suppliers</td>
-                                        <td class="font-12">4</td>
-                                        <td class="font-12">4</td>
-                                        <td class="font-12">4</td>
-                                        <td class="font-12">4</td>
-                                      </tr>
-                                      <tr>
-                                        <td class="font-12">Total 4th Party Suppliers</td>
-                                        <td class="font-12">3</td>
-                                        <td class="font-12">3</td>
-                                        <td class="font-12">3</td>
-                                        <td class="font-12">3</td>
+                                        <td class="font-12 border-right font-500 py-3 px-4">Total 4th Party Suppliers</td>
+                                        <td class="font-12 border-right font-500 py-3 px-4"><%= @bsl_tiers.dig('emea_tier_2_fourth_party_suppliers')&.size %></td>
+                                        <td class="font-12 border-right font-500 py-3 px-4"><%= @bsl_tiers.dig('amers_tier_2_fourth_party_suppliers')&.size %></td>
+                                        <td class="font-12 border-right font-500 py-3 px-4"><%= @bsl_tiers.dig('apac_tier_2_fourth_party_suppliers')&.size %></td>
                                       </tr>
                                     </tbody>
                                   </table>
@@ -1187,38 +994,6 @@
                                 </table>
                               </div>
                               <div class="tab-pane fade" id="apac" role="tabpanel" aria-labelledby="apac-tab">
-                                <table class="table table-striped">
-                                  <thead>
-                                    <tr>
-                                      <th scope="col">#</th>
-                                      <th scope="col">First</th>
-                                      <th scope="col">Last</th>
-                                      <th scope="col">Handle</th>
-                                    </tr>
-                                  </thead>
-                                  <tbody>
-                                    <tr>
-                                      <th scope="row">1</th>
-                                      <td class="font-12">Mark</td>
-                                      <td class="font-12">Otto</td>
-                                      <td class="font-12">@mdo</td>
-                                    </tr>
-                                    <tr>
-                                      <th scope="row">2</th>
-                                      <td class="font-12">Jacob</td>
-                                      <td class="font-12">Thornton</td>
-                                      <td class="font-12">@fat</td>
-                                    </tr>
-                                    <tr>
-                                      <th scope="row">3</th>
-                                      <td class="font-12">Larry</td>
-                                      <td class="font-12">the Bird</td>
-                                      <td class="font-12">@twitter</td>
-                                    </tr>
-                                  </tbody>
-                                </table>
-                              </div>
-                              <div class="tab-pane fade" id="latam" role="tabpanel" aria-labelledby="latam-tab">
                                 <table class="table table-striped">
                                   <thead>
                                     <tr>
@@ -1290,15 +1065,6 @@
                               </div>
                             </div>
                           </div>
-                          <div class="col-md-3">
-                            <div class="card h-100 border-0">
-                              <div class="card-body bg-body-color p-2 d-flex align-items-center">
-                                <div class="color-tier d-flex align-items-center">
-                                  <span class="font-12 ml-2 font-600">LATAM</span>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
                         </div>
                       </div>
                       <div class="tab-pane fade" id="tier-3" role="tabpanel" aria-labelledby="tier-3-tab">
@@ -1321,9 +1087,6 @@
                               <li class="nav-item">
                                 <a class="text-decoration-none nav-link border-0 font-12 pl-0 pr-4 position-relative" id="apac-tab" data-toggle="tab" href="#apac" role="tab" aria-controls="apac" aria-selected="false">APAC</a>
                               </li>
-                              <li class="nav-item">
-                                <a class="text-decoration-none nav-link border-0 font-12 pl-0 pr-4 position-relative" id="latam-tab" data-toggle="tab" href="#latam" role="tab" aria-controls="latam" aria-selected="false">LATAM</a>
-                              </li>
                             </ul>
                             <div class="tab-content" id="myTabContent2">
                               <div class="tab-pane fade show active" id="all-regions" role="tabpanel" aria-labelledby="all-regions-tab">
@@ -1335,44 +1098,38 @@
                                         <th class="border-top-0 font-weight-500 font-12" scope="col">EMEA</th>
                                         <th class="border-top-0 font-weight-500 font-12" scope="col">AMERS</th>
                                         <th class="border-top-0 font-weight-500 font-12" scope="col">APAC</th>
-                                        <th class="border-top-0 font-weight-500 font-12" scope="col">LATAM</th>
                                       </tr>
                                     </thead>
                                     <tbody>
                                       <tr>
-                                        <td class="font-12">Total Business Service</td>
-                                        <td class="font-12">8</td>
-                                        <td class="font-12">8</td>
-                                        <td class="font-12">8</td>
-                                        <td class="font-12">8</td>
+                                        <td class="font-12 border-right font-500 py-3 px-4">Total Business Service</td>
+                                        <td class="font-12 border-right font-500 py-3 px-4"><%= @bsl_regional_tiers.dig('EMEA', 'tier_3').present? ? @bsl_regional_tiers.dig('EMEA', 'tier_3').size : '0' %></td>
+                                        <td class="font-12 border-right font-500 py-3 px-4"><%= @bsl_regional_tiers.dig('AMERS', 'tier_3').present? ? @bsl_regional_tiers.dig('AMERS', 'tier_3').size : '0' %></td>
+                                        <td class="font-12 border-right font-500 py-3 px-4"><%= @bsl_regional_tiers.dig('APAC', 'tier_3').present? ? @bsl_regional_tiers.dig('APAC', 'tier_3').size : '0' %></td>
                                       </tr>
                                       <tr>
-                                        <td class="font-12">Total Resilience Gaps</td>
-                                        <td class="font-12">8</td>
-                                        <td class="font-12">8</td>
-                                        <td class="font-12">8</td>
-                                        <td class="font-12">8</td>
+                                        <td class="font-12 border-right font-500 py-3 px-4">Total Resilience Gaps</td>
+                                        <td class="font-12 border-right font-500 py-3 px-4">8</td>
+                                        <td class="font-12 border-right font-500 py-3 px-4">8</td>
+                                        <td class="font-12 border-right font-500 py-3 px-4">8</td>
                                       </tr>
                                       <tr>
-                                        <td class="font-12">Total Internal Systems</td>
-                                        <td class="font-12">6</td>
-                                        <td class="font-12">6</td>
-                                        <td class="font-12">6</td>
-                                        <td class="font-12">6</td>
+                                        <td class="font-12 border-right font-500 py-3 px-4">Total Internal Systems</td>
+                                        <td class="font-12 border-right font-500 py-3 px-4">6</td>
+                                        <td class="font-12 border-right font-500 py-3 px-4">6</td>
+                                        <td class="font-12 border-right font-500 py-3 px-4">6</td>
+                                      </tr>
+                                       <tr>                                        
+                                        <td class="font-12 border-right font-500 py-3 px-4">Total 3rd Party Suppliers</td>
+                                        <td class="font-12 border-right font-500 py-3 px-4"><%= @bsl_tiers.dig('emea_tier_3_third_party_suppliers')&.size %></td>
+                                        <td class="font-12 border-right font-500 py-3 px-4"><%= @bsl_tiers.dig('amers_tier_3_third_party_suppliers')&.size %></td>
+                                        <td class="font-12 border-right font-500 py-3 px-4"><%= @bsl_tiers.dig('apac_tier_3_third_party_suppliers')&.size %></td>
                                       </tr>
                                       <tr>
-                                        <td class="font-12">Total 3rd Party Suppliers</td>
-                                        <td class="font-12">4</td>
-                                        <td class="font-12">4</td>
-                                        <td class="font-12">4</td>
-                                        <td class="font-12">4</td>
-                                      </tr>
-                                      <tr>
-                                        <td class="font-12">Total 4th Party Suppliers</td>
-                                        <td class="font-12">3</td>
-                                        <td class="font-12">3</td>
-                                        <td class="font-12">3</td>
-                                        <td class="font-12">3</td>
+                                        <td class="font-12 border-right font-500 py-3 px-4">Total 4th Party Suppliers</td>
+                                        <td class="font-12 border-right font-500 py-3 px-4"><%= @bsl_tiers.dig('emea_tier_3_fourth_party_suppliers')&.size %></td>
+                                        <td class="font-12 border-right font-500 py-3 px-4"><%= @bsl_tiers.dig('amers_tier_3_fourth_party_suppliers')&.size %></td>
+                                        <td class="font-12 border-right font-500 py-3 px-4"><%= @bsl_tiers.dig('apac_tier_3_fourth_party_suppliers')&.size %></td>
                                       </tr>
                                     </tbody>
                                   </table>
@@ -1636,38 +1393,6 @@
                                   </tbody>
                                 </table>
                               </div>
-                              <div class="tab-pane fade" id="latam" role="tabpanel" aria-labelledby="latam-tab">
-                                <table class="table table-striped">
-                                  <thead>
-                                    <tr>
-                                      <th scope="col">#</th>
-                                      <th scope="col">First</th>
-                                      <th scope="col">Last</th>
-                                      <th scope="col">Handle</th>
-                                    </tr>
-                                  </thead>
-                                  <tbody>
-                                    <tr>
-                                      <th scope="row">1</th>
-                                      <td class="font-12">Mark</td>
-                                      <td class="font-12">Otto</td>
-                                      <td class="font-12">@mdo</td>
-                                    </tr>
-                                    <tr>
-                                      <th scope="row">2</th>
-                                      <td class="font-12">Jacob</td>
-                                      <td class="font-12">Thornton</td>
-                                      <td class="font-12">@fat</td>
-                                    </tr>
-                                    <tr>
-                                      <th scope="row">3</th>
-                                      <td class="font-12">Larry</td>
-                                      <td class="font-12">the Bird</td>
-                                      <td class="font-12">@twitter</td>
-                                    </tr>
-                                  </tbody>
-                                </table>
-                              </div>
                             </div>
                           </div>
                         </div>
@@ -1703,15 +1428,6 @@
                               <div class="card-body bg-body-color p-2 d-flex align-items-center">
                                 <div class="color-tier d-flex align-items-center">
                                   <span class="font-12 ml-2 font-600">APAC</span>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="col-md-3">
-                            <div class="card h-100 border-0">
-                              <div class="card-body bg-body-color p-2 d-flex align-items-center">
-                                <div class="color-tier d-flex align-items-center">
-                                  <span class="font-12 ml-2 font-600">LATAM</span>
                                 </div>
                               </div>
                             </div>
@@ -1738,9 +1454,6 @@
                               <li class="nav-item">
                                 <a class="text-decoration-none nav-link border-0 font-12 pl-0 pr-4 position-relative" id="apac-tab" data-toggle="tab" href="#apac" role="tab" aria-controls="apac" aria-selected="false">APAC</a>
                               </li>
-                              <li class="nav-item">
-                                <a class="text-decoration-none nav-link border-0 font-12 pl-0 pr-4 position-relative" id="latam-tab" data-toggle="tab" href="#latam" role="tab" aria-controls="latam" aria-selected="false">LATAM</a>
-                              </li>
                             </ul>
                             <div class="tab-content" id="myTabContent2">
                               <div class="tab-pane fade show active" id="all-regions" role="tabpanel" aria-labelledby="all-regions-tab">
@@ -1752,45 +1465,40 @@
                                         <th class="border-top-0 font-weight-500 font-12" scope="col">EMEA</th>
                                         <th class="border-top-0 font-weight-500 font-12" scope="col">AMERS</th>
                                         <th class="border-top-0 font-weight-500 font-12" scope="col">APAC</th>
-                                        <th class="border-top-0 font-weight-500 font-12" scope="col">LATAM</th>
                                       </tr>
                                     </thead>
                                     <tbody>
                                       <tr>
-                                        <td class="font-12">Total Business Service</td>
-                                        <td class="font-12">8</td>
-                                        <td class="font-12">8</td>
-                                        <td class="font-12">8</td>
-                                        <td class="font-12">8</td>
+                                        <td class="font-12 border-right font-500 py-3 px-4">Total Business Service</td>
+                                        <td class="font-12 border-right font-500 py-3 px-4"><%= @bsl_regional_tiers.dig('EMEA', 'tier_4').present? ? @bsl_regional_tiers.dig('EMEA', 'tier_4').size : '0' %></td>
+                                        <td class="font-12 border-right font-500 py-3 px-4"><%= @bsl_regional_tiers.dig('AMERS', 'tier_4').present? ? @bsl_regional_tiers.dig('AMERS', 'tier_4').size : '0' %></td>
+                                        <td class="font-12 border-right font-500 py-3 px-4"><%= @bsl_regional_tiers.dig('APAC', 'tier_4').present? ? @bsl_regional_tiers.dig('APAC', 'tier_4').size : '0' %></td>
                                       </tr>
                                       <tr>
-                                        <td class="font-12">Total Resilience Gaps</td>
-                                        <td class="font-12">8</td>
-                                        <td class="font-12">8</td>
-                                        <td class="font-12">8</td>
-                                        <td class="font-12">8</td>
+                                        <td class="font-12 py-3 px-4 ">Total Resilience Gaps</td>
+                                        <td class="font-12 py-3 px-4">8</td>
+                                        <td class="font-12 py-3 px-4">8</td>
+                                        <td class="font-12 py-3 px-4">8</td>
                                       </tr>
                                       <tr>
-                                        <td class="font-12">Total Internal Systems</td>
-                                        <td class="font-12">6</td>
-                                        <td class="font-12">6</td>
-                                        <td class="font-12">6</td>
-                                        <td class="font-12">6</td>
+                                        <td class="font-12 py-3 px-4">Total Internal Systems</td>
+                                        <td class="font-12 py-3 px-4">6</td>
+                                        <td class="font-12 py-3 px-4">6</td>
+                                        <td class="font-12 py-3 px-4">6</td>
+                                      </tr>
+                                      <tr>                                        
+                                        <td class="font-12 border-right font-500 py-3 px-4">Total 3rd Party Suppliers</td>
+                                        <td class="font-12 border-right font-500 py-3 px-4"><%= @bsl_tiers.dig('emea_tier_4_third_party_suppliers')&.size %></td>
+                                        <td class="font-12 border-right font-500 py-3 px-4"><%= @bsl_tiers.dig('amers_tier_4_third_party_suppliers')&.size %></td>
+                                        <td class="font-12 border-right font-500 py-3 px-4"><%= @bsl_tiers.dig('apac_tier_4_third_party_suppliers')&.size %></td>
                                       </tr>
                                       <tr>
-                                        <td class="font-12">Total 3rd Party Suppliers</td>
-                                        <td class="font-12">4</td>
-                                        <td class="font-12">4</td>
-                                        <td class="font-12">4</td>
-                                        <td class="font-12">4</td>
+                                        <td class="font-12 border-right font-500 py-3 px-4">Total 4th Party Suppliers</td>
+                                        <td class="font-12 border-right font-500 py-3 px-4"><%= @bsl_tiers.dig('emea_tier_4_fourth_party_suppliers')&.size %></td>
+                                        <td class="font-12 border-right font-500 py-3 px-4"><%= @bsl_tiers.dig('amers_tier_4_fourth_party_suppliers')&.size %></td>
+                                        <td class="font-12 border-right font-500 py-3 px-4"><%= @bsl_tiers.dig('apac_tier_4_fourth_party_suppliers')&.size %></td>
                                       </tr>
-                                      <tr>
-                                        <td class="font-12">Total 4th Party Suppliers</td>
-                                        <td class="font-12">3</td>
-                                        <td class="font-12">3</td>
-                                        <td class="font-12">3</td>
-                                        <td class="font-12">3</td>
-                                      </tr>
+
                                     </tbody>
                                   </table>
                                 </div>
@@ -2053,38 +1761,6 @@
                                   </tbody>
                                 </table>
                               </div>
-                              <div class="tab-pane fade" id="latam" role="tabpanel" aria-labelledby="latam-tab">
-                                <table class="table table-striped">
-                                  <thead>
-                                    <tr>
-                                      <th scope="col">#</th>
-                                      <th scope="col">First</th>
-                                      <th scope="col">Last</th>
-                                      <th scope="col">Handle</th>
-                                    </tr>
-                                  </thead>
-                                  <tbody>
-                                    <tr>
-                                      <th scope="row">1</th>
-                                      <td class="font-12">Mark</td>
-                                      <td class="font-12">Otto</td>
-                                      <td class="font-12">@mdo</td>
-                                    </tr>
-                                    <tr>
-                                      <th scope="row">2</th>
-                                      <td class="font-12">Jacob</td>
-                                      <td class="font-12">Thornton</td>
-                                      <td class="font-12">@fat</td>
-                                    </tr>
-                                    <tr>
-                                      <th scope="row">3</th>
-                                      <td class="font-12">Larry</td>
-                                      <td class="font-12">the Bird</td>
-                                      <td class="font-12">@twitter</td>
-                                    </tr>
-                                  </tbody>
-                                </table>
-                              </div>
                             </div>
                           </div>
                         </div>
@@ -2120,15 +1796,6 @@
                               <div class="card-body p-2 bg-body-color d-flex align-items-center">
                                 <div class="color-tier d-flex align-items-center">
                                   <span class="font-12 ml-2 font-600">APAC</span>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="col-md-3">
-                            <div class="card h-100 border-0">
-                              <div class="card-body bg-body-color p-2 d-flex align-items-center">
-                                <div class="color-tier d-flex align-items-center">
-                                  <span class="font-12 ml-2 font-600">LATAM</span>
                                 </div>
                               </div>
                             </div>
@@ -2161,9 +1828,6 @@
                           </li>
                           <li class="nav-item">
                             <a class="text-decoration-none nav-link border-0 font-12 pl-0 pr-4 position-relative" id="apac-tab-2" data-toggle="tab" href="#apac-2" role="tab" aria-controls="apac-2" aria-selected="false">APAC</a>
-                          </li>
-                          <li class="nav-item">
-                            <a class="text-decoration-none nav-link border-0 font-12 pl-0 pr-4 position-relative" id="latam-tab-2" data-toggle="tab" href="#latam-2" role="tab" aria-controls="latam-2" aria-selected="false">LATAM</a>
                           </li>
                         </ul>
                         <div class="tab-content" id="myTabContent2">
@@ -2346,95 +2010,6 @@
                             </div>
                           </div>
                           <div class="tab-pane fade" id="apac-2" role="tabpanel" aria-labelledby="apac-tab-2">
-                            <div class="table-responsive mt-0 mt-lg-3">
-                              <table class="table custom-table mb-4">
-                                <thead>
-                                  <tr>
-                                    <th class="font-11 font-xxl-14 px-1 text-light-grey font-500">User flow</th>
-                                    <th class="font-11 font-xxl-14 text-light-grey px-1 font-500">Resilience threat posture</th>
-                                    <th class="font-11 font-xxl-14 text-light-grey font-500">Resiliece vulnerablities</th>
-                                    <th class="font-11 font-xxl-14 text-light-grey font-500">Non compliant 3rd parties critical</th>
-                                    <th class="font-11 font-xxl-14 text-light-grey font-500">Non compliant 3rd parties important</th>
-                                  </tr>
-                                </thead>
-                                <tbody>
-                                  <tr>
-                                    <td class="font-11 font-xxl-14 px-1 text-dark font-600">Onboarding</td>
-                                    <td class="font-11 font-xxl-14 text-dark font-600 px-1">
-                                      <div class="d-flex align-items-center">
-                                        <div class="sm-circle bg-red"></div>
-                                        <span class="ml-2 text-capitalize">very high</span>
-                                      </div>
-                                    </td>
-                                    <td class="font-11 font-xxl-14 text-dark font-600">3</td>
-                                    <td class="font-11 font-xxl-14 text-dark font-600">5</td>
-                                    <td class="font-11 font-xxl-14 text-dark font-600">5</td>
-                                  </tr>
-                                  <tr>
-                                    <td class="font-11 font-xxl-14 px-1 text-dark font-600">Faster payment</td>
-                                    <td class="font-11 font-xxl-14 text-dark font-600 px-1">
-                                      <div class="d-flex align-items-center">
-                                        <div class="sm-circle bg-red"></div>
-                                        <span class="ml-2 text-capitalize">very high</span>
-                                      </div>
-                                    </td>
-                                    <td class="font-11 font-xxl-14 text-dark font-600">3</td>
-                                    <td class="font-11 font-xxl-14 text-dark font-600">5</td>
-                                    <td class="font-11 font-xxl-14 text-dark font-600">5</td>
-                                  </tr>
-                                  <tr>
-                                    <td class="font-11 font-xxl-14 px-1 text-dark font-600">ATM-withdrawl</td>
-                                    <td class="font-11 font-xxl-14 text-dark font-600 px-1">
-                                      <div class="d-flex align-items-center">
-                                        <div class="sm-circle bg-red"></div>
-                                        <span class="ml-2 text-capitalize">very high</span>
-                                      </div>
-                                    </td>
-                                    <td class="font-11 font-xxl-14 text-dark font-600">3</td>
-                                    <td class="font-11 font-xxl-14 text-dark font-600">5</td>
-                                    <td class="font-11 font-xxl-14 text-dark font-600">5</td>
-                                  </tr>
-                                  <tr>
-                                    <td class="font-11 font-xxl-14 px-1 text-dark font-600">Check my balance</td>
-                                    <td class="font-11 font-xxl-14 text-dark font-600 px-1">
-                                      <div class="d-flex align-items-center">
-                                        <div class="sm-circle bg-red"></div>
-                                        <span class="ml-2 text-capitalize">very high</span>
-                                      </div>
-                                    </td>
-                                    <td class="font-11 font-xxl-14 text-dark font-600">3</td>
-                                    <td class="font-11 font-xxl-14 text-dark font-600">5</td>
-                                    <td class="font-11 font-xxl-14 text-dark font-600">5</td>
-                                  </tr>
-                                  <tr>
-                                    <td class="font-11 font-xxl-14 px-1 text-dark font-600">Log in - internet banking</td>
-                                    <td class="font-11 font-xxl-14 text-dark font-600 px-1">
-                                      <div class="d-flex align-items-center">
-                                        <div class="sm-circle bg-dark-yellow"></div>
-                                        <span class="ml-2 text-capitalize">high</span>
-                                      </div>
-                                    </td>
-                                    <td class="font-11 font-xxl-14 text-dark font-600">3</td>
-                                    <td class="font-11 font-xxl-14 text-dark font-600">5</td>
-                                    <td class="font-11 font-xxl-14 text-dark font-600">5</td>
-                                  </tr>
-                                  <tr>
-                                    <td class="font-11 font-xxl-14 px-1 text-dark font-600">Make a payment</td>
-                                    <td class="font-11 font-xxl-14 text-dark font-600 px-1">
-                                      <div class="d-flex align-items-center">
-                                        <div class="sm-circle bg-yellow"></div>
-                                        <span class="ml-2 text-capitalize">medium</span>
-                                      </div>
-                                    </td>
-                                    <td class="font-11 font-xxl-14 text-dark font-600">3</td>
-                                    <td class="font-11 font-xxl-14 text-dark font-600">5</td>
-                                    <td class="font-11 font-xxl-14 text-dark font-600">5</td>
-                                  </tr>
-                                </tbody>
-                              </table>
-                            </div>
-                          </div>
-                          <div class="tab-pane fade" id="latam-2" role="tabpanel" aria-labelledby="latam-tab-2">
                             <div class="table-responsive mt-0 mt-lg-3">
                               <table class="table custom-table mb-4">
                                 <thead>
