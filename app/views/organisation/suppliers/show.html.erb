@@ -323,22 +323,14 @@
                 </div>
                 <div class="mb-4 px-4">
                   <div class="row">
-                    <div class="col-md-6">
-                      <div class="card border-0 pie-high-chart overflow-hidden">
-                        <div class="card-header border-0 bg-white text-center">
-                          <div class="donut-content">
-                            <div id="two-colored-green-donut-1" class="donut"></div>
-                            <div class="donut-value font-50 font-700 text-black">0</div>
-                          </div>
-                          <h6 class="font-13 font-600 w-75 mx-auto mt-3">Supplier Conformance with Impact Tolerances</h6>
-                        </div>
-                      </div>
+                    <div id="supplier-conformance-impact-tolerance" class="custom-high-chart col-sm-6 px-md-3 lazy-graph" data-key="supplier_conformance_impact_tolerance" data-args="<%= { supplier: @supplier.id }.to_json %>">
+                      <%= render 'organisation/graphs/partials/supplier_conformance_impact_tolerance', data: {} %>
                     </div>
                     <div class="col-md-6 d-flex align-items-center justify-content-center">
                       <div class="card border-0 pie-high-chart">
                         <div class="card-header border-0 bg-white text-center">
                           <div class="donut-content">
-                            <div class="donut align-items-center justify-content-center">
+                            <div class="align-items-center justify-content-center">
                               <div class="round p-5 bg-pink">
                                 <i class="fa fa-exclamation-triangle font-40 text-red"></i>
                               </div>
@@ -805,80 +797,7 @@
           </div>
         </div>
         <div id="section7">
-          <div class="card border-0 shadow-sm rounded-50 mb-4">
-            <div class="card-body px-0">
-              <div class="box">
-                <div class="d-flex justify-content-between align-items-center mb-4 px-4">
-                  <h5 class="text-capitalize text-left">4th Party Suppliers</h5>
-                  <div class="text-right">
-                    <a href="#" class="text-black">
-                      <i class="fa fa-ellipsis-v text-right" aria-hidden="true"></i>
-                    </a>
-                  </div>
-                </div>
-                <div class="table-responsive">
-                  <table class="table table-striped mb-0">
-                    <thead>
-                      <tr>
-                        <th class="border-0 px-4 font-500 font-12">Supplier Name</th>
-                        <th class="border-0 px-4 font-500 font-12">Hosting Provider</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td width='200px' class="font-12 px-4 align-middle">
-                          Supplier 1
-                        </td>
-                        <td width='200px' class="font-12 px-4 align-middle">
-                          AWS
-                        </td>
-                      </tr>
-                      <tr>
-                        <td width='200px' class="font-12 px-4 align-middle">
-                          Supplier 2
-                        </td>
-                        <td width='200px' class="font-12 px-4 align-middle">
-                          GCP
-                        </td>
-                      </tr>
-                      <tr>
-                        <td width='200px' class="font-12 px-4 align-middle">
-                          Supplier 3
-                        </td>
-                        <td width='200px' class="font-12 px-4 align-middle">
-                          AWS
-                        </td>
-                      </tr>
-                      <tr>
-                        <td width='200px' class="font-12 px-4 align-middle">
-                          Supplier 4
-                        </td>
-                        <td width='200px' class="font-12 px-4 align-middle">
-                          Private Cloud
-                        </td>
-                      </tr>
-                      <tr>
-                        <td width='200px' class="font-12 px-4 align-middle">
-                          Supplier 5
-                        </td>
-                        <td width='200px' class="font-12 px-4 align-middle">
-                          Private Cloud
-                        </td>
-                      </tr>
-                      <tr>
-                        <td width='200px' class="font-12 px-4 align-middle">
-                          Supplier 6
-                        </td>
-                        <td width='200px' class="font-12 px-4 align-middle">
-                          Private Cloud
-                        </td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
-              </div>
-            </div>
-          </div>
+          <%= render "organisation/suppliers/partials/fourth_party_supplier" %>
         </div>
         <div id="section8">
           <div class="card border-0 shadow-sm rounded-50 mb-4">
