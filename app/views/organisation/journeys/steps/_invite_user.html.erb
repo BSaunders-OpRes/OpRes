@@ -60,7 +60,7 @@
                 </div>
                 <div class="col-md-3">
                   <div class="form-group chevron-select">
-                    <%= select_tag 'users[multiple][role]', options_for_select(User.invitiable_users),prompt: 'Permissions', multiple: false, class: 'form-control w-100 font-12 shadow-none py-3 h-auto mb-2' %>
+                    <%= select_tag 'users[multiple][role]', options_for_select(current_user.invitiable_users),prompt: 'Permissions', multiple: false, class: 'form-control w-100 font-12 shadow-none py-3 h-auto mb-2' %>
                   </div>
                 </div>
               </div>
