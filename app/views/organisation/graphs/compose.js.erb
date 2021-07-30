@@ -1,7 +1,2 @@
-<% if @version.blank? %>
-  $('#<%= params[:key].dasherize %>').html('<%= j(render "organisation/graphs/partials/#{params[:key]}", data: @data) %>');
-  ReactRailsUJS.mountComponents();
-<% else %>
-  $('#<%= params[:key].dasherize %>').html('<%= j(render "organisation/graphs/partials/#{@version}_#{params[:key]}", data: @data) %>');
-  ReactRailsUJS.mountComponents();
-<%end%>
+$('#<%= params[:data_append_to] %>').html('<%= j(render "organisation/graphs/partials/#{params[:partial_name]}", data: @data) %>');
+ReactRailsUJS.mountComponents();
