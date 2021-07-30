@@ -63,105 +63,15 @@
                   <div class="row custom-high-chart">
                     <div class="col-lg-6 col-md-12">
                       <div class="box">
-                        <div class="border-0 pie-high-chart overflow-hidden rounded-50 d-flex justify-content-center align-items-center flex-wrap flex-md-nowrap">
-                          <div class="card-header h-auto p-2 bg-white text-center border-0">
-                            <div class="donut-content w-150px">
-                              <div id="fifteen-donut" class="donut"></div>
-                              <div class="donut-value font-30 font-700">50</div>
-                            </div>
-                          </div>
-                          <div class="card-body p-md-2 p-3">
-                            <div class="color-tier d-flex align-items-center mb-2 mb-xxl-3">
-                              <div class="d-flex align-items-center">
-                                <div class="circle green-4"></div>
-                                <div class="w-25px w-xxl-40px ml-3 ml-xxl-4">
-                                  <%= image_pack_tag 'media/images/aws.png', class: 'img-fluid' %>
-                                </div>
-                              </div>
-                              <div class="d-flex flex-1 align-items-center ml-3 ml-xxl-4">
-                                <span class="font-12 font-xxl-14 flex-1 font-400">AWS</span>
-                                <span class="font-12 font-xxl-14 font-700">24</span>
-                              </div>
-                            </div>
-                            <div class="color-tier d-flex align-items-center mb-2 mb-xxl-3">
-                              <div class="d-flex align-items-center">
-                                <div class="circle green-4"></div>
-                                <div class="w-25px w-xxl-40px ml-3 ml-xxl-4">
-                                  <%= image_pack_tag 'media/images/g-cloud.png', class: 'img-fluid' %>
-                                </div>
-                              </div>
-                              <div class="d-flex flex-1 align-items-center ml-3 ml-xxl-4">
-                                <span class="font-12 font-xxl-14 flex-1 font-400">GCP</span>
-                                <span class="font-12 font-xxl-14 font-700">24</span>
-                              </div>
-                            </div>
-                            <div class="color-tier d-flex align-items-center mb-2 mb-xxl-3">
-                              <div class="d-flex align-items-center">
-                                <div class="circle green-4"></div>
-                                <div class="w-25px w-xxl-40px ml-3 ml-xxl-4">
-                                  <%= image_pack_tag 'media/images/azure.png', class: 'img-fluid' %>
-                                </div>
-                              </div>
-                              <div class="d-flex flex-1 align-items-center ml-3 ml-xxl-4">
-                                <span class="font-12 font-xxl-14 flex-1 font-400">Azure</span>
-                                <span class="font-12 font-xxl-14 font-700">24</span>
-                              </div>
-                            </div>
-                            <div class="color-tier d-flex align-items-center mb-2 mb-xxl-3">
-                              <div class="d-flex align-items-center">
-                                <div class="circle green-4"></div>
-                                <div class="w-25px w-xxl-40px ml-3 ml-xxl-4">
-                                  <%= image_pack_tag 'media/images/g-cloud.png', class: 'img-fluid' %>
-                                </div>
-                              </div>
-                              <div class="d-flex flex-1 align-items-center ml-3 ml-xxl-4">
-                                <span class="font-12 font-xxl-14 flex-1 font-400">Private Cloud</span>
-                                <span class="font-12 font-xxl-14 font-700">24</span>
-                              </div>
-                            </div>
-                          </div>
+                        <div id="chp-breakdown" class="order-1 mb-lg-0 mb-4 px-1 custom-high-chart lazy-graph" data-key="chp_breakdown" data-args="<%= {version: "v1"}.to_json %>">
+                          <%= render 'organisation/graphs/partials/v1_chp_breakdown', data: {} %>
                         </div>
                       </div>
                     </div>
                     <div class="col-lg-6 col-md-12">
                       <div class="box">
-                        <div class="border-0 pie-high-chart overflow-hidden rounded-50 d-flex justify-content-center align-items-center flex-wrap flex-md-nowrap">
-                          <div class="card-header h-auto p-2 bg-white text-center border-0">
-                            <div class="donut-content w-150px">
-                              <div id="sixteen-donut" class="donut"></div>
-                              <div class="donut-value font-30 font-700">50</div>
-                            </div>
-                          </div>
-                          <div class="card-body p-md-2 p-3">
-                            <div class="tiers d-flex justify-content-between align-items-center mb-3">
-                              <div class="color-tier d-flex align-items-center">
-                                <div class="circle green-1"></div>
-                                <span class="font-12 font-xxl-14 font-400 ml-2">Lass</span>
-                              </div>
-                              <span class="font-12 font-xxl-14 font-700">24</span>
-                            </div>
-                            <div class="tiers d-flex justify-content-between align-items-center mb-3">
-                              <div class="color-tier d-flex align-items-center">
-                                <div class="circle green-2"></div>
-                                <span class="font-12 font-xxl-14 font-400 ml-2">Saas</span>
-                              </div>
-                              <span class="font-12 font-xxl-14 font-700">24</span>
-                            </div>
-                            <div class="tiers d-flex justify-content-between align-items-center mb-3">
-                              <div class="color-tier d-flex align-items-center">
-                                <div class="circle green-3"></div>
-                                <span class="font-12 font-xxl-14 font-400 ml-2">Paas</span>
-                              </div>
-                              <span class="font-12 font-xxl-14 font-700">24</span>
-                            </div>
-                            <div class="tiers d-flex justify-content-between align-items-center">
-                              <div class="color-tier d-flex align-items-center">
-                                <div class="circle green-4"></div>
-                                <span class="font-12 font-xxl-14 font-400 ml-2">Private Cloud</span>
-                              </div>
-                              <span class="font-12 font-xxl-14 font-700">24</span>
-                            </div>
-                          </div>
+                        <div id="consumption-chp" class="order-1 mb-lg-0 mb-4 px-1 custom-high-chart lazy-graph" data-key="consumption_chp" data-args="<%= {}.to_json %>">
+                            <%= render 'organisation/graphs/partials/consumption_chp', data: {} %>
                         </div>
                       </div>
                     </div>
