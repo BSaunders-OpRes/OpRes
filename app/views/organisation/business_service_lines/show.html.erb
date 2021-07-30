@@ -11,16 +11,16 @@
           </h2>
         </div>
         <div class="right d-flex mt-3 mt-lg-0">
-          <div class="white-btn d-flex align-items-center pl-2 pr-2 mr-2 py-2">
+          <div class="white-btn d-flex align-items-center pl-2 px-3 rounded-50 mr-2 pr-2 mr-2 py-2 cursor-pointer">
+            <span> <i class="fa fa-sliders"></i></span>
+            <span class="text-capitalize font-xs-11 font-12 font-xxl-14 ml-2 font-600">Customise View</span>
+          </div>
+          <div class="white-btn d-flex align-items-center pl-2 mr-2 rounded-50 px-3 pr-2 py-2 cursor-pointer">
             <span><i class='fa fa-save font-16 mr-2'></i></span>
             <span class="text-capitalize font-12 font-xxl-14 font-600">save view</span>
           </div>
-          <div class="white-btn d-flex align-items-center pl-2 pr-2 mr-2 py-2">
-            <span> <i class="fa fa-sliders"></i></span>
-            <span class="text-capitalize font-12 font-xxl-14 ml-2 font-600">Customised View</span>
-          </div>
-          <div class="white-btn p-1 d-flex align-items-center">
-            <i class="fa fa-ellipsis-v px-2"></i>
+          <div class="white-btn p-1 d-flex align-items-center rounded-50 cursor-pointer">
+            <i class="fa fa-ellipsis-v px-2 mx-1"></i>
           </div>
         </div>
       </div>
@@ -1123,24 +1123,24 @@
                         <div class="card font-12">
                           <div class="card-header bg-white p-0" id="headingOne">
                             <h2 class="mb-0">
-                              <button class="btn btn-link text-black" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                <div class="row">
-                                  <div class="col-md-3 my-2">
-                                    <h6 class="text-left">KYC Supplier</h6>
+                              <button class="p-1 w-100 btn btn-link text-black" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                <div class="row justify-content-between no-gutters align-items-center">
+                                  <div class="flex-1 my-2 px-1">
+                                    <h6 class="text-left font-xs-12">KYC Supplier</h6>
                                   </div>
-                                  <div class="col-md-1 my-2">
-                                    <div class="image">
+                                  <div class="flex-1 my-2 px-1">
+                                    <div class="image w-25px">
                                       <%= image_pack_tag 'media/images/aws.png', class: 'img-fluid w-100' %>
                                     </div>
                                   </div>
-                                  <div class="col-md-2 my-2">
-                                    <h6>Saas</h6>
+                                  <div class="flex-1 my-2 px-1">
+                                    <h6 class="font-xs-12">Saas</h6>
                                   </div>
-                                  <div class="col-md-2 my-2">
-                                    <h6>Critical</h6>
+                                  <div class="flex-1 my-2 px-1">
+                                    <h6 class="font-xs-12">Critical</h6>
                                   </div>
-                                  <div class="col-md-4 my-2">
-                                    <div class="color-tier d-flex align-items-center">
+                                  <div class="flex-1 my-2 px-1 text-center flex-1">
+                                    <div class="color-tier d-flex align-items-center text-center justify-content-center">
                                       <div class="circle red-circle p-2"></div>
                                       <span class="font-12 font-400 ml-2">Very High Risk</span>
                                     </div>
@@ -1151,12 +1151,14 @@
                           </div>
                           <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
                             <div class="card-body">
-                              <div class="d-flex align-items-center justify-content-between">
-                                <div class="text-box w-40">
-                                  <p>Contracted SLA</p>
-                                </div>
-                                <div class="text-box w-40">
-                                  <p class="text-left">99.9%</p>
+                              <div class="d-flex align-items-start justify-content-between flex-sm-row flex-column">
+                                <div class="d-flex flex-1">
+                                  <div class="text-box flex-1">
+                                    <p>Contracted SLA</p>
+                                  </div>
+                                  <div class="text-box flex-1">
+                                    <p class="text-left">99.9%</p>
+                                  </div>
                                 </div>
                                 <div class="text-box w-20">
                                   <div class="color-tier d-flex align-items-center justify-content-start">
