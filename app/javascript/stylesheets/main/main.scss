@@ -39,6 +39,8 @@ h1, h2, h3, h4, h5, h6, p {
   height: 200px;
   display: flex;
   align-items: center;
+  width: 84%;
+  margin: 0 auto;
 }
 .h-300-with-scroll {
   height: 300px;
@@ -696,7 +698,15 @@ footer {
     }
   }
 }
-
+@media only screen and (max-width: 767px) {
+  .h-200-highchart {
+    height: 200px;
+    display: flex;
+    align-items: center;
+    width: 50%;
+    margin: 0 auto;
+  }
+}
 @media only screen and (max-width: 575px) {
   .custom-radio {
     .option-1 {
@@ -721,5 +731,21 @@ footer {
         }
       }
     }
+  }
+  .h-200-highchart {
+    height: 200px;
+    display: flex;
+    align-items: center;
+    width: 50%;
+    margin: 0 auto;
+  }
+}
+@media only screen and (max-width: 420px) {
+  .h-200-highchart {
+    height: 200px;
+    display: flex;
+    align-items: center;
+    width: 70%;
+    margin: 0 auto;
   }
 }

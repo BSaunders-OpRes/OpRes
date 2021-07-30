@@ -46,6 +46,9 @@
 .w-25px {
   width: 25px;
 }
+.w-200px {
+  width: 200px;
+}
 .h-140-highchart {
   height: 140px !important;
 }
@@ -74,6 +77,18 @@
   }
   .w-sm-100 {
     width: 100% !important;
+  }
+  .max-width-sm-100 {
+    max-width: 100% !important;
+  }
+  .max-width-sm-75 {
+    max-width: 75% !important;
+  }
+  .max-width-sm-50 {
+    max-width: 50% !important;
+  }
+  .max-width-sm-25 {
+    max-width: 25% !important;
   }
 }
 @media screen and (min-width: 1570px) {
