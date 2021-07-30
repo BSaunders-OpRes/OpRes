@@ -4,6 +4,7 @@ class Organisation::DashboardBreakDownsController < Organisation::BaseController
     @suppliers               = Supplier.where(id: managing_country_units.ids)
     @bsl_regional_tiers      = @bsls.group_by{|bsl| bsl.unit.parent.parent.region.name}
                                .each_with_object({}) {|(k, v), h| h[k] = v.group_by { |s| s.tier } }
+    @bsls_tier               = @bsls.group_by(&:tier)
 
     @bsl_tiers = {}
     BusinessServiceLine.tiers.each do |tier, index|

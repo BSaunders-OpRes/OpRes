@@ -122,7 +122,7 @@
                                         <td class="font-12 border-right font-500 py-3 px-4">6</td>
                                         <td class="font-12 border-right font-500 py-3 px-4">6</td>
                                       </tr>
-                                      <tr>                                        
+                                      <tr>
                                         <td class="font-12 border-right font-500 py-3 px-4">Total 3rd Party Suppliers</td>
                                         <td class="font-12 border-right font-500 py-3 px-4"><%= @bsl_tiers.dig('emea_tier_1_third_party_suppliers')&.size %></td>
                                         <td class="font-12 border-right font-500 py-3 px-4"><%= @bsl_tiers.dig('amers_tier_1_third_party_suppliers')&.size %></td>
@@ -137,100 +137,16 @@
                                     </tbody>
                                   </table>
                                 </div>
-                                <div class="row custom-high-chart mb-4">
-                                  <div class="col-lg-6 col-md-12">
-                                    <div class="box">
-                                      <p class="px-2 font-16 text-capitalize font-400 chart-header-title mb-4 ">Service Provider Breakdown</p>
-                                      <div class="border-0 pie-high-chart overflow-hidden rounded-50 d-flex justify-content-center">
-                                        <div class="w-50 card-header p-2 bg-white text-center border-0">
-                                          <div class="donut-content">
-                                            <div id="thirteen-donut" class="donut"></div>
-                                            <div class="donut-value font-30 font-700">50</div>
-                                          </div>
-                                        </div>
-                                        <div class="card-body mt-3 p-2">
-                                          <div class="tiers d-flex justify-content-between align-items-center mb-3">
-                                            <div class="color-tier d-flex align-items-center">
-                                              <div class="circle green-1"></div>
-                                              <%= image_pack_tag 'media/images/aws.png', class: 'img-fluid ml-2' %>
-                                              <span class="font-12 font-400 ml-2">AWS</span>
-                                            </div>
-                                            <span class="font-12 font-700">24</span>
-                                          </div>
-                                          <div class="tiers d-flex justify-content-between align-items-center mb-3">
-                                            <div class="color-tier d-flex align-items-center">
-                                              <div class="circle green-2"></div>
-                                              <%= image_pack_tag 'media/images/g-cloud.png', class: 'img-fluid ml-2' %>
-                                              <span class="font-12 font-400 ml-2">GCP</span>
-                                            </div>
-                                            <span class="font-12 font-700">24</span>
-                                          </div>
-                                          <div class="tiers d-flex justify-content-between align-items-center mb-3">
-                                            <div class="color-tier d-flex align-items-center">
-                                              <div class="circle green-3"></div>
-                                              <%= image_pack_tag 'media/images/azure.png', class: 'img-fluid ml-2' %>
-                                              <span class="font-12 font-400 ml-2">Azure</span>
-                                            </div>
-                                            <span class="font-12 font-700">24</span>
-                                          </div>
-                                          <div class="tiers d-flex justify-content-between align-items-center">
-                                            <div class="color-tier d-flex align-items-center">
-                                              <div class="circle green-4"></div>
-                                              <%= image_pack_tag 'media/images/black-cloud.png', class: 'img-fluid ml-2' %>
-                                              <span class="font-12 font-400 ml-2">Private Cloud</span>
-                                            </div>
-                                            <span class="font-12 font-700">24</span>
-                                          </div>
-                                        </div>
-                                      </div>
-                                    </div>
+                                <div class="row">
+                                  <div id="service-provider-breakdown-tier_1" class="col-lg-6 col-md-12 custom-high-chart custom-high-chart mb-4 lazy-graph" data-key="tiers_service_provider_breakdown" data-args="<%= { bsl_ids: @bsls_tier.dig('tier_1')&.map(&:id) }.to_json %>" data-append-to="service-provider-breakdown-tier_1" data-partial-name="tiers_service_provider_breakdown">
+                                    <%= render 'organisation/graphs/partials/tiers_service_provider_breakdown', data: {} %>
                                   </div>
-                                  <div class="col-lg-6 col-md-12">
-                                    <div class="box">
-                                      <div class="col-md-12 mb-lg-0 mb-4 px-1">
-                                        <p class="px-2 font-16 text-capitalize font-400 chart-header-title mb-4">Consumption Model Breakdown</p>
-                                        <div class="border-0 pie-high-chart overflow-hidden rounded-50 d-flex justify-content-center">
-                                          <div class="w-50 card-header p-2 bg-white text-center border-0">
-                                            <div class="donut-content">
-                                              <div id="fourteen-donut" class="donut"></div>
-                                              <div class="donut-value font-30 font-700">50</div>
-                                            </div>
-                                          </div>
-                                          <div class="card-body mt-3 p-2">
-                                            <div class="tiers d-flex justify-content-between align-items-center mb-3">
-                                              <div class="color-tier d-flex align-items-center">
-                                                <div class="circle green-1"></div>
-                                                <span class="font-12 font-400 ml-2">Lass</span>
-                                              </div>
-                                              <span class="font-12 font-700">24</span>
-                                            </div>
-                                            <div class="tiers d-flex justify-content-between align-items-center mb-3">
-                                              <div class="color-tier d-flex align-items-center">
-                                                <div class="circle green-2"></div>
-                                                <span class="font-12 font-400 ml-2">Saas</span>
-                                              </div>
-                                              <span class="font-12 font-700">24</span>
-                                            </div>
-                                            <div class="tiers d-flex justify-content-between align-items-center mb-3">
-                                              <div class="color-tier d-flex align-items-center">
-                                                <div class="circle green-3"></div>
-                                                <span class="font-12 font-400 ml-2">Paas</span>
-                                              </div>
-                                              <span class="font-12 font-700">24</span>
-                                            </div>
-                                            <div class="tiers d-flex justify-content-between align-items-center">
-                                              <div class="color-tier d-flex align-items-center">
-                                                <div class="circle green-4"></div>
-                                                <span class="font-12 font-400 ml-2">Private Cloud</span>
-                                              </div>
-                                              <span class="font-12 font-700">24</span>
-                                            </div>
-                                          </div>
-                                        </div>
-                                      </div>
-                                    </div>
+
+                                  <div id="consumption-model-tier_1" class="col-lg-6 col-md-12 custom-high-chart custom-high-chart mb-4 lazy-graph" data-key="tiers_consumption_model" data-args="<%= { bsl_ids: @bsls_tier.dig('tier_1')&.map(&:id) }.to_json %>" data-append-to="consumption-model-tier_1" data-partial-name="tiers_consumption_model">
+                                    <%= render 'organisation/graphs/partials/tiers_consumption_model', data: {} %>
                                   </div>
                                 </div>
+
                               </div>
                               <div class="tab-pane fade" id="emea" role="tabpanel" aria-labelledby="emea-tab">
                                 <div class="table-responsive mb-4">
@@ -751,7 +667,7 @@
                                         <td class="font-12 border-right font-500 py-3 px-4">6</td>
                                         <td class="font-12 border-right font-500 py-3 px-4">6</td>
                                       </tr>
-                                       <tr>                                        
+                                      <tr>                                        
                                         <td class="font-12 border-right font-500 py-3 px-4">Total 3rd Party Suppliers</td>
                                         <td class="font-12 border-right font-500 py-3 px-4"><%= @bsl_tiers.dig('emea_tier_2_third_party_suppliers')&.size %></td>
                                         <td class="font-12 border-right font-500 py-3 px-4"><%= @bsl_tiers.dig('amers_tier_2_third_party_suppliers')&.size %></td>
@@ -766,100 +682,13 @@
                                     </tbody>
                                   </table>
                                 </div>
-                                <div class="row custom-high-chart mb-4">
-                                  <div class="col-lg-6 col-md-12">
-                                    <div class="box">
-                                      <div class="col-md-12 mb-lg-0 mb-4 px-1">
-                                        <p class="px-2 font-14 text-capitalize font-600 chart-header-title mb-4">Service Provider Breakdown</p>
-                                        <div class="border-0 pie-high-chart overflow-hidden rounded-50 d-flex justify-content-center">
-                                          <div class="w-50 card-header p-2 bg-white text-center border-0">
-                                            <div class="donut-content">
-                                              <div id="thirteen-donut" class="donut"></div>
-                                              <div class="donut-value font-30 font-700">50</div>
-                                            </div>
-                                          </div>
-                                          <div class="card-body mt-3 p-2">
-                                            <div class="tiers d-flex justify-content-between align-items-center mb-3">
-                                              <div class="color-tier d-flex align-items-center">
-                                                <div class="circle green-1"></div>
-                                                <%= image_pack_tag 'media/images/aws.png', class: 'img-fluid ml-2' %>
-                                                <span class="font-12 font-400 ml-2">AWS</span>
-                                              </div>
-                                              <span class="font-12 font-700">24</span>
-                                            </div>
-                                            <div class="tiers d-flex justify-content-between align-items-center mb-3">
-                                              <div class="color-tier d-flex align-items-center">
-                                                <div class="circle green-2"></div>
-                                                <%= image_pack_tag 'media/images/g-cloud.png', class: 'img-fluid ml-2' %>
-                                                <span class="font-12 font-400 ml-2">GCP</span>
-                                              </div>
-                                              <span class="font-12 font-700">24</span>
-                                            </div>
-                                            <div class="tiers d-flex justify-content-between align-items-center mb-3">
-                                              <div class="color-tier d-flex align-items-center">
-                                                <div class="circle green-3"></div>
-                                                <%= image_pack_tag 'media/images/azure.png', class: 'img-fluid ml-2' %>
-                                                <span class="font-12 font-400 ml-2">Azure</span>
-                                              </div>
-                                              <span class="font-12 font-700">24</span>
-                                            </div>
-                                            <div class="tiers d-flex justify-content-between align-items-center">
-                                              <div class="color-tier d-flex align-items-center">
-                                                <div class="circle green-4"></div>
-                                                <%= image_pack_tag 'media/images/black-cloud.png', class: 'img-fluid ml-2' %>
-                                                <span class="font-12 font-400 ml-2">Private Cloud</span>
-                                              </div>
-                                              <span class="font-12 font-700">24</span>
-                                            </div>
-                                          </div>
-                                        </div>
-                                      </div>
-                                    </div>
+                                <div class="row">
+                                  <div id="service-provider-breakdown-tier_2" class="col-lg-6 col-md-12 custom-high-chart custom-high-chart mb-4 lazy-graph" data-key="tiers_service_provider_breakdown" data-args="<%= { bsl_ids: @bsls_tier.dig('tier_2')&.map(&:id) }.to_json %>" data-append-to="service-provider-breakdown-tier_2" data-partial-name="tiers_service_provider_breakdown">
+                                    <%= render 'organisation/graphs/partials/tiers_service_provider_breakdown', data: {} %>
                                   </div>
-                                  <div class="col-lg-6 col-md-12">
-                                    <div class="box">
-                                      <div class="col-md-12 mb-lg-0 mb-4 px-1">
-                                        <p class="px-2 font-14 text-capitalize font-600 chart-header-title mb-4">Consumption Model Breakdown</p>
-                                        <div class="border-0 pie-high-chart overflow-hidden rounded-50 d-flex justify-content-center">
-                                          <div class="w-50 card-header p-2 bg-white text-center border-0">
-                                            <div class="donut-content">
-                                              <div id="fourteen-donut" class="donut"></div>
-                                              <div class="donut-value font-30 font-700">50</div>
-                                            </div>
-                                          </div>
-                                          <div class="card-body mt-3 p-2">
-                                            <div class="tiers d-flex justify-content-between align-items-center mb-3">
-                                              <div class="color-tier d-flex align-items-center">
-                                                <div class="circle green-1"></div>
-                                                <span class="font-12 font-400 ml-2">Lass</span>
-                                              </div>
-                                              <span class="font-12 font-700">24</span>
-                                            </div>
-                                            <div class="tiers d-flex justify-content-between align-items-center mb-3">
-                                              <div class="color-tier d-flex align-items-center">
-                                                <div class="circle green-2"></div>
-                                                <span class="font-12 font-400 ml-2">Saas</span>
-                                              </div>
-                                              <span class="font-12 font-700">24</span>
-                                            </div>
-                                            <div class="tiers d-flex justify-content-between align-items-center mb-3">
-                                              <div class="color-tier d-flex align-items-center">
-                                                <div class="circle green-3"></div>
-                                                <span class="font-12 font-400 ml-2">Paas</span>
-                                              </div>
-                                              <span class="font-12 font-700">24</span>
-                                            </div>
-                                            <div class="tiers d-flex justify-content-between align-items-center">
-                                              <div class="color-tier d-flex align-items-center">
-                                                <div class="circle green-4"></div>
-                                                <span class="font-12 font-400 ml-2">Private Cloud</span>
-                                              </div>
-                                              <span class="font-12 font-700">24</span>
-                                            </div>
-                                          </div>
-                                        </div>
-                                      </div>
-                                    </div>
+
+                                  <div id="consumption-model-tier_2" class="col-lg-6 col-md-12 custom-high-chart custom-high-chart mb-4 lazy-graph" data-key="tiers_consumption_model" data-args="<%= { bsl_ids: @bsls_tier.dig('tier_2')&.map(&:id) }.to_json %>" data-append-to="consumption-model-tier_2" data-partial-name="tiers_consumption_model">
+                                    <%= render 'organisation/graphs/partials/tiers_consumption_model', data: {} %>
                                   </div>
                                 </div>
                               </div>
@@ -1119,7 +948,7 @@
                                         <td class="font-12 border-right font-500 py-3 px-4">6</td>
                                         <td class="font-12 border-right font-500 py-3 px-4">6</td>
                                       </tr>
-                                       <tr>                                        
+                                      <tr>                                        
                                         <td class="font-12 border-right font-500 py-3 px-4">Total 3rd Party Suppliers</td>
                                         <td class="font-12 border-right font-500 py-3 px-4"><%= @bsl_tiers.dig('emea_tier_3_third_party_suppliers')&.size %></td>
                                         <td class="font-12 border-right font-500 py-3 px-4"><%= @bsl_tiers.dig('amers_tier_3_third_party_suppliers')&.size %></td>
@@ -1134,100 +963,13 @@
                                     </tbody>
                                   </table>
                                 </div>
-                                <div class="row custom-high-chart mb-4">
-                                  <div class="col-lg-6 col-md-12">
-                                    <div class="box">
-                                      <div class="col-md-12 mb-lg-0 mb-4 px-1">
-                                        <p class="px-2 font-14 text-capitalize font-600 chart-header-title mb-4">Service Provider Breakdown</p>
-                                        <div class="border-0 pie-high-chart overflow-hidden rounded-50 d-flex justify-content-center">
-                                          <div class="w-50 card-header p-2 bg-white text-center border-0">
-                                            <div class="donut-content">
-                                              <div id="thirteen-donut" class="donut"></div>
-                                              <div class="donut-value font-30 font-700">50</div>
-                                            </div>
-                                          </div>
-                                          <div class="card-body mt-3 p-2">
-                                            <div class="tiers d-flex justify-content-between align-items-center mb-3">
-                                              <div class="color-tier d-flex align-items-center">
-                                                <div class="circle green-1"></div>
-                                                <%= image_pack_tag 'media/images/aws.png', class: 'img-fluid ml-2' %>
-                                                <span class="font-12 font-400 ml-2">AWS</span>
-                                              </div>
-                                              <span class="font-12 font-700">24</span>
-                                            </div>
-                                            <div class="tiers d-flex justify-content-between align-items-center mb-3">
-                                              <div class="color-tier d-flex align-items-center">
-                                                <div class="circle green-2"></div>
-                                                <%= image_pack_tag 'media/images/g-cloud.png', class: 'img-fluid ml-2' %>
-                                                <span class="font-12 font-400 ml-2">GCP</span>
-                                              </div>
-                                              <span class="font-12 font-700">24</span>
-                                            </div>
-                                            <div class="tiers d-flex justify-content-between align-items-center mb-3">
-                                              <div class="color-tier d-flex align-items-center">
-                                                <div class="circle green-3"></div>
-                                                <%= image_pack_tag 'media/images/azure.png', class: 'img-fluid ml-2' %>
-                                                <span class="font-12 font-400 ml-2">Azure</span>
-                                              </div>
-                                              <span class="font-12 font-700">24</span>
-                                            </div>
-                                            <div class="tiers d-flex justify-content-between align-items-center">
-                                              <div class="color-tier d-flex align-items-center">
-                                                <div class="circle green-4"></div>
-                                                <%= image_pack_tag 'media/images/black-cloud.png', class: 'img-fluid ml-2' %>
-                                                <span class="font-12 font-400 ml-2">Private Cloud</span>
-                                              </div>
-                                              <span class="font-12 font-700">24</span>
-                                            </div>
-                                          </div>
-                                        </div>
-                                      </div>
-                                    </div>
+                                <div class="row">
+                                  <div id="service-provider-breakdown-tier_3" class="col-lg-6 col-md-12 custom-high-chart custom-high-chart mb-4 lazy-graph" data-key="tiers_service_provider_breakdown" data-args="<%= { bsl_ids: @bsls_tier.dig('tier_3')&.map(&:id) }.to_json %>" data-append-to="service-provider-breakdown-tier_3" data-partial-name="tiers_service_provider_breakdown">
+                                    <%= render 'organisation/graphs/partials/tiers_service_provider_breakdown', data: {} %>
                                   </div>
-                                  <div class="col-lg-6 col-md-12">
-                                    <div class="box">
-                                      <div class="col-md-12 mb-lg-0 mb-4 px-1">
-                                        <p class="px-2 font-14 text-capitalize font-600 chart-header-title mb-4">Consumption Model Breakdown</p>
-                                        <div class="border-0 pie-high-chart overflow-hidden rounded-50 d-flex justify-content-center">
-                                          <div class="w-50 card-header p-2 bg-white text-center border-0">
-                                            <div class="donut-content">
-                                              <div id="fourteen-donut" class="donut"></div>
-                                              <div class="donut-value font-30 font-700">50</div>
-                                            </div>
-                                          </div>
-                                          <div class="card-body mt-3 p-2">
-                                            <div class="tiers d-flex justify-content-between align-items-center mb-3">
-                                              <div class="color-tier d-flex align-items-center">
-                                                <div class="circle green-1"></div>
-                                                <span class="font-12 font-400 ml-2">Lass</span>
-                                              </div>
-                                              <span class="font-12 font-700">24</span>
-                                            </div>
-                                            <div class="tiers d-flex justify-content-between align-items-center mb-3">
-                                              <div class="color-tier d-flex align-items-center">
-                                                <div class="circle green-2"></div>
-                                                <span class="font-12 font-400 ml-2">Saas</span>
-                                              </div>
-                                              <span class="font-12 font-700">24</span>
-                                            </div>
-                                            <div class="tiers d-flex justify-content-between align-items-center mb-3">
-                                              <div class="color-tier d-flex align-items-center">
-                                                <div class="circle green-3"></div>
-                                                <span class="font-12 font-400 ml-2">Paas</span>
-                                              </div>
-                                              <span class="font-12 font-700">24</span>
-                                            </div>
-                                            <div class="tiers d-flex justify-content-between align-items-center">
-                                              <div class="color-tier d-flex align-items-center">
-                                                <div class="circle green-4"></div>
-                                                <span class="font-12 font-400 ml-2">Private Cloud</span>
-                                              </div>
-                                              <span class="font-12 font-700">24</span>
-                                            </div>
-                                          </div>
-                                        </div>
-                                      </div>
-                                    </div>
+
+                                  <div id="consumption-model-tier_3" class="col-lg-6 col-md-12 custom-high-chart custom-high-chart mb-4 lazy-graph" data-key="tiers_consumption_model" data-args="<%= { bsl_ids: @bsls_tier.dig('tier_3')&.map(&:id) }.to_json %>" data-append-to="consumption-model-tier_3" data-partial-name="tiers_consumption_model">
+                                    <%= render 'organisation/graphs/partials/tiers_consumption_model', data: {} %>
                                   </div>
                                 </div>
                               </div>
@@ -1502,100 +1244,13 @@
                                     </tbody>
                                   </table>
                                 </div>
-                                <div class="row custom-high-chart mb-4">
-                                  <div class="col-lg-6 col-md-12">
-                                    <div class="box">
-                                      <div class="col-md-12 mb-lg-0 mb-4 px-1">
-                                        <p class="px-2 font-14 text-capitalize font-600 chart-header-title mb-4">Service Provider Breakdown</p>
-                                        <div class="border-0 pie-high-chart overflow-hidden rounded-50 d-flex justify-content-center">
-                                          <div class="w-50 card-header p-2 bg-white text-center border-0">
-                                            <div class="donut-content">
-                                              <div id="thirteen-donut" class="donut"></div>
-                                              <div class="donut-value font-30 font-700">50</div>
-                                            </div>
-                                          </div>
-                                          <div class="card-body mt-3 p-2">
-                                            <div class="tiers d-flex justify-content-between align-items-center mb-3">
-                                              <div class="color-tier d-flex align-items-center">
-                                                <div class="circle green-1"></div>
-                                                <%= image_pack_tag 'media/images/aws.png', class: 'img-fluid ml-2' %>
-                                                <span class="font-12 font-400 ml-2">AWS</span>
-                                              </div>
-                                              <span class="font-12 font-700">24</span>
-                                            </div>
-                                            <div class="tiers d-flex justify-content-between align-items-center mb-3">
-                                              <div class="color-tier d-flex align-items-center">
-                                                <div class="circle green-2"></div>
-                                                <%= image_pack_tag 'media/images/g-cloud.png', class: 'img-fluid ml-2' %>
-                                                <span class="font-12 font-400 ml-2">GCP</span>
-                                              </div>
-                                              <span class="font-12 font-700">24</span>
-                                            </div>
-                                            <div class="tiers d-flex justify-content-between align-items-center mb-3">
-                                              <div class="color-tier d-flex align-items-center">
-                                                <div class="circle green-3"></div>
-                                                <%= image_pack_tag 'media/images/azure.png', class: 'img-fluid ml-2' %>
-                                                <span class="font-12 font-400 ml-2">Azure</span>
-                                              </div>
-                                              <span class="font-12 font-700">24</span>
-                                            </div>
-                                            <div class="tiers d-flex justify-content-between align-items-center">
-                                              <div class="color-tier d-flex align-items-center">
-                                                <div class="circle green-4"></div>
-                                                <%= image_pack_tag 'media/images/black-cloud.png', class: 'img-fluid ml-2' %>
-                                                <span class="font-12 font-400 ml-2">Private Cloud</span>
-                                              </div>
-                                              <span class="font-12 font-700">24</span>
-                                            </div>
-                                          </div>
-                                        </div>
-                                      </div>
-                                    </div>
+                                <div class="row">
+                                  <div id="service-provider-breakdown-tier_4" class="col-lg-6 col-md-12 custom-high-chart custom-high-chart mb-4 lazy-graph" data-key="tiers_service_provider_breakdown" data-args="<%= { bsl_ids: @bsls_tier.dig('tier_4')&.map(&:id) }.to_json %>" data-append-to="service-provider-breakdown-tier_4" data-partial-name="tiers_service_provider_breakdown">
+                                    <%= render 'organisation/graphs/partials/tiers_service_provider_breakdown', data: {} %>
                                   </div>
-                                  <div class="col-lg-6 col-md-12">
-                                    <div class="box">
-                                      <div class="col-md-12 mb-lg-0 mb-4 px-1">
-                                        <p class="px-2 font-14 text-capitalize font-600 chart-header-title mb-4">Consumption Model Breakdown</p>
-                                        <div class="border-0 pie-high-chart overflow-hidden rounded-50 d-flex justify-content-center">
-                                          <div class="w-50 card-header p-2 bg-white text-center border-0">
-                                            <div class="donut-content">
-                                              <div id="fourteen-donut" class="donut"></div>
-                                              <div class="donut-value font-30 font-700">50</div>
-                                            </div>
-                                          </div>
-                                          <div class="card-body mt-3 p-2">
-                                            <div class="tiers d-flex justify-content-between align-items-center mb-3">
-                                              <div class="color-tier d-flex align-items-center">
-                                                <div class="circle green-1"></div>
-                                                <span class="font-12 font-400 ml-2">Lass</span>
-                                              </div>
-                                              <span class="font-12 font-700">24</span>
-                                            </div>
-                                            <div class="tiers d-flex justify-content-between align-items-center mb-3">
-                                              <div class="color-tier d-flex align-items-center">
-                                                <div class="circle green-2"></div>
-                                                <span class="font-12 font-400 ml-2">Saas</span>
-                                              </div>
-                                              <span class="font-12 font-700">24</span>
-                                            </div>
-                                            <div class="tiers d-flex justify-content-between align-items-center mb-3">
-                                              <div class="color-tier d-flex align-items-center">
-                                                <div class="circle green-3"></div>
-                                                <span class="font-12 font-400 ml-2">Paas</span>
-                                              </div>
-                                              <span class="font-12 font-700">24</span>
-                                            </div>
-                                            <div class="tiers d-flex justify-content-between align-items-center">
-                                              <div class="color-tier d-flex align-items-center">
-                                                <div class="circle green-4"></div>
-                                                <span class="font-12 font-400 ml-2">Private Cloud</span>
-                                              </div>
-                                              <span class="font-12 font-700">24</span>
-                                            </div>
-                                          </div>
-                                        </div>
-                                      </div>
-                                    </div>
+
+                                  <div id="consumption-model-tier_4" class="col-lg-6 col-md-12 custom-high-chart custom-high-chart mb-4 lazy-graph" data-key="tiers_consumption_model" data-args="<%= { bsl_ids: @bsls_tier.dig('tier_4')&.map(&:id) }.to_json %>" data-append-to="consumption-model-tier_4" data-partial-name="tiers_consumption_model">
+                                    <%= render 'organisation/graphs/partials/tiers_consumption_model', data: {} %>
                                   </div>
                                 </div>
                               </div>

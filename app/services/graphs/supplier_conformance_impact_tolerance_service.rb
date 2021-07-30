@@ -1,12 +1,12 @@
 class Graphs::SupplierConformanceImpactToleranceService < Graphs::BaseService
-  COLORS   = %w[#6BEAB3 #367C5C #CDFAF1 #05b368]
+  # Supplier Conformance Impact Tolerance.
 
+  COLORS   = %w[#6BEAB3 #367C5C #CDFAF1 #05b368]
   attr_reader :supplier
 
   def call
     @supplier = Supplier.find(args.dig('supplier'))
     data[:overall]   = overall
-
     data
   end
 

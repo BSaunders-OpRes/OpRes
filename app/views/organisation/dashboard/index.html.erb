@@ -332,7 +332,7 @@
 </div>
 <div class="row mt-5 d-flex no-gutters">
   <div class="col-md-6 col-lg-3 order-lg-1 order-2 mb-lg-0 mb-4 px-1" id="bsl-tour">
-    <div id="bsl-tiers" class="lazy-graph" data-key="bsl_tiers" data-args="<%= {}.to_json %>">
+    <div id="bsl-tiers" class="lazy-graph" data-key="bsl_tiers" data-args="<%= {}.to_json %>" data-append-to="bsl-tiers" data-partial-name="bsl_tiers">
       <%= render 'organisation/graphs/partials/bsl_tiers', data: {} %>
     </div>
   </div>
@@ -553,7 +553,7 @@
       </div>
     </div>
   </div>
-  <div id="chp-breakdown" class="col-md-6 col-lg-3 order-lg-4 order-1 mb-lg-0 mb-4 px-1 custom-high-chart lazy-graph" data-key="chp_breakdown" data-args="<%= {}.to_json %>">
+  <div id="chp-breakdown" class="col-md-6 col-lg-3 order-lg-4 order-1 mb-lg-0 mb-4 px-1 custom-high-chart lazy-graph" data-key="chp_breakdown" data-args="<%= {}.to_json %>" data-append-to="chp-breakdown" data-partial-name="chp_breakdown">
     <%= render 'organisation/graphs/partials/chp_breakdown', data: {} %>
   </div>
 </div>

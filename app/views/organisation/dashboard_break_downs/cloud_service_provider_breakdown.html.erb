@@ -63,14 +63,14 @@
                   <div class="row custom-high-chart">
                     <div class="col-lg-6 col-md-12">
                       <div class="box">
-                        <div id="chp-breakdown" class="order-1 mb-lg-0 mb-4 px-1 custom-high-chart lazy-graph" data-key="chp_breakdown" data-args="<%= {version: "v1"}.to_json %>">
+                        <div id="chp-breakdown" class="order-1 mb-lg-0 mb-4 px-1 custom-high-chart lazy-graph" data-key="chp_breakdown" data-args="<%= {}.to_json %>" data-append-to="chp-breakdown" data-partial-name="v1_chp_breakdown" data-partial-name="v1_chp_breakdown">
                           <%= render 'organisation/graphs/partials/v1_chp_breakdown', data: {} %>
                         </div>
                       </div>
                     </div>
                     <div class="col-lg-6 col-md-12">
                       <div class="box">
-                        <div id="consumption-chp" class="order-1 mb-lg-0 mb-4 px-1 custom-high-chart lazy-graph" data-key="consumption_chp" data-args="<%= {}.to_json %>">
+                        <div id="consumption-chp" class="order-1 mb-lg-0 mb-4 px-1 custom-high-chart lazy-graph" data-key="consumption_chp" data-args="<%= {}.to_json %>" data-append-to="consumption-chp" data-partial-name="consumption_chp" data-partial-name="consumption_chp">
                             <%= render 'organisation/graphs/partials/consumption_chp', data: {} %>
                         </div>
                       </div>
