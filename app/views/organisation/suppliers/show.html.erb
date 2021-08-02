@@ -556,7 +556,7 @@
                         </div>
                         <div class="text w-75">
                           <p class="font-13 font-400">Deployed Region:</p>
-                          <h6 class="font-13 font-600"><%= @chp_region.name %></h6>
+                          <h6 class="font-13 font-600"><%= @chp_region&.name.present? ? @chp_region&.name : 'Region not selected' %></h6>
                         </div>
                       </div>
                     </div>
