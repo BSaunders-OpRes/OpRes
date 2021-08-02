@@ -6,7 +6,7 @@
       </div>
       <div class="col-sm-7 order-3 order-sm-2" id="cloud-hosting-provider-region">
         <span class="select-arrow position-relative">
-          <%= select_tag 'supplier[cloud_hosting_provider_region_id]', options_for_select(cloud_hosting_provider.cloud_hosting_provider_regions.map { |chpr| [chpr.name, chpr.id] }, supplier&.cloud_hosting_provider_region_id), include_blank: 'Select your cloud hosting provider region', class: 'form-control w-100 font-12 h-auto py-3 shadow-none arrow-select' %>
+          <%= select_tag 'supplier[cloud_hosting_provider_region_id]', options_for_select(cloud_hosting_provider.cloud_hosting_provider_regions.map { |chpr| [chpr.name, chpr.id] }, supplier&.cloud_hosting_provider_region_id), include_blank: 'Select your cloud hosting provider region', class: 'form-control w-100 font-12 h-auto py-3 shadow-none arrow-select', required: true %>
           <i class="fa fa-sort-desc position-absolute" aria-hidden="true"></i>
         </span>
       </div>
@@ -64,6 +64,13 @@
       </div>
       <div class="col-sm-1 text-right order-2 flex-sm-half mb-2 mb-sm-0">
       </div>
+    </div>
+     <div class="row align-items-center">
+      <div class="col-sm-4 flex-sm-1 mb-2 mb-sm-0"></div>
+      <div class="col-sm-7 mt-1 order-3 order-sm-2">
+        <p class="empty-services-message text-danger font-12 d-none" id="supplier-empty-services-message">*Please Select Cloud hosting provider services to proceed further </p>
+      </div>
+      <div class="col-sm-1 text-right order-2 flex-sm-half mb-2 mb-sm-0"></div>
     </div>
     <%= text_area_tag 'supplier[cloud_hosting_provider_description]', nil, placeholder: 'Enter details', class: 'w-100 form-control font-12 h-auto py-3 shadow-none d-none' %>
   <% else %>
