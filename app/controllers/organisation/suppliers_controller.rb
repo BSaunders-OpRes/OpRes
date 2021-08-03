@@ -38,6 +38,7 @@ class Organisation::SuppliersController < Organisation::BaseController
   def show
     @chp                    = @supplier.cloud_hosting_provider
     @chp_region             = @supplier.cloud_hosting_provider_region
+    @third_party_suppliers  = @supplier.third_party_suppliers.includes(:cloud_hosting_provider)
     @fourth_party_suppliers = @supplier.fourth_party_suppliers.includes(:cloud_hosting_provider)
   end
 
