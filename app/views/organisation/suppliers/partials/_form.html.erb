@@ -90,7 +90,7 @@
                     <div class="col-sm-6 mb-3 form-check px-0">
                       <label class="radio-check d-flex p-0 align-items-center">
                         <%= form.radio_button :consumption_model, key, id: "consumption-model-#{key}", class: 'other-reason-selection' %>
-                        <%= form.label key.titleize, class: 'mb-0 ml-2 font-12 text-capitalize order-2 ml-2', for: "consumption-model-#{key}" %>
+                        <label class="mb-0 ml-2 font-12 order-2 ml-2" for="consumption-model-<%= key %>"><%= titleize_last_alpha(key.titleize) %></label>
                         <div class="checkmark position-relative order-1"></div>
                       </label>
                     </div>
