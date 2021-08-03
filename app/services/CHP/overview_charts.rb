@@ -18,14 +18,14 @@ class CHP::OverviewCharts < ApplicationService
   private
 
   def chp_objs
-   @chps = CloudHostingProvider.all
+    @chps = CloudHostingProvider.all
   end
 
   def chp_model_supplier
-    suppliers = Supplier.consumption_models    
+    suppliers = Supplier.pluck(:consumption_model).uniq
   end
 
   def chp_suppliers
-    suppliers = Supplier.where(unit_id: @nodes).group_by(&:cloud_hosting_provider)
+    Supplier.where(unit_id: @nodes).group_by{ |e| e.cloud_hosting_provider.short_name }.each_with_object({}) {|(k,v), h| h[k] = v.group_by { |s| s.consumption_model}}
   end
 end
