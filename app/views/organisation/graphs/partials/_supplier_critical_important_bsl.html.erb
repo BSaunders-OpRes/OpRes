@@ -1,5 +1,5 @@
 <% if data.blank? %>
-  <div class="card border-0 pie-high-chart overflow-hidden rounded-50">
+  <div class="card border-0 pie-high-chart">
     <div class="card-header border-0 bg-white text-center h-auto">
       <p class="font-14 font-600 chart-header-title text-left mb-2">Critical & Important BSL's Supported</p>
       <div class="col-md-12 card-header h-230px d-flex align-items-center px-0 py-0 bg-body-color text-center border-0">
@@ -14,9 +14,9 @@
     </div>
   </div>
 <% else %>
-  <div class="card border-0 pie-high-chart overflow-hidden rounded-50">
+  <div class="card border-0 pie-high-chart rounded-50">
     <div class="card-header border-0 bg-white text-center h-auto">
-      <p class="font-14 font-600 chart-header-title text-left mb-2">
+      <p class="font-14 font-600 chart-header-title text-left mb-2 h-70px">
         Critical & Important BSL's Supported
       </p>
       <%= link_to critical_important_suppliers_organisation_supplier_path(data.dig(:overall, :supplier)), class: 'd-flex h-230px align-items-center justify-content-center' do %>

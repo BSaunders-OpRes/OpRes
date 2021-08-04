@@ -1,0 +1,109 @@
+<div class="card border-0 shadow-sm rounded-50 mb-4">
+  <div class="card-body px-0">
+    <div class="box">
+      <div class="d-flex justify-content-between align-items-center mb-4 px-4">
+        <h5 class="text-capitalize text-left">Overview</h5>
+        <div class="text-right">
+          <a href="#" class="text-black">
+            <i class="fa fa-ellipsis-v text-right" aria-hidden="true"></i>
+          </a>
+        </div>
+      </div>
+      <div class="info-text mb-4 px-4">
+        <h6 class="mb-3 text-capitalize"><%= @supplier.name %></h6>
+        <p class="font-13">
+          <%= @supplier.description %>
+        </p>
+      </div>
+      <hr>
+      <div class="details mb-4 px-4">
+        <div class="intro-box mb-3 d-flex align-items-center justify-content-center">
+          <div class="w-25">
+            <span class="font-12">Supplier Relationship Owner</span>
+          </div>
+          <div class="w-75">
+            <strong class="font-12"><%= @supplier.relationship_owner&.name %></strong>
+          </div>
+        </div>
+        <div class="intro-box mb-3 d-flex align-items-center justify-content-center">
+          <div class="w-25">
+            <span class="font-12">Supplier Key Contact</span>
+          </div>
+          <div class="w-75">
+            <strong class="w-75 font-12"><%= @supplier.key_contacts_list %></strong>
+          </div>
+        </div>
+        <div class="intro-box mb-3 d-flex align-items-center justify-content-center">
+          <div class="w-25">
+            <span class="font-12">Supplier Key Contact Details</span>
+          </div>
+          <div class="w-75">
+            <strong class="font-12">
+              <%= @supplier.key_contacts.pluck(:email).join(', ') %>
+            </strong>
+          </div>
+        </div>
+        <div class="intro-box mb-3 d-flex align-items-center justify-content-center">
+          <div class="w-25">
+            <span class="font-12">Supplier Type:</span>
+          </div>
+          <div class="w-75">
+            <strong class="font-12"><%= @supplier.consumption_model&.upcase %></strong>
+          </div>
+        </div>
+        <div class="intro-box mb-3 d-flex align-items-center justify-content-center">
+          <div class="w-25">
+            <span class="font-12">Contact Type:</span>
+          </div>
+          <div class="w-75">
+            <strong class="font-12"><%= @supplier.contracting_terms&.capitalize %></strong>
+          </div>
+        </div>
+        <div class="intro-box mb-3 d-flex align-items-center justify-content-center">
+          <div class="w-25">
+            <span class="font-12">Start Date & End Date</span>
+          </div>
+          <div class="w-75">
+            <strong class="font-12">
+              <%= "#{@supplier.strf_attr('start_date')} - #{@supplier.strf_attr('end_date')}" %>
+            </strong>
+          </div>
+        </div>
+        <div class="intro-box mb-3 d-flex align-items-center justify-content-center">
+          <div class="w-25">
+            <span class="font-12">Annual Cost of Contract</span>
+          </div>
+          <div class="w-75">
+            <strong class="font-12"><%= @supplier.annual_cost_of_contract %></strong>
+          </div>
+        </div>
+      </div>
+      <div class="px-4">
+        <h5 class="text-capitalize d-block mb-4">Links</h5>
+        <div class="small-boxes row">
+          <% @supplier.social_account_recipients.each do |social_account_recipient| %>
+            <div class="col-md-3 mb-3">
+              <%= link_to social_account_recipient.link, target: '_blank', class: 'text-decoration-none text-black' do %>
+                  <div class="card">
+                    <div class="card-body p-2 d-block rounded">
+                      <div class="color-tier">
+                        <div class="mr-1 d-inline-block w-25px text-center align-middle">
+                          <% social_account = social_account_recipient.social_account %>
+                          <%= image_tag social_account.logo, class: 'img-fluid w-100' %>
+                        </div>
+                        <div class="text d-inline-block align-middle">
+                          <span class="font-12 font-400 ml-2 d-block">
+                            <%= social_account.name %>
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+              <% end %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

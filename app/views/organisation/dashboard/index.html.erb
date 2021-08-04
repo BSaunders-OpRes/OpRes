@@ -337,129 +337,19 @@
     </div>
   </div>
 
-  <div class="col-md-12 col-lg-3 order-lg-2 order-3 mb-lg-0 mb-4 px-">
-    <div class="card border-0 shadow-sm pie-high-chart overflow-hidden rounded-50 min-h-560"id="system-supplier-resilience-indicator" >
-      <div class="card-header bg-white text-center border-0 text-decoration-none">
-        <p class="font-14 text-capitalize font-600 chart-header-title text-black text-decoration-none">system & supplier resilience indicators</p>
-        <div class="row flex-sm-wrap flex-nowrap">
-          <div class="col-sm-6 px-0 d-flex justify-content-center">
-            <div class="sm-donut-content text-black">
-              <div id="first-donut-sm" class="sm-donut"></div>
-              <div class="donut-value font-25 font-700 text-black">0</div>
-              <div class="donut-desc flex-column">
-                <span class="font-12 font-600 text-capitalize mb-2 text-black">3rd party</span>
-              </div>
-            </div>
-          </div>
-          <div class="col-sm-6 px-0 d-flex justify-content-center text-black">
-            <div class="sm-donut-content">
-              <div id="second-donut-sm" class="sm-donut"></div>
-              <div class="donut-value font-25 font-700">0</div>
-              <div class="donut-desc flex-column">
-                <span class="font-12 font-600 text-capitalize mb-2">4th party</span>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="d-flex mt-1 text-black align-items-center h-100px justify-content-between">
-          <div class="d-flex align-items-center">
-            <div class="circle green-1"></div>
-            <span class="font-12 font-400 ml-1 text-capitalize text-black">matches</span>
-          </div>
-          <div class="d-flex align-items-center">
-            <div class="circle green-2"></div>
-            <span class="font-12 font-400 ml-1 text-capitalize text-black">meet</span>
-          </div>
-          <div class="d-flex align-items-center">
-            <div class="circle green-3"></div>
-            <span class="font-12 font-400 ml-1 text-capitalize text-black">exceeds</span>
-          </div>
-        </div>
+  <div class="col-md-12 col-lg-3 order-lg-2 order-3 mb-lg-0 mb-4 px-1">
+    <div class="card border-0 shadow-sm pie-high-chart pie-high-chart-sm overflow-hidden rounded-50 min-h-560" >
+
+      <div id="system-supplier-resilience-indicator" class="lazy-graph" data-key="system_supplier_resilience_indicator" data-args="<%= {}.to_json %>" data-append-to="system-supplier-resilience-indicator" data-partial-name="system_supplier_resilience_indicator">
+        <%= render 'organisation/graphs/partials/system_supplier_resilience_indicator', data: {} %>
       </div>
-      <div class="card-body resiliece-indicator pt-0 pb-0">
-        <ul class="nav nav-tabs border-0 mb-3 text-black" id="myTab" role="tablist">
-          <li class="nav-item pr-2">
-            <a class="nav-link active border-0 font-11 font-xxl-12 px-0 py-1 text-capitalize text-dark active" id="home-tab" data-toggle="tab" href="#matches" role="tab" aria-controls="home" aria-selected="true">matches</a>
-          </li>
-          <li class="nav-item pr-2">
-            <a class="nav-link border-0 font-11 font-xxl-12 px-0 py-1 text-capitalize text-dark" id="home-tab" data-toggle="tab" href="#third-party" role="tab" aria-controls="home" aria-selected="true">3rd party</a>
-          </li>
-          <li class="nav-item pr-2">
-            <a class="nav-link font-11 border-0 font-xxl-12 px-0 text-capitalize p-1 text-dark" id="profile-tab" data-toggle="tab" href="#fourth-party" role="tab" aria-controls="profile" aria-selected="false">4th party</a>
-          </li>
-        </ul>
-        <div class="tab-content" id="myTabContent">
-          <div class="tab-pane fade show active pb-3 text-black" id="matches" role="tabpanel" aria-labelledby="home-tab">
-            <div class="tiers d-flex justify-content-between align-items-start mb-3">
-              <div class="color-tier d-flex align-items-center">
-                <span class="font-12 font-400 text-capitalize pr-2">Matches impact tolerances</span>
-              </div>
-              <span class="font-12 font-700">0</span>
-            </div>
-            <div class="tiers d-flex justify-content-between align-items-start mb-3">
-              <div class="color-tier d-flex align-items-center">
-                <span class="font-12 font-400 text-capitalize pr-2">Meets impact tolerances</span>
-              </div>
-              <span class="font-12 font-700">0</span>
-            </div>
-            <div class="tiers d-flex justify-content-between align-items-start">
-              <div class="color-tier d-flex align-items-center">
-                <span class="font-12 font-400 text-capitalize pr-2">Exceeds impact tolerances</span>
-              </div>
-              <span class="font-12 font-700">0</span>
-            </div>
-          </div>
-          <div class="tab-pane fade pb-3" id="third-party" role="tabpanel" aria-labelledby="home-tab">
-            <div class="tiers d-flex justify-content-between align-items-start mb-3">
-              <div class="color-tier d-flex align-items-center">
-                <span class="font-12 font-400 text-capitalize pr-2">3rd Party Matches Impact Tolerances</span>
-              </div>
-              <span class="font-12 font-700">0</span>
-            </div>
-            <div class="tiers d-flex justify-content-between align-items-start mb-3">
-              <div class="color-tier d-flex align-items-center">
-                <span class="font-12 font-400 text-capitalize pr-2">3rd Party Meets Impact Tolerances</span>
-              </div>
-              <span class="font-12 font-700">0</span>
-            </div>
-            <div class="tiers d-flex justify-content-between align-items-start">
-              <div class="color-tier d-flex align-items-center">
-                <span class="font-12 font-400 text-capitalize pr-2">3rd Party Exceeds Impact Tolerances</span>
-              </div>
-              <span class="font-12 font-700">0</span>
-            </div>
-          </div>
-          <div class="tab-pane fade pb-3" id="fourth-party" role="tabpanel" aria-labelledby="home-tab">
-            <div class="tiers d-flex justify-content-between align-items-start mb-3">
-              <div class="color-tier d-flex align-items-center">
-                <span class="font-12 font-400 text-capitalize pr-3">4th Party Matches Impact Tolerances</span>
-              </div>
-              <span class="font-12 font-700">0</span>
-            </div>
-            <div class="tiers d-flex justify-content-between align-items-start mb-3">
-              <div class="color-tier d-flex align-items-center">
-                <span class="font-12 font-400 text-capitalize pr-3">4th Party Meets Impact Tolerances</span>
-              </div>
-              <span class="font-12 font-700">0</span>
-            </div>
-            <div class="tiers d-flex justify-content-between align-items-start">
-              <div class="color-tier d-flex align-items-center">
-                <span class="font-12 font-400 text-capitalize pr-3">4th Party Exceeds Impact Tolerances </span>
-              </div>
-              <span class="font-12 font-700">0</span>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="card-footer text-center bg-white">
-        <%= link_to 'view all', system_supplier_resilience_indicator_organisation_dashboard_break_downs_path, class: 'font-12 text-capitalize font-600 border-bottom-black text-dark text-decoration-none' %>
-      </div>
+
     </div>
   </div>
 
   <div class="col-md-12 col-lg-3 order-lg-3 order-4 mb-lg-0 mb-4 px-1">
     <div class="card border-0 shadow-sm pie-high-chart overflow-hidden rounded-50 min-h-560" id="critical-important-system" >
-      <div class="card-header bg-white text-center border-0">
+      <div class="card-header h-auto bg-white text-center border-0">
         <p class="font-14 text-capitalize font-600 chart-header-title text-black">Critical & Important System</p>
         <div class="row flex-sm-wrap flex-nowrap">
           <div class="col-sm-6 px-0 d-flex justify-content-center">
@@ -481,19 +371,19 @@
             </div>
           </div>
         </div>
-        <div class="d-flex text-black mt-1 align-items-center h-100px justify-content-between">
-          <div class="d-flex align-items-center">
-            <div class="circle green-1"></div>
-            <span class="font-12 font-400 ml-1 text-capitalize">matches</span>
-          </div>
-          <div class="d-flex align-items-center">
-            <div class="circle green-2"></div>
-            <span class="font-12 font-400 ml-1 text-capitalize">meet</span>
-          </div>
-          <div class="d-flex align-items-center">
-            <div class="circle green-3"></div>
-            <span class="font-12 font-400 ml-1 text-capitalize">exceeds</span>
-          </div>
+      </div>
+      <div class="d-flex text-black px-3 align-items-center h-70px justify-content-between">
+        <div class="d-flex align-items-center">
+          <div class="circle green-1"></div>
+          <span class="font-12 font-400 ml-1 text-capitalize">matches</span>
+        </div>
+        <div class="d-flex align-items-center">
+          <div class="circle green-2"></div>
+          <span class="font-12 font-400 ml-1 text-capitalize">meet</span>
+        </div>
+        <div class="d-flex align-items-center">
+          <div class="circle green-3"></div>
+          <span class="font-12 font-400 ml-1 text-capitalize">exceeds</span>
         </div>
       </div>
       <div class="card-body resiliece-indicator pt-0 pb-0">
@@ -967,10 +857,10 @@
     </div>
   </div>
 </div>
-<div class="row mt-4">
-  <div class="col-md-12">
-    <div class="card border-0 shadow-sm">
-      <div class="card-header bg-transparent d-flex justify-content-between align-items-center border-0 pt-4">
+<div class="row no-gutters mt-4">
+  <div class="col-md-12 px-1">
+    <div class="card border-0 shadow-sm rounded-50">
+      <div class="card-header flex-wrap bg-transparent d-flex justify-content-between align-items-center border-0 pt-4">
         <h3 class="font-14 font-600">Resilience Risk Indicator</h3>
         <div class="dropdown body-color-dropdown mr-2">
           <a id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class='dropdown-toggle text-capitalize py-2 pr-5 pl-2 d-flex align-items-center justify-content-start font-12 text-dark font-600' id='top-10'>Last 6 Months</a>

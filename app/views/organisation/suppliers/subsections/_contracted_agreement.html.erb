@@ -1,0 +1,135 @@
+<div class="card border-0 shadow-sm rounded-50 mb-4">
+  <div class="card-body px-0">
+    <div class="box">
+      <div class="d-flex justify-content-between align-items-center mb-4 px-4">
+        <h5 class="text-capitalize text-left">Contracted Agreements</h5>
+        <div class="text-right">
+          <a href="#" class="text-black">
+            <i class="fa fa-ellipsis-v text-right" aria-hidden="true"></i>
+          </a>
+        </div>
+      </div>
+      <div class="mb-4 px-4">
+        <div class="row">
+          <div class="col-md-3">
+            <div class="box1 d-flex align-items-center py-3">
+              <div class="mr-3">
+                <div class="line-green"></div>
+              </div>
+              <div class="text">
+                <p class="font-13 font-400">Contracted SLA</p>
+                <h6 class="font-13 font-600"><%= @supplier.sla&.service_level_agreement %>%</h6>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="box1 d-flex align-items-center py-3">
+              <div class="mr-3">
+                <div class="line-green"></div>
+              </div>
+              <div class="text">
+                <p class="font-13 font-400">Contracted RTO</p>
+                <h6 class="font-13 font-600"><%= @supplier.sla&.recovery_time_objective %> Minutes</h6>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="box1 d-flex align-items-center py-3">
+              <div class="mr-3">
+                <div class="line-green"></div>
+              </div>
+              <div class="text">
+                <p class="font-13 font-400">Contracted RPO</p>
+                <h6 class="font-13 font-600"><%= @supplier.sla&.recovery_point_objective %> Minutes</h6>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="box1 d-flex align-items-center py-3">
+              <div class="mr-3">
+                <div class="line-green"></div>
+              </div>
+              <div class="text">
+                <p class="font-13 font-400">Contracted TPS</p>
+                <h6 class="font-13 font-600"><%= @supplier.sla&.transactions_per_second %> TPS</h6>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="box1 d-flex align-items-center py-3">
+              <div class="mr-3">
+                <div class="line-green"></div>
+              </div>
+              <div class="text">
+                <p class="font-13 font-400">Response Time</p>
+                <h6 class="font-13 font-600"><%= @supplier.sla&.response_time %> m/s</h6>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="box1 d-flex align-items-center py-3">
+              <div class="mr-3">
+                <div class="line-green"></div>
+              </div>
+              <div class="text">
+                <p class="font-13 font-400">Support Hours</p>
+                <h6 class="font-13 font-600"><%= @supplier.sla&.support_hours %></h6>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row mt-3 d-flex no-gutters">
+        <div class="table-responsive">
+          <table class="table mb-0">
+            <thead>
+              <tr>
+                <th class="border-0 px-4">Incident</th>
+                <th class="border-0 px-4">Severity 1</th>
+                <th class="border-0 px-4">Severity 2</th>
+                <th class="border-0 px-4">Severity 3</th>
+                <th class="border-0 px-4">Severity 4</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td width='300px' class="font-13 px-4">
+                  Incident Response SLA
+                </td>
+                <td class="font-13 px-4">
+                  <%= @supplier.sla&.severity1 %> Mins
+                </td>
+                <td class="font-13 px-4">
+                  <%= @supplier.sla&.severity2 %> Mins
+                </td>
+                <td class="font-13 px-4">
+                  <%= @supplier.sla&.severity3 %> Mins
+                </td>
+                <td class="font-13 px-4">
+                  <%= @supplier.sla&.severity4 %> Mins
+                </td>
+              </tr>
+              <tr>
+                <td width='300px' class="font-13 px-4">
+                  Incident Restoration SLA
+                </td>
+                <td class="font-13 px-4">
+                  <%= @supplier.sla&.severity1_restoration %> Mins
+                </td>
+                <td class="font-13 px-4">
+                  <%= @supplier.sla&.severity2_restoration %> Mins
+                </td>
+                <td class="font-13 px-4">
+                  <%= @supplier.sla&.severity3_restoration %> Mins
+                </td>
+                <td class="font-13 px-4">
+                  <%= @supplier.sla&.severity4_restoration %> Mins
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

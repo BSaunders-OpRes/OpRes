@@ -83,7 +83,23 @@ document.addEventListener('turbolinks:load', function() {
 
   function count_chp_services() {
     $('.selected-service-count').removeClass('d-none');
+    $('.empty-services-message').removeClass('d-block').addClass('d-none');
     var selected_service_count = $('#cloud-hosting-provider-service .service-list').find('input[type="checkbox"]').filter(':checked').length
     $('.selected-service-count').text('selected services: ' + selected_service_count);
   }
+
+
+  $('body').on('click', '#supplier-submit-btn', function(e) {
+    var selected_service_count = $('#cloud-hosting-provider-service .service-list').find('input[type="checkbox"]').filter(':checked').length
+    var selected_region        = $('#supplier_cloud_hosting_provider_region_id').val();
+    var cloud_hosting_provider = $('#load-cloud-hosting-provider-regions-services').val();
+
+    if (cloud_hosting_provider != '' && selected_service_count == 0 && selected_region != ''){
+      e.preventDefault();
+      $('.empty-services-message').addClass('d-block');
+      $('html, body').animate({
+        scrollTop: $("#supplier-empty-services-message").offset().top - 150
+      }, 1000);
+    }
+  });
 });
