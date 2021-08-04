@@ -33,24 +33,25 @@
     input {
       background-color: #1f1d1d;
       outline: 0;
+      color: $text-medium-grey;
       padding-left: 42px;
       padding: 10px 10px 10px 42px;
     }
     ::-webkit-input-placeholder {
-      color: $white;
-      font-size: 12px;
+      color: $medium-grey;
+      font-size: 13px;
       text-transform: unset;
       letter-spacing: 0.05em;
     }
 
     :-ms-input-placeholder {
-      color: $white;
-      font-size: 12px;
+      color: $medium-grey;
+      font-size: 13px;
     }
 
     ::placeholder {
-      color: $white;
-      font-size: 12px;
+      color: $medium-grey;
+      font-size: 13px;
     }
   }
   .notification-field {
