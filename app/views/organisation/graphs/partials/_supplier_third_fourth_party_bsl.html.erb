@@ -1,5 +1,5 @@
 <% if data.blank? %>
-  <div class="card border-0 pie-high-chart overflow-hidden rounded-50">
+  <div class="card border-0 pie-high-chart">
     <div class="card-header border-0 bg-white text-center h-auto">
       <p class="font-14 font-600 chart-header-title text-left mb-2">BSL's Where Supplier is Either a 3rd or 4th Party</p>
       <div class="col-md-12 card-header h-230px d-flex align-items-center px-0 py-0 bg-body-color text-center border-0">
@@ -14,9 +14,9 @@
     </div>
   </div>
 <% else %>
-  <div class="card border-0 pie-high-chart overflow-hidden rounded-50">
+  <div class="card border-0 pie-high-chart rounded-50">
     <div class="card-header border-0 bg-white text-center h-auto">
-      <p class="font-14 font-600 chart-header-title text-left mb-2">BSL's Where Supplier is Either a 3rd or 4th Party</p>
+      <p class="font-14 font-600 chart-header-title text-left mb-2 h-70px">BSL's Where Supplier is Either a 3rd or 4th Party</p>
       <%= link_to 'javascript:void(0);', class: 'd-flex h-230px align-items-center justify-content-center' do %>
         <div class="donut-content mb-2 w-100">
           <%= react_component('highcharts/donut', { data: data.dig(:overall, :graph), render_to: 'donut' }, { class: 'h-100' }) %>
