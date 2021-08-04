@@ -62,7 +62,7 @@ export default function donut(props) {
   chartOptions['renderto']          = props['render_to'];
 
   return(
-    <div className="w-100">
+    <div className="w-100 position-relative z-index-1">
       <HighchartsReact highcharts={Highcharts} options={chartOptions} />
     </div>
   )

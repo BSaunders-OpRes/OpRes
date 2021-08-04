@@ -68,7 +68,7 @@
                     </div>
                   <% end %>
                   <div class="col-sm-6 mb-3 px-0">
-                    <%= form.text_field :contracting_terms_other, class: 'form-control other-reason-field font-14', placeholder: 'Please Specify' %>
+                    <%= form.text_field :contracting_terms_other, class: 'form-control other-reason-field font-12 disable', placeholder: 'Please Specify' %>
                   </div>
                 </div>
               </div>
@@ -96,7 +96,7 @@
                     </div>
                   <% end %>
                   <div class="col-sm-6 mb-3 px-0">
-                    <%= form.text_field :consumption_model_other, class: 'form-control other-reason-field font-14', placeholder: 'Please Specify' %>
+                    <%= form.text_field :consumption_model_other, class: 'form-control other-reason-field font-12 disable', placeholder: 'Please Specify' %>
                   </div>
                 </div>
               </div>
@@ -229,7 +229,7 @@
                 <div class="input-group-prepend">
                   <div class="input-group-text px-3 bg-white font-12">%</div>
                 </div>
-                <%= supplier_sla.number_field :service_level_agreement, step: 0.01, min: 0, placeholder: 'Enter Target', id: 'inlineFormInputGroup', class: 'form-control form-control font-12 h-auto py-3 shadow-none' %>
+                <%= supplier_sla.number_field :service_level_agreement, min: 0, placeholder: 'Enter Target', id: 'inlineFormInputGroup', class: 'form-control form-control font-12 h-auto py-3 shadow-none' %>
               </div>
             </div>
             <div class="col-sm-1 text-right order-2 flex-sm-half mb-2 mb-sm-0">
@@ -245,7 +245,7 @@
                 <div class="input-group-prepend">
                   <div class="input-group-text px-3 bg-white font-12">%</div>
                 </div>
-                <%= supplier_sla.number_field :service_level_objective, step: 0.01, min: 0, placeholder: 'Enter Target', id: 'inlineFormInputGroup', class: 'form-control form-control font-12 h-auto py-3 shadow-none' %>
+                <%= supplier_sla.number_field :service_level_objective, min: 0, placeholder: 'Enter Target', id: 'inlineFormInputGroup', class: 'form-control form-control font-12 h-auto py-3 shadow-none' %>
               </div>
             </div>
             <div class="col-sm-1 text-right order-2 flex-sm-half mb-2 mb-sm-0">
@@ -292,7 +292,7 @@
                 <div class="input-group-prepend">
                   <div class="input-group-text px-3 bg-white font-12">TPS</div>
                 </div>
-                <%= supplier_sla.number_field :transactions_per_second, min: 0, step: 0.1, placeholder: 'Enter Target', class: 'form-control form-control font-12 h-auto py-3 shadow-none' %>
+                <%= supplier_sla.number_field :transactions_per_second, min: 0, placeholder: 'Enter Target', class: 'form-control form-control font-12 h-auto py-3 shadow-none' %>
               </div>
             </div>
             <div class="col-sm-1 text-right order-2 flex-sm-half mb-2 mb-sm-0">
@@ -308,7 +308,7 @@
                 <div class="input-group-prepend">
                   <div class="input-group-text px-3 bg-white font-12">m/s</div>
                 </div>
-                <%= supplier_sla.number_field :response_time, min: 0, step: 0.1, placeholder: 'Enter Target', class: 'form-control form-control font-12 h-auto py-3 shadow-none' %>
+                <%= supplier_sla.number_field :response_time, min: 0, placeholder: 'Enter Target', class: 'form-control form-control font-12 h-auto py-3 shadow-none' %>
               </div>
             </div>
             <div class="col-sm-1 text-right order-2 flex-sm-half mb-2 mb-sm-0">
@@ -462,7 +462,7 @@
                     </div>
                   <% end %>
                   <div class="col-sm-6 mb-3">
-                    <%= supplier_sla.text_field :support_hours_other, class: 'form-control other-reason-field font-12', placeholder: 'Please Specify' %>
+                    <%= supplier_sla.text_field :support_hours_other, class: 'form-control other-reason-field font-12 disable', placeholder: 'Please Specify' %>
                   </div>
                 </div>
               </div>

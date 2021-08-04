@@ -83,6 +83,7 @@ i.paperclip {
 .highcharts-credits {
   display: none !important;
 }
+
 .pie-high-chart {
   .card-header {
     height: 275px;
@@ -142,6 +143,7 @@ i.paperclip {
         align-items: center;
         justify-content: flex-start;
         transform: translateX(-50%);
+        top: 105px;
       }
     }
     .semi-donut-content {
@@ -816,6 +818,20 @@ i.paperclip {
           }
         }
       }
+    }
+  }
+}
+@media only screen and (max-width: 567px) {
+  .pie-high-chart-sm {
+    .card-header {
+      height: auto;
+      .sm-donut-content {
+        margin-top: 20px;
+      }
+    }
+    .highchart-tabs {
+      padding-bottom: 30px !important;
+      margin-bottom:  30px;
     }
   }
 }

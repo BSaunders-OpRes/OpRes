@@ -34,16 +34,14 @@
         </div>
       </div>
       <hr>
-      <div class="row mt-3 d-flex no-gutters">
-        <div class="col-md-6 col-lg-4 order-lg-1 order-2 mb-lg-0 mb-4 px-3">
-          <div id="supplier-critical-important-bsl" class="row custom-high-chart px-md-3 lazy-graph" data-key="supplier_critical_important_bsl" data-args="<%= { supplier: @supplier.id }.to_json %>" data-append-to="supplier-critical-important-bsl" data-partial-name="supplier_critical_important_bsl">
-            <%= render 'organisation/graphs/partials/supplier_critical_important_bsl', data: {} %>
-          </div>
+      <div class="row">
+        <div id="supplier-critical-important-bsl" class="lazy-graph col-md-6 col-lg-4" data-key="supplier_critical_important_bsl" data-args="<%= { supplier: @supplier.id }.to_json %>" data-append-to="supplier-critical-important-bsl" data-partial-name="supplier_critical_important_bsl">
+          <%= render 'organisation/graphs/partials/supplier_critical_important_bsl', data: {} %>
         </div>
-        <div class="col-md-6 col-lg-4 order-lg-4 order-1 mb-lg-0 mb-4 px-3">
-          <div class="card border-0 pie-high-chart overflow-hidden rounded-50">
+        <div class="col-md-6 col-lg-4">
+          <div class="card border-0 pie-high-chart rounded-50">
             <div class="card-header border-0 bg-white text-center">
-              <p class="font-14 font-600 chart-header-title text-left mb-2">Conformance with Business Service Impact Tolerances</p>
+              <p class="font-14 font-600 chart-header-title text-left mb-2 h-70px">Conformance with Business Service Impact Tolerances</p>
               <%= link_to compound_resilience_organisation_business_service_lines_path do %>
                 <div class="donut-content mb-2">
                   <div id="two-colored-donut-1" class="donut"></div>
@@ -76,7 +74,7 @@
             </div>
           </div>
         </div>
-        <div id="supplier-third-fourth-party-bsl" class="lazy-graph col-md-6 col-lg-4 order-lg-4 order-1 mb-lg-0 mb-4 px-3" data-key="supplier_third_fourth_party_bsl" data-args="<%= { supplier: @supplier.id }.to_json %>" data-append-to="supplier-third-fourth-party-bsl" data-partial-name="supplier_third_fourth_party_bsl">
+        <div id="supplier-third-fourth-party-bsl" class="lazy-graph col-md-6 col-lg-4" data-key="supplier_third_fourth_party_bsl" data-args="<%= { supplier: @supplier.id }.to_json %>" data-append-to="supplier-third-fourth-party-bsl" data-partial-name="supplier_third_fourth_party_bsl">
           <%= render 'organisation/graphs/partials/supplier_third_fourth_party_bsl', data: {} %>
         </div>
       </div>

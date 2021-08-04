@@ -98,7 +98,8 @@ document.addEventListener('turbolinks:load', function() {
   /******************** Date Picker ********************
   ******************************************************/
   $('.datepicker').datepicker({
-    format: 'dd/mm/yyyy'
+    format: 'dd/mm/yyyy',
+    autoclose: true
   });
 
   /******************** Form Vamoose ********************
