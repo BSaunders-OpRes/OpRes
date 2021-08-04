@@ -19,7 +19,10 @@ class Organisation::DashboardBreakDownsController < Organisation::BaseController
     end
   end
 
-  def cloud_service_provider_breakdown; end
+  def cloud_service_provider_breakdown
+    @data = CHP::OverviewCharts.call({organisational_unit: organisational_unit})
+  end
+
   def critical_important_system; end
   def impact_tolerance_appetite; end
   def resilience_indicator_ticket; end
