@@ -54,6 +54,18 @@ class BusinessServiceLine < ApplicationRecord
                 .where(business_service_lines: { id: id })
   end
 
+  def country
+    unit.parent
+  end
+
+  def region
+    unit.parent.parent
+  end
+
+  def institution
+    unit.institution
+  end
+
   def product_ids
     products.pluck(:id)
   end
