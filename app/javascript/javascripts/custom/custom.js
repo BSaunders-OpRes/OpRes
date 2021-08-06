@@ -15,7 +15,13 @@ document.addEventListener('turbolinks:load', function() {
     $('.content').addClass('blur');
     $('.header').addClass('blur');
   });
-
+  $('input[type=number]').on('mousewheel', function(){
+    var el = $(this);
+    el.blur();
+    setTimeout(function(){
+      el.focus();
+    }, 10);
+  });
   $('.sidebar .list-unstyled li a.close-bar').on('click', function() {
     $('body').removeClass('overflow-hidden')
     $('.sidebar').css('width', '0');
