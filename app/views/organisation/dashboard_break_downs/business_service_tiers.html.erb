@@ -35,12 +35,12 @@
           <li class="links active-white mb-2 mb-sm-3">
             <a href="#section1" class=" text-decoration-none text-capitalize font-13 font-xxl-14 font-sm-12 d-block py-2">overview</a>
           </li>
-          <li class="links mb-2 mb-sm-3">
+<!--           <li class="links mb-2 mb-sm-3">
             <a href="#section2" class=" text-decoration-none text-capitalize font-13 font-xxl-14 font-sm-12 d-block py-2">Top 10 Vulnerable Tier 1 Business Services</a>
-          </li>
-          <li class="links mb-2 mb-sm-3">
+          </li> -->
+<!--           <li class="links mb-2 mb-sm-3">
             <a href="#section3" class=" text-decoration-none text-capitalize font-13 font-xxl-14 font-sm-12 d-block py-2">Tier N# Resilience Gaps Trend Analysis</a>
-          </li>
+          </li> -->
           <li class="links mb-2 mb-sm-3">
             <a href="#section4" class=" text-decoration-none text-capitalize font-13 font-xxl-14 font-sm-12 d-block py-2">Business Services Lines</a>
           </li>
@@ -1463,7 +1463,7 @@
               </div>
             </div>
           </div>
-          <div id="section2">
+<!--           <div id="section2">
             <div class="row mt-4 no-gutters">
               <div class="col-md-12 mb-4 mb-lg-0 px-1">
                 <div class="card border-0 shadow-sm rounded-50 overflow-hidden min-h-566">
@@ -1760,8 +1760,8 @@
                 </div>
               </div>
             </div>
-          </div>
-          <div id="section3">
+          </div> -->
+<!--           <div id="section3">
             <div class="row mt-4 no-gutters">
               <div class="col-md-12 px-1">
                 <div class="card border-0 shadow-sm rounded-50">
@@ -1786,7 +1786,7 @@
                 </div>
               </div>
             </div>
-          </div>
+          </div> -->
           <div id="section4">
             <div class="row mt-4 no-gutters">
               <div class="col-md-12 mb-4 mb-lg-0 px-1">
@@ -1852,96 +1852,23 @@
                           </tr>
                         </thead>
                         <tbody>
+                          <% @bsls.each do |bsl| %>
                           <tr>
-                            <td class="font-11 font-xxl-14 px-1 text-dark font-600">Onboarding</td>
-                            <td class="font-11 font-xxl-14 text-dark font-600">3</td>
-                            <td class="font-11 font-xxl-14 text-dark font-600">5</td>
-                            <td class="font-11 font-xxl-14 text-dark font-600">5</td>
-                            <td class="font-11 font-xxl-14 text-dark font-600">3</td>
-                            <td class="font-11 font-xxl-14 text-dark font-600">5</td>
+                            <td class="font-11 font-xxl-14 px-1 text-dark font-600"><%= bsl.name %></td>
+                            <td class="font-11 font-xxl-14 text-dark font-600"><%= bsl.tier.humanize %></td>
+                            <td class="font-11 font-xxl-14 text-dark font-600"><%= bsl.country.name %></td>
+                            <td class="font-11 font-xxl-14 text-dark font-600"><%= bsl.region.name %></td>
+                            <td class="font-11 font-xxl-14 text-dark font-600"><%= bsl.institution.name %></td>
+                            <td class="font-11 font-xxl-14 text-dark font-600"><%= bsl.products.count %></td>
                             <td class="font-11 font-xxl-14 text-dark font-600">
                               <div class="d-flex align-items-center">
                                 <div class="sm-circle bg-red"></div>
-                                <span class="ml-2 text-capitalize">very high</span>
+                                <span class="ml-2 text-capitalize">Exceeds</span>
                               </div>
                             </td>
-                            <td class="font-11 font-xxl-14 text-dark font-600">5</td>
+                            <td class="font-11 font-xxl-14 text-dark font-600">0</td>
                           </tr>
-                          <tr>
-                            <td class="font-11 font-xxl-14 px-1 text-dark font-600">Faster payment</td>
-                            <td class="font-11 font-xxl-14 text-dark font-600">3</td>
-                            <td class="font-11 font-xxl-14 text-dark font-600">5</td>
-                            <td class="font-11 font-xxl-14 text-dark font-600">5</td>
-                            <td class="font-11 font-xxl-14 text-dark font-600">3</td>
-                            <td class="font-11 font-xxl-14 text-dark font-600">5</td>
-                            <td class="font-11 font-xxl-14 text-dark font-600">
-                              <div class="d-flex align-items-center">
-                                <div class="sm-circle bg-red"></div>
-                                <span class="ml-2 text-capitalize">very high</span>
-                              </div>
-                            </td>
-                            <td class="font-11 font-xxl-14 text-dark font-600">5</td>
-                          </tr>
-                          <tr>
-                            <td class="font-11 font-xxl-14 px-1 text-dark font-600">ATM-withdrawl</td>
-                            <td class="font-11 font-xxl-14 text-dark font-600">3</td>
-                            <td class="font-11 font-xxl-14 text-dark font-600">5</td>
-                            <td class="font-11 font-xxl-14 text-dark font-600">5</td>
-                            <td class="font-11 font-xxl-14 text-dark font-600">3</td>
-                            <td class="font-11 font-xxl-14 text-dark font-600">5</td>
-                            <td class="font-11 font-xxl-14 text-dark font-600">
-                              <div class="d-flex align-items-center">
-                                <div class="sm-circle bg-red"></div>
-                                <span class="ml-2 text-capitalize">very high</span>
-                              </div>
-                            </td>
-                            <td class="font-11 font-xxl-14 text-dark font-600">5</td>
-                          </tr>
-                          <tr>
-                            <td class="font-11 font-xxl-14 px-1 text-dark font-600">Check my balance</td>
-                            <td class="font-11 font-xxl-14 text-dark font-600">3</td>
-                            <td class="font-11 font-xxl-14 text-dark font-600">5</td>
-                            <td class="font-11 font-xxl-14 text-dark font-600">5</td>
-                            <td class="font-11 font-xxl-14 text-dark font-600">3</td>
-                            <td class="font-11 font-xxl-14 text-dark font-600">5</td>
-                            <td class="font-11 font-xxl-14 text-dark font-600">
-                              <div class="d-flex align-items-center">
-                                <div class="sm-circle bg-red"></div>
-                                <span class="ml-2 text-capitalize">very high</span>
-                              </div>
-                            </td>
-                            <td class="font-11 font-xxl-14 text-dark font-600">5</td>
-                          </tr>
-                          <tr>
-                            <td class="font-11 font-xxl-14 px-1 text-dark font-600">Log in - internet banking</td>
-                            <td class="font-11 font-xxl-14 text-dark font-600">3</td>
-                            <td class="font-11 font-xxl-14 text-dark font-600">5</td>
-                            <td class="font-11 font-xxl-14 text-dark font-600">5</td>
-                            <td class="font-11 font-xxl-14 text-dark font-600">3</td>
-                            <td class="font-11 font-xxl-14 text-dark font-600">5</td>
-                            <td class="font-11 font-xxl-14 text-dark font-600">
-                              <div class="d-flex align-items-center">
-                                <div class="sm-circle bg-dark-yellow"></div>
-                                <span class="ml-2 text-capitalize">high</span>
-                              </div>
-                            </td>
-                            <td class="font-11 font-xxl-14 text-dark font-600">5</td>
-                          </tr>
-                          <tr>
-                            <td class="font-11 font-xxl-14 px-1 text-dark font-600">Make a payment</td>
-                            <td class="font-11 font-xxl-14 text-dark font-600">3</td>
-                            <td class="font-11 font-xxl-14 text-dark font-600">5</td>
-                            <td class="font-11 font-xxl-14 text-dark font-600">5</td>
-                            <td class="font-11 font-xxl-14 text-dark font-600">3</td>
-                            <td class="font-11 font-xxl-14 text-dark font-600">5</td>
-                            <td class="font-11 font-xxl-14 text-dark font-600">
-                              <div class="d-flex align-items-center">
-                                <div class="sm-circle bg-yellow"></div>
-                                <span class="ml-2 text-capitalize">medium</span>
-                              </div>
-                            </td>
-                            <td class="font-11 font-xxl-14 text-dark font-600">5</td>
-                          </tr>
+                          <% end %>
                         </tbody>
                       </table>
                     </div>
