@@ -26,9 +26,12 @@
           <span class="ml-2 font-14">Add New</span>
         <% end %>
       </div>
-      <div class="table-search-field px-4">
-        <i class="fa fa-search text-dark font-14" aria-hidden="true"></i>
-        <%= text_field_tag 'bsl[name]', nil, placeholder: 'Search Business Service Lines...', class: 'w-100 form-control border-0 shadow-none font-xxl-14 search-bsl-name', id: 'search-bsl-name' %>
+      <div class="px-4">
+        <div class="table-search-field">
+          <i class="fa fa-search text-dark font-14" aria-hidden="true"></i>
+          <%= text_field_tag 'bsl[name]', nil, placeholder: 'Search Business Service Lines...', class: 'w-100 form-control border-0 shadow-none font-xxl-14 search-bsl-name pl-4', id: 'search-bsl-name' %>
+          <span for="" class="m-0 font-13 empty-input-field font-600 text-danger">Clear</span>
+        </div>
       </div>
       <div class="table-filter-field px-4 d-flex mt-4 mb-2">
         <div class="filter">
@@ -133,9 +136,12 @@
           <span class="ml-2 font-14">Add New</span>
         <% end %>
       </div>
-      <div class="table-search-field px-4">
-        <i class="fa fa-search text-dark font-14" aria-hidden="true"></i>
-        <%= text_field_tag 'supplier[name]', nil, placeholder: 'Search Suppliers...', class: 'w-100 form-control border-0 shadow-none font-xxl-14 search-supplier-name', id: 'search-supplier-name' %>
+      <div class="px-4">
+        <div class="table-search-field">
+          <i class="fa fa-search text-dark font-14" aria-hidden="true"></i>
+          <%= text_field_tag 'supplier[name]', nil, placeholder: 'Search Suppliers...', class: 'w-100 form-control border-0 shadow-none font-xxl-14 search-supplier-name pl-4', id: 'search-supplier-name' %>
+          <span for="" class="m-0 font-13 empty-input-field font-600 text-danger">Clear</span>
+        </div>
       </div>
       <div class="table-filter-field px-4 d-flex mt-4 mb-2">
         <div class="filter">

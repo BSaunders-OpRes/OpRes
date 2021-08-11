@@ -4,7 +4,7 @@
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    left: 40px;
+    left: 7px;
   }
   input[type=text] {
     background: $body-bg-color;
@@ -23,6 +23,23 @@
   ::placeholder {
     font-size: 12px;
     font-weight: 500;
+  }
+  span {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    height: 100%;
+    display: flex;
+    align-items: center;
+  }
+  input:placeholder-shown {
+    padding: 5px 10px;
+  }
+  input:placeholder-shown + span {
+    opacity: 0;
+    visibility: hidden;
   }
 }
 .table-striped {
