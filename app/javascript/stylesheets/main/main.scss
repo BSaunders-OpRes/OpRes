@@ -1,3 +1,9 @@
+.carousel-i
+  img {
+    display: block !important;
+  }
+}
+
 .logo-box {
   img {
     display: block !important;
@@ -7,9 +13,9 @@
 img {
   display: none !important;
 }
-
-body {
-  font-family: 'DM Sans', sans-serif;
+html {
+  font-family: 'Eina01'body {
+  font-family: 'Eina01';
   margin: 0;
   padding: 0;
   box-sizing: border-box;

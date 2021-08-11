@@ -15,9 +15,9 @@
   </div>
 <% else %>
   <div class="card border-0 pie-high-chart overflow-hidden rounded-50">
-    <div class="card-header border-0 bg-white text-center">
+    <div class="card-header border-0 bg-white text-center h-auto">
       <p class="font-14 font-600 chart-header-title text-left mb-2 h-70px">Conformance with Business Service Impact Tolerances</p>
-      <%= link_to compound_resilience_organisation_business_service_lines_path , class: 'd-flex h-230px align-items-center justify-content-center' do %>
+      <%= link_to compound_resilience_organisation_supplier_path(params.dig(:args, :supplier)), class: 'd-flex h-230px align-items-center justify-content-center' do %>
         <div class="donut-content mb-2 w-100">
           <%= react_component('highcharts/donut', { data: data.dig(:overall, :graph), render_to: 'donut' }, { class: 'h-100' }) %>
           <div class="donut-value font-50 font-700 text-black"><%= data.dig(:overall, :total) %></div>
