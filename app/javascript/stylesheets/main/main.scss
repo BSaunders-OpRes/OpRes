@@ -1,4 +1,4 @@
-.carousel-i
+.carousel-img {
   img {
     display: block !important;
   }
@@ -14,7 +14,9 @@ img {
   display: none !important;
 }
 html {
-  font-family: 'Eina01'body {
+  font-family: 'Eina01';
+}
+body {
   font-family: 'Eina01';
   margin: 0;
   padding: 0;
