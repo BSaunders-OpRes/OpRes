@@ -1,7 +1,11 @@
 document.addEventListener('turbolinks:load', function() {
   /******************** Event Bindings ********************
   ********************************************************/
-  $('body').on('change', '.search-bsl-name, .search-supplier-name', function() {
+  $('body').on('click', '.empty-input-field', function (){
+    $(this).parents('.table-search-field').find('input').val('')
+    search_bsls_suppliers();
+  });
+  $('body').on('keyup', '.search-bsl-name, .search-supplier-name', function() {
     search_bsls_suppliers();
   });
 
@@ -9,10 +13,10 @@ document.addEventListener('turbolinks:load', function() {
     search_bsls_suppliers();
   });
 
+
   /******************** Main Methods ********************
   ******************************************************/
   function search_bsls_suppliers() {
-    show_loader();
     $.ajax({
       url:      '/organisation/administration_portal',
       dataType: 'script',
