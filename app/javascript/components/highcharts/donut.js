@@ -51,7 +51,7 @@ let chartOptions = {
   series: [{
     type: 'pie',
     name: '',
-    innerSize: '70%',
+    innerSize: '72%',
     groupPadding: 0,
     data: []
   }]

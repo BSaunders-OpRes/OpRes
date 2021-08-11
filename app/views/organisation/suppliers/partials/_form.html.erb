@@ -229,7 +229,7 @@
                 <div class="input-group-prepend">
                   <div class="input-group-text px-3 bg-white font-12">%</div>
                 </div>
-                <%= supplier_sla.number_field :service_level_agreement, min: 0, placeholder: 'Enter Target', id: 'inlineFormInputGroup', class: 'form-control form-control font-12 h-auto py-3 shadow-none' %>
+                <%= supplier_sla.number_field :service_level_agreement, min: 0, step: 0.01, placeholder: 'Enter Target', id: 'inlineFormInputGroup', class: 'form-control form-control font-12 h-auto py-3 shadow-none' %>
               </div>
             </div>
             <div class="col-sm-1 text-right order-2 flex-sm-half mb-2 mb-sm-0">
@@ -245,7 +245,7 @@
                 <div class="input-group-prepend">
                   <div class="input-group-text px-3 bg-white font-12">%</div>
                 </div>
-                <%= supplier_sla.number_field :service_level_objective, min: 0, placeholder: 'Enter Target', id: 'inlineFormInputGroup', class: 'form-control form-control font-12 h-auto py-3 shadow-none' %>
+                <%= supplier_sla.number_field :service_level_objective, min: 0, step: 0.01, placeholder: 'Enter Target', id: 'inlineFormInputGroup', class: 'form-control form-control font-12 h-auto py-3 shadow-none' %>
               </div>
             </div>
             <div class="col-sm-1 text-right order-2 flex-sm-half mb-2 mb-sm-0">
@@ -261,7 +261,7 @@
                 <div class="input-group-prepend">
                   <div class="input-group-text px-3 bg-white font-12 text-capitalize">minutes</div>
                 </div>
-                <%= supplier_sla.number_field :recovery_time_objective, min: 0, placeholder: 'Enter Target', id: 'inlineFormInputGroup', class: 'form-control form-control font-12 h-auto py-3 shadow-none' %>
+                <%= supplier_sla.number_field :recovery_time_objective, min: 0, step: 0.1, placeholder: 'Enter Target', id: 'inlineFormInputGroup', class: 'form-control form-control font-12 h-auto py-3 shadow-none' %>
               </div>              </div>
             <div class="col-sm-1 text-right order-2 flex-sm-half mb-2 mb-sm-0">
               <div class="info" data-toggle="tooltip" data-placement="top" title="Please input your RTO with this supplier" aria-hidden="true">i</div>
@@ -276,7 +276,7 @@
                 <div class="input-group-prepend">
                   <div class="input-group-text px-3 bg-white font-12 text-capitalize">minutes</div>
                 </div>
-                <%= supplier_sla.number_field :recovery_point_objective, min: 0, placeholder: 'Enter Target', id: 'inlineFormInputGroup', class: 'form-control form-control font-12 h-auto py-3 shadow-none' %>
+                <%= supplier_sla.number_field :recovery_point_objective, min: 0, step: 0.1, placeholder: 'Enter Target', id: 'inlineFormInputGroup', class: 'form-control form-control font-12 h-auto py-3 shadow-none' %>
               </div>              </div>
             <div class="col-sm-1 text-right order-2 flex-sm-half mb-2 mb-sm-0">
               <div class="info" data-toggle="tooltip" data-placement="top" title="Please input your RPO with this supplier" aria-hidden="true">i</div>
@@ -292,7 +292,7 @@
                 <div class="input-group-prepend">
                   <div class="input-group-text px-3 bg-white font-12">TPS</div>
                 </div>
-                <%= supplier_sla.number_field :transactions_per_second, min: 0, placeholder: 'Enter Target', class: 'form-control form-control font-12 h-auto py-3 shadow-none' %>
+                <%= supplier_sla.number_field :transactions_per_second, min: 0, step: 0.1, placeholder: 'Enter Target', class: 'form-control form-control font-12 h-auto py-3 shadow-none' %>
               </div>
             </div>
             <div class="col-sm-1 text-right order-2 flex-sm-half mb-2 mb-sm-0">
@@ -308,7 +308,7 @@
                 <div class="input-group-prepend">
                   <div class="input-group-text px-3 bg-white font-12">m/s</div>
                 </div>
-                <%= supplier_sla.number_field :response_time, min: 0, placeholder: 'Enter Target', class: 'form-control form-control font-12 h-auto py-3 shadow-none' %>
+                <%= supplier_sla.number_field :response_time, min: 0, step: 0.1, placeholder: 'Enter Target', class: 'form-control form-control font-12 h-auto py-3 shadow-none' %>
               </div>
             </div>
             <div class="col-sm-1 text-right order-2 flex-sm-half mb-2 mb-sm-0">
@@ -325,7 +325,7 @@
                 <div class="input-group-prepend">
                   <div class="input-group-text px-3 bg-white font-12 text-capitalize">minutes</div>
                 </div>
-                <%= supplier_sla.number_field :severity1, placeholder:'Enter Target', min: 0, class: 'form-control form-control font-12 h-auto py-3 shadow-none', id: 'inlineFormInputGroup'%>
+                <%= supplier_sla.number_field :severity1, placeholder:'Enter Target', step: 0.1, min: 0, class: 'form-control form-control font-12 h-auto py-3 shadow-none', id: 'inlineFormInputGroup'%>
               </div>
             </div>
             <div class="col-sm-1 text-right order-2 flex-sm-half mb-2 mb-sm-0">
@@ -341,7 +341,7 @@
                 <div class="input-group-prepend">
                   <div class="input-group-text px-3 bg-white font-12 text-capitalize">minutes</div>
                 </div>
-                <%= supplier_sla.number_field :severity2, min: 0, placeholder:'Enter Target', class: 'form-control form-control font-12 h-auto py-3 shadow-none', id: 'inlineFormInputGroup'%>
+                <%= supplier_sla.number_field :severity2, min: 0, placeholder:'Enter Target', step: 0.1, class: 'form-control form-control font-12 h-auto py-3 shadow-none', id: 'inlineFormInputGroup'%>
               </div>
             </div>
             <div class="col-sm-1 text-right order-2 flex-sm-half mb-2 mb-sm-0">
@@ -357,7 +357,7 @@
                 <div class="input-group-prepend">
                   <div class="input-group-text px-3 bg-white font-12 text-capitalize">minutes</div>
                 </div>
-               <%= supplier_sla.number_field :severity3, min: 0, placeholder:'Enter Target', class: 'form-control form-control font-12 h-auto py-3 shadow-none', id: 'inlineFormInputGroup'%>
+               <%= supplier_sla.number_field :severity3, min: 0, placeholder:'Enter Target', step: 0.1, class: 'form-control form-control font-12 h-auto py-3 shadow-none', id: 'inlineFormInputGroup'%>
               </div>
             </div>
             <div class="col-sm-1 text-right order-2 flex-sm-half mb-2 mb-sm-0">
@@ -373,7 +373,7 @@
                 <div class="input-group-prepend">
                   <div class="input-group-text px-3 bg-white font-12 text-capitalize">minutes</div>
                 </div>
-                <%= supplier_sla.number_field :severity4, min: 0, placeholder:'Enter Target', class: 'form-control form-control font-12 h-auto py-3 shadow-none', id: 'inlineFormInputGroup'%>
+                <%= supplier_sla.number_field :severity4, min: 0, placeholder:'Enter Target', step: 0.1, class: 'form-control form-control font-12 h-auto py-3 shadow-none', id: 'inlineFormInputGroup'%>
               </div>
             </div>
             <div class="col-sm-1 text-right order-2 flex-sm-half mb-2 mb-sm-0">
@@ -389,7 +389,7 @@
                 <div class="input-group-prepend">
                   <div class="input-group-text px-3 bg-white font-12 text-capitalize">minutes</div>
                 </div>
-               <%= supplier_sla.number_field :severity1_restoration, min: 0, placeholder:'Enter Target', class: 'form-control form-control font-12 h-auto py-3 shadow-none', id: 'inlineFormInputGroup'%>
+               <%= supplier_sla.number_field :severity1_restoration, min: 0, placeholder:'Enter Target', step: 0.1, class: 'form-control form-control font-12 h-auto py-3 shadow-none', id: 'inlineFormInputGroup'%>
               </div>
             </div>
             <div class="col-sm-1 text-right order-2 flex-sm-half mb-2 mb-sm-0">
@@ -406,7 +406,7 @@
                   <div class="input-group-text px-3 bg-white font-12 text-capitalize">minutes</div>
                 </div>
 
-              <%= supplier_sla.number_field :severity2_restoration, min: 0, placeholder:'Enter Target', class: 'form-control form-control font-12 h-auto py-3 shadow-none', id: 'inlineFormInputGroup'%>
+              <%= supplier_sla.number_field :severity2_restoration, min: 0, placeholder:'Enter Target', step: 0.1, class: 'form-control form-control font-12 h-auto py-3 shadow-none', id: 'inlineFormInputGroup'%>
               </div>
             </div>
             <div class="col-sm-1 text-right order-2 flex-sm-half mb-2 mb-sm-0">
@@ -422,7 +422,7 @@
                 <div class="input-group-prepend">
                   <div class="input-group-text px-3 bg-white font-12 text-capitalize">minutes</div>
                 </div>
-                <%= supplier_sla.number_field :severity3_restoration, min: 0, placeholder:'Enter Target', class: 'form-control form-control font-12 h-auto py-3 shadow-none', id: 'inlineFormInputGroup'%>
+                <%= supplier_sla.number_field :severity3_restoration, min: 0, placeholder:'Enter Target', step: 0.1, class: 'form-control form-control font-12 h-auto py-3 shadow-none', id: 'inlineFormInputGroup'%>
               </div>
             </div>
             <div class="col-sm-1 text-right order-2 flex-sm-half mb-2 mb-sm-0">
@@ -438,7 +438,7 @@
                 <div class="input-group-prepend">
                   <div class="input-group-text px-3 bg-white font-12 text-capitalize">minutes</div>
                 </div>
-                <%= supplier_sla.number_field :severity4_restoration, min: 0, placeholder:'Enter Target', class: 'form-control form-control font-12 h-auto py-3 shadow-none', id: 'inlineFormInputGroup'%>
+                <%= supplier_sla.number_field :severity4_restoration, min: 0, placeholder:'Enter Target', step: 0.1, class: 'form-control form-control font-12 h-auto py-3 shadow-none', id: 'inlineFormInputGroup'%>
               </div>
             </div>
             <div class="col-sm-1 text-right order-2 flex-sm-half mb-2 mb-sm-0">
