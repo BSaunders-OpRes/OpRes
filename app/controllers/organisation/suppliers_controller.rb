@@ -1,7 +1,7 @@
 class Organisation::SuppliersController < Organisation::BaseController
   load_and_authorize_resource
-  
-  before_action :load_supplier, only: %i[edit update show destroy critical_important_suppliers]
+
+  before_action :load_supplier, only: %i[edit update show destroy critical_important_suppliers compound_resilience]
 
   def new
     @supplier = Supplier.new
@@ -55,6 +55,12 @@ class Organisation::SuppliersController < Organisation::BaseController
   def critical_important_suppliers
     @critical_ss  = @supplier.critical_supplier_steps
     @important_ss = @supplier.important_supplier_steps
+  end
+
+  def compound_resilience
+    Sla::SLA_ATTR.each do |sla_attribute|
+      instance_variable_set("@#{sla_attribute}".to_sym, BusinessServiceLine.joins(:sla, steps: [supplier_steps: [:supplier]]).where(suppliers: {id: @supplier.id}).where.not(slas:{"#{sla_attribute}": nil}))
+    end
   end
 
   private

@@ -55,6 +55,7 @@ Rails.application.routes.draw do
     resources :suppliers do
       get :all_suppliers, on: :collection
       get :critical_important_suppliers, on: :member
+      get :compound_resilience,          on: :member
     end
     resources :unit_hierarchys, only: %i[] do
       get :load_countries,         on: :collection

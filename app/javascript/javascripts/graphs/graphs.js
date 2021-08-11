@@ -10,6 +10,7 @@ document.addEventListener('turbolinks:load', function() {
         url:      '/organisation/graphs/compose',
         dataType: 'script',
         type:     'GET',
+        async:     false,
         data:     {
           key:            $(this).data('key'),
           args:           $(this).data('args'),
