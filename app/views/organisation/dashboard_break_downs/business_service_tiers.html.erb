@@ -70,6 +70,10 @@
                 <div class="card border-0 shadow-sm rounded-50">
                   <div class="card-body px-0">
                     <div class="tab-content mb-3" id="myTabContent1">
+                     
+
+
+                      <!-- Tier 1 Start -->
                       <div class="tab-pane fade show active" id="tier-1" role="tabpanel" aria-labelledby="tier-1-tab">
                         <div class="box">
                           <div class="d-flex align-items-center mb-2 px-4">
@@ -146,7 +150,6 @@
                                     <%= render 'organisation/graphs/partials/tiers_consumption_model', data: {} %>
                                   </div>
                                 </div>
-
                               </div>
                               <div class="tab-pane fade" id="emea" role="tabpanel" aria-labelledby="emea-tab">
                                 <div class="table-responsive mb-4">
@@ -318,6 +321,10 @@
                           </div>
                         </div>
                       </div>
+                      <!-- Tier 1 End -->
+
+
+                      <!-- Tier 2 Start -->
                       <div class="tab-pane fade" id="tier-2" role="tabpanel" aria-labelledby="tier-2-tab">
                         <div class="box">
                           <div class="d-flex align-items-center mb-2 px-4">
@@ -327,243 +334,210 @@
                           <div class="table-custom">
                             <ul class="nav nav-tabs w-100 mb-2 px-4 py-2 border-0" id="myTab" role="tablist">
                               <li class="nav-item">
-                                <a class="text-decoration-none nav-link border-0 font-12 active pl-md-0 pl-0 pr-4 position-relative" id="all-regions-tab" data-toggle="tab" href="#all-regions" role="tab" aria-controls="all-regions" aria-selected="true">All Regions</a>
+                                <a class="text-decoration-none nav-link border-0 font-12 active pl-md-0 pl-0 pr-4 position-relative" id="all-regions-tab" data-toggle="tab" href="#all-regions1" role="tab" aria-controls="all-regions" aria-selected="true">All Regions</a>
                               </li>
                               <li class="nav-item">
-                                <a class="text-decoration-none nav-link border-0 font-12 pl-0 pr-4 position-relative" id="emea-tab" data-toggle="tab" href="#emea" role="tab" aria-controls="emea" aria-selected="false">EMEA</a>
+                                <a class="text-decoration-none nav-link border-0 font-12 pl-0 pr-4 position-relative" id="emea-tab" data-toggle="tab" href="#emea1" role="tab" aria-controls="emea" aria-selected="false">EMEA</a>
                               </li>
                               <li class="nav-item">
-                                <a class="text-decoration-none nav-link border-0 font-12 pl-0 pr-4 position-relative" id="amers-tab" data-toggle="tab" href="#amers" role="tab" aria-controls="amers" aria-selected="false">AMERS</a>
+                                <a class="text-decoration-none nav-link border-0 font-12 pl-0 pr-4 position-relative" id="amers-tab" data-toggle="tab" href="#amers1" role="tab" aria-controls="amers" aria-selected="false">AMERS</a>
                               </li>
                               <li class="nav-item">
-                                <a class="text-decoration-none nav-link border-0 font-12 pl-0 pr-4 position-relative" id="apac-tab" data-toggle="tab" href="#apac" role="tab" aria-controls="apac" aria-selected="false">APAC</a>
+                                <a class="text-decoration-none nav-link border-0 font-12 pl-0 pr-4 position-relative" id="apac-tab" data-toggle="tab" href="#apac1" role="tab" aria-controls="apac" aria-selected="false">APAC</a>
                               </li>
                             </ul>
                             <div class="tab-content" id="myTabContent2">
-                              <div class="tab-pane fade show active" id="all-regions" role="tabpanel" aria-labelledby="all-regions-tab">
+                              <div class="tab-pane fade show active" id="all-regions1" role="tabpanel" aria-labelledby="all-regions-tab">
                                 <div class="table-responsive mb-4">
-                                  <table class="table table-striped table-bordered">
+                                  <table class="table table-striped border-bottom">
                                     <thead>
                                       <tr>
-                                        <th class="border-top-0 font-weight-500 font-12" scope="col"></th>
-                                        <th class="border-top-0 font-weight-500 font-12" scope="col">EMEA</th>
-                                        <th class="border-top-0 font-weight-500 font-12" scope="col">AMERS</th>
-                                        <th class="border-top-0 font-weight-500 font-12" scope="col">APAC</th>
+                                        <th class="border-bottom-0 border-top-0 border-right font-weight-500 font-12 px-4 w-250px" scope="col"></th>
+                                        <th class="border-bottom-0 border-top-0 border-right font-weight-500 font-12 px-4" scope="col">EMEA</th>
+                                        <th class="border-bottom-0 border-top-0 border-right font-weight-500 font-12 px-4" scope="col">AMERS</th>
+                                        <th class="border-bottom-0 border-top-0 border-right font-weight-500 font-12 px-4" scope="col">APAC</th>
                                       </tr>
                                     </thead>
                                     <tbody>
                                       <tr>
                                         <td class="font-12 border-right font-500 py-3 px-4">Total Business Service</td>
-                                        <td class="font-12 border-right font-500 py-3 px-4"><%= @bsl_regional_tiers.dig('EMEA', 'tier_2').present? ? @bsl_regional_tiers.dig('EMEA', 'tier_2').size : '0' %></td>
-                                        <td class="font-12 border-right font-500 py-3 px-4"><%= @bsl_regional_tiers.dig('AMERS', 'tier_2').present? ? @bsl_regional_tiers.dig('AMERS', 'tier_2').size : '0' %></td>
-                                        <td class="font-12 border-right font-500 py-3 px-4"><%= @bsl_regional_tiers.dig('APAC', 'tier_2').present? ? @bsl_regional_tiers.dig('APAC', 'tier_2').size : '0' %></td>
+                                        <td class="font-12 border-right font-500 py-3 px-4"><%=  @bsl_regional_tiers.dig('EMEA', 'tier_1').present? ? @bsl_regional_tiers.dig('EMEA', 'tier_1').size : '0' %></td>
+                                        <td class="font-12 border-right font-500 py-3 px-4"><%= @bsl_regional_tiers.dig('AMERS', 'tier_1').present? ? @bsl_regional_tiers.dig('AMERS', 'tier_1').size : '0' %></td>
+                                        <td class="font-12 border-right font-500 py-3 px-4"><%= @bsl_regional_tiers.dig('APAC', 'tier_1').present? ? @bsl_regional_tiers.dig('APAC', 'tier_1').size : '0' %></td>
                                       </tr>
                                       <tr>
                                         <td class="font-12 border-right font-500 py-3 px-4">Total Resilience Gaps</td>
-                                        <td class="font-12 border-right font-500 py-3 px-4">8</td>
-                                        <td class="font-12 border-right font-500 py-3 px-4">8</td>
-                                        <td class="font-12 border-right font-500 py-3 px-4">8</td>
+                                        <td class="font-12 border-right font-500 py-3 px-4">0</td>
+                                        <td class="font-12 border-right font-500 py-3 px-4">0</td>
+                                        <td class="font-12 border-right font-500 py-3 px-4">0</td>
                                       </tr>
                                       <tr>
                                         <td class="font-12 border-right font-500 py-3 px-4">Total Internal Systems</td>
-                                        <td class="font-12 border-right font-500 py-3 px-4">6</td>
-                                        <td class="font-12 border-right font-500 py-3 px-4">6</td>
-                                        <td class="font-12 border-right font-500 py-3 px-4">6</td>
+                                        <td class="font-12 border-right font-500 py-3 px-4">0</td>
+                                        <td class="font-12 border-right font-500 py-3 px-4">0</td>
+                                        <td class="font-12 border-right font-500 py-3 px-4">0</td>
                                       </tr>
-                                      <tr>                                        
+                                      <tr>
                                         <td class="font-12 border-right font-500 py-3 px-4">Total 3rd Party Suppliers</td>
-                                        <td class="font-12 border-right font-500 py-3 px-4"><%= @bsl_tiers.dig('emea_tier_2_third_party_suppliers')&.size %></td>
-                                        <td class="font-12 border-right font-500 py-3 px-4"><%= @bsl_tiers.dig('amers_tier_2_third_party_suppliers')&.size %></td>
-                                        <td class="font-12 border-right font-500 py-3 px-4"><%= @bsl_tiers.dig('apac_tier_2_third_party_suppliers')&.size %></td>
+                                        <td class="font-12 border-right font-500 py-3 px-4"><%= @bsl_tiers.dig('emea_tier_1_third_party_suppliers')&.size %></td>
+                                        <td class="font-12 border-right font-500 py-3 px-4"><%= @bsl_tiers.dig('amers_tier_1_third_party_suppliers')&.size %></td>
+                                        <td class="font-12 border-right font-500 py-3 px-4"><%= @bsl_tiers.dig('apac_tier_1_third_party_suppliers')&.size %></td>
                                       </tr>
                                       <tr>
                                         <td class="font-12 border-right font-500 py-3 px-4">Total 4th Party Suppliers</td>
-                                        <td class="font-12 border-right font-500 py-3 px-4"><%= @bsl_tiers.dig('emea_tier_2_fourth_party_suppliers')&.size %></td>
-                                        <td class="font-12 border-right font-500 py-3 px-4"><%= @bsl_tiers.dig('amers_tier_2_fourth_party_suppliers')&.size %></td>
-                                        <td class="font-12 border-right font-500 py-3 px-4"><%= @bsl_tiers.dig('apac_tier_2_fourth_party_suppliers')&.size %></td>
+                                        <td class="font-12 border-right font-500 py-3 px-4"><%= @bsl_tiers.dig('emea_tier_1_fourth_party_suppliers')&.size %></td>
+                                        <td class="font-12 border-right font-500 py-3 px-4"><%= @bsl_tiers.dig('amers_tier_1_fourth_party_suppliers')&.size %></td>
+                                        <td class="font-12 border-right font-500 py-3 px-4"><%= @bsl_tiers.dig('apac_tier_1_fourth_party_suppliers')&.size %></td>
                                       </tr>
                                     </tbody>
                                   </table>
                                 </div>
                                 <div class="row">
-                                  <div id="service-provider-breakdown-tier_2" class="col-lg-6 col-md-12 custom-high-chart custom-high-chart mb-4 lazy-graph" data-key="tiers_service_provider_breakdown" data-args="<%= { bsl_ids: @bsls_tier.dig('tier_2')&.map(&:id) }.to_json %>" data-append-to="service-provider-breakdown-tier_2" data-partial-name="tiers_service_provider_breakdown">
+                                  <div id="service-provider-breakdown-tier_1" class="col-lg-6 col-md-12 custom-high-chart custom-high-chart mb-4 lazy-graph" data-key="tiers_service_provider_breakdown" data-args="<%= { bsl_ids: @bsls_tier.dig('tier_1')&.map(&:id) }.to_json %>" data-append-to="service-provider-breakdown-tier_1" data-partial-name="tiers_service_provider_breakdown">
                                     <%= render 'organisation/graphs/partials/tiers_service_provider_breakdown', data: {} %>
                                   </div>
 
-                                  <div id="consumption-model-tier_2" class="col-lg-6 col-md-12 custom-high-chart custom-high-chart mb-4 lazy-graph" data-key="tiers_consumption_model" data-args="<%= { bsl_ids: @bsls_tier.dig('tier_2')&.map(&:id) }.to_json %>" data-append-to="consumption-model-tier_2" data-partial-name="tiers_consumption_model">
+                                  <div id="consumption-model-tier_1" class="col-lg-6 col-md-12 custom-high-chart custom-high-chart mb-4 lazy-graph" data-key="tiers_consumption_model" data-args="<%= { bsl_ids: @bsls_tier.dig('tier_1')&.map(&:id) }.to_json %>" data-append-to="consumption-model-tier_1" data-partial-name="tiers_consumption_model">
                                     <%= render 'organisation/graphs/partials/tiers_consumption_model', data: {} %>
                                   </div>
                                 </div>
                               </div>
-                              <div class="tab-pane fade" id="emea" role="tabpanel" aria-labelledby="emea-tab">
+                              <div class="tab-pane fade" id="emea1" role="tabpanel" aria-labelledby="emea-tab">
+                                <div class="table-responsive mb-4">
+                                  <table class="table table-striped border-bottom">
+                                    <thead>
+                                      <tr>
+                                        <th class="border-bottom-0 border-top-0 border-right font-weight-500 font-12 px-4 w-250px" scope="col"></th>
+                                        <th class="border-bottom-0 border-top-0 border-right-0 font-weight-500 font-12 px-4" scope="col">EMEA</th>
+                                      </tr>
+                                    </thead>
+                                    <tbody>
+                                      <tr>
+                                        <td class="font-12 border-right font-500 py-3 px-4">Total Business Service</td>
+                                        <td class="font-12 border-right font-500 py-3 px-4"><%= @bsl_regional_tiers.dig('EMEA', 'tier_1')&.size || 0 %></td>
+                                      </tr>
+                                      <tr>
+                                        <td class="font-12 border-right font-500 py-3 px-4">Total Resilience Gaps</td>
+                                        <td class="font-12 border-right font-500 py-3 px-4">0</td>
+                                      </tr>
+                                      <tr>
+                                        <td class="font-12 border-right font-500 py-3 px-4">Total Internal Systems</td>
+                                        <td class="font-12 border-right font-500 py-3 px-4">0</td>
+                                      </tr>
+                                      <tr>
+                                        <td class="font-12 border-right font-500 py-3 px-4">Total 3rd Party Suppliers</td>
+                                        <td class="font-12 border-right font-500 py-3 px-4"><%= @bsl_tiers.dig('emea_tier_1_third_party_suppliers')&.size %></td>
+                                      </tr>
+                                      <tr>
+                                        <td class="font-12 border-right font-500 py-3 px-4">Total 4th Party Suppliers</td>
+                                        <td class="font-12 border-right font-500 py-3 px-4"><%= @bsl_tiers.dig('emea_tier_1_fourth_party_suppliers')&.size %></td>
+                                      </tr>
+                                    </tbody>
+                                  </table>
+                                </div>
                                 <div class="row custom-high-chart mb-4">
-                                  <div class="col-lg-6 col-md-12">
-                                    <div class="box">
-                                      <div class="col-md-12 mb-lg-0 mb-4 px-1">
-                                        <p class="px-2 font-14 text-capitalize font-600 chart-header-title mb-4">Service Provider Breakdown</p>
-                                        <div class="border-0 pie-high-chart overflow-hidden rounded-50 d-flex justify-content-center">
-                                          <div class="w-50 card-header p-2 bg-white text-center border-0">
-                                            <div class="donut-content">
-                                              <div id="thirteen-donut" class="donut"></div>
-                                              <div class="donut-value font-30 font-700">50</div>
-                                            </div>
-                                          </div>
-                                          <div class="card-body mt-3 p-2">
-                                            <div class="tiers d-flex justify-content-between align-items-center mb-3">
-                                              <div class="color-tier d-flex align-items-center">
-                                                <div class="circle green-1"></div>
-                                                <%= image_pack_tag 'media/images/aws.png', class: 'img-fluid ml-2' %>
-                                                <span class="font-12 font-400 ml-2">AWS</span>
-                                              </div>
-                                              <span class="font-12 font-700">24</span>
-                                            </div>
-                                            <div class="tiers d-flex justify-content-between align-items-center mb-3">
-                                              <div class="color-tier d-flex align-items-center">
-                                                <div class="circle green-2"></div>
-                                                <%= image_pack_tag 'media/images/g-cloud.png', class: 'img-fluid ml-2' %>
-                                                <span class="font-12 font-400 ml-2">GCP</span>
-                                              </div>
-                                              <span class="font-12 font-700">24</span>
-                                            </div>
-                                            <div class="tiers d-flex justify-content-between align-items-center mb-3">
-                                              <div class="color-tier d-flex align-items-center">
-                                                <div class="circle green-3"></div>
-                                                <%= image_pack_tag 'media/images/azure.png', class: 'img-fluid ml-2' %>
-                                                <span class="font-12 font-400 ml-2">Azure</span>
-                                              </div>
-                                              <span class="font-12 font-700">24</span>
-                                            </div>
-                                            <div class="tiers d-flex justify-content-between align-items-center">
-                                              <div class="color-tier d-flex align-items-center">
-                                                <div class="circle green-4"></div>
-                                                <%= image_pack_tag 'media/images/black-cloud.png', class: 'img-fluid ml-2' %>
-                                                <span class="font-12 font-400 ml-2">Private Cloud</span>
-                                              </div>
-                                              <span class="font-12 font-700">24</span>
-                                            </div>
-                                          </div>
-                                        </div>
-                                      </div>
-                                    </div>
+                                  <div id="service-provider-breakdown-tier_1_emea" class="col-lg-6 col-md-12 custom-high-chart custom-high-chart mb-4 lazy-graph" data-key="tiers_service_provider_breakdown" data-args="<%= { bsl_ids: @bsls_tier.dig('EMEA','tier_1')&.map(&:id) }.to_json %>" data-append-to="service-provider-breakdown-tier_1_emea" data-partial-name="tiers_service_provider_breakdown">
+                                    <%= render 'organisation/graphs/partials/tiers_service_provider_breakdown', data: {} %>
                                   </div>
-                                  <div class="col-lg-6 col-md-12">
-                                    <div class="box">
-                                      <div class="col-md-12 mb-lg-0 mb-4 px-1">
-                                        <p class="px-2 font-14 text-capitalize font-600 chart-header-title mb-4">Consumption Model Breakdown</p>
-                                        <div class="border-0 pie-high-chart overflow-hidden rounded-50 d-flex justify-content-center">
-                                          <div class="w-50 card-header p-2 bg-white text-center border-0">
-                                            <div class="donut-content">
-                                              <div id="fourteen-donut" class="donut"></div>
-                                              <div class="donut-value font-30 font-700">50</div>
-                                            </div>
-                                          </div>
-                                          <div class="card-body mt-3 p-2">
-                                            <div class="tiers d-flex justify-content-between align-items-center mb-3">
-                                              <div class="color-tier d-flex align-items-center">
-                                                <div class="circle green-1"></div>
-                                                <span class="font-12 font-400 ml-2">Lass</span>
-                                              </div>
-                                              <span class="font-12 font-700">24</span>
-                                            </div>
-                                            <div class="tiers d-flex justify-content-between align-items-center mb-3">
-                                              <div class="color-tier d-flex align-items-center">
-                                                <div class="circle green-2"></div>
-                                                <span class="font-12 font-400 ml-2">Saas</span>
-                                              </div>
-                                              <span class="font-12 font-700">24</span>
-                                            </div>
-                                            <div class="tiers d-flex justify-content-between align-items-center mb-3">
-                                              <div class="color-tier d-flex align-items-center">
-                                                <div class="circle green-3"></div>
-                                                <span class="font-12 font-400 ml-2">Paas</span>
-                                              </div>
-                                              <span class="font-12 font-700">24</span>
-                                            </div>
-                                            <div class="tiers d-flex justify-content-between align-items-center">
-                                              <div class="color-tier d-flex align-items-center">
-                                                <div class="circle green-4"></div>
-                                                <span class="font-12 font-400 ml-2">Private Cloud</span>
-                                              </div>
-                                              <span class="font-12 font-700">24</span>
-                                            </div>
-                                          </div>
-                                        </div>
-                                      </div>
-                                    </div>
+
+                                   <div id="consumption-model-tier_1_emea" class="col-lg-6 col-md-12 custom-high-chart custom-high-chart mb-4 lazy-graph" data-key="tiers_consumption_model" data-args="<%= { bsl_ids: @bsls_tier.dig('EMEA','tier_1')&.map(&:id) }.to_json %>" data-append-to="consumption-model-tier_1_emea" data-partial-name="tiers_consumption_model">
+                                    <%= render 'organisation/graphs/partials/tiers_consumption_model', data: {} %>
                                   </div>
                                 </div>
                               </div>
-                              <div class="tab-pane fade" id="amers" role="tabpanel" aria-labelledby="amers-tab">
-                                <table class="table table-striped">
-                                  <thead>
-                                    <tr>
-                                      <th scope="col">#</th>
-                                      <th scope="col">First</th>
-                                      <th scope="col">Last</th>
-                                      <th scope="col">Handle</th>
-                                    </tr>
-                                  </thead>
-                                  <tbody>
-                                    <tr>
-                                      <th scope="row">1</th>
-                                      <td class="font-12">Mark</td>
-                                      <td class="font-12">Otto</td>
-                                      <td class="font-12">@mdo</td>
-                                    </tr>
-                                    <tr>
-                                      <th scope="row">2</th>
-                                      <td class="font-12">Jacob</td>
-                                      <td class="font-12">Thornton</td>
-                                      <td class="font-12">@fat</td>
-                                    </tr>
-                                    <tr>
-                                      <th scope="row">3</th>
-                                      <td class="font-12">Larry</td>
-                                      <td class="font-12">the Bird</td>
-                                      <td class="font-12">@twitter</td>
-                                    </tr>
-                                  </tbody>
-                                
-                              </div></table>
-                              <div class="tab-pane fade" id="apac" role="tabpanel" aria-labelledby="apac-tab">
-                                <table class="table table-striped">
-                                  <thead>
-                                    <tr>
-                                      <th scope="col">#</th>
-                                      <th scope="col">First</th>
-                                      <th scope="col">Last</th>
-                                      <th scope="col">Handle</th>
-                                    </tr>
-                                  </thead>
-                                  <tbody>
-                                    <tr>
-                                      <th scope="row">1</th>
-                                      <td class="font-12">Mark</td>
-                                      <td class="font-12">Otto</td>
-                                      <td class="font-12">@mdo</td>
-                                    </tr>
-                                    <tr>
-                                      <th scope="row">2</th>
-                                      <td class="font-12">Jacob</td>
-                                      <td class="font-12">Thornton</td>
-                                      <td class="font-12">@fat</td>
-                                    </tr>
-                                    <tr>
-                                      <th scope="row">3</th>
-                                      <td class="font-12">Larry</td>
-                                      <td class="font-12">the Bird</td>
-                                      <td class="font-12">@twitter</td>
-                                    </tr>
-                                  </tbody>
-                                </table>
+                              <div class="tab-pane fade" id="amers1" role="tabpanel" aria-labelledby="amers-tab">
+                                <div class="table-responsive mb-4">
+                                  <table class="table table-striped border-bottom">
+                                    <thead>
+                                      <tr>
+                                        <th class="border-bottom-0 border-top-0 border-right font-weight-500 font-12 px-4 w-250px" scope="col"></th>
+                                        <th class="border-bottom-0 border-top-0 border-right font-weight-500 font-12 px-4" scope="col">AMERS</th>
+                                      </tr>
+                                    </thead>
+                                    <tbody>
+                                      <tr>
+                                        <td class="font-12 border-right font-500 py-3 px-4">Total Business Service</td>
+                                        <td class="font-12 border-right font-500 py-3 px-4"><%= @bsl_regional_tiers.dig('AMERS', 'tier_1')&.size || 0 %></td>
+                                      </tr>
+                                      <tr>
+                                        <td class="font-12 border-right font-500 py-3 px-4">Total Resilience Gaps</td>
+                                        <td class="font-12 border-right font-500 py-3 px-4">0</td>
+                                      </tr>
+                                      <tr>
+                                        <td class="font-12 border-right font-500 py-3 px-4">Total Internal Systems</td>
+                                        <td class="font-12 border-right font-500 py-3 px-4">0</td>
+                                      </tr>
+                                      <tr>
+                                        <td class="font-12 border-right font-500 py-3 px-4">Total 3rd Party Suppliers</td>
+                                        <td class="font-12 border-right font-500 py-3 px-4"><%= @bsl_tiers.dig('amers_tier_1_third_party_suppliers')&.size %></td>
+                                      </tr>
+                                      <tr>
+                                        <td class="font-12 border-right font-500 py-3 px-4">Total 4th Party Suppliers</td>
+                                        <td class="font-12 border-right font-500 py-3 px-4"><%= @bsl_tiers.dig('amers_tier_1_fourth_party_suppliers')&.size %></td>
+                                      </tr>
+                                    </tbody>
+                                  </table>
+                                </div>
+                                <div class="row custom-high-chart mb-4">
+                                  <div id="service-provider-breakdown-tier_1_amers" class="col-lg-6 col-md-12 custom-high-chart custom-high-chart mb-4 lazy-graph" data-key="tiers_service_provider_breakdown" data-args="<%= { bsl_ids: @bsls_tier.dig('EMEA','tier_1')&.map(&:id) }.to_json %>" data-append-to="service-provider-breakdown-tier_1_amers" data-partial-name="tiers_service_provider_breakdown">
+                                    <%= render 'organisation/graphs/partials/tiers_service_provider_breakdown', data: {} %>
+                                  </div>
+
+                                   <div id="consumption-model-tier_1_amers" class="col-lg-6 col-md-12 custom-high-chart custom-high-chart mb-4 lazy-graph" data-key="tiers_consumption_model" data-args="<%= { bsl_ids: @bsls_tier.dig('EMEA','tier_1')&.map(&:id) }.to_json %>" data-append-to="consumption-model-tier_1_amers" data-partial-name="tiers_consumption_model">
+                                    <%= render 'organisation/graphs/partials/tiers_consumption_model', data: {} %>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="tab-pane fade" id="apac1" role="tabpanel" aria-labelledby="apac-tab">
+                                <div class="table-responsive mb-4">
+                                  <table class="table table-striped border-bottom">
+                                    <thead>
+                                      <tr>
+                                        <th class="border-bottom-0 border-top-0 border-right font-weight-500 font-12 px-4 w-250px" scope="col"></th>
+                                        <th class="border-bottom-0 border-top-0 border-right font-weight-500 font-12 px-4" scope="col">APAC</th>
+                                      </tr>
+                                    </thead>
+                                    <tbody>
+                                      <tr>
+                                        <td class="font-12 border-right font-500 py-3 px-4">Total Business Service</td>
+                                        <td class="font-12 border-right font-500 py-3 px-4"><%= @bsl_regional_tiers.dig('APAC', 'tier_1')&.size || 0 %></td>
+                                      </tr>
+                                      <tr>
+                                        <td class="font-12 border-right font-500 py-3 px-4">Total Resilience Gaps</td>
+                                        <td class="font-12 border-right font-500 py-3 px-4">0</td>
+                                      </tr>
+                                      <tr>
+                                        <td class="font-12 border-right font-500 py-3 px-4">Total Internal Systems</td>
+                                        <td class="font-12 border-right font-500 py-3 px-4">0</td>
+
+                                      <tr>
+                                        <td class="font-12 border-right font-500 py-3 px-4">Total 3rd Party Suppliers</td>
+                                        <td class="font-12 border-right font-500 py-3 px-4"><%= @bsl_tiers.dig('apac_tier_1_third_party_suppliers')&.size %></td>
+                                      </tr>
+                                      <tr>
+                                        <td class="font-12 border-right font-500 py-3 px-4">Total 4th Party Suppliers</td>
+                                        <td class="font-12 border-right font-500 py-3 px-4"><%= @bsl_tiers.dig('apac_tier_1_fourth_party_suppliers')&.size %></td>
+                                      </tr>
+                                    </tbody>
+                                  </table>
+                                </div>
+                                <div class="row custom-high-chart mb-4">
+                                  <div id="service-provider-breakdown-tier_1_apac" class="col-lg-6 col-md-12 custom-high-chart custom-high-chart mb-4 lazy-graph" data-key="tiers_service_provider_breakdown" data-args="<%= { bsl_ids: @bsls_tier.dig('APAC','tier_1')&.map(&:id) }.to_json %>" data-append-to="service-provider-breakdown-tier_1_apac" data-partial-name="tiers_service_provider_breakdown">
+                                    <%= render 'organisation/graphs/partials/tiers_service_provider_breakdown', data: {} %>
+                                  </div>
+
+                                   <div id="consumption-model-tier_1_apac" class="col-lg-6 col-md-12 custom-high-chart custom-high-chart mb-4 lazy-graph" data-key="tiers_consumption_model" data-args="<%= { bsl_ids: @bsls_tier.dig('APAC','tier_1')&.map(&:id) }.to_json %>" data-append-to="consumption-model-tier_1_apac" data-partial-name="tiers_consumption_model">
+                                    <%= render 'organisation/graphs/partials/tiers_consumption_model', data: {} %>
+                                  </div>
+                                </div>
                               </div>
                             </div>
                           </div>
                         </div>
                         <div class="small-boxes row px-3">
-                          <div class="col-md-3">
+                          <div class="col-md-6 col-lg-3">
                             <div class="card h-100 border-0">
-                              <div class="card-body bg-body-color p-2 d-flex align-items-center">
+                              <div class="card-body mb-2 mb-lg-0 bg-body-color p-2 d-flex align-items-center rounded">
                                 <div class="color-tier d-flex align-items-center">
                                   <div class="sm-circle bg-red mr-1"></div>
                                   <div class="text">
@@ -574,9 +548,9 @@
                               </div>
                             </div>
                           </div>
-                          <div class="col-md-3">
+                          <div class="col-md-6 col-lg-3">
                             <div class="card h-100 border-0">
-                              <div class="card-body p-2 bg-body-color d-flex align-items-center">
+                              <div class="card-body mb-2 mb-lg-0 bg-body-color p-2 d-flex align-items-center rounded">
                                 <div class="color-tier d-flex align-items-center">
                                   <div class="circle green-1 mr-1"></div>
                                   <div class="text">
@@ -587,10 +561,9 @@
                               </div>
                             </div>
                           </div>
-                          <div class="col-md-3">
+                          <div class="col-md-6 col-lg-3">
                             <div class="card h-100 border-0">
-                              <div class="card-body
-                              bg-body-color p-2 d-flex align-items-center">
+                              <div class="card-body mb-2 mb-lg-0 p-2 d-flex bg-body-color align-items-center rounded">
                                 <div class="color-tier d-flex align-items-center">
                                   <span class="font-12 ml-2 font-600">APAC</span>
                                 </div>
@@ -599,6 +572,10 @@
                           </div>
                         </div>
                       </div>
+                      <!-- Tier 2 End -->
+
+
+                      <!-- Tier 3 Start -->
                       <div class="tab-pane fade" id="tier-3" role="tabpanel" aria-labelledby="tier-3-tab">
                         <div class="box">
                           <div class="d-flex align-items-center mb-2 px-4">
@@ -608,243 +585,210 @@
                           <div class="table-custom">
                             <ul class="nav nav-tabs w-100 mb-2 px-4 py-2 border-0" id="myTab" role="tablist">
                               <li class="nav-item">
-                                <a class="text-decoration-none nav-link border-0 font-12 active pl-md-0 pl-0 pr-4 position-relative" id="all-regions-tab" data-toggle="tab" href="#all-regions" role="tab" aria-controls="all-regions" aria-selected="true">All Regions</a>
+                                <a class="text-decoration-none nav-link border-0 font-12 active pl-md-0 pl-0 pr-4 position-relative" id="all-regions-tab" data-toggle="tab" href="#all-regions" role="tab" aria-controls="all-regions2" aria-selected="true">All Regions</a>
                               </li>
                               <li class="nav-item">
-                                <a class="text-decoration-none nav-link border-0 font-12 pl-0 pr-4 position-relative" id="emea-tab" data-toggle="tab" href="#emea" role="tab" aria-controls="emea" aria-selected="false">EMEA</a>
+                                <a class="text-decoration-none nav-link border-0 font-12 pl-0 pr-4 position-relative" id="emea-tab" data-toggle="tab" href="#emea2" role="tab" aria-controls="emea" aria-selected="false">EMEA</a>
                               </li>
                               <li class="nav-item">
-                                <a class="text-decoration-none nav-link border-0 font-12 pl-0 pr-4 position-relative" id="amers-tab" data-toggle="tab" href="#amers" role="tab" aria-controls="amers" aria-selected="false">AMERS</a>
+                                <a class="text-decoration-none nav-link border-0 font-12 pl-0 pr-4 position-relative" id="amers-tab" data-toggle="tab" href="#amers2" role="tab" aria-controls="amers" aria-selected="false">AMERS</a>
                               </li>
                               <li class="nav-item">
-                                <a class="text-decoration-none nav-link border-0 font-12 pl-0 pr-4 position-relative" id="apac-tab" data-toggle="tab" href="#apac" role="tab" aria-controls="apac" aria-selected="false">APAC</a>
+                                <a class="text-decoration-none nav-link border-0 font-12 pl-0 pr-4 position-relative" id="apac-tab" data-toggle="tab" href="#apac2" role="tab" aria-controls="apac" aria-selected="false">APAC</a>
                               </li>
                             </ul>
                             <div class="tab-content" id="myTabContent2">
-                              <div class="tab-pane fade show active" id="all-regions" role="tabpanel" aria-labelledby="all-regions-tab">
+                              <div class="tab-pane fade show active" id="all-regions2" role="tabpanel" aria-labelledby="all-regions-tab">
                                 <div class="table-responsive mb-4">
-                                  <table class="table table-striped table-bordered">
+                                  <table class="table table-striped border-bottom">
                                     <thead>
                                       <tr>
-                                        <th class="border-top-0 font-weight-500 font-12" scope="col"></th>
-                                        <th class="border-top-0 font-weight-500 font-12" scope="col">EMEA</th>
-                                        <th class="border-top-0 font-weight-500 font-12" scope="col">AMERS</th>
-                                        <th class="border-top-0 font-weight-500 font-12" scope="col">APAC</th>
+                                        <th class="border-bottom-0 border-top-0 border-right font-weight-500 font-12 px-4 w-250px" scope="col"></th>
+                                        <th class="border-bottom-0 border-top-0 border-right font-weight-500 font-12 px-4" scope="col">EMEA</th>
+                                        <th class="border-bottom-0 border-top-0 border-right font-weight-500 font-12 px-4" scope="col">AMERS</th>
+                                        <th class="border-bottom-0 border-top-0 border-right font-weight-500 font-12 px-4" scope="col">APAC</th>
                                       </tr>
                                     </thead>
                                     <tbody>
                                       <tr>
                                         <td class="font-12 border-right font-500 py-3 px-4">Total Business Service</td>
-                                        <td class="font-12 border-right font-500 py-3 px-4"><%= @bsl_regional_tiers.dig('EMEA', 'tier_3').present? ? @bsl_regional_tiers.dig('EMEA', 'tier_3').size : '0' %></td>
-                                        <td class="font-12 border-right font-500 py-3 px-4"><%= @bsl_regional_tiers.dig('AMERS', 'tier_3').present? ? @bsl_regional_tiers.dig('AMERS', 'tier_3').size : '0' %></td>
-                                        <td class="font-12 border-right font-500 py-3 px-4"><%= @bsl_regional_tiers.dig('APAC', 'tier_3').present? ? @bsl_regional_tiers.dig('APAC', 'tier_3').size : '0' %></td>
+                                        <td class="font-12 border-right font-500 py-3 px-4"><%=  @bsl_regional_tiers.dig('EMEA', 'tier_1').present? ? @bsl_regional_tiers.dig('EMEA', 'tier_1').size : '0' %></td>
+                                        <td class="font-12 border-right font-500 py-3 px-4"><%= @bsl_regional_tiers.dig('AMERS', 'tier_1').present? ? @bsl_regional_tiers.dig('AMERS', 'tier_1').size : '0' %></td>
+                                        <td class="font-12 border-right font-500 py-3 px-4"><%= @bsl_regional_tiers.dig('APAC', 'tier_1').present? ? @bsl_regional_tiers.dig('APAC', 'tier_1').size : '0' %></td>
                                       </tr>
                                       <tr>
                                         <td class="font-12 border-right font-500 py-3 px-4">Total Resilience Gaps</td>
-                                        <td class="font-12 border-right font-500 py-3 px-4">8</td>
-                                        <td class="font-12 border-right font-500 py-3 px-4">8</td>
-                                        <td class="font-12 border-right font-500 py-3 px-4">8</td>
+                                        <td class="font-12 border-right font-500 py-3 px-4">0</td>
+                                        <td class="font-12 border-right font-500 py-3 px-4">0</td>
+                                        <td class="font-12 border-right font-500 py-3 px-4">0</td>
                                       </tr>
                                       <tr>
                                         <td class="font-12 border-right font-500 py-3 px-4">Total Internal Systems</td>
-                                        <td class="font-12 border-right font-500 py-3 px-4">6</td>
-                                        <td class="font-12 border-right font-500 py-3 px-4">6</td>
-                                        <td class="font-12 border-right font-500 py-3 px-4">6</td>
+                                        <td class="font-12 border-right font-500 py-3 px-4">0</td>
+                                        <td class="font-12 border-right font-500 py-3 px-4">0</td>
+                                        <td class="font-12 border-right font-500 py-3 px-4">0</td>
                                       </tr>
-                                      <tr>                                        
+                                      <tr>
                                         <td class="font-12 border-right font-500 py-3 px-4">Total 3rd Party Suppliers</td>
-                                        <td class="font-12 border-right font-500 py-3 px-4"><%= @bsl_tiers.dig('emea_tier_3_third_party_suppliers')&.size %></td>
-                                        <td class="font-12 border-right font-500 py-3 px-4"><%= @bsl_tiers.dig('amers_tier_3_third_party_suppliers')&.size %></td>
-                                        <td class="font-12 border-right font-500 py-3 px-4"><%= @bsl_tiers.dig('apac_tier_3_third_party_suppliers')&.size %></td>
+                                        <td class="font-12 border-right font-500 py-3 px-4"><%= @bsl_tiers.dig('emea_tier_1_third_party_suppliers')&.size %></td>
+                                        <td class="font-12 border-right font-500 py-3 px-4"><%= @bsl_tiers.dig('amers_tier_1_third_party_suppliers')&.size %></td>
+                                        <td class="font-12 border-right font-500 py-3 px-4"><%= @bsl_tiers.dig('apac_tier_1_third_party_suppliers')&.size %></td>
                                       </tr>
                                       <tr>
                                         <td class="font-12 border-right font-500 py-3 px-4">Total 4th Party Suppliers</td>
-                                        <td class="font-12 border-right font-500 py-3 px-4"><%= @bsl_tiers.dig('emea_tier_3_fourth_party_suppliers')&.size %></td>
-                                        <td class="font-12 border-right font-500 py-3 px-4"><%= @bsl_tiers.dig('amers_tier_3_fourth_party_suppliers')&.size %></td>
-                                        <td class="font-12 border-right font-500 py-3 px-4"><%= @bsl_tiers.dig('apac_tier_3_fourth_party_suppliers')&.size %></td>
+                                        <td class="font-12 border-right font-500 py-3 px-4"><%= @bsl_tiers.dig('emea_tier_1_fourth_party_suppliers')&.size %></td>
+                                        <td class="font-12 border-right font-500 py-3 px-4"><%= @bsl_tiers.dig('amers_tier_1_fourth_party_suppliers')&.size %></td>
+                                        <td class="font-12 border-right font-500 py-3 px-4"><%= @bsl_tiers.dig('apac_tier_1_fourth_party_suppliers')&.size %></td>
                                       </tr>
                                     </tbody>
                                   </table>
                                 </div>
                                 <div class="row">
-                                  <div id="service-provider-breakdown-tier_3" class="col-lg-6 col-md-12 custom-high-chart custom-high-chart mb-4 lazy-graph" data-key="tiers_service_provider_breakdown" data-args="<%= { bsl_ids: @bsls_tier.dig('tier_3')&.map(&:id) }.to_json %>" data-append-to="service-provider-breakdown-tier_3" data-partial-name="tiers_service_provider_breakdown">
+                                  <div id="service-provider-breakdown-tier_1" class="col-lg-6 col-md-12 custom-high-chart custom-high-chart mb-4 lazy-graph" data-key="tiers_service_provider_breakdown" data-args="<%= { bsl_ids: @bsls_tier.dig('tier_1')&.map(&:id) }.to_json %>" data-append-to="service-provider-breakdown-tier_1" data-partial-name="tiers_service_provider_breakdown">
                                     <%= render 'organisation/graphs/partials/tiers_service_provider_breakdown', data: {} %>
                                   </div>
 
-                                  <div id="consumption-model-tier_3" class="col-lg-6 col-md-12 custom-high-chart custom-high-chart mb-4 lazy-graph" data-key="tiers_consumption_model" data-args="<%= { bsl_ids: @bsls_tier.dig('tier_3')&.map(&:id) }.to_json %>" data-append-to="consumption-model-tier_3" data-partial-name="tiers_consumption_model">
+                                  <div id="consumption-model-tier_1" class="col-lg-6 col-md-12 custom-high-chart custom-high-chart mb-4 lazy-graph" data-key="tiers_consumption_model" data-args="<%= { bsl_ids: @bsls_tier.dig('tier_1')&.map(&:id) }.to_json %>" data-append-to="consumption-model-tier_1" data-partial-name="tiers_consumption_model">
                                     <%= render 'organisation/graphs/partials/tiers_consumption_model', data: {} %>
                                   </div>
                                 </div>
                               </div>
-                              <div class="tab-pane fade" id="emea" role="tabpanel" aria-labelledby="emea-tab">
+                              <div class="tab-pane fade" id="emea2" role="tabpanel" aria-labelledby="emea-tab">
+                                <div class="table-responsive mb-4">
+                                  <table class="table table-striped border-bottom">
+                                    <thead>
+                                      <tr>
+                                        <th class="border-bottom-0 border-top-0 border-right font-weight-500 font-12 px-4 w-250px" scope="col"></th>
+                                        <th class="border-bottom-0 border-top-0 border-right-0 font-weight-500 font-12 px-4" scope="col">EMEA</th>
+                                      </tr>
+                                    </thead>
+                                    <tbody>
+                                      <tr>
+                                        <td class="font-12 border-right font-500 py-3 px-4">Total Business Service</td>
+                                        <td class="font-12 border-right font-500 py-3 px-4"><%= @bsl_regional_tiers.dig('EMEA', 'tier_1')&.size || 0 %></td>
+                                      </tr>
+                                      <tr>
+                                        <td class="font-12 border-right font-500 py-3 px-4">Total Resilience Gaps</td>
+                                        <td class="font-12 border-right font-500 py-3 px-4">0</td>
+                                      </tr>
+                                      <tr>
+                                        <td class="font-12 border-right font-500 py-3 px-4">Total Internal Systems</td>
+                                        <td class="font-12 border-right font-500 py-3 px-4">0</td>
+                                      </tr>
+                                      <tr>
+                                        <td class="font-12 border-right font-500 py-3 px-4">Total 3rd Party Suppliers</td>
+                                        <td class="font-12 border-right font-500 py-3 px-4"><%= @bsl_tiers.dig('emea_tier_1_third_party_suppliers')&.size %></td>
+                                      </tr>
+                                      <tr>
+                                        <td class="font-12 border-right font-500 py-3 px-4">Total 4th Party Suppliers</td>
+                                        <td class="font-12 border-right font-500 py-3 px-4"><%= @bsl_tiers.dig('emea_tier_1_fourth_party_suppliers')&.size %></td>
+                                      </tr>
+                                    </tbody>
+                                  </table>
+                                </div>
                                 <div class="row custom-high-chart mb-4">
-                                  <div class="col-lg-6 col-md-12">
-                                    <div class="box">
-                                      <div class="col-md-12 mb-lg-0 mb-4 px-1">
-                                        <p class="px-2 font-14 text-capitalize font-600 chart-header-title mb-4">Service Provider Breakdown</p>
-                                        <div class="border-0 pie-high-chart overflow-hidden rounded-50 d-flex justify-content-center">
-                                          <div class="w-50 card-header p-2 bg-white text-center border-0">
-                                            <div class="donut-content">
-                                              <div id="thirteen-donut" class="donut"></div>
-                                              <div class="donut-value font-30 font-700">50</div>
-                                            </div>
-                                          </div>
-                                          <div class="card-body mt-3 p-2">
-                                            <div class="tiers d-flex justify-content-between align-items-center mb-3">
-                                              <div class="color-tier d-flex align-items-center">
-                                                <div class="circle green-1"></div>
-                                                <%= image_pack_tag 'media/images/aws.png', class: 'img-fluid ml-2' %>
-                                                <span class="font-12 font-400 ml-2">AWS</span>
-                                              </div>
-                                              <span class="font-12 font-700">24</span>
-                                            </div>
-                                            <div class="tiers d-flex justify-content-between align-items-center mb-3">
-                                              <div class="color-tier d-flex align-items-center">
-                                                <div class="circle green-2"></div>
-                                                <%= image_pack_tag 'media/images/g-cloud.png', class: 'img-fluid ml-2' %>
-                                                <span class="font-12 font-400 ml-2">GCP</span>
-                                              </div>
-                                              <span class="font-12 font-700">24</span>
-                                            </div>
-                                            <div class="tiers d-flex justify-content-between align-items-center mb-3">
-                                              <div class="color-tier d-flex align-items-center">
-                                                <div class="circle green-3"></div>
-                                                <%= image_pack_tag 'media/images/azure.png', class: 'img-fluid ml-2' %>
-                                                <span class="font-12 font-400 ml-2">Azure</span>
-                                              </div>
-                                              <span class="font-12 font-700">24</span>
-                                            </div>
-                                            <div class="tiers d-flex justify-content-between align-items-center">
-                                              <div class="color-tier d-flex align-items-center">
-                                                <div class="circle green-4"></div>
-                                                <%= image_pack_tag 'media/images/black-cloud.png', class: 'img-fluid ml-2' %>
-                                                <span class="font-12 font-400 ml-2">Private Cloud</span>
-                                              </div>
-                                              <span class="font-12 font-700">24</span>
-                                            </div>
-                                          </div>
-                                        </div>
-                                      </div>
-                                    </div>
+                                  <div id="service-provider-breakdown-tier_1_emea" class="col-lg-6 col-md-12 custom-high-chart custom-high-chart mb-4 lazy-graph" data-key="tiers_service_provider_breakdown" data-args="<%= { bsl_ids: @bsls_tier.dig('EMEA','tier_1')&.map(&:id) }.to_json %>" data-append-to="service-provider-breakdown-tier_1_emea" data-partial-name="tiers_service_provider_breakdown">
+                                    <%= render 'organisation/graphs/partials/tiers_service_provider_breakdown', data: {} %>
                                   </div>
-                                  <div class="col-lg-6 col-md-12">
-                                    <div class="box">
-                                      <div class="col-md-12 mb-lg-0 mb-4 px-1">
-                                        <p class="px-2 font-14 text-capitalize font-600 chart-header-title mb-4">Consumption Model Breakdown</p>
-                                        <div class="border-0 pie-high-chart overflow-hidden rounded-50 d-flex justify-content-center">
-                                          <div class="w-50 card-header p-2 bg-white text-center border-0">
-                                            <div class="donut-content">
-                                              <div id="fourteen-donut" class="donut"></div>
-                                              <div class="donut-value font-30 font-700">50</div>
-                                            </div>
-                                          </div>
-                                          <div class="card-body mt-3 p-2">
-                                            <div class="tiers d-flex justify-content-between align-items-center mb-3">
-                                              <div class="color-tier d-flex align-items-center">
-                                                <div class="circle green-1"></div>
-                                                <span class="font-12 font-400 ml-2">Lass</span>
-                                              </div>
-                                              <span class="font-12 font-700">24</span>
-                                            </div>
-                                            <div class="tiers d-flex justify-content-between align-items-center mb-3">
-                                              <div class="color-tier d-flex align-items-center">
-                                                <div class="circle green-2"></div>
-                                                <span class="font-12 font-400 ml-2">Saas</span>
-                                              </div>
-                                              <span class="font-12 font-700">24</span>
-                                            </div>
-                                            <div class="tiers d-flex justify-content-between align-items-center mb-3">
-                                              <div class="color-tier d-flex align-items-center">
-                                                <div class="circle green-3"></div>
-                                                <span class="font-12 font-400 ml-2">Paas</span>
-                                              </div>
-                                              <span class="font-12 font-700">24</span>
-                                            </div>
-                                            <div class="tiers d-flex justify-content-between align-items-center">
-                                              <div class="color-tier d-flex align-items-center">
-                                                <div class="circle green-4"></div>
-                                                <span class="font-12 font-400 ml-2">Private Cloud</span>
-                                              </div>
-                                              <span class="font-12 font-700">24</span>
-                                            </div>
-                                          </div>
-                                        </div>
-                                      </div>
-                                    </div>
+
+                                   <div id="consumption-model-tier_1_emea" class="col-lg-6 col-md-12 custom-high-chart custom-high-chart mb-4 lazy-graph" data-key="tiers_consumption_model" data-args="<%= { bsl_ids: @bsls_tier.dig('EMEA','tier_1')&.map(&:id) }.to_json %>" data-append-to="consumption-model-tier_1_emea" data-partial-name="tiers_consumption_model">
+                                    <%= render 'organisation/graphs/partials/tiers_consumption_model', data: {} %>
                                   </div>
                                 </div>
                               </div>
-                              <div class="tab-pane fade" id="amers" role="tabpanel" aria-labelledby="amers-tab">
-                                <table class="table table-striped">
-                                  <thead>
-                                    <tr>
-                                      <th scope="col">#</th>
-                                      <th scope="col">First</th>
-                                      <th scope="col">Last</th>
-                                      <th scope="col">Handle</th>
-                                    </tr>
-                                  </thead>
-                                  <tbody>
-                                    <tr>
-                                      <th scope="row">1</th>
-                                      <td class="font-12">Mark</td>
-                                      <td class="font-12">Otto</td>
-                                      <td class="font-12">@mdo</td>
-                                    </tr>
-                                    <tr>
-                                      <th scope="row">2</th>
-                                      <td class="font-12">Jacob</td>
-                                      <td class="font-12">Thornton</td>
-                                      <td class="font-12">@fat</td>
-                                    </tr>
-                                    <tr>
-                                      <th scope="row">3</th>
-                                      <td class="font-12">Larry</td>
-                                      <td class="font-12">the Bird</td>
-                                      <td class="font-12">@twitter</td>
-                                    </tr>
-                                  </tbody>
-                                </table>
+                              <div class="tab-pane fade" id="amers2" role="tabpanel" aria-labelledby="amers-tab">
+                                <div class="table-responsive mb-4">
+                                  <table class="table table-striped border-bottom">
+                                    <thead>
+                                      <tr>
+                                        <th class="border-bottom-0 border-top-0 border-right font-weight-500 font-12 px-4 w-250px" scope="col"></th>
+                                        <th class="border-bottom-0 border-top-0 border-right font-weight-500 font-12 px-4" scope="col">AMERS</th>
+                                      </tr>
+                                    </thead>
+                                    <tbody>
+                                      <tr>
+                                        <td class="font-12 border-right font-500 py-3 px-4">Total Business Service</td>
+                                        <td class="font-12 border-right font-500 py-3 px-4"><%= @bsl_regional_tiers.dig('AMERS', 'tier_1')&.size || 0 %></td>
+                                      </tr>
+                                      <tr>
+                                        <td class="font-12 border-right font-500 py-3 px-4">Total Resilience Gaps</td>
+                                        <td class="font-12 border-right font-500 py-3 px-4">0</td>
+                                      </tr>
+                                      <tr>
+                                        <td class="font-12 border-right font-500 py-3 px-4">Total Internal Systems</td>
+                                        <td class="font-12 border-right font-500 py-3 px-4">0</td>
+                                      </tr>
+                                      <tr>
+                                        <td class="font-12 border-right font-500 py-3 px-4">Total 3rd Party Suppliers</td>
+                                        <td class="font-12 border-right font-500 py-3 px-4"><%= @bsl_tiers.dig('amers_tier_1_third_party_suppliers')&.size %></td>
+                                      </tr>
+                                      <tr>
+                                        <td class="font-12 border-right font-500 py-3 px-4">Total 4th Party Suppliers</td>
+                                        <td class="font-12 border-right font-500 py-3 px-4"><%= @bsl_tiers.dig('amers_tier_1_fourth_party_suppliers')&.size %></td>
+                                      </tr>
+                                    </tbody>
+                                  </table>
+                                </div>
+                                <div class="row custom-high-chart mb-4">
+                                  <div id="service-provider-breakdown-tier_1_amers" class="col-lg-6 col-md-12 custom-high-chart custom-high-chart mb-4 lazy-graph" data-key="tiers_service_provider_breakdown" data-args="<%= { bsl_ids: @bsls_tier.dig('EMEA','tier_1')&.map(&:id) }.to_json %>" data-append-to="service-provider-breakdown-tier_1_amers" data-partial-name="tiers_service_provider_breakdown">
+                                    <%= render 'organisation/graphs/partials/tiers_service_provider_breakdown', data: {} %>
+                                  </div>
+
+                                   <div id="consumption-model-tier_1_amers" class="col-lg-6 col-md-12 custom-high-chart custom-high-chart mb-4 lazy-graph" data-key="tiers_consumption_model" data-args="<%= { bsl_ids: @bsls_tier.dig('EMEA','tier_1')&.map(&:id) }.to_json %>" data-append-to="consumption-model-tier_1_amers" data-partial-name="tiers_consumption_model">
+                                    <%= render 'organisation/graphs/partials/tiers_consumption_model', data: {} %>
+                                  </div>
+                                </div>
                               </div>
-                              <div class="tab-pane fade" id="apac" role="tabpanel" aria-labelledby="apac-tab">
-                                <table class="table table-striped">
-                                  <thead>
-                                    <tr>
-                                      <th scope="col">#</th>
-                                      <th scope="col">First</th>
-                                      <th scope="col">Last</th>
-                                      <th scope="col">Handle</th>
-                                    </tr>
-                                  </thead>
-                                  <tbody>
-                                    <tr>
-                                      <th scope="row">1</th>
-                                      <td class="font-12">Mark</td>
-                                      <td class="font-12">Otto</td>
-                                      <td class="font-12">@mdo</td>
-                                    </tr>
-                                    <tr>
-                                      <th scope="row">2</th>
-                                      <td class="font-12">Jacob</td>
-                                      <td class="font-12">Thornton</td>
-                                      <td class="font-12">@fat</td>
-                                    </tr>
-                                    <tr>
-                                      <th scope="row">3</th>
-                                      <td class="font-12">Larry</td>
-                                      <td class="font-12">the Bird</td>
-                                      <td class="font-12">@twitter</td>
-                                    </tr>
-                                  </tbody>
-                                </table>
+                              <div class="tab-pane fade" id="apac2" role="tabpanel" aria-labelledby="apac-tab">
+                                <div class="table-responsive mb-4">
+                                  <table class="table table-striped border-bottom">
+                                    <thead>
+                                      <tr>
+                                        <th class="border-bottom-0 border-top-0 border-right font-weight-500 font-12 px-4 w-250px" scope="col"></th>
+                                        <th class="border-bottom-0 border-top-0 border-right font-weight-500 font-12 px-4" scope="col">APAC</th>
+                                      </tr>
+                                    </thead>
+                                    <tbody>
+                                      <tr>
+                                        <td class="font-12 border-right font-500 py-3 px-4">Total Business Service</td>
+                                        <td class="font-12 border-right font-500 py-3 px-4"><%= @bsl_regional_tiers.dig('APAC', 'tier_1')&.size || 0 %></td>
+                                      </tr>
+                                      <tr>
+                                        <td class="font-12 border-right font-500 py-3 px-4">Total Resilience Gaps</td>
+                                        <td class="font-12 border-right font-500 py-3 px-4">0</td>
+                                      </tr>
+                                      <tr>
+                                        <td class="font-12 border-right font-500 py-3 px-4">Total Internal Systems</td>
+                                        <td class="font-12 border-right font-500 py-3 px-4">0</td>
+
+                                      <tr>
+                                        <td class="font-12 border-right font-500 py-3 px-4">Total 3rd Party Suppliers</td>
+                                        <td class="font-12 border-right font-500 py-3 px-4"><%= @bsl_tiers.dig('apac_tier_1_third_party_suppliers')&.size %></td>
+                                      </tr>
+                                      <tr>
+                                        <td class="font-12 border-right font-500 py-3 px-4">Total 4th Party Suppliers</td>
+                                        <td class="font-12 border-right font-500 py-3 px-4"><%= @bsl_tiers.dig('apac_tier_1_fourth_party_suppliers')&.size %></td>
+                                      </tr>
+                                    </tbody>
+                                  </table>
+                                </div>
+                                <div class="row custom-high-chart mb-4">
+                                  <div id="service-provider-breakdown-tier_1_apac" class="col-lg-6 col-md-12 custom-high-chart custom-high-chart mb-4 lazy-graph" data-key="tiers_service_provider_breakdown" data-args="<%= { bsl_ids: @bsls_tier.dig('APAC','tier_1')&.map(&:id) }.to_json %>" data-append-to="service-provider-breakdown-tier_1_apac" data-partial-name="tiers_service_provider_breakdown">
+                                    <%= render 'organisation/graphs/partials/tiers_service_provider_breakdown', data: {} %>
+                                  </div>
+
+                                   <div id="consumption-model-tier_1_apac" class="col-lg-6 col-md-12 custom-high-chart custom-high-chart mb-4 lazy-graph" data-key="tiers_consumption_model" data-args="<%= { bsl_ids: @bsls_tier.dig('APAC','tier_1')&.map(&:id) }.to_json %>" data-append-to="consumption-model-tier_1_apac" data-partial-name="tiers_consumption_model">
+                                    <%= render 'organisation/graphs/partials/tiers_consumption_model', data: {} %>
+                                  </div>
+                                </div>
                               </div>
                             </div>
                           </div>
                         </div>
                         <div class="small-boxes row px-3">
-                          <div class="col-md-3">
+                          <div class="col-md-6 col-lg-3">
                             <div class="card h-100 border-0">
-                              <div class="card-body bg-body-color p-2 d-flex align-items-center">
+                              <div class="card-body mb-2 mb-lg-0 bg-body-color p-2 d-flex align-items-center rounded">
                                 <div class="color-tier d-flex align-items-center">
                                   <div class="sm-circle bg-red mr-1"></div>
                                   <div class="text">
@@ -855,9 +799,9 @@
                               </div>
                             </div>
                           </div>
-                          <div class="col-md-3">
+                          <div class="col-md-6 col-lg-3">
                             <div class="card h-100 border-0">
-                              <div class="card-body bg-body-color p-2 d-flex align-items-center">
+                              <div class="card-body mb-2 mb-lg-0 bg-body-color p-2 d-flex align-items-center rounded">
                                 <div class="color-tier d-flex align-items-center">
                                   <div class="circle green-1 mr-1"></div>
                                   <div class="text">
@@ -868,9 +812,9 @@
                               </div>
                             </div>
                           </div>
-                          <div class="col-md-3">
+                          <div class="col-md-6 col-lg-3">
                             <div class="card h-100 border-0">
-                              <div class="card-body bg-body-color p-2 d-flex align-items-center">
+                              <div class="card-body mb-2 mb-lg-0 p-2 d-flex bg-body-color align-items-center rounded">
                                 <div class="color-tier d-flex align-items-center">
                                   <span class="font-12 ml-2 font-600">APAC</span>
                                 </div>
@@ -879,6 +823,10 @@
                           </div>
                         </div>
                       </div>
+                      <!-- Tier 3 End -->
+
+
+                      <!-- Tier 4 Start -->
                       <div class="tab-pane fade" id="tier-4" role="tabpanel" aria-labelledby="tier-4-tab">
                         <div class="box">
                           <div class="d-flex align-items-center mb-2 px-4">
@@ -888,244 +836,210 @@
                           <div class="table-custom">
                             <ul class="nav nav-tabs w-100 mb-2 px-4 py-2 border-0" id="myTab" role="tablist">
                               <li class="nav-item">
-                                <a class="text-decoration-none nav-link border-0 font-12 active pl-md-0 pl-0 pr-4 position-relative" id="all-regions-tab" data-toggle="tab" href="#all-regions" role="tab" aria-controls="all-regions" aria-selected="true">All Regions</a>
+                                <a class="text-decoration-none nav-link border-0 font-12 active pl-md-0 pl-0 pr-4 position-relative" id="all-regions-tab" data-toggle="tab" href="#all-regions3" role="tab" aria-controls="all-regions" aria-selected="true">All Regions</a>
                               </li>
                               <li class="nav-item">
-                                <a class="text-decoration-none nav-link border-0 font-12 pl-0 pr-4 position-relative" id="emea-tab" data-toggle="tab" href="#emea" role="tab" aria-controls="emea" aria-selected="false">EMEA</a>
+                                <a class="text-decoration-none nav-link border-0 font-12 pl-0 pr-4 position-relative" id="emea-tab" data-toggle="tab" href="#emea3" role="tab" aria-controls="emea" aria-selected="false">EMEA</a>
                               </li>
                               <li class="nav-item">
-                                <a class="text-decoration-none nav-link border-0 font-12 pl-0 pr-4 position-relative" id="amers-tab" data-toggle="tab" href="#amers" role="tab" aria-controls="amers" aria-selected="false">AMERS</a>
+                                <a class="text-decoration-none nav-link border-0 font-12 pl-0 pr-4 position-relative" id="amers-tab" data-toggle="tab" href="#amers3" role="tab" aria-controls="amers" aria-selected="false">AMERS</a>
                               </li>
                               <li class="nav-item">
-                                <a class="text-decoration-none nav-link border-0 font-12 pl-0 pr-4 position-relative" id="apac-tab" data-toggle="tab" href="#apac" role="tab" aria-controls="apac" aria-selected="false">APAC</a>
+                                <a class="text-decoration-none nav-link border-0 font-12 pl-0 pr-4 position-relative" id="apac-tab" data-toggle="tab" href="#apac3" role="tab" aria-controls="apac" aria-selected="false">APAC</a>
                               </li>
                             </ul>
                             <div class="tab-content" id="myTabContent2">
-                              <div class="tab-pane fade show active" id="all-regions" role="tabpanel" aria-labelledby="all-regions-tab">
+                              <div class="tab-pane fade show active" id="all-regions3" role="tabpanel" aria-labelledby="all-regions-tab">
                                 <div class="table-responsive mb-4">
-                                  <table class="table table-striped table-bordered">
+                                  <table class="table table-striped border-bottom">
                                     <thead>
                                       <tr>
-                                        <th class="border-top-0 font-weight-500 font-12" scope="col"></th>
-                                        <th class="border-top-0 font-weight-500 font-12" scope="col">EMEA</th>
-                                        <th class="border-top-0 font-weight-500 font-12" scope="col">AMERS</th>
-                                        <th class="border-top-0 font-weight-500 font-12" scope="col">APAC</th>
+                                        <th class="border-bottom-0 border-top-0 border-right font-weight-500 font-12 px-4 w-250px" scope="col"></th>
+                                        <th class="border-bottom-0 border-top-0 border-right font-weight-500 font-12 px-4" scope="col">EMEA</th>
+                                        <th class="border-bottom-0 border-top-0 border-right font-weight-500 font-12 px-4" scope="col">AMERS</th>
+                                        <th class="border-bottom-0 border-top-0 border-right font-weight-500 font-12 px-4" scope="col">APAC</th>
                                       </tr>
                                     </thead>
                                     <tbody>
                                       <tr>
                                         <td class="font-12 border-right font-500 py-3 px-4">Total Business Service</td>
-                                        <td class="font-12 border-right font-500 py-3 px-4"><%= @bsl_regional_tiers.dig('EMEA', 'tier_4').present? ? @bsl_regional_tiers.dig('EMEA', 'tier_4').size : '0' %></td>
-                                        <td class="font-12 border-right font-500 py-3 px-4"><%= @bsl_regional_tiers.dig('AMERS', 'tier_4').present? ? @bsl_regional_tiers.dig('AMERS', 'tier_4').size : '0' %></td>
-                                        <td class="font-12 border-right font-500 py-3 px-4"><%= @bsl_regional_tiers.dig('APAC', 'tier_4').present? ? @bsl_regional_tiers.dig('APAC', 'tier_4').size : '0' %></td>
+                                        <td class="font-12 border-right font-500 py-3 px-4"><%=  @bsl_regional_tiers.dig('EMEA', 'tier_1').present? ? @bsl_regional_tiers.dig('EMEA', 'tier_1').size : '0' %></td>
+                                        <td class="font-12 border-right font-500 py-3 px-4"><%= @bsl_regional_tiers.dig('AMERS', 'tier_1').present? ? @bsl_regional_tiers.dig('AMERS', 'tier_1').size : '0' %></td>
+                                        <td class="font-12 border-right font-500 py-3 px-4"><%= @bsl_regional_tiers.dig('APAC', 'tier_1').present? ? @bsl_regional_tiers.dig('APAC', 'tier_1').size : '0' %></td>
                                       </tr>
                                       <tr>
-                                        <td class="font-12 py-3 px-4 ">Total Resilience Gaps</td>
-                                        <td class="font-12 py-3 px-4">8</td>
-                                        <td class="font-12 py-3 px-4">8</td>
-                                        <td class="font-12 py-3 px-4">8</td>
+                                        <td class="font-12 border-right font-500 py-3 px-4">Total Resilience Gaps</td>
+                                        <td class="font-12 border-right font-500 py-3 px-4">0</td>
+                                        <td class="font-12 border-right font-500 py-3 px-4">0</td>
+                                        <td class="font-12 border-right font-500 py-3 px-4">0</td>
                                       </tr>
                                       <tr>
-                                        <td class="font-12 py-3 px-4">Total Internal Systems</td>
-                                        <td class="font-12 py-3 px-4">6</td>
-                                        <td class="font-12 py-3 px-4">6</td>
-                                        <td class="font-12 py-3 px-4">6</td>
+                                        <td class="font-12 border-right font-500 py-3 px-4">Total Internal Systems</td>
+                                        <td class="font-12 border-right font-500 py-3 px-4">0</td>
+                                        <td class="font-12 border-right font-500 py-3 px-4">0</td>
+                                        <td class="font-12 border-right font-500 py-3 px-4">0</td>
                                       </tr>
-                                      <tr>                                        
+                                      <tr>
                                         <td class="font-12 border-right font-500 py-3 px-4">Total 3rd Party Suppliers</td>
-                                        <td class="font-12 border-right font-500 py-3 px-4"><%= @bsl_tiers.dig('emea_tier_4_third_party_suppliers')&.size %></td>
-                                        <td class="font-12 border-right font-500 py-3 px-4"><%= @bsl_tiers.dig('amers_tier_4_third_party_suppliers')&.size %></td>
-                                        <td class="font-12 border-right font-500 py-3 px-4"><%= @bsl_tiers.dig('apac_tier_4_third_party_suppliers')&.size %></td>
+                                        <td class="font-12 border-right font-500 py-3 px-4"><%= @bsl_tiers.dig('emea_tier_1_third_party_suppliers')&.size %></td>
+                                        <td class="font-12 border-right font-500 py-3 px-4"><%= @bsl_tiers.dig('amers_tier_1_third_party_suppliers')&.size %></td>
+                                        <td class="font-12 border-right font-500 py-3 px-4"><%= @bsl_tiers.dig('apac_tier_1_third_party_suppliers')&.size %></td>
                                       </tr>
                                       <tr>
                                         <td class="font-12 border-right font-500 py-3 px-4">Total 4th Party Suppliers</td>
-                                        <td class="font-12 border-right font-500 py-3 px-4"><%= @bsl_tiers.dig('emea_tier_4_fourth_party_suppliers')&.size %></td>
-                                        <td class="font-12 border-right font-500 py-3 px-4"><%= @bsl_tiers.dig('amers_tier_4_fourth_party_suppliers')&.size %></td>
-                                        <td class="font-12 border-right font-500 py-3 px-4"><%= @bsl_tiers.dig('apac_tier_4_fourth_party_suppliers')&.size %></td>
+                                        <td class="font-12 border-right font-500 py-3 px-4"><%= @bsl_tiers.dig('emea_tier_1_fourth_party_suppliers')&.size %></td>
+                                        <td class="font-12 border-right font-500 py-3 px-4"><%= @bsl_tiers.dig('amers_tier_1_fourth_party_suppliers')&.size %></td>
+                                        <td class="font-12 border-right font-500 py-3 px-4"><%= @bsl_tiers.dig('apac_tier_1_fourth_party_suppliers')&.size %></td>
                                       </tr>
-
                                     </tbody>
                                   </table>
                                 </div>
                                 <div class="row">
-                                  <div id="service-provider-breakdown-tier_4" class="col-lg-6 col-md-12 custom-high-chart custom-high-chart mb-4 lazy-graph" data-key="tiers_service_provider_breakdown" data-args="<%= { bsl_ids: @bsls_tier.dig('tier_4')&.map(&:id) }.to_json %>" data-append-to="service-provider-breakdown-tier_4" data-partial-name="tiers_service_provider_breakdown">
+                                  <div id="service-provider-breakdown-tier_1" class="col-lg-6 col-md-12 custom-high-chart custom-high-chart mb-4 lazy-graph" data-key="tiers_service_provider_breakdown" data-args="<%= { bsl_ids: @bsls_tier.dig('tier_1')&.map(&:id) }.to_json %>" data-append-to="service-provider-breakdown-tier_1" data-partial-name="tiers_service_provider_breakdown">
                                     <%= render 'organisation/graphs/partials/tiers_service_provider_breakdown', data: {} %>
                                   </div>
 
-                                  <div id="consumption-model-tier_4" class="col-lg-6 col-md-12 custom-high-chart custom-high-chart mb-4 lazy-graph" data-key="tiers_consumption_model" data-args="<%= { bsl_ids: @bsls_tier.dig('tier_4')&.map(&:id) }.to_json %>" data-append-to="consumption-model-tier_4" data-partial-name="tiers_consumption_model">
+                                  <div id="consumption-model-tier_1" class="col-lg-6 col-md-12 custom-high-chart custom-high-chart mb-4 lazy-graph" data-key="tiers_consumption_model" data-args="<%= { bsl_ids: @bsls_tier.dig('tier_1')&.map(&:id) }.to_json %>" data-append-to="consumption-model-tier_1" data-partial-name="tiers_consumption_model">
                                     <%= render 'organisation/graphs/partials/tiers_consumption_model', data: {} %>
                                   </div>
                                 </div>
                               </div>
-                              <div class="tab-pane fade" id="emea" role="tabpanel" aria-labelledby="emea-tab">
+                              <div class="tab-pane fade" id="emea3" role="tabpanel" aria-labelledby="emea-tab">
+                                <div class="table-responsive mb-4">
+                                  <table class="table table-striped border-bottom">
+                                    <thead>
+                                      <tr>
+                                        <th class="border-bottom-0 border-top-0 border-right font-weight-500 font-12 px-4 w-250px" scope="col"></th>
+                                        <th class="border-bottom-0 border-top-0 border-right-0 font-weight-500 font-12 px-4" scope="col">EMEA</th>
+                                      </tr>
+                                    </thead>
+                                    <tbody>
+                                      <tr>
+                                        <td class="font-12 border-right font-500 py-3 px-4">Total Business Service</td>
+                                        <td class="font-12 border-right font-500 py-3 px-4"><%= @bsl_regional_tiers.dig('EMEA', 'tier_1')&.size || 0 %></td>
+                                      </tr>
+                                      <tr>
+                                        <td class="font-12 border-right font-500 py-3 px-4">Total Resilience Gaps</td>
+                                        <td class="font-12 border-right font-500 py-3 px-4">0</td>
+                                      </tr>
+                                      <tr>
+                                        <td class="font-12 border-right font-500 py-3 px-4">Total Internal Systems</td>
+                                        <td class="font-12 border-right font-500 py-3 px-4">0</td>
+                                      </tr>
+                                      <tr>
+                                        <td class="font-12 border-right font-500 py-3 px-4">Total 3rd Party Suppliers</td>
+                                        <td class="font-12 border-right font-500 py-3 px-4"><%= @bsl_tiers.dig('emea_tier_1_third_party_suppliers')&.size %></td>
+                                      </tr>
+                                      <tr>
+                                        <td class="font-12 border-right font-500 py-3 px-4">Total 4th Party Suppliers</td>
+                                        <td class="font-12 border-right font-500 py-3 px-4"><%= @bsl_tiers.dig('emea_tier_1_fourth_party_suppliers')&.size %></td>
+                                      </tr>
+                                    </tbody>
+                                  </table>
+                                </div>
                                 <div class="row custom-high-chart mb-4">
-                                  <div class="col-lg-6 col-md-12">
-                                    <div class="box">
-                                      <div class="col-md-12 mb-lg-0 mb-4 px-1">
-                                        <p class="px-2 font-14 text-capitalize font-600 chart-header-title mb-4">Service Provider Breakdown</p>
-                                        <div class="border-0 pie-high-chart overflow-hidden rounded-50 d-flex justify-content-center">
-                                          <div class="w-50 card-header p-2 bg-white text-center border-0">
-                                            <div class="donut-content">
-                                              <div id="thirteen-donut" class="donut"></div>
-                                              <div class="donut-value font-30 font-700">50</div>
-                                            </div>
-                                          </div>
-                                          <div class="card-body mt-3 p-2">
-                                            <div class="tiers d-flex justify-content-between align-items-center mb-3">
-                                              <div class="color-tier d-flex align-items-center">
-                                                <div class="circle green-1"></div>
-                                                <%= image_pack_tag 'media/images/aws.png', class: 'img-fluid ml-2' %>
-                                                <span class="font-12 font-400 ml-2">AWS</span>
-                                              </div>
-                                              <span class="font-12 font-700">24</span>
-                                            </div>
-                                            <div class="tiers d-flex justify-content-between align-items-center mb-3">
-                                              <div class="color-tier d-flex align-items-center">
-                                                <div class="circle green-2"></div>
-                                                <%= image_pack_tag 'media/images/g-cloud.png', class: 'img-fluid ml-2' %>
-                                                <span class="font-12 font-400 ml-2">GCP</span>
-                                              </div>
-                                              <span class="font-12 font-700">24</span>
-                                            </div>
-                                            <div class="tiers d-flex justify-content-between align-items-center mb-3">
-                                              <div class="color-tier d-flex align-items-center">
-                                                <div class="circle green-3"></div>
-                                                <%= image_pack_tag 'media/images/azure.png', class: 'img-fluid ml-2' %>
-                                                <span class="font-12 font-400 ml-2">Azure</span>
-                                              </div>
-                                              <span class="font-12 font-700">24</span>
-                                            </div>
-                                            <div class="tiers d-flex justify-content-between align-items-center">
-                                              <div class="color-tier d-flex align-items-center">
-                                                <div class="circle green-4"></div>
-                                                <%= image_pack_tag 'media/images/black-cloud.png', class: 'img-fluid ml-2' %>
-                                                <span class="font-12 font-400 ml-2">Private Cloud</span>
-                                              </div>
-                                              <span class="font-12 font-700">24</span>
-                                            </div>
-                                          </div>
-                                        </div>
-                                      </div>
-                                    </div>
+                                  <div id="service-provider-breakdown-tier_1_emea" class="col-lg-6 col-md-12 custom-high-chart custom-high-chart mb-4 lazy-graph" data-key="tiers_service_provider_breakdown" data-args="<%= { bsl_ids: @bsls_tier.dig('EMEA','tier_1')&.map(&:id) }.to_json %>" data-append-to="service-provider-breakdown-tier_1_emea" data-partial-name="tiers_service_provider_breakdown">
+                                    <%= render 'organisation/graphs/partials/tiers_service_provider_breakdown', data: {} %>
                                   </div>
-                                  <div class="col-lg-6 col-md-12">
-                                    <div class="box">
-                                      <div class="col-md-12 mb-lg-0 mb-4 px-1">
-                                        <p class="px-2 font-14 text-capitalize font-600 chart-header-title mb-4">Consumption Model Breakdown</p>
-                                        <div class="border-0 pie-high-chart overflow-hidden rounded-50 d-flex justify-content-center">
-                                          <div class="w-50 card-header p-2 bg-white text-center border-0">
-                                            <div class="donut-content">
-                                              <div id="fourteen-donut" class="donut"></div>
-                                              <div class="donut-value font-30 font-700">50</div>
-                                            </div>
-                                          </div>
-                                          <div class="card-body mt-3 p-2">
-                                            <div class="tiers d-flex justify-content-between align-items-center mb-3">
-                                              <div class="color-tier d-flex align-items-center">
-                                                <div class="circle green-1"></div>
-                                                <span class="font-12 font-400 ml-2">Lass</span>
-                                              </div>
-                                              <span class="font-12 font-700">24</span>
-                                            </div>
-                                            <div class="tiers d-flex justify-content-between align-items-center mb-3">
-                                              <div class="color-tier d-flex align-items-center">
-                                                <div class="circle green-2"></div>
-                                                <span class="font-12 font-400 ml-2">Saas</span>
-                                              </div>
-                                              <span class="font-12 font-700">24</span>
-                                            </div>
-                                            <div class="tiers d-flex justify-content-between align-items-center mb-3">
-                                              <div class="color-tier d-flex align-items-center">
-                                                <div class="circle green-3"></div>
-                                                <span class="font-12 font-400 ml-2">Paas</span>
-                                              </div>
-                                              <span class="font-12 font-700">24</span>
-                                            </div>
-                                            <div class="tiers d-flex justify-content-between align-items-center">
-                                              <div class="color-tier d-flex align-items-center">
-                                                <div class="circle green-4"></div>
-                                                <span class="font-12 font-400 ml-2">Private Cloud</span>
-                                              </div>
-                                              <span class="font-12 font-700">24</span>
-                                            </div>
-                                          </div>
-                                        </div>
-                                      </div>
-                                    </div>
+
+                                   <div id="consumption-model-tier_1_emea" class="col-lg-6 col-md-12 custom-high-chart custom-high-chart mb-4 lazy-graph" data-key="tiers_consumption_model" data-args="<%= { bsl_ids: @bsls_tier.dig('EMEA','tier_1')&.map(&:id) }.to_json %>" data-append-to="consumption-model-tier_1_emea" data-partial-name="tiers_consumption_model">
+                                    <%= render 'organisation/graphs/partials/tiers_consumption_model', data: {} %>
                                   </div>
                                 </div>
                               </div>
-                              <div class="tab-pane fade" id="amers" role="tabpanel" aria-labelledby="amers-tab">
-                                <table class="table table-striped">
-                                  <thead>
-                                    <tr>
-                                      <th scope="col">#</th>
-                                      <th scope="col">First</th>
-                                      <th scope="col">Last</th>
-                                      <th scope="col">Handle</th>
-                                    </tr>
-                                  </thead>
-                                  <tbody>
-                                    <tr>
-                                      <th scope="row">1</th>
-                                      <td class="font-12">Mark</td>
-                                      <td class="font-12">Otto</td>
-                                      <td class="font-12">@mdo</td>
-                                    </tr>
-                                    <tr>
-                                      <th scope="row">2</th>
-                                      <td class="font-12">Jacob</td>
-                                      <td class="font-12">Thornton</td>
-                                      <td class="font-12">@fat</td>
-                                    </tr>
-                                    <tr>
-                                      <th scope="row">3</th>
-                                      <td class="font-12">Larry</td>
-                                      <td class="font-12">the Bird</td>
-                                      <td class="font-12">@twitter</td>
-                                    </tr>
-                                  </tbody>
-                                </table>
+                              <div class="tab-pane fade" id="amers3" role="tabpanel" aria-labelledby="amers-tab">
+                                <div class="table-responsive mb-4">
+                                  <table class="table table-striped border-bottom">
+                                    <thead>
+                                      <tr>
+                                        <th class="border-bottom-0 border-top-0 border-right font-weight-500 font-12 px-4 w-250px" scope="col"></th>
+                                        <th class="border-bottom-0 border-top-0 border-right font-weight-500 font-12 px-4" scope="col">AMERS</th>
+                                      </tr>
+                                    </thead>
+                                    <tbody>
+                                      <tr>
+                                        <td class="font-12 border-right font-500 py-3 px-4">Total Business Service</td>
+                                        <td class="font-12 border-right font-500 py-3 px-4"><%= @bsl_regional_tiers.dig('AMERS', 'tier_1')&.size || 0 %></td>
+                                      </tr>
+                                      <tr>
+                                        <td class="font-12 border-right font-500 py-3 px-4">Total Resilience Gaps</td>
+                                        <td class="font-12 border-right font-500 py-3 px-4">0</td>
+                                      </tr>
+                                      <tr>
+                                        <td class="font-12 border-right font-500 py-3 px-4">Total Internal Systems</td>
+                                        <td class="font-12 border-right font-500 py-3 px-4">0</td>
+                                      </tr>
+                                      <tr>
+                                        <td class="font-12 border-right font-500 py-3 px-4">Total 3rd Party Suppliers</td>
+                                        <td class="font-12 border-right font-500 py-3 px-4"><%= @bsl_tiers.dig('amers_tier_1_third_party_suppliers')&.size %></td>
+                                      </tr>
+                                      <tr>
+                                        <td class="font-12 border-right font-500 py-3 px-4">Total 4th Party Suppliers</td>
+                                        <td class="font-12 border-right font-500 py-3 px-4"><%= @bsl_tiers.dig('amers_tier_1_fourth_party_suppliers')&.size %></td>
+                                      </tr>
+                                    </tbody>
+                                  </table>
+                                </div>
+                                <div class="row custom-high-chart mb-4">
+                                  <div id="service-provider-breakdown-tier_1_amers" class="col-lg-6 col-md-12 custom-high-chart custom-high-chart mb-4 lazy-graph" data-key="tiers_service_provider_breakdown" data-args="<%= { bsl_ids: @bsls_tier.dig('EMEA','tier_1')&.map(&:id) }.to_json %>" data-append-to="service-provider-breakdown-tier_1_amers" data-partial-name="tiers_service_provider_breakdown">
+                                    <%= render 'organisation/graphs/partials/tiers_service_provider_breakdown', data: {} %>
+                                  </div>
+
+                                   <div id="consumption-model-tier_1_amers" class="col-lg-6 col-md-12 custom-high-chart custom-high-chart mb-4 lazy-graph" data-key="tiers_consumption_model" data-args="<%= { bsl_ids: @bsls_tier.dig('EMEA','tier_1')&.map(&:id) }.to_json %>" data-append-to="consumption-model-tier_1_amers" data-partial-name="tiers_consumption_model">
+                                    <%= render 'organisation/graphs/partials/tiers_consumption_model', data: {} %>
+                                  </div>
+                                </div>
                               </div>
-                              <div class="tab-pane fade" id="apac" role="tabpanel" aria-labelledby="apac-tab">
-                                <table class="table table-striped">
-                                  <thead>
-                                    <tr>
-                                      <th scope="col">#</th>
-                                      <th scope="col">First</th>
-                                      <th scope="col">Last</th>
-                                      <th scope="col">Handle</th>
-                                    </tr>
-                                  </thead>
-                                  <tbody>
-                                    <tr>
-                                      <th scope="row">1</th>
-                                      <td class="font-12">Mark</td>
-                                      <td class="font-12">Otto</td>
-                                      <td class="font-12">@mdo</td>
-                                    </tr>
-                                    <tr>
-                                      <th scope="row">2</th>
-                                      <td class="font-12">Jacob</td>
-                                      <td class="font-12">Thornton</td>
-                                      <td class="font-12">@fat</td>
-                                    </tr>
-                                    <tr>
-                                      <th scope="row">3</th>
-                                      <td class="font-12">Larry</td>
-                                      <td class="font-12">the Bird</td>
-                                      <td class="font-12">@twitter</td>
-                                    </tr>
-                                  </tbody>
-                                </table>
+                              <div class="tab-pane fade" id="apac3" role="tabpanel" aria-labelledby="apac-tab">
+                                <div class="table-responsive mb-4">
+                                  <table class="table table-striped border-bottom">
+                                    <thead>
+                                      <tr>
+                                        <th class="border-bottom-0 border-top-0 border-right font-weight-500 font-12 px-4 w-250px" scope="col"></th>
+                                        <th class="border-bottom-0 border-top-0 border-right font-weight-500 font-12 px-4" scope="col">APAC</th>
+                                      </tr>
+                                    </thead>
+                                    <tbody>
+                                      <tr>
+                                        <td class="font-12 border-right font-500 py-3 px-4">Total Business Service</td>
+                                        <td class="font-12 border-right font-500 py-3 px-4"><%= @bsl_regional_tiers.dig('APAC', 'tier_1')&.size || 0 %></td>
+                                      </tr>
+                                      <tr>
+                                        <td class="font-12 border-right font-500 py-3 px-4">Total Resilience Gaps</td>
+                                        <td class="font-12 border-right font-500 py-3 px-4">0</td>
+                                      </tr>
+                                      <tr>
+                                        <td class="font-12 border-right font-500 py-3 px-4">Total Internal Systems</td>
+                                        <td class="font-12 border-right font-500 py-3 px-4">0</td>
+
+                                      <tr>
+                                        <td class="font-12 border-right font-500 py-3 px-4">Total 3rd Party Suppliers</td>
+                                        <td class="font-12 border-right font-500 py-3 px-4"><%= @bsl_tiers.dig('apac_tier_1_third_party_suppliers')&.size %></td>
+                                      </tr>
+                                      <tr>
+                                        <td class="font-12 border-right font-500 py-3 px-4">Total 4th Party Suppliers</td>
+                                        <td class="font-12 border-right font-500 py-3 px-4"><%= @bsl_tiers.dig('apac_tier_1_fourth_party_suppliers')&.size %></td>
+                                      </tr>
+                                    </tbody>
+                                  </table>
+                                </div>
+                                <div class="row custom-high-chart mb-4">
+                                  <div id="service-provider-breakdown-tier_1_apac" class="col-lg-6 col-md-12 custom-high-chart custom-high-chart mb-4 lazy-graph" data-key="tiers_service_provider_breakdown" data-args="<%= { bsl_ids: @bsls_tier.dig('APAC','tier_1')&.map(&:id) }.to_json %>" data-append-to="service-provider-breakdown-tier_1_apac" data-partial-name="tiers_service_provider_breakdown">
+                                    <%= render 'organisation/graphs/partials/tiers_service_provider_breakdown', data: {} %>
+                                  </div>
+
+                                   <div id="consumption-model-tier_1_apac" class="col-lg-6 col-md-12 custom-high-chart custom-high-chart mb-4 lazy-graph" data-key="tiers_consumption_model" data-args="<%= { bsl_ids: @bsls_tier.dig('APAC','tier_1')&.map(&:id) }.to_json %>" data-append-to="consumption-model-tier_1_apac" data-partial-name="tiers_consumption_model">
+                                    <%= render 'organisation/graphs/partials/tiers_consumption_model', data: {} %>
+                                  </div>
+                                </div>
                               </div>
                             </div>
                           </div>
                         </div>
                         <div class="small-boxes row px-3">
-                          <div class="col-md-3">
+                          <div class="col-md-6 col-lg-3">
                             <div class="card h-100 border-0">
-                              <div class="card-body bg-body-color p-2 d-flex align-items-center">
+                              <div class="card-body mb-2 mb-lg-0 bg-body-color p-2 d-flex align-items-center rounded">
                                 <div class="color-tier d-flex align-items-center">
                                   <div class="sm-circle bg-red mr-1"></div>
                                   <div class="text">
@@ -1136,9 +1050,9 @@
                               </div>
                             </div>
                           </div>
-                          <div class="col-md-3">
+                          <div class="col-md-6 col-lg-3">
                             <div class="card h-100 border-0">
-                              <div class="card-body p-2 bg-body-color d-flex align-items-center">
+                              <div class="card-body mb-2 mb-lg-0 bg-body-color p-2 d-flex align-items-center rounded">
                                 <div class="color-tier d-flex align-items-center">
                                   <div class="circle green-1 mr-1"></div>
                                   <div class="text">
@@ -1149,9 +1063,9 @@
                               </div>
                             </div>
                           </div>
-                          <div class="col-md-3">
+                          <div class="col-md-6 col-lg-3">
                             <div class="card h-100 border-0">
-                              <div class="card-body p-2 bg-body-color d-flex align-items-center">
+                              <div class="card-body mb-2 mb-lg-0 p-2 d-flex bg-body-color align-items-center rounded">
                                 <div class="color-tier d-flex align-items-center">
                                   <span class="font-12 ml-2 font-600">APAC</span>
                                 </div>
@@ -1160,6 +1074,7 @@
                           </div>
                         </div>
                       </div>
+                      <!-- Tier 4 End -->
                     </div>
                   </div>
                 </div>
