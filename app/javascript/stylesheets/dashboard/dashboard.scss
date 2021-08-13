@@ -257,7 +257,7 @@ i.paperclip {
   }
 }
 .min-h-560 {
-  min-height: 540px;
+  min-height: 560px;
 }
 .min-h-566 {
   min-height: 566px;
@@ -832,6 +832,18 @@ i.paperclip {
     .highchart-tabs {
       padding-bottom: 30px !important;
       margin-bottom:  30px;
+    }
+  }
+}
+
+@media only screen and (min-width: 1540px) {
+  .pie-high-chart .card-header {
+    height: auto;
+    .h-200-highchart {
+      height: auto;
+    }
+    .h-130px {
+      height: auto;
     }
   }
 }
