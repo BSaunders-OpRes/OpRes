@@ -16,7 +16,8 @@ let chartOptions = {
     plotBorderWidth: 0,
     plotShadow: false,
     backgroundColor: 'transparent',
-    credits: false
+    credits: false,
+    height: 200,
   },
   title: {
     text: '',
