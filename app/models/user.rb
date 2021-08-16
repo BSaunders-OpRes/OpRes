@@ -7,6 +7,7 @@ class User < ApplicationRecord
 
   # Callbacks #
   before_validation :confirm_user
+
   # Attribute Accessors #
   attr_accessor :skip_password_validation
 
@@ -51,9 +52,6 @@ class User < ApplicationRecord
   end
 
   def confirm_user
-    if self.password.blank?
-      self.password = Devise.friendly_token
-      self.confirmed_at = Time.now
-    end
+    self.confirmed_at = Time.now if invited_status
   end
 end

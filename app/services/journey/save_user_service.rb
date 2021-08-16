@@ -16,7 +16,9 @@ class Journey::SaveUserService < ApplicationService
           first_name: user_data.dig(:first_name),
           last_name:  user_data.dig(:last_name),
           email:      user_data.dig(:email),
-          role:       user_data.dig(:role)
+          password:   Devise.friendly_token,
+          role:       user_data.dig(:role),
+          invited_status: true
         }
       end
     else
@@ -29,7 +31,9 @@ class Journey::SaveUserService < ApplicationService
         users_info << {
           unit:       args.dig(:organisational_unit),
           email:      email,
-          role:       args.dig(:params, :users, :multiple, :role)
+          password:   Devise.friendly_token,
+          role:       args.dig(:params, :users, :multiple, :role),
+          invited_status: true
         }
       end
     end

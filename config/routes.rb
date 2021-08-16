@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
   devise_scope :user do
     root 'users/sessions#new'
-    get '/confirm_invitation/:id', to: 'users/confirmations#invitation', as: :confirm_invitation # Custom Route for Invitation
   end
 
   devise_for :users, controllers: {
