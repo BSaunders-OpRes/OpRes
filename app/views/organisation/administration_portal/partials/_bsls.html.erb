@@ -1,12 +1,12 @@
 <% bsls&.each do |bsl| %>
   <tr>
     <td class="font-12 font-xxl-14 pl-0 text-black"><%= bsl.name %></td>
-    <td class="w-10 font-12 font-xxl-14 px-2 font-400 text-capitalize"><%= bsl.tier.titleize %></td>
-    <td class="w-10 font-12 font-xxl-14 px-2 font-400 text-capitalize"><%= bsl.unit&.parent&.name %></td>
-    <td class="w-10 font-12 font-xxl-14 px-2 font-400 text-capitalize"><%= bsl.unit&.parent&.parent&.name %></td>
-    <td class="w-10 font-12 font-xxl-14 px-2 font-400 text-capitalize"><%= bsl.unit&.name %></td>
-    <td class="w-10 font-12 font-xxl-14 px-2 font-400 text-capitalize">products</td>
-    <td class= 'px-1 font-12 d-flex'>
+    <td class="font-12 font-xxl-14 px-2 font-400 text-capitalize"><%= bsl.tier.titleize %></td>
+    <td class="font-12 font-xxl-14 px-2 font-400 text-capitalize"><%= bsl.unit&.parent&.name %></td>
+    <td class="font-12 font-xxl-14 px-2 font-400 text-capitalize"><%= bsl.unit&.parent&.parent&.name %></td>
+    <td class="font-12 font-xxl-14 px-2 font-400 text-capitalize"><%= bsl.unit&.name %></td>
+    <td class="font-12 font-xxl-14 px-2 font-400 text-capitalize">products</td>
+    <td class= 'px-1 font-12 d-flex py-4'>
       <%= link_to 'Edit', edit_organisation_business_service_line_path(bsl), class: 'mx-1 text-black text-uppercase font-600 font-12' %>
       <%= link_to 'View', organisation_business_service_line_path(bsl), class: 'mx-1 text-black text-uppercase font-600 font-12' %>
     </td>

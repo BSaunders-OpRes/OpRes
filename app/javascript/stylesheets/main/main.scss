@@ -732,6 +732,22 @@ footer {
     }
   }
 }
+
+@media only screen and (min-width: 1540px) {
+  ::-webkit-input-placeholder {
+    font-size: 14px !important;
+    text-transform: unset;
+    letter-spacing: 0.05em;
+  }
+
+  :-ms-input-placeholder {
+    font-size: 14px !important;
+  }
+
+  ::placeholder {
+    font-size: 14px !important;
+  }
+}
 @media only screen and (max-width: 767px) {
   .h-200-highchart {
     height: 200px;

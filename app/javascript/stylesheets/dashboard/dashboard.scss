@@ -273,7 +273,7 @@ i.paperclip {
           color: $black;
           background: $light-white;
           &.active {
-            font-weight: 500;
+            font-weight: 600;
             background: $white;
             border-left: 3px solid $black !important;
           }
@@ -675,7 +675,20 @@ i.paperclip {
     }
   }
 }
-
+.admin-portal-table {
+  table {
+    tbody {
+      tr {
+        td {
+          vertical-align: middle;
+        }
+      }
+      tr:last-child {
+        border-bottom: 1px solid #dee2e6;
+      }
+    }
+  }
+}
 .resilience-calculator-dashboard {
   .red {
     width: 227px;
@@ -787,6 +800,18 @@ i.paperclip {
   }
 }
 
+@media only screen and (max-width: 991px) {
+  .pie-high-chart {
+    .card-header {
+      .sm-donut-content {
+        .donut-desc {
+          top: 100%;
+        }
+      }
+    }
+  }
+}
+
 @media only screen and (max-width: 767px) {
   .bsl-dashboard {
     #section7, #dependency-map-section {
@@ -844,6 +869,12 @@ i.paperclip {
     }
     .h-130px {
       height: auto;
+    }
+    .sm-donut-content {
+      .donut-desc {
+        bottom: 0;
+        top: unset;
+      }
     }
   }
 }
