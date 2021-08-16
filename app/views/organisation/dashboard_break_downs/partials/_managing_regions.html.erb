@@ -1,0 +1,13 @@
+<% if tier.present? %>
+  <% managing_regions.each do |e|%> 
+    <li class="nav-item">
+      <a class="text-decoration-none nav-link border-0 font-12 pl-0 pr-4 position-relative" id="<%= e.downcase %><%= tier %>-tab" data-toggle="tab" href="#<%= e.downcase %><%= tier %>" role="tab" aria-controls="<%= e.downcase %><%= tier %>" aria-selected="false"><%= e %></a>
+    </li>
+  <% end %>
+<% else %>
+  <% managing_regions.each do |e|%> 
+    <li class="nav-item">
+      <a class="text-decoration-none nav-link border-0 font-12 pl-0 pr-4 position-relative" id="<%= e.downcase %><%= tier %>-tab" data-toggle="tab" href="#<%= e.downcase %><%= tier %>" role="tab" aria-controls="<%= e.downcase %><%= tier %>" aria-selected="false"><%= e %></a>
+    </li>
+  <% end %>
+<%end%>

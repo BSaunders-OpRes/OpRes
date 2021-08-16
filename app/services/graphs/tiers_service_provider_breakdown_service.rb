@@ -15,7 +15,6 @@ class Graphs::TiersServiceProviderBreakdownService < Graphs::BaseService
     chp_suppliers = Supplier.joins(supplier_steps: [step: [:business_service_line]])
                             .where(business_service_lines: { id: bsl_ids })
                             .group_by { |s| s.cloud_hosting_provider }
-
     datum[:total] = chp_suppliers.values.flatten.size
     datum[:graph] = []
 

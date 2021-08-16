@@ -30,6 +30,10 @@ class User < ApplicationRecord
     super_user? || standard_user?
   end
 
+  def managing_regions
+    managing_units.collect{|e| e.region.name }
+  end
+
   def invitiable_users
     if root_user?
       User.roles.map { |k, v| [k.titleize, k] if k != 'application_admin' }.compact

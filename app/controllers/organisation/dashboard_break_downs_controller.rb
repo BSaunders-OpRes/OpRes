@@ -6,6 +6,8 @@ class Organisation::DashboardBreakDownsController < Organisation::BaseController
                                .each_with_object({}) {|(k, v), h| h[k] = v.group_by { |s| s.tier } }
     @bsls_tier               = @bsls.group_by(&:tier)
 
+    @managing_regions        = current_user.managing_regions
+
     @bsl_tiers = {}
     BusinessServiceLine.tiers.each do |tier, index|
       Region.all.each do |region|
