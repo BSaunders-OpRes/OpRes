@@ -15,7 +15,8 @@ class Organisation::AdminsController < Organisation::BaseController
     failing_users = Journey::SaveUserService.call(
       organisational_unit: organisational_unit,
       regional_unit: regional_unit,
-      params: params
+      params: params,
+      current_user_email:  current_user.email
     )
 
     redirect_to organisation_admins_path, notice: "Admins have been created successfully! #{ failing_users.present? ? "Except #{failing_users.map(&:keys).flatten.to_sentence}" : '' }"
