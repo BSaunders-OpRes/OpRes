@@ -7,7 +7,7 @@
         <%= react_component('highcharts/donut', { data: data.dig(:overall, :graph)&.first, render_to: 'donut' }, { class: 'h-130px d-flex align-items-center' }) %>
         <div class="donut-value font-25 font-700 text-black">0</div>
         <div class="donut-desc flex-column">
-          <span class="font-11 font-600 text-capitalize mb-2">Firm Hosted</span>
+          <span class="font-11 font-xxl-14 font-600 text-capitalize mb-2">Firm Hosted</span>
         </div>
       </div>
     </div>
@@ -16,7 +16,7 @@
         <%= react_component('highcharts/donut', { data: data.dig(:overall, :graph)&.first, render_to: 'donut' }, { class: 'h-130px d-flex align-items-center' }) %>
         <div class="donut-value font-25 font-700 text-black">0</div>
         <div class="donut-desc flex-column">
-          <span class="font-11 font-600 text-capitalize mb-2">4th party</span>
+          <span class="font-11 font-xxl-14 font-600 text-capitalize mb-2">4th party</span>
         </div>
       </div>
     </div>
@@ -25,7 +25,7 @@
         <%= react_component('highcharts/donut', { data: data.dig(:overall, :graph)&.first, render_to: 'donut' }, { class: 'h-130px d-flex align-items-center' }) %>
         <div class="donut-value font-25 font-700 text-black">0</div>
         <div class="donut-desc flex-column">
-          <span class="font-11 font-600 text-capitalize mb-2">3rd party</span>
+          <span class="font-11 font-xxl-14 font-600 text-capitalize mb-2">3rd party</span>
         </div>
       </div>
     </div>
@@ -34,92 +34,92 @@
 <div class="d-flex text-black align-items-center h-70px justify-content-between w-100 px-3">
   <div class="d-flex align-items-center">
     <div class="circle green-1"></div>
-    <span class="font-11 font-400 ml-1 text-capitalize text-black">matches</span>
+    <span class="font-11 font-xxl-13 font-600 ml-1 text-capitalize text-black">matches</span>
   </div>
   <div class="d-flex align-items-center">
     <div class="circle green-2"></div>
-    <span class="font-11 font-400 ml-1 text-capitalize text-black">meet</span>
+    <span class="font-11 font-xxl-13 font-600 ml-1 text-capitalize text-black">meet</span>
   </div>
   <div class="d-flex align-items-center">
     <div class="circle green-3"></div>
-    <span class="font-11 font-400 ml-1 text-capitalize text-black">exceeds</span>
+    <span class="font-11 font-xxl-13 font-600 ml-1 text-capitalize text-black">exceeds</span>
   </div>
 </div>
 <div class="card-body resiliece-indicator highchart-tabs pt-0 pb-0">
-  <ul class="nav nav-tabs border-0 mb-3 text-black position-relative z-index-10" id="myTab" role="tablist">
+  <ul class="nav nav-tabs border-0 mb-4 text-black position-relative z-index-10" id="myTab" role="tablist">
     <li class="nav-item pr-2">
-      <a class="nav-link active border-0 font-11 font-xxl-12 px-0 py-1 text-capitalize text-dark active" id="home-tab" data-toggle="tab" href="#matches" role="tab" aria-controls="home" aria-selected="true">firm hosted</a>
+      <a class="nav-link active border-0 font-11 font-xxl-13 px-0 py-1 text-capitalize text-dark active" id="home-tab" data-toggle="tab" href="#matches" role="tab" aria-controls="home" aria-selected="true">firm hosted</a>
     </li>
     <li class="nav-item pr-2">
-      <a class="nav-link border-0 font-11 font-xxl-12 px-0 py-1 text-capitalize text-dark" id="home-tab" data-toggle="tab" href="#third-party" role="tab" aria-controls="home" aria-selected="true">3rd party</a>
+      <a class="nav-link border-0 font-11 font-xxl-13 px-0 py-1 text-capitalize text-dark" id="home-tab" data-toggle="tab" href="#third-party" role="tab" aria-controls="home" aria-selected="true">3rd party</a>
     </li>
     <li class="nav-item pr-2">
-      <a class="nav-link font-11 border-0 font-xxl-12 px-0 text-capitalize p-1 text-dark" id="profile-tab" data-toggle="tab" href="#fourth-party" role="tab" aria-controls="profile" aria-selected="false">4th party</a>
+      <a class="nav-link font-11 border-0 font-xxl-13 px-0 text-capitalize p-1 text-dark" id="profile-tab" data-toggle="tab" href="#fourth-party" role="tab" aria-controls="profile" aria-selected="false">4th party</a>
     </li>
   </ul>
   <div class="tab-content" id="myTabContent">
     <div class="tab-pane fade show active pb-3 text-black" id="matches" role="tabpanel" aria-labelledby="home-tab">
       <div class="tiers d-flex justify-content-between align-items-start mb-3">
         <div class="color-tier d-flex align-items-center">
-          <span class="font-12 font-400 text-capitalize pr-2">Matches impact tolerances</span>
+          <span class="font-12 font-xxl-14 font-400 text-capitalize pr-2">Matches impact tolerances</span>
         </div>
-        <span class="font-12 font-700">0</span>
+        <span class="font-12 font-xxl-14 font-700">0</span>
       </div>
       <div class="tiers d-flex justify-content-between align-items-start mb-3">
         <div class="color-tier d-flex align-items-center">
-          <span class="font-12 font-400 text-capitalize pr-2">Meets impact tolerances</span>
+          <span class="font-12 font-xxl-14 font-400 text-capitalize pr-2">Meets impact tolerances</span>
         </div>
-        <span class="font-12 font-700">0</span>
+        <span class="font-12 font-xxl-14 font-700">0</span>
       </div>
       <div class="tiers d-flex justify-content-between align-items-start">
         <div class="color-tier d-flex align-items-center">
-          <span class="font-12 font-400 text-capitalize pr-2">Exceeds impact tolerances</span>
+          <span class="font-12 font-xxl-14 font-400 text-capitalize pr-2">Exceeds impact tolerances</span>
         </div>
-        <span class="font-12 font-700">0</span>
+        <span class="font-12 font-xxl-14 font-700">0</span>
       </div>
     </div>
     <div class="tab-pane fade pb-3" id="third-party" role="tabpanel" aria-labelledby="home-tab">
       <div class="tiers d-flex justify-content-between align-items-start mb-3">
         <div class="color-tier d-flex align-items-center">
-          <span class="font-12 font-400 text-capitalize pr-2">3rd Party Matches Impact Tolerances</span>
+          <span class="font-12 font-xxl-14 font-400 text-capitalize pr-2">3rd Party Matches Impact Tolerances</span>
         </div>
-        <span class="font-12 font-700">0</span>
+        <span class="font-12 font-xxl-14 font-700">0</span>
       </div>
       <div class="tiers d-flex justify-content-between align-items-start mb-3">
         <div class="color-tier d-flex align-items-center">
-          <span class="font-12 font-400 text-capitalize pr-2">3rd Party Meets Impact Tolerances</span>
+          <span class="font-12 font-xxl-14 font-400 text-capitalize pr-2">3rd Party Meets Impact Tolerances</span>
         </div>
-        <span class="font-12 font-700">0</span>
+        <span class="font-12 font-xxl-14 font-700">0</span>
       </div>
       <div class="tiers d-flex justify-content-between align-items-start">
         <div class="color-tier d-flex align-items-center">
-          <span class="font-12 font-400 text-capitalize pr-2">3rd Party Exceeds Impact Tolerances</span>
+          <span class="font-12 font-xxl-14 font-400 text-capitalize pr-2">3rd Party Exceeds Impact Tolerances</span>
         </div>
-        <span class="font-12 font-700">0</span>
+        <span class="font-12 font-xxl-14 font-700">0</span>
       </div>
     </div>
     <div class="tab-pane fade pb-3" id="fourth-party" role="tabpanel" aria-labelledby="home-tab">
       <div class="tiers d-flex justify-content-between align-items-start mb-3">
         <div class="color-tier d-flex align-items-center">
-          <span class="font-12 font-400 text-capitalize pr-3">4th Party Matches Impact Tolerances</span>
+          <span class="font-12 font-xxl-14 font-400 text-capitalize pr-3">4th Party Matches Impact Tolerances</span>
         </div>
-        <span class="font-12 font-700">0</span>
+        <span class="font-12 font-xxl-14 font-700">0</span>
       </div>
       <div class="tiers d-flex justify-content-between align-items-start mb-3">
         <div class="color-tier d-flex align-items-center">
-          <span class="font-12 font-400 text-capitalize pr-3">4th Party Meets Impact Tolerances</span>
+          <span class="font-12 font-xxl-14 font-400 text-capitalize pr-3">4th Party Meets Impact Tolerances</span>
         </div>
-        <span class="font-12 font-700">0</span>
+        <span class="font-12 font-xxl-14 font-700">0</span>
       </div>
       <div class="tiers d-flex justify-content-between align-items-start">
         <div class="color-tier d-flex align-items-center">
-          <span class="font-12 font-400 text-capitalize pr-3">4th Party Exceeds Impact Tolerances </span>
+          <span class="font-12 font-xxl-14 font-400 text-capitalize pr-3">4th Party Exceeds Impact Tolerances </span>
         </div>
-        <span class="font-12 font-700">0</span>
+        <span class="font-12 font-xxl-14 font-700">0</span>
       </div>
     </div>
   </div>
 </div>
 <div class="card-footer text-center bg-white position-absolute bottom-0 w-100">
-  <%= link_to 'view all', system_supplier_resilience_indicator_organisation_dashboard_break_downs_path, class: 'font-12 text-capitalize font-600 border-bottom-black text-dark text-decoration-none' %>
+  <%= link_to 'view all', system_supplier_resilience_indicator_organisation_dashboard_break_downs_path, class: 'font-12 font-xxl-14 text-capitalize font-600 border-bottom-black text-dark text-decoration-none' %>
 </div>

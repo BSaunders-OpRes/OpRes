@@ -14,10 +14,10 @@ img {
   display: none !important;
 }
 html {
-  font-family: 'Eina01';
+  font-family: 'Eina';
 }
 body {
-  font-family: 'Eina01';
+  font-family: 'Eina';
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -54,6 +54,10 @@ h1, h2, h3, h4, h5, h6, p {
   white-space: break-spaces;
 }
 
+.visibility-hidden {
+  visibility: hidden;
+}
+
 input[type=number]::-webkit-outer-spin-button,
 input[type=number]::-webkit-inner-spin-button {
   -webkit-appearance: none;
@@ -63,6 +67,8 @@ input[type=number]::-webkit-inner-spin-button {
 input[type=number] {
   -moz-appearance: textfield;
 }
+
+
 .h-200-highchart {
   height: 200px;
   display: flex;
@@ -724,6 +730,22 @@ footer {
         }
       }
     }
+  }
+}
+
+@media only screen and (min-width: 1540px) {
+  ::-webkit-input-placeholder {
+    font-size: 14px !important;
+    text-transform: unset;
+    letter-spacing: 0.05em;
+  }
+
+  :-ms-input-placeholder {
+    font-size: 14px !important;
+  }
+
+  ::placeholder {
+    font-size: 14px !important;
   }
 }
 @media only screen and (max-width: 767px) {

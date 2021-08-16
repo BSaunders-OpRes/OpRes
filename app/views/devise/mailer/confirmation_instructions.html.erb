@@ -152,7 +152,7 @@
     /*
   @tab Page
   @section Background Style
-  @tip Set the background color and top border for your email. You may want to choose colors that match your company'sbranding.
+  @tip Set the background color and top border for your email. You may want to choose colors that match your company's branding.
   */
     body,
     #bodyTable {
@@ -917,11 +917,15 @@
                                   <tr>
                                     <td class="mcnImageContent" valign="top"
                                       style="padding-right: 9px; padding-left: 9px; padding-top: 0; padding-bottom: 0; text-align:center;">
+
+
                                       <img align="center" alt=""
                                         src="https://mcusercontent.com/215f76e7edba96308847e9428/images/fc6f92f4-5463-5a7a-801b-340151635f06.png"
                                         width="564"
                                         style="max-width:1068px; padding-bottom: 0; display: inline !important; vertical-align: bottom;"
                                         class="mcnImage">
+
+
                                     </td>
                                   </tr>
                                 </tbody>
@@ -966,15 +970,17 @@
                                 style="min-width:100%;" class="mcnBoxedTextContentContainer">
                                 <tbody>
                                   <tr>
+
                                     <td
                                       style="padding-top:9px; padding-left:18px; padding-bottom:9px; padding-right:18px;">
+
                                       <table border="0" cellspacing="0" class="mcnTextContentContainer" width="100%"
                                         style="min-width: 100% !important;background-color: #35E1B9;">
                                         <tbody>
                                           <tr>
                                             <td valign="top" class="mcnTextContent"
                                               style="padding: 18px;color: #F2F2F2;font-family: Helvetica;font-size: 30px;font-style: normal;font-weight: normal;text-align: center;">
-                                              <strong>You have been invited to join OpRes!</strong>
+                                              <strong>Thanks for signing up to OpRes!</strong>
                                             </td>
                                           </tr>
                                         </tbody>
@@ -995,29 +1001,6 @@
                           </tr>
                         </tbody>
                       </table>
-                      <table border="0" cellpadding="0" cellspacing="0" width="100%" class="mcnDividerBlock"
-                        style="min-width:100%;">
-                        <tbody class="mcnDividerBlockOuter">
-                          <tr>
-                            <td class="mcnDividerBlockInner" style="min-width:100%; padding:18px;">
-                              <table class="mcnDividerContent" border="0" cellpadding="0" cellspacing="0" width="100%"
-                                style="min-width: 100%;border-top: 2px solid #EAEAEA;">
-                                <tbody>
-                                  <tr>
-                                    <td>
-                                      <span></span>
-                                    </td>
-                                  </tr>
-                                </tbody>
-                              </table>
-                              <!--
-                <td class="mcnDividerBlockInner" style="padding: 18px;">
-                <hr class="mcnDividerContent" style="border-bottom-color:none; border-left-color:none; border-right-color:none; border-bottom-width:0; border-left-width:0; border-right-width:0; margin-top:0; margin-right:0; margin-bottom:0; margin-left:0;" />
--->
-                            </td>
-                          </tr>
-                        </tbody>
-                      </table>
                       <table border="0" cellpadding="0" cellspacing="0" width="100%" class="mcnTextBlock"
                         style="min-width:100%;">
                         <tbody class="mcnTextBlockOuter">
@@ -1038,43 +1021,10 @@
 
                                     <td valign="top" class="mcnTextContent"
                                       style="padding-top:0; padding-right:18px; padding-bottom:9px; padding-left:18px;">
-                                      Hi <%= @user.name %>, with email(<%= @user.email %>) and password (<%= @password %>) you have been invited to join  <%= @user.root_user? ? @organisational_unit.name : @managing_unit.name %> OpRes
-                                      account. You have been invited by <%=  @sender_email %>
-                                    </td>
-                                  </tr>
-                                </tbody>
-                              </table>
-                              <!--[if mso]>
-        </td>
-        <![endif]-->
 
-                              <!--[if mso]>
-        </tr>
-        </table>
-        <![endif]-->
-                            </td>
-                          </tr>
-                        </tbody>
-                      </table>
-                      <table border="0" cellpadding="0" cellspacing="0" width="100%" class="mcnTextBlock"
-                        style="min-width:100%;">
-                        <tbody class="mcnTextBlockOuter">
-                          <tr>
-                            <td valign="top" class="mcnTextBlockInner" style="padding-top:9px;">
-                              <!--[if mso]>
-        <table align="left" border="0" cellspacing="0" cellpadding="0" width="100%" style="width:100%;">
-        <tr>
-        <![endif]-->
-                              <!--[if mso]>
-        <td valign="top" width="600" style="width:600px;">
-        <![endif]-->
-                              <table align="left" border="0" cellpadding="0" cellspacing="0"
-                                style="max-width:100%; min-width:100%;" width="100%" class="mcnTextContentContainer">
-                                <tbody>
-                                  <tr>
-                                    <td valign="top" class="mcnTextContent"
-                                      style="padding-top:0; padding-right:18px; padding-bottom:9px; padding-left:18px;">
-                                      <p><%= @message %></p>
+                                      <div style="text-align: center;">Hi <%= @resource.name %>, thanks for signing-up to
+                                        use OpRes.&nbsp;</div>
+
                                     </td>
                                   </tr>
                                 </tbody>
@@ -1133,19 +1083,63 @@
                                   <tr>
 
                                     <td valign="top" class="mcnTextContent"
+                                      style="padding: 0px 18px 9px; font-family: Arial, &quot;Helvetica Neue&quot;, Helvetica, sans-serif; font-size: 14px;">
+
+                                      <h1 style="text-align: center;"><span style="font-size:20px">Dynamic Operational
+                                          Resilience for Financial Services</span></h1>
+
+                                    </td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                              <!--[if mso]>
+        </td>
+        <![endif]-->
+
+                              <!--[if mso]>
+        </tr>
+        </table>
+        <![endif]-->
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                      <table border="0" cellpadding="0" cellspacing="0" width="100%" class="mcnTextBlock"
+                        style="min-width:100%;">
+                        <tbody class="mcnTextBlockOuter">
+                          <tr>
+                            <td valign="top" class="mcnTextBlockInner" style="padding-top:9px;">
+                              <!--[if mso]>
+        <table align="left" border="0" cellspacing="0" cellpadding="0" width="100%" style="width:100%;">
+        <tr>
+        <![endif]-->
+
+                              <!--[if mso]>
+        <td valign="top" width="600" style="width:600px;">
+        <![endif]-->
+                              <table align="left" border="0" cellpadding="0" cellspacing="0"
+                                style="max-width:100%; min-width:100%;" width="100%" class="mcnTextContentContainer">
+                                <tbody>
+                                  <tr>
+
+                                    <td valign="top" class="mcnTextContent"
                                       style="padding-top:0; padding-right:18px; padding-bottom:9px; padding-left:18px;">
 
-                                      <div style="text-align: left;">OpRes enables financial services organisations to
-                                        increase their operational resilience and comply with regulatory
-                                        policies.&nbsp;<br>
-                                        <br>
-                                        Our platform delivers an integrated solution that powers a firm's ability to
+                                      <p>OpRes enables financial services organisations to increase their operational
+                                        resilience and comply with regulatory policies.</p>
+
+                                      <p>Our platform delivers an integrated solution that powers a firm's ability to
                                         map, prioritise, understand and optimise its operational resilience posture in
-                                        real-time.<br>
+                                        real-time.</p>
+
+                                      <p>We map business services end to end. So your organisation can understand its
+                                        operational resilience posture and plan a pathway to remediation.</p>
+
+                                      <p>Thanks for choosing us to underpin your operational resilience framework!<br>
                                         <br>
-<!--                                         <strong>Please confirm your email address below to accept the invite and get
-                                          started with OpRes!&nbsp;</strong> -->
-                                      </div>
+                                        <strong>Please confirm your email address to configure your account and get
+                                          started with using OpRes.</strong>
+                                      </p>
 
                                     </td>
                                   </tr>
@@ -1154,6 +1148,7 @@
                               <!--[if mso]>
         </td>
         <![endif]-->
+
                               <!--[if mso]>
         </tr>
         </table>
@@ -1185,30 +1180,7 @@
                           </tr>
                         </tbody>
                       </table>
-                      <table border="0" cellpadding="0" cellspacing="0" width="100%" class="mcnDividerBlock"
-                        style="min-width:100%;">
-                        <tbody class="mcnDividerBlockOuter">
-                          <tr>
-                            <td class="mcnDividerBlockInner" style="min-width:100%; padding:18px;">
-                              <table class="mcnDividerContent" border="0" cellpadding="0" cellspacing="0" width="100%"
-                                style="min-width: 100%;border-top: 2px solid #EAEAEA;">
-                                <tbody>
-                                  <tr>
-                                    <td>
-                                      <span></span>
-                                    </td>
-                                  </tr>
-                                </tbody>
-                              </table>
-                              <!--
-                <td class="mcnDividerBlockInner" style="padding: 18px;">
-                <hr class="mcnDividerContent" style="border-bottom-color:none; border-left-color:none; border-right-color:none; border-bottom-width:0; border-left-width:0; border-right-width:0; margin-top:0; margin-right:0; margin-bottom:0; margin-left:0;" />
--->
-                            </td>
-                          </tr>
-                        </tbody>
-                      </table>
-<!--                       <table border="0" cellpadding="0" cellspacing="0" width="100%" class="mcnButtonBlock"
+                      <table border="0" cellpadding="0" cellspacing="0" width="100%" class="mcnButtonBlock"
                         style="min-width:100%;">
                         <tbody class="mcnButtonBlockOuter">
                           <tr>
@@ -1220,7 +1192,11 @@
                                   <tr>
                                     <td align="center" valign="middle" class="mcnButtonContent"
                                       style="font-family: Arial, &quot;Helvetica Neue&quot;, Helvetica, sans-serif; font-size: 16px; padding: 18px;">
-                                      <%#= link_to 'Click here to accept the invite', edit_user_password_url, { target: '_blank', style: 'font-weight: bold;letter-spacing: normal;line-height: 100%;text-align: center;text-decoration: none;color: #FFFFFF;', class: 'mcnButton' }%>
+                                      <%= link_to 'Click Here To Confirm Your Email Address', confirmation_url(@resource, confirmation_token: @token), { class: 'mcnButton', target: '_blank', style: "font-weight: bold;letter-spacing: normal;line-height: 100%;text-align: center;text-decoration: none;color: #FFFFFF;" } %>
+ <!--                                      <a class="mcnButton " title="Click Here To Confirm Your Email Address" href=""
+                                        target="_blank"
+                                        style="font-weight: bold;letter-spacing: normal;line-height: 100%;text-align: center;text-decoration: none;color: #FFFFFF;">Click
+                                        Here To Confirm Your Email Address</a> -->
                                     </td>
                                   </tr>
                                 </tbody>
@@ -1228,7 +1204,7 @@
                             </td>
                           </tr>
                         </tbody>
-                      </table> -->
+                      </table>
                     </td>
                   </tr>
                 </table>
@@ -1273,9 +1249,12 @@
                                     <table align="center" border="0" cellspacing="0" cellpadding="0">
                                     <tr>
                                     <![endif]-->
+
                                                       <!--[if mso]>
                                         <td align="center" valign="top">
                                         <![endif]-->
+
+
                                                       <table align="left" border="0" cellpadding="0" cellspacing="0"
                                                         style="display:inline;">
                                                         <tbody>
@@ -1293,6 +1272,7 @@
                                                                         cellspacing="0" width="">
                                                                         <tbody>
                                                                           <tr>
+
                                                                             <td align="center" valign="middle"
                                                                               width="24" class="mcnFollowIconContent">
                                                                               <a href="http://www.twitter.com/Op_ResHQ"
@@ -1301,6 +1281,8 @@
                                                                                   alt="Twitter" style="display:block;"
                                                                                   height="24" width="24" class=""></a>
                                                                             </td>
+
+
                                                                           </tr>
                                                                         </tbody>
                                                                       </table>
@@ -1320,6 +1302,8 @@
                                                       <!--[if mso]>
                                         <td align="center" valign="top">
                                         <![endif]-->
+
+
                                                       <table align="left" border="0" cellpadding="0" cellspacing="0"
                                                         style="display:inline;">
                                                         <tbody>
@@ -1337,6 +1321,7 @@
                                                                         cellspacing="0" width="">
                                                                         <tbody>
                                                                           <tr>
+
                                                                             <td align="center" valign="middle"
                                                                               width="24" class="mcnFollowIconContent">
                                                                               <a href="https://www.opres.uk"
@@ -1345,6 +1330,8 @@
                                                                                   alt="Website" style="display:block;"
                                                                                   height="24" width="24" class=""></a>
                                                                             </td>
+
+
                                                                           </tr>
                                                                         </tbody>
                                                                       </table>
@@ -1383,14 +1370,17 @@
                                                                         cellspacing="0" width="">
                                                                         <tbody>
                                                                           <tr>
+
                                                                             <td align="center" valign="middle"
                                                                               width="24" class="mcnFollowIconContent">
-                                                                              <a href="https://www.linkedin.com/company/op-res"
+                                                                              <a href="http://www.linkedin.com"
                                                                                 target="_blank"><img
                                                                                   src="https://cdn-images.mailchimp.com/icons/social-block-v2/color-linkedin-48.png"
                                                                                   alt="LinkedIn" style="display:block;"
                                                                                   height="24" width="24" class=""></a>
                                                                             </td>
+
+
                                                                           </tr>
                                                                         </tbody>
                                                                       </table>
@@ -1402,9 +1392,11 @@
                                                           </tr>
                                                         </tbody>
                                                       </table>
+
                                                       <!--[if mso]>
                                         </td>
                                         <![endif]-->
+
                                                       <!--[if mso]>
                                     </tr>
                                     </table>
@@ -1421,6 +1413,7 @@
                                   </tr>
                                 </tbody>
                               </table>
+
                             </td>
                           </tr>
                         </tbody>
