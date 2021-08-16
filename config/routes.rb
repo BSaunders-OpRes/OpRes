@@ -1,15 +1,18 @@
 Rails.application.routes.draw do
   devise_scope :user do
     root 'users/sessions#new'
+    get '/confirm_invitation/:id', to: 'users/confirmations#invitation', as: :confirm_invitation # Custom Route for Invitation
   end
 
   devise_for :users, controllers: {
-    sessions:        'users/sessions',
-    registrations:   'users/registrations',
-    authentications: 'users/authentications',
-    passwords:       'users/passwords',
-    confirmations:   'users/confirmations'
+    sessions:             'users/sessions',
+    registrations:        'users/registrations',
+    authentications:      'users/authentications',
+    passwords:            'users/passwords',
+    confirmations:        'users/confirmations',
+    invite_confirmations: 'users/invite_confirmations'
   }
+
 
   resources :introjs, only: %i[index] do
     post :visited, on: :collection

@@ -1,0 +1,82 @@
+<div class="container d-flex justify-content-center align-items-center h-100 flex-column">
+  <div class="text-center">
+    <%= image_pack_tag 'media/images/logo.png', class: 'img-fluid w-75 mx-auto' %>
+  </div>
+
+  <%= form_for(@resource, url: password_path(@resource), html: { method: :put }) do |f| %>
+    <%= f.hidden_field :reset_password_token, value: @resource.reset_password_token %>
+
+    <div class="row">
+      <div class="field form-group col-sm-8 mx-auto">
+          <div class="card rounded-50">
+            <div class="card-body p-0">
+              <div class="row">
+                <div class="col-sm-3">
+                  <%= f.label :first_name, "Name:", class: 'mb-0 font-600 p-3' %>
+                </div>
+                <div class="col-sm-9">
+                  <p class="p-3 border-left"><%= f.object.first_name %></p>
+                </div>
+              </div>
+            </div>
+          </div>
+      </div>
+
+      <div class="field form-group col-sm-8 mx-auto">
+        <div class="card rounded-50">
+          <div class="card-body p-0">
+            <div class="row">
+              <div class="col-sm-3">
+                <%= f.label :last_name, "SurName:", class: 'mb-0 font-600 p-3' %>
+              </div>
+              <div class="col-sm-9">
+                <p class="p-3 border-left">
+                  <%= f.object.last_name %>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="field form-group col-sm-8 mx-auto">
+        <div class="card rounded-50">
+          <div class="card-body p-0">
+            <div class="row">
+              <div class="col-sm-3">
+                <%= f.label :email, "Email:", class: 'mb-0 font-600 p-3' %>
+              </div>
+              <div class="col-sm-9">
+                <p class="p-3 border-left">
+                  <%= f.object.email %>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="field form-group col-sm-8 mx-auto">
+        <%= f.label :password, "New password" %><br />
+        <%= f.password_field :password, autofocus: true, autocomplete: "new-password", class: 'form-control shadow-none' %>
+        <% if @minimum_password_length %>
+          <small class="d-flex justify-content-end text-right mt-2">(<%= @minimum_password_length %> characters minimum)</small>
+        <% end %>
+      </div>
+
+      <div class="field form-group col-sm-8 mx-auto">
+        <%= f.label :password_confirmation, "Confirm new password" %><br />
+        <%= f.password_field :password_confirmation, autocomplete: "new-password", class: 'form-control shadow-none' %>
+      </div>
+
+    </div>
+    <div class="row">
+      <div class="actions col-sm-8 mx-auto text-right d-flex justify-content-between flex-column align-items-center">
+        <%= f.submit "Change my password", class: 'btn black-btn rounded-50 w-100 mb-3' %>
+      </div>
+    </div>
+  <% end %>
+</div>

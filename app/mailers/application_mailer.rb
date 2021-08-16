@@ -1,5 +1,5 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: 'info@opres.uk'
+  default from: 'hq@opres.uk'
 
   layout 'mailer'
 end

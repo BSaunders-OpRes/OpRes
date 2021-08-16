@@ -5,6 +5,8 @@ class User < ApplicationRecord
   has_many :managing_units, through: :managers, source: :unit
   has_many :risk_appetite_justifications, dependent: :nullify
 
+  # Callbacks #
+  before_validation :confirm_user
   # Attribute Accessors #
   attr_accessor :skip_password_validation
 
@@ -14,7 +16,7 @@ class User < ApplicationRecord
   # Devise #
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable,
-         :trackable, :validatable
+         :trackable, :validatable, :confirmable
 
   # Methods #
   def name
@@ -46,5 +48,12 @@ class User < ApplicationRecord
     return false if skip_password_validation
 
     super
+  end
+
+  def confirm_user
+    if self.password.blank?
+      self.password = Devise.friendly_token
+      self.confirmed_at = Time.now
+    end
   end
 end

@@ -27,4 +27,14 @@ class Users::ConfirmationsController < Devise::ConfirmationsController
   # def after_confirmation_path_for(resource_name, resource)
   #   super(resource_name, resource)
   # end
+
+  def invitation
+    @resource = User.find(params[:id])
+    raw, enc  = Devise.token_generator.generate(@resource.class, :reset_password_token)
+    @resource.reset_password_token = enc
+    @resource.reset_password_sent_at = Time.now.utc
+    @resource.save
+    @raw = @raw
+    byebug
+  end
 end
