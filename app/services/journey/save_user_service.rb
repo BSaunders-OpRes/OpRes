@@ -17,7 +17,8 @@ class Journey::SaveUserService < ApplicationService
           last_name:  user_data.dig(:last_name),
           email:      user_data.dig(:email),
           password:   Devise.friendly_token,
-          role:       user_data.dig(:role)
+          role:       user_data.dig(:role),
+          invited_status: true
         }
       end
     else
@@ -31,7 +32,8 @@ class Journey::SaveUserService < ApplicationService
           unit:       args.dig(:organisational_unit),
           email:      email,
           password:   Devise.friendly_token,
-          role:       args.dig(:params, :users, :multiple, :role)
+          role:       args.dig(:params, :users, :multiple, :role),
+          invited_status: true
         }
       end
     end
@@ -41,7 +43,6 @@ class Journey::SaveUserService < ApplicationService
                  .users
                  .create_with(user_data)
                  .find_or_create_by(email: user_data.dig(:email))
-
       if user.errors.present?
         failing_users << {
           "#{user.email}": user.errors
@@ -62,7 +63,8 @@ class Journey::SaveUserService < ApplicationService
         user,
         user_data.dig(:password),
         message,
-        user.root_user? ? '' : args.dig(:regional_unit)
+        user.root_user? ? '' : args.dig(:regional_unit),
+        args.dig(:current_user_email)
       ).deliver_later if managers.select { |m| m.id.blank? }.size.positive?
 
       managers_data = Manager.import managers, on_duplicate_key_ignore: true

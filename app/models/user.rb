@@ -5,6 +5,9 @@ class User < ApplicationRecord
   has_many :managing_units, through: :managers, source: :unit
   has_many :risk_appetite_justifications, dependent: :nullify
 
+  # Callbacks #
+  before_validation :confirm_user
+
   # Attribute Accessors #
   attr_accessor :skip_password_validation
 
@@ -14,7 +17,7 @@ class User < ApplicationRecord
   # Devise #
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable,
-         :trackable, :validatable
+         :trackable, :validatable, :confirmable
 
   # Methods #
   def name
@@ -28,6 +31,10 @@ class User < ApplicationRecord
 
   def super_or_standard_user?
     super_user? || standard_user?
+  end
+
+  def managing_regions
+    managing_units.collect{|e| e.region.name }
   end
 
   def invitiable_users
@@ -46,5 +53,9 @@ class User < ApplicationRecord
     return false if skip_password_validation
 
     super
+  end
+
+  def confirm_user
+    self.confirmed_at = Time.now if invited_status
   end
 end

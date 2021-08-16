@@ -75,7 +75,9 @@
   color: $black !important;
 }
 
-
+.border-green {
+  border: 2px solid $primary-green;
+}
 .border-left-green {
   border-left: 2px solid $primary-green;
 }
