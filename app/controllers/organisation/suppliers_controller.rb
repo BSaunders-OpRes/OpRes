@@ -1,7 +1,7 @@
 class Organisation::SuppliersController < Organisation::BaseController
   load_and_authorize_resource
 
-  before_action :load_supplier, only: %i[edit update show destroy critical_important_suppliers compound_resilience]
+  before_action :load_supplier, only: %i[edit update show destroy critical_important_suppliers compound_resilience search_and_filter]
 
   def new
     @supplier = Supplier.new
@@ -40,6 +40,7 @@ class Organisation::SuppliersController < Organisation::BaseController
     @chp_region             = @supplier.cloud_hosting_provider_region
     @third_party_suppliers  = @supplier.third_party_suppliers.includes(:cloud_hosting_provider)
     @fourth_party_suppliers = @supplier.fourth_party_suppliers.includes(:cloud_hosting_provider)
+    @compliance_evidences   = PaginationService.new(@supplier.compliance_evidences, params[:page], params[:filter] || 5).paginate_array
   end
 
   def destroy; end
@@ -61,6 +62,25 @@ class Organisation::SuppliersController < Organisation::BaseController
     Sla::SLA_ATTR.each do |sla_attribute|
       instance_variable_set("@#{sla_attribute}".to_sym, BusinessServiceLine.joins(:sla, steps: [supplier_steps: [:supplier]]).where(suppliers: {id: @supplier.id}).where.not(slas:{"#{sla_attribute}": nil}))
     end
+  end
+
+  def search_and_filter
+    @compliance_evidences = PaginationService.new(search_compliance_evidence, params[:page], params[:filter] || 5).paginate_array
+  end
+
+  def search_compliance_evidence
+    @key = ""
+    @key << "name ILIKE :query" if params[:query].present?
+    # if params[:sort].present?
+    #   if params[:sort] == 'green'
+    #     @key << " AND create_at < :date"
+    #   elsif params[:sort] == 'amber'
+    #     @key << " AND create_at = :date"
+    #   else
+    #     @key << " AND create_at > :date"
+    #   end
+    # end
+    @supplier.compliance_evidences.where(@key, query: "%#{params[:query]}%")
   end
 
   private

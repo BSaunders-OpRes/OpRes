@@ -128,6 +128,28 @@ ActiveRecord::Schema.define(version: 2021_08_16_074325) do
     t.string "short_name"
   end
 
+  create_table "compliance_evidences", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.integer "compliance_tier"
+    t.integer "compliance_frequency", default: 365
+    t.bigint "supplier_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["supplier_id"], name: "index_compliance_evidences_on_supplier_id"
+  end
+
+  create_table "compliance_rules", force: :cascade do |t|
+    t.string "title"
+    t.integer "reminder"
+    t.string "email_address"
+    t.text "tailored_message"
+    t.bigint "compliance_evidence_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["compliance_evidence_id"], name: "index_compliance_rules_on_compliance_evidence_id"
+  end
+
   create_table "countries", force: :cascade do |t|
     t.bigint "region_id"
     t.string "continent"
@@ -550,6 +572,8 @@ ActiveRecord::Schema.define(version: 2021_08_16_074325) do
   add_foreign_key "cloud_hosting_provider_regions", "cloud_hosting_providers"
   add_foreign_key "cloud_hosting_provider_service_recipients", "cloud_hosting_provider_services"
   add_foreign_key "cloud_hosting_provider_services", "cloud_hosting_providers"
+  add_foreign_key "compliance_evidences", "suppliers"
+  add_foreign_key "compliance_rules", "compliance_evidences"
   add_foreign_key "countries", "regions"
   add_foreign_key "country_currencies", "countries"
   add_foreign_key "country_currencies", "currencies"
