@@ -1,5 +1,5 @@
 <div class="card mt-2">
-  <div class="card-body">
+  <div class="card-body p-2 p-sm-3">
     <div class="form-group">
       <%= hidden_field_tag "institutions[#{institution.id}][#{index}][id]", selected_institution_unit&.id %>
       <%= text_field_tag "institutions[#{institution.id}][#{index}][name]", selected_institution_unit&.name || institution.name, class: 'form-control font-12' %>
@@ -21,7 +21,7 @@
     </div>
     <%= link_to new_organisation_product_path(institution_id: institution.id, index: index), id: "add-product-#{institution.id}", remote: true, class: 'add-product d-flex align-items-center text-left text-black wait-loader' do %>
       <span><i class="fa fa-plus-circle font-16"></i></span>
-      <span class="font-12 ml-1">Add another product</span>
+      <span class="font-12 ml-1 text-left">Add another product</span>
     <% end %>
   </div>
 </div>

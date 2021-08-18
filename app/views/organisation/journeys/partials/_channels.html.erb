@@ -1,19 +1,19 @@
 <div class="modal mt-5 fade" id="institution-<%= institution.id %>-<%= index %>-product-<%= product.id %>" tabindex="-1" aria-labelledby="product-<%= product.id %>" aria-hidden="true">
   <div class="modal-dialog mt-5">
-    <div class="modal-content w-75 mx-auto">
+    <div class="modal-content w-100 w-sm-75 mx-auto">
       <div class="modal-header border-0 pb-0">
         <button type="button" class="close pb-1" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body pt-0 mt-2">
-        <h5 class="text-capitalize font-300 mb-4">Add Channels</h5>
+        <h5 class="text-capitalize font-600 mb-4">Add Channels</h5>
         <% unit_product_channels = selected_unit_product&.unit_product_channels || [] %>
         <div class="form-group my-3">
           <div id="<%="#{index}#{institution.id}#{product.id}"%>">
             <% product.channels.each do |channel| %>
               <label class="custom-checkbox d-flex pl-4" for="<%= "#{index}#{institution.id}#{product.id}#{channel.id}" %>">
-                <span class="font-14 text-black text-capitalize ml-2"><%= channel.name %></span>
+                <span class="font-14 text-black text-capitalize ml-2 text-left"><%= channel.name %></span>
                 <%= check_box_tag "institutions[#{institution.id}][#{index}][products][#{product.id}][channels][#{channel.id}]", channel.name, unit_product_channels&.pluck(:channel_id)&.include?(channel.id), class: 'form-control', id: "#{index}#{institution.id}#{product.id}#{channel.id}" %>
                 <span class="transparent-checkmark"></span>
               </label>
