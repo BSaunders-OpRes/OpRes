@@ -44,5 +44,7 @@ class Organisation::DashboardBreakDownsController < Organisation::BaseController
   
   def impact_tolerance_appetite; end
   def resilience_indicator_ticket; end
-  def system_supplier_resilience_indicator; end
+  def system_supplier_resilience_indicator
+    binding.pry
+  end
 end
