@@ -25,7 +25,10 @@ class Organisation::DashboardBreakDownsController < Organisation::BaseController
     @data = CHP::OverviewCharts.call({organisational_unit: organisational_unit})
   end
 
-  def critical_important_system; end
+  def critical_important_system
+    @data = CAIS::CriticalAndImportantSuppliers.call({organisational_unit: organisational_unit})
+  end
+  
   def impact_tolerance_appetite; end
   def resilience_indicator_ticket; end
   def system_supplier_resilience_indicator; end
