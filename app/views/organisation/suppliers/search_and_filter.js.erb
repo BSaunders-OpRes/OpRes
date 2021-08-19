@@ -1,1 +1,1 @@
-$("#section9").html("<%= escape_javascript(render 'organisation/suppliers/subsections/supplier_compliance_documentation', supplier: @supplier, compliance_evidences: @compliance_evidences) %>");
+$("#compliance-evidence-table-render").html("<%= escape_javascript(render 'organisation/compliance_evidences/compliance_evidence_table', supplier: @supplier, compliance_evidences: @compliance_evidences) %>");
