@@ -1,4 +1,4 @@
-<div class="modal fade" id="sup-view-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade p-0" id="sup-view-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog max-width-sm-100 px-sm-5 px-2 w-100 mx-auto">
     <div class="modal-content">
       <div class="modal-header border-0 pb-0">
@@ -51,8 +51,8 @@
             <h5 class="modal-title text-capitalize font-16 font-600 mb-3 mb-sm-0" id="exampleModalLabel">
               compliance update factory
             </h5>
-            <div class="d-flex">
-              <div class="dropdown body-color-dropdown black-placeholder mr-2">
+            <div class="d-flex flex-column flex-sm-row">
+              <div class="dropdown body-color-dropdown black-placeholder mr-2 mb-2 mb-sm-0">
                 <%= f.number_field :compliance_frequency, class: "flex-1 font-600 text-black font-13 bg-body-color border-0 mr-2 form-control text-black", required: true %>
               </div>
               <div class="dropdown body-color-dropdown">
