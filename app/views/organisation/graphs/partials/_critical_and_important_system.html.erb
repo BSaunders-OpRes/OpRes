@@ -32,7 +32,6 @@
       <div class="col-sm-6 px-0 d-flex justify-content-center">
         <div class="sm-donut-content text-black">
         <div class="sm-donut-content w-150px">
-          <%# debugger %>
           <%= react_component('highcharts/donut', { data: data.dig(:overall, :graph), render_to: 'critical-and-important' }, { class: 'h-200-highchart h-140-highchart' }) %>
           <div class="donut-value font-30 font-700"><%= data.dig(:overall, :graph)&.last[:count]%></div>
         </div>

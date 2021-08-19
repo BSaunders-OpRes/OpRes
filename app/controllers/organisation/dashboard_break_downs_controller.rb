@@ -26,7 +26,7 @@ class Organisation::DashboardBreakDownsController < Organisation::BaseController
   end
 
   def critical_important_system
-    @data = CAIS::CriticalAndImportantSuppliers.call({organisational_unit: organisational_unit})
+    @suppliers = Supplier.where(unit_id: managing_nodes).group_by{ |e| e.consumption_model }
   end
   
   def impact_tolerance_appetite; end

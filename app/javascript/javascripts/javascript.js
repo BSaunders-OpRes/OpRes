@@ -20,6 +20,7 @@ import './highcharts/area-chart';
 import './highcharts/colored-donut';
 import './highcharts/sonification-chart';
 import './highcharts/stacked-chart';
+import './dashboards/critical-important-system';
 
 window.$          = JQuery;
 window.Highcharts = Highcharts;
