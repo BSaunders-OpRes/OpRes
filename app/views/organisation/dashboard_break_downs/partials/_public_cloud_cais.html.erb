@@ -16,13 +16,13 @@
     </div>
     <ul class="nav nav-tabs border-0 active-green my-4">
       <li class="nav-item mr-3">
-        <a href="#home" class="nav-link active text-capitalize font-12 font-xxl-14 border-0 p-0 pb-2 text-light-grey font-500" data-toggle="tab" href="#iaas" role="tab" aria-controls="home" aria-selected="true">IaaS</a>
+        <a class="nav-link active text-capitalize font-12 font-xxl-14 border-0 p-0 pb-2 text-light-grey font-500" data-toggle="tab" href="#iaas" role="tab" aria-controls="home" aria-selected="true">IaaS</a>
       </li>
       <li class="nav-item mr-3">
-        <a href="#profile" class="nav-link text-capitalize font-12 font-xxl-14 border-0 p-0 pb-2 text-light-grey font-500" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">SaaS</a>
+        <a class="nav-link text-capitalize font-12 font-xxl-14 border-0 p-0 pb-2 text-light-grey font-500" data-toggle="tab" href="#saas" role="tab" aria-controls="home" aria-selected="true">SaaS</a>
       </li>
       <li class="nav-item mr-3">
-        <a href="#contact" class="nav-link text-capitalize font-12 font-xxl-14 border-0 p-0 pb-2 text-light-grey font-500" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">PaaS</a>
+        <a class="nav-link text-capitalize font-12 font-xxl-14 border-0 p-0 pb-2 text-light-grey font-500" data-toggle="tab" href="#paas" role="tab" aria-controls="home" aria-selected="true">PaaS</a>
       </li>
     </ul>
     <div class="form-group">
@@ -97,7 +97,7 @@
           </ul>
         </nav>
       </div>
-      <div class="tab-pane fade" id='profile'>
+      <div class="tab-pane fade" id='saas'>
         <div class="table-responsive">
           <table class="table bg-white">
             <thead>
@@ -121,83 +121,37 @@
               </tr>
             </thead>
             <tbody>
+              <% @suppliers["saas"]&.each do |s|%>
               <tr>
-                <td class="text-uppercase font-12 font-xxl-14 font-700 py-4"> supplier ABC
+                <td class="text-uppercase font-12 font-xxl-14 font-700 py-4"><%= s.name%>
                 </td>
                 <td class="text-uppercase font-12 font-xxl-14 font-700 py-4">
-                  3rd party
+                <%= s.party_type %>
                 </td>
                 <td class="text-uppercase font-12 font-xxl-14 font-700 py-4">
                   <div class="d-flex align-items-center">
                     <div class="w-25px w-xxl-40px">
                       <%= image_pack_tag 'media/images/aws.png', class: 'img-fluid' %>
                     </div>
-                    <span class="ml-1">AWS</span>
+                    <span class="ml-1"><%= s.cloud_hosting_provider.name %></span>
                   </div>
                 </td>
                 <td class="text-uppercase font-12 font-xxl-14 font-700 py-4">
-                  14
+                  <%= s.bsls_count %>
                 </td>
                 <td class="text-uppercase font-12 font-xxl-14 font-700 py-4">
-                  19
+                 <%= s.critical_supplier_steps.count %>
                 </td>
                 <td class="text-capitalize font-12 text-primary font-xxl-14 font-500 py-4" type="button" class="btn white-btn text-capitalize" data-toggle="modal" data-target="#exampleModal">
                   Breakdown
                 </td>
               </tr>
-              <tr>
-                <td class="text-uppercase font-12 font-xxl-14 font-700 py-4"> supplier ABC
-                </td>
-                <td class="text-uppercase font-12 font-xxl-14 font-700 py-4">
-                  3rd party
-                </td>
-                <td class="text-uppercase font-12 font-xxl-14 font-700 py-4">
-                  <div class="d-flex align-items-center">
-                    <div class="w-25px w-xxl-40px">
-                      <%= image_pack_tag 'media/images/azure.png', class: 'img-fluid' %>
-                    </div>
-                    <p class="ml-1">Azure</p>
-                  </div>
-                </td>
-                <td class="text-uppercase font-12 font-xxl-14 font-700 py-4">
-                  14
-                </td>
-                <td class="text-uppercase font-12 font-xxl-14 font-700 py-4">
-                  19
-                </td>
-                <td class="text-capitalize font-12 text-primary font-xxl-14 font-500 py-4" type="button" class="btn white-btn text-capitalize" data-toggle="modal" data-target="#exampleModal">
-                  Breakdown
-                </td>
-              </tr>
-              <tr>
-                <td class="text-uppercase font-12 font-xxl-14 font-700 py-4"> supplier ABC
-                </td>
-                <td class="text-uppercase font-12 font-xxl-14 font-700 py-4">
-                  3rd party
-                </td>
-                <td class="text-uppercase font-12 font-xxl-14 font-700 py-4">
-                  <div class="d-flex align-items-center">
-                    <div class="w-25px w-xxl-40px">
-                      <%= image_pack_tag 'media/images/g-cloud.png', class: 'img-fluid' %>
-                    </div>
-                    <p class="ml-1">AWS</p>
-                  </div>
-                </td>
-                <td class="text-uppercase font-12 font-xxl-14 font-700 py-4">
-                  14
-                </td>
-                <td class="text-uppercase font-12 font-xxl-14 font-700 py-4">
-                  19
-                </td>
-                <td class="text-capitalize font-12 text-primary font-xxl-14 font-500 py-4" type="button" class="btn white-btn text-capitalize" data-toggle="modal" data-target="#exampleModal">
-                  Breakdown
-                </td>
-              </tr>
+              <% end %>
             </tbody>
           </table>
         </div>
       </div>
-      <div class="tab-pane fade" id='contact'>
+      <div class="tab-pane fade" id='paas'>
         <div class="table-responsive">
           <table class="table bg-white">
             <thead>
@@ -221,78 +175,32 @@
               </tr>
             </thead>
             <tbody>
+              <% @suppliers["paas"]&.each do |s|%>
               <tr>
-                <td class="text-uppercase font-12 font-xxl-14 font-700 py-4"> supplier ABC
+                <td class="text-uppercase font-12 font-xxl-14 font-700 py-4"><%= s.name%>
                 </td>
                 <td class="text-uppercase font-12 font-xxl-14 font-700 py-4">
-                  3rd party
+                <%= s.party_type %>
                 </td>
                 <td class="text-uppercase font-12 font-xxl-14 font-700 py-4">
                   <div class="d-flex align-items-center">
                     <div class="w-25px w-xxl-40px">
                       <%= image_pack_tag 'media/images/aws.png', class: 'img-fluid' %>
                     </div>
-                    <span class="ml-1">AWS</span>
+                    <span class="ml-1"><%= s.cloud_hosting_provider.name %></span>
                   </div>
                 </td>
                 <td class="text-uppercase font-12 font-xxl-14 font-700 py-4">
-                  14
+                  <%= s.bsls_count %>
                 </td>
                 <td class="text-uppercase font-12 font-xxl-14 font-700 py-4">
-                  19
+                 <%= s.critical_supplier_steps.count %>
                 </td>
                 <td class="text-capitalize font-12 text-primary font-xxl-14 font-500 py-4" type="button" class="btn white-btn text-capitalize" data-toggle="modal" data-target="#exampleModal">
                   Breakdown
                 </td>
               </tr>
-              <tr>
-                <td class="text-uppercase font-12 font-xxl-14 font-700 py-4"> supplier ABC
-                </td>
-                <td class="text-uppercase font-12 font-xxl-14 font-700 py-4">
-                  3rd party
-                </td>
-                <td class="text-uppercase font-12 font-xxl-14 font-700 py-4">
-                  <div class="d-flex align-items-center">
-                    <div class="w-25px w-xxl-40px">
-                      <%= image_pack_tag 'media/images/azure.png', class: 'img-fluid' %>
-                    </div>
-                    <p class="ml-1">Azure</p>
-                  </div>
-                </td>
-                <td class="text-uppercase font-12 font-xxl-14 font-700 py-4">
-                  14
-                </td>
-                <td class="text-uppercase font-12 font-xxl-14 font-700 py-4">
-                  19
-                </td>
-                <td class="text-capitalize font-12 text-primary font-xxl-14 font-500 py-4" type="button" class="btn white-btn text-capitalize" data-toggle="modal" data-target="#exampleModal">
-                  Breakdown
-                </td>
-              </tr>
-              <tr>
-                <td class="text-uppercase font-12 font-xxl-14 font-700 py-4"> supplier ABC
-                </td>
-                <td class="text-uppercase font-12 font-xxl-14 font-700 py-4">
-                  3rd party
-                </td>
-                <td class="text-uppercase font-12 font-xxl-14 font-700 py-4">
-                  <div class="d-flex align-items-center">
-                    <div class="w-25px w-xxl-40px">
-                      <%= image_pack_tag 'media/images/g-cloud.png', class: 'img-fluid' %>
-                    </div>
-                    <p class="ml-1">AWS</p>
-                  </div>
-                </td>
-                <td class="text-uppercase font-12 font-xxl-14 font-700 py-4">
-                  14
-                </td>
-                <td class="text-uppercase font-12 font-xxl-14 font-700 py-4">
-                  19
-                </td>
-                <td class="text-capitalize font-12 text-primary font-xxl-14 font-500 py-4" type="button" class="btn white-btn text-capitalize" data-toggle="modal" data-target="#exampleModal">
-                  Breakdown
-                </td>
-              </tr>
+              <% end %>
             </tbody>
           </table>
         </div>
