@@ -1,0 +1,91 @@
+<div class="card border-0 shadow-sm rounded-50 mb-4">
+  <div class="card-body px-0">
+    <div class="d-flex align-items-center mb-4 px-4">
+      <h5 class="text-capitalize text-left w-75 font-600">Overview</h5>
+      <i class="fa fa-ellipsis-v w-25 text-right" aria-hidden="true"></i>
+    </div>
+    <div class="small-boxes row px-4 mb-4">
+      <div class="col-md-3">
+        <div class="card h-100 border-0 bg-body-color mb-2">
+          <div class="card-body p-2 d-flex align-items-center rounded">
+            <div class="color-tier d-flex align-items-center">
+              <i class="fa fa-certificate"></i>
+              <div class="text">
+                <span class="font-12 font-xxl-14 font-400 ml-2 d-block">Service Tier:</span>
+                <span class="font-12 font-xxl-14 ml-2 d-block font-600"><%= @bsl.tier.titleize %></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="card h-100 border-0 bg-body-color mb-2">
+          <div class="card-body p-2 d-flex align-items-center rounded">
+            <div class="color-tier d-flex align-items-center">
+              <i class="fa fa-folder"></i>
+              <div class="text">
+                <span class="font-12 font-xxl-14 font-400 ml-2 d-block">Product:</span>
+                <span class="font-12 font-xxl-14 ml-2 d-block font-600"><%= @bsl.product_list %></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="card h-100 border-0 bg-body-color mb-2 d-flex justify-content-center">
+          <%= link_to critical_important_suppliers_organisation_business_service_line_path(@bsl), class: 'text-black text-decoration-none' do %>
+            <div class="card-body p-2 d-flex align-items-center rounded">
+              <div class="color-tier d-flex align-items-center">
+                <i class="fa fa-exclamation-triangle text-danger"></i>
+                <div class="text">
+                  <span class="font-12 font-xxl-14 font-400 ml-2 d-block">Critical Systems:</span>
+                  <span class="font-12 font-xxl-14 ml-2 d-block font-600"><%= @bsl.critical_supplier_steps.size %></span>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="card h-100 border-0 bg-body-color mb-2 d-flex justify-content-center">
+          <%= link_to critical_important_suppliers_organisation_business_service_line_path(@bsl), class: 'text-black text-decoration-none' do %>
+            <div class="card-body p-2 d-flex align-items-center rounded">
+              <div class="color-tier d-flex align-items-center">
+                <i class="fa fa-exclamation-circle text-warning"></i>
+                <div class="text">
+                  <span class="font-12 font-xxl-14 font-400 ml-2 d-block">Important Systems:</span>
+                  <span class="font-12 font-xxl-14 ml-2 d-block font-600"><%= @bsl.important_supplier_steps.size %></span>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <div class="decription px-4 mb-4">
+      <h6 class="mb-3 font-14">Description</h6>
+      <p class="font-12">
+        <%= @bsl.description %>
+      </p>
+    </div>
+    <div class="channels px-4 mb-4">
+      <h6 class="mb-3 font-14">Channels</h6>
+      <div class="small-boxes row">
+        <% @bsl.channels.each do |channel| %>
+          <div class="col-md-3 mb-2">
+            <div class="card h-100">
+              <div class="card-body p-2 d-flex align-items-center rounded">
+                <div class="color-tier d-flex align-items-center">
+                  <i class="fa <%= channel.icon %> font-22"></i>
+                  <div class="text">
+                    <span class="font-12 font-xxl-14 font-400 ml-2 d-block"><%= channel.name %></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

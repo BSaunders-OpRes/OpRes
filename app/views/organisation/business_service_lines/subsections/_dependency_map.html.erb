@@ -1,0 +1,50 @@
+<div class="row mt-4">
+  <div class="col-md-12">
+    <div class="card border-0 shadow-sm d-block expand-to-full-screen">
+      <div class="row px-4">
+        <div class="col-md-6 text py-4">
+          <h2 class="card-heading font-18 font-600 py-2">Dependency Map</h2>
+        </div>
+        <div class="col-md-6 text py-4 text-right">
+          <button class="btn btn-dark btn-sm py-2 expand-to-full-screen-btn">
+            <i class="fa fa-expand"></i>
+            <span>Expand</span>
+          </button>
+          <i class="fa fa-ellipsis-v mx-1 text-right card-heading-icon" aria-hidden="true"></i>
+        </div>
+      </div>
+      <div class="dependency-map px-4">
+        <div class="map-boxes">
+          <% @bsl.steps.each do |step| %>
+            <div class="box-1 mr-3 mb-4 w-15">
+              <div class="heading bg-body-color">
+                <h6 class="font-12 py-2 px-2 font-400 mb-2"><%= step.name %></h6>
+              </div>
+              <% step.supplier_steps.each do |supplier_step| %>
+                <div class="map-text font-11 mb-2">
+                  <p class="pl-2 border-left-<%= supplier_step.party_type %>">
+                    <%= supplier_step.supplier.name %>
+                  </p>
+                </div>
+              <% end %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+      <hr>
+      <div class="helping-points px-3 pt-0 py-4 d-flex align-items-center justify-content-start">
+        <% SupplierStep.party_types.keys.each do |party_type| %>
+          <div class="mr-3">
+            <div class="box-1">
+              <div class="map-text font-11 mb-2">
+                <p class="pl-2 border-left-<%= party_type %>">
+                  <%= party_type.titleize %>
+                </p>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
