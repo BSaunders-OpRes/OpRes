@@ -1,0 +1,6 @@
+<% if @compliance_evidence %>
+  $("#compliance_evidence_<%= @compliance_evidence.id %>").remove();
+  $("#compliance-evidence-table").append("<%= j render 'organisation/suppliers/partials/compliance_evidence', supplier: @supplier , compliance_evidence: @compliance_evidence %>");
+  $("#sup-view-modal").modal('hide');
+<% else %>
+<% end %>

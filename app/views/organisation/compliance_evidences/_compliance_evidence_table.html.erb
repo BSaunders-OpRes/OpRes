@@ -1,0 +1,20 @@
+<table class="table custom-table mb-4 text-capitalize">
+  <thead class="font-600">
+    <tr>
+      <th class="font-12 font-xxl-14 px-1 text-light-grey font-400 text-capitalize font-600">document title</th>
+      <th class="font-12 font-xxl-14 px text-light-grey font-400 text-capitalize font-600">Date added</th>
+      <th class="font-12 font-xxl-14 px text-light-grey font-400 text-capitalize font-600">days until new compliance document requried</th>
+      <th class="font-12 font-xxl-14 px text-light-grey font-400 text-capitalize font-600">level of importance</th>
+      <th class="font-12 font-xxl-14 px text-light-grey font-400 text-capitalize font-600">RAG Status</th>
+      <th class="font-12 font-xxl-14 px text-light-grey font-400 text-capitalize font-600">update notification rules</th>
+    </tr>
+  </thead>
+  <tbody id="compliance-evidence-table">
+    <% compliance_evidences.each do |compliance_evidence|%>
+      <%= render 'organisation/suppliers/partials/compliance_evidence', supplier: supplier , compliance_evidence: compliance_evidence %>
+    <% end %>
+  </tbody>
+</table>
+<div class="custom-pagination">
+  <%= paginate compliance_evidences, params: {controller: 'suppliers', action: 'search_and_filter'}, remote: true %>
+</div>

@@ -1,0 +1,166 @@
+<div class="row mt-4">
+  <div class="col-md-12">
+    <div class="card border-0 shadow-sm">
+      <div class="text px-4 py-4 d-flex justify-content-between align-items-center">
+        <h2 class="card-heading font-18 font-600 text-left">Compound Risk Posture</h2>
+        <i class="fa fa-ellipsis-v mx-1 text-right card-heading-icon" aria-hidden="true"></i>
+      </div>
+      <div class="row d-flex no-gutters">
+        <div class="col-md-6 col-lg-4 order-lg-4 order-1 mb-lg-0 mb-4 px-1">
+          <div class="card border-0 rounded-50">
+            <div class="card-body">
+              <div class="d-flex align-items-center justify-content-center px-3 text-center">
+                <h5 class="font-14 font-600 text-center text-capitalize">Conformance With Impact Tolerance</h5>
+              </div>
+              <div class="row align-items-center">
+                <div class="col-md-12">
+                  <div class="position-relative">
+                  <%= link_to 'javascript:void(0);', class: 'text-decoration-none text-black' do %>
+                    <div id="bsl-supplier-conformance-impact-tolerance" class="lazy-graph" data-key="bsl_supplier_conformance_impact_tolerance" data-args="<%= { bsl: @bsl.id }.to_json %>" data-append-to="bsl-supplier-conformance-impact-tolerance" data-partial-name="bsl_supplier_conformance_impact_tolerance">
+                      <%= render 'organisation/graphs/partials/bsl_supplier_conformance_impact_tolerance', data: {} %>
+                    </div>
+                  <% end %>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4 order-lg-4 order-1 mb-lg-0 mb-4 px-1">
+          <div class="card border-0 rounded-50">
+            <div class="card-body">
+              <div class="d-flex align-items-center justify-content-center px-3 text-center">
+                <h5 class="font-14 font-600 text-capitalize">Critical System Resilience RAG</h5>
+              </div>
+              <div class="row align-items-center">
+                <div class="col-md-12">
+                  <div class="position-relative">
+                    <%= link_to compound_resilience_organisation_business_service_line_path(@bsl, supplier_type: SupplierStep.importance_levels[:critical]), class: 'text-decoration-none text-black' do %>
+                      <div id="bsl-supplier-critical-system" class="lazy-graph" data-key="bsl_supplier_conformance_impact_tolerance" data-args="<%= { bsl: @bsl.id, critical_system: true }.to_json %>" data-append-to="bsl-supplier-critical-system" data-partial-name="bsl_supplier_systems">
+                          <%= render 'organisation/graphs/partials/bsl_supplier_systems', data: {} %>
+                        </div>
+                    <% end %>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4 order-lg-4 order-1 mb-lg-0 mb-4 px-1">
+          <div class="card border-0 rounded-50">
+            <div class="card-body">
+              <div class="d-flex align-items-center justify-content-center text-center px-3">
+                <h5 class="font-14 font-600 text-capitalize">Important System Resilience RAG</h5>
+              </div>
+              <div class="row align-items-center">
+                <div class="col-md-12">
+                  <div class="position-relative">
+                    <%= link_to compound_resilience_organisation_business_service_line_path(@bsl, supplier_type: SupplierStep.importance_levels[:important]), class: 'text-decoration-none text-black' do %>
+                      <div id="bsl-supplier-important-system" class="lazy-graph" data-key="bsl_supplier_conformance_impact_tolerance" data-args="<%= { bsl: @bsl.id, important_system: true }.to_json %>" data-append-to="bsl-supplier-important-system" data-partial-name="bsl_supplier_systems">
+                          <%= render 'organisation/graphs/partials/bsl_supplier_systems', data: {} %>
+                        </div>
+                    <% end %>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="top-5-table px-4">
+        <h6 class="mb-4 font-600">Top 5 At Risk Supplier List</h6>
+        <div class="table-responsive">
+          <table class="table mb-0">
+            <thead>
+              <tr>
+                <th class="font-12 text-light-grey border-bottom-0 border-top-0 pl-0" width="5%">Rank</th>
+                <th class="font-12 text-light-grey border-bottom-0 border-top-0" width="55%">Supplier</th>
+                <th class="font-12 text-light-grey border-bottom-0 border-top-0" width="30%">Type</th>
+                <th class="font-12 text-light-grey border-bottom-0 border-top-0" width="10%"></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="font-12 pl-0">1</td>
+                <td class="font-12">KYC Supplier Name Here</td>
+                <td class="font-12">
+                  <div class="color-tier d-flex align-items-center">
+                    <div class="circle red-circle p-2"></div>
+                    <span class="font-12 font-400 ml-2">Red Supplier</span>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td class="font-12 pl-0">2</td>
+                <td class="font-12">KYC Supplier Name Here</td>
+                <td class="font-12">
+                  <div class="color-tier d-flex align-items-center">
+                    <div class="circle red-circle p-2"></div>
+                    <span class="font-12 font-400 ml-2">Red Supplier</span>
+                  </div>
+                </td>
+                  <td class="font-12">
+                    <%= link_to organisation_supplier_path(Supplier.last), class:'text-decoration-none text-black' do %>
+                      More
+                      <i class="fa fa-arrow-right ml-1"></i>
+                    <% end %>
+                  </td>
+              </tr>
+              <tr>
+                <td class="font-12 pl-0">3</td>
+                <td class="font-12">KYC Supplier Name Here</td>
+                <td class="font-12">
+                  <div class="color-tier d-flex align-items-center">
+                    <div class="circle red-circle p-2"></div>
+                    <span class="font-12 font-400 ml-2">Red Supplier</span>
+                  </div>
+                </td>
+                  <td class="font-12">
+                    <%= link_to organisation_supplier_path(Supplier.last), class:'text-decoration-none text-black' do %>
+                        More
+                        <i class="fa fa-arrow-right ml-1"></i>
+                    <% end %>
+                  </td>
+              </tr>
+              <tr>
+                <td class="font-12 pl-0">4</td>
+                <td class="font-12">KYC Supplier Name Here</td>
+                <td class="font-12">
+                  <div class="color-tier d-flex align-items-center">
+                    <div class="circle orange-circle p-2"></div>
+                    <span class="font-12 font-400 ml-2">Amber Supplier</span>
+                  </div>
+                </td>
+                  <td class="font-12">
+                    <%= link_to organisation_supplier_path(Supplier.last), class:'text-decoration-none text-black' do %>
+                      More
+                      <i class="fa fa-arrow-right ml-1"></i>
+                    <% end %>
+                  </td>
+              </tr>
+              <tr>
+                <td class="font-12 pl-0">5</td>
+                <td class="font-12">KYC Supplier Name Here</td>
+                <td class="font-12">
+                  <div class="color-tier d-flex align-items-center">
+                    <div class="circle orange-circle p-2"></div>
+                    <span class="font-12 font-400 ml-2">Amber Supplier</span>
+                  </div>
+                </td>
+                  <td class="font-12">
+                    <%= link_to organisation_supplier_path(Supplier.last), class: 'text-decoration-none text-black' do %>
+                        More
+                        <i class="fa fa-arrow-right ml-1"></i>
+                    <% end %>
+                  </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="card-footer text-center bg-white">
+        <a class="font-12 text-capitalize font-600 border-bottom-black text-dark text-decoration-none" href="/organisation/graphs/business_service_tiers">view all</a>
+      </div>
+    </div>
+  </div>
+</div>

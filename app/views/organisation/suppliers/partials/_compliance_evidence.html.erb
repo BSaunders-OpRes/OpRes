@@ -1,0 +1,19 @@
+<tr id="compliance_evidence_<%= compliance_evidence.id %>">
+  <td class="font-11 font-xxl-14 px-1 text-dark font-600">
+    <div class="d-flex align-items-center">
+      <i class="fa fa-paperclip paperclip font-20" aria-hidden="true"></i>
+      <span class="ml-2"><%= compliance_evidence.name %></span>
+    </div>
+  </td>
+  <td class="font-11 font-xxl-14 text-dark font-600"><%= compliance_evidence.created_at.strftime("%d-%m-%Y") %></td>
+  <td class="font-11 font-xxl-14 text-dark font-600"><%= compliance_evidence.compliance_frequency %></td>
+  <td class="font-11 font-xxl-14 text-dark font-600"><%= compliance_evidence.compliance_tier %></td>
+  <td class="font-11 font-xxl-14 text-dark font-600">
+    <div class="d-flex align-items-center">
+      <%= get_rag_status(compliance_evidence).html_safe %>
+    </div>
+  </td>
+  <td class="font-11 font-xxl-14 text-dark font-600">
+    <%= link_to "edit rules", edit_organisation_supplier_compliance_evidence_path(supplier, compliance_evidence), remote: true %>
+  </td>
+</tr>

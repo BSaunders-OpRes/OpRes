@@ -6,7 +6,7 @@ module Organisation::GraphsHelper
       when 'meet'
         'bg-dark-yellow'
       when 'exceed'
-        'red'
+        'bg-danger'
       end
   end
 end

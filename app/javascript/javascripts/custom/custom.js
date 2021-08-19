@@ -75,4 +75,20 @@ document.addEventListener('turbolinks:load', function() {
   $('.custom-dropdown .dropdown-menu label > span').click(function() {
     $(this).toggleClass('font-600')
   });
+
+  $('body').on('change', '.inputfile', function(e) {
+    $('#file-name').text(e.target.value.split('\\').pop());
+  });
+
+  $('body').on('change', '#compliance_tier', function(e) {
+    if(this.value === 'high'){
+      $('.compliance_rule_reminder').val("60");
+    }else if(this.value === 'very_high'){
+      $('.compliance_rule_reminder').val("80");
+    }else if(this.value === 'medium'){
+      $('.compliance_rule_reminder').val("40");
+    }else{
+      $('.compliance_rule_reminder').val("20");
+    }
+  });
 });

@@ -1,0 +1,28 @@
+<% if data.blank? %>
+  <div class="card border-0 pie-high-chart overflow-hidden">
+    <div class="card-header  border-0 bg-white text-center">
+      <div class="empty-donut-block w-150px mx-auto"></div>
+      <h6 class="empty-donut-line px-5 mb-2"></h6>
+    </div>
+  </div>
+<% else %>
+  <div class="card border-0 pie-high-chart">
+    <div class="card-header h-auto border-0 bg-white text-center">
+      <div class="donut-content">
+        <%= react_component('highcharts/donut', { data: data.dig(:overall, :small_graph).flatten, render_to: 'donut-chp' }, { class: 'h-200-highchart' }) %>
+        <div class="donut-value font-30 font-700 d-flex"><span><%= "#{data.dig(:overall,:total)}" %></span><span></div>
+      </div>
+    </div>
+    <div class="col-md-12">
+    <% data.dig(:overall, :small_graph).each do |graph| %>
+      <div class="tiers d-flex justify-content-between align-items-center mb-3">
+        <div class="color-tier d-flex align-items-center">
+          <div class="circle" style="background-color: <%= graph.dig(:color) %>"></div>
+          <span class="font-12 font-400 ml-2"><%= graph.dig(:name) %></span>
+        </div>
+        <span class="font-12 font-700"><%= graph.dig(:count) %></span>
+      </div>
+    <% end %>
+    </div>
+  </div>
+<% end %>
