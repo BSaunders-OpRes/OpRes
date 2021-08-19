@@ -1,0 +1,54 @@
+<div id='compounded-resilience-posture' class="new-dashboard">
+  <div class="row no-gutters">
+    <div class="col-sm-12 px-1">
+      <div class="d-flex justify-content-between align-items-center flex-wrap">
+        <div class="left d-flex align-items-center flex-wrap">
+        <div class="mr-4 back-btn mb-0">
+          <%= render 'layouts/partials/shared/redirect_back', path: organisation_business_service_line_path(@business_service_line) %>
+        </div>
+          <h2 class="font-500 font-sm-18 font-25 text-capitalize">compounded resilience posture</h2>
+        </div>
+        <div class="right d-flex">
+          <div class="white-btn p-1 d-flex align-items-center rounded-50 cursor-pointer">
+            <i class="fa fa-ellipsis-v p-1 mx-1"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="secondary-sidebar-icon d-none">
+    <i class='fa fa-ellipsis-v fa-1x font-18'></i>
+  </div>
+  <div class="row no-gutters mt-5">
+    <div class="col-sm-12 px-1">
+      <div class="w-100">
+        <div class="content-area">
+          <div id="section1">
+            <ul class="nav nav-tabs justify-content-between m-0 custom-tab border-0 mb-2 row no-gutters" id="myTab" role="tablist">
+              <% Sla::SLA_ATTR.each_with_index do |sla_attr, index| %>
+                <% if index == 6 %>
+                  <% break %>
+                <% end %>
+                <li class="nav-item custom-item col-lg-2 col-md-3 col-sm-4 px-1 mb-2 mx-0">
+                  <a class="text-decoration-none nav-link w-100 font-12 py-3 text-capitalize px-2 rounded custom-link border-0 <%= index.zero? ? 'active' : '' %> " id="<%= sla_attr + '_tab' %>" data-toggle="tab" href="#<%= sla_attr%>" role="tab" aria-controls="<%= sla_attr %>" aria-selected="true"><%= sla_compounded_resilience_posture_text(sla_attr) %></a>
+                </li>
+              <% end %>
+              <% Sla::SLA_ATTR[6..-1].each do |sla_attr| %>
+                <li class="nav-item col-lg col-md-3 col-sm-4 px-1 mb-2 mx-0 custom-item">
+                  <a class="text-decoration-none nav-link w-100 font-12 py-3 text-capitalize px-2 rounded custom-link border-0" id="<%= sla_attr + '_tab' %>" data-toggle="tab" href="#<%= sla_attr%>" role="tab" aria-controls="<%= sla_attr %>" aria-selected="false"><%= sla_compounded_resilience_posture_text(sla_attr) %></a>
+                </li>
+              <% end %>
+            </ul>
+          </div>
+          <div class="tab-content">
+            <% Sla::SLA_ATTR.each_with_index do |sla_attr, index| %>
+              <div class="tab-pane <%= index.zero? ? 'active' : '' %>" id="<%= sla_attr %>" role="tabpanel" aria-labelledby="home-tab">
+                <%= render 'organisation/business_service_lines/partials/sla_compound_resilience_posture', sla_attr: sla_attr, supplier: eval("@#{sla_attr}") %>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

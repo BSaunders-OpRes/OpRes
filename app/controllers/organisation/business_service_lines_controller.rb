@@ -1,5 +1,5 @@
 class Organisation::BusinessServiceLinesController < Organisation::BaseController
-  before_action :load_bsl, only: %i[edit update show destroy critical_important_suppliers]
+  before_action :load_bsl, only: %i[edit update show destroy critical_important_suppliers compound_resilience]
 
   load_and_authorize_resource except: :create
 
@@ -43,6 +43,18 @@ class Organisation::BusinessServiceLinesController < Organisation::BaseControlle
   def critical_important_suppliers
     @critical_ss  = @bsl.critical_supplier_steps
     @important_ss = @bsl.important_supplier_steps
+  end
+
+  def compound_resilience
+    if params.dig('supplier_type') == SupplierStep.importance_levels[:critical].to_s
+      Sla::SLA_ATTR.each do |sla_attribute|
+        instance_variable_set("@#{sla_attribute}".to_sym, Supplier.joins(:sla, supplier_steps: [step: [:business_service_line]]).where(business_service_lines: { id: @bsl.id }).where(supplier_steps: { importance_level: SupplierStep.importance_levels[:critical] }).where.not(slas:{"#{sla_attribute}": nil}))
+      end
+    elsif params.dig('supplier_type') == SupplierStep.importance_levels[:important].to_s
+      Sla::SLA_ATTR.each do |sla_attribute|
+        instance_variable_set("@#{sla_attribute}".to_sym, Supplier.joins(:sla, supplier_steps: [step: [:business_service_line]]).where(business_service_lines: { id: @bsl.id }).where(supplier_steps: { importance_level: SupplierStep.importance_levels[:important] }).where.not(slas:{"#{sla_attribute}": nil}))
+     end
+    end
   end
 
   private
