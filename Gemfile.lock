@@ -37,6 +37,8 @@ GEM
       erubi (~> 1.4)
       rails-dom-testing (~> 2.0)
       rails-html-sanitizer (~> 1.1, >= 1.2.0)
+    active_storage_validations (0.9.5)
+      rails (>= 5.2.0)
     activejob (6.0.3.6)
       activesupport (= 6.0.3.6)
       globalid (>= 0.3.6)
@@ -111,6 +113,18 @@ GEM
       concurrent-ruby (~> 1.0)
     jbuilder (2.11.2)
       activesupport (>= 5.0.0)
+    kaminari (1.2.1)
+      activesupport (>= 4.1.0)
+      kaminari-actionview (= 1.2.1)
+      kaminari-activerecord (= 1.2.1)
+      kaminari-core (= 1.2.1)
+    kaminari-actionview (1.2.1)
+      actionview
+      kaminari-core (= 1.2.1)
+    kaminari-activerecord (1.2.1)
+      activerecord
+      kaminari-core (= 1.2.1)
+    kaminari-core (1.2.1)
     launchy (2.5.0)
       addressable (~> 2.7)
     letter_opener (1.7.0)
@@ -286,6 +300,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  active_storage_validations (~> 0.9.5)
   activerecord-import (~> 0.15.0)
   bootsnap (>= 1.4.2)
   brakeman (~> 5.0.0)
@@ -297,6 +312,7 @@ DEPENDENCIES
   dotenv-rails
   exception_handler (~> 0.8.0.1)
   jbuilder (~> 2.7)
+  kaminari (~> 1.2.1)
   letter_opener
   listen (~> 3.2)
   pg (>= 1.2.3)

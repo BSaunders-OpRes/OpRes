@@ -1,0 +1,32 @@
+<div class="row">
+  <div class="form-group col-md-2 col-lg black-placeholder">
+    <label class="mb-3 text-capitalize font-12" for="">Notification & update Title</label>
+    <%= f.text_field :title, class: "font-600 text-black font-13 bg-body-color form-control border-0 text-black", placeholder: "Free Text Box" %>
+  </div>
+  <div class="form-group col-md-3 col-lg">
+    <label class="mb-3 text-capitalize font-12" for="">Reminder</label>
+    <div class="d-flex black-placeholder">
+      <%= f.number_field :reminder, class: "flex-1 font-600 text-black font-13 bg-body-color border-0 mr-2 form-control text-black compliance_rule_reminder", placeholder: 360, required: true%>
+      <div class="dropdown body-color-dropdown flex-1 rounded">
+        <a id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class='flex-1 bg-body-color dropdown-toggle text-capitalize py-2 pr-5 pl-2 d-flex align-items-center rounded justify-content-start font-12 text-dark font-600 text-decoration-none text-capitalize' id='top-10'>days</a>
+      </div>
+    </div>
+  </div>
+  <div class="form-group col-md-3 black-placeholder">
+    <label class="mb-3 text-capitalize font-12" for="">Email Address</label>
+    <%= f.text_field :email_address, class: "font-600 text-black font-13 bg-body-color form-control border-0 text-black", placeholder: "example@gmail.com", required: true %>
+  </div>
+  <div class="form-group col-md-3 black-placeholder">
+    <label class="mb-3 text-capitalize font-12" for="">Tailored Message</label>
+    <%= f.text_field :tailored_message, class: "font-600 text-black font-13 bg-body-color form-control border-0 text-black", placeholder: "example goes in here", required: true %>
+  </div>
+  <div class="form-group col-md-2 d-flex align-items-end">
+    <label class="mb-4 text-capitalize font-12 visibility-hidden"></label>
+    <button type="submit" class="w-100 d-flex justify-content-between bg-transparent text-uppercase font-13 font-600 border-0 shadow-none">
+      <span class="">send text</span>
+      <%= link_to_remove_association f, class: 'w-20px d-block' do %>
+        <%= image_pack_tag 'media/images/delete.png', class: 'w-100 d-block' %>
+      <% end %>
+    </button>
+  </div>
+</div>

@@ -9,59 +9,41 @@
           </a>
         </div>
       </div>
-      <div class="row no-gutters">
-        <div class="form-group col-lg-12 pr-1">
-          <span class="search-field d-block">
-            <i class="fa fa-search"></i>
-            <input type="text" class="bg-body-color h-auto form-control font-12 border-0 shadow-none" placeholder="Search Global Resilience Gaps" id="country-search-filter">
-          </span>
-        </div>
-        <div class="col-lg-4 pr-1">
-          <div class="dropdown bg-body-color rounded">
-            <a id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class='text-capitalize py-3 px-2 d-flex text-decoration-none font-12 text-dark font-400' id='top-10'>
-              <span>
-                Sort By: Risk high to low
-              </span>
-              <i class="fa fa-caret-down font-12 ml-auto" aria-hidden="true"></i>
-            </a>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-              <a class="dropdown-item">Action</a>
-              <a class="dropdown-item">Filter top 10</a>
-              <a class="dropdown-item">Filter top 10</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-4 pr-1">
-          <div class="dropdown bg-body-color rounded">
-            <a id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class='text-capitalize py-3 px-2 d-flex font-12 text-dark font-400 text-decoration-none align-items-center' id='top-10'>
-            <span>
-              10 results per page
+      <%= form_tag search_and_filter_organisation_supplier_path(supplier), method: :get, remote: true do %>
+        <div class="row no-gutters">
+          <div class="form-group col-lg-12 pr-1">
+            <span class="search-field d-block">
+              <i class="fa fa-search"></i>
+              <%= text_field_tag 'query', nil, placeholder: 'Search Global Resilience Gaps', class: "bg-body-color h-auto form-control font-12 border-0 shadow-none", id: "country-search-filter", onfocusout: 'RailsUJS.fire(this.form, "submit")' %>
             </span>
-            <i class="fa fa-caret-down font-12 ml-auto" aria-hidden="true"></i>
-            </a>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-              <a class="dropdown-item">Action</a>
-              <a class="dropdown-item">Filter top 10</a>
-              <a class="dropdown-item">Filter top 10</a>
+          </div>
+          <div class="col-lg-4 pr-1">
+            <div class="dropdown bg-body-color rounded">
+              <%= select_tag "sort", options_for_select([["Green","green"], ["Amber","amber"], ["Red", "red"]]), include_blank: "Sort By: RAG Status", class: "form-control w-100 font-12 border-0 h-auto py-3 shadow-none pr-4 bg-body-color", onchange: 'RailsUJS.fire(this.form, "submit")' %>
+            </div>
+          </div>
+          <div class="col-lg-4 pr-1">
+            <div class="dropdown bg-body-color rounded">
+              <%= select_tag "filter", options_for_select([["10 results per page",10], ["20 results per page",20], ["30 results per page",30]]), class: "form-control w-100 font-12 h-auto py-3 border-0 shadow-none pr-4 bg-body-color", onchange: 'RailsUJS.fire(this.form, "submit")' %>
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <div class="dropdown bg-black rounded">
+              <%= link_to new_organisation_supplier_compliance_evidence_path(supplier), class: "btn btn-lg font-20 w-auto text-decoration-none dark-btn d-flex align-items-center align-items-center", remote: true do %>
+                <i class="fa fa-plus-circle mr-1 font-18"></i>
+                <span class="font-12 mr-4 ml-1">Add New</span>
+                <i class="fa fa-caret-down font-12 ml-auto" aria-hidden="true"></i>
+              <% end %>
+              <div class="dropdown-menu py-0 px-0" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item font-12 px-3 py-3 border-bottom rounded-0 text-capitalize font-700" href="#">service line</a>
+                <a class="dropdown-item font-12 px-3 py-3 border-bottom rounded-0 text-capitalize font-700" href="#">service line via upload</a>
+                <a class="dropdown-item font-12 px-3 py-3 border-bottom rounded-0 text-capitalize font-700" href="#">Supplier</a>
+                <a class="dropdown-item font-12 px-3 py-3 rounded-0 text-capitalize font-700" href="#">Supplier via upload</a>
+              </div>
             </div>
           </div>
         </div>
-        <div class="col-lg-4">
-          <div class="dropdown bg-black rounded">
-            <a class="btn btn-lg font-20 w-auto text-decoration-none dark-btn d-flex align-items-center align-items-center" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <i class="fa fa-plus-circle mr-1 font-20"></i>
-              <span class="font-14 mr-4 ml-1">Add New</span>
-              <i class="fa fa-caret-down font-12 ml-auto" aria-hidden="true"></i>
-            </a>
-            <div class="dropdown-menu py-0 px-0" aria-labelledby="dropdownMenuButton">
-              <a class="dropdown-item font-12 px-3 py-3 border-bottom rounded-0 text-capitalize font-700" href="#">service line</a>
-              <a class="dropdown-item font-12 px-3 py-3 border-bottom rounded-0 text-capitalize font-700" href="#">service line via upload</a>
-              <a class="dropdown-item font-12 px-3 py-3 border-bottom rounded-0 text-capitalize font-700" href="#">Supplier</a>
-              <a class="dropdown-item font-12 px-3 py-3 rounded-0 text-capitalize font-700" href="#">Supplier via upload</a>
-            </div>
-          </div>
-        </div>
-      </div>
+      <% end %>
       <div class="table-responsive mt-0 mt-lg-3">
         <table class="table custom-table mb-4 text-capitalize">
           <thead class="font-600">
@@ -74,61 +56,17 @@
               <th class="font-12 font-xxl-14 px text-light-grey font-400 text-capitalize font-600">update notification rules</th>
             </tr>
           </thead>
-          <tbody>
-            <tr>
-              <td class="font-11 font-xxl-14 px-1 text-dark font-600">
-                <div class="d-flex align-items-center">
-                  <i class="fa fa-paperclip paperclip font-20" aria-hidden="true"></i>
-                  <span class="ml-2">Evidence document 1</span>
-                </div>
-              </td>
-              <td class="font-11 font-xxl-14 text-dark font-600">01.01.2021</td>
-              <td class="font-11 font-xxl-14 text-dark font-600">10</td>
-              <td class="font-11 font-xxl-14 text-dark font-600">high</td>
-              <td class="font-11 font-xxl-14 text-dark font-600">
-                <div class="d-flex align-items-center">
-                  <div class="sm-circle bg-red"></div>
-                </div>
-              </td>
-              <td class="font-11 font-xxl-14 text-dark font-600">edit rules</td>
-            </tr>
-            <tr>
-              <td class="font-11 font-xxl-14 px-1 text-dark font-600">
-                <div class="d-flex align-items-center">
-                  <i class="fa fa-paperclip paperclip font-20" aria-hidden="true"></i>
-                  <span class="ml-2">Evidence document 1</span>
-                </div>
-              </td>
-              <td class="font-11 font-xxl-14 text-dark font-600">01.01.2021</td>
-              <td class="font-11 font-xxl-14 text-dark font-600">10</td>
-              <td class="font-11 font-xxl-14 text-dark font-600">high</td>
-              <td class="font-11 font-xxl-14 text-dark font-600">
-                <div class="d-flex align-items-center">
-                  <div class="sm-circle bg-yellow"></div>
-                </div>
-              </td>
-              <td class="font-11 font-xxl-14 text-dark font-600">edit rules</td>
-            </tr>
-            <tr>
-              <td class="font-11 font-xxl-14 px-1 text-dark font-600">
-                <div class="d-flex align-items-center">
-                  <i class="fa fa-paperclip paperclip font-20" aria-hidden="true"></i>
-                  <span class="ml-2">Evidence document 1</span>
-                </div>
-              </td>
-              <td class="font-11 font-xxl-14 text-dark font-600">01.01.2021</td>
-              <td class="font-11 font-xxl-14 text-dark font-600">10</td>
-              <td class="font-11 font-xxl-14 text-dark font-600">high</td>
-              <td class="font-11 font-xxl-14 text-dark font-600">
-                <div class="d-flex align-items-center">
-                  <div class="sm-circle bg-primary-green"></div>
-                </div>
-              </td>
-              <td class="font-11 font-xxl-14 text-dark font-600">edit rules</td>
-            </tr>
+          <tbody id="compliance-evidence-table">
+            <% compliance_evidences.each do |compliance_evidence|%>
+              <%= render 'organisation/suppliers/partials/compliance_evidence', supplier: supplier , compliance_evidence: compliance_evidence %>
+            <% end %>
           </tbody>
         </table>
+        <div class="custom-pagination">
+          <%= paginate compliance_evidences, params: {controller: 'suppliers', action: 'search_and_filter'}, remote: true %>
+        </div>
       </div>
     </div>
   </div>
 </div>
+<div id="compliance_evidence_modal"></div>
