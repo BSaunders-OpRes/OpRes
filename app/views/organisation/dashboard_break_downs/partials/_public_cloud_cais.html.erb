@@ -80,9 +80,7 @@
                 <td class="text-uppercase font-12 font-xxl-14 font-700 py-4">
                  <%= s.critical_supplier_steps.count %>
                 </td>
-                <td class="text-capitalize font-12 text-primary font-xxl-14 font-500 py-4" type="button" class="btn white-btn text-capitalize" data-toggle="modal" data-target="#exampleModal">
-                  Breakdown
-                </td>
+                <td class="text-capitalize font-12 text-primary font-xxl-14 font-500 py-4" type="button" class="btn white-btn text-capitalize" ><%= link_to "Breakdown", breakdown_organisation_dashboard_break_downs_path(id: s.id), remote: true %></td>
               </tr>
               <% end %>
             </tbody>
@@ -207,4 +205,8 @@
       </div>
     </div>
   </div>
+</div>
+
+<div id="modal-window">
+  
 </div>

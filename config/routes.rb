@@ -32,6 +32,7 @@ Rails.application.routes.draw do
 
     resources :dashboard_break_downs, only: %i[] do
       get :business_service_tiers, on: :collection
+      get :breakdown, on: :collection
       get :cloud_service_provider_breakdown, on: :collection
       get :critical_important_system, on: :collection
       get :impact_tolerance_appetite, on: :collection

@@ -28,6 +28,14 @@ class Organisation::DashboardBreakDownsController < Organisation::BaseController
   def critical_important_system
     @suppliers = Supplier.where(unit_id: managing_nodes).group_by{ |e| e.consumption_model }
   end
+
+  def breakdown
+    @supplier = Supplier.find_by(id: params[:id])
+    respond_to do |format|
+      format.html
+      format.js
+    end
+  end
   
   def impact_tolerance_appetite; end
   def resilience_indicator_ticket; end
