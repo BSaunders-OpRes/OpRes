@@ -19,6 +19,19 @@ class Graphs::CriticalAndImportantSystemService < Graphs::BaseService
     critical_supplier_step  = suppliers.collect{|e| e.critical_supplier_steps.count}
     important_supplier_step = suppliers.collect{|e| e.important_supplier_steps.count}
 
+    critical_suppliers  = suppliers.collect{|e| e.critical_supplier_steps }
+    important_suppliers = suppliers.collect{|e| e.important_supplier_steps }
+    critical_bsls = Step.where(id: critical_suppliers.flatten.pluck(:step_id)).pluck(:business_service_line_id)
+    important_bsls = Step.where(id: important_suppliers.flatten.pluck(:step_id)).pluck(:business_service_line_id)
+    set_instance_variables(critical_bsls)
+      datum[:c_meet] = @meet_tolerance
+      datum[:c_exceed] = @exceed_tolerance
+      datum[:c_match]  = @match_tolerance
+      byebug
+    set_instance_variables(important_bsls)
+      datum[:i_meet] = @meet_tolerance
+      datum[:i_exceed] = @exceed_tolerance
+      datum[:i_match]  = @match_tolerance
     datum[:suppliers] = suppliers
     datum[:total]    = critical_supplier_step.sum + important_supplier_step.sum
     datum[:graph]    = []
@@ -37,6 +50,27 @@ class Graphs::CriticalAndImportantSystemService < Graphs::BaseService
       count: important_supplier_step.sum
     }
     datum
+  end
+
+  def set_instance_variables(bsls_ids)    
+    @match_tolerance  = 0
+    @meet_tolerance   = 0
+    @exceed_tolerance = 0
+    return nil if bsls_ids.blank?
+    bsls = BusinessServiceLine.where(id: bsls_ids)
+    bsls&.each do |bsl|
+      risk_appetite     = bsl.risk_appetites.first
+      risk_appetite_val = risk_appetite.amount
+      if risk_appetite_val.present? && bsl.sla[risk_appetite.kind].present? && bsl.supplier_steps.first.supplier.sla[risk_appetite.kind]
+        if risk_appetite.percentage_amount? 
+          result = find_score_and_status_for_percentage(bsl.sla[risk_appetite.kind], bsl.supplier_steps.first.supplier.sla[risk_appetite.kind], risk_appetite.amount)
+          self.instance_variable_set("@#{result[1]}_tolerance".to_sym, eval("@#{result[1]}_tolerance")+1)
+        else
+          result = find_score_and_status_for_time(bsl.sla[risk_appetite.kind],  bsl.supplier_steps.first.supplier.sla[risk_appetite.kind], risk_appetite.amount)
+          self.instance_variable_set("@#{result[1]}_tolerance".to_sym, eval("@#{result[1]}_tolerance")+1)
+        end
+      end
+    end
   end
 
   def managing_nodes
