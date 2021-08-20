@@ -90,7 +90,7 @@
           <%= render "organisation/suppliers/subsections/fourth_party_supplier" %>
         </div>
         <div id="section9">
-          <%= render 'organisation/suppliers/subsections/supplier_compliance_documentation' %>
+          <%= render 'organisation/suppliers/subsections/supplier_compliance_documentation', supplier: @supplier, compliance_evidences: @compliance_evidences %>
         </div>
       </div>
     </div>

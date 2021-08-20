@@ -99,7 +99,7 @@ document.addEventListener('turbolinks:load', function() {
       channelContent.find(' > span').remove();
       channelContent.prepend('<span class="text-left font-12 font-600">' + selectedChannelsText + '</span>');
       dataTarget.find('i').remove();
-      dataTarget.find('span').text('EDIT');
+      dataTarget.find('span').text('EDIT').addClass('ml-sm-2 ml-0 mt-sm-0 mt-2').removeClass('ml-2');
     } else {
       channelContent.find(' > span').remove();
       dataTarget.prepend('<i class="fa fa-plus-circle"></i>');

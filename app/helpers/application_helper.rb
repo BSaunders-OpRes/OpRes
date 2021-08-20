@@ -42,4 +42,28 @@ module ApplicationHelper
     end
     flash_messages.join('\n').html_safe
   end
+
+  def get_rag_status(compliance_evidence)
+    case
+    when  DateTime.now < compliance_evidence.created_at + (compliance_evidence.compliance_frequency.to_i - 1).days
+      return '<div class="sm-circle bg-primary-green"></div>'
+    when DateTime.now == compliance_evidence.created_at + (compliance_evidence.compliance_frequency.to_i - 1).days
+      return '<div class="sm-circle bg-yellow"></div>'
+    when DateTime.now > compliance_evidence.created_at + (compliance_evidence.compliance_frequency.to_i).days
+      return '<div class="sm-circle bg-red"></div>'
+    end
+  end
+
+  def compliance_tier_tooltip(tier)
+    case tier
+    when 'very_high'
+      "These documents move to amber when they are in the final 80 days of their compliance window"
+    when 'high'
+      "These documents move to amber when they are in the final 60 days of their compliance window"
+    when 'medium'
+      "These documents move to amber when they are in the final 40 days of their compliance window"
+    when 'low'
+      "These documents move to amber when they are in the final 20 days of their compliance window"
+    end
+  end
 end

@@ -1,0 +1,80 @@
+<div class="modal fade p-0" id="sup-view-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog max-width-sm-100 px-sm-5 px-2 w-100 mx-auto">
+    <div class="modal-content">
+      <div class="modal-header border-0 pb-0">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <%= form_for compliance_evidence, url: new_or_create ? organisation_supplier_compliance_evidences_path(compliance_evidence.supplier) : organisation_supplier_compliance_evidence_path(compliance_evidence.supplier, compliance_evidence), remote: true do |f| %>
+        <div class="modal-body px-3 pb-3 pt-0 border-bottom">
+          <h5 class="modal-title text-capitalize font-600" id="exampleModalLabel">
+            Update Notification Rules
+          </h5>
+          <div class="filter row mt-4 mb-4">
+            <div class="col-md-8">
+              <div class="descr d-flex align-items-center flex-1 mb-3 mb-md-0">
+                <div class="icon py-3 px-4 bg-body-color rounded mr-3">
+                  <i class="fa fa-paperclip paperclip font-20"></i>
+                </div>
+                <div class="attach font-13 font-500 black-placeholder form-group mb-0 w-100">
+                  <%= f.text_field :name, class: "form-control bg-transparent border-0 font-18", placeholder: "Compliance Evidence Document Name", required: true %>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4 d-flex align-items-center">
+              <span class="text-capitalize font-12 mr-2 text-right font-600">Compliance tier</span>
+              <div class="select-arrow position-relative flex-1">
+                <%= f.select :compliance_tier, options_for_select(ComplianceEvidence.compliance_tiers.map {|k, v| [k.humanize.capitalize, k,{'data-toggle'=> 'tooltip', title: compliance_tier_tooltip(k)}]}, f.object.compliance_tier || ComplianceEvidence.compliance_tiers.first), {},class: 'form-control w-100 font-12 h-auto py-2 shadow-none pr-4', required: true, id: :compliance_tier %>
+                <i class="fa fa-sort-desc position-absolute"></i>
+              </div>
+            </div>
+          </div>
+          <div class="details">
+            <div class="form-group w-100">
+              <%= f.text_area :description, class: "form-control bg-body-color font-13 text-black border-0 p-3", placeholder: "Add an update", rows: 6, required: true %>
+            </div>
+          </div>
+          <div class="inputfile-box d-flex">
+            <%= f.file_field :compliance_document, class: "btn btn-sm btn-dark py-2 px-3 bg-black rounded mr-1 inputfile", required: true %>
+            <label for="compliance_evidence_compliance_document", class="d-flex flex-1 align-items-end">
+              <span id="file-name" class="file-box order-2"></span>
+                <span class="file-button order-1 black-btn p-3 cursor-pointer rounded-50">
+                  <i class="fa fa-paperclip paperclip font-20 text-white align-middle"></i>
+                  <span class="text-white ml-1 mt-1">Attach File</span>
+                </span>
+            </label>
+          </div>
+        </div>
+        <div class="modal-body px-3 py-4 border-bottom mb-3">
+          <div class="d-flex justify-content-between align-items-sm-center align-items-start flex-column flex-sm-row">
+            <h5 class="modal-title text-capitalize font-16 font-600 mb-3 mb-sm-0" id="exampleModalLabel">
+              compliance update factory
+            </h5>
+            <div class="d-flex flex-column flex-sm-row">
+              <div class="dropdown body-color-dropdown black-placeholder mr-2 mb-2 mb-sm-0">
+                <%= f.number_field :compliance_frequency, class: "flex-1 font-600 text-black font-13 bg-body-color border-0 mr-2 form-control text-black", required: true %>
+              </div>
+              <div class="dropdown body-color-dropdown">
+                <a id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class='dropdown-toggle text-capitalize py-2 pr-5 pl-2 d-flex align-items-center justify-content-start font-12 text-dark font-600 text-decoration-none text-capitalize' id='top-10'>days</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-body">
+          <div class="compliance_rules">
+            <%= f.fields_for :compliance_rules do |compliance_rule| %>
+              <%= render 'compliance_rule_fields', f: compliance_rule %>
+            <% end %>
+            <%= link_to_add_association "Add Another", f, :compliance_rules, class: "text-capitalize font-600 font-13 text-black border-bottom-black ml-2" %>
+          </div>
+          <div class="row mt-4 no-gutters">
+            <div class="col-sm-12 text-right px-1">
+              <%= f.submit 'Save & Commit', class: "btn font-600 btn-sm btn-dark py-2 px-3 bg-black rounded mr-1" %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

@@ -27,6 +27,7 @@ class Supplier < ApplicationRecord
   has_many :sub_suppliers, dependent: :destroy
   has_many :third_party_suppliers,  class_name:'SubSuppliers::ThirdPartySupplier',  dependent: :destroy
   has_many :fourth_party_suppliers, class_name:'SubSuppliers::FourthPartySupplier', dependent: :destroy
+  has_many :compliance_evidences, dependent: :destroy
 
   # Enums #
   enum contracting_terms: %i[monthly annually other non_applicable], _suffix: :contracting_terms
