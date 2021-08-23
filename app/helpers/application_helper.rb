@@ -66,4 +66,33 @@ module ApplicationHelper
       "These documents move to amber when they are in the final 20 days of their compliance window"
     end
   end
+
+  def render_fields_heading(field)
+    "#{field} impact tolerances"
+  end
+
+  def set_tabs_id(key)
+    case key
+    when key == 'firm-hosted'
+      'firm-hosted1'
+    when key == '3rd-party'
+      'third-party'
+    when key == '4th-party'
+      'fourth-party'
+    end
+  end
+
+  def render_data(data)
+    combined_data = []
+    combined_data << {:name=>"Match Tolerance", :y=>data.dig(:overall, :total_match), :color=>"#6BEAB3", :count=> data.dig(:overall, :total_match)}
+    combined_data << {:name=>"Meet Tolerance", :y=>data.dig(:overall, :total_meet), :color=>"#367C5C", :count=> data.dig(:overall, :total_meet)}
+    combined_data << {:name=>"Exceed Tolerance", :y=>data.dig(:overall, :total_exceed), :color=>"#CDFAF1", :count=> data.dig(:overall, :total_exceed)}
+
+    combined_data
+  end
+
+  def breakdown_modal_heading(sla_attr, type)
+    "#{sla_attr.titleize} -  Who #{type.titleize} Impact Tolerance"
+  end
 end
+

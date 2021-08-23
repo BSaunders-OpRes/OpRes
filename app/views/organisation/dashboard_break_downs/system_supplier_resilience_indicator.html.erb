@@ -29,6 +29,10 @@
     </div>
     <div class="col-sm-9 col-xxl-10 px-1">
       <%= render 'organisation/dashboard_break_downs/partials/segmentation_options' %>
+      <%= render 'organisation/dashboard_break_downs/partials/impact_tolerance_breakdown', impact_tolerance_breakdowns: @impact_tolerance_breakdowns %>
+      <%= render 'organisation/dashboard_break_downs/partials/top_conformant_suppliers', conformant_suppliers: @conformant_suppliers %>
+      <%= render 'organisation/dashboard_break_downs/partials/top_non_conformant_suppliers', non_conformant_suppliers: @non_conformant_suppliers %>
     </div>
   </div>
 </div>
+<div id="breakdown-modal-section"></div>
