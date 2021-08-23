@@ -1,5 +1,6 @@
 class Graphs::ConsumptionChpService < Graphs::BaseService
   # CHP breakdown of suppliers.
+  include Organisation::SuppliersHelper
 
   COLORS = %w[#6BEAB3 #367C5C #CDFAF1 #05b368]
 
@@ -13,7 +14,7 @@ class Graphs::ConsumptionChpService < Graphs::BaseService
     Supplier.consumption_models.each do |obj, number|
       spls = suppliers[obj] || []
       data[:graph] << {
-        name:  obj.humanize,
+        name:  titleize_last_alpha(obj.capitalize),
         y:     data[:total].zero? ? 0 : ((spls.size / data[:total].to_f) * 100).round(2),
         color: COLORS[number],
         value: spls.size
