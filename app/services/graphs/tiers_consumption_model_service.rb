@@ -1,5 +1,6 @@
 class Graphs::TiersConsumptionModelService < Graphs::BaseService
   # consumption models on the basis of tiers.
+  include Organisation::SuppliersHelper
 
   COLORS = %w[#6BEAB3 #367C5C #CDFAF1 #05b368]
 
@@ -22,7 +23,7 @@ class Graphs::TiersConsumptionModelService < Graphs::BaseService
     Supplier.consumption_models.keys&.each_with_index do  |cm, index|
       suppliers = chp_suppliers[cm] || []
       datum[:graph] << {
-        name:  cm,
+        name:  titleize_last_alpha(cm.capitalize),
         y:     datum[:total].zero? ? 0 : ((suppliers.size / datum[:total].to_f) * 100).round(2),
         color: COLORS[index],
         value: suppliers.size,
