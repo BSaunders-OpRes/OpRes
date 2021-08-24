@@ -100,6 +100,31 @@ input[type=number] {
   }
 }
 
+.h-400-with-scroll {
+  min-height: 170px;
+  max-height: 400px;
+  &::-webkit-scrollbar {
+    width: 2px;
+  }
+
+  /* Track */
+  &::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    width: 2px;
+  }
+
+  /* Handle */
+  &::-webkit-scrollbar-thumb {
+    background: #333;
+    height: 60px;
+  }
+
+  /* Handle on hover */
+  &::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
+}
+
 .swal2-confirm {
   background-color: $primary-green !important;
   box-shadow: none;
