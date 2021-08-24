@@ -15,7 +15,9 @@ class Graphs::SystemSupplierResilienceIndicatorService < Graphs::BaseService
 
   def overall
     datum = {}
+    nodes     = organisational_unit.inclusive_children.map(&:id)
     ptype_suppliers = Supplier.joins(:supplier_steps)
+                              .where(unit_id: nodes)
                               .select("suppliers.*, supplier_steps.party_type as supplier_party_type")
                               .group("suppliers.id, suppliers.*, supplier_party_type")
                               .group_by(&:supplier_party_type)
