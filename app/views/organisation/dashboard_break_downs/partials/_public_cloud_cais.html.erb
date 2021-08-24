@@ -60,7 +60,7 @@
               </tr>
             </thead>
             <tbody>
-              <% @suppliers["iaas"].each do |s|%>
+              <% @suppliers["iaas"]&.each do |s|%>
               <tr>
                 <td class="text-uppercase font-12 font-xxl-14 font-700 py-4"><%= s.name%>
                 </td>
