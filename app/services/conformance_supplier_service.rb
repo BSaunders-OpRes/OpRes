@@ -1,13 +1,10 @@
 class ConformanceSupplierService < Graphs::BaseService
   attr_accessor :filter
 
-  def initialize(args)
-    @filter = args.dig(:filter)
-  end
-
   def conformant_suppliers_data
     conformant_data = {}
-    suppliers = Supplier.includes(:supplier_steps, :sla)
+    nodes           = organisational_unit.inclusive_children.map(&:id)
+    suppliers = Supplier.includes(:supplier_steps, :sla).where(unit_id: nodes)
     suppliers.each do |supplier|
       conformant_data["#{supplier.id}"] = {}
       bsls = BusinessServiceLine.joins(steps: [supplier_steps: [:supplier]])

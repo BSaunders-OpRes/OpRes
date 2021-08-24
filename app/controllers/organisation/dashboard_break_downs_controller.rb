@@ -46,14 +46,23 @@ class Organisation::DashboardBreakDownsController < Organisation::BaseController
   def resilience_indicator_ticket; end
 
   def system_supplier_resilience_indicator
-    @impact_tolerance_breakdowns  = BreakdownService.new({}).calculate_breakdown
-    @conformant_suppliers         = ConformanceSupplierService.new({}).conformant_suppliers_data
+    args = {
+      'current_user' =>  current_user,
+      'organisational_unit' =>  organisational_unit
+    }
+    @impact_tolerance_breakdowns  = BreakdownService.new(args).calculate_breakdown
+    @conformant_suppliers         = ConformanceSupplierService.new(args).conformant_suppliers_data
     @non_conformant_suppliers     = @conformant_suppliers.sort{|a,b| b[1][:total_impact_tolerance] <=> a[1][:total_impact_tolerance]}.reverse.to_h
   end
 
   def impact_tolerance_breakdown
+    args = {
+      'current_user' =>  current_user,
+      'organisational_unit' =>  organisational_unit,
+      sla_attr: params.dig(:sla_attr)
+    }
     @type                       = params.dig(:type)
     @sla_attr                   = params.dig(:sla_attr)
-    @impact_tolerance_breakdown = BreakdownService.new({ sla_attr: params.dig(:sla_attr) }).calculate_breakdown
+    @impact_tolerance_breakdown = BreakdownService.new(args).calculate_breakdown
   end
 end
