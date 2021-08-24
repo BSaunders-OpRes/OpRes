@@ -48,7 +48,7 @@
             <span class="font-12">Supplier Type:</span>
           </div>
           <div class="w-75">
-            <strong class="font-12"><%= @supplier.consumption_model&.upcase %></strong>
+            <strong class="font-12"><%= titleize_last_alpha(@supplier.consumption_model&.titleize) %></strong>
           </div>
         </div>
         <div class="intro-box mb-3 d-flex align-items-center justify-content-center">

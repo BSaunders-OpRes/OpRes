@@ -61,8 +61,16 @@ class Supplier < ApplicationRecord
     self.key_contacts = KeyContact.find(ids.reject(&:blank?))
   end
 
+  def party_type
+    supplier_steps.first&.party_type
+  end
+
   def key_contacts_list
     key_contacts.pluck(:name).join(', ')
+  end
+
+  def bsls_count
+    steps.pluck(:business_service_line_id).size
   end
 
   def cloud_hosting_provider_id
