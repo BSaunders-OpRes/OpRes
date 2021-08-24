@@ -13,6 +13,7 @@ class PaginationService
   end
 
   def paginate_array
+    return nil if @collection.nil?
     Kaminari.paginate_array(@collection).page(@page).per(@per_page)
   end
 end

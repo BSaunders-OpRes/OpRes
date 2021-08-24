@@ -9,7 +9,7 @@
           <h2 class="font-600 font-sm-18 font-25 text-capitalize">Business Service Tiers</h2>
         </div>
         <div class="right d-flex mt-3 mt-lg-0">
-          <div class="white-btn d-flex align-items-center pl-2 px-3 rounded-50 mr-2 pr-2 mr-2 py-2 cursor-pointer">
+        <!--   <div class="white-btn d-flex align-items-center pl-2 px-3 rounded-50 mr-2 pr-2 mr-2 py-2 cursor-pointer">
             <span> <i class="fa fa-sliders"></i></span>
             <span class="text-capitalize font-xs-11 font-12 font-xxl-14 ml-2 font-600">Customise View</span>
           </div>
@@ -19,7 +19,7 @@
           </div>
           <div class="white-btn p-1 d-flex align-items-center rounded-50 cursor-pointer">
             <i class="fa fa-ellipsis-v px-2 mx-1"></i>
-          </div>
+          </div> -->
         </div>
       </div>
     </div>
@@ -94,42 +94,20 @@
                                     <thead>
                                       <tr>
                                         <th class="border-bottom-0 border-top-0 border-right font-weight-500 font-12 px-4 w-250px" scope="col"></th>
-                                        <th class="border-bottom-0 border-top-0 border-right font-weight-500 font-12 px-4" scope="col">EMEA</th>
-                                        <th class="border-bottom-0 border-top-0 border-right font-weight-500 font-12 px-4" scope="col">AMERS</th>
-                                        <th class="border-bottom-0 border-top-0 border-right font-weight-500 font-12 px-4" scope="col">APAC</th>
+                                        <% @managing_regions.each do  |region| %>
+                                          <th class="border-bottom-0 border-top-0 border-right font-weight-500 font-12 px-4" scope="col"><%= region %></th>
+                                        <% end %>
                                       </tr>
                                     </thead>
                                     <tbody>
-                                      <tr>
-                                        <td class="font-12 border-right font-500 py-3 px-4">Total Business Service</td>
-                                        <td class="font-12 border-right font-500 py-3 px-4"><%=  @bsl_regional_tiers.dig('EMEA', 'tier_1').present? ? @bsl_regional_tiers.dig('EMEA', 'tier_1').size : '0' %></td>
-                                        <td class="font-12 border-right font-500 py-3 px-4"><%= @bsl_regional_tiers.dig('AMERS', 'tier_1').present? ? @bsl_regional_tiers.dig('AMERS', 'tier_1').size : '0' %></td>
-                                        <td class="font-12 border-right font-500 py-3 px-4"><%= @bsl_regional_tiers.dig('APAC', 'tier_1').present? ? @bsl_regional_tiers.dig('APAC', 'tier_1').size : '0' %></td>
-                                      </tr>
-                                      <tr>
-                                        <td class="font-12 border-right font-500 py-3 px-4">Total Resilience Gaps</td>
-                                        <td class="font-12 border-right font-500 py-3 px-4">0</td>
-                                        <td class="font-12 border-right font-500 py-3 px-4">0</td>
-                                        <td class="font-12 border-right font-500 py-3 px-4">0</td>
-                                      </tr>
-                                      <tr>
-                                        <td class="font-12 border-right font-500 py-3 px-4">Total Internal Systems</td>
-                                        <td class="font-12 border-right font-500 py-3 px-4">0</td>
-                                        <td class="font-12 border-right font-500 py-3 px-4">0</td>
-                                        <td class="font-12 border-right font-500 py-3 px-4">0</td>
-                                      </tr>
-                                      <tr>
-                                        <td class="font-12 border-right font-500 py-3 px-4">Total 3rd Party Suppliers</td>
-                                        <td class="font-12 border-right font-500 py-3 px-4"><%= @bsl_tiers.dig('emea_tier_1_third_party_suppliers')&.size %></td>
-                                        <td class="font-12 border-right font-500 py-3 px-4"><%= @bsl_tiers.dig('amers_tier_1_third_party_suppliers')&.size %></td>
-                                        <td class="font-12 border-right font-500 py-3 px-4"><%= @bsl_tiers.dig('apac_tier_1_third_party_suppliers')&.size %></td>
-                                      </tr>
-                                      <tr>
-                                        <td class="font-12 border-right font-500 py-3 px-4">Total 4th Party Suppliers</td>
-                                        <td class="font-12 border-right font-500 py-3 px-4"><%= @bsl_tiers.dig('emea_tier_1_fourth_party_suppliers')&.size %></td>
-                                        <td class="font-12 border-right font-500 py-3 px-4"><%= @bsl_tiers.dig('amers_tier_1_fourth_party_suppliers')&.size %></td>
-                                        <td class="font-12 border-right font-500 py-3 px-4"><%= @bsl_tiers.dig('apac_tier_1_fourth_party_suppliers')&.size %></td>
-                                      </tr>
+                                      <% overview_region_headings.each do |orh| %>
+                                        <tr>
+                                          <td class="font-12 border-right font-500 py-3 px-4"><%= orh %></td>
+                                          <% @managing_regions.each do |region| %>
+                                            <td class="font-12 border-right font-500 py-3 px-4"><%= get_regional_data(orh, 'tier_1',region, @bsl_regional_tiers, @bsl_tiers) %></td>
+                                          <% end %>
+                                        </tr>
+                                      <% end %>
                                     </tbody>
                                   </table>
                                 </div>
@@ -337,42 +315,20 @@
                                     <thead>
                                       <tr>
                                         <th class="border-bottom-0 border-top-0 border-right font-weight-500 font-12 px-4 w-250px" scope="col"></th>
-                                        <th class="border-bottom-0 border-top-0 border-right font-weight-500 font-12 px-4" scope="col">EMEA</th>
-                                        <th class="border-bottom-0 border-top-0 border-right font-weight-500 font-12 px-4" scope="col">AMERS</th>
-                                        <th class="border-bottom-0 border-top-0 border-right font-weight-500 font-12 px-4" scope="col">APAC</th>
+                                        <% @managing_regions.each do  |region| %>
+                                          <th class="border-bottom-0 border-top-0 border-right font-weight-500 font-12 px-4" scope="col"><%= region %></th>
+                                        <% end %>
                                       </tr>
                                     </thead>
                                     <tbody>
-                                      <tr>
-                                        <td class="font-12 border-right font-500 py-3 px-4">Total Business Service</td>
-                                        <td class="font-12 border-right font-500 py-3 px-4"><%=  @bsl_regional_tiers.dig('EMEA', 'tier_2').present? ? @bsl_regional_tiers.dig('EMEA', 'tier_2').size : '0' %></td>
-                                        <td class="font-12 border-right font-500 py-3 px-4"><%= @bsl_regional_tiers.dig('AMERS', 'tier_2').present? ? @bsl_regional_tiers.dig('AMERS', 'tier_2').size : '0' %></td>
-                                        <td class="font-12 border-right font-500 py-3 px-4"><%= @bsl_regional_tiers.dig('APAC', 'tier_2').present? ? @bsl_regional_tiers.dig('APAC', 'tier_2').size : '0' %></td>
-                                      </tr>
-                                      <tr>
-                                        <td class="font-12 border-right font-500 py-3 px-4">Total Resilience Gaps</td>
-                                        <td class="font-12 border-right font-500 py-3 px-4">0</td>
-                                        <td class="font-12 border-right font-500 py-3 px-4">0</td>
-                                        <td class="font-12 border-right font-500 py-3 px-4">0</td>
-                                      </tr>
-                                      <tr>
-                                        <td class="font-12 border-right font-500 py-3 px-4">Total Internal Systems</td>
-                                        <td class="font-12 border-right font-500 py-3 px-4">0</td>
-                                        <td class="font-12 border-right font-500 py-3 px-4">0</td>
-                                        <td class="font-12 border-right font-500 py-3 px-4">0</td>
-                                      </tr>
-                                      <tr>
-                                        <td class="font-12 border-right font-500 py-3 px-4">Total 3rd Party Suppliers</td>
-                                        <td class="font-12 border-right font-500 py-3 px-4"><%= @bsl_tiers.dig('emea_tier_2_third_party_suppliers')&.size %></td>
-                                        <td class="font-12 border-right font-500 py-3 px-4"><%= @bsl_tiers.dig('amers_tier_2_third_party_suppliers')&.size %></td>
-                                        <td class="font-12 border-right font-500 py-3 px-4"><%= @bsl_tiers.dig('apac_tier_2_third_party_suppliers')&.size %></td>
-                                      </tr>
-                                      <tr>
-                                        <td class="font-12 border-right font-500 py-3 px-4">Total 4th Party Suppliers</td>
-                                        <td class="font-12 border-right font-500 py-3 px-4"><%= @bsl_tiers.dig('emea_tier_2_fourth_party_suppliers')&.size %></td>
-                                        <td class="font-12 border-right font-500 py-3 px-4"><%= @bsl_tiers.dig('amers_tier_2_fourth_party_suppliers')&.size %></td>
-                                        <td class="font-12 border-right font-500 py-3 px-4"><%= @bsl_tiers.dig('apac_tier_2_fourth_party_suppliers')&.size %></td>
-                                      </tr>
+                                      <% overview_region_headings.each do |orh| %>
+                                        <tr>
+                                          <td class="font-12 border-right font-500 py-3 px-4"><%= orh %></td>
+                                          <% @managing_regions.each do |region| %>
+                                            <td class="font-12 border-right font-500 py-3 px-4"><%= get_regional_data(orh, 'tier_2', region, @bsl_regional_tiers, @bsl_tiers) %></td>
+                                          <% end %>
+                                        </tr>
+                                      <% end %>
                                     </tbody>
                                   </table>
                                 </div>
@@ -580,42 +536,22 @@
                                     <thead>
                                       <tr>
                                         <th class="border-bottom-0 border-top-0 border-right font-weight-500 font-12 px-4 w-250px" scope="col"></th>
-                                        <th class="border-bottom-0 border-top-0 border-right font-weight-500 font-12 px-4" scope="col">EMEA</th>
-                                        <th class="border-bottom-0 border-top-0 border-right font-weight-500 font-12 px-4" scope="col">AMERS</th>
-                                        <th class="border-bottom-0 border-top-0 border-right font-weight-500 font-12 px-4" scope="col">APAC</th>
+                                        <% @managing_regions.each do  |region| %>
+                                          <th class="border-bottom-0 border-top-0 border-right font-weight-500 font-12 px-4" scope="col"><%= region %></th>
+                                        <% end %>
+                                        <!-- <th class="border-bottom-0 border-top-0 border-right font-weight-500 font-12 px-4" scope="col">AMERS</th>
+                                        <th class="border-bottom-0 border-top-0 border-right font-weight-500 font-12 px-4" scope="col">APAC</th> -->
                                       </tr>
                                     </thead>
                                     <tbody>
-                                      <tr>
-                                        <td class="font-12 border-right font-500 py-3 px-4">Total Business Service</td>
-                                        <td class="font-12 border-right font-500 py-3 px-4"><%=  @bsl_regional_tiers.dig('EMEA', 'tier_3').present? ? @bsl_regional_tiers.dig('EMEA', 'tier_3').size : '0' %></td>
-                                        <td class="font-12 border-right font-500 py-3 px-4"><%= @bsl_regional_tiers.dig('AMERS', 'tier_3').present? ? @bsl_regional_tiers.dig('AMERS', 'tier_3').size : '0' %></td>
-                                        <td class="font-12 border-right font-500 py-3 px-4"><%= @bsl_regional_tiers.dig('APAC', 'tier_3').present? ? @bsl_regional_tiers.dig('APAC', 'tier_3').size : '0' %></td>
-                                      </tr>
-                                      <tr>
-                                        <td class="font-12 border-right font-500 py-3 px-4">Total Resilience Gaps</td>
-                                        <td class="font-12 border-right font-500 py-3 px-4">0</td>
-                                        <td class="font-12 border-right font-500 py-3 px-4">0</td>
-                                        <td class="font-12 border-right font-500 py-3 px-4">0</td>
-                                      </tr>
-                                      <tr>
-                                        <td class="font-12 border-right font-500 py-3 px-4">Total Internal Systems</td>
-                                        <td class="font-12 border-right font-500 py-3 px-4">0</td>
-                                        <td class="font-12 border-right font-500 py-3 px-4">0</td>
-                                        <td class="font-12 border-right font-500 py-3 px-4">0</td>
-                                      </tr>
-                                      <tr>
-                                        <td class="font-12 border-right font-500 py-3 px-4">Total 3rd Party Suppliers</td>
-                                        <td class="font-12 border-right font-500 py-3 px-4"><%= @bsl_tiers.dig('emea_tier_3_third_party_suppliers')&.size %></td>
-                                        <td class="font-12 border-right font-500 py-3 px-4"><%= @bsl_tiers.dig('amers_tier_3_third_party_suppliers')&.size %></td>
-                                        <td class="font-12 border-right font-500 py-3 px-4"><%= @bsl_tiers.dig('apac_tier_3_third_party_suppliers')&.size %></td>
-                                      </tr>
-                                      <tr>
-                                        <td class="font-12 border-right font-500 py-3 px-4">Total 4th Party Suppliers</td>
-                                        <td class="font-12 border-right font-500 py-3 px-4"><%= @bsl_tiers.dig('emea_tier_3_fourth_party_suppliers')&.size %></td>
-                                        <td class="font-12 border-right font-500 py-3 px-4"><%= @bsl_tiers.dig('amers_tier_1_fourth_party_suppliers')&.size %></td>
-                                        <td class="font-12 border-right font-500 py-3 px-4"><%= @bsl_tiers.dig('apac_tier_3_fourth_party_suppliers')&.size %></td>
-                                      </tr>
+                                      <% overview_region_headings.each do |orh| %>
+                                        <tr>
+                                          <td class="font-12 border-right font-500 py-3 px-4"><%= orh %></td>
+                                          <% @managing_regions.each do |region| %>
+                                            <td class="font-12 border-right font-500 py-3 px-4"><%= get_regional_data(orh, 'tier_3',region, @bsl_regional_tiers, @bsl_tiers) %></td>
+                                          <% end %>
+                                        </tr>
+                                      <% end %>
                                     </tbody>
                                   </table>
                                 </div>
@@ -823,42 +759,20 @@
                                     <thead>
                                       <tr>
                                         <th class="border-bottom-0 border-top-0 border-right font-weight-500 font-12 px-4 w-250px" scope="col"></th>
-                                        <th class="border-bottom-0 border-top-0 border-right font-weight-500 font-12 px-4" scope="col">EMEA</th>
-                                        <th class="border-bottom-0 border-top-0 border-right font-weight-500 font-12 px-4" scope="col">AMERS</th>
-                                        <th class="border-bottom-0 border-top-0 border-right font-weight-500 font-12 px-4" scope="col">APAC</th>
+                                        <% @managing_regions.each do |region| %>
+                                          <th class="border-bottom-0 border-top-0 border-right font-weight-500 font-12 px-4" scope="col"><%= region %></th>
+                                        <% end %>
                                       </tr>
                                     </thead>
                                     <tbody>
-                                      <tr>
-                                        <td class="font-12 border-right font-500 py-3 px-4">Total Business Service</td>
-                                        <td class="font-12 border-right font-500 py-3 px-4"><%=  @bsl_regional_tiers.dig('EMEA', 'tier_4').present? ? @bsl_regional_tiers.dig('EMEA', 'tier_4').size : '0' %></td>
-                                        <td class="font-12 border-right font-500 py-3 px-4"><%= @bsl_regional_tiers.dig('AMERS', 'tier_4').present? ? @bsl_regional_tiers.dig('AMERS', 'tier_4').size : '0' %></td>
-                                        <td class="font-12 border-right font-500 py-3 px-4"><%= @bsl_regional_tiers.dig('APAC', 'tier_4').present? ? @bsl_regional_tiers.dig('APAC', 'tier_4').size : '0' %></td>
-                                      </tr>
-                                      <tr>
-                                        <td class="font-12 border-right font-500 py-3 px-4">Total Resilience Gaps</td>
-                                        <td class="font-12 border-right font-500 py-3 px-4">0</td>
-                                        <td class="font-12 border-right font-500 py-3 px-4">0</td>
-                                        <td class="font-12 border-right font-500 py-3 px-4">0</td>
-                                      </tr>
-                                      <tr>
-                                        <td class="font-12 border-right font-500 py-3 px-4">Total Internal Systems</td>
-                                        <td class="font-12 border-right font-500 py-3 px-4">0</td>
-                                        <td class="font-12 border-right font-500 py-3 px-4">0</td>
-                                        <td class="font-12 border-right font-500 py-3 px-4">0</td>
-                                      </tr>
-                                      <tr>
-                                        <td class="font-12 border-right font-500 py-3 px-4">Total 3rd Party Suppliers</td>
-                                        <td class="font-12 border-right font-500 py-3 px-4"><%= @bsl_tiers.dig('emea_tier_4_third_party_suppliers')&.size %></td>
-                                        <td class="font-12 border-right font-500 py-3 px-4"><%= @bsl_tiers.dig('amers_tier_4_third_party_suppliers')&.size %></td>
-                                        <td class="font-12 border-right font-500 py-3 px-4"><%= @bsl_tiers.dig('apac_tier_4_third_party_suppliers')&.size %></td>
-                                      </tr>
-                                      <tr>
-                                        <td class="font-12 border-right font-500 py-3 px-4">Total 4th Party Suppliers</td>
-                                        <td class="font-12 border-right font-500 py-3 px-4"><%= @bsl_tiers.dig('emea_tier_4_fourth_party_suppliers')&.size %></td>
-                                        <td class="font-12 border-right font-500 py-3 px-4"><%= @bsl_tiers.dig('amers_tier_4_fourth_party_suppliers')&.size %></td>
-                                        <td class="font-12 border-right font-500 py-3 px-4"><%= @bsl_tiers.dig('apac_tier_4_fourth_party_suppliers')&.size %></td>
-                                      </tr>
+                                      <% overview_region_headings.each do |orh| %>
+                                        <tr>
+                                          <td class="font-12 border-right font-500 py-3 px-4"><%= orh %></td>
+                                          <% @managing_regions.each do |region| %>
+                                            <td class="font-12 border-right font-500 py-3 px-4"><%= get_regional_data(orh, 'tier_4',region, @bsl_regional_tiers, @bsl_tiers) %></td>
+                                          <% end %>
+                                        </tr>
+                                      <% end %>
                                     </tbody>
                                   </table>
                                 </div>

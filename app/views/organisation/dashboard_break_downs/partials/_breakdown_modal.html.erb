@@ -1,0 +1,104 @@
+<div class="modal px-2 fade mt-5 pt-5" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog max-width-100 w-100 w-sm-75 mx-auto">
+    <div class="modal-content">
+      <div class="modal-header border-0">
+        <h5 class="modal-title text-capitalize font-400 mt-4" id="exampleModalLabel">"<%= @supplier.name %>" critical & important steps across business services.</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body p-3">
+        <div class="filter d-flex justify-content-between mb-4 flex-wrap">
+          <div class="left d-flex align-items-center mb-3">
+            <div class="dropdown mr-3">
+              <a class="text-black text-decoration-none dropdown-toggle font-12 font-400 font-xxl-14 text-capitalize text-secondary" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                All party types
+              </a>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" href="#">Action</a>
+                <a class="dropdown-item" href="#">Another action</a>
+                <a class="dropdown-item" href="#">Something else here</a>
+              </div>
+            </div>
+            <div class="dropdown">
+              <a class="text-black text-decoration-none dropdown-toggle font-12 font-400 font-xxl-14 text-capitalize text-secondary" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                All service tiers
+              </a>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" href="#">Action</a>
+                <a class="dropdown-item" href="#">Another action</a>
+                <a class="dropdown-item" href="#">Something else here</a>
+              </div>
+            </div>
+          </div>
+          <div class="right d-flex mb-3">
+            <div class="dropdown body-color-dropdown w-auto mr-2">
+              <a id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class='dropdown-toggle text-capitalize py-2 pr-5 pl-2 d-flex align-items-center justify-content-start font-12 text-dark font-400 text-decoration-none' id='top-10'>10 per page</a>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item">Action</a>
+                <a class="dropdown-item">Filter top 10</a>
+                <a class="dropdown-item">Filter top 10</a>
+              </div>
+            </div>
+            <div class="dropdown body-color-dropdown w-auto mr-2">
+              <a id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class='dropdown-toggle text-capitalize py-2 pr-5 pl-2 d-flex align-items-center justify-content-start font-12 text-dark font-400 text-decoration-none' id='top-10'>high to low</a>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item">Action</a>
+                <a class="dropdown-item">Filter top 10</a>
+                <a class="dropdown-item">Filter top 10</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="table-responsive">
+          <table class="table bg-white">
+            <thead>
+              <tr class="border-top-0">
+                <th class="text-capitalize font-12 text-light-grey border-0">
+                  supplier name
+                </th>
+                <th class="text-capitalize font-12 text-light-grey border-0">
+                  party type
+                </th>
+                <th class="text-capitalize font-12 text-light-grey border-0">
+                  business services
+                </th>
+                <th class="text-capitalize font-12 text-light-grey border-0">
+                  service tier
+                </th>
+                <th class="text-capitalize font-12 text-light-grey border-0">
+                  total number of critical steps underpinned
+                </th>
+                <th class="text-capitalize font-12 text-light-grey border-0">
+                  total number of important steps underpinned
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @supplier.supplier_steps.each do |s_step| %>
+                <tr>
+                  <td class="text-uppercase font-12 font-xxl-14 font-700 py-4 w-25"><%= s_step.supplier.name %></td>
+                  <td class="font-12 font-xxl-14 py-4">
+                    <span class="font-500"><%= s_step.party_type %></span>
+                  </td>
+                  <td class="font-12 font-xxl-14 py-4">
+                    <span class="font-500"><%= s_step.supplier.steps.count %></span>
+                  </td>
+                  <td class="font-12 font-xxl-14 py-4">
+                    <span class="font-500"><%= s_step.step.business_service_line.tier.humanize %></span>
+                  </td>
+                  <td class="font-12 font-xxl-14 py-4">
+                    <span class="font-500"><%= s_step.supplier.critical_supplier_steps.count %></span>
+                  </td>
+                  <td class="font-12 font-xxl-14 py-4">
+                    <span class="font-500"><%= s_step.supplier.critical_supplier_steps.count %></span>
+                  </td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
