@@ -53,9 +53,11 @@ Rails.application.routes.draw do
     resources :products
     resources :channels
     resources :business_service_lines do
-      get :critical_important_suppliers, on: :member
-      get :compound_resilience,          on: :member
-      get :cloud_service_provider,       on: :collection
+      get :critical_important_suppliers,    on: :member
+      get :compound_resilience,             on: :member
+      get :cloud_service_provider,          on: :member
+      get :bsl_critical_important_supplier, on: :collection
+      get :find_chp_data,                   on: :collection
     end
     resources :suppliers do
       get :all_suppliers, on: :collection

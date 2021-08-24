@@ -7,6 +7,8 @@ class SupplierStep < ApplicationRecord
   enum party_type:       %i[firm-hosted 3rd-party 4th-party]
   enum importance_level: %i[critical important]
 
+  scope :supplier_based,  ->(id) { where supplier_id: id }
+
   # Methods #
   class << self
     def selected_supplier_html

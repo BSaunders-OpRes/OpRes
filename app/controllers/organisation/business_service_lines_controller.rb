@@ -1,7 +1,9 @@
 class Organisation::BusinessServiceLinesController < Organisation::BaseController
-  before_action :load_bsl, only: %i[edit update show destroy critical_important_suppliers compound_resilience]
+  before_action :load_bsl, only: %i[edit update show destroy
+                                    critical_important_suppliers compound_resilience cloud_service_provider
+                                    find_chp_data]
 
-  load_and_authorize_resource except: :create
+  load_and_authorize_resource except: [:create, :bsl_critical_important_supplier]
 
   def new
     @bsl = BusinessServiceLine.new
@@ -57,10 +59,26 @@ class Organisation::BusinessServiceLinesController < Organisation::BaseControlle
     end
   end
 
+  def cloud_service_provider
+    @data = Bsl::ChpSupplierService.call(params)
+  end
+
+  def bsl_critical_important_supplier
+    @data = Bsl::BslCriticalImportantSupplierService.call(params)
+  end
+
+  def find_chp_data
+    @data = Bsl::ChpSupplierService.call(params[:args])
+  end
+
   private
 
   def load_bsl
-    @bsl = BusinessServiceLine.where(unit_id: managing_nodes).find(params[:id])
+    @bsl =  if  params[:action] == 'find_chp_data'
+              BusinessServiceLine.find_by_id(params[:args][:bsl])
+            else
+              BusinessServiceLine.where(unit_id: managing_nodes).find(params[:id])
+            end
   end
 
   def prepare_form_data

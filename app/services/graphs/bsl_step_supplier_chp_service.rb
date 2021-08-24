@@ -10,7 +10,7 @@ class Graphs::BslStepSupplierChpService < Graphs::BaseService
 
     data[:overall]   = overall
     data[:breakdown] = breakdown
-
+    data[:bsl_id]   = @bsl.id
     data
   end
 
@@ -84,7 +84,6 @@ class Graphs::BslStepSupplierChpService < Graphs::BaseService
         }
       end
     end
-
     datum
   end
 end
