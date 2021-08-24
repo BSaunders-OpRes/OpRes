@@ -1,0 +1,37 @@
+<div class="card-body resiliece-indicator highchart-tabs pt-0 pb-0">
+  <ul class="nav nav-tabs border-0 mb-4 text-black position-relative z-index-10" id="myTab" role="tablist">
+    <li class="nav-item pr-2">
+      <a class="nav-link active border-0 font-11 font-xxl-13 px-0 py-1 text-capitalize text-dark active" id="firm-hosted" data-toggle="tab" href="#firm-hosted1" role="tab" aria-controls="home" aria-selected="true">firm hosted</a>
+    </li>
+    <li class="nav-item pr-2">
+      <a class="nav-link border-0 font-11 font-xxl-13 px-0 py-1 text-capitalize text-dark" id="3rd-party" data-toggle="tab" href="#third-party" role="tab" aria-controls="home" aria-selected="true">3rd party</a>
+    </li>
+    <li class="nav-item pr-2">
+      <a class="nav-link font-11 border-0 font-xxl-13 px-0 text-capitalize p-1 text-dark" id="4th-party" data-toggle="tab" href="#fourth-party" role="tab" aria-controls="profile" aria-selected="false">4th party</a>
+    </li>
+  </ul>
+  <div class="tab-content" id="myTabContent">
+    <% SupplierStep.party_types.each do |key, value| %>
+      <div class="tab-pane fade <%= key == 'firm-hosted' ? 'active show text-black' : '' %> pb-3" id="<%= key == '3rd-party' ? 'third-party' : key == '4th-party' ? 'fourth-party' : 'firm-hosted1' %>" role="tabpanel" aria-labelledby="home-tab">
+        <div class="tiers d-flex justify-content-between align-items-start mb-3">
+          <div class="color-tier d-flex align-items-center">
+            <span class="font-12 font-xxl-14 font-400 text-capitalize pr-2"><%= render_fields_heading('matches')%></span>
+          </div>
+          <span class="font-12 font-xxl-14 font-700"><%= data.dig(:overall, key.underscore, :graph) ? (data.dig(:overall, key.underscore, :graph)[0]).dig(:count) : 0 %></span>
+        </div>
+        <div class="tiers d-flex justify-content-between align-items-start mb-3">
+          <div class="color-tier d-flex align-items-center">
+            <span class="font-12 font-xxl-14 font-400 text-capitalize pr-2"><%= render_fields_heading('meets') %></span>
+          </div>
+          <span class="font-12 font-xxl-14 font-700"><%= data.dig(:overall, key.underscore, :graph) ? (data.dig(:overall, key.underscore, :graph)[1]).dig(:count) : 0 %></span>
+        </div>
+        <div class="tiers d-flex justify-content-between align-items-start">
+          <div class="color-tier d-flex align-items-center">
+            <span class="font-12 font-xxl-14 font-400 text-capitalize pr-2"><%= render_fields_heading('exceeds')%></span>
+          </div>
+          <span class="font-12 font-xxl-14 font-700"><%= data.dig(:overall, key.underscore, :graph) ? (data.dig(:overall, key.underscore, :graph)[2]).dig(:count) : 0 %></span>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
