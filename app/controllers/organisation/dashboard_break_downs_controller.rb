@@ -28,6 +28,8 @@ class Organisation::DashboardBreakDownsController < Organisation::BaseController
   def critical_important_system
     @suppliers = Supplier.where(unit_id: managing_nodes).group_by{ |e| e.consumption_model }
     @private_suppliers = Supplier.joins(:supplier_steps).where(supplier_steps: { party_type: 'firm-hosted' }).group_by{ |e| e.consumption_model }
+    @conformant_suppliers     = ConformanceSupplierService.new({}).conformant_suppliers_data
+    @non_conformant_suppliers = @conformant_suppliers.sort{|a,b| b[1][:total_impact_tolerance] <=> a[1][:total_impact_tolerance]}.reverse.to_h
   end
 
   def private_cloud
