@@ -66,7 +66,7 @@ module ApplicationHelper
       "These documents move to amber when they are in the final 20 days of their compliance window"
     end
   end
-
+  
   def render_fields_heading(field)
     "#{field} impact tolerances"
   end
