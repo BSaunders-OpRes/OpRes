@@ -48,7 +48,7 @@
             <span class="font-12">Supplier Type:</span>
           </div>
           <div class="w-75">
-            <strong class="font-12"><%= @supplier.consumption_model&.upcase %></strong>
+            <strong class="font-12"><%= titleize_last_alpha(@supplier.consumption_model&.titleize) %></strong>
           </div>
         </div>
         <div class="intro-box mb-3 d-flex align-items-center justify-content-center">
@@ -79,7 +79,7 @@
         </div>
       </div>
       <div class="px-4">
-        <h5 class="text-capitalize d-block mb-4">Links</h5>
+        <h5 class="text-capitalize text-left font-600">Links</h5>
         <div class="small-boxes row">
           <% @supplier.social_account_recipients.each do |social_account_recipient| %>
             <div class="col-md-3 mb-3">
@@ -89,7 +89,7 @@
                       <div class="color-tier">
                         <div class="mr-1 d-inline-block w-25px text-center align-middle">
                           <% social_account = social_account_recipient.social_account %>
-                          <%= image_tag social_account.logo, class: 'img-fluid w-100' %>
+                          <%= image_tag social_account.logo, class: 'img-fluid w-100 d-block' %>
                         </div>
                         <div class="text d-inline-block align-middle">
                           <span class="font-12 font-400 ml-2 d-block">

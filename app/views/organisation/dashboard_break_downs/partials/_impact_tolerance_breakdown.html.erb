@@ -1,0 +1,123 @@
+<section id="section2" class="section">
+  <div class="card border-0 rounded-50">
+    <div class="card-body">
+      <div class="d-flex align-items-center justify-content-between">
+        <h5 class="font-400 text-capitalize">impact tolerance breakdown - per filter</h5>
+        <i class="fa fa-ellipsis-v"></i>
+      </div>
+    </div>
+    <div class="table-responsive mt-4 bg-body-color">
+      <table class="table bg-white">
+        <thead>
+          <tr class="border-top-0">
+            <th class="text-capitalize font-12 text-light-grey border-0">
+              service level targets
+            </th>
+            <th class="text-capitalize font-12 text-light-grey border-0">
+              total N# of match tolerance
+            </th>
+            <th class="text-capitalize font-12 text-light-grey border-0">
+              Total N# of Meet impact tolerance
+            </th>
+            <th class="text-capitalize font-12 text-light-grey border-0">
+              Total N# of exceeds impact tolerance
+            </th>
+            <th class="text-capitalize font-12 text-light-grey border-0">
+              Total Number
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <% Sla::SLA_ATTR[0,6].each do |sla_attr|%>
+            <tr>
+              <td class="text-uppercase font-12 font-xxl-14 font-700 py-4"><%= sla_compounded_resilience_breakdown_text(sla_attr) %></td>
+              <td class="font-12 font-xxl-14 py-4">
+                <span class="font-700"><%= @impact_tolerance_breakdowns.dig(sla_attr, :match_tolerance) %></span>
+                <span class="text-capitalize text-primary font-500">
+                  <%= link_to "Breakdown", impact_tolerance_breakdown_organisation_dashboard_break_downs_path({ sla_attr: sla_attr, type: 'match'}), type: 'button', remote: true %>
+                </span>
+              </td>
+              <td class="font-12 font-xxl-14 py-4">
+                <span class="font-700"><%= @impact_tolerance_breakdowns.dig(sla_attr, :meet_tolerance) %></span>
+                <span class="text-capitalize text-primary font-500">
+                  <%= link_to "Breakdown", impact_tolerance_breakdown_organisation_dashboard_break_downs_path({ sla_attr: sla_attr, type: 'meet'}), type: 'button', remote: true %>
+                </span>
+              </td>
+              <td class="font-12 font-xxl-14 py-4">
+                <span class="font-700"><%= @impact_tolerance_breakdowns.dig(sla_attr, :exceed_tolerance) %></span>
+                <span class="text-capitalize text-primary font-500">
+                  <%= link_to "Breakdown", impact_tolerance_breakdown_organisation_dashboard_break_downs_path({ sla_attr: sla_attr, type: 'exceed'}), type: 'button', remote: true %>
+                </span>
+              </td>
+              <td class="font-12 font-xxl-14 py-4">
+                <span class="font-700"><%= @impact_tolerance_breakdowns.dig(sla_attr, :total_tolerance) %></span>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+        <tbody class="bg-body-color">
+          <tr class="border-0"><td colspan="5" class="font-12 font-xxl-14 text-light-grey light-grey-bg font-600 border-0 text-capitalize py-3">incident notification</td></tr>
+        </tbody>
+        <tbody>
+          <% Sla::SLA_ATTR[6,4].each do |sla_attr| %>
+            <tr>
+              <td class="text-uppercase font-12 font-xxl-14 font-700 py-4"><%= sla_compounded_resilience_breakdown_text(sla_attr) %></td>
+              <td class="font-12 font-xxl-14 py-4">
+                <span class="font-700"><%= @impact_tolerance_breakdowns.dig(sla_attr, :match_tolerance) %></span>
+                <span class="text-capitalize text-primary font-500">
+                  <%= link_to "Breakdown", impact_tolerance_breakdown_organisation_dashboard_break_downs_path({ sla_attr: sla_attr, type: 'match'}), type: 'button', remote: true %>
+                </span>
+              </td>
+              <td class="font-12 font-xxl-14 py-4">
+                <span class="font-700"><%= @impact_tolerance_breakdowns.dig(sla_attr, :meet_tolerance) %></span>
+                <span class="text-capitalize text-primary font-500">
+                  <%= link_to "Breakdown", impact_tolerance_breakdown_organisation_dashboard_break_downs_path({ sla_attr: sla_attr, type: 'meet'}), type: 'button', remote: true %>
+                </span>
+              </td>
+              <td class="font-12 font-xxl-14 py-4">
+                <span class="font-700"><%= @impact_tolerance_breakdowns.dig(sla_attr, :exceed_tolerance) %></span>
+                <span class="text-capitalize text-primary font-500">
+                  <%= link_to "Breakdown", impact_tolerance_breakdown_organisation_dashboard_break_downs_path({ sla_attr: sla_attr, type: 'exceed'}), type: 'button', remote: true %>
+                </span>
+              </td>
+              <td class="font-12 font-xxl-14 py-4">
+                <span class="font-700"><%= @impact_tolerance_breakdowns.dig(sla_attr, :exceed_tolerance) %></span>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+        <tbody class="bg-body-color">
+          <tr class="border-0"><td colspan="5" class="font-12 font-xxl-14 text-light-grey light-grey-bg font-600 border-0 text-capitalize py-3">incident restoration</td></tr>
+        </tbody>
+        <tbody>
+          <% Sla::SLA_ATTR[10,4].each do |sla_attr| %>
+            <tr>
+              <td class="text-uppercase font-12 font-xxl-14 font-700 py-4"><%= sla_compounded_resilience_breakdown_text(sla_attr) %></td>
+              <td class="font-12 font-xxl-14 py-4">
+                <span class="font-700"><%= @impact_tolerance_breakdowns.dig(sla_attr, :match_tolerance) %></span>
+                <span class="text-capitalize text-primary font-500">
+                  <%= link_to "Breakdown", impact_tolerance_breakdown_organisation_dashboard_break_downs_path({ sla_attr: sla_attr, type: 'match'}), type: 'button', remote: true %>
+                </span>
+              </td>
+              <td class="font-12 font-xxl-14 py-4">
+                <span class="font-700"><%= @impact_tolerance_breakdowns.dig(sla_attr, :meet_tolerance) %></span>
+                <span class="text-capitalize text-primary font-500">
+                  <%= link_to "Breakdown", impact_tolerance_breakdown_organisation_dashboard_break_downs_path({ sla_attr: sla_attr, type: 'meet'}), type: 'button', remote: true %>
+                </span>
+              </td>
+              <td class="font-12 font-xxl-14 py-4">
+                <span class="font-700"><%= @impact_tolerance_breakdowns.dig(sla_attr, :exceed_tolerance) %></span>
+                <span class="text-capitalize text-primary font-500">
+                  <%= link_to "Breakdown", impact_tolerance_breakdown_organisation_dashboard_break_downs_path({ sla_attr: sla_attr, type: 'exceed'}), type: 'button', remote: true %>
+                </span>
+              </td>
+              <td class="font-12 font-xxl-14 py-4">
+                <span class="font-700"><%= @impact_tolerance_breakdowns.dig(sla_attr, :total_tolerance) %></span>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>

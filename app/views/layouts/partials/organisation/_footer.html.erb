@@ -3,9 +3,14 @@
     <%= image_pack_tag 'media/images/logo.png', class: 'img-fluid' %>
   <% end %>
   <ul class="list-unstyled text-center d-flex justify-content-center pt-5 pb-2 flex-wrap">
-    <li><a href="" class="font-12 font-xxl-14 text-secondary">About OpRes</a></li>
-    <li><a href="" class="font-12 font-xxl-14 text-secondary ml-2 pl-2">Contact us</a></li>
+    <li>
+      <%= link_to 'About OpRes', 'https://www.opres.uk/', target: '_blank', class: 'font-12 font-xxl-14 text-secondary' %>
+    </li>
+    <li>
+      <%= link_to 'Contact Us', 'https://www.opres.uk/contact-1', target: '_blank', class: 'font-12 font-xxl-14 text-secondary ml-2 pl-2' %>
+    </li>
+
     <li><a href="" class="font-12 font-xxl-14 text-secondary ml-2 pl-2">Term & Conditions</a></li>
-    <li><a href="" class="font-12 font-xxl-14 text-secondary ml-2 pl-2">Support</a></li>
+    <li><%= link_to 'Support', 'mailto:Support@opres.uk', class: 'font-12 font-xxl-14 text-secondary ml-2 pl-2' %></li>
   </ul>
 </footer>

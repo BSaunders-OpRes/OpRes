@@ -143,7 +143,17 @@ i.paperclip {
         align-items: center;
         justify-content: flex-start;
         transform: translateX(-50%);
-        top: 105px;
+        top: 100%;
+      }
+      .highcharts-container {
+        height: 100px !important;
+        width: 100px !important;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden !important;
+        margin: 0 auto;
+        ;
       }
     }
     .semi-donut-content {
@@ -531,11 +541,10 @@ i.paperclip {
       height: 22px !important;
       border-radius: 5px;
       &:after {
-        left: 8px;
-        top: 4px;
+        left: 7px;
+        top: 3px;
         width: 6px;
         height: 12px;
-        border-width: 0 2px 2px 0;
       }
     }
   }

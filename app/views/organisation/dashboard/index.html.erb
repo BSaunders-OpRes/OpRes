@@ -2,7 +2,7 @@
   <div class="col-md-12 d-flex justify-content-between align-items-center flex-wrap">
     <h2  class="font-600 font-sm-18 font-30 text-capitalize">Resilience Data Hub</h2>
     <div class="white-btn d-flex align-items-center rounded-50 cursor-pointer py-2">
-      <i class="fa fa-ellipsis-v px-2 mx-2 m-1" aria-hidden="true"></i>
+      <!-- <i class="fa fa-ellipsis-v px-2 mx-2 m-1" aria-hidden="true"></i> -->
     </div>
   </div>
 </div>
@@ -346,102 +346,8 @@
 
     </div>
   </div>
-
-  <div class="col-md-12 col-lg-3 order-lg-3 order-4 mb-lg-0 mb-4 px-1">
-    <div class="card border-0 shadow-sm pie-high-chart overflow-hidden rounded-50 min-h-560" id="critical-important-system" >
-      <div class="card-header h-auto bg-white text-center border-0">
-        <p class="font-14 text-capitalize font-600 chart-header-title text-black">Critical & Important System</p>
-        <div class="row flex-sm-wrap flex-nowrap">
-          <div class="col-sm-6 px-0 d-flex justify-content-center">
-            <div class="sm-donut-content text-black">
-              <div id="third-donut-sm" class="sm-donut"></div>
-              <div class="donut-value font-25 font-700">0</div>
-              <div class="donut-desc flex-column">
-                <span class="font-12 font-xxl-14 font-600 text-capitalize mb-2">critical system</span>
-              </div>
-            </div>
-          </div>
-          <div class="col-sm-6 px-0 d-flex justify-content-center">
-            <div class="sm-donut-content text-black">
-              <div id="fourth-donut-sm" class="sm-donut"></div>
-              <div class="donut-value font-25 font-700 text-black">0</div>
-              <div class="donut-desc flex-column">
-                <span class="font-12 font-xxl-14 font-600 text-capitalize mb-2">important system</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="d-flex text-black px-3 align-items-center h-70px justify-content-between">
-        <div class="d-flex align-items-center">
-          <div class="circle green-1"></div>
-          <span class="font-12 font-xxl-13 font-600 ml-1 text-capitalize">matches</span>
-        </div>
-        <div class="d-flex align-items-center">
-          <div class="circle green-2"></div>
-          <span class="font-12 font-xxl-13 font-600 ml-1 text-capitalize">meet</span>
-        </div>
-        <div class="d-flex align-items-center">
-          <div class="circle green-3"></div>
-          <span class="font-12 font-xxl-13 font-600 ml-1 text-capitalize">exceeds</span>
-        </div>
-      </div>
-      <div class="card-body resiliece-indicator pt-0 pb-0">
-        <ul class="nav nav-tabs border-0 mb-4" id="myTab" role="tablist">
-          <li class="nav-item pr-2">
-            <a class="nav-link active border-0 font-11 font-xxl-12 px-0 py-1 text-capitalize text-dark active" id="home-tab" data-toggle="tab" href="#critical-system" role="tab" aria-controls="home" aria-selected="true">Critical Systems</a>
-          </li>
-          <li class="nav-item pr-2">
-            <a class="nav-link font-11 border-0 font-xxl-12 px-0 text-capitalize p-1 text-dark" id="profile-tab" data-toggle="tab" href="#important-system" role="tab" aria-controls="profile" aria-selected="false">Important Systems</a>
-          </li>
-        </ul>
-        <div class="tab-content" id="myTabContent">
-          <div class="tab-pane fade show active pb-3" id="critical-system" role="tabpanel" aria-labelledby="home-tab">
-            <div class="tiers d-flex justify-content-between align-items-start mb-3">
-              <div class="color-tier d-flex align-items-center">
-                <span class="font-12 font-xxl-14 font-400 text-capitalize pr-2">Critical System Matches Impact Tolerances</span>
-              </div>
-              <span class="font-12 font-xxl-14 font-700">0</span>
-            </div>
-            <div class="tiers d-flex justify-content-between align-items-start mb-3">
-              <div class="color-tier d-flex align-items-center">
-                <span class="font-12 font-xxl-14 font-400 text-capitalize pr-2">Critical System Meets Impact Tolerances</span>
-              </div>
-              <span class="font-12 font-xxl-14 font-700">0</span>
-            </div>
-            <div class="tiers d-flex justify-content-between align-items-start">
-              <div class="color-tier d-flex align-items-center">
-                <span class="font-12 font-xxl-14 font-400 text-capitalize pr-2">Critical System Exceeds Impact Tolerances</span>
-              </div>
-              <span class="font-12 font-xxl-14 font-700">0</span>
-            </div>
-          </div>
-          <div class="tab-pane fade pb-3" id="important-system" role="tabpanel" aria-labelledby="home-tab">
-            <div class="tiers d-flex justify-content-between align-items-start mb-3">
-              <div class="color-tier d-flex align-items-center">
-                <span class="font-12 font-xxl-14 font-400 text-capitalize pr-3">Important System Matches Impact Tolerances</span>
-              </div>
-              <span class="font-12 font-xxl-14 font-700">0</span>
-            </div>
-            <div class="tiers d-flex justify-content-between align-items-start mb-3">
-              <div class="color-tier d-flex align-items-center">
-                <span class="font-12 font-xxl-14 font-400 text-capitalize pr-3">Important System Meets Impact Tolerances</span>
-              </div>
-              <span class="font-12 font-xxl-14 font-700">0</span>
-            </div>
-            <div class="tiers d-flex justify-content-between align-items-start">
-              <div class="color-tier d-flex align-items-center">
-                <span class="font-12 font-xxl-14 font-400 text-capitalize pr-3">Important System Exceeds Impact Tolerances</span>
-              </div>
-              <span class="font-12 font-xxl-14 font-700">0</span>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="card-footer text-center bg-white">
-        <%= link_to 'View All', critical_important_system_organisation_dashboard_break_downs_path, class: 'font-12 font-xxl-14 text-capitalize font-600 border-bottom-black text-dark text-decoration-none'%>
-      </div>
-    </div>
+  <div id="critical-and-important" class="col-md-6 col-lg-3 order-lg-4 order-1 mb-lg-0 mb-4 px-1 custom-high-chart lazy-graph" data-key="critical_and_important_system" data-args="<%= {}.to_json %>" data-append-to="critical-and-important" data-partial-name="critical_and_important_system">
+    <%= render 'organisation/graphs/partials/critical_and_important_system', data: {} %>
   </div>
   <div id="chp-breakdown" class="col-md-6 col-lg-3 order-lg-4 order-1 mb-lg-0 mb-4 px-1 custom-high-chart lazy-graph" data-key="chp_breakdown" data-args="<%= {}.to_json %>" data-append-to="chp-breakdown" data-partial-name="chp_breakdown">
     <%= render 'organisation/graphs/partials/chp_breakdown', data: {} %>
@@ -559,9 +465,6 @@
             </tbody>
           </table>
         </div>
-      </div>
-      <div class="d-flex justify-content-center py-2 border-top custom-view-all">
-        <a href="" class="text-capitalize font-12 font-xxl-14 text-dark border-bottom-black font-600 px-1 text-decoration-none">view all</a>
       </div>
     </div>
   </div>
@@ -881,7 +784,7 @@
     </p> -->
   </div>
 </div>
-<div class="row five-grid mt-5 no-gutters">
+<!-- <div class="row five-grid mt-5 no-gutters">
   <div class="col mb-lg-0 mb-4 px-1">
     <div class="card border-0 shadow-sm pie-high-chart overflow-hidden rounded-50 min-h-510">
       <div class="card-header bg-white text-center border-0">
@@ -1367,7 +1270,7 @@
       </div>
     </div>
   </div>
-</div>
+</div> -->
 <div class="row mt-5">
   <div class="col-md-12 text-center d-flex justify-content-center">
     <a href="" class="text-decoration-none dark-btn py-3 px-4 rounded align-items-center d-flex text-decoration-none">

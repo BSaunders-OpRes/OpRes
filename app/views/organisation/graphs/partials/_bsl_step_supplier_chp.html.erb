@@ -163,7 +163,7 @@
             <div class="col-lg-6 col-xl-4">
               <div class="row mt-4">
                 <div class="col-md-12">
-                  <h5 class="font-12 font-xxl-14 font-700 text-capitalize"><%= cm_name %></h5>
+                  <h5 class="font-12 font-xxl-14 font-700 text-capitalize"><%= titleize_last_alpha(cm_name.titleize) %></h5>
                 </div>
                 <div class="col-md-5 pl-0">
                   <%= react_component('highcharts/donut', { data: cm_data.dig(:graph), render_to: "donut-#{chp_name.parameterize.dasherize}-#{cm_name.parameterize.dasherize}" }, { class: 'sm-donut mx-auto' }) %>

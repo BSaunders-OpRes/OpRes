@@ -3,13 +3,13 @@
     <div class="col-sm-12 px-1">
       <div class="d-flex justify-content-between align-items-center flex-wrap">
         <div class="left d-flex align-items-center flex-wrap">
-          <div class="mr-4 back-btn mb-2 mb-sm-0 ">
+          <div class="mr-4 back-btn mb-xs-2">
             <%= render 'layouts/partials/shared/redirect_back', path: organisation_dashboard_index_path %>
           </div>
-          <h2 class="font-500 font-sm-18 font-25 text-capitalize">My Account</h2>
+          <h2 class="font-600 font-sm-18 font-25 text-capitalize">My Account</h2>
         </div>
         <div class="right d-flex mt-3 mt-lg-0">
-          <div class="white-btn p-2 d-flex align-items-center">
+          <div class="white-btn px-1 py-2 d-flex align-items-center rounded-50 cursor-pointer">
             <i class="fa fa-ellipsis-v px-2"></i>
           </div>
         </div>
@@ -30,9 +30,9 @@
           <li class="links mb-2">
             <a href="#overview" class=" text-decoration-none text-capitalize font-13 font-xxl-14 d-block py-2">Access</a>
           </li>
-          <li class="links mb-2">
+          <!-- <li class="links mb-2">
             <a href="#notification" class=" text-decoration-none text-capitalize font-13 font-xxl-14 d-block py-2">Notification</a>
-          </li>
+          </li> -->
         </ul>
       </aside>
     </div>
@@ -44,7 +44,7 @@
               <div class="card border-0 rounded-50 mb-4">
                 <div class="card-body">
                   <div class="d-flex align-items-center justify-content-between">
-                    <h5 class="font-16 font-600 text-capitalize">overview</h5>
+                    <h5 class="font-600 text-capitalize">overview</h5>
                     <i class="fa fa-ellipsis-v"></i>
                   </div>
                   <div class="mt-3">
@@ -97,7 +97,7 @@
                     </div>
                     <div class="row align-items-end d-flex mt-5 mb-4 border-top">
                       <div class="col-sm-12 text-right pull-right mt-5">
-                        <%= submit_tag 'Save', class: 'btn black-btn w-150px' %>
+                        <%= submit_tag 'Save', class: 'btn black-btn w-150px rounded-40 font-600' %>
                       </div>
                     </div>
                   </div>
@@ -109,7 +109,7 @@
             <div class="card border-0 rounded-50 mb-4">
               <div class="card-body">
                 <div class="d-flex align-items-center justify-content-between">
-                  <h5 class="font-16 font-600 text-capitalize">access</h5>
+                  <h5 class="font-600 text-capitalize">access</h5>
                   <i class="fa fa-ellipsis-v"></i>
                 </div>
                 <div class="input-fields mt-5">
@@ -137,7 +137,7 @@
                       </div>
                     </div>
                     <div class="col-sm-2 text-right order-2 flex-sm-half mb-2 mb-sm-0">
-                      <div class="info" data-toggle="tooltip" data-placement="top" title="business service line name" aria-hidden="true">i</div>
+                      <div class="info" data-toggle="tooltip" data-placement="top" title="user profile permissions" aria-hidden="true">i</div>
                     </div>
                   </div>
                 </div>
@@ -166,14 +166,14 @@
                       </div>
                     </div>
                     <div class="col-sm-2 text-right order-2 flex-sm-half mb-2 mb-sm-0">
-                      <div class="info" data-toggle="tooltip" data-placement="top" title="business service line name" aria-hidden="true">i</div>
+                      <div class="info" data-toggle="tooltip" data-placement="top" title="regional data access permissions" aria-hidden="true">i</div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-          <div id="notification" class="notification">
+          <!-- <div id="notification" class="notification">
             <div class="card border-0 rounded-50">
               <div class="card-body">
                 <div class="d-flex align-items-center justify-content-between">
@@ -311,7 +311,7 @@
                       </div>
                     </div>
                   </div>
-                </div>
+                </div> -->
               </div>
             </div>
           </div>

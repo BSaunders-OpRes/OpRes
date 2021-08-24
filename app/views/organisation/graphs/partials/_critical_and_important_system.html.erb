@@ -1,0 +1,116 @@
+<% if data.blank? %>
+  <div class="border-0 pie-high-chart overflow-hidden rounded-50 d-flex justify-content-center align-items-start flex-wrap flex-md-nowrap">
+    <div class="card-header h-auto p-2 bg-white text-center border-0">
+      <div class="empty-donut-block w-150px">
+        <div class="donut-value font-30 font-700"></div>
+      </div>
+    </div>
+    <div class="card-body p-md-2 p-3">
+      <div class="empty-donut-line px-5 mb-2"></div>
+      <div class="empty-donut-line px-5 mb-2"></div>
+      <div class="empty-donut-line px-5 mb-2"></div>
+      <div class="empty-donut-line px-5 mb-2"></div>
+    </div>
+  </div>
+<% else %>
+<div class="card border-0 shadow-sm pie-high-chart overflow-hidden rounded-50 min-h-560" id="critical-important-system" >
+  <div class="card-header h-auto bg-white text-center border-0">
+    <p class="font-14 text-capitalize font-600 chart-header-title text-black">Critical & Important System</p>
+    <div class="row flex-sm-wrap flex-nowrap">
+      <div class="col-sm-6 px-0 d-flex justify-content-center">
+        <div class="sm-donut-content text-black">
+
+        <div class="sm-donut-content w-150px">
+          <%= react_component('highcharts/donut', { data: data.dig(:overall, :graph), render_to: 'critical-and-important' }, { class: 'h-130px d-flex align-items-center' }) %>
+          <div class="donut-value font-25 font-700"><%= data.dig(:overall, :graph)&.first[:count]%></div>
+        </div>
+          <div class="donut-desc flex-column">
+            <span class="font-12 font-600 text-capitalize mb-2"><%= data.dig(:overall, :graph)&.first[:name]%></span>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6 px-0 d-flex justify-content-center">
+        <div class="sm-donut-content text-black">
+        <div class="sm-donut-content w-150px">
+          <%= react_component('highcharts/donut', { data: data.dig(:overall, :graph), render_to: 'critical-and-important' }, { class: 'h-130px d-flex align-items-center' }) %>
+          <div class="donut-value font-25 font-700"><%= data.dig(:overall, :graph)&.last[:count]%></div>
+        </div>
+          <div class="donut-desc flex-column">
+            <span class="font-12 font-600 text-capitalize mb-2"><%= data.dig(:overall, :graph)&.last[:name]%></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="d-flex text-black px-3 align-items-center h-70px justify-content-between">
+    <div class="d-flex align-items-center">
+      <div class="circle green-1"></div>
+      <span class="font-12 font-400 ml-1 text-capitalize">matches</span>
+    </div>
+    <div class="d-flex align-items-center">
+      <div class="circle green-2"></div>
+      <span class="font-12 font-400 ml-1 text-capitalize">meet</span>
+    </div>
+    <div class="d-flex align-items-center">
+      <div class="circle green-3"></div>
+      <span class="font-12 font-400 ml-1 text-capitalize">exceeds</span>
+    </div>
+  </div>
+  <div class="card-body resiliece-indicator pt-0 pb-0">
+    <ul class="nav nav-tabs border-0 mb-3" id="myTab" role="tablist">
+      <li class="nav-item pr-2">
+        <a class="nav-link active border-0 font-11 font-xxl-12 px-0 py-1 text-capitalize text-dark active" id="home-tab" data-toggle="tab" href="#critical-system" role="tab" aria-controls="home" aria-selected="true">Critical Systems</a>
+      </li>
+      <li class="nav-item pr-2">
+        <a class="nav-link font-11 border-0 font-xxl-12 px-0 text-capitalize p-1 text-dark" id="profile-tab" data-toggle="tab" href="#important-system" role="tab" aria-controls="profile" aria-selected="false">Important Systems</a>
+      </li>
+    </ul>
+    <div class="tab-content" id="myTabContent">
+      <div class="tab-pane fade show active pb-3" id="critical-system" role="tabpanel" aria-labelledby="home-tab">
+        <div class="tiers d-flex justify-content-between align-items-start mb-3">
+          <div class="color-tier d-flex align-items-center">
+            <span class="font-12 font-400 text-capitalize pr-2">Matches Impact Tolerances</span>
+          </div>
+          <span class="font-12 font-700"><%= data.dig(:overall, :c_match)%></span>
+        </div>
+        <div class="tiers d-flex justify-content-between align-items-start mb-3">
+          <div class="color-tier d-flex align-items-center">
+            <span class="font-12 font-400 text-capitalize pr-2">Meets Impact Tolerances</span>
+          </div>
+          <span class="font-12 font-700"><%= data.dig(:overall, :c_meet)%></span>
+        </div>
+        <div class="tiers d-flex justify-content-between align-items-start">
+          <div class="color-tier d-flex align-items-center">
+            <span class="font-12 font-400 text-capitalize pr-2">Exceeds Impact Tolerances</span>
+          </div>
+          <span class="font-12 font-700"><%= data.dig(:overall, :c_exceed)%></span>
+        </div>
+      </div>
+      <div class="tab-pane fade pb-3" id="important-system" role="tabpanel" aria-labelledby="home-tab">
+        <div class="tiers d-flex justify-content-between align-items-start mb-3">
+          <div class="color-tier d-flex align-items-center">
+            <span class="font-12 font-400 text-capitalize pr-3">Matches Impact Tolerances</span>
+          </div>
+          <span class="font-12 font-700"><%= data.dig(:overall, :i_match)%></span>
+        </div>
+        <div class="tiers d-flex justify-content-between align-items-start mb-3">
+          <div class="color-tier d-flex align-items-center">
+            <span class="font-12 font-400 text-capitalize pr-3">Meets Impact Tolerances</span>
+          </div>
+          <span class="font-12 font-700"><%= data.dig(:overall, :i_match)%></span>
+        </div>
+        <div class="tiers d-flex justify-content-between align-items-start">
+          <div class="color-tier d-flex align-items-center">
+            <span class="font-12 font-400 text-capitalize pr-3">Exceeds Impact Tolerances</span>
+          </div>
+          <span class="font-12 font-700"><%= data.dig(:overall, :i_match)%></span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="card-footer text-center bg-white">
+    <%= link_to 'View All', critical_important_system_organisation_dashboard_break_downs_path, class: 'font-12 text-capitalize font-600 border-bottom-black text-dark text-decoration-none'%>
+  </div>
+</disv>
+<% end %>
+
