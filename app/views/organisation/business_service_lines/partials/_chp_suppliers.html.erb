@@ -1,0 +1,20 @@
+<tr>
+  <td class="text-uppercase font-12 font-xxl-14 text-black font-600 py-2 border-0">
+    <%= supplier_data.dig(:supplier_name) %>
+  </td>
+  <td class="text-uppercase font-12 font-xxl-14 text-black font-600 py-2 border-0">
+    <%= supplier_data.dig(:party_type) %>
+  </td>
+  <td class="text-uppercase font-12 font-xxl-14 text-black font-600 py-2 border-0">
+    <%= supplier_data.dig(:chp_name) %>
+  </td>
+  <td class="text-uppercase font-12 font-xxl-14 text-black font-600 py-2 border-0">
+    <%= supplier_data.dig(:total_critical_steps) %>
+  </td>
+  <td class="text-uppercase font-12 font-xxl-14 text-black font-600 py-2 border-0">
+    <%= supplier_data.dig(:total_important_steps) %>
+  </td>
+  <td colspan="2" class="text-capitalize font-12 text-primary font-xxl-14 font-500 w-100 py-2 border-0 text-right" type="button" class="btn white-btn text-capitalize">
+    <%= link_to 'View Breakdown', bsl_critical_important_supplier_organisation_business_service_lines_path({bsl_id: @bsl.id, id: supplier_data.dig(:supplier_id)}), class: 'text-decoration-line', remote: true %>
+  </td>
+</tr>

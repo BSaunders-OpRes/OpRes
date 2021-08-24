@@ -1,0 +1,73 @@
+<div class="tb-header align-items-end flex-wrap d-flex justify-content-between flex-lg-row flex-column mb-3">
+  <div class="form-group mb-lg-0 mb-3 flex-1 mr-0 mr-lg-2 w-100">
+    <p class="font-12 font-400 text-light-grey mb-3">The following suppliers underpin critical steps and are <%= consumption_model == 'view_all' ? 'iaas, paas, saas': consumption_model.titleize %></p>
+    <span class="search-field d-block">
+      <i class="fa fa-search"></i>
+      <input type="text" class="bg-body-color h-auto form-control font-12 border-0 shadow-none py-2" placeholder="Search" id="country-search-filter">
+    </span>
+  </div>
+  <div class="filter-grouped d-flex flex-half">
+    <div class="dropdown body-color-dropdown mr-2 w-100">
+      <a id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class='dropdown-toggle text-capitalize py-2 pr-5 pl-2 d-flex align-items-center justify-content-start font-12 text-dark font-400' id='top-10'>Sort By: Risk high to low</a>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <a class="dropdown-item">Action</a>
+        <a class="dropdown-item">Filter top 10</a>
+        <a class="dropdown-item">Filter top 10</a>
+      </div>
+    </div>
+    <div class="dropdown body-color-dropdown w-100">
+      <a id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class='dropdown-toggle text-capitalize py-2 pr-5 pl-2 d-flex align-items-center justify-content-start font-12 text-dark font-400' id='top-10'>10 results per page</a>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <a class="dropdown-item">Action</a>
+        <a class="dropdown-item">Filter top 10</a>
+        <a class="dropdown-item">Filter top 10</a>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="table-responsive">
+  <table class="table bg-white">
+    <thead>
+      <tr class="border-top-0">
+        <th class="text-capitalize font-500 font-12 text-light-grey border-top-0 border-bottom w-35">
+          supplier name
+        </th>
+        <th class="text-capitalize font-500 font-12 text-light-grey border-top-0 border-bottom">
+          party type
+        </th>
+        <th class="text-capitalize font-500 font-12 text-light-grey border-top-0 border-bottom">
+          hosting provider
+        </th>
+        <th class="text-capitalize font-500 font-12 text-light-grey border-top-0 border-bottom">
+          total critical steps
+        </th>
+        <th class="text-capitalize font-500 font-12 text-light-grey border-top-0 border-bottom">
+          total important steps
+        </th>
+        <th class="text-capitalize font-500 font-12 text-light-grey border-top-0 border-bottom">
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <% if consumption_model == 'view_all' %>
+        <% @data.dig(@data.dig('chp_name'))&.each do |consumption_model, suppliers|%>
+          <% suppliers&.each do |supplier_data| %>
+          <%= render 'organisation/business_service_lines/partials/chp_suppliers', supplier_data: supplier_data %>
+          <% end %>
+        <% end %>
+      <% else %>
+        <% @data.dig(@data.dig('chp_name'))[consumption_model]&.each do |supplier_data|%>
+          <%= render 'organisation/business_service_lines/partials/chp_suppliers', supplier_data: supplier_data %>
+        <% end %>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+<nav aria-label="Page navigation example">
+  <ul class="pagination pagination-active justify-content-center mb-0">
+    <li class="page-item active"><a class="rounded-0 font-12 font-xxl-14 page-link border-0 text-light-grey shadow-none transition" href="javascript:void(0);">1</a></li>
+    <li class="page-item"><a class="rounded-0 font-12 font-xxl-14 page-link border-0 text-light-grey shadow-none transition" href="javascript:void(0);">2</a></li>
+    <li class="page-item"><a class="rounded-0 font-12 font-xxl-14 page-link border-0 text-light-grey shadow-none transition" href="javascript:void(0);">3</a></li>
+    <li class="page-item"><a class="rounded-0 font-12 font-xxl-14 page-link border-0 text-light-grey shadow-none transition" href="javascript:void(0);">4</a></li>
+  </ul>
+</nav>
