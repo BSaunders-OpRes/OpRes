@@ -28,10 +28,11 @@
     <div class="form-group">
       <div class="my-4">
         <label for="" class="text-light-grey font-12 font-xxl-14 font-500">The following business services contain critical steps and are consuming IaaS/SaaS/PaaS technology components in the public cloud.</label>
-        <span class="search-field d-block">
-          <i class="fa fa-search"></i>
-          <input type="text" class="bg-body-color form-control font-12 border-0 shadow-none" placeholder="Cloud System/Supplier" id="country-search-filter">
-        </span>
+        <div class="table-search-field">
+          <i class="fa fa-search text-dark font-14" aria-hidden="true"></i>
+          <%= text_field_tag 'supplier[name]', nil, placeholder: 'Search Suppliers...', class: 'w-100 form-control border-0 shadow-none font-xxl-14 search-supplier-name pl-4', id: 'search-supplier-name' %>
+          <span for="" class="m-0 font-13 empty-input-field font-600 text-danger">Clear</span>
+        </div>
       </div>
     </div>
     <div class="tab-content">
@@ -87,12 +88,7 @@
           </table>
         </div>
         <nav aria-label="Page navigation example">
-          <ul class="pagination pagination-active justify-content-center mb-0">
-            <li class="page-item active"><a class="rounded-0 font-12 font-xxl-14 page-link border-0 text-light-grey shadow-none transition" href="javascript:void(0);">1</a></li>
-            <li class="page-item"><a class="rounded-0 font-12 font-xxl-14 page-link border-0 text-light-grey shadow-none transition" href="javascript:void(0);">2</a></li>
-            <li class="page-item"><a class="rounded-0 font-12 font-xxl-14 page-link border-0 text-light-grey shadow-none transition" href="javascript:void(0);">3</a></li>
-            <li class="page-item"><a class="rounded-0 font-12 font-xxl-14 page-link border-0 text-light-grey shadow-none transition" href="javascript:void(0);">4</a></li>
-          </ul>
+            <%#= paginate @suppliers['iaas'], params: {controller: 'suppliers', action: 'search_and_filter'}, remote: true %>
         </nav>
       </div>
       <div class="tab-pane fade" id='saas'>
@@ -148,6 +144,9 @@
             </tbody>
           </table>
         </div>
+        <nav aria-label="Page navigation example">
+            <%#= paginate @suppliers['saas'], params: {controller: 'suppliers', action: 'search_and_filter'}, remote: true %>
+        </nav>
       </div>
       <div class="tab-pane fade" id='paas'>
         <div class="table-responsive">
@@ -202,6 +201,9 @@
             </tbody>
           </table>
         </div>
+        <nav aria-label="Page navigation example">
+          <%#= paginate @suppliers['saas'], params: {controller: 'suppliers', action: 'search_and_filter'}, remote: true %>
+        </nav>
       </div>
     </div>
   </div>

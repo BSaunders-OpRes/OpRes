@@ -27,7 +27,6 @@ class Graphs::CriticalAndImportantSystemService < Graphs::BaseService
       datum[:c_meet] = @meet_tolerance
       datum[:c_exceed] = @exceed_tolerance
       datum[:c_match]  = @match_tolerance
-      byebug
     set_instance_variables(important_bsls)
       datum[:i_meet] = @meet_tolerance
       datum[:i_exceed] = @exceed_tolerance

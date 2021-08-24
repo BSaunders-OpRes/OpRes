@@ -7,6 +7,7 @@ import IntroJS    from 'intro.js';
 
 import './journey/journey';
 import './bsl/bsl';
+import './critical_important_system/cis';
 import './unit_hierarchy/unit_hierarchy';
 import './supplier/supplier';
 import './administration_portal/administration_portal';

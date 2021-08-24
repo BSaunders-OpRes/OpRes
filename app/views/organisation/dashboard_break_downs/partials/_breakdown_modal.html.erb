@@ -75,42 +75,26 @@
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td class="text-uppercase font-12 font-xxl-14 font-700 py-4 w-25">Name here</td>
-                <td class="font-12 font-xxl-14 py-4">
-                  <span class="font-500">19</span>
-                </td>
-                <td class="font-12 font-xxl-14 py-4">
-                  <span class="font-500">6</span>
-                </td>
-                <td class="font-12 font-xxl-14 py-4">
-                  <span class="font-500">13</span>
-                </td>
-                <td class="font-12 font-xxl-14 py-4">
-                  <span class="font-500">42</span>
-                </td>
-                <td class="font-12 font-xxl-14 py-4">
-                  <span class="font-500">42</span>
-                </td>
-              </tr>
-              <tr>
-                <td class="text-uppercase font-12 font-xxl-14 font-700 py-4">Name here</td>
-                <td class="font-12 font-xxl-14 py-4">
-                  <span class="font-500">19</span>
-                </td>
-                <td class="font-12 font-xxl-14 py-4">
-                  <span class="font-500">6</span>
-                </td>
-                <td class="font-12 font-xxl-14 py-4">
-                  <span class="font-500">13</span>
-                </td>
-                <td class="font-12 font-xxl-14 py-4">
-                  <span class="font-500">42</span>
-                </td>
-                <td class="font-12 font-xxl-14 py-4">
-                  <span class="font-500">42</span>
-                </td>
-              </tr>
+              <% @supplier.supplier_steps.each do |s_step| %>
+                <tr>
+                  <td class="text-uppercase font-12 font-xxl-14 font-700 py-4 w-25"><%= s_step.supplier.name %></td>
+                  <td class="font-12 font-xxl-14 py-4">
+                    <span class="font-500"><%= s_step.party_type %></span>
+                  </td>
+                  <td class="font-12 font-xxl-14 py-4">
+                    <span class="font-500"><%= s_step.supplier.steps.count %></span>
+                  </td>
+                  <td class="font-12 font-xxl-14 py-4">
+                    <span class="font-500"><%= s_step.step.business_service_line.tier.humanize %></span>
+                  </td>
+                  <td class="font-12 font-xxl-14 py-4">
+                    <span class="font-500"><%= s_step.supplier.critical_supplier_steps.count %></span>
+                  </td>
+                  <td class="font-12 font-xxl-14 py-4">
+                    <span class="font-500"><%= s_step.supplier.critical_supplier_steps.count %></span>
+                  </td>
+                </tr>
+              <% end %>
             </tbody>
           </table>
         </div>
