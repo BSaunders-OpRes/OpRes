@@ -4,11 +4,11 @@
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    left: 7px;
+    left: 10px;
   }
   input[type=text] {
     background: $body-bg-color;
-    padding-left: 42px
+    padding-left: 30px;
   }
   ::-webkit-input-placeholder {
     font-size: 12px;
@@ -35,7 +35,7 @@
     align-items: center;
   }
   input:placeholder-shown {
-    padding: 5px 10px;
+    padding: 5px 30px;
   }
   input:placeholder-shown + span {
     opacity: 0;
@@ -83,14 +83,14 @@
   }
   .table-search-field {
     i.fa-search {
-      left: 20px;
+      left: 10px;
     }
     input {
       padding-left: 30px;
     }
   }
   .table-search-field {
-    padding: 0 15px !important;
+    padding: 0 15px;
   }
   .custom-table {
     thead {
