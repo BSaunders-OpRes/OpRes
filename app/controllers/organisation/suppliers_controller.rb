@@ -41,6 +41,7 @@ class Organisation::SuppliersController < Organisation::BaseController
     @third_party_suppliers  = @supplier.third_party_suppliers.includes(:cloud_hosting_provider)
     @fourth_party_suppliers = @supplier.fourth_party_suppliers.includes(:cloud_hosting_provider)
     @compliance_evidences   = PaginationService.new(@supplier.compliance_evidences, params[:page], params[:filter] || 5).paginate_array
+    @chp_services           = @supplier.cloud_hosting_provider_services
   end
 
   def destroy; end
