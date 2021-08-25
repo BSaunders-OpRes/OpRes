@@ -1142,18 +1142,16 @@
           <div id="section4">
             <div class="row mt-4 no-gutters">
               <div class="col-md-12 mb-4 px-1">
-                <div class="card border-0 shadow-sm rounded-50">
-                  <div class="d-flex justify-content-between align-items-center py-3 px-4 mt-3">
+                <div class="card border-0 shadow-sm rounded-50 px-4">
+                  <div class="d-flex justify-content-between align-items-center py-3 mt-3">
                     <h5 class="text-capitalize font-600 font-xxl-25">business service line</h5>
                   </div>
-                  <div class="px-4">
-                    <div class="table-search-field">
-                      <i class="fa fa-search text-dark font-14" aria-hidden="true"></i>
-                      <%= text_field_tag 'bsl[name]', nil, placeholder: 'Search Business Service Lines...', class: 'w-100 form-control border-0 shadow-none font-xxl-14 search-bsl-name pl-4', id: 'search-bsl-name' %>
-                      <span for="" class="m-0 font-13 empty-input-field font-600 text-danger">Clear</span>
-                    </div>
+                  <div class="table-search-field px-0">
+                    <i class="fa fa-search text-dark font-14" aria-hidden="true"></i>
+                    <%= text_field_tag 'bsl[name]', nil, placeholder: 'Search Business Service Lines...', class: 'w-100 form-control border-0 shadow-none font-xxl-14 search-bsl-name', id: 'search-bsl-name' %>
+                    <span for="" class="m-0 font-13 empty-input-field font-600 text-danger">Clear</span>
                   </div>
-                  <div class="table-filter-field px-4 d-flex mt-4 mb-2">
+                  <div class="table-filter-field d-flex mt-4 mb-2 py-3 overflow-auto">
                     <div class="filter">
                       <div class="general-dropdown">
                         <a class="text-black text-decoration-none dropdown-toggle font-12 font-400 font-xxl-14 text-capitalize text-secondary" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -1227,16 +1225,16 @@
                       </div>
                     </div>
                   </div>
-                  <div class="table-responsive px-4 min-h-150 max-h-500">
+                  <div class="table-responsive">
                     <table class="table custom-table font-14 m-0">
                       <thead>
                         <tr>
                           <th class="text-capitalize font-12 font-xxl-14 pl-0">BSL Name</th>
-                          <th class="w-10 font-12 font-xxl-14 px-2 text-capitalize">Tier</th>
-                          <th class="w-10 font-12 font-xxl-14 px-2 text-capitalize">Country</th>
-                          <th class="w-10 font-12 font-xxl-14 px-2 text-capitalize">region</th>
-                          <th class="w-10 font-12 font-xxl-14 px-2 text-capitalize">institution</th>
-                          <th class="w-10 font-12 font-xxl-14 px-2 text-capitalize">product</th>
+                          <th class="w-10 font-12 font-xxl-14 text-capitalize">Tier</th>
+                          <th class="w-10 font-12 font-xxl-14 text-capitalize">Country</th>
+                          <th class="w-10 font-12 font-xxl-14 text-capitalize">region</th>
+                          <th class="w-10 font-12 font-xxl-14 text-capitalize">institution</th>
+                          <th class="w-10 font-12 font-xxl-14 text-capitalize">product</th>
                           <th></th>
                         </tr>
                       </thead>
@@ -1249,7 +1247,6 @@
               </div>
             </div>
           </div>
-
         </div>
       </div>
     </div>
