@@ -112,11 +112,11 @@
                                   </table>
                                 </div>
                                 <div class="row">
-                                  <div id="service-provider-breakdown-tier_1" class="col-lg-6 col-md-12 custom-high-chart custom-high-chart mb-4 lazy-graph" data-key="tiers_service_provider_breakdown" data-args="<%= { bsl_ids: @bsls_tier.dig('tier_1')&.map(&:id) }.to_json %>" data-append-to="service-provider-breakdown-tier_1" data-partial-name="tiers_service_provider_breakdown">
+                                  <div id="service-provider-breakdown-tier_1" class="col-lg-6 col-md-12 custom-high-chart custom-high-chart lazy-graph" data-key="tiers_service_provider_breakdown" data-args="<%= { bsl_ids: @bsls_tier.dig('tier_1')&.map(&:id) }.to_json %>" data-append-to="service-provider-breakdown-tier_1" data-partial-name="tiers_service_provider_breakdown">
                                     <%= render 'organisation/graphs/partials/tiers_service_provider_breakdown', data: {} %>
                                   </div>
 
-                                  <div id="consumption-model-tier_1" class="col-lg-6 col-md-12 custom-high-chart custom-high-chart mb-4 lazy-graph" data-key="tiers_consumption_model" data-args="<%= { bsl_ids: @bsls_tier.dig('tier_1')&.map(&:id) }.to_json %>" data-append-to="consumption-model-tier_1" data-partial-name="tiers_consumption_model">
+                                  <div id="consumption-model-tier_1" class="col-lg-6 col-md-12 custom-high-chart custom-high-chart lazy-graph" data-key="tiers_consumption_model" data-args="<%= { bsl_ids: @bsls_tier.dig('tier_1')&.map(&:id) }.to_json %>" data-append-to="consumption-model-tier_1" data-partial-name="tiers_consumption_model">
                                     <%= render 'organisation/graphs/partials/tiers_consumption_model', data: {} %>
                                   </div>
                                 </div>
@@ -155,11 +155,11 @@
                                   </table>
                                 </div>
                                 <div class="row custom-high-chart mb-4">
-                                  <div id="service-provider-breakdown-tier_1_emea" class="col-lg-6 col-md-12 custom-high-chart custom-high-chart mb-4 lazy-graph" data-key="tiers_service_provider_breakdown" data-args="<%= { bsl_ids: @bsl_regional_tiers.dig('EMEA','tier_1')&.map(&:id) }.to_json %>" data-append-to="service-provider-breakdown-tier_1_emea" data-partial-name="tiers_service_provider_breakdown">
+                                  <div id="service-provider-breakdown-tier_1_emea" class="col-lg-6 col-md-12 custom-high-chart custom-high-chart lazy-graph" data-key="tiers_service_provider_breakdown" data-args="<%= { bsl_ids: @bsl_regional_tiers.dig('EMEA','tier_1')&.map(&:id) }.to_json %>" data-append-to="service-provider-breakdown-tier_1_emea" data-partial-name="tiers_service_provider_breakdown">
                                     <%= render 'organisation/graphs/partials/tiers_service_provider_breakdown', data: {} %>
                                   </div>
 
-                                   <div id="consumption-model-tier_1_emea" class="col-lg-6 col-md-12 custom-high-chart custom-high-chart mb-4 lazy-graph" data-key="tiers_consumption_model" data-args="<%= { bsl_ids: @bsl_regional_tiers.dig('EMEA','tier_1')&.map(&:id) }.to_json %>" data-append-to="consumption-model-tier_1_emea" data-partial-name="tiers_consumption_model">
+                                   <div id="consumption-model-tier_1_emea" class="col-lg-6 col-md-12 custom-high-chart custom-high-chart lazy-graph" data-key="tiers_consumption_model" data-args="<%= { bsl_ids: @bsl_regional_tiers.dig('EMEA','tier_1')&.map(&:id) }.to_json %>" data-append-to="consumption-model-tier_1_emea" data-partial-name="tiers_consumption_model">
                                     <%= render 'organisation/graphs/partials/tiers_consumption_model', data: {} %>
                                   </div>
                                 </div>
@@ -248,43 +248,6 @@
                                    <div id="consumption-model-tier_1_apac" class="col-lg-6 col-md-12 custom-high-chart custom-high-chart mb-4 lazy-graph" data-key="tiers_consumption_model" data-args="<%= { bsl_ids: @bsl_regional_tiers.dig('APAC','tier_1')&.map(&:id) }.to_json %>" data-append-to="consumption-model-tier_1_apac" data-partial-name="tiers_consumption_model">
                                     <%= render 'organisation/graphs/partials/tiers_consumption_model', data: {} %>
                                   </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="small-boxes row px-3">
-                          <div class="col-md-6 col-lg-3">
-                            <div class="card h-100 border-0">
-                              <div class="card-body mb-2 mb-lg-0 bg-body-color p-2 d-flex align-items-center rounded">
-                                <div class="color-tier d-flex align-items-center">
-                                  <div class="sm-circle bg-red mr-1"></div>
-                                  <div class="text">
-                                    <span class="font-12 font-400 ml-2 d-block">Most Vulnerable</span>
-                                    <span class="font-12 ml-2 d-block font-600">EMEA</span>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="col-md-6 col-lg-3">
-                            <div class="card h-100 border-0">
-                              <div class="card-body mb-2 mb-lg-0 bg-body-color p-2 d-flex align-items-center rounded">
-                                <div class="color-tier d-flex align-items-center">
-                                  <div class="circle green-1 mr-1"></div>
-                                  <div class="text">
-                                    <span class="font-12 font-400 ml-2 d-block">Most Compliant</span>
-                                    <span class="font-12 ml-2 d-block font-600">AMERS</span>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="col-md-6 col-lg-3">
-                            <div class="card h-100 border-0">
-                              <div class="card-body mb-2 mb-lg-0 p-2 d-flex bg-body-color align-items-center rounded">
-                                <div class="color-tier d-flex align-items-center">
-                                  <span class="font-12 ml-2 font-600">APAC</span>
                                 </div>
                               </div>
                             </div>
@@ -469,43 +432,6 @@
                                    <div id="consumption-model-tier_2_apac" class="col-lg-6 col-md-12 custom-high-chart custom-high-chart mb-4 lazy-graph" data-key="tiers_consumption_model" data-args="<%= { bsl_ids: @bsl_regional_tiers.dig('APAC','tier_2')&.map(&:id) }.to_json %>" data-append-to="consumption-model-tier_2_apac" data-partial-name="tiers_consumption_model">
                                     <%= render 'organisation/graphs/partials/tiers_consumption_model', data: {} %>
                                   </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="small-boxes row px-3">
-                          <div class="col-md-6 col-lg-3">
-                            <div class="card h-100 border-0">
-                              <div class="card-body mb-2 mb-lg-0 bg-body-color p-2 d-flex align-items-center rounded">
-                                <div class="color-tier d-flex align-items-center">
-                                  <div class="sm-circle bg-red mr-1"></div>
-                                  <div class="text">
-                                    <span class="font-12 font-400 ml-2 d-block">Most Vulnerable</span>
-                                    <span class="font-12 ml-2 d-block font-600">EMEA</span>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="col-md-6 col-lg-3">
-                            <div class="card h-100 border-0">
-                              <div class="card-body mb-2 mb-lg-0 bg-body-color p-2 d-flex align-items-center rounded">
-                                <div class="color-tier d-flex align-items-center">
-                                  <div class="circle green-1 mr-1"></div>
-                                  <div class="text">
-                                    <span class="font-12 font-400 ml-2 d-block">Most Compliant</span>
-                                    <span class="font-12 ml-2 d-block font-600">AMERS</span>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="col-md-6 col-lg-3">
-                            <div class="card h-100 border-0">
-                              <div class="card-body mb-2 mb-lg-0 p-2 d-flex bg-body-color align-items-center rounded">
-                                <div class="color-tier d-flex align-items-center">
-                                  <span class="font-12 ml-2 font-600">APAC</span>
                                 </div>
                               </div>
                             </div>
@@ -697,43 +623,6 @@
                             </div>
                           </div>
                         </div>
-                        <div class="small-boxes row px-3">
-                          <div class="col-md-6 col-lg-3">
-                            <div class="card h-100 border-0">
-                              <div class="card-body mb-2 mb-lg-0 bg-body-color p-2 d-flex align-items-center rounded">
-                                <div class="color-tier d-flex align-items-center">
-                                  <div class="sm-circle bg-red mr-1"></div>
-                                  <div class="text">
-                                    <span class="font-12 font-400 ml-2 d-block">Most Vulnerable</span>
-                                    <span class="font-12 ml-2 d-block font-600">EMEA</span>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="col-md-6 col-lg-3">
-                            <div class="card h-100 border-0">
-                              <div class="card-body mb-2 mb-lg-0 bg-body-color p-2 d-flex align-items-center rounded">
-                                <div class="color-tier d-flex align-items-center">
-                                  <div class="circle green-1 mr-1"></div>
-                                  <div class="text">
-                                    <span class="font-12 font-400 ml-2 d-block">Most Compliant</span>
-                                    <span class="font-12 ml-2 d-block font-600">AMERS</span>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="col-md-6 col-lg-3">
-                            <div class="card h-100 border-0">
-                              <div class="card-body mb-2 mb-lg-0 p-2 d-flex bg-body-color align-items-center rounded">
-                                <div class="color-tier d-flex align-items-center">
-                                  <span class="font-12 ml-2 font-600">APAC</span>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
                       </div>
                       <!-- Tier 3 End -->
 
@@ -913,43 +802,6 @@
                                    <div id="consumption-model-tier_4_apac" class="col-lg-6 col-md-12 custom-high-chart custom-high-chart mb-4 lazy-graph" data-key="tiers_consumption_model" data-args="<%= { bsl_ids: @bsl_regional_tiers.dig('APAC','tier_4')&.map(&:id) }.to_json %>" data-append-to="consumption-model-tier_4_apac" data-partial-name="tiers_consumption_model">
                                     <%= render 'organisation/graphs/partials/tiers_consumption_model', data: {} %>
                                   </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="small-boxes row px-3">
-                          <div class="col-md-6 col-lg-3">
-                            <div class="card h-100 border-0">
-                              <div class="card-body mb-2 mb-lg-0 bg-body-color p-2 d-flex align-items-center rounded">
-                                <div class="color-tier d-flex align-items-center">
-                                  <div class="sm-circle bg-red mr-1"></div>
-                                  <div class="text">
-                                    <span class="font-12 font-400 ml-2 d-block">Most Vulnerable</span>
-                                    <span class="font-12 ml-2 d-block font-600">EMEA</span>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="col-md-6 col-lg-3">
-                            <div class="card h-100 border-0">
-                              <div class="card-body mb-2 mb-lg-0 bg-body-color p-2 d-flex align-items-center rounded">
-                                <div class="color-tier d-flex align-items-center">
-                                  <div class="circle green-1 mr-1"></div>
-                                  <div class="text">
-                                    <span class="font-12 font-400 ml-2 d-block">Most Compliant</span>
-                                    <span class="font-12 ml-2 d-block font-600">AMERS</span>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="col-md-6 col-lg-3">
-                            <div class="card h-100 border-0">
-                              <div class="card-body mb-2 mb-lg-0 p-2 d-flex bg-body-color align-items-center rounded">
-                                <div class="color-tier d-flex align-items-center">
-                                  <span class="font-12 ml-2 font-600">APAC</span>
                                 </div>
                               </div>
                             </div>
@@ -1290,18 +1142,16 @@
           <div id="section4">
             <div class="row mt-4 no-gutters">
               <div class="col-md-12 mb-4 px-1">
-                <div class="card shadow">
-                  <div class="d-flex justify-content-between align-items-center py-3 px-4 mt-3">
+                <div class="card border-0 shadow-sm rounded-50 px-4">
+                  <div class="d-flex justify-content-between align-items-center py-3 mt-3">
                     <h5 class="text-capitalize font-600 font-xxl-25">business service line</h5>
                   </div>
-                  <div class="px-4">
-                    <div class="table-search-field">
-                      <i class="fa fa-search text-dark font-14" aria-hidden="true"></i>
-                      <%= text_field_tag 'bsl[name]', nil, placeholder: 'Search Business Service Lines...', class: 'w-100 form-control border-0 shadow-none font-xxl-14 search-bsl-name pl-4', id: 'search-bsl-name' %>
-                      <span for="" class="m-0 font-13 empty-input-field font-600 text-danger">Clear</span>
-                    </div>
+                  <div class="table-search-field px-0">
+                    <i class="fa fa-search text-dark font-14" aria-hidden="true"></i>
+                    <%= text_field_tag 'bsl[name]', nil, placeholder: 'Search Business Service Lines...', class: 'w-100 form-control border-0 shadow-none font-xxl-14 search-bsl-name', id: 'search-bsl-name' %>
+                    <span for="" class="m-0 font-13 empty-input-field font-600 text-danger">Clear</span>
                   </div>
-                  <div class="table-filter-field px-4 d-flex mt-4 mb-2">
+                  <div class="table-filter-field d-flex mt-4 mb-2 py-3 overflow-auto">
                     <div class="filter">
                       <div class="general-dropdown">
                         <a class="text-black text-decoration-none dropdown-toggle font-12 font-400 font-xxl-14 text-capitalize text-secondary" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -1375,16 +1225,16 @@
                       </div>
                     </div>
                   </div>
-                  <div class="table-responsive px-4 min-h-150 max-h-500">
+                  <div class="table-responsive">
                     <table class="table custom-table font-14 m-0">
                       <thead>
                         <tr>
                           <th class="text-capitalize font-12 font-xxl-14 pl-0">BSL Name</th>
-                          <th class="w-10 font-12 font-xxl-14 px-2 text-capitalize">Tier</th>
-                          <th class="w-10 font-12 font-xxl-14 px-2 text-capitalize">Country</th>
-                          <th class="w-10 font-12 font-xxl-14 px-2 text-capitalize">region</th>
-                          <th class="w-10 font-12 font-xxl-14 px-2 text-capitalize">institution</th>
-                          <th class="w-10 font-12 font-xxl-14 px-2 text-capitalize">product</th>
+                          <th class="w-10 font-12 font-xxl-14 text-capitalize">Tier</th>
+                          <th class="w-10 font-12 font-xxl-14 text-capitalize">Country</th>
+                          <th class="w-10 font-12 font-xxl-14 text-capitalize">region</th>
+                          <th class="w-10 font-12 font-xxl-14 text-capitalize">institution</th>
+                          <th class="w-10 font-12 font-xxl-14 text-capitalize">product</th>
                           <th></th>
                         </tr>
                       </thead>
@@ -1397,7 +1247,6 @@
               </div>
             </div>
           </div>
-
         </div>
       </div>
     </div>

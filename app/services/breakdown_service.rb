@@ -1,15 +1,14 @@
 class BreakdownService < Graphs::BaseService
   attr_accessor :sla_attr, :filter, :sla_attributes
 
-  def initialize(args)
+  def calculate_breakdown
     @sla_attr       = args.dig(:sla_attr)
     @filter         = args.dig(:filter)
     @sla_attributes = args.dig(:sla_attr).present? ? Sla::SLA_ATTR.select { |sla| sla == @sla_attr } : Sla::SLA_ATTR
-  end
+    nodes     = organisational_unit.inclusive_children.map(&:id)
 
-  def calculate_breakdown
     breakdown_data = {}
-    suppliers = Supplier.includes(:supplier_steps, :sla)
+    suppliers = Supplier.includes(:supplier_steps, :sla).where(unit_id: nodes)
 
     sla_attributes.each do |sla_attr|
       @match_tolerance  =  0

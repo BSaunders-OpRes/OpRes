@@ -58,6 +58,12 @@ h1, h2, h3, h4, h5, h6, p {
   visibility: hidden;
 }
 
+.text-overflow-ellipsis {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 input[type=number]::-webkit-outer-spin-button,
 input[type=number]::-webkit-inner-spin-button {
   -webkit-appearance: none;
@@ -78,6 +84,31 @@ input[type=number] {
 }
 .h-300-with-scroll {
   height: 300px;
+  &::-webkit-scrollbar {
+    width: 2px;
+  }
+
+  /* Track */
+  &::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    width: 2px;
+  }
+
+  /* Handle */
+  &::-webkit-scrollbar-thumb {
+    background: #333;
+    height: 60px;
+  }
+
+  /* Handle on hover */
+  &::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
+}
+
+.h-400-with-scroll {
+  min-height: 170px;
+  max-height: 400px;
   &::-webkit-scrollbar {
     width: 2px;
   }
