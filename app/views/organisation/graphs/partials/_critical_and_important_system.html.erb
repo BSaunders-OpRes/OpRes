@@ -24,7 +24,7 @@
           <%= react_component('highcharts/donut', { data: data.dig(:overall, :graph), render_to: 'critical-and-important' }, { class: 'h-130px d-flex align-items-center' }) %>
           <div class="donut-value font-25 font-700"><%= data.dig(:overall, :graph)&.first[:count]%></div>
         </div>
-          <div class="donut-desc flex-column">
+          <div class="donut-desc sm-donut-desc flex-column">
             <span class="font-12 font-600 text-capitalize mb-2"><%= data.dig(:overall, :graph)&.first[:name]%></span>
           </div>
         </div>
@@ -35,7 +35,7 @@
           <%= react_component('highcharts/donut', { data: data.dig(:overall, :graph), render_to: 'critical-and-important' }, { class: 'h-130px d-flex align-items-center' }) %>
           <div class="donut-value font-25 font-700"><%= data.dig(:overall, :graph)&.last[:count]%></div>
         </div>
-          <div class="donut-desc flex-column">
+          <div class="donut-desc sm-donut-desc flex-column">
             <span class="font-12 font-600 text-capitalize mb-2"><%= data.dig(:overall, :graph)&.last[:name]%></span>
           </div>
         </div>

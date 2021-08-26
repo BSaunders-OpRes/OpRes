@@ -7,7 +7,7 @@
           <div class="sm-donut-content">
             <%= react_component('highcharts/donut', { data: data.dig(:overall, key.underscore, :graph), render_to: 'donut' }, { class: 'h-130px d-flex align-items-center' }) %>
             <div class="donut-value font-25 font-700 text-black"><%= data.dig(:overall, key.underscore, :total) || 0 %></div>
-            <div class="donut-desc flex-column">
+            <div class="donut-desc sm-donut-desc flex-column">
               <span class="font-11 font-xxl-14 font-600 text-capitalize mb-2"><%= key.titleize %></span>
             </div>
           </div>
