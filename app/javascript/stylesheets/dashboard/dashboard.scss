@@ -654,14 +654,27 @@ i.paperclip {
         .box-1 {
           vertical-align: top;
           display: inline-block;
+          .heading {
+            cursor: pointer;
+          }
+          .map-text {
+            white-space: normal;
+          }
           h6 {
             height: 45px;
-            display: flex;
             text-align: center;
             position: relative;
             white-space: normal;
             align-items: center;
             word-break: break-word;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            white-space: nowrap;
+            line-height: 31px;
+            transition: .4s all;
+            &:hover {
+              width: auto;
+            }
             &:after {
               top: 25px;
               content: '';
