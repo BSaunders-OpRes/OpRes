@@ -1,7 +1,7 @@
 <div class="row mb-5">
-  <div class="col-md-12 d-flex justify-content-between align-items-center">
-    <h2 class="font-600 font-sm-18 font-30 text-capitalize">administration portal</h2>
-    <div class="dropdown dd-carrot-btn">
+  <div class="col-md-12 d-flex justify-content-md-between align-items-center flex-wrap justify-content-center">
+    <h2 class="font-600 font-sm-18 font-30 text-capitalize mb-2 mr-2">administration portal</h2>
+    <div class="dropdown dd-carrot-btn mb-2 ml-2">
       <a class="btn btn-lg font-20 text-decoration-none dark-btn d-flex align-items-center" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         <i class="fa fa-plus-circle mr-1 font-20"></i>
         <span class="font-14 mr-4 ml-1">Add New</span>
@@ -17,34 +17,32 @@
   </div>
 </div>
 <div class="row">
-  <div class="col-sm-6">
+  <div class="col-lg-6 col-md-12 mb-4">
     <div class="admin-portal-table mx-1 bg-white shadow-sm h-100">
-      <div class="card border-0">
-        <div class="d-flex justify-content-between align-items-center py-3 px-4 mt-3">
-          <h5 class="text-capitalize font-700 font-xxl-25">business service line</h5>
-          <%= link_to new_organisation_business_service_line_path, class: 'font-600 text-capitalize font-12 ml-auto text-black text-decoration-none d-flex' do %>
+      <div class="card border-0 px-3">
+        <div class="d-flex justify-content-between align-items-center py-3 mt-3">
+          <h5 class="text-capitalize font-700 font-sm-16 font-xxl-25 w-50 w-md-75">business service line</h5>
+          <%= link_to new_organisation_business_service_line_path, class: 'font-600 text-capitalize font-12 ml-auto text-black text-decoration-none d-flex w-50 w-md-25 pl-2 justify-content-end' do %>
             <i class="fa fa-plus-circle mr-1 font-20"></i>
             <span class="ml-2 font-14">Add New</span>
           <% end %>
         </div>
-        <div class="px-4">
-          <div class="table-search-field">
-            <i class="fa fa-search text-dark font-14" aria-hidden="true"></i>
-            <%= text_field_tag 'bsl[name]', nil, placeholder: 'Search Business Service Lines...', class: 'w-100 form-control border-0 shadow-none font-xxl-14 search-bsl-name pl-4', id: 'search-bsl-name' %>
-            <span for="" class="m-0 font-13 empty-input-field font-600 text-danger">Clear</span>
-          </div>
+        <div class="table-search-field p-0">
+          <i class="fa fa-search text-dark font-14" aria-hidden="true"></i>
+          <%= text_field_tag 'bsl[name]', nil, placeholder: 'Search Business Service Lines...', class: 'w-100 form-control border-0 shadow-none font-xxl-14 search-bsl-name pl-4', id: 'search-bsl-name' %>
+          <span for="" class="m-0 font-13 empty-input-field font-600 text-danger">Clear</span>
         </div>
-        <div class="table-filter-field px-4 d-flex mt-4 mb-2">
+        <div class="table-filter-field d-flex mt-4 mb-2 py-3 overflow-auto">
           <div class="filter">
             <div class="general-dropdown">
               <a class="text-black text-decoration-none dropdown-toggle font-12 font-400 font-xxl-14 text-capitalize text-secondary" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 All tiers
               </a>
-              <div class="dropdown-menu p-0 w-200px" aria-labelledby="dropdownMenuButton">
+              <div class="dropdown-menu z-index-10 p-0" aria-labelledby="dropdownMenuButton">
                 <% BusinessServiceLine.tiers.each do |k, v| %>
                   <div class="form-group mb-0 py-2 dropdown-item border-bottom px-3">
                     <label class="d-flex justify-content-between align-items-center custom-checkbox mb-0 px-0 py-2" for="<%= "search-bsl-tier-#{k.dasherize}" %>">
-                      <span class="text-uppercase font-12 font-600"><%= k.humanize %></span>
+                      <span class="text-uppercase font-12 font-600 mr-3"><%= k.humanize %></span>
                       <%= check_box_tag 'bsl[tier]', k, false, class: 'form-control w-auto search-bsl-tier', id: "search-bsl-tier-#{k.dasherize}" %>
                       <span class="checkmark position-relative"></span>
                     </label>
@@ -58,11 +56,11 @@
               <a class="text-black text-decoration-none dropdown-toggle font-12 font-400 font-xxl-14 text-capitalize text-secondary" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 All regions
               </a>
-              <div class="dropdown-menu p-0 w-200px" aria-labelledby="dropdownMenuButton">
+              <div class="dropdown-menu z-index-10 p-0" aria-labelledby="dropdownMenuButton">
                 <% managing_units.each do |regional_unit| %>
                   <div class="form-group mb-0 py-2 dropdown-item border-bottom px-3">
                     <label class="d-flex justify-content-between align-items-center custom-checkbox mb-0 px-0 py-2" for="<%= "search-bsl-regional-unit-#{regional_unit.name.parameterize.dasherize}" %>">
-                      <span class="text-uppercase font-12 font-600"><%= regional_unit.name %></span>
+                      <span class="text-uppercase font-12 font-600 mr-3"><%= regional_unit.name %></span>
                       <%= check_box_tag 'bsl[regional_unit]', regional_unit.id, false, class: 'form-control w-auto search-bsl-regional-unit', id: "search-bsl-regional-unit-#{regional_unit.name.parameterize.dasherize}" %>
                       <span class="checkmark position-relative"></span>
                     </label>
@@ -76,11 +74,11 @@
               <a class="text-black text-decoration-none dropdown-toggle font-12 font-400 font-xxl-14 text-capitalize text-secondary" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 All institution
               </a>
-              <div class="dropdown-menu p-0 w-200px" aria-labelledby="dropdownMenuButton">
+              <div class="dropdown-menu z-index-10 p-0" aria-labelledby="dropdownMenuButton">
                 <% @managing_institution_units.each do |institution_unit| %>
                   <div class="form-group mb-0 py-2 dropdown-item border-bottom px-3">
                     <label class="d-flex justify-content-between align-items-center custom-checkbox mb-0 px-0 py-2" for="<%= "search-bsl-institution-unit-#{institution_unit.name.parameterize.dasherize}" %>">
-                      <span class="text-uppercase font-12 font-600"><%= institution_unit.name %></span>
+                      <span class="text-uppercase font-12 font-600 mr-3"><%= institution_unit.name %></span>
                       <%= check_box_tag 'bsl[institution_unit]', institution_unit.id, false, class: 'form-control w-auto search-bsl-institution-unit', id: "search-bsl-institution-unit-#{institution_unit.name.parameterize.dasherize}" %>
                       <span class="checkmark position-relative"></span>
                     </label>
@@ -94,11 +92,11 @@
               <a class="text-black text-decoration-none dropdown-toggle font-12 font-400 font-xxl-14 text-capitalize text-secondary" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 All products
               </a>
-              <div class="dropdown-menu p-0 w-200px" aria-labelledby="dropdownMenuButton">
+              <div class="dropdown-menu z-index-10 p-0" aria-labelledby="dropdownMenuButton">
                 <% Product.joins(:units).where(units: { id: @managing_institution_units.map(&:id) }).uniq.each do |product| %>
                   <div class="form-group mb-0 py-2 dropdown-item border-bottom px-3">
                     <label class="d-flex justify-content-between align-items-center custom-checkbox mb-0 px-0 py-2" for="<%= "search-bsl-product-#{product.name.parameterize.dasherize}" %>">
-                      <span class="text-uppercase font-12 font-600"><%= product.name %></span>
+                      <span class="text-uppercase font-12 font-600 mr-3"><%= product.name %></span>
                       <%= check_box_tag 'bsl[product]', product.id, false, class: 'form-control w-auto search-bsl-product', id: "search-bsl-product-#{product.name.parameterize.dasherize}" %>
                       <span class="checkmark position-relative"></span>
                     </label>
@@ -108,7 +106,7 @@
             </div>
           </div>
         </div>
-        <div class="table-responsive px-4 min-h-150 max-h-500">
+        <div class="table-responsive min-h-150 max-h-500">
           <table class="table custom-table font-14 m-0">
             <thead>
               <tr>
@@ -129,34 +127,32 @@
       </div>
     </div>
   </div>
-  <div class="col-sm-6">
+  <div class="col-lg-6 col-md-12 mb-4">
     <div class="admin-portal-table mx-1 shadow-sm bg-white h-100">
-      <div class="card border-0">
-        <div class="d-flex justify-content-between align-items-center py-3 px-4 mt-3">
-          <h5 class="text-capitalize font-700 font-xxl-25">suppliers</h5>
-          <%= link_to new_organisation_supplier_path, class: 'font-600 text-capitalize font-12 ml-auto text-black text-decoration-none d-flex' do %>
+      <div class="card border-0 px-3">
+        <div class="d-flex justify-content-between align-items-center py-3 mt-3">
+          <h5 class="text-capitalize font-700 font-sm-16 font-xxl-25 w-50 w-md-75">suppliers</h5>
+          <%= link_to new_organisation_supplier_path, class: 'font-600 text-capitalize font-12 ml-auto text-black text-decoration-none d-flex justify-content-end w-50 w-md-25 pl-2' do %>
             <i class="fa fa-plus-circle mr-1 font-20"></i>
             <span class="ml-2 font-14">Add New</span>
           <% end %>
         </div>
-        <div class="px-4">
-          <div class="table-search-field">
-            <i class="fa fa-search text-dark font-14" aria-hidden="true"></i>
-            <%= text_field_tag 'supplier[name]', nil, placeholder: 'Search Suppliers...', class: 'w-100 form-control border-0 shadow-none font-xxl-14 search-supplier-name pl-4', id: 'search-supplier-name' %>
-            <span for="" class="m-0 font-13 empty-input-field font-600 text-danger">Clear</span>
-          </div>
+        <div class="table-search-field">
+          <i class="fa fa-search text-dark font-14" aria-hidden="true"></i>
+          <%= text_field_tag 'supplier[name]', nil, placeholder: 'Search Suppliers...', class: 'w-100 form-control border-0 shadow-none font-xxl-14 search-supplier-name pl-4', id: 'search-supplier-name' %>
+          <span for="" class="m-0 font-13 empty-input-field font-600 text-danger">Clear</span>
         </div>
-        <div class="table-filter-field px-4 d-flex mt-4 mb-2">
+        <div class="table-filter-field d-flex mt-4 mb-2">
           <div class="filter">
             <div class="general-dropdown">
-              <a class="text-black text-decoration-none dropdown-toggle font-12 font-400 font-xxl-14 text-capitalize text-secondary" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <a class="text-black  text-decoration-none dropdown-toggle font-12 font-400 font-xxl-14 text-capitalize text-secondary" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 All countries
               </a>
-              <div class="dropdown-menu p-0 w-200px" aria-labelledby="dropdownMenuButton">
+              <div class="dropdown-menu down-drop z-index-10 p-0" aria-labelledby="dropdownMenuButton">
                 <% @managing_country_units.each do |country_unit| %>
                   <div class="form-group mb-0 py-2 dropdown-item border-bottom px-3">
                     <label class="d-flex justify-content-between align-items-center custom-checkbox mb-0 px-0 py-2" for="<%= "search-supplier-country-unit-#{country_unit.name.parameterize.dasherize}" %>">
-                      <span class="text-uppercase font-12 font-600"><%= country_unit.name %></span>
+                      <span class="text-uppercase font-12 font-600 mr-3"><%= country_unit.name %></span>
                       <%= check_box_tag 'supplier[country_unit]', country_unit.id, false, class: 'form-control w-auto search-supplier-country-unit', id: "search-supplier-country-unit-#{country_unit.name.parameterize.dasherize}" %>
                       <span class="checkmark position-relative"></span>
                     </label>
@@ -170,7 +166,7 @@
               <a class="text-black text-decoration-none dropdown-toggle font-12 font-400 font-xxl-14 text-capitalize text-secondary" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 All regions
               </a>
-              <div class="dropdown-menu p-0 w-200px" aria-labelledby="dropdownMenuButton">
+              <div class="dropdown-menu z-index-10 p-0" aria-labelledby="dropdownMenuButton">
                 <% managing_units.each do |regional_unit| %>
                   <div class="form-group mb-0 py-2 dropdown-item border-bottom px-3">
                     <label class="d-flex justify-content-between align-items-center custom-checkbox mb-0 px-0 py-2" for="<%= "search-supplier-regional-unit-#{regional_unit.name.parameterize.dasherize}" %>">
@@ -184,7 +180,7 @@
             </div>
           </div>
         </div>
-        <div class="table-responsive px-4 min-h-150 max-h-500">
+        <div class="table-responsive min-h-150 max-h-500">
           <table class="table custom-table font-14 m-0">
             <thead>
               <tr>

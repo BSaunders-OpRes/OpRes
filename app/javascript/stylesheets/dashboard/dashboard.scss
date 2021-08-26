@@ -178,6 +178,18 @@ i.paperclip {
     }
   }
 }
+.impact-highchart-wrapper {
+  .highcharts-container {
+    height: 100px !important;
+    display: flex;
+    align-items: center;
+  }
+  .donut-value {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
 .resiliece-indicator {
   .view-all {
     position: absolute;
@@ -832,6 +844,18 @@ i.paperclip {
       }
     }
   }
+  .impact-highchart-wrapper {
+    .highcharts-container {
+      height: auto !important;
+      display: flex;
+      align-items: center;
+    }
+    .donut-value {
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
 }
 
 @media only screen and (max-width: 767px) {
@@ -896,6 +920,9 @@ i.paperclip {
       .donut-desc {
         bottom: 0;
         top: unset;
+      }
+      .sm-donut-desc {
+        top: 100%;
       }
     }
   }
