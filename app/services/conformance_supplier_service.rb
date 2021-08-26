@@ -3,7 +3,7 @@ class ConformanceSupplierService < Graphs::BaseService
 
   def conformant_suppliers_data
     conformant_data = {}
-    nodes           = organisational_unit.inclusive_children.map(&:id)
+    nodes           = organisational_unit&.inclusive_children&.map(&:id)
     suppliers = Supplier.includes(:supplier_steps, :sla).where(unit_id: nodes)
     suppliers.each do |supplier|
       conformant_data["#{supplier.id}"] = {}

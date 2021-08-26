@@ -1,0 +1,29 @@
+<div class="modal fade" id="service_modal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Services</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+      <!-- Modal body -->
+      <div class="modal-body">
+        <div class="row no-gutters w h-200px align-content-start overflow-auto">
+        <% @chp_services[6..-1]&.each do |chp_service| %>
+          <div class="col-lg-4 px-1 col-md-6 mb-3">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="text-center font-14 text-capitalize text-overflow-ellipsis"><%= chp_service.name %></h5>
+              </div>
+            </div>
+          </div>
+        <% end %>  
+        </div>
+      </div>
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button type="button" class="btn black-btn font-600 shadow-none" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>

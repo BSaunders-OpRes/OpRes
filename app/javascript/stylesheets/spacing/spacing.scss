@@ -16,6 +16,9 @@
 .h-260px {
   height: 260px !important;
 }
+.h-200px {
+  height: 200px !important;
+}
 .white-space-nowrap {
   white-space: nowrap;
 }
@@ -75,6 +78,11 @@
 }
 .h-160-highchart-flex {
   height: 160px;
+  display: flex;
+  align-items: center;
+}
+.h-100-highchart-flex {
+  height: 100px;
   display: flex;
   align-items: center;
 }
