@@ -68,16 +68,16 @@ h1, h2, h3, h4, h5, h6, p {
     transform: translateY(-50%);
   }
 }
-
-.collapsed {
-  .action {
-    position: relative;
-    .fa-plus {
-      display: none;
-    }
+button[aria-expanded='true'] {
+  .fa-plus {
+    display: none;
   }
 }
-
+button[aria-expanded='false'] {
+  .fa-minus {
+    display: none;
+  }
+}
 .general-dropdown {
   .down-drop{
     transform: translate3d(5px, 158px, 0px) !important;
