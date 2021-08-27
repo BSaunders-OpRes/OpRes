@@ -1,0 +1,46 @@
+<div class="modal p-0" id="high-risk-bsl-modal">
+  <div class="modal-dialog max-width-100 px-2 mx-0 px-sm-5 mx-sm-5">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title text-capitalize font-16 font-600">high risk business service line</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+        <div class="table-responsive mt-0 mt-lg-3">
+          <table class="table custom-table mb-4">
+            <thead>
+              <tr>
+                <th class="font-11 font-600 font-xxl-14 px-1 text-dark font-400">BusinessService Name</th>
+                <th class="font-11 font-600 font-xxl-14 px text-dark font-400">Total Resilience Gaps</th>
+                <th class="font-11 font-600 font-xxl-14 px text-dark font-400">Impact Tolerances Exceeded - Firm Hosted</th>
+                <th class="font-11 font-600 font-xxl-14 px text-dark font-400">Impact Tolerances Exceeded - 3rd Party</th>
+                <th class="font-11 font-600 font-xxl-14 px text-dark font-400">Impact Tolerances Exceeded - 4th Party</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @data.present? && @data&.dig(:overall)[10..-1]&.each do |bsl_data|%>
+                <tr>
+                  <td class="font-11 font-xxl-14 px-1 text-dark font-600"><%= bsl_data.dig(:bsl_name)%></td>
+                  <td class="font-11 font-xxl-14 text-dark font-600"><%= bsl_data.dig(:total_resilience_gap)%></td>
+                  <td class="font-11 font-xxl-14 text-dark font-600"><%= bsl_data.dig(:exceed_firm_hosted)%></td>
+                  <td class="font-11 font-xxl-14 text-dark font-600"><%= bsl_data.dig(:exceed_3rd_party)%></td>
+                  <td class="font-11 font-xxl-14 text-dark font-600"><%= bsl_data.dig(:exceed_4th_party)%></td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button type="button" class="btn black-btn font-600 rounded-40 shadow-sm" data-dismiss="modal">Close</button>
+      </div>
+
+    </div>
+  </div>
+</div>
