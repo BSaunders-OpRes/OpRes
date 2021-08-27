@@ -4,11 +4,11 @@
       <div class="box">
         <div class="d-flex justify-content-between align-items-center mb-4 px-4">
           <h5 class="text-capitalize text-left font-600"><%= @chp_region.cloud_hosting_provider.name.titleize %> Services Used By Supplier</h5>
-          <div class="text-right">
+          <!-- <div class="text-right">
             <a href="#" class="text-black">
               <i class="fa fa-ellipsis-v text-right" aria-hidden="true"></i>
             </a>
-          </div>
+          </div> -->
         </div>
         <div class="row px-4">
           <% @chp_services&.each_with_index do |chp_service, index| %>
