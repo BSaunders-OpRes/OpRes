@@ -61,7 +61,7 @@ class Graphs::SystemSupplierResilienceIndicatorService < Graphs::BaseService
         end
       end
 
-      datum["#{SupplierStep.party_types.key(key).underscore}"][:total]     = @match_tolerance + @meet_tolerance + @exceed_tolerance
+      datum["#{SupplierStep.party_types.key(key).underscore}"][:total]     = suppliers.count
       datum[:total_exceed]  += @exceed_tolerance
       datum[:total_match]   += @match_tolerance
       datum[:total_meet]    += @meet_tolerance
