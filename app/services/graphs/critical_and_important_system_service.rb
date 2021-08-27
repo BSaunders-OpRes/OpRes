@@ -37,7 +37,7 @@ class Graphs::CriticalAndImportantSystemService < Graphs::BaseService
       datum[:c_graph] << {
         name:  t,
         type: 'Critical',
-        y:     datum[:total]&.zero? ? 0 : ((eval("@#{t}_tolerance") / datum[:total].to_f) * 100).round(2),
+        y:     datum[:total]&.zero? ? 0 : ((eval("@#{t}_tolerance") / @meet_tolerance + @match_tolerance + exceed_tolerance) * 100).round(2),
         color: COLORS[index],
         count: critical_supplier_step.sum
       }
@@ -52,7 +52,7 @@ class Graphs::CriticalAndImportantSystemService < Graphs::BaseService
       datum[:i_graph] << {
         name:  t,
         type: 'Important',
-        y:     datum[:total]&.zero? ? 0 : ((eval("@#{t}_tolerance") / datum[:total].to_f) * 100).round(2),
+        y:     datum[:total]&.zero? ? 0 : ((eval("@#{t}_tolerance") / @meet_tolerance + @match_tolerance + exceed_tolerance) * 100).round(2),
         color: COLORS[index],
         count: important_supplier_step.sum
       }
