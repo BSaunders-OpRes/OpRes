@@ -21,22 +21,22 @@
         <div class="sm-donut-content text-black">
 
         <div class="sm-donut-content w-150px">
-          <%= react_component('highcharts/donut', { data: data.dig(:overall, :graph), render_to: 'critical-and-important' }, { class: 'h-130px d-flex align-items-center' }) %>
-          <div class="donut-value font-25 font-700"><%= data.dig(:overall, :graph)&.first[:count]%></div>
+          <%= react_component('highcharts/donut', { data: data.dig(:overall, :c_graph), render_to: 'critical-and-important' }, { class: 'h-130px d-flex align-items-center' }) %>
+          <div class="donut-value font-25 font-700"><%= data.dig(:overall, :c_graph)&.first[:count]%></div>
         </div>
           <div class="donut-desc sm-donut-desc flex-column">
-            <span class="font-12 font-600 text-capitalize mb-2"><%= data.dig(:overall, :graph)&.first[:name]%></span>
+            <span class="font-12 font-600 text-capitalize mb-2"><%= data.dig(:overall, :c_graph)&.first[:type]%></span>
           </div>
         </div>
       </div>
       <div class="col-sm-6 px-0 d-flex justify-content-center">
         <div class="sm-donut-content text-black">
         <div class="sm-donut-content w-150px">
-          <%= react_component('highcharts/donut', { data: data.dig(:overall, :graph), render_to: 'critical-and-important' }, { class: 'h-130px d-flex align-items-center' }) %>
-          <div class="donut-value font-25 font-700"><%= data.dig(:overall, :graph)&.last[:count]%></div>
+          <%= react_component('highcharts/donut', { data: data.dig(:overall, :i_graph), render_to: 'critical-and-important' }, { class: 'h-130px d-flex align-items-center' }) %>
+          <div class="donut-value font-25 font-700"><%= data.dig(:overall, :i_graph)&.last[:count]%></div>
         </div>
           <div class="donut-desc sm-donut-desc flex-column">
-            <span class="font-12 font-600 text-capitalize mb-2"><%= data.dig(:overall, :graph)&.last[:name]%></span>
+            <span class="font-12 font-600 text-capitalize mb-2"><%= data.dig(:overall, :i_graph)&.last[:type]%></span>
           </div>
         </div>
       </div>

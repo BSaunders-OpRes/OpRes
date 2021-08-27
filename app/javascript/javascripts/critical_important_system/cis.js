@@ -12,7 +12,7 @@ document.addEventListener('turbolinks:load', function() {
   //   }
   // });
   $('body').on('mouseover', '#section3', function(){
-
+    
   })
 
 });

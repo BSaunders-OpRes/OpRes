@@ -1,8 +1,8 @@
 <div class="card-header p-2 bg-transparent border-0">
   <div class="header-wrapper text-center p-4">
-    <div class="d-flex justify-content-center align-items-center">
-      <i class="fa fa-exclamation-triangle font-25 text-red" aria-hidden="true"></i>
-      <h2 class="font-700 font-50"><%= data.dig(:overall, :total_exceeds) || 0 %></h2>
+    <div class="pb-3 d-flex justify-content-center">
+      <i class="fa fa-exclamation-triangle font-25 text-red mt-1 mr-2" aria-hidden="true"></i>
+      <h2 class="d-inline font-700 font-30"><%= data.dig(:overall, :total_exceeds) || 0 %></h2>
     </div>
     <p class="font-12 font-xxl-14 font-600 text-capitalize">Impact tolerances outside of risk appetite</p>
   </div>
