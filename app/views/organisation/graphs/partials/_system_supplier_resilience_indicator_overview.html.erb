@@ -37,7 +37,7 @@
         <div class="col-md-4">
           <div class="position-relative">
             <%= react_component('highcharts/donut', { data: render_data(data), render_to: 'donut' }, { class: 'h-200px d-flex align-items-center' }) %>
-            <span class="position-absolute center-position font-md-30 font-40 font-600"><%= data.dig(:overall, :total_match) + data.dig(:overall, :total_meet) + data.dig(:overall, :total_exceed) %></span>
+            <span class="position-absolute center-position font-md-30 font-40 font-600"><%= data.dig(:overall, :total) %></span>
           </div>
         </div>
         <div class="col-md-8">
