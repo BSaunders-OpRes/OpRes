@@ -1,0 +1,49 @@
+<div class="card-body bg-white view-all-wrapper">
+  <div class="tb-header flex-wrap d-flex justify-content-between flex-lg-row flex-column">
+    <h5 class="font-16 text-capitalize font-600 flex-1 align-self-lg-center mb-lg-0 mb-4">high risk business service line</h5>
+    <div class="filter-grouped d-flex flex-half">
+      <!-- <div class="dropdown body-color-dropdown w-100">
+        <a id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class='dropdown-toggle text-capitalize py-2 pr-5 pl-2 d-flex align-items-center justify-content-start font-12 text-dark font-600' id='top-10'>top 10</a>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <a class="dropdown-item">Action</a>
+          <a class="dropdown-item">Filter top 10</a>
+          <a class="dropdown-item">Filter top 10</a>
+        </div>
+      </div> -->
+    </div>
+  </div>
+  <div class="table-responsive mt-0 mt-lg-3">
+    <table class="table custom-table mb-4">
+      <thead>
+        <tr>
+          <th class="font-11 font-600 font-xxl-14 px-1 text-dark font-400">BusinessService Name</th>
+          <th class="font-11 font-600 font-xxl-14 px text-dark font-400">Total Resilience Gaps</th>
+          <th class="font-11 font-600 font-xxl-14 px text-dark font-400">Impact Tolerances Exceeded - Firm Hosted</th>
+          <th class="font-11 font-600 font-xxl-14 px text-dark font-400">Impact Tolerances Exceeded - 3rd Party</th>
+          <th class="font-11 font-600 font-xxl-14 px text-dark font-400">Impact Tolerances Exceeded - 4th Party</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @data.present? && @data&.dig(:overall).each_with_index do |bsl_data, index|%>
+          <% if index == 10 %>
+            <% break %>
+          <% end %>
+          <tr>
+            <td class="font-11 font-xxl-14 px-1 text-dark font-600"><%= bsl_data.dig(:bsl_name)%></td>
+            <td class="font-11 font-xxl-14 text-dark font-600"><%= bsl_data.dig(:total_resilience_gap)%></td>
+            <td class="font-11 font-xxl-14 text-dark font-600"><%= bsl_data.dig(:exceed_firm_hosted)%></td>
+            <td class="font-11 font-xxl-14 text-dark font-600"><%= bsl_data.dig(:exceed_3rd_party)%></td>
+            <td class="font-11 font-xxl-14 text-dark font-600"><%= bsl_data.dig(:exceed_4th_party)%></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+  <% if @data.present? && @data&.dig(:overall).size > 10 %>
+    <div class="d-flex py-2 justify-content-center view-all">
+      <a class="text-capitalize font-12 font-xxl-14 border-bottom-black cursor-pointer font-600 text-black text-decoration-none" href="/organisation/dashboard_break_downs/impact_tolerance_appetite" data-toggle="modal" data-target="#high-risk-bsl-modal">view all</a>
+    </div>
+  <% end %>
+</div>
+<%= render 'organisation/graphs/partials/high_risk_bsl_modal' %>
+
