@@ -29,7 +29,7 @@ class Graphs::CriticalAndImportantSystemService < Graphs::BaseService
     datum[:c_exceed] = @exceed_tolerance
     datum[:c_match]  = @match_tolerance
     datum[:suppliers] = suppliers
-    datum[:total]    = critical_supplier_step.sum + important_supplier_step.sum
+    datum[:c_total]    = @meet_tolerance + @match_tolerance + @exceed_tolerance
     datum[:c_graph]    = []
     datum[:i_graph]    = []
 
@@ -37,7 +37,7 @@ class Graphs::CriticalAndImportantSystemService < Graphs::BaseService
       datum[:c_graph] << {
         name:  t,
         type: 'Critical',
-        y:     datum[:total]&.zero? ? 0 : ((eval("@#{t}_tolerance") / @meet_tolerance + @match_tolerance + exceed_tolerance) * 100).round(2),
+        y:     datum[:total]&.zero? ? 0 : ((eval("@#{t}_tolerance") / datum[:c_total].to_f) * 100).round(2),
         color: COLORS[index],
         count: critical_supplier_step.sum
       }
@@ -47,12 +47,13 @@ class Graphs::CriticalAndImportantSystemService < Graphs::BaseService
     datum[:i_meet] = @meet_tolerance
     datum[:i_exceed] = @exceed_tolerance
     datum[:i_match]  = @match_tolerance
+    datum[:i_total]    = @meet_tolerance + @match_tolerance + @exceed_tolerance
 
     TOLERANCES.each_with_index do |t, index|
       datum[:i_graph] << {
         name:  t,
         type: 'Important',
-        y:     datum[:total]&.zero? ? 0 : ((eval("@#{t}_tolerance") / @meet_tolerance + @match_tolerance + exceed_tolerance) * 100).round(2),
+        y:     datum[:total]&.zero? ? 0 : ((eval("@#{t}_tolerance") / datum[:i_total].to_f) * 100).round(2),
         color: COLORS[index],
         count: important_supplier_step.sum
       }
