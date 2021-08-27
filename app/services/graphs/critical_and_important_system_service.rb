@@ -2,6 +2,7 @@ class Graphs::CriticalAndImportantSystemService < Graphs::BaseService
   # Critical & important breakdown of suppliers selected on BSL steps.
 
   COLORS = %w[#6BEAB3 #367C5C #CDFAF1 #05b368]
+  TOLERANCES = %w[match meet exceed]
 
   attr_reader :suppliers, :data
 
@@ -24,30 +25,39 @@ class Graphs::CriticalAndImportantSystemService < Graphs::BaseService
     critical_bsls = Step.where(id: critical_suppliers.flatten.pluck(:step_id)).pluck(:business_service_line_id)
     important_bsls = Step.where(id: important_suppliers.flatten.pluck(:step_id)).pluck(:business_service_line_id)
     set_instance_variables(critical_bsls)
-      datum[:c_meet] = @meet_tolerance
-      datum[:c_exceed] = @exceed_tolerance
-      datum[:c_match]  = @match_tolerance
-    set_instance_variables(important_bsls)
-      datum[:i_meet] = @meet_tolerance
-      datum[:i_exceed] = @exceed_tolerance
-      datum[:i_match]  = @match_tolerance
+    datum[:c_meet] = @meet_tolerance
+    datum[:c_exceed] = @exceed_tolerance
+    datum[:c_match]  = @match_tolerance
     datum[:suppliers] = suppliers
-    datum[:total]    = critical_supplier_step.sum + important_supplier_step.sum
-    datum[:graph]    = []
+    datum[:c_total]    = @meet_tolerance + @match_tolerance + @exceed_tolerance
+    datum[:c_graph]    = []
+    datum[:i_graph]    = []
 
-    datum[:graph] << {
-      name:  'Critical',
-      y:     datum[:total].zero? ? 0 : ((critical_supplier_step.sum / datum[:total].to_f) * 100).round(2),
-      color: COLORS[0],
-      count: critical_supplier_step.sum
-    }
+    TOLERANCES.each_with_index do |t, index|
+      datum[:c_graph] << {
+        name:  t,
+        type: 'Critical',
+        y:     datum[:total]&.zero? ? 0 : ((eval("@#{t}_tolerance") / datum[:c_total].to_f) * 100).round(2),
+        color: COLORS[index],
+        count: critical_supplier_step.sum
+      }
+    end
 
-    datum[:graph] << {
-      name:  'Important',
-      y:     datum[:total].zero? ? 0 : ((important_supplier_step.sum / datum[:total].to_f) * 100).round(2),
-      color: COLORS[1],
-      count: important_supplier_step.sum
-    }
+    set_instance_variables(important_bsls)
+    datum[:i_meet] = @meet_tolerance
+    datum[:i_exceed] = @exceed_tolerance
+    datum[:i_match]  = @match_tolerance
+    datum[:i_total]    = @meet_tolerance + @match_tolerance + @exceed_tolerance
+
+    TOLERANCES.each_with_index do |t, index|
+      datum[:i_graph] << {
+        name:  t,
+        type: 'Important',
+        y:     datum[:total]&.zero? ? 0 : ((eval("@#{t}_tolerance") / datum[:i_total].to_f) * 100).round(2),
+        color: COLORS[index],
+        count: important_supplier_step.sum
+      }
+    end
     datum
   end
 
@@ -56,6 +66,7 @@ class Graphs::CriticalAndImportantSystemService < Graphs::BaseService
     @meet_tolerance   = 0
     @exceed_tolerance = 0
     return nil if bsls_ids.blank?
+
     bsls = BusinessServiceLine.where(id: bsls_ids)
     bsls&.each do |bsl|
       risk_appetite     = bsl.risk_appetites.first
