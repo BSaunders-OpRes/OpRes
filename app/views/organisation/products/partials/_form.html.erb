@@ -2,15 +2,15 @@
   <%= render 'layouts/partials/shared/form_errors', instance: product %>
   <div class="row align-items-center mb-3">
     <div class="col-md-12 form-group">
-      <%= f.label :name, class: 'text-capitalize' %>
+      <%= f.label :name, class: 'text-capitalize font-600' %>
       <%= f.text_field :name, class: 'w-100 form-control font-12 h-auto py-3 shadow-none', placeholder: 'Product Name', required: true %>
     </div>
     <div class="col-md-12 form-group">
-      <%= f.label :description, class: 'text-capitalize' %>
+      <%= f.label :description, class: 'text-capitalize font-600' %>
       <%= f.text_area :description, class: 'w-100 form-control font-12 shadow-none', placeholder: 'Product Description', required: true %>
     </div>
     <div class="form-group col-md-12">
-      <%= f.label  :channel_ids, 'Channels (Relevant channels for this type of product)' %>
+      <%= f.label :channel_ids, 'Channels (Relevant channels for this type of product)', class: 'font-600' %>
       <%= f.select :channel_ids, options_for_select(@channels.map { |channel| [channel.name, channel.id] }, product.channel_ids), {}, multiple: true, class: 'w-100 form-control font-12 h-auto py-3 shadow-none' %>
     </div>
   </div>

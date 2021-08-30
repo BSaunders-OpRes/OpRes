@@ -42,6 +42,10 @@ class Organisation::ChannelsController < Organisation::BaseController
     redirect_to organisation_channels_path
   end
 
+  def search_by_name
+    @channels = organisational_unit.channels.where("name ILIKE (?)", "%#{params[:query]}%").order(id: :desc)
+  end
+
   private
 
   def load_channel

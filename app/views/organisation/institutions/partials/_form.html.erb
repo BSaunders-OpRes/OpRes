@@ -2,11 +2,11 @@
   <%= render 'layouts/partials/shared/form_errors', instance: institution %>
   <div class="row align-items-center mb-3">
     <div class="col-md-12 form-group">
-      <%= f.label :name, class: 'text-capitalize' %>
+      <%= f.label :name, class: 'text-capitalize font-600' %>
       <%= f.text_field :name, class: 'w-100 form-control font-12 h-auto py-3 shadow-none', placeholder: 'Institution Name', required: true %>
     </div>
     <div class="col-md-12 form-group">
-      <%= f.label :description, class: 'text-capitalize' %>
+      <%= f.label :description, class: 'text-capitalize font-600' %>
       <%= f.text_area :description, class: 'w-100 form-control font-12 shadow-none', placeholder: 'Institution Description', required: true %>
     </div>
 
@@ -14,7 +14,7 @@
   </div>
   <div class="row">
     <div class="form-group col-md-12">
-      <%= f.label  :product_ids, 'Products (Relevant products for this type of institution)' %>
+      <%= f.label  :product_ids, 'Products (Relevant products for this type of institution)', class: 'font-600' %>
       <%= f.select :product_ids, options_for_select(@products.map { |product| [product.name, product.id] }, institution.product_ids), {}, multiple: true, class: 'w-100 form-control font-12 h-auto py-3 shadow-none' %>
     </div>
   </div>
