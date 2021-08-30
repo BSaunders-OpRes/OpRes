@@ -14,7 +14,7 @@
             <div class="table-search-field">
               <%= form_tag search_by_name_organisation_institutions_path, method: :get, remote: true do %>
                 <i class="fa fa-search text-dark font-14" aria-hidden="true"></i>
-                <%= text_field_tag 'query', nil, placeholder: 'Search Institutions', class: "w-100 form-control border-0 shadow-none", id: "country-search-filter", onfocusout: 'RailsUJS.fire(this.form, "submit")' %>
+                <%= text_field_tag 'query', nil, placeholder: 'Search Institutions', class: "w-100 form-control border-0 shadow-none", id: "country-search-filter", onkeyup: 'RailsUJS.fire(this.form, "submit")' %>
               <% end %>
             </div>
           </div>
