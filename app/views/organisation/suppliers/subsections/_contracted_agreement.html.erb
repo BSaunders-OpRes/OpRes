@@ -18,7 +18,7 @@
               </div>
               <div class="text">
                 <p class="font-13 font-400">Contracted SLA</p>
-                <h6 class="font-13 font-600"><%= @supplier.sla&.service_level_agreement %>%</h6>
+                <h6 class="font-13 font-600"><%= @supplier.sla&.service_level_agreement.present? ? "#{@supplier.sla&.service_level_agreement}%" : '-' %></h6>
               </div>
             </div>
           </div>
@@ -29,7 +29,7 @@
               </div>
               <div class="text">
                 <p class="font-13 font-400">Contracted RTO</p>
-                <h6 class="font-13 font-600"><%= @supplier.sla&.recovery_time_objective %> Minutes</h6>
+                <h6 class="font-13 font-600"><%= @supplier.sla&.recovery_time_objective.present? ? "#{@supplier.sla&.recovery_time_objective} Minutes" : '-' %> </h6>
               </div>
             </div>
           </div>
@@ -40,7 +40,7 @@
               </div>
               <div class="text">
                 <p class="font-13 font-400">Contracted RPO</p>
-                <h6 class="font-13 font-600"><%= @supplier.sla&.recovery_point_objective %> Minutes</h6>
+                <h6 class="font-13 font-600"><%= @supplier.sla&.recovery_point_objective.present? ? "#{@supplier.sla&.recovery_point_objective} Minutes" : '-' %></h6>
               </div>
             </div>
           </div>
@@ -51,7 +51,7 @@
               </div>
               <div class="text">
                 <p class="font-13 font-400">Contracted TPS</p>
-                <h6 class="font-13 font-600"><%= @supplier.sla&.transactions_per_second %> TPS</h6>
+                <h6 class="font-13 font-600"><%= @supplier.sla&.transactions_per_second.present? ? "#{@supplier.sla&.transactions_per_second} TPS" : '-' %> </h6>
               </div>
             </div>
           </div>
@@ -62,7 +62,7 @@
               </div>
               <div class="text">
                 <p class="font-13 font-400">Response Time</p>
-                <h6 class="font-13 font-600"><%= @supplier.sla&.response_time %> m/s</h6>
+                <h6 class="font-13 font-600"><%= @supplier.sla&.response_time.present? ? "#{@supplier.sla&.response_time} m/s" : '-' %> </h6>
               </div>
             </div>
           </div>
@@ -73,7 +73,7 @@
               </div>
               <div class="text">
                 <p class="font-13 font-400">Support Hours</p>
-                <h6 class="font-13 font-600"><%= @supplier.sla&.support_hours %></h6>
+                <h6 class="font-13 font-600"><%= @supplier.sla&.support_hours.present? ? @supplier.sla&.support_hours : '-' %></h6>
               </div>
             </div>
           </div>
@@ -97,16 +97,16 @@
                   Incident Response SLA
                 </td>
                 <td class="font-13 px-4">
-                  <%= @supplier.sla&.severity1 %> Mins
+                  <%= @supplier.sla&.severity1.present? ? "#{@supplier.sla&.severity1} Mins" : '-' %>
                 </td>
                 <td class="font-13 px-4">
-                  <%= @supplier.sla&.severity2 %> Mins
+                  <%= @supplier.sla&.severity2.present? ? "#{@supplier.sla&.severity2} Mins" : '-' %>
                 </td>
                 <td class="font-13 px-4">
-                  <%= @supplier.sla&.severity3 %> Mins
+                  <%= @supplier.sla&.severity3.present? ? "#{@supplier.sla&.severity3} Mins" : '-' %>
                 </td>
                 <td class="font-13 px-4">
-                  <%= @supplier.sla&.severity4 %> Mins
+                  <%= @supplier.sla&.severity4.present? ? "#{@supplier.sla&.severity4} Mins" : '-' %>
                 </td>
               </tr>
               <tr>
@@ -114,16 +114,16 @@
                   Incident Restoration SLA
                 </td>
                 <td class="font-13 px-4">
-                  <%= @supplier.sla&.severity1_restoration %> Mins
+                  <%= @supplier.sla&.severity1_restoration.present? ? "#{@supplier.sla&.severity1_restoration} Mins" : '-' %>
                 </td>
                 <td class="font-13 px-4">
-                  <%= @supplier.sla&.severity2_restoration %> Mins
+                  <%= @supplier.sla&.severity2_restoration.present? ? "#{@supplier.sla&.severity2_restoration} Mins" : '-' %>
                 </td>
                 <td class="font-13 px-4">
-                  <%= @supplier.sla&.severity3_restoration %> Mins
+                  <%= @supplier.sla&.severity3_restoration.present? ? "#{@supplier.sla&.severity3_restoration} Mins" : '-' %>
                 </td>
                 <td class="font-13 px-4">
-                  <%= @supplier.sla&.severity4_restoration %> Mins
+                  <%= @supplier.sla&.severity4_restoration.present? ? "#{@supplier.sla&.severity4_restoration} Mins" : '-' %>
                 </td>
               </tr>
             </tbody>
