@@ -24,6 +24,7 @@ class Graphs::SupplierTiersService < Graphs::BaseService
                                    .where(id: supplier_ids)
                                    .where(supplier_steps: { importance_level: SupplierStep.importance_levels[:critical] })
 
+
     datum[:total]    = critical_suppliers.size + important_suppliers.size
     datum[:graph]    = []
 

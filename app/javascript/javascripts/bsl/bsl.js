@@ -257,6 +257,20 @@ document.addEventListener('turbolinks:load', function() {
     }
   });
 
+  $('body').on('click', '.sla-compound-resilience', function() {
+    $.ajax({
+      url:      '/organisation/business_service_lines/find_compound_resilience_data',
+      dataType: 'script',
+      type:     'GET',
+      async:     false,
+      data:     {
+        args:           $(this).data('args'),
+        data_append_to: $(this).data('append-to'),
+        partial_name:   $(this).data('partial-name')
+      }
+    });
+  });
+
   /******************** Helper Methods ********************
   ********************************************************/
   function handle_bsl_previous_proceed() {
