@@ -3,46 +3,21 @@
     <div class="card border-0 shadow">
       <div class="d-flex justify-content-between align-items-center py-3 px-4 mt-3">
         <h5 class="text-capitalize font-700">Admin</h5>
-        <%= link_to new_organisation_admin_path, class: 'text-capitalize font-12 ml-auto text-black text-decoration-none d-flex' do %>
-          <i class="fa fa-plus-circle r-1 font-20" aria-hidden="true"></i>
-          <span class="ml-2 font-14">Add New</span>
+        <%= link_to new_organisation_admin_path, class: 'text-capitalize font-12 ml-auto text-black text-decoration-none d-flex align-items-baseline' do %>
+          <i class="fa fa-plus-circle r-1 font-18" aria-hidden="true"></i>
+          <span class="ml-2 font-14 font-600">Add New</span>
         <% end %>
       </div>
-      <div class="table-search-field px-4 mb-2">
-        <i class="fa fa-search text-dark font-14" aria-hidden="true"></i>
-        <input type="text" placeholder="search institutions" class="w-100 form-control border-0 shadow-none">
+      <div class="px-4">
+        <div class="table-search-field mb-2">
+          <%= form_tag search_by_name_organisation_admins_path, method: :get, remote: true do %>
+            <i class="fa fa-search text-dark font-14" aria-hidden="true"></i>
+            <%= text_field_tag 'query', nil, placeholder: 'Search User', class: "w-100 form-control border-0 shadow-none", id: "country-search-filter", onkeyup: 'RailsUJS.fire(this.form, "submit")' %>
+          <% end %>
+        </div>
       </div>
-      <div class="table-responsive">
-        <% if @admins.present? %>
-          <table class="table custom-table font-12 m-0">
-            <thead>
-              <tr>
-                <th>Name</th>
-                <th>Email</th>
-                <th>Role</th>
-                <th>Actions</th>
-              </tr>
-            </thead>
-            <tbody>
-              <% @admins.each do |admin| %>
-                <tr>
-                  <td class="text-dark"><%= admin.name.present? ? admin.name : 'Not Available' %></td>
-                  <td><%= admin.email %></td>
-                  <td><%= admin.role.humanize %></td>
-                  <td>
-                    <%= link_to 'View', organisation_admin_path(admin), class: 'font-12 font-700 mx-1 text-dark text-uppercase' %>
-                    <%= link_to 'Edit', edit_organisation_admin_path(admin), class: 'font-12 font-700 mx-1 text-dark text-uppercase' %>
-                    <%= link_to 'Delete', organisation_admin_path(admin), method: :delete, data: { confirm: 'Are you sure?' }, class: 'font-12 font-700 mx-1 text-dark text-uppercase' %>
-                  </td>
-                </tr>
-              <% end %>
-            </tbody>
-          </table>
-        <% else %>
-          <div class="alert alert-primary m-0" role="alert">
-            No admins are created yet!
-          </div>
-        <% end %>
+      <div id="users-data-render" class="table-responsive">
+        <%= render 'organisation/admins/partials/user_table', admins: @admins %>
       </div>
     </div>
   </div>

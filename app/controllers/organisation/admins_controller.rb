@@ -46,6 +46,10 @@ class Organisation::AdminsController < Organisation::BaseController
     redirect_to organisation_admins_path
   end
 
+  def search_by_name
+    @admins = organisational_unit.users.where("first_name ILIKE (?) OR last_name ILIKE (?)", "%#{params[:query]}%", "%#{params[:query]}%").order(id: :desc)
+  end
+
   private
 
   def user_params

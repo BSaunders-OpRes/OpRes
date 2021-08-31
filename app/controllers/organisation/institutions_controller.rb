@@ -43,6 +43,10 @@ class Organisation::InstitutionsController < Organisation::BaseController
     redirect_to organisation_institutions_path
   end
 
+  def search_by_name
+    @institutions = organisational_unit.institutions.where("name ILIKE (?)", "%#{params[:query]}%").order(id: :desc)
+  end
+
   private
 
   def load_institution

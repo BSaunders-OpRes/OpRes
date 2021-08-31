@@ -83,21 +83,21 @@ class Graphs::BslSupplierConformanceImpactToleranceService < Graphs::BaseService
     datum[:small_graph] << {
       name:  'Match Tolerance',
       y:     datum[:total].zero? ? 0 : ((@match_tolerance / datum[:total].to_f) * 100).round(2),
-      color: args.dig('critical_system').nil? && args.dig('important_system').nil? ? COLORS[0] : COLORS_2[0],
+      color: COLORS[0],
       count: @match_tolerance
     }
 
     datum[:small_graph] << {
       name:  'Meet Tolerance',
       y:     datum[:total].zero? ? 0 : ((@meet_tolerance / datum[:total].to_f) * 100).round(2),
-      color: args.dig('critical_system').nil? && args.dig('important_system').nil? ? COLORS[1] : COLORS_2[1],
+      color: COLORS[1],
       count: @meet_tolerance
     }
 
     datum[:small_graph] << {
       name:  'Exceed Tolerance',
       y:     datum[:total].zero? ? 0 : ((@exceed_tolerance / datum[:total].to_f) * 100).round(2),
-      color: args.dig('critical_system').nil? && args.dig('important_system').nil? ? COLORS[2] : COLORS_2[2],
+      color: COLORS[2],
       count: @exceed_tolerance
     }
 
