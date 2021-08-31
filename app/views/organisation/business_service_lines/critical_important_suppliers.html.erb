@@ -2,14 +2,14 @@
   <div class="col-sm-12 px-1">
     <div class="d-flex justify-content-between align-items-center flex-wrap">
       <div class="left d-flex align-items-center flex-wrap">
-        <div class="mr-4 back-btn mb-2 mb-sm-0 ">
+        <div class="mr-4 back-btn mb-xs-2">
           <%= render 'layouts/partials/shared/redirect_back', path: organisation_business_service_line_path(@bsl) %>
         </div>
-        <h2 class="font-500 font-sm-18 font-25 text-capitalize">Critical &amp; Important Business Service Breakdown </h2>
+        <h2 class="font-600 font-sm-18 font-25 text-capitalize">Critical &amp; Important Business Service Breakdown </h2>
       </div>
       <div class="right d-flex mt-3 mt-lg-0">
         <div class="white-btn p-1 d-flex align-items-center rounded-50 cursor-pointer">
-          <i class="fa fa-ellipsis-v px-2 mx-1"></i>
+          <i class="fa fa-ellipsis-v p-1 mx-1"></i>
         </div>
       </div>
     </div>
@@ -17,68 +17,72 @@
 </div>
 <div class="row no-gutters mt-5">
   <div class="col-md-6 mb-4 px-1">
-    <div class="card shadow">
-      <div class="d-flex justify-content-between align-items-center py-3 px-4 mt-3">
-        <h5 class="text-capitalize mr-4 font-xxl-25 flex-1">Critical supplier & business service steps summary</h5>
-        <div class="large-green-circle d-flex align-items-center justify-content-center font-30 font-500"><%= @critical_ss.size %></div>
-      </div>
-      <div class="table-responsive px-4 min-h-150 max-h-500 mt-4">
-        <p class="font-14 font-600">Critical systems & suppliers underpinning this business service</p>
-        <% if @critical_ss.present? %>
-          <table class="table custom-table font-14 m-0">
-            <thead>
-              <tr class="border-bottom">
-                <th class="text-capitalize font-12 font-500 font-xxl-14 pl-0">Supplier Name</th>
-                <th class="font-12 font-500 font-xxl-14 px-2 text-capitalize">Party Type</th>
-                <th class="font-12 font-500 font-xxl-14 px-2 text-capitalize">Step Title</th>
-              </tr>
-            </thead>
-            <tbody>
-              <% @critical_ss.each do |ss| %>
-                <tr>
-                  <td class="font-12 font-xxl-14 pl-0 text-capitalize text-black font-500 border-0"><%= ss.supplier.name %></td>
-                  <td class="font-12 font-xxl-14 px-2 text-capitalize text-black font-500 border-0"><%= ss.party_type.titleize %></td>
-                  <td class="font-12 font-xxl-14 px-2 text-capitalize text-black font-500 border-0"><%= ss.step.name %></td>
+    <div class="bg-white h-100 shadow-sm">
+      <div class="card shadow-none border-0">
+        <div class="d-flex justify-content-between align-items-center py-3 px-4 mt-3">
+          <h5 class="text-capitalize mr-4 font-600 font-xxl-25 flex-1">Critical supplier & business service steps summary</h5>
+          <div class="large-green-circle d-flex align-items-center justify-content-center font-30 font-600"><%= @critical_ss.size %></div>
+        </div>
+        <div class="table-responsive px-4 min-h-150 max-h-500 mt-4">
+          <p class="font-14 font-600">Critical systems & suppliers underpinning this business service</p>
+          <% if @critical_ss.present? %>
+            <table class="table bg-transparent custom-table font-14 m-0">
+              <thead>
+                <tr class="border-bottom">
+                  <th class="text-capitalize font-12 font-600 font-xxl-14 pl-0">Supplier Name</th>
+                  <th class="font-12 font-600 font-xxl-14 px-2 text-capitalize">Party Type</th>
+                  <th class="font-12 font-600 font-xxl-14 px-2 text-capitalize">Step Title</th>
                 </tr>
-              <% end %>
-            </tbody>
-          </table>
-        <% else %>
-          <div class="alert alert-danger mt-4">No Critical Supplier</div>
-        <% end %>
+              </thead>
+              <tbody>
+                <% @critical_ss.each do |ss| %>
+                  <tr>
+                    <td class="font-12 font-xxl-14 pl-0 text-capitalize text-black font-600 border-0"><%= ss.supplier.name %></td>
+                    <td class="font-12 font-xxl-14 px-2 text-capitalize text-black font-600 border-0"><%= ss.party_type.titleize %></td>
+                    <td class="font-12 font-xxl-14 px-2 text-capitalize text-black font-600 border-0"><%= ss.step.name %></td>
+                  </tr>
+                <% end %>
+              </tbody>
+            </table>
+          <% else %>
+            <div class="alert alert-danger mt-4">No Critical Supplier</div>
+          <% end %>
+        </div>
       </div>
     </div>
   </div>
   <div class="col-md-6 mb-4 px-1">
-    <div class="card shadow">
-      <div class="d-flex justify-content-between align-items-center py-3 px-4 mt-3">
-        <h5 class="text-capitalize mr-4 font-xxl-25 flex-1">Important supplier & business service steps summary</h5>
-        <div class="large-green-circle d-flex align-items-center justify-content-center font-30 font-500"><%= @important_ss.size %></div>
-      </div>
-      <div class="table-responsive px-4 min-h-150 max-h-500 mt-4">
-        <p class="font-14 font-600">Important systems & suppliers underpinning this business service</p>
-        <% if @important_ss.present? %>
-          <table class="table custom-table font-14 m-0">
-            <thead>
-              <tr class="border-bottom">
-                <th class="text-capitalize font-12 font-500 font-xxl-14 pl-0">supplier name</th>
-                <th class="font-12 font-500 font-xxl-14 px-2 text-capitalize">party type</th>
-                <th class="font-12 font-500 font-xxl-14 px-2 text-capitalize">step title</th>
-              </tr>
-            </thead>
-            <tbody>
-              <% @important_ss.each do |ss| %>
-                <tr>
-                  <td class="font-12 font-xxl-14 pl-0 text-capitalize text-black font-500 border-0"><%= ss.supplier.name %></td>
-                  <td class="font-12 font-xxl-14 px-2 text-capitalize text-black font-500 border-0"><%= ss.party_type.titleize %></td>
-                  <td class="font-12 font-xxl-14 px-2 text-capitalize text-black font-500 border-0"><%= ss.step.name %></td>
+    <div class="bg-white h-100 shadow-sm">
+      <div class="card shadow-none border-0">
+        <div class="d-flex justify-content-between align-items-center py-3 px-4 mt-3">
+          <h5 class="text-capitalize mr-4 font-600 font-xxl-25 flex-1">Important supplier & business service steps summary</h5>
+          <div class="large-green-circle d-flex align-items-center justify-content-center font-30 font-600"><%= @important_ss.size %></div>
+        </div>
+        <div class="table-responsive px-4 min-h-150 max-h-500 mt-4">
+          <p class="font-14 font-600">Important systems & suppliers underpinning this business service</p>
+          <% if @important_ss.present? %>
+            <table class="table custom-table font-14 m-0">
+              <thead>
+                <tr class="border-bottom">
+                  <th class="text-capitalize font-12 font-600 font-xxl-14 pl-0">supplier name</th>
+                  <th class="font-12 font-600 font-xxl-14 px-2 text-capitalize">party type</th>
+                  <th class="font-12 font-600 font-xxl-14 px-2 text-capitalize">step title</th>
                 </tr>
-              <% end %>
-            </tbody>
-          </table>
-        <% else %>
-          <div class="alert alert-danger mt-4">No Important Supplier</div>
-        <% end %>
+              </thead>
+              <tbody>
+                <% @important_ss.each do |ss| %>
+                  <tr>
+                    <td class="font-12 font-xxl-14 pl-0 text-capitalize text-black font-600 border-0"><%= ss.supplier.name %></td>
+                    <td class="font-12 font-xxl-14 px-2 text-capitalize text-black font-600 border-0"><%= ss.party_type.titleize %></td>
+                    <td class="font-12 font-xxl-14 px-2 text-capitalize text-black font-600 border-0"><%= ss.step.name %></td>
+                  </tr>
+                <% end %>
+              </tbody>
+            </table>
+          <% else %>
+            <div class="alert alert-danger mt-4">No Important Supplier</div>
+          <% end %>
+        </div>
       </div>
     </div>
   </div>
