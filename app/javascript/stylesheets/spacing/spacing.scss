@@ -185,6 +185,13 @@
   }
 }
 @media screen and (max-width: 576px) {
+  .w-xs-100 {
+    width: 100% !important;
+  }
+  .my-xs-3 {
+    margin-top: 1rem !important;
+    margin-bottom: 1rem !important;
+  }
   .flex-sm-1 {
     flex: 1;
   }
