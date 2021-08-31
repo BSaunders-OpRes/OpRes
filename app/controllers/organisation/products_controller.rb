@@ -49,6 +49,10 @@ class Organisation::ProductsController < Organisation::BaseController
     redirect_to organisation_products_path
   end
 
+  def search_by_name
+    @products = organisational_unit.products.where("name ILIKE (?)", "%#{params[:query]}%").order(id: :desc)
+  end
+
   private
 
   def load_product

@@ -80,7 +80,7 @@ class Graphs::SystemSupplierResilienceIndicatorService < Graphs::BaseService
       datum[step.underscore][:graph] << {
         name:  'Exceed Tolerance',
         y:     datum[step.underscore][:total].zero? ? 0 : ((eval("@exceed_#{step.underscore}_tolerance") / total.to_f) * 100).round(2),
-        color: COLORS[1],
+        color: COLORS[2],
         count: eval("@exceed_#{step.underscore}_tolerance")
       }
     end
