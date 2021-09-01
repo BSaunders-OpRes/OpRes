@@ -32,12 +32,12 @@ class Graphs::CriticalAndImportantSystemService < Graphs::BaseService
     datum[:c_total]    = @meet_tolerance + @match_tolerance + @exceed_tolerance
     datum[:c_graph]    = []
     datum[:i_graph]    = []
-
+  
     TOLERANCES.each_with_index do |t, index|
       datum[:c_graph] << {
         name:  t,
         type: 'Critical',
-        y:     datum[:total]&.zero? ? 0 : ((eval("@#{t}_tolerance") / datum[:c_total].to_f) * 100).round(2),
+        y:     datum[:total]&.zero? ? 0 : ((eval("@#{t}_tolerance") / critical_supplier_step.sum.to_f) * 100).round(2),
         color: COLORS[index],
         count: critical_supplier_step.sum
       }
@@ -53,7 +53,7 @@ class Graphs::CriticalAndImportantSystemService < Graphs::BaseService
       datum[:i_graph] << {
         name:  t,
         type: 'Important',
-        y:     datum[:total]&.zero? ? 0 : ((eval("@#{t}_tolerance") / datum[:i_total].to_f) * 100).round(2),
+        y:     datum[:total]&.zero? ? 0 : ((eval("@#{t}_tolerance") / important_supplier_step.sum.to_f) * 100).round(2),
         color: COLORS[index],
         count: important_supplier_step.sum
       }
@@ -71,14 +71,18 @@ class Graphs::CriticalAndImportantSystemService < Graphs::BaseService
     bsls&.each do |bsl|
       risk_appetite     = bsl.risk_appetites.first
       risk_appetite_val = risk_appetite.amount
-      if risk_appetite_val.present? && bsl.sla[risk_appetite.kind].present? && bsl.supplier_steps.first.supplier.sla[risk_appetite.kind]
-        if risk_appetite.percentage_amount? 
-          result = find_score_and_status_for_percentage(bsl.sla[risk_appetite.kind], bsl.supplier_steps.first.supplier.sla[risk_appetite.kind], risk_appetite.amount)
-          self.instance_variable_set("@#{result[1]}_tolerance".to_sym, eval("@#{result[1]}_tolerance")+1)
-        else
-          result = find_score_and_status_for_time(bsl.sla[risk_appetite.kind],  bsl.supplier_steps.first.supplier.sla[risk_appetite.kind], risk_appetite.amount)
-          self.instance_variable_set("@#{result[1]}_tolerance".to_sym, eval("@#{result[1]}_tolerance")+1)
+      if risk_appetite_val.present? && bsl.sla[risk_appetite.kind].present?
+        bsl.supplier_steps.each do |sp|
+        if sp.supplier.sla[risk_appetite.kind].present?
+          if risk_appetite.percentage_amount? 
+            result = find_score_and_status_for_percentage(bsl.sla[risk_appetite.kind], sp.supplier.sla[risk_appetite.kind], risk_appetite.amount)
+            self.instance_variable_set("@#{result[1]}_tolerance".to_sym, eval("@#{result[1]}_tolerance")+1)
+          else
+            result = find_score_and_status_for_time(bsl.sla[risk_appetite.kind],  sp.supplier.sla[risk_appetite.kind], risk_appetite.amount)
+            self.instance_variable_set("@#{result[1]}_tolerance".to_sym, eval("@#{result[1]}_tolerance")+1)
+          end
         end
+       end
       end
     end
   end
