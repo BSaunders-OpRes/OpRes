@@ -2,10 +2,11 @@ class Graphs::SupplierTiersService < Graphs::BaseService
   # Supplier breakdown for important and critical suppliers by tiers.
 
   COLORS = %w[#6BEAB3 #367C5C #CDFAF1 #05b368]
-  attr_reader :supplier_ids
+  attr_reader :supplier_ids, :bsl
 
   def call
     @supplier_ids  = args['supplier']
+    @bsl             = BusinessServiceLine.find_by_id(args.dig('bsl'))
     data[:overall] = overall
 
     data
@@ -16,13 +17,9 @@ class Graphs::SupplierTiersService < Graphs::BaseService
   def overall
     datum = {}
 
-    important_suppliers =  Supplier.joins(:supplier_steps)
-                                   .where(id: supplier_ids)
-                                   .where(supplier_steps: { importance_level: SupplierStep.importance_levels[:important] })
 
-    critical_suppliers  =  Supplier.joins(:supplier_steps)
-                                   .where(id: supplier_ids)
-                                   .where(supplier_steps: { importance_level: SupplierStep.importance_levels[:critical] })
+    important_suppliers = bsl.supplier_steps.important
+    critical_suppliers  = bsl.supplier_steps.critical
 
     datum[:total]    = critical_suppliers.size + important_suppliers.size
     datum[:graph]    = []

@@ -19,13 +19,12 @@
     <div class="row flex-sm-wrap flex-nowrap">
       <div class="col-sm-6 px-0 d-flex justify-content-center">
         <div class="sm-donut-content text-black">
-
-        <div class="sm-donut-content w-150px">
-          <%= react_component('highcharts/donut', { data: data.dig(:overall, :c_graph), render_to: 'critical-and-important' }, { class: 'h-130px d-flex align-items-center' }) %>
-          <div class="donut-value font-25 font-700"><%= data.dig(:overall, :c_graph)&.first[:count]%></div>
-        </div>
+          <div class="sm-donut-content w-150px">
+            <%= react_component('highcharts/donut', { data: data.dig(:overall, :c_graph), render_to: 'critical-and-important' }, { class: 'h-130px d-flex align-items-center' }) %>
+            <div class="donut-value font-25 font-700"><%= data.dig(:overall, :c_graph)&.first[:count]%></div>
+          </div>
           <div class="donut-desc sm-donut-desc flex-column">
-            <span class="font-12 font-600 text-capitalize mb-2"><%= data.dig(:overall, :c_graph)&.first[:type]%></span>
+            <span class="font-12 font-xxl-14 font-600 text-capitalize"><%= data.dig(:overall, :c_graph)&.first[:type]%></span>
           </div>
         </div>
       </div>
@@ -36,33 +35,33 @@
           <div class="donut-value font-25 font-700"><%= data.dig(:overall, :i_graph)&.last[:count]%></div>
         </div>
           <div class="donut-desc sm-donut-desc flex-column">
-            <span class="font-12 font-600 text-capitalize mb-2"><%= data.dig(:overall, :i_graph)&.last[:type]%></span>
+            <span class="font-12 font-xxl-14 font-600 text-capitalize"><%= data.dig(:overall, :i_graph)&.last[:type]%></span>
           </div>
         </div>
       </div>
     </div>
   </div>
-  <div class="d-flex text-black px-3 align-items-center h-70px justify-content-between">
+  <div class="d-flex text-black mt-xxl-4 px-3 align-items-center h-70px justify-content-between">
     <div class="d-flex align-items-center">
       <div class="circle green-1"></div>
-      <span class="font-12 font-600 ml-1 text-capitalize">matches</span>
+      <span class="font-12 font-xxl-14 font-600 ml-1 text-capitalize mt-1">matches</span>
     </div>
     <div class="d-flex align-items-center">
       <div class="circle green-2"></div>
-      <span class="font-12 font-600 ml-1 text-capitalize">meet</span>
+      <span class="font-12 font-xxl-14 font-600 ml-1 text-capitalize mt-1">meet</span>
     </div>
     <div class="d-flex align-items-center">
       <div class="circle green-3"></div>
-      <span class="font-12 font-600 ml-1 text-capitalize">exceeds</span>
+      <span class="font-12 font-xxl-14 font-600 ml-1 text-capitalize mt-1">exceeds</span>
     </div>
   </div>
   <div class="card-body resiliece-indicator pt-0 pb-0">
     <ul class="nav nav-tabs border-0 mb-4" id="myTab" role="tablist">
       <li class="nav-item pr-2">
-        <a class="nav-link active border-0 font-11 font-xxl-12 px-0 py-1 text-capitalize text-dark active" id="home-tab" data-toggle="tab" href="#critical-system" role="tab" aria-controls="home" aria-selected="true">Critical Systems</a>
+        <a class="nav-link active border-0 font-12 font-xxl-14 px-0 py-1 text-capitalize text-dark active" id="home-tab" data-toggle="tab" href="#critical-system" role="tab" aria-controls="home" aria-selected="true">Critical Systems</a>
       </li>
       <li class="nav-item pr-2">
-        <a class="nav-link font-11 border-0 font-xxl-12 px-0 text-capitalize p-1 text-dark" id="profile-tab" data-toggle="tab" href="#important-system" role="tab" aria-controls="profile" aria-selected="false">Important Systems</a>
+        <a class="nav-link font-12 border-0 font-xxl-14 px-0 text-capitalize p-1 text-dark" id="profile-tab" data-toggle="tab" href="#important-system" role="tab" aria-controls="profile" aria-selected="false">Important Systems</a>
       </li>
     </ul>
     <div class="tab-content" id="myTabContent">
@@ -97,13 +96,13 @@
           <div class="color-tier d-flex align-items-center">
             <span class="font-12 font-xxl-14 font-400 text-capitalize pr-2">Meets Impact Tolerances</span>
           </div>
-          <span class="font-12 font-700"><%= data.dig(:overall, :i_match)%></span>
+          <span class="font-12 font-700"><%= data.dig(:overall, :i_meet)%></span>
         </div>
         <div class="tiers d-flex justify-content-between align-items-start">
           <div class="color-tier d-flex align-items-center">
             <span class="font-12 font-xxl-14 font-400 text-capitalize pr-2">Exceeds Impact Tolerances</span>
           </div>
-          <span class="font-12 font-700"><%= data.dig(:overall, :i_match)%></span>
+          <span class="font-12 font-700"><%= data.dig(:overall, :i_exceed)%></span>
         </div>
       </div>
     </div>
