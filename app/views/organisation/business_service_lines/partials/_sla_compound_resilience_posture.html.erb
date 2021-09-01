@@ -2,7 +2,7 @@
   <div class="card-body pt-5">
     <div class="row border-bottom w-100 mx-auto mb-5">
       <div class="col-md-6 col-lg-4 order-lg-1 order-2 mb-lg-0 mb-4">
-        <div id="bsl-suppliers-<%= sla_attr.dasherize%>" class="lazy-graph" data-key="supplier_tiers" data-args="<%= { supplier: supplier&.ids&.present? ? supplier.ids : 0 }.to_json %>" data-append-to="bsl-suppliers-<%= sla_attr.dasherize%>" data-partial-name="bsl_suppliers_critical_important">
+        <div id="bsl-suppliers-<%= sla_attr.dasherize%>" class="lazy-graph" data-key="supplier_tiers" data-args="<%= { bsl: @bsl.id, supplier: supplier&.ids&.present? ? supplier.ids : 0 }.to_json %>" data-append-to="bsl-suppliers-<%= sla_attr.dasherize%>" data-partial-name="bsl_suppliers_critical_important">
           <%= render 'organisation/graphs/partials/bsl_suppliers_critical_important', data: {} %>
         </div>
       </div>

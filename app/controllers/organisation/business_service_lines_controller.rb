@@ -69,11 +69,10 @@ class Organisation::BusinessServiceLinesController < Organisation::BaseControlle
 
   def find_compound_resilience_data
     @bsl = BusinessServiceLine.find(params[:args][:bsl])
-
     if params[:args][:supplier_type] == SupplierStep.importance_levels[:critical].to_s
-      instance_variable_set("@#{params[:args][:sla_name]}".to_sym, Supplier.joins(:sla, supplier_steps: [step: [:business_service_line]]).where(business_service_lines: { id: params[:args][:bsl] }).where(supplier_steps: { importance_level: SupplierStep.importance_levels[:critical] }).where.not(slas:{"#{params[:args][:sla_name]}": nil}))
+      @service_level_agreement = Supplier.joins(:sla, supplier_steps: [step: [:business_service_line]]).where(business_service_lines: { id: params[:args][:bsl] }).where(supplier_steps: { importance_level: SupplierStep.importance_levels[:critical] }).where.not(slas:{"#{params[:args][:sla_name]}": nil})
     elsif params[:args][:supplier_type] == SupplierStep.importance_levels[:important].to_s
-      instance_variable_set("@#{params[:args][:sla_name]}".to_sym, Supplier.joins(:sla, supplier_steps: [step: [:business_service_line]]).where(business_service_lines: { id: params[:args][:bsl] }).where(supplier_steps: { importance_level: SupplierStep.importance_levels[:important] }).where.not(slas:{"#{params[:args][:sla_name]}": nil}))
+      @service_level_agreement = Supplier.joins(:sla, supplier_steps: [step: [:business_service_line]]).where(business_service_lines: { id: params[:args][:bsl] }).where(supplier_steps: { importance_level: SupplierStep.importance_levels[:important] }).where.not(slas:{"#{params[:args][:sla_name]}": nil})
     end
   end
 

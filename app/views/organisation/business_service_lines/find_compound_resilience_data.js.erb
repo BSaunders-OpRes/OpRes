@@ -1,7 +1,2 @@
-document.addEventListener('turbolinks:load', function() {
-
-$('#<%= params[:data_append_to] %>').html('<%= j(render "organisation/business_service_lines/partials/#{params[:partial_name]}", sla_attr: params[:args][:sla_name], supplier: eval("@#{params[:args][:sla_name]}")) %>');
-
-ReactRailsUJS.mountComponents();
-
-});
+$('#sla-tab-content').html('<%= escape_javascript(render "organisation/business_service_lines/partials/#{params[:partial_name]}", sla_attr: params[:args][:sla_name], supplier: @service_level_agreement) %>');
+render_lazy_graph();
