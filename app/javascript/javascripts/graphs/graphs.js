@@ -4,6 +4,10 @@ document.addEventListener('turbolinks:load', function() {
       <%= render 'organisation/graphs/partials/key_of_graph', data: {} %>
     </div>
   *************************************************************/
+  render_lazy_graph();
+});
+
+function render_lazy_graph(){
   if ($('.lazy-graph').length >= 1) {
     $('.lazy-graph').each(function() {
       $.ajax({
@@ -20,4 +24,4 @@ document.addEventListener('turbolinks:load', function() {
       });
     });
   }
-});
+}

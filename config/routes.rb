@@ -49,15 +49,22 @@ Rails.application.routes.draw do
       get :compose, on: :collection
     end
     resources :resiliences, only: %i[index]
-    resources :institutions
-    resources :products
-    resources :channels
+    resources :institutions do
+      get :search_by_name, on: :collection
+    end
+    resources :products do
+      get :search_by_name, on: :collection
+    end
+    resources :channels do
+      get :search_by_name, on: :collection
+    end
     resources :business_service_lines do
       get :critical_important_suppliers,    on: :member
       get :compound_resilience,             on: :member
       get :cloud_service_provider,          on: :member
       get :bsl_critical_important_supplier, on: :collection
       get :find_chp_data,                   on: :collection
+      get :find_compound_resilience_data,   on: :collection
     end
     resources :suppliers do
       get :all_suppliers, on: :collection
@@ -76,7 +83,9 @@ Rails.application.routes.draw do
     resources :cloud_hosting_providers, only: %i[] do
       get :regions_services, on: :member
     end
-    resources :admins
+    resources :admins do
+      get :search_by_name, on: :collection
+    end
     resources :administration_portal, only: %i[index]
     # resources :supplier_contacts
     resources :key_contacts

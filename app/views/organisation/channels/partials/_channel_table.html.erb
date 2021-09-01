@@ -1,0 +1,30 @@
+<% if channels.present? %>
+  <div class="table-responsive">
+    <table class="table custom-table font-12 m-0">
+      <thead>
+        <tr>
+          <th scope="col">Name</th>
+          <th scope="col">Description</th>
+          <th scope="col">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% channels.each do |channel| %>
+          <tr>
+            <td class="text-dark"><%= channel.name %></td>
+            <td><%= channel.description %></td>
+            <td>
+              <%= link_to 'View', organisation_channel_path(channel), class: 'mx-1 text-dark font-700 text-uppercase' %>
+              <%= link_to 'Edit', edit_organisation_channel_path(channel), class: 'mx-1 text-dark font-700 text-uppercase' %>
+              <%= link_to 'Delete', organisation_channel_path(channel), method: :delete, data: { confirm: 'Are you sure?' }, class: 'font-12 font-700 mx-1 text-dark text-uppercase' %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+<% else %>
+  <div class="alert alert-primary m-0" role="alert">
+    No channels are created yet!
+  </div>
+<% end %>

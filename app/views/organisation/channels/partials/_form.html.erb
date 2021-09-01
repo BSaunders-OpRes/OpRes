@@ -2,11 +2,11 @@
   <%= render 'layouts/partials/shared/form_errors', instance: channel %>
   <div class="row align-items-center mb-3">
     <div class="col-md-12 form-group">
-      <%= f.label :name, class: 'text-capitalize' %>
+      <%= f.label :name, class: 'text-capitalize font-600' %>
       <%= f.text_field :name, class: 'w-100 form-control font-12 h-auto py-3 shadow-none', placeholder: 'Channel Name', required: true %>
     </div>
     <div class="col-md-12 form-group">
-      <%= f.label :description, class: 'text-capitalize' %>
+      <%= f.label :description, class: 'text-capitalize font-600' %>
       <%= f.text_area :description, class: 'w-100 form-control font-12 shadow-none', placeholder: 'Channel Description', required: true %>
     </div>
   </div>

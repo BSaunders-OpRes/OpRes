@@ -1,0 +1,30 @@
+<% if admins.present? %>
+<table class="table custom-table font-12 m-0">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Role</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% admins.each do |admin| %>
+      <tr>
+        <td class="text-dark"><%= admin.name.present? ? admin.name : 'Not Available' %></td>
+        <td><%= admin.email %></td>
+        <td><%= admin.role.humanize %></td>
+        <td>
+          <%= link_to 'View', organisation_admin_path(admin), class: 'font-12 font-700 mx-1 text-dark text-uppercase' %>
+          <%= link_to 'Edit', edit_organisation_admin_path(admin), class: 'font-12 font-700 mx-1 text-dark text-uppercase' %>
+          <%= link_to 'Delete', organisation_admin_path(admin), method: :delete, data: { confirm: 'Are you sure?' }, class: 'font-12 font-700 mx-1 text-dark text-uppercase' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+  </table>
+<% else %>
+  <div class="alert alert-primary m-0" role="alert">
+  No admins are created yet!
+  </div>
+<% end %>
