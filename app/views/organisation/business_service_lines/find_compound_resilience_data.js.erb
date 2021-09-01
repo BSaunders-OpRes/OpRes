@@ -1,0 +1,2 @@
+$('#sla-tab-content').html('<%= escape_javascript(render "organisation/business_service_lines/partials/#{params[:partial_name]}", sla_attr: params[:args][:sla_name], supplier: @service_level_agreement) %>');
+render_lazy_graph();

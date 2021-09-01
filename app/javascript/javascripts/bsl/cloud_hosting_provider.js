@@ -1,5 +1,8 @@
 document.addEventListener('turbolinks:load', function() {
 
+  /*****************Event binding *************************
+  ********************************************************/
+
   $('body').on('click', '.chp-data', function() {
     $.ajax({
       url:      '/organisation/business_service_lines/find_chp_data',
