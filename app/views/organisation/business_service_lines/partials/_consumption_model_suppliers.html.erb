@@ -1,6 +1,6 @@
 <div class="tb-header align-items-end flex-wrap d-flex justify-content-between flex-lg-row flex-column mb-3">
   <div class="form-group mb-lg-0 mb-3 flex-1 mr-0 mr-lg-2 w-100">
-    <p class="font-12 font-400 text-light-grey mb-3">The following suppliers underpin critical steps and are <%= consumption_model == 'view_all' ? 'iaas, paas, saas': consumption_model.titleize %></p>
+    <p class="font-12 font-400 text-light-grey mb-3">The following suppliers underpin critical steps and are <%= consumption_model == 'view_all' ? 'IaaS, PaaS, SaaS': titleize_last_alpha(consumption_model.titleize) %></p>
     <span class="search-field d-block">
       <i class="fa fa-search"></i>
       <input type="text" class="bg-body-color h-auto form-control font-12 border-0 shadow-none py-2" placeholder="Search" id="country-search-filter">
@@ -66,8 +66,8 @@
 <nav aria-label="Page navigation example">
   <ul class="pagination pagination-active justify-content-center mb-0">
     <li class="page-item active"><a class="rounded-0 font-12 font-xxl-14 page-link border-0 text-light-grey shadow-none transition" href="javascript:void(0);">1</a></li>
-    <li class="page-item"><a class="rounded-0 font-12 font-xxl-14 page-link border-0 text-light-grey shadow-none transition" href="javascript:void(0);">2</a></li>
+<!--     <li class="page-item"><a class="rounded-0 font-12 font-xxl-14 page-link border-0 text-light-grey shadow-none transition" href="javascript:void(0);">2</a></li>
     <li class="page-item"><a class="rounded-0 font-12 font-xxl-14 page-link border-0 text-light-grey shadow-none transition" href="javascript:void(0);">3</a></li>
-    <li class="page-item"><a class="rounded-0 font-12 font-xxl-14 page-link border-0 text-light-grey shadow-none transition" href="javascript:void(0);">4</a></li>
+    <li class="page-item"><a class="rounded-0 font-12 font-xxl-14 page-link border-0 text-light-grey shadow-none transition" href="javascript:void(0);">4</a></li> -->
   </ul>
 </nav>
