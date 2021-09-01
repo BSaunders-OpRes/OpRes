@@ -70,4 +70,19 @@ module Organisation::SuppliersHelper
       'sev 4 restoration'
     end
   end
+
+  def check_logo(social_account_name)
+    case social_account_name
+    when 'LinkedIn'
+      'fa fa-linkedin-square'
+    when 'Twitter'
+      'fa fa-twitter-square'
+    when 'Facebook'
+      'fa fa-facebook-square'
+    when 'Instagram'
+      'fa fa-instagram'
+    when  'Website'
+      'fa fa-globe'
+    end
+  end
 end

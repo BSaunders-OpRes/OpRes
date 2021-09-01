@@ -20,6 +20,9 @@ class Graphs::SupplierConformanceImpactToleranceService < Graphs::BaseService
 
     total = bsls.count * 120
     total_sum = 0
+    @match_tolerance  =  0
+    @meet_tolerance   =  0
+    @exceed_tolerance =  0
 
     bsls.each do |bsl|
       bsl.risk_appetites.each do |risk_appetite|
@@ -28,14 +31,19 @@ class Graphs::SupplierConformanceImpactToleranceService < Graphs::BaseService
         risk_appetite_val = risk_appetite&.amount
         if bsl_sla_val && supplier_sla_val && risk_appetite_val
           if risk_appetite.percentage_amount?
-            total_sum = total_sum + find_score_and_status_for_percentage(bsl.sla[risk_appetite.kind],  supplier.sla[risk_appetite.kind], risk_appetite.amount)[0]&.to_i
+            result = find_score_and_status_for_percentage(bsl.sla[risk_appetite.kind],  supplier.sla[risk_appetite.kind], risk_appetite.amount)
+            self.instance_variable_set("@#{result[1]}_tolerance".to_sym, eval("@#{result[1]}_tolerance")+1)
+            total_sum = total_sum + result[0]&.to_i
           else
-            total_sum = total_sum + find_score_and_status_for_time(bsl.sla[risk_appetite.kind],  supplier.sla[risk_appetite.kind], risk_appetite.amount)[0]&.to_i
+            result = find_score_and_status_for_time(bsl.sla[risk_appetite.kind],  supplier.sla[risk_appetite.kind], risk_appetite.amount)
+            self.instance_variable_set("@#{result[1]}_tolerance".to_sym, eval("@#{result[1]}_tolerance")+1)
+            total_sum = total_sum + result[0]&.to_i
           end
         end
       end
     end
     datum[:total] = 100
+    datum[:exceed_tolerance] = @exceed_tolerance
     datum[:graph] = []
 
     datum[:graph] << [

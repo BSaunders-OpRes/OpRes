@@ -15,7 +15,7 @@
               <div class="row align-items-center">
                 <div class="col-md-12">
                   <div class="position-relative">
-                  <%= link_to 'javascript:void(0);', class: 'text-decoration-none text-black' do %>
+                  <%= link_to 'javascript:void(0);', class: 'text-decoration-none text-black cursor-auto' do %>
                     <div id="bsl-supplier-conformance-impact-tolerance" class="lazy-graph" data-key="bsl_supplier_conformance_impact_tolerance" data-args="<%= { bsl: @bsl.id }.to_json %>" data-append-to="bsl-supplier-conformance-impact-tolerance" data-partial-name="bsl_supplier_conformance_impact_tolerance">
                       <%= render 'organisation/graphs/partials/bsl_supplier_conformance_impact_tolerance', data: {} %>
                     </div>
@@ -55,7 +55,7 @@
               <div class="row align-items-center">
                 <div class="col-md-12">
                   <div class="position-relative">
-                    <%= link_to compound_resilience_organisation_business_service_line_path(@bsl, supplier_type: SupplierStep.importance_levels[:important]), class: 'text-decoration-none text-black' do %>
+                    <%= link_to compound_resilience_organisation_business_service_line_path(@bsl, supplier_type: SupplierStep.importance_levels[:important]), class: 'text-decoration-none text-black ' do %>
                       <div id="bsl-supplier-important-system" class="lazy-graph" data-key="bsl_supplier_conformance_impact_tolerance" data-args="<%= { bsl: @bsl.id, important_system: true }.to_json %>" data-append-to="bsl-supplier-important-system" data-partial-name="bsl_supplier_systems">
                           <%= render 'organisation/graphs/partials/bsl_supplier_systems', data: {} %>
                         </div>

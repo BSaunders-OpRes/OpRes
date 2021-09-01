@@ -89,7 +89,8 @@
                       <div class="color-tier">
                         <div class="mr-1 d-inline-block w-25px text-center align-middle">
                           <% social_account = social_account_recipient.social_account %>
-                          <%= image_tag social_account.logo, class: 'img-fluid w-100 d-block' %>
+                          <%#= image_tag social_account.logo, class: 'img-fluid w-100 d-block' %>
+                          <i class="<%= check_logo(social_account.name) %>" aria-hidden="true"></i>
                         </div>
                         <div class="text d-inline-block align-middle">
                           <span class="font-12 font-400 ml-2 d-block">

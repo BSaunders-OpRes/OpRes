@@ -64,6 +64,7 @@ Rails.application.routes.draw do
       get :cloud_service_provider,          on: :member
       get :bsl_critical_important_supplier, on: :collection
       get :find_chp_data,                   on: :collection
+      get :find_compound_resilience_data,   on: :collection
     end
     resources :suppliers do
       get :all_suppliers, on: :collection

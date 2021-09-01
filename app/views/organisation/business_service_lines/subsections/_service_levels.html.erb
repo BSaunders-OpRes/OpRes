@@ -14,7 +14,7 @@
             <div class="color-tier d-flex align-items-center">
               <div class="text">
                 <span class="font-12 font-400 ml-2 d-block">Target SLA</span>
-                <span class="font-12 ml-2 d-block font-600"><%= @bsl.sla&.service_level_agreement %>%</span>
+                <span class="font-12 ml-2 d-block font-600"><%= @bsl.sla&.service_level_agreement.present? ? "#{@bsl.sla&.service_level_agreement} %" : '-' %></span>
               </div>
             </div>
           </div>
@@ -26,7 +26,7 @@
             <div class="color-tier d-flex align-items-center">
               <div class="text">
                 <span class="font-12 font-400 ml-2 d-block">Target SLO</span>
-                <span class="font-12 ml-2 d-block font-600"><%= @bsl.sla&.service_level_objective %>%</span>
+                <span class="font-12 ml-2 d-block font-600"><%= @bsl.sla&.service_level_objective.present? ? "#{@bsl.sla&.service_level_objective} %" : '-' %></span>
               </div>
             </div>
           </div>
@@ -38,7 +38,7 @@
             <div class="color-tier d-flex align-items-center">
               <div class="text">
                 <span class="font-12 font-400 ml-2 d-block">Targeted RTO</span>
-                <span class="font-12 ml-2 d-block font-600"><%= @bsl.sla&.recovery_time_objective %> Minutes</span>
+                <span class="font-12 ml-2 d-block font-600"><%= @bsl.sla&.recovery_time_objective.present? ? "#{@bsl.sla&.recovery_time_objective} Minutes" : '-' %></span>
               </div>
             </div>
           </div>
@@ -50,7 +50,7 @@
             <div class="color-tier d-flex align-items-center">
               <div class="text">
                 <span class="font-12 font-400 ml-2 d-block">Targeted RPO</span>
-                <span class="font-12 ml-2 d-block font-600"><%= @bsl.sla&.recovery_point_objective %> Minutes</span>
+                <span class="font-12 ml-2 d-block font-600"><%= @bsl.sla&.recovery_point_objective.present? ? "#{@bsl.sla&.recovery_point_objective} Minutes" : '-' %></span>
               </div>
             </div>
           </div>
@@ -62,7 +62,7 @@
             <div class="color-tier d-flex align-items-center">
               <div class="text">
                 <span class="font-12 font-400 ml-2 d-block">Target TPS</span>
-                <span class="font-12 ml-2 d-block font-600"><%= @bsl.sla&.transactions_per_second %></span>
+                <span class="font-12 ml-2 d-block font-600"><%= @bsl.sla&.transactions_per_second.present?  ? @bsl.sla&.transactions_per_second : '-' %></span>
               </div>
             </div>
           </div>
@@ -74,7 +74,7 @@
             <div class="color-tier d-flex align-items-center">
               <div class="text">
                 <span class="font-12 font-400 ml-2 d-block">Response Time</span>
-                <span class="font-12 ml-2 d-block font-600"><%= @bsl.sla&.response_time %></span>
+                <span class="font-12 ml-2 d-block font-600"><%= @bsl.sla&.response_time.present? ? @bsl.sla&.response_time : '-' %></span>
               </div>
             </div>
           </div>
@@ -86,14 +86,14 @@
             <div class="color-tier d-flex align-items-center">
               <div class="text">
                 <span class="font-12 font-xxl-14 font-400 ml-2 d-block">Support Needs</span>
-                <span class="font-12 font-xxl-14 ml-2 d-block font-600"><%= @bsl.sla&.support_hours %></span>
+                <span class="font-12 font-xxl-14 ml-2 d-block font-600"><%= @bsl.sla&.support_hours.present? ? @bsl.sla&.support_hours : '-' %></span>
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-    <hr>
+    <!-- <hr> -->
    <!--  <div class="box">
       <div class="d-flex justify-content-between align-items-center my-5 px-4">
         <h5 class="text-capitalize text-left font-600">Service Level Indicators</h5>
