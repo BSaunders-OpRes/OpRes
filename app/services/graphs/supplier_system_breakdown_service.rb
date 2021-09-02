@@ -21,17 +21,23 @@ class Graphs::SupplierSystemBreakdownService < Graphs::BaseService
 
     supplier_steps&.each do |supplier_step|
       total_sum = 0
-
+      sla_attr_status = []
+      sla_attr = {}
       bsl.risk_appetites.each do |risk_appetite|
         bsl_sla_val       = bsl.sla[risk_appetite.kind]
         supplier_sla_val  = supplier_step.supplier.sla[risk_appetite.kind]
         risk_appetite_val = risk_appetite&.amount
         if bsl_sla_val && supplier_sla_val && risk_appetite_val
           if risk_appetite.percentage_amount?
-            total_sum =  total_sum + find_score_and_status_for_percentage(bsl.sla[risk_appetite.kind],  supplier_step.supplier.sla[risk_appetite.kind], risk_appetite.amount)[0]&.to_i
+            result    = find_score_and_status_for_percentage(bsl.sla[risk_appetite.kind],  supplier_step.supplier.sla[risk_appetite.kind], risk_appetite.amount)
+            sla_attr[risk_appetite.kind] = result[1]
+            total_sum =  total_sum + result[0]&.to_i
           else
-            total_sum =  total_sum + find_score_and_status_for_time(bsl.sla[risk_appetite.kind],  supplier.sla[risk_appetite.kind], risk_appetite.amount)[0]&.to_i
+            result    = find_score_and_status_for_time(bsl.sla[risk_appetite.kind],  supplier_step.supplier.sla[risk_appetite.kind], risk_appetite.amount)
+            sla_attr[risk_appetite.kind] = result[1]
+            total_sum =  total_sum + result[0]&.to_i
           end
+          sla_attr_status << sla_attr
         end
       end
 
@@ -44,7 +50,8 @@ class Graphs::SupplierSystemBreakdownService < Graphs::BaseService
         important_steps_total: supplier_steps.important&.where(supplier_id: supplier_step.supplier.id).size,
         conformance_score:     ((total_sum/120.to_f)*100).round(2),
         sla_attr:              supplier_step.supplier.sla,
-        fourth_parties:        supplier_step.supplier.fourth_party_suppliers
+        fourth_parties:        supplier_step.supplier.fourth_party_suppliers,
+        sla_attr_status:       sla_attr_status
       }
     end
 
