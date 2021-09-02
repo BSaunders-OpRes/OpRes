@@ -16,13 +16,13 @@
     </div>
     <ul class="nav nav-tabs border-0 active-green my-4">
       <li class="nav-item mr-3">
-        <a class="nav-link active text-capitalize font-12 font-xxl-14 border-0 p-0 pb-2 text-light-grey font-500" data-toggle="tab" href="#iaas" role="tab" aria-controls="home" aria-selected="true">IaaS</a>
+        <%= link_to 'IaaS', '#iaas', class:"nav-link text-capitalize font-12 font-xxl-14 border-0 p-0 pb-2 text-light-grey font-500"%>
       </li>
       <li class="nav-item mr-3">
-        <a class="nav-link text-capitalize font-12 font-xxl-14 border-0 p-0 pb-2 text-light-grey font-500" data-toggle="tab" href="#saas" role="tab" aria-controls="home" aria-selected="true">SaaS</a>
+        <%= link_to 'SaaS', '#saas', class:"nav-link text-capitalize font-12 font-xxl-14 border-0 p-0 pb-2 text-light-grey font-500"%>
       </li>
       <li class="nav-item mr-3">
-        <a class="nav-link text-capitalize font-12 font-xxl-14 border-0 p-0 pb-2 text-light-grey font-500" data-toggle="tab" href="#paas" role="tab" aria-controls="home" aria-selected="true">PaaS</a>
+         <%= link_to 'PaaS', '#paas', class:"nav-link text-capitalize font-12 font-xxl-14 border-0 p-0 pb-2 text-light-grey font-500"%>
       </li>
     </ul>
     <div class="form-group">
@@ -91,118 +91,8 @@
             <%#= paginate @suppliers['iaas'], params: {controller: 'suppliers', action: 'search_and_filter'}, remote: true %>
         </nav>
       </div>
-      <div class="tab-pane fade" id='saas'>
-        <div class="table-responsive">
-          <table class="table bg-white">
-            <thead>
-              <tr class="border-top-0">
-                <th class="text-capitalize font-12 text-light-grey border-0">
-                  supplier name
-                </th>
-                <th class="text-capitalize font-12 text-light-grey border-0">
-                  party type
-                </th>
-                <th class="text-capitalize font-12 text-light-grey border-0">
-                  hosting provider
-                </th>
-                <th class="text-capitalize font-12 text-light-grey border-0">
-                  total business service
-                </th>
-                <th class="text-capitalize font-12 text-light-grey border-0">
-                  total critical steps
-                </th>
-                <th class="border-0"></th>
-              </tr>
-            </thead>
-            <tbody>
-              <% @suppliers["saas"]&.each do |s|%>
-              <tr>
-                <td class="text-uppercase font-12 font-xxl-14 font-700 py-4"><%= s.name%>
-                </td>
-                <td class="text-uppercase font-12 font-xxl-14 font-700 py-4">
-                <%= s.party_type %>
-                </td>
-                <td class="text-uppercase font-12 font-xxl-14 font-700 py-4">
-                  <div class="d-flex align-items-center">
-                    <div class="w-25px w-xxl-40px">
-                      <%= image_pack_tag 'media/images/aws.png', class: 'img-fluid' %>
-                    </div>
-                    <span class="ml-1"><%= s.cloud_hosting_provider.name %></span>
-                  </div>
-                </td>
-                <td class="text-uppercase font-12 font-xxl-14 font-700 py-4">
-                  <%= s.bsls_count %>
-                </td>
-                <td class="text-uppercase font-12 font-xxl-14 font-700 py-4">
-                 <%= s.critical_supplier_steps.count %>
-                </td>
-                <td class="text-capitalize font-12 text-primary font-xxl-14 font-500 py-4" type="button" class="btn white-btn text-capitalize" ><%= link_to "Breakdown", breakdown_organisation_dashboard_break_downs_path(id: s.id), remote: true %></td>
-              </tr>
-              <% end %>
-            </tbody>
-          </table>
-        </div>
-        <nav aria-label="Page navigation example">
-            <%#= paginate @suppliers['saas'], params: {controller: 'suppliers', action: 'search_and_filter'}, remote: true %>
-        </nav>
-      </div>
-      <div class="tab-pane fade" id='paas'>
-        <div class="table-responsive">
-          <table class="table bg-white">
-            <thead>
-              <tr class="border-top-0">
-                <th class="text-capitalize font-12 text-light-grey border-0">
-                  supplier name
-                </th>
-                <th class="text-capitalize font-12 text-light-grey border-0">
-                  party type
-                </th>
-                <th class="text-capitalize font-12 text-light-grey border-0">
-                  hosting provider
-                </th>
-                <th class="text-capitalize font-12 text-light-grey border-0">
-                  total business service
-                </th>
-                <th class="text-capitalize font-12 text-light-grey border-0">
-                  total critical steps
-                </th>
-                <th class="border-0"></th>
-              </tr>
-            </thead>
-            <tbody>
-              <% @suppliers["paas"]&.each do |s|%>
-              <tr>
-                <td class="text-uppercase font-12 font-xxl-14 font-700 py-4"><%= s.name%>
-                </td>
-                <td class="text-uppercase font-12 font-xxl-14 font-700 py-4">
-                <%= s.party_type %>
-                </td>
-                <td class="text-uppercase font-12 font-xxl-14 font-700 py-4">
-                  <div class="d-flex align-items-center">
-                    <div class="w-25px w-xxl-40px">
-                      <%= image_pack_tag 'media/images/aws.png', class: 'img-fluid' %>
-                    </div>
-                    <span class="ml-1"><%= s.cloud_hosting_provider.name %></span>
-                  </div>
-                </td>
-                <td class="text-uppercase font-12 font-xxl-14 font-700 py-4">
-                  <%= s.bsls_count %>
-                </td>
-                <td class="text-uppercase font-12 font-xxl-14 font-700 py-4">
-                 <%= s.critical_supplier_steps.count %>
-                </td>
-                <td class="text-capitalize font-12 text-primary font-xxl-14 font-500 py-4" type="button" class="btn white-btn text-capitalize" ><%= link_to "Breakdown", breakdown_organisation_dashboard_break_downs_path(id: s.id), remote: true %></td>
-              </tr>
-              <% end %>
-            </tbody>
-          </table>
-        </div>
-        <nav aria-label="Page navigation example">
-          <%#= paginate @suppliers['saas'], params: {controller: 'suppliers', action: 'search_and_filter'}, remote: true %>
-        </nav>
-      </div>
-    </div>
   </div>
+</div>
 </div>
 
 <div id="modal-window">
