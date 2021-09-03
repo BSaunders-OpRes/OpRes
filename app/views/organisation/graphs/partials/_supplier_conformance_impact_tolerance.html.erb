@@ -24,13 +24,13 @@
         <div class="donut-content">
           <div class="align-items-center justify-content-center">
             <div class="round p-5 bg-pink">
-              <i class="fa fa-exclamation-triangle font-40 text-red"></i>
+              <i class="fa fa-exclamation-triangle font-25 text-red mt-1 mr-2" aria-hidden="true"></i>
+              <h6 class="d-inline font-700 font-30"><%= data.dig(:overall, :exceed_tolerance) %></h6>
             </div>
           </div>
         </div>
         <div class="text text-center mt-4 pt-2">
           <p class="font-13 font-600">Open Resilience Gaps</p>
-          <h6 class="font-13 font-600"><%= data.dig(:overall, :exceed_tolerance) %></h6>
         </div>
       </div>
     </div>
