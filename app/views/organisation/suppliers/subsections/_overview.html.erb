@@ -74,7 +74,7 @@
             <span class="font-12">Annual Cost of Contract</span>
           </div>
           <div class="w-75">
-            <strong class="font-12"><%= @supplier.annual_cost_of_contract %></strong>
+            <strong class="font-12"><%= Money.from_cents(@supplier.annual_cost_of_contract, @supplier.unit.country.currency_code).format %></strong>
           </div>
         </div>
       </div>
