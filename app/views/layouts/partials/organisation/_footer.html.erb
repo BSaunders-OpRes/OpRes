@@ -10,7 +10,9 @@
       <%= link_to 'Contact Us', 'https://www.opres.uk/contact-1', target: '_blank', class: 'font-12 font-xxl-14 text-secondary ml-2 pl-2' %>
     </li>
 
-    <li><a href="" class="font-12 font-xxl-14 text-secondary ml-2 pl-2">Term & Conditions</a></li>
+    <li>
+      <%= link_to 'Terms and Condition', "#{request.base_url}/terms_condition", target: '_blank', class: 'font-12 font-xxl-14 text-secondary ml-2 pl-2' %>
+    </li>
     <li><%= link_to 'Support', 'mailto:Support@opres.uk', class: 'font-12 font-xxl-14 text-secondary ml-2 pl-2' %></li>
   </ul>
 </footer>
