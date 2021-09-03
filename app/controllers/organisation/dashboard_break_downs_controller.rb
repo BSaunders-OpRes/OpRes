@@ -31,9 +31,21 @@ class Organisation::DashboardBreakDownsController < Organisation::BaseController
       'organisational_unit' =>  organisational_unit
     }
     @suppliers = Supplier.where(unit_id: managing_nodes).group_by{ |e| e.consumption_model }
+    cm_model = params[:cm_model].present? ? params[:cm_model]: 'iaas'
+      if cm_model == 'paas'
+        @suppliers = @suppliers['paas']
+      elsif cm_model == 'saas'
+        @suppliers = @suppliers['saas']
+      else
+        @suppliers = @suppliers['iaas']
+      end
     @private_suppliers = Supplier.where(unit_id: managing_nodes).joins(:supplier_steps).where(supplier_steps: { party_type: 'firm-hosted' }).group_by{ |e| e.consumption_model }
     @conformant_suppliers     = ConformanceSupplierService.new(args).conformant_suppliers_data
     @non_conformant_suppliers = @conformant_suppliers.sort{|a,b| b[1][:total_impact_tolerance] <=> a[1][:total_impact_tolerance]}.reverse.to_h
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   def private_cloud
