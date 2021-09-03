@@ -52,7 +52,7 @@ class Graphs::HighRiskBslService < Graphs::BaseService
           end
         end
       end
-      datum << {'bsl_name': bsl.name, 'total_resilience_gap': @meet_tolerance + @exceed_tolerance, 'exceed_firm_hosted': @exceed_firm_hosted, 'exceed_3rd_party': @exceed_3rd_party, 'exceed_4th_party': @exceed_4th_party  }
+      datum << {'bsl_name': bsl.name, 'total_resilience_gap': @exceed_tolerance, 'exceed_firm_hosted': @exceed_firm_hosted, 'exceed_3rd_party': @exceed_3rd_party, 'exceed_4th_party': @exceed_4th_party  }
     end
     datum = datum.sort_by{|hsh| -hsh[:total_resilience_gap]}
 

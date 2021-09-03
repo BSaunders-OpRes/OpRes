@@ -1,0 +1,20 @@
+body {
+  font-family: 'Eina';
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background: #f3f5fa;
+
+}
+.terms-condition .card-body {
+  /*padding-left: 100px;*/
+  /*padding-right: 100px;*/
+  padding: 100px;
+}
+.terms-condition p, ul li {
+  font-size: 14px;
+  line-height: 30px;
+}
+.list-alphabet {
+  list-style-type: lower-alpha;
+}

@@ -19,6 +19,7 @@ gem 'webpacker', '~> 4.0'
 gem 'cancancan'
 gem 'active_storage_validations', '~> 0.9.5'
 gem 'kaminari', '~> 1.2.1'
+gem 'money', '~> 6.16.0'
 
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]

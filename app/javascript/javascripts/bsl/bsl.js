@@ -232,11 +232,39 @@ document.addEventListener('turbolinks:load', function() {
     $(this).parents('.bsl-risk').find('.justification-required').attr('required', true);
   });
 
+  $('body').on('focusout', '.risk-appetite', function(){
+    sla_attr_val         = parseFloat($('#' + $(this).attr('data-sla')).val());
+    impact_tolerance_val = parseFloat($(this).val());
+    warning_message_id    = '#warning_message_'+$(this).attr('data-sla').replace("business_service_line_sla_attributes_","");
+    if ($(this).attr('data-percent') == 'true'){
+      if(impact_tolerance_val > sla_attr_val){
+        $(warning_message_id).removeClass('d-none').addClass('d-block');
+      }else{
+        $(warning_message_id).removeClass('d-block').addClass('d-none');
+      }
+    }
+    else{
+      if(impact_tolerance_val < sla_attr_val){
+        $(warning_message_id).removeClass('d-none').addClass('d-block');
+      }else{
+        $(warning_message_id).removeClass('d-block').addClass('d-none');
+      }
+    }
+
+  });
+
   $('body').on('click', '#save-bsl-form', function(e) {
     e.preventDefault();
+
     form = $(this).parents('#bsl-form');
 
     form.validate({ ignore: [] });
+    if (form.valid() && $('.warning-error.d-block').length > 0){
+      $('html, body').animate({
+        scrollTop: $(".warning-error.d-block").offset().top - 100
+      });
+      return false;
+    }
     if (form.valid()) {
       return form.submit();
     } else {

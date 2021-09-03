@@ -18,11 +18,11 @@ class Graphs::BaseService < ApplicationService
   end
 
   def find_score_and_status_for_time(bsl_point,  supplier_point, impact_tolerance_point)
-    if (supplier_point == bsl_point)
+    if (supplier_point == bsl_point || supplier_point <= bsl_point)
       %w(10 match)
-    elsif (supplier_point < bsl_point && (supplier_point >= impact_tolerance_point && supplier_point < bsl_point))
+    elsif (supplier_point > bsl_point && (supplier_point <= impact_tolerance_point && supplier_point > bsl_point))
       %w(5  meet)
-    elsif (supplier_point > bsl_point)
+    elsif (supplier_point > impact_tolerance_point)
       %w(0 exceed)
     end
   end
