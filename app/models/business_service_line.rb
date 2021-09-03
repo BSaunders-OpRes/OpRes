@@ -21,6 +21,9 @@ class BusinessServiceLine < ApplicationRecord
   # Validations #
   validates :name, :description, :tier, presence: true
 
+  # Custom Validations #
+  validate :custom_validation
+
   # Nested Attributes #
   accepts_nested_attributes_for :sla, allow_destroy: true
   accepts_nested_attributes_for :material_risk_taker, allow_destroy: true
@@ -96,5 +99,19 @@ class BusinessServiceLine < ApplicationRecord
 
   def currency_id=(id)
     self.currency = Currency.find_by(id: id)
+  end
+
+  def custom_validation
+    risk_appetites&.each do |risk_appetite|
+      if risk_appetite.percentage_amount?
+        if !risk_appetite&.amount.nil? && risk_appetite&.amount > sla[risk_appetite.kind.to_sym]
+          self.errors[:base] << "Risk Appetite does not meet the requirement of target value."
+        end
+      else
+        if !risk_appetite&.amount.nil? && risk_appetite&.amount  < sla[risk_appetite.kind.to_sym]
+          self.errors[:base] << "Risk Appetite does not meet the requirement of target value."
+        end
+      end
+    end
   end
 end

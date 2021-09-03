@@ -6,6 +6,14 @@
         <div class="wizard-body">
           <div class="wizard-header my-4">
             <h4 class="mb-4 font-weight-bold"><%= new_or_create ? 'Add a New Business Service Line' : 'Edit Business Service Line' %></h4>
+              <% if @bsl.errors.any? %>
+                <h3 class="font-14">The following errors prevented the business service line from being saved:</h3>
+                <ul>
+                  <% @bsl.errors.full_messages.each do |msg| %>
+                   <li class="font-12 font-xxl-14 text-danger mt-3"><%= msg %></li>
+                  <% end %>
+                </ul>
+              <% end %>
             <div class="tab-content mt-5" id="bsl-desc">
               <p id="about-desc" data-toggle="tab" href="#about" role="tab" aria-controls="home" aria-selected="true">As part of adding a new business service, you are required to provide context and information about its purpose, core functionality, and channels.</p>
 
