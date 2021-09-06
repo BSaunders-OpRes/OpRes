@@ -13,6 +13,12 @@ document.addEventListener('turbolinks:load', function() {
     search_bsls_suppliers();
   });
 
+  $('body').on('click', '.clear-input-field', function() {
+    $(this).parents('.table-search-field').find('input').val('');
+    search_data($(this).data('url'));
+  });
+
+
 
   /******************** Main Methods ********************
   ******************************************************/
@@ -49,5 +55,18 @@ document.addEventListener('turbolinks:load', function() {
     });
 
     return values;
+  }
+
+  /******************** Search Helper Methods ********************
+  ********************************************************/
+  function search_data(url) {
+    $.ajax({
+      url:      url,
+      dataType: 'script',
+      type:     'GET',
+      data: {
+        query: ''
+      }
+    });
   }
 });
