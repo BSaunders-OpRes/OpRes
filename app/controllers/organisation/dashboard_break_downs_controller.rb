@@ -34,10 +34,13 @@ class Organisation::DashboardBreakDownsController < Organisation::BaseController
     cm_model = params[:cm_model].present? ? params[:cm_model]: 'iaas'
       if cm_model == 'paas'
         @suppliers = @suppliers['paas']
+        @p_active = 'active'
       elsif cm_model == 'saas'
         @suppliers = @suppliers['saas']
+        @s_active = 'active'
       else
         @suppliers = @suppliers['iaas']
+        @i_active = 'active'
       end
     @private_suppliers = Supplier.where(unit_id: managing_nodes).joins(:supplier_steps).where(supplier_steps: { party_type: 'firm-hosted' }).group_by{ |e| e.consumption_model }
     @conformant_suppliers     = ConformanceSupplierService.new(args).conformant_suppliers_data
