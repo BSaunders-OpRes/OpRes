@@ -1,4 +1,4 @@
-$('#sla-tab-content').html('<%= escape_javascript(render "organisation/business_service_lines/partials/#{params[:partial_name]}", sla_attr: params[:args][:sla_name], supplier: @service_level_agreement) %>');
+$('#sla-tab-content').html('<%= escape_javascript(render "organisation/suppliers/partials/#{params[:partial_name]}", sla_attr: params[:args][:sla_name], bsl: @service_level_agreement) %>');
 if ($('.lazy-graph').length >= 1) {
   $('.lazy-graph').each(function() {
     $.ajax({

@@ -1,38 +1,19 @@
 <% if data.blank? %>
-  <div class="col-sm-6 py-3 px-md-3">
-    <div class="card border-0 pie-high-chart overflow-hidden">
-      <div class="card-header  border-0 bg-white text-center">
-        <div class="empty-donut-block w-150px mx-auto"></div>
-        <h6 class="empty-donut-line px-5 mb-2"></h6>
-      </div>
-    </div>
-  <% else %>
-  <div class="col-sm-6 py-3 px-md-3">
-    <div class="card border-0 pie-high-chart">
-      <div class="card-header h-240px border-0 bg-white text-center">
-        <div class="donut-content">
-          <%= react_component('highcharts/percentage_donut', { data: data.dig(:overall, :graph).flatten, render_to: 'donut-chp' }, { class: 'h-200-highchart' }) %>
-          <div class="donut-value font-30 font-700 d-flex"><span><%= "#{data.dig(:overall,:graph)[0].second.dig(:count)}" %></span><span><span>%</span></div>
-        </div>
-        <h6 class="font-13 font-600 w-75 mx-auto mt-5">Supplier Conformance with Impact Tolerances</h6>
-      </div>
+  <div class="card border-0 pie-high-chart overflow-hidden">
+    <div class="card-header  border-0 bg-white text-center">
+      <div class="empty-donut-block w-150px mx-auto"></div>
+      <h6 class="empty-donut-line px-5 mb-2"></h6>
     </div>
   </div>
-  <div class="col-md-6 d-flex align-items-center justify-content-center py-3">
-    <div class="card border-0 pie-high-chart h-260px">
-      <div class="border-0 bg-white text-center h-100 d-flex flex-column justify-content-end">
-        <div class="donut-content">
-          <div class="align-items-center justify-content-center">
-            <div class="round p-5 bg-pink">
-              <i class="fa fa-exclamation-triangle font-25 text-red mt-1 mr-2" aria-hidden="true"></i>
-              <h6 class="d-inline font-700 font-30"><%= data.dig(:overall, :exceed_tolerance) %></h6>
-            </div>
-          </div>
-        </div>
-        <div class="text text-center mt-4 pt-2">
-          <p class="font-13 font-600">Open Resilience Gaps</p>
-        </div>
+<% else %>
+  <div class="card border-0 pie-high-chart">
+    <div class="card-header h-240px border-0 bg-white text-center">
+     <p class="font-14 text-capitalize font-600 chart-header-title text-black text-decoration-none text-center">Supplier Conformance with Impact Tolerances</p>
+      <div class="donut-content">
+        <%= react_component('highcharts/percentage_donut', { data: data.dig(:overall, :graph).flatten, render_to: 'donut-chp' }, { class: 'h-200-highchart' }) %>
+        <div class="donut-value font-30 font-700 d-flex"><span><%= "#{data.dig(:overall,:graph)[0].second.dig(:count)}" %></span><span><span>%</span></div>
       </div>
+      <!-- <h6 class="font-13 font-600 w-75 mx-auto mt-5">Supplier Conformance with Impact Tolerances</h6> -->
     </div>
   </div>
 <% end %>
