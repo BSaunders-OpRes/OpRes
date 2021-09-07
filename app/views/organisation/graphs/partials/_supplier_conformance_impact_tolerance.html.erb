@@ -1,5 +1,5 @@
 <% if data.blank? %>
-  <div class="col-sm-6 py-3 px-md-3">
+  <div class="col-sm-6 py-3 px-md-3 mb-4">
     <div class="card border-0 pie-high-chart overflow-hidden">
       <div class="card-header  border-0 bg-white text-center">
         <div class="empty-donut-block w-150px mx-auto"></div>
@@ -18,21 +18,24 @@
       </div>
     </div>
   </div>
-  <div class="col-md-6 d-flex align-items-center justify-content-center py-3">
-    <div class="card border-0 pie-high-chart h-260px">
-      <div class="border-0 bg-white text-center h-100 d-flex flex-column justify-content-end">
+  <div class="col-md-6 d-flex align-items-center justify-content-center  py-3 px-md-3 mb-4">
+    <div class="card border-0 pie-high-chart mt-4 pt-3">
+      <div class="border-0 bg-white text-center">
         <div class="donut-content">
           <div class="align-items-center justify-content-center">
-            <div class="round p-5 bg-pink">
-              <i class="fa fa-exclamation-triangle font-25 text-red mt-1 mr-2" aria-hidden="true"></i>
-              <h6 class="d-inline font-700 font-30"><%= data.dig(:overall, :exceed_tolerance) %></h6>
+            <div class="round pink-box bg-pink d-flex justify-content-center align-items-center">
+              <div class="in-text">
+                <i class="fa fa-exclamation-triangle font-25 text-red mr-2" aria-hidden="true"></i>
+                <h6 class="d-inline font-700 font-22"><%= data.dig(:overall, :exceed_tolerance) %></h6>
+              </div>
             </div>
           </div>
         </div>
-        <div class="text text-center mt-4 pt-2">
+        <div class="text text-center mt-4 pt-1">
           <p class="font-13 font-600">Open Resilience Gaps</p>
         </div>
       </div>
+      <!-- <h6 class="font-13 font-600 w-75 mx-auto mt-5">Supplier Conformance with Impact Tolerances</h6> -->
     </div>
   </div>
 <% end %>

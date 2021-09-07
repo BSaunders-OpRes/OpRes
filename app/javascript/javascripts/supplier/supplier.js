@@ -75,6 +75,20 @@ document.addEventListener('turbolinks:load', function() {
     }
   });
 
+  $('body').on('click', '.sla-compound-resilience', function() {
+    $.ajax({
+      url:      '/organisation/suppliers/find_compound_resilience_data',
+      dataType: 'script',
+      type:     'GET',
+      async:     false,
+      data:     {
+        args:           $(this).data('args'),
+        data_append_to: $(this).data('append-to'),
+        partial_name:   $(this).data('partial-name')
+      }
+    });
+  });
+
   function process_date(date){
     parts = date.split('/');
     date  = new Date(parts[1] + '/' + parts[0] + '/' + parts[2]);
