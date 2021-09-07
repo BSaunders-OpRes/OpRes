@@ -24,14 +24,14 @@ class Graphs::SupplierThirdFourthPartyBslService < Graphs::BaseService
     datum[:graph] = []
 
     datum[:graph] << {
-      name:  'Third',
+      name:  'Third party',
       y:     datum[:total].zero? ? 0 : ((third_party_suppliers.size / datum[:total].to_f) * 100).round(2),
       color: COLORS[0],
       count: third_party_suppliers.size
     }
 
     datum[:graph] << {
-      name:  'Fourth',
+      name:  'Fourth party',
       y:     datum[:total].zero? ? 0 : ((fourth_party_suppliers.size / datum[:total].to_f) * 100).round(2),
       color: COLORS[1],
       count: fourth_party_suppliers.size
