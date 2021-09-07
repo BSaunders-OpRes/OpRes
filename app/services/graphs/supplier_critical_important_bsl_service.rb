@@ -25,14 +25,14 @@ class Graphs::SupplierCriticalImportantBslService < Graphs::BaseService
     datum[:graph]    = []
 
     datum[:graph] << {
-      name:  'Critical',
+      name:  'Critical Business Services',
       y:     datum[:total].zero? ? 0 : ((critical_supplier_step.size / datum[:total].to_f) * 100).round(2),
       color: COLORS[0],
       count: critical_supplier_step.size
     }
 
     datum[:graph] << {
-      name:  'Important',
+      name:  'Important Business Services',
       y:     datum[:total].zero? ? 0 : ((important_supplier_step.size / datum[:total].to_f) * 100).round(2),
       color: COLORS[1],
       count: important_supplier_step.count
