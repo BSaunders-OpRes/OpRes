@@ -31,15 +31,18 @@ class Organisation::DashboardBreakDownsController < Organisation::BaseController
       'organisational_unit' =>  organisational_unit
     }
     @suppliers = Supplier.where(unit_id: managing_nodes).group_by{ |e| e.consumption_model }
-    cm_model = params[:cm_model].present? ? params[:cm_model]: 'iaas'
-      if cm_model == 'paas'
-        @suppliers = @suppliers['paas']
+    @cm_model = params[:cm_model].present? ? params[:cm_model]: 'iaas'
+      if @cm_model == 'paas'
+        @suppliers = Supplier.where(unit_id: managing_nodes).where("name LIKE ?", "%#{params[:query]}%").where(consumption_model: params[:cm_model]) if params[:query].present?
+        @suppliers = @suppliers['paas'] unless params[:query].present?
         @p_active = 'active'
-      elsif cm_model == 'saas'
-        @suppliers = @suppliers['saas']
+      elsif @cm_model == 'saas'
+        @suppliers = Supplier.where(unit_id: managing_nodes).where("name LIKE ?", "%#{params[:query]}%").where(consumption_model: params[:cm_model]) if params[:query].present?
+        @suppliers = @suppliers['saas'] unless params[:query].present?
         @s_active = 'active'
       else
-        @suppliers = @suppliers['iaas']
+        @suppliers = Supplier.where(unit_id: managing_nodes).where("name LIKE ?", "%#{params[:query]}%").where(consumption_model: params[:cm_model]) if params[:query].present?
+        @suppliers = @suppliers['iaas'] unless params[:query].present?
         @i_active = 'active'
       end
     @private_suppliers = Supplier.where(unit_id: managing_nodes).joins(:supplier_steps).where(supplier_steps: { party_type: 'firm-hosted' }).group_by{ |e| e.consumption_model }

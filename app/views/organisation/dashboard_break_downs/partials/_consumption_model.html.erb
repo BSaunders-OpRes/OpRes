@@ -13,9 +13,12 @@
   <div class="my-4">
     <label for="" class="text-light-grey font-12 font-xxl-14 font-500">The following business services contain critical steps and are consuming IaaS/SaaS/PaaS technology components in the public cloud.</label>
     <div class="table-search-field">
-      <i class="fa fa-search text-dark font-14" aria-hidden="true"></i>
-      <%= text_field_tag 'supplier[name]', nil, placeholder: 'Search Suppliers...', class: 'w-100 form-control border-0 shadow-none font-xxl-14 search-supplier-name pl-4' %>
-      <span for="" class="m-0 font-13 empty-input-field font-600 text-danger">Clear</span>
+      <%= form_tag critical_important_system_organisation_dashboard_break_downs_path, method: :get, remote: true do %>
+        <i class="fa fa-search text-dark font-14" aria-hidden="true"></i>
+        <%= hidden_field_tag 'cm_model', @cm_model %>
+        <%= text_field_tag 'query', nil, placeholder: 'Search User', class: "w-100 form-control border-0 shadow-none", id: "search-filter", onkeyup: 'RailsUJS.fire(this.form, "submit")' %>
+        <span for="" class="m-0 font-13 clear-input-field font-600 text-danger" data-url="<%= critical_important_system_organisation_dashboard_break_downs_path %>">Clear</span>
+      <% end %>
     </div>
   </div>
 </div>
