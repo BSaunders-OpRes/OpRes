@@ -95,6 +95,13 @@ button[aria-expanded='false'] {
   }
 }
 
+.bubble-circle {
+  background: $primary-green;
+  width: 50px;
+  height: 50px;
+  border-radius: 100px;
+}
+
 .visibility-hidden {
   visibility: hidden;
 }
@@ -146,7 +153,9 @@ input[type=number] {
     background: #555;
   }
 }
-
+.min-height-auto {
+  min-height: auto !important;
+}
 .h-400-with-scroll {
   min-height: 170px;
   max-height: 400px;
