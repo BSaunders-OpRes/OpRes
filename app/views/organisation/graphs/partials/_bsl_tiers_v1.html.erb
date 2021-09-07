@@ -29,11 +29,11 @@
 <% else %>
   <div class="card border-0 pie-high-chart rounded-50">
     <div class="card-header h-240px border-0 bg-white text-center">
+      <p class="font-14 text-capitalize font-600 chart-header-title text-black text-decoration-none text-center">Total Business Services</p>
       <div class="donut-content">
         <%= react_component('highcharts/donut', { data: data.dig(:graph), render_to: 'bsl-tiers-graph' }, { class: 'h-200-highchart' }) %>
         <div class="d-flex donut-value flex-column">
-          <div class="font-50 font-700"><%= data.dig(:total) %></div>
-          <div class="font-14 font-600">Total Business Services</div>
+          <div class="font-30 font-700"><%= data.dig(:total) %></div>
         </div>
       </div>
     </div>
