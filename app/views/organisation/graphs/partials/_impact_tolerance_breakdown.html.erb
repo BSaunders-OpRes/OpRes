@@ -14,11 +14,13 @@
   </div>
 <% else %>
   <div class="card border-0 pie-high-chart">
+    <p class="font-14 text-capitalize font-600 chart-header-title text-black text-decoration-none text-center">Impact Tolerance Breakdown</p>
     <div class="card-header h-240px border-0 bg-white text-center">
+      <p class="font-14 text-capitalize font-600 chart-header-title text-black text-decoration-none text-center">Impact Tolerance Breakdown</p>
       <div class="donut-content">
         <%= react_component('highcharts/donut', { data: data.dig(:overall, :graph), render_to: 'donut' }, { class: 'h-200-highchart' }) %>
-         <div class="donut-value d-flex flex-column mt-3 w-xxl-25">
-          <span class="font-11 font-600 pt-1">Impact Tolerance Breakdown</span>
+        <div class="donut-value font-30 font-700 d-flex">
+          <%= data.dig(:overall, :total) %>
         </div>
       </div>
     </div>

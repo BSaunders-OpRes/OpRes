@@ -15,6 +15,7 @@
               <%= form_tag search_by_name_organisation_products_path, method: :get, remote: true do %>
                 <i class="fa fa-search text-dark font-14" aria-hidden="true"></i>
                 <%= text_field_tag 'query', nil, placeholder: 'Search Products', class: "w-100 form-control border-0 shadow-none", id: "country-search-filter", onkeyup: 'RailsUJS.fire(this.form, "submit")' %>
+                <span for="" class="m-0 font-13 clear-input-field font-600 text-danger" data-url="<%= search_by_name_organisation_products_path %>">Clear</span>
               <% end %>
             </div>
           </div>
