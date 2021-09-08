@@ -8,7 +8,7 @@
   }
   input[type=text] {
     background: $body-bg-color;
-    padding-left: 30px;
+    padding-left: 35px;
   }
   ::-webkit-input-placeholder {
     font-size: 12px;
@@ -33,9 +33,6 @@
     height: 100%;
     display: flex;
     align-items: center;
-  }
-  input:placeholder-shown {
-    padding: 5px 30px;
   }
   input:placeholder-shown + span {
     opacity: 0;

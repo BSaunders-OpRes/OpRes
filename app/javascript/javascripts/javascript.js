@@ -15,6 +15,7 @@ import './administration_portal/administration_portal';
 import './introjs/dashboard';
 import './custom/custom';
 import './custom/lib';
+import './list_directory/list_directory';
 import './graphs/graphs';
 import './highcharts/donut';
 import './highcharts/semi-donut';
