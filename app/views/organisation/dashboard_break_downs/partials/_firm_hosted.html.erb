@@ -1,0 +1,60 @@
+<div class="tab-pane fade active show" id='p_iaas'>
+  <div class="table-responsive">
+    <table class="table bg-white">
+      <thead>
+        <tr class="border-top-0">
+          <th class="text-capitalize font-12 text-light-grey border-0">
+            supplier name
+          </th>
+          <th class="text-capitalize font-12 text-light-grey border-0">
+            party type
+          </th>
+          <th class="text-capitalize font-12 text-light-grey border-0">
+            hosting provider
+          </th>
+          <th class="text-capitalize font-12 text-light-grey border-0">
+            total business service
+          </th>
+          <th class="text-capitalize font-12 text-light-grey border-0">
+            total critical steps
+          </th>
+          <th class="border-0"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @private_suppliers&.each do |s| %>
+        <tr>
+          <td class="text-uppercase font-12 font-xxl-14 font-700 py-4"><%= s.name %>
+          </td>
+          <td class="text-uppercase font-12 font-xxl-14 font-700 py-4">
+          <%= s.party_type %>
+          </td>
+          <td class="text-uppercase font-12 font-xxl-14 font-700 py-4">
+            <div class="d-flex align-items-center">
+              <div class="w-25px w-xxl-40px">
+                <%= image_pack_tag 'media/images/aws.png', class: 'img-fluid' %>
+              </div>
+              <span class="ml-1"><%= s.cloud_hosting_provider.name %></span>
+            </div>
+          </td>
+          <td class="text-uppercase font-12 font-xxl-14 font-700 py-4">
+            <%= s.bsls_count %>
+          </td>
+          <td class="text-uppercase font-12 font-xxl-14 font-700 py-4">
+            <%= s.critical_supplier_steps.count %>
+          </td>
+          <td class="text-capitalize font-12 text-primary font-xxl-14 font-500 py-4" type="button" class="btn white-btn text-capitalize" ><%= link_to "Breakdown", breakdown_organisation_dashboard_break_downs_path(id: s.id), remote: true %></td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+<!--   <nav aria-label="Page navigation example">
+    <ul class="pagination pagination-active justify-content-center mb-0">
+      <li class="page-item active"><a class="rounded-0 font-12 font-xxl-14 page-link border-0 text-light-grey shadow-none transition" href="javascript:void(0);">1</a></li>
+      <li class="page-item"><a class="rounded-0 font-12 font-xxl-14 page-link border-0 text-light-grey shadow-none transition" href="javascript:void(0);">2</a></li>
+      <li class="page-item"><a class="rounded-0 font-12 font-xxl-14 page-link border-0 text-light-grey shadow-none transition" href="javascript:void(0);">3</a></li>
+      <li class="page-item"><a class="rounded-0 font-12 font-xxl-14 page-link border-0 text-light-grey shadow-none transition" href="javascript:void(0);">4</a></li>
+    </ul>
+  </nav> -->
+</div>
