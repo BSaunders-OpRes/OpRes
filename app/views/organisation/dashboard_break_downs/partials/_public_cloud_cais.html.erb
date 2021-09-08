@@ -14,6 +14,30 @@
         <i class="fa fa-ellipsis-v"></i>
       </div>
     </div>
+      <ul class="nav nav-tabs border-0 active-green my-4 public-cloud-system">
+        <li class="nav-item mr-3">
+          <%= link_to 'IaaS', critical_important_system_organisation_dashboard_break_downs_path(cm_model:"iaas"), class:"active nav-link text-capitalize font-12 font-xxl-14 border-0 p-0 pb-2 text-light-grey font-500", remote: true %>
+        </li>
+        <li class="nav-item mr-3">
+          <%= link_to 'SaaS', critical_important_system_organisation_dashboard_break_downs_path(cm_model:'saas'), class:"nav-link text-capitalize font-12 font-xxl-14 border-0 p-0 pb-2 text-light-grey font-500", remote: true %>
+        </li>
+        <li class="nav-item mr-3">
+           <%= link_to 'PaaS', critical_important_system_organisation_dashboard_break_downs_path(cm_model:"paas"), class:"nav-link text-capitalize font-12 font-xxl-14 border-0 p-0 pb-2 text-light-grey font-500", remote: true %>
+        </li>
+      </ul>
+      <div class="form-group">
+        <div class="my-4">
+          <label for="" class="text-light-grey font-12 font-xxl-14 font-500">The following business services contain critical steps and are consuming IaaS/SaaS/PaaS technology components in the public cloud.</label>
+          <div class="table-search-field">
+            <%= form_tag critical_important_system_organisation_dashboard_break_downs_path, method: :get, remote: true do %>
+              <i class="fa fa-search text-dark font-14" aria-hidden="true"></i>
+              <%= hidden_field_tag 'cm_model', @cm_model %>
+              <%= text_field_tag 'query', @query, placeholder: 'Search User', class: "w-100 form-control border-0 shadow-none", id: "search-filter", onkeyup: 'RailsUJS.fire(this.form, "submit")' %>
+              <span for="" id='clear-field' class="m-0 font-13 clear-input-field font-600 text-danger" data-url="<%= critical_important_system_organisation_dashboard_break_downs_path %>">Clear</span>
+            <% end %>
+          </div>
+        </div>
+      </div>
     <div class="custom-tab-content" >
       <%= render 'organisation/dashboard_break_downs/partials/consumption_model' %>
     </div>

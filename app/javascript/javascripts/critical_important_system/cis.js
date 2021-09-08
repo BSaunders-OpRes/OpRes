@@ -1,20 +1,23 @@
 document.addEventListener('turbolinks:load', function() {
   /******************** Event Bindings ********************
   ********************************************************/
-  $('body').on('click', '.empty-input-field', function (){
-    $(this).parents('.table-search-field').find('input').val('')
-});
+  $('.public-cloud-system a').on('click', function(){
+    $('.public-cloud-system a.active').removeClass('active');
+    $(this).addClass("active");
+    $('#cm_model').val(this.text.toLowerCase())
+  });
 
-function search_data(url) {
-    $.ajax({
-      url:      url,
-      dataType: 'script',
-      type:     'GET',
-      data: {
-        query: ''
-      }
-    });
-  }
+  $('.private-cloud-system a').on('click', function(){
+    $('.private-cloud-system a.active').removeClass('active');
+    $(this).addClass("active");
+    $('#cm_model').val(this.text.toLowerCase())
+  });
+
+  $('#clear-field').on('click', function(){
+    $('#search-filter').val('');
+
+  });
+
 });
 
 

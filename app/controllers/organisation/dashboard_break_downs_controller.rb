@@ -30,22 +30,26 @@ class Organisation::DashboardBreakDownsController < Organisation::BaseController
       'current_user' =>  current_user,
       'organisational_unit' =>  organisational_unit
     }
-    @suppliers = Supplier.where(unit_id: managing_nodes).group_by{ |e| e.consumption_model }
-    @cm_model = params[:cm_model].present? ? params[:cm_model]: 'iaas'
-      if @cm_model == 'paas'
-        @suppliers = Supplier.where(unit_id: managing_nodes).where("name LIKE ?", "%#{params[:query]}%").where(consumption_model: params[:cm_model]) if params[:query].present?
-        @suppliers = @suppliers['paas'] unless params[:query].present?
-        @p_active = 'active'
-      elsif @cm_model == 'saas'
-        @suppliers = Supplier.where(unit_id: managing_nodes).where("name LIKE ?", "%#{params[:query]}%").where(consumption_model: params[:cm_model]) if params[:query].present?
-        @suppliers = @suppliers['saas'] unless params[:query].present?
-        @s_active = 'active'
+    @query = params[:query]
+    @type = params[:type]
+    if @type.blank?
+      @suppliers = Supplier.where(unit_id: managing_nodes).group_by{ |e| e.consumption_model }
+      @cm_model = params[:cm_model].present? ? params[:cm_model]: 'iaas'
+      @suppliers = Supplier.where(unit_id: managing_nodes).where("name ILIKE ?", "%#{params[:query]}%").where(consumption_model: params[:cm_model]) if params[:query].present?
+        if @cm_model == 'paas'
+          @suppliers = @suppliers['paas'] unless params[:query].present?
+          @p_active = 'active'
+        elsif @cm_model == 'saas'
+          @suppliers = @suppliers['saas'] unless params[:query].present?
+          @s_active = 'active'
+        else
+          @suppliers = @suppliers['iaas'] unless params[:query].present?
+          @i_active = 'active'
+        end
       else
-        @suppliers = Supplier.where(unit_id: managing_nodes).where("name LIKE ?", "%#{params[:query]}%").where(consumption_model: params[:cm_model]) if params[:query].present?
-        @suppliers = @suppliers['iaas'] unless params[:query].present?
-        @i_active = 'active'
+        @private_suppliers = Supplier.where(unit_id: managing_nodes).joins(:supplier_steps).where(supplier_steps: { party_type: 'firm-hosted' }).where("name ILIKE ?", "%#{params[:query]}%").where(consumption_model: params[:cm_model])
       end
-    @private_suppliers = Supplier.where(unit_id: managing_nodes).joins(:supplier_steps).where(supplier_steps: { party_type: 'firm-hosted' }).group_by{ |e| e.consumption_model }
+    @private_suppliers = Supplier.where(unit_id: managing_nodes).joins(:supplier_steps).where(supplier_steps: { party_type: 'firm-hosted' }).where(consumption_model: @cm_model) unless @type.present?
     @conformant_suppliers     = ConformanceSupplierService.new(args).conformant_suppliers_data
     @non_conformant_suppliers = @conformant_suppliers.sort{|a,b| b[1][:total_impact_tolerance] <=> a[1][:total_impact_tolerance]}.reverse.to_h
     respond_to do |format|

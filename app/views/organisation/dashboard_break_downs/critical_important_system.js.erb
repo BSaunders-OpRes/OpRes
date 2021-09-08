@@ -1,1 +1,5 @@
-$(".custom-tab-content").html("<%= escape_javascript(render 'organisation/dashboard_break_downs/partials/consumption_model') %>");
+<% if @type.present? %>
+   $(".private-tab-content").html("<%= escape_javascript(render 'organisation/dashboard_break_downs/partials/firm_hosted') %>");
+<% else %>
+  $(".custom-tab-content").html("<%= escape_javascript(render 'organisation/dashboard_break_downs/partials/consumption_model') %>");
+<% end %>
