@@ -175,3 +175,26 @@
     font-weight: bold;
   }
 }
+.serverity-table {
+  thead {
+    tr {
+      th {
+        border-top: 0;
+        border-bottom: 0;
+        padding-left: 0;
+      }
+    }
+  }
+  tbody {
+    tr {
+      td {
+        border-top: 0;
+        padding-left: 0;
+        padding-right: 0;
+        p {
+          border-left: 2px solid $primary-green;
+        }
+      }
+    }
+  }
+}

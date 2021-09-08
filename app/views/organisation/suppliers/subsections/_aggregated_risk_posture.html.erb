@@ -2,7 +2,7 @@
   <div class="card-body px-0">
     <div class="box">
       <div class="d-flex justify-content-between align-items-center mb-4 px-4">
-        <h5 class="text-capitalize text-left font-600">Aggregated Risk Posture</h5>
+        <h5 class="text-capitalize text-left font-600">Aggregated Resilience Posture</h5>
         <div class="text-right">
           <!-- <a href="#" class="text-black">
             <i class="fa fa-ellipsis-v text-right" aria-hidden="true"></i>
@@ -10,31 +10,14 @@
         </div>
       </div>
       <div class="mb-4 px-4">
-        <div class="row justify-content-center">
-          <div id="supplier-conformance-impact-tolerance" class="col-sm-5 py-3 px-md-3 lazy-graph" data-key="supplier_conformance_impact_tolerance" data-args="<%= { supplier: @supplier.id }.to_json %>" data-append-to="supplier-conformance-impact-tolerance" data-partial-name="supplier_conformance_impact_tolerance">
+        <div class="justify-content-center">
+          <div id="supplier-conformance-impact-tolerance" class="row mx-auto lazy-graph" data-key="supplier_conformance_impact_tolerance" data-args="<%= { supplier: @supplier.id }.to_json %>" data-append-to="supplier-conformance-impact-tolerance" data-partial-name="supplier_conformance_impact_tolerance">
             <%= render 'organisation/graphs/partials/supplier_conformance_impact_tolerance', data: {} %>
-          </div>
-          <div class="col-md-5 d-flex align-items-center justify-content-center py-3">
-            <div class="card border-0 pie-high-chart h-260px">
-              <div class="border-0 bg-white text-center h-100 d-flex flex-column justify-content-end">
-                <div class="donut-content">
-                  <div class="align-items-center justify-content-center">
-                    <div class="round p-5 bg-pink">
-                      <i class="fa fa-exclamation-triangle font-40 text-red"></i>
-                    </div>
-                  </div>
-                </div>
-                <div class="text text-center mt-4 pt-2">
-                  <p class="font-13 font-400">Open Resilience Gaps</p>
-                  <h6 class="font-13 font-600">0</h6>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
       </div>
       <hr>
-      <div class="row">
+      <div class="row mt-5">
         <div id="supplier-critical-important-bsl" class="lazy-graph col-md-6 col-lg-4" data-key="supplier_critical_important_bsl" data-args="<%= { supplier: @supplier.id }.to_json %>" data-append-to="supplier-critical-important-bsl" data-partial-name="supplier_critical_important_bsl">
           <%= render 'organisation/graphs/partials/supplier_critical_important_bsl', data: {} %>
         </div>

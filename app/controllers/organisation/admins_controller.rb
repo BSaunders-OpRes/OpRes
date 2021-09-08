@@ -1,5 +1,7 @@
+require 'csv'
+
 class Organisation::AdminsController < Organisation::BaseController
-  load_and_authorize_resource :user, class: 'User', parent: false
+  load_and_authorize_resource :user, class: 'User', parent: false, except: [:create]
 
   before_action :load_admin, only: %i[edit update show destroy]
 
@@ -47,7 +49,7 @@ class Organisation::AdminsController < Organisation::BaseController
   end
 
   def search_by_name
-    @admins = organisational_unit.users.where("first_name ILIKE (?) OR last_name ILIKE (?)", "%#{params[:query]}%", "%#{params[:query]}%").order(id: :desc)
+    @admins = organisational_unit.users.where("first_name||' '||last_name ilike :name", name: "%#{params[:query]}%").order(id: :desc)
   end
 
   private

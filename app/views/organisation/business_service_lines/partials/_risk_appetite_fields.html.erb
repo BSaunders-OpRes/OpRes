@@ -11,9 +11,9 @@
     </div>
   </div>
 
-  <div class="row align-items-center">
-    <div class="col-md-7 d-flex align-items-center mb-sm-0 mb-2">
-      <div class="slidecontainer d-flex align-items-center w-100">
+  <div class="row align-items-end">
+    <div class="col-md-7 d-flex align-self-end mb-sm-0 mb-2">
+      <div class="slidecontainer d-flex align-items-center w-100 mb-3">
         <span class="font-12 font-300 mr-2 light-text text-capitalize font-400">very low</span>
         <div class="chrome flex-1">
           <input type="range" name="risk_slider" class="w-100 myinput bsl-risk-slider justification-requirer" min="0" max="4" step="1" value="<%= RiskAppetite.labels[risk_appetite.object.label] %>">
@@ -22,12 +22,13 @@
         <span class="font-12 font-300 ml-2 light-text text-capitalize font-400">very high</span>
       </div>
     </div>
-    <div class="col-md-3 d-flex align-items-center pr-1">
+    <div class="col-md-3 d-flex align-items-start pr-1 flex-column">
+      <span class="text-danger font-10 font-600 d-none warning-error" id="warning_message_<%= risk_appetite.object.kind %>" >*Risk Appetite does not meet the requirement of target value.</span>
       <div class="input-group mr-1">
         <div class="input-group-prepend">
           <div class="input-group-text px-3 bg-white font-12"><%= risk_appetite_icon(risk_appetite.object) %></div>
         </div>
-        <%= risk_appetite.number_field :amount, class: 'form-control form-control font-12 h-auto py-3 shadow-none justification-requirer', placeholder: 'Enter Target',  value: risk_appetite_amount_value(risk_appetite.object), min: 0, step: (risk_appetite.object.percentage_amount? ? 0.01 : 1) %>
+        <%= risk_appetite.number_field :amount, class: 'form-control form-control font-12 h-auto py-3 shadow-none justification-requirer risk-appetite', placeholder: 'Enter Target',  value: risk_appetite_amount_value(risk_appetite.object), min: 0, step: (risk_appetite.object.percentage_amount? ? 0.01 : 1), data: { sla: "business_service_line_sla_attributes_#{risk_appetite.object.kind}", percent: risk_appetite.object.percentage_amount?  } %>
       </div>
     </div>
     <div class="col-md-2 pl-1">
@@ -41,9 +42,14 @@
   <div class="row">
     <div class="col-md-12 mt-4 field-scroll">
       <a class="card cursor-pointer text-decoration-none text-dark" href="#justification-expand-<%= risk_appetite.object.kind %>" data-toggle="collapse" aria-expanded="false">
-        <div class="card-body d-flex align-items-center justify-content-between p-3">
+        <div class="card-body d-flex align-items-center justify-content-between p-3 position-relative">
           <span class="text-capitalize light-text font-12 ">add justification</span>
-          <span class="font-600 text-capitalize font-12">expand</span>
+          <span class="down-arrow-animation">
+            <i class="fa fa-angle-double-down arrow font-18 font-xxl-20" aria-hidden="true"></i>
+          </span>
+          <span class="font-600 text-capitalize font-12 font-xxl-14">
+            Expand
+          </span>
         </div>
       </a>
       <div class="collapse w-100" id="justification-expand-<%= risk_appetite.object.kind %>">

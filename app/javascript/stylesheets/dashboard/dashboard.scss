@@ -59,6 +59,11 @@ i.paperclip {
   margin-top: -80px;
 }
 
+.pink-box {
+  width: 160px;
+  height: 160px;
+}
+
 .add-step-btn {
   color: $black;
   &:hover {
@@ -925,7 +930,7 @@ i.paperclip {
         top: unset;
       }
       .sm-donut-desc {
-        top: 100%;
+        top: 115%;
       }
     }
   }

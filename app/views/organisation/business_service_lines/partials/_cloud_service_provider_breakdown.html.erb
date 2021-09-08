@@ -2,35 +2,37 @@
   <div class="card-body">
     <div class="d-flex align-items-center justify-content-between flex-wrap">
       <h5 class="font-400 text-capitalize text-capitalize flex-1 mb-3 mr-4"><%= @data&.dig('chp_name') %></h5>
-      <i class="fa fa-ellipsis-v mb-3"></i>
+      <!-- <i class="fa fa-ellipsis-v mb-3"></i> -->
     </div>
     <ul class="nav nav-tabs border-0 active-green my-4">
+      <% unless @data&.dig('chp_name') == 'Private Cloud' %>
+        <li class="nav-item mr-4">
+          <a class="nav-link text-capitalize font-14 font-xxl-14 border-0 p-0 pb-2 text-light-grey font-500 active" data-toggle="tab" href="#view_all-<%= @data&.dig('chp_name')&.split(' ')&.first%>" role="tab" aria-controls="home" aria-selected="true">View all</a>
+        </li>
+      <% end %>
+
       <% Supplier.real_consumption_models.keys.each_with_index do |consumption_model, index|%>
         <% unless @data&.dig('chp_name') == 'Private Cloud' && consumption_model == 'saas' %>
           <li class="nav-item mr-4">
-            <a class="nav-link <%= index == 0 ? 'active' : '' %> show text-capitalize font-14 font-xxl-14 border-0 p-0 pb-2 text-light-grey font-500" data-toggle="tab" href="#<%= consumption_model%>-<%= @data&.dig('chp_name')&.split(' ')&.first %>" role="tab" aria-controls="home" aria-selected="true"><%= titleize_last_alpha(consumption_model)%></a>
+            <a class="nav-link <%= @data&.dig('chp_name') == 'Private Cloud' && index == 0 ? 'active' : '' %> show text-capitalize font-14 font-xxl-14 border-0 p-0 pb-2 text-light-grey font-500" data-toggle="tab" href="#<%= consumption_model%>-<%= @data&.dig('chp_name')&.split(' ')&.first %>" role="tab" aria-controls="home" aria-selected="true"><%= titleize_last_alpha(consumption_model)%></a>
           </li>
         <% end %>
       <% end %>
-      <% unless @data&.dig('chp_name') == 'Private Cloud' %>
-        <li class="nav-item mr-4">
-          <a class="nav-link text-capitalize font-14 font-xxl-14 border-0 p-0 pb-2 text-light-grey font-500" data-toggle="tab" href="#view_all-<%= @data&.dig('chp_name')&.split(' ')&.first%>" role="tab" aria-controls="home" aria-selected="true">View all</a>
-        </li>
-      <% end %>
     </ul>
     <div class="tab-content">
+      <div class="tab-pane fade show <%= @data&.dig('chp_name') != 'Private Cloud' ? 'active' : '' %>" id="view_all-<%= @data&.dig('chp_name')&.split(' ')&.first%>">
+          <% unless @data&.dig('chp_name') == 'Private Cloud' %>
+            <%= render 'organisation/business_service_lines/partials/consumption_model_suppliers', consumption_model: 'view_all' %>
+          <% end %>
+      </div>
+
       <% Supplier.real_consumption_models.keys.each_with_index do |consumption_model, index|%>
         <% unless @data&.dig('chp_name') == 'Private Cloud' && consumption_model == 'saas' %>
-          <div class="tab-pane fade <%= index == 0 ? 'active' : '' %> show" id="<%= consumption_model %>-<%= @data&.dig('chp_name')&.split(' ')&.first%>">
+          <div class="tab-pane fade show <%= @data&.dig('chp_name') == 'Private Cloud' && index == 0 ? 'active' : '' %>" id="<%= consumption_model %>-<%= @data&.dig('chp_name')&.split(' ')&.first%>">
             <%= render 'organisation/business_service_lines/partials/consumption_model_suppliers', consumption_model: consumption_model %>
           </div>
         <% end %>
       <% end %>
-      <div class="tab-pane fade show" id="view_all-<%= @data&.dig('chp_name')&.split(' ')&.first%>">
-          <% unless @data&.dig('chp_name') == 'Private Cloud' %>
-            <%= render 'organisation/business_service_lines/partials/consumption_model_suppliers', consumption_model: 'view_all' %>
-          <% end %>
-        </div>
     </div>
   </div>
 </div>

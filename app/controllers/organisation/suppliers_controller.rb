@@ -60,9 +60,9 @@ class Organisation::SuppliersController < Organisation::BaseController
   end
 
   def compound_resilience
-    Sla::SLA_ATTR.each do |sla_attribute|
-      instance_variable_set("@#{sla_attribute}".to_sym, BusinessServiceLine.joins(:sla, steps: [supplier_steps: [:supplier]]).where(suppliers: {id: @supplier.id}).where.not(slas:{"#{sla_attribute}": nil}))
-    end
+    @service_level_agreement = BusinessServiceLine.joins(:sla, steps: [supplier_steps: [:supplier]])
+                                                  .where(suppliers: {id: @supplier.id})
+                                                  .where.not(slas:{ service_level_agreement: nil})
   end
 
   def search_and_filter
@@ -82,6 +82,13 @@ class Organisation::SuppliersController < Organisation::BaseController
     #   end
     # end
     @supplier.compliance_evidences.where(@key, query: "%#{params[:query]}%")
+  end
+
+  def find_compound_resilience_data
+    @supplier = Supplier.find(params[:args][:supplier])
+    @service_level_agreement = BusinessServiceLine.joins(:sla, steps: [supplier_steps: [:supplier]])
+                                                  .where(suppliers: {id: @supplier.id})
+                                                  .where.not(slas:{ "#{params[:args][:sla_name]}": nil})
   end
 
   private
