@@ -2,7 +2,7 @@
   <div class="card border-0 rounded-50">
     <div class="card-body">
       <div class="d-flex flex-wrap align-items-center justify-content-between">
-        <h5 class="font-400 text-capitalize flex-1 mb-2">top non-conformant supplier</h5>
+        <h5 class="font-600 text-capitalize flex-1 mb-2">top non-conformant supplier</h5>
         <div class="filter-grouped d-flex mr-2 mb-2 align-items-center">
           <div class="dropdown body-color-dropdown mr-2">
             <a id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class='dropdown-toggle text-capitalize py-2 pr-5 pl-2 d-flex align-items-center justify-content-start font-12 text-dark font-600 text-decoration-none' id='top-10'>view top 10</a>
@@ -12,7 +12,7 @@
               <a class="dropdown-item">Filter top 10</a>
             </div>
           </div>
-          <i class="fa fa-ellipsis-v"></i>
+          <!-- <i class="fa fa-ellipsis-v"></i> -->
         </div>
       </div>
     </div>
@@ -45,7 +45,7 @@
             <tr>
               <td class="text-uppercase font-12 font-xxl-14 font-700 py-4 w-25"><%= supplier.dig(:name) %></td>
               <td class="font-12 font-xxl-14 py-4">
-                <span class="font-500">0</span>
+                <span class="font-500"><%= supplier.dig(:institution_count) %></span>
               </td>
               <td class="font-12 font-xxl-14 py-4">
                 <span class="font-500"><%= supplier.dig(:total_business_services) %></span>
