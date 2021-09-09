@@ -46,11 +46,11 @@
       </div>
       <% @regions&.each do |region|%>
         <div class="form-group dropdown-item pl-3 m-0 mb-2">
-          <label for="ch619" class="custom-checkbox d-flex m-0">
+          <label for="<%= region.id %>" class="custom-checkbox d-flex m-0">
             <span class="font-12 text-black text-capitalize"><%= region.name %>
               <span class="text-light-grey">- <%= region.children.size %> countries</span>
             </span>
-            <input type="checkbox" class="form-control" id="ch619">
+            <input type="checkbox" class="form-control" id="<%= region.id %>">
             <span class="transparent-checkmark"></span>
           </label>
         </div>
@@ -78,11 +78,11 @@
       </div>
       <% @countries&.each do |country|%>
         <div class="form-group dropdown-item pl-3 m-0">
-          <label for="ch69" class="custom-checkbox d-flex m-0">
+          <label for="<%= country.id %>" class="custom-checkbox d-flex m-0">
             <span class="font-12 text-black text-capitalize">
               <i class="flag <%= country.name.split().last.downcase %>"></i>
             <%= country.name %></span>
-            <input type="checkbox" class="form-control" id="ch69">
+            <input type="checkbox" class="form-control" id="<%= country.id %>">
             <span class="transparent-checkmark"></span>
           </label>
         </div>
@@ -108,12 +108,12 @@
           <span class="transparent-checkmark"></span>
         </label>
       </div>
-      <% @intitutions.each do |intitution|%>
+      <% @intitutions.each do |institution|%>
         <div class="form-group dropdown-item pl-3 m-0">
-          <label for="ch69" class="custom-checkbox d-flex m-0">
+          <label for="<%= institution.id %>" class="custom-checkbox d-flex m-0">
             <span class="font-12 text-black text-capitalize">
-            <%= intitution.name %></span>
-            <input type="checkbox" class="form-control" id="ch69">
+            <%= institution.name %></span>
+            <input type="checkbox" class="form-control" id="<%= institution.id %>">
             <span class="transparent-checkmark"></span>
           </label>
         </div>
@@ -146,20 +146,7 @@
           <span class="transparent-checkmark"></span>
         </label>
       </div>
-      <div class="form-group dropdown-item pl-3 m-0">
-        <label for="ch59" class="custom-checkbox d-flex m-0">
-          <span class="font-12 text-black text-capitalize">APAC</span>
-          <input type="checkbox" class="form-control" id="ch59">
-          <span class="transparent-checkmark"></span>
-        </label>
-      </div>
-      <div class="form-group dropdown-item pl-3 m-0">
-        <label for="ch79" class="custom-checkbox d-flex m-0">
-          <span class="font-12 text-black text-capitalize">EMEA</span>
-          <input type="checkbox" class="form-control" id="ch79">
-          <span class="transparent-checkmark"></span>
-        </label>
-      </div>
+
     </div>
   </div>
 </div>

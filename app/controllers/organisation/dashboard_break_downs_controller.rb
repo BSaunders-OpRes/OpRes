@@ -52,6 +52,7 @@ class Organisation::DashboardBreakDownsController < Organisation::BaseController
     @regions = Unit.where(id: managing_nodes).where(type:"Units::Regional")
     @countries = Unit.where(id: managing_nodes).where(type:"Units::Country")
     @intitutions = Unit.where(id: managing_nodes).where(type:"Units::Institution")
+    @products = Product.joins(:units).where(units: { id: @intitutions.ids }).uniq
     @private_suppliers = Supplier.where(unit_id: managing_nodes).joins(:supplier_steps).where(supplier_steps: { party_type: 'firm-hosted' }).where(consumption_model: @cm_model) unless @type.present?
     @conformant_suppliers     = ConformanceSupplierService.new(args).conformant_suppliers_data
     @non_conformant_suppliers = @conformant_suppliers.sort{|a,b| b[1][:total_impact_tolerance] <=> a[1][:total_impact_tolerance]}.reverse.to_h
