@@ -382,11 +382,11 @@
                                   </table>
                                 </div>
                                 <div class="row custom-high-chart mb-4">
-                                  <div id="service-provider-breakdown-tier_2_amers" class="col-lg-6 col-md-12 custom-high-chart custom-high-chart mb-4 lazy-graph" data-key="tiers_service_provider_breakdown" data-args="<%= { bsl_ids: @bsl_regional_tiers.dig('EMEA','tier_2')&.map(&:id) }.to_json %>" data-append-to="service-provider-breakdown-tier_2_amers" data-partial-name="tiers_service_provider_breakdown">
+                                  <div id="service-provider-breakdown-tier_2_amers" class="col-lg-6 col-md-12 custom-high-chart custom-high-chart mb-4 lazy-graph" data-key="tiers_service_provider_breakdown" data-args="<%= { bsl_ids: @bsl_regional_tiers.dig('AMERS','tier_2')&.map(&:id) }.to_json %>" data-append-to="service-provider-breakdown-tier_2_amers" data-partial-name="tiers_service_provider_breakdown">
                                     <%= render 'organisation/graphs/partials/tiers_service_provider_breakdown', data: {} %>
                                   </div>
 
-                                   <div id="consumption-model-tier_2_amers" class="col-lg-6 col-md-12 custom-high-chart custom-high-chart mb-4 lazy-graph" data-key="tiers_consumption_model" data-args="<%= { bsl_ids: @bsl_regional_tiers.dig('EMEA','tier_2')&.map(&:id) }.to_json %>" data-append-to="consumption-model-tier_2_amers" data-partial-name="tiers_consumption_model">
+                                   <div id="consumption-model-tier_2_amers" class="col-lg-6 col-md-12 custom-high-chart custom-high-chart mb-4 lazy-graph" data-key="tiers_consumption_model" data-args="<%= { bsl_ids: @bsl_regional_tiers.dig('AMERS','tier_2')&.map(&:id) }.to_json %>" data-append-to="consumption-model-tier_2_amers" data-partial-name="tiers_consumption_model">
                                     <%= render 'organisation/graphs/partials/tiers_consumption_model', data: {} %>
                                   </div>
                                 </div>
