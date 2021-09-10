@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_16_074325) do
+ActiveRecord::Schema.define(version: 2021_09_06_103414) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -350,6 +350,29 @@ ActiveRecord::Schema.define(version: 2021_08_16_074325) do
     t.index ["supplier_id"], name: "index_relationship_owners_on_supplier_id"
   end
 
+  create_table "resilience_audits", force: :cascade do |t|
+    t.text "description"
+    t.bigint "resilience_ticket_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["resilience_ticket_id"], name: "index_resilience_audits_on_resilience_ticket_id"
+  end
+
+  create_table "resilience_tickets", force: :cascade do |t|
+    t.integer "rgid"
+    t.integer "status", default: 0
+    t.string "sla_attr"
+    t.integer "impact"
+    t.bigint "business_service_line_id", null: false
+    t.bigint "supplier_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["business_service_line_id"], name: "index_resilience_tickets_on_business_service_line_id"
+    t.index ["supplier_id"], name: "index_resilience_tickets_on_supplier_id"
+    t.index ["user_id"], name: "index_resilience_tickets_on_user_id"
+  end
+
   create_table "risk_appetite_justifications", force: :cascade do |t|
     t.bigint "risk_appetite_id"
     t.bigint "user_id"
@@ -595,6 +618,10 @@ ActiveRecord::Schema.define(version: 2021_08_16_074325) do
   add_foreign_key "product_channels", "products"
   add_foreign_key "products", "units"
   add_foreign_key "relationship_owners", "suppliers"
+  add_foreign_key "resilience_audits", "resilience_tickets"
+  add_foreign_key "resilience_tickets", "business_service_lines"
+  add_foreign_key "resilience_tickets", "suppliers"
+  add_foreign_key "resilience_tickets", "users"
   add_foreign_key "risk_appetite_justifications", "risk_appetites"
   add_foreign_key "risk_appetite_justifications", "users"
   add_foreign_key "risk_appetites", "business_service_lines"

@@ -23,6 +23,7 @@ import './highcharts/colored-donut';
 import './highcharts/sonification-chart';
 import './highcharts/stacked-chart';
 import './dashboards/critical-important-system';
+import './dashboards/resilience-ticket';
 
 window.$          = JQuery;
 window.Highcharts = Highcharts;
