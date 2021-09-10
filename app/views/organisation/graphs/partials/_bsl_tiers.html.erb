@@ -1,7 +1,7 @@
 <% if data.blank? %>
   <div class="card border-0 shadow-sm pie-high-chart overflow-hidden rounded-50 min-h-560">
     <div class="card-header bg-white text-center">
-      <p class="font-14 text-capitalize font-600 chart-header-title">business services</p>
+      <p class="font-14 text-capitalize font-600 chart-header-title">business service tier</p>
       <div class="donut-content h-75">
         <div class="empty-donut-block py-3 px-5"></div>
       </div>
@@ -29,7 +29,7 @@
 <% else %>
   <div class="card border-0 shadow-sm pie-high-chart overflow-hidden rounded-50 min-h-560">
     <div class="card-header bg-white text-center">
-      <p class="font-14 text-capitalize font-600 chart-header-title">business services</p>
+      <p class="font-14 text-capitalize font-600 chart-header-title">business service tiers</p>
       <div class="donut-content">
         <%= react_component('highcharts/donut', { data: data.dig(:graph), render_to: 'bsl-tiers-graph' }, { class: 'h-200-highchart' }) %>
         <div class="donut-value font-50 font-700"><%= data.dig(:total) %></div>

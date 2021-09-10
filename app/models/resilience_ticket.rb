@@ -1,0 +1,16 @@
+class ResilienceTicket < ApplicationRecord
+  # Associations #
+  belongs_to :business_service_line
+  belongs_to :supplier
+  belongs_to :user
+
+  has_many :resilience_audits, dependent: :destroy
+
+  # Enums #
+  enum status: %i[open onhold close]
+
+  # Methods #
+  def days_open 
+    (Date.parse(Time.now.to_s) - Date.parse(updated_at.to_s)).to_i
+  end
+end

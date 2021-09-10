@@ -1,0 +1,64 @@
+<div class="resilience-gap-assignee px-4 mb-4">
+  <h6 class="my-4">Resilience Gap Assignee</h6>
+  <div class="details mb-4">
+    <div class="intro-box mb-3 d-flex align-items-start justify-content-center">
+      <div class="w-50 w-md-25 mr-1">
+        <div class="card">
+          <div class="card-body">
+            <span class="font-14 font-500"><strong>Name:</strong> <%= @resilience_ticket.user.name %></span>
+          </div>
+        </div>
+      </div>
+      <div class="w-50 w-md-75">
+        <div class="card">
+          <div class="card-body">
+            <span class="font-14 font-500"><strong>Email Address :</strong> <%=  @resilience_ticket.user.email%></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="buttons my-4">
+    <button type="button" class="btn btn-sm btn-dark py-2 px-3 bg-black rounded-50 mr-1 w-150px text-left" data-toggle="modal" data-target="#resilience-user-modal">
+      <i class="fa fa-pencil font-20 align-middle"></i>
+      <span class="d-inline-block ml-2">Edit</span>
+    </button>
+  </div>
+</div>
+<div class="modal fade" id="resilience-user-modal" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Resilience Gap Assignee</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <%= form_tag organisation_resilience_ticket_save_assignee_user_path(@resilience_ticket), remote: true do %>
+        <div class="modal-body">
+          <div class="row">
+            <div class="col-12 form-group single-select2">
+              <label for="" class="text-capitalize">resilience gap</label>
+              <%= select_tag 'user', options_for_select(@resilience_bsl.organisation_users.map { |user| [user.email, user.id,{'data-name'=> user.name}] }), prompt: 'Select Resilience Assignee', class: 'form-control w-100 font-12 h-auto py-3 shadow-none select2 resilience-user'%>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-12 form-group">
+              <div class="card">
+                <div class="card-body px-2 py-3">
+                  <p id="resilience-assignee-name">
+                    <span class="text-capitalize font-12">selected resilience assigned name</span>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-light-grey font-600 shadow-none" data-dismiss="modal">Close</button>
+          <%= submit_tag 'Save Changes', class: 'btn black-btn font-600 shadow-none', id: 'save-changes-btn' %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
