@@ -2,8 +2,8 @@
   <div class="card border-0 rounded-50">
     <div class="card-body">
       <div class="d-flex align-items-center justify-content-between">
-        <h5 class="font-400 text-capitalize">impact tolerance breakdown - per filter</h5>
-        <i class="fa fa-ellipsis-v"></i>
+        <h5 class="font-600 text-capitalize">impact tolerance breakdown - per filter</h5>
+        <!-- <i class="fa fa-ellipsis-v"></i> -->
       </div>
     </div>
     <div class="table-responsive mt-4 bg-body-color">
@@ -14,13 +14,13 @@
               service level targets
             </th>
             <th class="text-capitalize font-12 text-light-grey border-0">
-              total N# of match tolerance
+              Total Number Match Impact Tolerance
             </th>
             <th class="text-capitalize font-12 text-light-grey border-0">
-              Total N# of Meet impact tolerance
+              Total Number Meet Impact Tolerance
             </th>
             <th class="text-capitalize font-12 text-light-grey border-0">
-              Total N# of exceeds impact tolerance
+              Total Number Exceed Impact Tolerance
             </th>
             <th class="text-capitalize font-12 text-light-grey border-0">
               Total Number
@@ -116,6 +116,16 @@
               </td>
             </tr>
           <% end %>
+        </tbody>
+        <tbody>
+          <tr>
+            <td colspan='5' class= 'text-right pr-5'>
+              <div class="bubble d-flex align-items-center justify-content-end">
+                <span class= 'font-600 font-14 font-xxl-14 mr-2 text-capitalize'>total number: </span>
+                <div class="bubble-circle d-flex align-items-center justify-content-center font-14 font-600"><%= @impact_tolerance_breakdowns.dig(:overall_tolerance) %></div>
+              </div>
+            </td>
+          </tr>
         </tbody>
       </table>
     </div>

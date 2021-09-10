@@ -12,7 +12,7 @@ class ConformanceSupplierService < Graphs::BaseService
                                 .includes(:sla, :risk_appetites)
 
 
-      total = bsls.count * 120
+      total = bsls.count
       total_sum = 0
       conformant_data["#{supplier.id}"][:name]                      = supplier.name
       conformant_data["#{supplier.id}"][:total_business_services]   = total
@@ -33,7 +33,7 @@ class ConformanceSupplierService < Graphs::BaseService
           end
         end
       end
-
+      conformant_data["#{supplier.id}"][:institution_count] = supplier&.unit&.children&.count
       conformant_data["#{supplier.id}"][:total_impact_tolerance] = total_sum
     end
     conformant_suppliers = conformant_data.sort{|a,b| b[1][:total_impact_tolerance] <=> a[1][:total_impact_tolerance]}.to_h
