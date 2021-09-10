@@ -4,6 +4,7 @@ class User < ApplicationRecord
   has_many :managers, dependent: :destroy
   has_many :managing_units, through: :managers, source: :unit
   has_many :risk_appetite_justifications, dependent: :nullify
+  has_many :resilience_tickets, dependent: :destroy
 
   # Callbacks #
   before_validation :confirm_user

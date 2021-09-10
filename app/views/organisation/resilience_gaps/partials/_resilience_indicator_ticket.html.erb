@@ -1,0 +1,82 @@
+<div id='cloud-service-provider' class="new-dashboard new-cloud-dashboard resilience-gap-view-page">
+  <div class="row no-gutters">
+    <div class="col-sm-12 px-1">
+      <div class="d-flex justify-content-between align-items-center flex-wrap">
+        <div class="left d-flex align-items-center flex-wrap">
+          <div class="mr-4 back-btn mb-2 mb-sm-0 ">
+            <%= render 'layouts/partials/shared/redirect_back', path: organisation_business_service_line_path(@resilience_bsl) %>
+          </div>
+          <h2 class="font-600 font-sm-18 font-25 text-capitalize">Resilience Indicator Ticket</h2>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="secondary-sidebar d-none">
+    <%= image_pack_tag 'media/images/dots.png' %>
+  </div>
+  <div class="row mt-5 no-gutters">
+    <div class="col-sm-3 col-xxl-2 px-1">
+      <aside class="fixed-secondary-sidebar position-static" id='sticky-sidebar-demo'>
+        <i class="fa fa-times-circle fa-1x d-none font-20"></i>
+        <ul class="p-0 list-unstyled inner-wrapper-sticky">
+          <li class="links active-white mb-2 mb-sm-3">
+            <a href="#section1" class=" text-decoration-none text-capitalize font-13 font-xxl-14 d-block py-2">Overview</a>
+          </li>
+          <li class="links mb-2 mb-sm-3">
+            <a href="#section2" class=" text-decoration-none text-capitalize font-13 font-xxl-14 d-block py-2">Description</a>
+          </li>
+          <li class="links mb-2 mb-sm-3">
+            <a href="#section3" class=" text-decoration-none text-capitalize font-13 font-xxl-14 d-block py-2">Resilience Gap Audit Tracker</a>
+          </li>
+        </ul>
+      </aside>
+    </div>
+    <div class="col-sm-9 col-xxl-10 px-1">
+      <div class="w-100">
+        <div class="content-area">
+          <div id="section1">
+            <%= render 'organisation/resilience_gaps/subsections/overview'%>
+          </div>
+          <div id="section2">
+            <%= render 'organisation/resilience_gaps/subsections/description'%>
+          </div>
+          <div id="section3" class="section-3">
+            <%= render 'organisation/resilience_gaps/subsections/resilience_gap_audit_tracker'%>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div id="all-resilience">
+</div>
+<%= render 'organisation/resilience_gaps/partials/all_resilience_modal' %>
+
+<div id="update-modal">
+</div>
+
+<div class="modal resilience-ticket-modal my-5 py-5 pr-0" id="resilience-ticket-subscription-update-modal" tabindex="-1" role="dialog" aria-labelledby="new-supplier-modal-1" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header border-0 p-4">
+        <h5 class="modal-title text-capitalize font-18">
+          Subscribe to Updates
+        </h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body px-4 pt-0">
+        <div class="box">
+          <div class="resilience-gap-text">
+            <p class="font-12 mb-4">Add a short bit of text about how subscribing to updates works here</p>
+            <button type="button" class="btn btn-sm btn-dark py-3 px-4 bg-black rounded-50 mr-1 pull-right">
+              Confirm & Subscribe
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<%=  render 'organisation/resilience_gaps/partials/add_attachment_modal' %>

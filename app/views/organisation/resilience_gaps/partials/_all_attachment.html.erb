@@ -1,0 +1,27 @@
+<div class="all-attachments px-4 mb-4">
+  <h6 class="my-4">All Attachments</h6>
+  <% @resilience_audits&.each do |resilience_audit|%>
+    <div class="line-row d-flex align-items-center justify-content-between mb-4 flex-wrap">
+      <div class="left-side d-flex align-items-center">
+        <div class="image px-4 py-3 mr-3 bg-body-color">
+          <i class="fa fa-paperclip paperclip font-20 align-middle"></i>
+        </div>
+        <div class="text">
+          <span class="d-block font-14 font-500"><%= resilience_audit.attachment.record.description %></span>
+          <span class="d-block font-12 text-light-grey"><%="#{ @resilience_ticket.user.name}, #{@resilience_ticket.created_at.strftime('%d-%m-%y')}" %></span>
+        </div>
+      </div>
+      <div class="right-side text-right">
+        <%= link_to 'View', rails_blob_path(resilience_audit.attachment, disposition: 'preview'), target: '_blank', class: 'ml-2 text-black text-decoration-none' %>
+        <%= link_to 'Download', rails_blob_path(resilience_audit.attachment, disposition: 'attachment'), class: 'ml-2 text-black text-decoration-none' %>
+      </div>
+    </div>
+  <% end %>
+
+ <!--  <div class="buttons pt-3 my-4">
+    <span data-toggle="modal" data-target="#resilience-ticket-add-attachment-modal" class="font-13 font-500 btn btn-sm btn-dark py-2 px-3 bg-black rounded-50 mr-1 mb-2 cursor-pointer">
+      <i class="fa fa-paperclip paperclip font-20 align-middle"></i>
+      <span class="text-white text-decoration-none cursor-pointer">Add Attachments</span>
+    </span>
+  </div> -->
+</div>

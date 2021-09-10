@@ -1,0 +1,56 @@
+<div class="modal resilience-ticket-modal my-5 py-5 pr-0" id="resilience-ticket-add-attachment-modal" tabindex="-1" role="dialog" aria-labelledby="new-supplier-modal-1" aria-hidden="true">
+  <div class="modal-dialog modal-xl" role="document">
+    <div class="modal-content">
+      <div class="modal-header border-0 p-4">
+        <h5 class="modal-title text-capitalize font-18">
+          Add Attachments
+        </h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <%#= form_for resilience_audit, url: new_or_create ? organisation_resilience_ticket_resilience_gaps_path(@resilience_ticket) : organisation_resilience_ticket_resilience_gap_path(@resilience_ticket), method:new_or_create ? :post : :patch, remote: true do |f| %>
+      <div class="modal-body px-4 pt-4">
+        <div class="box mb-3">
+          <div class="resilience-gap-text">
+            <div class="details d-flex align-items-center justify-content-between">
+              <div class="descr d-flex align-items-center">
+                <div class="icon py-3 px-4 bg-body-color rounded mr-3">
+                  <i class="fa fa-paperclip paperclip font-20"></i>
+                </div>
+                <div class="attach font-13 font-500">
+                  <span class="mr-2">Nameofthefile.doc</span>
+                  <span>45KB</span>
+                </div>
+              </div>
+              <div class="progress w-50" style="height: 2px;">
+                <div class="progress-bar bg-black" role="progressbar" style="width: 50%;" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+              <div class="delete">
+                <a href="#" class="text-danger">
+                  DELETE
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="buttons my-4">
+            <button type="button" class="btn btn-sm btn-dark py-2 px-3 bg-black rounded mr-1">
+              <i class="fa fa-paperclip paperclip font-20 align-middle"></i>
+              Attach File
+            </button>
+          </div>
+          <div class="foot d-flex align-items-center justify-content-between font-500 flex-wrap">
+            <div class="d-flex align-items-center mb-3">
+              <span class="font-13 mr-3">Date of Update: 01/01/01</span>
+              <span class="font-13">|</span>
+              <span class="font-13 ml-3">Updated by Jane Doe</span>
+            </div>
+            <button type="button" class="btn btn-sm btn-dark py-3 px-4 bg-black rounded-50 mb-3 mr-1">
+              Submit Update
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -25,6 +25,7 @@ import './highcharts/sonification-chart';
 import './list_directory/list_directory';
 import './highcharts/stacked-chart';
 import './dashboards/critical-important-system';
+import './dashboards/resilience-ticket';
 
 window.$          = JQuery;
 window.Highcharts = Highcharts;

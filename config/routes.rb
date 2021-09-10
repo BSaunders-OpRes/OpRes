@@ -30,13 +30,21 @@ Rails.application.routes.draw do
     get :build_user_invitation, to: 'journeys#build_user_invitation'
     resources :dashboard, only: %i[index show]
 
+
+    resources :resilience_tickets do
+      post :save_assignee_user, to: 'resilience_gaps#save_assignee_user'
+
+      resources :resilience_gaps do
+        get :resilience_indicator_ticket, on: :member
+      end
+    end
+
     resources :dashboard_break_downs, only: %i[] do
       get :business_service_tiers, on: :collection
       get :breakdown, on: :collection
       get :cloud_service_provider_breakdown, on: :collection
       get :critical_important_system, on: :collection
       get :impact_tolerance_appetite, on: :collection
-      get :resilience_indicator_ticket, on: :collection
       get :cloud_critical_system, on: :collection
       get :system_supplier_resilience_indicator, on: :collection
       get :impact_tolerance_breakdown, on: :collection
