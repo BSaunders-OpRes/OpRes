@@ -8,18 +8,19 @@
         <span class="text-capitalize font-12 font-xxl-14 text-light-grey">View all</span>
       </span>
     </button>
-    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+    <div class="dropdown-menu supplier-type" aria-labelledby="dropdownMenuButton">
       <div class="form-group dropdown-item pl-3 m-0">
         <label for="ch69" class="custom-checkbox d-flex m-0">
           <span class="font-12 text-black text-capitalize">Critical</span>
-          <input type="checkbox" class="form-control" id="ch69">
+          <input type="checkbox" class="form-control filter-value" id="ch69" data-id="ch69" data-args='critical' name="critical">
+
           <span class="transparent-checkmark"></span>
         </label>
       </div>
       <div class="form-group dropdown-item pl-3 m-0">
         <label for="ch59" class="custom-checkbox d-flex m-0">
           <span class="font-12 text-black text-capitalize">Important</span>
-          <input type="checkbox" class="form-control" id="ch59">
+          <input type="checkbox" class="form-control filter-value" id="ch59" data-id="ch59" data-args='important'>
           <span class="transparent-checkmark"></span>
         </label>
       </div>
@@ -50,7 +51,7 @@
             <span class="font-12 text-black text-capitalize"><%= region.name %>
               <span class="text-light-grey">- <%= region.children.size %> countries</span>
             </span>
-            <input type="checkbox" class="form-control" id="<%= region.id %>">
+            <input type="checkbox" class="form-control" id="<%= region.id %>" data-id="<%= region.id %>">
             <span class="transparent-checkmark"></span>
           </label>
         </div>
@@ -139,14 +140,15 @@
           <span class="transparent-checkmark"></span>
         </label>
       </div>
-      <div class="form-group dropdown-item pl-3 m-0">
-        <label for="ch69" class="custom-checkbox d-flex m-0">
-          <span class="font-12 text-black text-capitalize">AMERS</span>
-          <input type="checkbox" class="form-control" id="ch69">
-          <span class="transparent-checkmark"></span>
-        </label>
-      </div>
-
+      <% @products.each do |product| %>
+        <div class="form-group dropdown-item pl-3 m-0">
+          <label for="<%= product.id %>" class="custom-checkbox d-flex m-0">
+            <span class="font-12 text-black text-capitalize"><%= product.name %></span>
+            <input type="checkbox" class="form-control" id="<%= product.id %>">
+            <span class="transparent-checkmark"></span>
+          </label>
+        </div>
+      <% end %>
     </div>
   </div>
 </div>

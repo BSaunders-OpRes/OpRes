@@ -18,6 +18,17 @@ document.addEventListener('turbolinks:load', function() {
 
   });
 
+  $(".filter-value").on('click', function(){
+    $.ajax({
+      url:      '/organisation/dashboard_break_downs/critical_important_system',
+      dataType: 'script',
+      type:     'GET',
+      async:     false,
+      data:     {
+        critical: $(this).data('args')
+      }
+    });
+  });
 });
 
 
