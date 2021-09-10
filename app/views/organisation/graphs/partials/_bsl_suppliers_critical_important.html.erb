@@ -19,7 +19,7 @@
       <%= link_to 'javascript:void(0);', class: 'd-flex h-230px align-items-center justify-content-center' do %>
         <div class="donut-content mb-2 w-100">
           <%= react_component('highcharts/donut', { data: data.dig(:overall, :graph), render_to: 'donut' }, { class: 'h-100' }) %>
-          <div class="donut-value font-50 font-700 text-black"><%= data.dig(:overall, :total) %></div>
+          <div class="donut-value font-30 font-700 text-black"><%= data.dig(:overall, :total) %></div>
         </div>
       <% end %>
     </div>

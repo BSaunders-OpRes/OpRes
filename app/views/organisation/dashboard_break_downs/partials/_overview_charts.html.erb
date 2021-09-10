@@ -8,24 +8,26 @@
       </div>
       <div class="row directory-list px-3 no-gutters">
         <% @data.each do |chp, data| %>
-          <div class="col-lg-3 directory-box">
-            <ul class="first-level list-unstyled px-2">
+          <div class="col-lg-3 directory-box px-3 px-xxl-4">
+            <ul class="first-level list-unstyled pl-2 pl-xxl-3">
               <li>
-                <%= image_tag @data.dig(chp, :logo), class: 'img-fluid ml-2' %>
-                <span class="font-12 font-400 ml-1"><%= chp %></span>
-                <ul class="second-level list-unstyled pl-2">
+                <div class="img-wrapper d-flex align-items-center justify-content-center">
+                  <%= image_tag @data.dig(chp, :logo), class: 'img-fluid' %>
+                </div>
+                <span class="font-12 font-600"><%= chp %></span>
+                <ul class="second-level list-unstyled pl-2 pl-xxl-3">
                   <% Supplier.consumption_models.keys.each do  |cm| %>
-                    <li>
-                      <span class="font-12 font-400 ml-1"><%= cm.humanize %></span>
-                      <ul class="second-level list-unstyled pl-2">
+                    <li class="text-center">
+                      <span class="font-12 font-xxl-14 font-600 text-center"><%= cm.humanize %></span>
+                      <ul class="second-level list-unstyled pl-2 pl-xxl-3">
                         <% @data.dig(chp, cm, :bsls).each do  |bsl| %>
                           <li>
-                            <span class="font-12 font-400 ml-1"><%= bsl.name.humanize %></span>
-                            <ul class="second-level list-unstyled pl-2">
+                            <span class="font-12 font-400"><%= bsl.name.humanize %></span>
+                            <ul class="second-level list-unstyled pl-2 pl-xxl-3">
                               <% @data.dig(chp, cm, bsl.id, :suppliers).each do  |supplier| %>
                                 <li>
-                                  <span class="font-12 font-400 ml-1"><%= supplier.name.humanize %></span>
-                                  <ul class="second-level list-unstyled pl-2">
+                                  <span class="font-12 font-400"><%= supplier.name.humanize %></span>
+                                  <ul class="second-level list-unstyled pl-2 pl-xxl-3">
                                     <% @data.dig(chp, cm, bsl.id, supplier.id, :cloud_services).each do |service_name| %>
                                       <li>
                                         <%= service_name %>

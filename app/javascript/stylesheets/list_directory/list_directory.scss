@@ -1,21 +1,31 @@
 .directory-list ul {
   position: relative;
   padding-left: 10px;
-  border-left: 1px solid #ddd;
+  border-left: 2px solid #ddd;
   overflow: hidden;
-  // &:before {
-  //   content: '';
-  //   width: 1px solid #ddd;
-  //   top: 0;
-  //   bottom: 0;
-  // }
+  &:before {
+    content: '';
+    width: 1px;
+    top: 0;
+    bottom: 0;
+    background: #ddd;
+  }
+}
+
+.directory-list ul.first-level {
+  border: 0;
+  li:first-child {
+    a {
+      &:after {
+        display: none;
+      }
+    }
+  }
 }
 
 .directory-list li {
-  list-style: none;
   color: #888;
-  font-size: 17px;
-  font-style: italic;
+  font-size: 12px;
   font-weight: normal;
   position: relative;
 }
@@ -25,6 +35,17 @@
   color: #888;
   text-decoration: none;
   transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  .img-wrapper {
+    width: 30px;
+    height: 30px;
+  }
+  img {
+    display: block !important;
+    width: 100%;
+    height: auto;
+  }
 }
 
 .directory-list a:hover {
@@ -74,12 +95,20 @@
   font-weight: 600;
   padding: 10px;
   position: relative;
+  display: flex;
+  align-items: center;
+  border-radius: 8px;
+  span {
+    margin-left: 10px;
+    color: $black;
+    font-size: 14px;
+  }
    &:after {
     content: '';
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    height: 1px;
+    height: 2px;
     background: #ddd;
     width: 20px;
     right: 100%;
