@@ -64,6 +64,22 @@ h1, h2, h3, h4, h5, h6, p {
     border-top: 1px solid #ddd;
   }
 }
+button[data-dismiss='modal']:hover {
+  span {
+    display: inline-block;
+    transition: .4s all;
+    transform: rotate(180deg);
+    color: $primary-green;
+  }
+}
+button[data-dismiss='modal'] {
+  span {
+    display: inline-block;
+    transition: .4s all;
+    transform: rotate(-90deg);
+    color: $black;
+  }
+}
 .action {
   position: relative;
   .fa-minus {
@@ -93,6 +109,13 @@ button[aria-expanded='false'] {
   .down-drop{
     transform: translate3d(5px, 158px, 0px) !important;
   }
+}
+
+.bubble-circle {
+  background: $primary-green;
+  width: 50px;
+  height: 50px;
+  border-radius: 100px;
 }
 
 .visibility-hidden {
@@ -146,7 +169,9 @@ input[type=number] {
     background: #555;
   }
 }
-
+.min-height-auto {
+  min-height: auto !important;
+}
 .h-400-with-scroll {
   min-height: 170px;
   max-height: 400px;

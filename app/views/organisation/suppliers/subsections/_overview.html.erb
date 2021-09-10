@@ -80,12 +80,12 @@
       </div>
       <div class="px-4">
         <h5 class="text-capitalize text-left font-600">Links</h5>
-        <div class="small-boxes row">
+        <div class="small-boxes row mt-4 no-gutters">
           <% @supplier.social_account_recipients.each do |social_account_recipient| %>
-            <div class="col-md-3 mb-3">
+            <div class="col-md-3 mb-3 px-1  social-media-link">
               <%= link_to social_account_recipient.link, target: '_blank', class: 'text-decoration-none text-black' do %>
                   <div class="card">
-                    <div class="card-body p-2 d-block rounded">
+                    <div class="card-body p-2 d-block rounded <%= social_account_recipient.social_account.name %>">
                       <div class="color-tier">
                         <div class="mr-1 d-inline-block w-25px text-center align-middle">
                           <% social_account = social_account_recipient.social_account %>
@@ -93,7 +93,7 @@
                           <i class="<%= check_logo(social_account.name) %>" aria-hidden="true"></i>
                         </div>
                         <div class="text d-inline-block align-middle">
-                          <span class="font-12 font-400 ml-2 d-block">
+                          <span class="font-12 font-600 ml-2 d-block">
                             <%= social_account.name %>
                           </span>
                         </div>

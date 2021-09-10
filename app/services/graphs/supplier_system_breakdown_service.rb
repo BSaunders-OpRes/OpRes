@@ -51,6 +51,7 @@ class Graphs::SupplierSystemBreakdownService < Graphs::BaseService
         important_steps_total: supplier_steps.important&.where(supplier_id: supplier_step.supplier.id).size,
         conformance_score:     ((total_sum/120.to_f)*100).round(2),
         sla_attr:              supplier_step.supplier.sla,
+        third_parties:         supplier_step.supplier.third_party_suppliers,
         fourth_parties:        supplier_step.supplier.fourth_party_suppliers,
         sla_attr_status:       sla_attr_status
       }

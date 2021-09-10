@@ -1,29 +1,24 @@
 document.addEventListener('turbolinks:load', function() {
   /******************** Event Bindings ********************
   ********************************************************/
-  // $(window).scroll(function() {
-  //   var hT = $('#section3').offset().top,
-  //     hH = $('#section3').outerHeight(),
-  //     wH = $(window).height(),
-  //     wS = $(this).scrollTop();
-    
-  //   if (wS > (hT+hH-wH)){
-  //      render_cloud_critical_system()
-  //   }
-  // });
-  $('body').on('mouseover', '#section3', function(){
-    
-  })
+  $('.public-cloud-system a').on('click', function(){
+    $('.public-cloud-system a.active').removeClass('active');
+    $(this).addClass("active");
+    $('#cm_model').val(this.text.toLowerCase())
+  });
+
+  $('.private-cloud-system a').on('click', function(){
+    $('.private-cloud-system a.active').removeClass('active');
+    $(this).addClass("active");
+    $('#cm_model').val(this.text.toLowerCase())
+  });
+
+  $('#clear-field').on('click', function(){
+    $('#search-filter').val('');
+
+  });
 
 });
 
-function render_cloud_critical_system() {
-  $.ajax({
-    url:      '/organisation/administration_portal',
-    dataType: 'script',
-    type:     'GET',
-    data: {
-    
-    }
-  });
-}
+
+

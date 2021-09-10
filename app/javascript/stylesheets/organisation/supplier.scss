@@ -147,6 +147,74 @@
     }
   }
 }
+
+.social-media-link {
+  .Facebook {
+    transition: .4s all;
+    &:hover {
+      background: #4267B2;
+      i {
+        color: $white;
+      }
+      span {
+        color: $white;
+        font-weight: bold;
+      }
+    }
+  }
+  .Twitter {
+    transition: .4s all;
+    &:hover {
+      background: #1DA1F2;
+      i {
+        color: $white;
+      }
+      span {
+        color: $white;
+        font-weight: bold;
+      }
+    }
+  }
+  .Instagram {
+    transition: .4s all;
+    &:hover {
+      background: #8a3ab9;
+      i {
+        color: $white;
+      }
+      span {
+        color: $white;
+        font-weight: bold;
+      }
+    }
+  }
+  .LinkedIn {
+    transition: .4s all;
+    &:hover {
+      background: #0077b5;
+      i {
+        color: $white;
+      }
+      span {
+        color: $white;
+        font-weight: bold;
+      }
+    }
+  }
+  .Website {
+    transition: .4s all;
+    &:hover {
+      background: #06aeaa;
+      i {
+        color: $white;
+      }
+      span {
+        color: $white;
+        font-weight: bold;
+      }
+    }
+  }
+}
 @media screen and (min-width: 576px) {
   .sticky-top {
     position: sticky;

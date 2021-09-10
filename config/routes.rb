@@ -79,6 +79,7 @@ Rails.application.routes.draw do
       get :critical_important_suppliers, on: :member
       get :compound_resilience,          on: :member
       get :search_and_filter,            on: :member
+      get :find_compound_resilience_data,   on: :collection
       resources :compliance_evidences do
         resources :compliance_rules
       end

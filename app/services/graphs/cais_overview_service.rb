@@ -20,27 +20,28 @@ class  Graphs::CaisOverviewService < Graphs::BaseService
     cm_suppliers = suppliers.group_by{ |e| e.consumption_model }
 
     datum[:suppliers] = suppliers
-    datum[:total]    = suppliers.size
+    datum[:chp_total]    = chp_suppliers.values.flatten.collect{|s| s.supplier_steps.count }.sum
+    datum[:cm_total] = cm_suppliers.values.flatten.collect{|s| s.supplier_steps.count }.sum
     datum[:chp_suppliers] = chp_suppliers
     datum[:cm_suppliers] = cm_suppliers
     datum[:chp_graph]    = []
     datum[:cm_graph]    = []
 
-    chp_suppliers.keys&.uniq.each_with_index do |key, index|
+    ["GCP", "AWS", "Private Cloud", "Azure"]&.uniq.each_with_index do |key, index|
         datum[:chp_graph] << {
           name: key,
-          y:     chp_suppliers[key].blank? ? 0 : ((chp_suppliers[key].size / datum[:total].to_f) * 100).round(2),
+          y:     chp_suppliers[key].blank? ? 0 : ((chp_suppliers[key]&.collect{|s| s.supplier_steps.count }&.sum || 0 / datum[:chp_total].to_f) * 100).round(2),
           color: COLORS[index],
-          count: chp_suppliers[key].size
+          count: chp_suppliers[key]&.collect{|s| s.supplier_steps.count }&.sum || 0
         }
     end
 
-    cm_suppliers&.keys.uniq.each_with_index do |key, index|
+    ["saas", "paas", "iaas", "others"].uniq.each_with_index do |key, index|
       datum[:cm_graph] << {
           name: key.humanize,
-          y:     cm_suppliers[key].blank? ? 0 : ((cm_suppliers[key].size / datum[:total].to_f) * 100).round(2),
+          y:     cm_suppliers[key].blank? ? 0 : ((cm_suppliers[key]&.collect{|s| s.supplier_steps.count }&.sum || 0 / datum[:chp_total].to_f) * 100).round(2),
           color: COLORS[index],
-          count: cm_suppliers[key].size
+          count: cm_suppliers[key]&.collect{|s| s.supplier_steps.count }&.sum || 0
       }
     end
     datum

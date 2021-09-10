@@ -59,6 +59,11 @@ i.paperclip {
   margin-top: -80px;
 }
 
+.pink-box {
+  width: 160px;
+  height: 160px;
+}
+
 .add-step-btn {
   color: $black;
   &:hover {
@@ -331,7 +336,7 @@ i.paperclip {
                 color: $light-black;
                 &.active {
                   color: $black;
-                  font-weight: 500;
+                  font-weight: 600;
                   &:after {
                     left: 0;
                     bottom: 0;

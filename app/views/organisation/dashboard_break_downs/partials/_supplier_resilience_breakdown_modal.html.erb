@@ -1,4 +1,4 @@
-<div class="modal px-2 fade mt-5 pt-5" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal px-2 fade mt-5 pt-5" id="resilience-breakdown-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog max-width-sm-75 w-100 mx-auto">
     <div class="modal-content">
       <div class="modal-header border-0 pb-0">
@@ -22,7 +22,7 @@
             </div>
           </div>
         </div>
-        <div class="table-responsive">
+        <div class="table-responsive h-400-with-scroll min-height-auto">
           <table class="table bg-white">
             <thead>
               <tr class="border-top-0">
@@ -39,15 +39,12 @@
                   difference
                 </th>
                 <th class="text-capitalize font-12 text-light-grey border-0">
-                  total number of critical steps underpinned
-                </th>
-                <th class="text-capitalize font-12 text-light-grey border-0">
                   resilience ID
                 </th>
               </tr>
             </thead>
             <tbody>
-              <% impact_tolerance_breakdown.dig(sla_attr, "#{type}_suppliers").each do |supplier| %>
+              <% impact_tolerance_breakdown_data.dig(sla_attr, "#{type}_suppliers").each do |supplier| %>
                 <tr>
                   <td class="text-uppercase font-12 font-xxl-14 font-700 py-4 w-25"><%= supplier.dig(:name) %></td>
                   <td class="font-12 font-xxl-14 py-4">
@@ -57,10 +54,7 @@
                     <span class="font-500"><%= supplier.dig(:supplier_agreed_impact_tolerance)%></span>
                   </td>
                   <td class="font-12 font-xxl-14 py-4">
-                    <span class="font-500"><%= supplier.dig(:difference)%></span>
-                  </td>
-                  <td class="font-12 font-xxl-14 py-4">
-                    <span class="font-500"><%= supplier.dig(:total_number_of_critical_steps)%></span>
+                    <span class="font-500"><%= number_with_precision(supplier.dig(:difference), precision: 2) %></span>
                   </td>
                   <td class="font-12 font-xxl-14 py-4">
                     <span class="font-500">1</span>

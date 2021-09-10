@@ -14,197 +14,32 @@
         <i class="fa fa-ellipsis-v"></i>
       </div>
     </div>
-    <ul class="nav nav-tabs border-0 active-green my-4">
-      <li class="nav-item mr-3">
-        <a class="nav-link active text-capitalize font-12 font-xxl-14 border-0 p-0 pb-2 text-light-grey font-500" data-toggle="tab" href="#iaas" role="tab" aria-controls="home" aria-selected="true">IaaS</a>
-      </li>
-      <li class="nav-item mr-3">
-        <a class="nav-link text-capitalize font-12 font-xxl-14 border-0 p-0 pb-2 text-light-grey font-500" data-toggle="tab" href="#saas" role="tab" aria-controls="home" aria-selected="true">SaaS</a>
-      </li>
-      <li class="nav-item mr-3">
-        <a class="nav-link text-capitalize font-12 font-xxl-14 border-0 p-0 pb-2 text-light-grey font-500" data-toggle="tab" href="#paas" role="tab" aria-controls="home" aria-selected="true">PaaS</a>
-      </li>
-    </ul>
-    <div class="form-group">
-      <div class="my-4">
-        <label for="" class="text-light-grey font-12 font-xxl-14 font-500">The following business services contain critical steps and are consuming IaaS/SaaS/PaaS technology components in the public cloud.</label>
-        <div class="table-search-field">
-          <i class="fa fa-search text-dark font-14" aria-hidden="true"></i>
-          <%= text_field_tag 'supplier[name]', nil, placeholder: 'Search Suppliers...', class: 'w-100 form-control border-0 shadow-none font-xxl-14 search-supplier-name pl-4', id: 'search-supplier-name' %>
-          <span for="" class="m-0 font-13 empty-input-field font-600 text-danger">Clear</span>
+      <ul class="nav nav-tabs border-0 active-green my-4 public-cloud-system">
+        <li class="nav-item mr-3">
+          <%= link_to 'IaaS', critical_important_system_organisation_dashboard_break_downs_path(cm_model:"iaas"), class:"active nav-link text-capitalize font-12 font-xxl-14 border-0 p-0 pb-2 text-light-grey font-500", remote: true %>
+        </li>
+        <li class="nav-item mr-3">
+          <%= link_to 'SaaS', critical_important_system_organisation_dashboard_break_downs_path(cm_model:'saas'), class:"nav-link text-capitalize font-12 font-xxl-14 border-0 p-0 pb-2 text-light-grey font-500", remote: true %>
+        </li>
+        <li class="nav-item mr-3">
+           <%= link_to 'PaaS', critical_important_system_organisation_dashboard_break_downs_path(cm_model:"paas"), class:"nav-link text-capitalize font-12 font-xxl-14 border-0 p-0 pb-2 text-light-grey font-500", remote: true %>
+        </li>
+      </ul>
+      <div class="form-group">
+        <div class="my-4">
+          <label for="" class="text-light-grey font-12 font-xxl-14 font-500">The following business services contain critical steps and are consuming IaaS/SaaS/PaaS technology components in the public cloud.</label>
+          <div class="table-search-field">
+            <%= form_tag critical_important_system_organisation_dashboard_break_downs_path, method: :get, remote: true do %>
+              <i class="fa fa-search text-dark font-14" aria-hidden="true"></i>
+              <%= hidden_field_tag 'cm_model', @cm_model %>
+              <%= text_field_tag 'query', @query, placeholder: 'Search User', class: "w-100 form-control border-0 shadow-none", id: "search-filter", onkeyup: 'RailsUJS.fire(this.form, "submit")' %>
+              <span for="" id='clear-field' class="m-0 font-13 clear-input-field font-600 text-danger" data-url="<%= critical_important_system_organisation_dashboard_break_downs_path %>">Clear</span>
+            <% end %>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="tab-content">
-      <div class="tab-pane fade active show" id='iaas'>
-        <div class="table-responsive">
-          <table class="table bg-white">
-            <thead>
-              <tr class="border-top-0">
-                <th class="text-capitalize font-12 text-light-grey border-0">
-                  supplier name
-                </th>
-                <th class="text-capitalize font-12 text-light-grey border-0">
-                  party type
-                </th>
-                <th class="text-capitalize font-12 text-light-grey border-0">
-                  hosting provider
-                </th>
-                <th class="text-capitalize font-12 text-light-grey border-0">
-                  total business service
-                </th>
-                <th class="text-capitalize font-12 text-light-grey border-0">
-                  total critical steps
-                </th>
-                <th class="border-0"></th>
-              </tr>
-            </thead>
-            <tbody>
-              <% @suppliers["iaas"]&.each do |s|%>
-              <tr>
-                <td class="text-uppercase font-12 font-xxl-14 font-700 py-4"><%= s.name%>
-                </td>
-                <td class="text-uppercase font-12 font-xxl-14 font-700 py-4">
-                <%= s.party_type %>
-                </td>
-                <td class="text-uppercase font-12 font-xxl-14 font-700 py-4">
-                  <div class="d-flex align-items-center">
-                    <div class="w-25px w-xxl-40px">
-                      <%= image_pack_tag 'media/images/aws.png', class: 'img-fluid' %>
-                    </div>
-                    <span class="ml-1"><%= s.cloud_hosting_provider.name %></span>
-                  </div>
-                </td>
-                <td class="text-uppercase font-12 font-xxl-14 font-700 py-4">
-                  <%= s.bsls_count %>
-                </td>
-                <td class="text-uppercase font-12 font-xxl-14 font-700 py-4">
-                 <%= s.critical_supplier_steps.count %>
-                </td>
-                <td class="text-capitalize font-12 text-primary font-xxl-14 font-500 py-4" type="button" class="btn white-btn text-capitalize" ><%= link_to "Breakdown", breakdown_organisation_dashboard_break_downs_path(id: s.id), remote: true %></td>
-              </tr>
-              <% end %>
-            </tbody>
-          </table>
-        </div>
-        <nav aria-label="Page navigation example">
-            <%#= paginate @suppliers['iaas'], params: {controller: 'suppliers', action: 'search_and_filter'}, remote: true %>
-        </nav>
-      </div>
-      <div class="tab-pane fade" id='saas'>
-        <div class="table-responsive">
-          <table class="table bg-white">
-            <thead>
-              <tr class="border-top-0">
-                <th class="text-capitalize font-12 text-light-grey border-0">
-                  supplier name
-                </th>
-                <th class="text-capitalize font-12 text-light-grey border-0">
-                  party type
-                </th>
-                <th class="text-capitalize font-12 text-light-grey border-0">
-                  hosting provider
-                </th>
-                <th class="text-capitalize font-12 text-light-grey border-0">
-                  total business service
-                </th>
-                <th class="text-capitalize font-12 text-light-grey border-0">
-                  total critical steps
-                </th>
-                <th class="border-0"></th>
-              </tr>
-            </thead>
-            <tbody>
-              <% @suppliers["saas"]&.each do |s|%>
-              <tr>
-                <td class="text-uppercase font-12 font-xxl-14 font-700 py-4"><%= s.name%>
-                </td>
-                <td class="text-uppercase font-12 font-xxl-14 font-700 py-4">
-                <%= s.party_type %>
-                </td>
-                <td class="text-uppercase font-12 font-xxl-14 font-700 py-4">
-                  <div class="d-flex align-items-center">
-                    <div class="w-25px w-xxl-40px">
-                      <%= image_pack_tag 'media/images/aws.png', class: 'img-fluid' %>
-                    </div>
-                    <span class="ml-1"><%= s.cloud_hosting_provider.name %></span>
-                  </div>
-                </td>
-                <td class="text-uppercase font-12 font-xxl-14 font-700 py-4">
-                  <%= s.bsls_count %>
-                </td>
-                <td class="text-uppercase font-12 font-xxl-14 font-700 py-4">
-                 <%= s.critical_supplier_steps.count %>
-                </td>
-                <td class="text-capitalize font-12 text-primary font-xxl-14 font-500 py-4" type="button" class="btn white-btn text-capitalize" data-toggle="modal" data-target="#exampleModal">
-                  Breakdown
-                </td>
-              </tr>
-              <% end %>
-            </tbody>
-          </table>
-        </div>
-        <nav aria-label="Page navigation example">
-            <%#= paginate @suppliers['saas'], params: {controller: 'suppliers', action: 'search_and_filter'}, remote: true %>
-        </nav>
-      </div>
-      <div class="tab-pane fade" id='paas'>
-        <div class="table-responsive">
-          <table class="table bg-white">
-            <thead>
-              <tr class="border-top-0">
-                <th class="text-capitalize font-12 text-light-grey border-0">
-                  supplier name
-                </th>
-                <th class="text-capitalize font-12 text-light-grey border-0">
-                  party type
-                </th>
-                <th class="text-capitalize font-12 text-light-grey border-0">
-                  hosting provider
-                </th>
-                <th class="text-capitalize font-12 text-light-grey border-0">
-                  total business service
-                </th>
-                <th class="text-capitalize font-12 text-light-grey border-0">
-                  total critical steps
-                </th>
-                <th class="border-0"></th>
-              </tr>
-            </thead>
-            <tbody>
-              <% @suppliers["paas"]&.each do |s|%>
-              <tr>
-                <td class="text-uppercase font-12 font-xxl-14 font-700 py-4"><%= s.name%>
-                </td>
-                <td class="text-uppercase font-12 font-xxl-14 font-700 py-4">
-                <%= s.party_type %>
-                </td>
-                <td class="text-uppercase font-12 font-xxl-14 font-700 py-4">
-                  <div class="d-flex align-items-center">
-                    <div class="w-25px w-xxl-40px">
-                      <%= image_pack_tag 'media/images/aws.png', class: 'img-fluid' %>
-                    </div>
-                    <span class="ml-1"><%= s.cloud_hosting_provider.name %></span>
-                  </div>
-                </td>
-                <td class="text-uppercase font-12 font-xxl-14 font-700 py-4">
-                  <%= s.bsls_count %>
-                </td>
-                <td class="text-uppercase font-12 font-xxl-14 font-700 py-4">
-                 <%= s.critical_supplier_steps.count %>
-                </td>
-                <td class="text-capitalize font-12 text-primary font-xxl-14 font-500 py-4" type="button" class="btn white-btn text-capitalize" data-toggle="modal" data-target="#exampleModal">
-                  Breakdown
-                </td>
-              </tr>
-              <% end %>
-            </tbody>
-          </table>
-        </div>
-        <nav aria-label="Page navigation example">
-          <%#= paginate @suppliers['saas'], params: {controller: 'suppliers', action: 'search_and_filter'}, remote: true %>
-        </nav>
-      </div>
+    <div class="custom-tab-content" >
+      <%= render 'organisation/dashboard_break_downs/partials/consumption_model' %>
     </div>
   </div>
 </div>
