@@ -1,4 +1,4 @@
-<div class="col-lg px-1 col-md-4 col-sm-6">
+<div class="col-lg px-1 col-md-4 col-sm-6 segmentation_suppliers">
   <div class="dropdown custom-dropdown" id="dropdownMenuSupplierType">
     <button class="border-0 p-3 bg-body-color dropdown-toggle w-100 shadow-none mb-3 rounded" type="button" id="dropdownMenuButtonSupplierType" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
       <span class="d-flex flex-column align-items-start">
@@ -27,7 +27,7 @@
     </div>
   </div>
 </div>
-<div class="col-lg px-1 col-md-4 col-sm-6">
+<div class="col-lg px-1 col-md-4 col-sm-6 segmentation_regions">
   <div class="dropdown custom-dropdown">
     <button class="border-0 rounded mb-3 bg-body-color p-3 dropdown-toggle w-100 shadow-none" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
       <span class="d-flex flex-column align-items-start">
@@ -51,7 +51,7 @@
             <span class="font-12 text-black text-capitalize"><%= region.name %>
               <span class="text-light-grey">- <%= region.children.size %> countries</span>
             </span>
-            <input type="checkbox" class="form-control" id="<%= region.id %>" data-id="<%= region.id %>">
+            <input type="checkbox" class="form-control" id="<%= region.id %>" data-args="<%= region.name %>">
             <span class="transparent-checkmark"></span>
           </label>
         </div>
@@ -59,7 +59,7 @@
     </div>
   </div>
 </div>
-<div class="col-lg px-1 col-md-4 col-sm-6">
+<div class="col-lg px-1 col-md-4 col-sm-6 segmentation_countries">
   <div class="dropdown custom-dropdown">
     <button class="border-0 rounded mb-3 p-3 bg-body-color dropdown-toggle w-100 shadow-none" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
       <span class="d-flex flex-column align-items-start">
@@ -83,7 +83,7 @@
             <span class="font-12 text-black text-capitalize">
               <i class="flag <%= country.name.split().last.downcase %>"></i>
             <%= country.name %></span>
-            <input type="checkbox" class="form-control" id="<%= country.id %>">
+            <input type="checkbox" class="form-control" id="<%= country.id %>" data-args="<%= country.name %>">
             <span class="transparent-checkmark"></span>
           </label>
         </div>
@@ -91,7 +91,7 @@
     </div>
   </div>
 </div>
-<div class="col-lg px-1 col-md-4 col-sm-6">
+<div class="col-lg px-1 col-md-4 col-sm-6 segmentation_firms">
   <div class="dropdown custom-dropdown">
     <button class="border-0 rounded mb-3 p-3 bg-body-color dropdown-toggle w-100 shadow-none" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
       <span class="d-flex flex-column align-items-start">
@@ -114,7 +114,7 @@
           <label for="<%= institution.id %>" class="custom-checkbox d-flex m-0">
             <span class="font-12 text-black text-capitalize">
             <%= institution.name %></span>
-            <input type="checkbox" class="form-control" id="<%= institution.id %>">
+            <input type="checkbox" class="form-control" id="<%= institution.id %>" data-args="<%= institution.name %>">
             <span class="transparent-checkmark"></span>
           </label>
         </div>
@@ -122,7 +122,7 @@
     </div>
   </div>
 </div>
-<div class="col-lg px-1 col-md-4 col-sm-6">
+<div class="col-lg px-1 col-md-4 col-sm-6 segmentation_products">
   <div class="dropdown custom-dropdown">
     <button class="border-0 rounded mb-3 p-3 bg-body-color dropdown-toggle w-100 shadow-none" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
       <span class="d-flex flex-column align-items-start">
@@ -144,7 +144,7 @@
         <div class="form-group dropdown-item pl-3 m-0">
           <label for="<%= product.id %>" class="custom-checkbox d-flex m-0">
             <span class="font-12 text-black text-capitalize"><%= product.name %></span>
-            <input type="checkbox" class="form-control" id="<%= product.id %>">
+            <input type="checkbox" class="form-control" id="<%= product.id %>" data-args="<%= product.name %>">
             <span class="transparent-checkmark"></span>
           </label>
         </div>
