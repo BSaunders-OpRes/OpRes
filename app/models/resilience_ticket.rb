@@ -3,6 +3,7 @@ class ResilienceTicket < ApplicationRecord
   belongs_to :business_service_line
   belongs_to :supplier
   belongs_to :user
+  belongs_to :unit
 
   has_many :resilience_audits, dependent: :destroy
 
