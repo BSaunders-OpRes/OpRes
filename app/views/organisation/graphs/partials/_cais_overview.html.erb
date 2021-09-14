@@ -27,9 +27,9 @@
     </div>
   </div>
 <% else %>
-<div class="card-body">
+<div class="card-body rounded-50">
   <div class="d-flex align-items-center justify-content-between">
-    <h5 class="font-400 text-capitalize text-capitalize">overview</h5>
+    <h5 class="font-600 text-capitalize text-capitalize">overview</h5>
     <i class="fa fa-ellipsis-v"></i>
   </div>
   <div class="d-flex bg-body-color px-2 py-3 justify-content-between align-items-center my-4">
@@ -65,7 +65,7 @@
                 <div class="d-flex align-items-center">
                   <div class="circle" style="background-color: <%= graph.dig(:color) %>"></div>
                   <div class="w-25px w-xxl-40px ml-3 ml-xxl-4 d-none">
-                    <%= image_pack_tag 'media/images/aws.png', class: 'img-fluid' %>
+                    <%= image_pack_tag 'media/images/aws.png', class: 'img-fluid d-block' %>
                   </div>
                 </div>
                 <div class="d-flex flex-1 align-items-center ml-3 ml-xxl-4">
