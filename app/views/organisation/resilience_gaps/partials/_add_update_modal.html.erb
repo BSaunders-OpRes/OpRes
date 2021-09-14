@@ -27,7 +27,7 @@
                 <div class="info-text mb-4">
                   <div class="filter-grouped d-flex align-items-center justify-content-start info-text mb-5">
                     <span class="p-2 bg-body-color text-black px-3 rounded font-600 text-capitalize font-12">
-                      <%= params[:resilience_status] %>
+                      <%= params[:resilience_status] || @resilience_ticket.status %>
                     </span>
                   </div>
                 </div>
@@ -47,6 +47,23 @@
                   <div class="attach font-13 font-500">
                     <span class="mr-2"><%= f.object.attachment.filename %></span>
                     <span><%= sprintf("%0.02f",f.object.attachment_blob.byte_size/(1000.to_f))%>KB</span>
+                  </div>
+                </div>
+<!--                 <div class="delete">
+                  <a href="#" class="text-danger">
+                    DELETE
+                  </a>
+                </div> -->
+              </div>
+            <% else %>
+              <div class="details d-flex align-items-center justify-content-between">
+                <div class="descr d-flex align-items-center">
+                  <div class="icon py-3 px-4 bg-body-color rounded mr-3 file-attach d-none">
+                    <i class="fa fa-paperclip paperclip font-20"></i>
+                  </div>
+                  <div class="attach font-13 font-500">
+                    <span class="mr-2 file-name"></span>
+                    <span class="file-size"></span>
                   </div>
                 </div>
 <!--                 <div class="delete">
