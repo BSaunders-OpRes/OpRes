@@ -23,6 +23,7 @@ class Unit < ApplicationRecord
   has_many :channels
   has_many :unit_products, dependent: :destroy
   has_many :unit_level_products, through: :unit_products, source: :product
+  has_many :resilience_tickets, dependent: :destroy
 
   # Validations #
   validates :name, presence: true
