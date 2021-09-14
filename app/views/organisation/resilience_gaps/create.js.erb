@@ -1,6 +1,11 @@
-$('#resilience-ticket-add-update-modal').modal('hide');
+<% if params[:resilience_audit][:add_attachment] == 'true' %>
+  $('#resilience-ticket-add-attachment-modal').modal('hide');
+<% else %>
+  $('#resilience-ticket-add-update-modal').modal('hide');
+<% end %>
 <% if @recent_resilience_audit %>
-  $('#most-recent-resilience-update').html("<%= j render 'organisation/resilience_gaps/partials/most_recent_update' %>");
+  $('#recent-update').html("<%= j render 'organisation/resilience_gaps/partials/recent_update' %>");
+  $('#resilience-all-attachments').html("<%= j render 'organisation/resilience_gaps/partials/all_attachment' %>");
   toastr.success('Update updated successfully!');
 <% else %>
   toastr.error('ops! Update not updated.');

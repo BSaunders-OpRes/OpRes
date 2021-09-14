@@ -17,6 +17,7 @@ class Organisation::ResilienceGapsController < Organisation::BaseController
     @recent_resilience_audit = @resilience_ticket.resilience_audits.new(resilence_params)
     @recent_resilience_audit.save
     @resilience_ticket.update(status: params[:resilience_audit][:resilience_ticket_status].to_i) if @recent_resilience_audit && params[:resilience_audit][:resilience_ticket_status].present?
+    @resilience_audits = @resilience_ticket.resilience_audits
   end
 
   def edit

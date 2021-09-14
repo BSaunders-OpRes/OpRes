@@ -77,6 +77,9 @@ document.addEventListener('turbolinks:load', function() {
   });
 
   $('body').on('change', '.inputfile', function(e) {
+    $('.file-attach').removeClass('d-none').addClass('d-block')
+    $('.file-name').text(e.target.value.split('\\').pop())
+    $('.file-size').text((this.files[0].size/1000).toFixed(2)+'KB')
     $('#file-name').text(e.target.value.split('\\').pop());
   });
 
