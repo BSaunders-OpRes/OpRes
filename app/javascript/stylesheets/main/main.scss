@@ -64,6 +64,20 @@ h1, h2, h3, h4, h5, h6, p {
     border-top: 1px solid #ddd;
   }
 }
+
+.fa.fa-times {
+  display: inline-block;
+  transition: .4s all;
+  transform: rotate(-90deg);
+  color: $black;
+}
+
+.fa.fa-times:hover {
+  display: inline-block;
+  transition: .4s all;
+  transform: rotate(180deg);
+  color: $primary-green;
+}
 button[data-dismiss='modal']:hover {
   span {
     display: inline-block;
@@ -665,7 +679,7 @@ footer {
   }
 
   input:checked ~ .checkmark {
-    background-color: $secondary-green !important;
+    background-color: $secondary-green;
   }
 }
 

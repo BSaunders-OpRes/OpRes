@@ -1,5 +1,6 @@
 <% if data.blank? %>
   <div class="col-md-3 px-0">
+    <h5 class="font-600 text-capitalize ml-2">segmentation options</h5>
     <div class="box p-3 bg-body-color rounded">
       <h6 class="font-12 font-600">Cloud Hosting Provider Ratio</h6>
       <div class="border-0 pie-high-chart overflow-hidden rounded-50">
@@ -116,6 +117,9 @@
     </div>
   </div>
 <% else %>
+  <div class="col-sm-12 px-0 mb-3">
+    <h5 class="font-600 text-capitalize">cloud service providers</h5>
+  </div>
   <div class="col-lg-5 col-xl-3 px-0">
     <%= link_to 'javascript:void(0);', class: 'text-black text-decoration-none cursor-auto' do %>
       <div class="box p-3 bg-body-color rounded">
@@ -127,13 +131,13 @@
               <div class="donut-value font-30 font-700"><%= data.dig(:overall, :total) %></div>
             </div>
           </div>
-          <div class="col-md-12 card-body p-md-2 p-3">
+          <div class="col-md-12 card-body p-0">
             <% data.dig(:overall, :graph).each do |graph| %>
               <div class="color-tier d-flex align-items-center mb-2 mb-xxl-3">
                 <div class="d-flex align-items-center">
                   <div class="circle" style="background-color: <%= graph[:color] %>"></div>
-                  <div class="w-25px w-xxl-40px ml-3 ml-xxl-4">
-                    <%= image_tag graph[:logo], class: 'img-fluid' %>
+                  <div class="w-20px w-xxl-40px ml-3 ml-xxl-4">
+                    <%= image_tag graph[:logo], class: 'img-fluid d-block' %>
                   </div>
                 </div>
                 <div class="d-flex flex-1 align-items-center ml-3 ml-xxl-4">
@@ -152,7 +156,7 @@
       <div class="content-box mb-4 mt-3 px-2">
         <div class="heading d-flex align-items-center justify-content-start mb-4">
           <div class="w-10 mr-3">
-            <%= image_tag chp_data.dig(:logo), class: 'img-fluid w-75' %>
+            <%= image_tag chp_data.dig(:logo), class: 'img-fluid w-75 d-block' %>
           </div>
           <%= link_to cloud_service_provider_organisation_business_service_line_path(data.dig(:bsl_id), chp_name: chp_data[:name]), class:'text-black text-decoration-none' do %>
             <h5 class="font-20 font-500 text-capitalize"><%= chp_data.dig(:name) %></h5>

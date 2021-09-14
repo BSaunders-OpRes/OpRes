@@ -125,3 +125,19 @@ JSON.parse(currencies_data).each do |country_alpha2, currencies|
   country.currencies = country_currencies
 end
 # Import Currencies #
+
+#Import Cloud Hosting Services with Categories
+chs_file = Rails.root.join('public', 'json_data', 'cloud_hosting_services.json')
+chs_data = File.read(chs_file)
+JSON.parse(chs_data).each do  |chs, chs_data|
+  cloud_hosting_provider = CloudHostingProvider.find_by(short_name: chs)
+  chs_data.each do |service|
+    chp_service = cloud_hosting_provider.cloud_hosting_provider_services.find_or_create_by(name: service.dig("name"))
+    chp_service.update(description: service.dig("description"), service_tag: service.dig("service_tag"))
+    # genarate categories for spevcific service
+    service.dig("categories").split(',').each do |category|
+      chp_service.categories.find_or_create_by(name: category.squish)
+    end
+  end
+end
+#Import Cloud Hosting Services with Categories

@@ -74,7 +74,6 @@
             <span class="text-capitalize font-600 font-14 ml-2 text-capitalize"><%= current_user.name %></span>
           </a>
           <%= link_to 'My account', organisation_accounts_path, class: 'dropdown-item font-14 text-capitalize py-2' %>
-          <a class="dropdown-item font-14 text-capitalize py-2" href="#">Settings</a>
           <%= link_to 'Log Out', destroy_user_session_path, method: :delete, class: 'dropdown-item font-14 text-capitalize py-3 border-top' %>
         </div>
       </div>
