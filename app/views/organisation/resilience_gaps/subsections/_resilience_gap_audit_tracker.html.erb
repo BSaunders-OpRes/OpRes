@@ -1,9 +1,13 @@
 <div class="card border-0 shadow-sm rounded-50 mb-4">
   <div class="card-body px-0">
     <div class="box">
-      <%= render 'organisation/resilience_gaps/partials/recent_update' %>
+      <div id="recent-update">
+        <%= render 'organisation/resilience_gaps/partials/recent_update' %>
+      </div>
       <hr>
-      <%= render 'organisation/resilience_gaps/partials/all_attachment' %>
+      <div id="resilience-all-attachments">
+        <%= render 'organisation/resilience_gaps/partials/all_attachment' %>
+      </div>
       <hr>
       <div id="resilence-gap-assignee">
         <%= render 'organisation/resilience_gaps/partials/resilience_gap_assignee' %>

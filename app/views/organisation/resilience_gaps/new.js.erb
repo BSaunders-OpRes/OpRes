@@ -1,3 +1,8 @@
-$('#update-modal').html('<%= j(render "organisation/resilience_gaps/partials/add_update_modal", resilience_audit: @resilience_audit) %>');
-$('#resilience-ticket-add-update-modal').modal('show');
+<% if params[:add_attachment] == 'true' %>
+  $('#update-attachment-modal').html('<%= j(render "organisation/resilience_gaps/partials/add_attachment_modal", resilience_audit: @resilience_audit) %>');
+  $('#resilience-ticket-add-attachment-modal').modal('show');
+<% else %>
+  $('#update-modal').html('<%= j(render "organisation/resilience_gaps/partials/add_update_modal", resilience_audit: @resilience_audit) %>');
+  $('#resilience-ticket-add-update-modal').modal('show');
+<% end %>
 

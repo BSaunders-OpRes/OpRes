@@ -369,7 +369,7 @@ ActiveRecord::Schema.define(version: 2021_09_13_141848) do
   end
 
   create_table "resilience_tickets", force: :cascade do |t|
-    t.integer "rgid"
+    t.string "rgid"
     t.integer "status", default: 0
     t.string "sla_attr"
     t.integer "impact"
