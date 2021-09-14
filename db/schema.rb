@@ -65,6 +65,14 @@ ActiveRecord::Schema.define(version: 2021_09_14_112704) do
     t.index ["unit_id"], name: "index_business_service_lines_on_unit_id"
   end
 
+  create_table "categories", force: :cascade do |t|
+    t.string "name"
+    t.bigint "cloud_hosting_provider_service_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["cloud_hosting_provider_service_id"], name: "index_categories_on_cloud_hosting_provider_service_id"
+  end
+
   create_table "channels", force: :cascade do |t|
     t.bigint "unit_id"
     t.string "name"
@@ -117,6 +125,8 @@ ActiveRecord::Schema.define(version: 2021_09_14_112704) do
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "service_tag", default: 0
+    t.text "description"
     t.index ["cloud_hosting_provider_id"], name: "chps_on_chp_id"
   end
 
@@ -591,6 +601,7 @@ ActiveRecord::Schema.define(version: 2021_09_14_112704) do
   add_foreign_key "business_service_line_products", "business_service_lines"
   add_foreign_key "business_service_line_products", "products"
   add_foreign_key "business_service_lines", "units"
+  add_foreign_key "categories", "cloud_hosting_provider_services"
   add_foreign_key "channels", "units"
   add_foreign_key "cloud_hosting_provider_recipients", "cloud_hosting_providers"
   add_foreign_key "cloud_hosting_provider_region_recipients", "cloud_hosting_provider_regions"
