@@ -71,13 +71,13 @@ class Graphs::BslStepSupplierChpService < Graphs::BaseService
         datum[chp.name][:consumption_models][cm][:total] = total_count
         datum[chp.name][:consumption_models][cm][:graph] = []
         datum[chp.name][:consumption_models][cm][:graph] << {
-          name:     'critical',
+          name:     'critical steps',
           y:        total_count.zero? ? 0 : ((critical_count / total_count.to_f) * 100).round(2),
           color:    COLORS[0],
           value: critical_count
         }
         datum[chp.name][:consumption_models][cm][:graph] << {
-          name:     'important',
+          name:     'important steps',
           y:        total_count.zero? ? 0 : ((importance_count / total_count.to_f) * 100).round(2),
           color:    COLORS[1],
           value: importance_count

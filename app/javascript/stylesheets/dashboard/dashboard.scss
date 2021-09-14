@@ -676,6 +676,17 @@ i.paperclip {
           display: inline-block;
           .heading {
             cursor: pointer;
+            position: relative;
+            &:after {
+              content: '';
+              height: 2px;
+              width: 22px;
+              right: -21px;
+              position: absolute;
+              background-color: $black;
+              top: 50%;
+              transform: translateY(-50%);
+            }
           }
           .map-text {
             white-space: normal;
@@ -683,7 +694,6 @@ i.paperclip {
           h6 {
             height: 45px;
             text-align: center;
-            position: relative;
             white-space: normal;
             align-items: center;
             word-break: break-word;
@@ -694,15 +704,6 @@ i.paperclip {
             transition: .4s all;
             &:hover {
               width: auto;
-            }
-            &:after {
-              top: 25px;
-              content: '';
-              height: 2px;
-              width: 22px;
-              right: -21px;
-              position: absolute;
-              background-color: $black;
             }
           }
           &:last-child {

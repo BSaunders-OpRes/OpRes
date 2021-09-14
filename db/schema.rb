@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_09_13_141848) do
+ActiveRecord::Schema.define(version: 2021_09_14_112704) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -378,8 +378,10 @@ ActiveRecord::Schema.define(version: 2021_09_13_141848) do
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "unit_id"
     t.index ["business_service_line_id"], name: "index_resilience_tickets_on_business_service_line_id"
     t.index ["supplier_id"], name: "index_resilience_tickets_on_supplier_id"
+    t.index ["unit_id"], name: "index_resilience_tickets_on_unit_id"
     t.index ["user_id"], name: "index_resilience_tickets_on_user_id"
   end
 
@@ -632,6 +634,7 @@ ActiveRecord::Schema.define(version: 2021_09_13_141848) do
   add_foreign_key "resilience_audits", "resilience_tickets"
   add_foreign_key "resilience_tickets", "business_service_lines"
   add_foreign_key "resilience_tickets", "suppliers"
+  add_foreign_key "resilience_tickets", "units"
   add_foreign_key "resilience_tickets", "users"
   add_foreign_key "risk_appetite_justifications", "risk_appetites"
   add_foreign_key "risk_appetite_justifications", "users"
