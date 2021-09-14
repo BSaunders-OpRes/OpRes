@@ -32,7 +32,7 @@ class BusinessServiceLine < ApplicationRecord
   accepts_nested_attributes_for :steps, reject_if: :all_blank, allow_destroy: true
 
   #callbacks #
-  after_create :create_resilience_tickets
+  after_save :create_resilience_tickets
 
   # Methods #
   def reoder_steps
@@ -146,7 +146,12 @@ class BusinessServiceLine < ApplicationRecord
             result = find_score_and_status_for_time(sla[risk_appetite.kind], supplier_step.supplier.sla[risk_appetite.kind], risk_appetite.amount)
           end
           if result[1] == 'exceed'
-            self.resilience_tickets << ResilienceTicket.create(rgid: 12, sla_attr: risk_appetite.kind, business_service_line: self, supplier: supplier_step.supplier, user: organisation_root_users.first )
+            resilience_id = ResilienceTicket.last&.rgid.present? ? (ResilienceTicket.last.rgid&.split('-')[1].to_i+1).to_s :  '100000'.to_s
+            self.resilience_tickets << ResilienceTicket.create_with(supplier: supplier_step.supplier, user: organisation_root_users.first, rgid: 'RES-'+resilience_id)
+                                                       .find_or_create_by(sla_attr: risk_appetite.kind, business_service_line: self)
+          else
+            # for destroying the ticket which is not exceeding now
+            ResilienceTicket.find_by(sla_attr: risk_appetite.kind,business_service_line: self)&.destroy
           end
         end
       end
