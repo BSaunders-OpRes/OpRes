@@ -33,7 +33,7 @@
                   <% if @open_resilience.present?  %>
                     <% @open_resilience.each do |resilience_ticket| %>
                     <tr>
-                      <td class="font-12 font-500 pl-4"><%= link_to resilience_ticket.id,resilience_indicator_ticket_organisation_resilience_ticket_resilience_gap_path(resilience_ticket.id) %></td>
+                      <td class="font-12 font-500 pl-4"><%= link_to resilience_ticket.rgid,resilience_indicator_ticket_organisation_resilience_ticket_resilience_gap_path(resilience_ticket.id) %></td>
                       <td class="font-12 font-500"><%= resilience_ticket.supplier.name %></td>
                       <td class="font-12 font-500"><%= @bsl.name %> has Exceeded the Firm’s target</td>
                       <td class="font-12 font-500"><%= resilience_ticket.created_at.strftime('%d-%m-%y') %></td>

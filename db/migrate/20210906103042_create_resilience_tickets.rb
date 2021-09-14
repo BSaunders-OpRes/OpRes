@@ -1,7 +1,7 @@
 class CreateResilienceTickets < ActiveRecord::Migration[6.0]
   def change
     create_table :resilience_tickets do |t|
-      t.integer :rgid
+      t.string :rgid
       t.integer :status, default: 0
       t.string :sla_attr
       t.integer :impact
