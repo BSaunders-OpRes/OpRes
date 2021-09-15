@@ -152,7 +152,7 @@ class BusinessServiceLine < ApplicationRecord
             end
           else
             # for destroying the ticket which is not exceeding now
-            ResilienceTicket.find_by(sla_attr: risk_appetite.kind,business_service_line: self, unit: bsl.unit, supplier: supplier_step.supplier)&.destroy
+            ResilienceTicket.find_by(sla_attr: risk_appetite.kind,business_service_line: self, unit: unit, supplier: supplier_step.supplier)&.destroy
           end
         end
       end
