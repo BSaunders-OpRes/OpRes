@@ -34,7 +34,7 @@ document.addEventListener('turbolinks:load', function() {
   });
 
   $('body').on('change', '.resilience-user', function(e) {
-    resilience_assignee_name = $(this).find(':selected').attr('data-name');
-    $('#resilience-assignee-name').text(resilience_assignee_name);
+    resilience_assignee_email = $(this).find(':selected').attr('data-email');
+    $('#resilience-assignee-email').text(resilience_assignee_email);
   });
 });
