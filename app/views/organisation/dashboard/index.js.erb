@@ -1,0 +1,18 @@
+$('#dashboard-wrapper').html('<%= escape_javascript(render "organisation/dashboard/partials/dashboard_content", filters: params.dig(:filters) || {}) %>');
+if ($('.lazy-graph').length >= 1) {
+  $('.lazy-graph').each(function() {
+    $.ajax({
+      url:      '/organisation/graphs/compose',
+      dataType: 'script',
+      type:     'GET',
+      async:     false,
+      data:     {
+        key:            $(this).data('key'),
+        args:           $(this).data('args'),
+        data_append_to: $(this).data('append-to'),
+        partial_name:   $(this).data('partial-name'),
+        filters:        $(this).data('filters')
+      }
+    });
+  });
+}

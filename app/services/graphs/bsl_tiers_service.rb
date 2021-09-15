@@ -7,7 +7,7 @@ class Graphs::BslTiersService < Graphs::BaseService
     if args.dig('bsl').present?
       tier_bsls = args.dig('bsl') == '0' ? [] : BusinessServiceLine.where(id: args.dig('bsl')).group_by(&:tier)
     else
-      nodes     = organisational_unit.inclusive_children.map(&:id)
+      nodes     = filter_data
       tier_bsls = BusinessServiceLine.where(unit_id: nodes).group_by(&:tier)
     end
 
@@ -24,5 +24,28 @@ class Graphs::BslTiersService < Graphs::BaseService
       }
     end
     data
+  end
+
+  def filter_data
+    nodes = []
+    if args.dig("filters").present?
+      if args.dig("filters","region_ids").present?
+        nodes << args.dig("filters","region_ids").include?('all') ? organisational_unit.inclusive_children.map(&:id) : organisational_unit.inclusive_children.select {|a| args.dig("filters","region_ids").include?(a.region_id.to_s)}.map(&:id)
+      end
+      # if args.dig("filters","country_ids").present?
+      #   nodes << args.dig("filters","country_ids").include?('all') ? organisational_unit.inclusive_children.map(&:id) : organisational_unit.inclusive_children.select {|a| args.dig("filters","country_ids").include?(a.country_id.to_s)}.map(&:id)
+      # end
+
+      # if args.dig("filters","institution_ids").present?
+      #   nodes << args.dig("filters","institution_ids").include?('all') ? organisational_unit.inclusive_children.map(&:id) : organisational_unit.inclusive_children.select {|a| args.dig("filters","institution_ids").include?(a.institution_id.to_s)}.map(&:id)
+      # end
+
+      # if args.dig("filters","product_ids").present?
+      #   nodes << args.dig("filters","product_ids").include?('all') ? organisational_unit.products.map(&:id) : organisational_unit.children.select {|a| args.dig("filters","region_ids").include?(a.region_id.to_s)}.map(&:id)
+      # end
+    else
+      nodes << organisational_unit.inclusive_children.map(&:id)
+    end
+    nodes
   end
 end
