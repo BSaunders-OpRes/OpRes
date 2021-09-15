@@ -178,7 +178,7 @@
             <p class="text-capitalize font-14 font-600">Key Contacts</p>
           </div>
           <div class="col-sm-7 order-3 order-sm-2 key-contacts-select2">
-            <%= form.select :key_contacts_ids, options_for_select(@key_contacts.map { |key_contact| [key_contact.name, key_contact.id] }, form.object.key_contacts_ids), { include_blank: 'Select Key Contact' }, class: 'form-control w-100 font-12 h-auto py-3 shadow-none select2 supplier-key-contact-selector', id: 'supplier-key-contact-select2', multiple: true %>
+            <%= form.select :key_contacts_ids, options_for_select(@key_contacts.map { |key_contact| [key_contact.name, key_contact.id] }, form.object.key_contacts_ids), { include_blank: 'Select Key Contact' }, class: 'form-control w-100 font-12 h-auto py-3 shadow-none select2 key-contact-select2 supplier-key-contact-selector', id: 'supplier-key-contact-select2', multiple: true %>
           </div>
           <div class="col-sm-1 text-right order-2 flex-sm-half mb-2 mb-sm-0">
             <div class="info" data-toggle="tooltip" data-placement="top" title="Please provide the details of key contacts within this supplier" aria-hidden="true">i</div>

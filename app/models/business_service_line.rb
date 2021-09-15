@@ -146,12 +146,13 @@ class BusinessServiceLine < ApplicationRecord
             result = find_score_and_status_for_time(sla[risk_appetite.kind], supplier_step.supplier.sla[risk_appetite.kind], risk_appetite.amount)
           end
           if result[1] == 'exceed'
-            resilience_id = ResilienceTicket.where(unit: bsl.unit)&.last&.rgid.present? ? (ResilienceTicket.where(unit: bsl.unit).last.rgid&.split('-')[1].to_i+1).to_s :  '100000'.to_s
-            self.resilience_tickets << ResilienceTicket.create_with(supplier: supplier_step.supplier, user: organisation_root_users.first, rgid: 'RES-'+resilience_id, unit: bsl.unit)
-                                                       .find_or_create_by(sla_attr: risk_appetite.kind, business_service_line: self)
+            resilience_id = ResilienceTicket.where(unit: unit)&.last&.rgid.present? ? (ResilienceTicket.where(unit: unit).last.rgid&.split('-')[1].to_i+1).to_s :  '100000'.to_s
+            unless ResilienceTicket.find_by(sla_attr: risk_appetite.kind, business_service_line: self, unit: unit, supplier: supplier_step.supplier)
+              self.resilience_tickets << ResilienceTicket.create( user: self.organisation_root_users.first, rgid: 'RES-'+resilience_id, sla_attr: risk_appetite.kind, business_service_line: self, unit: unit, supplier: supplier_step.supplier)
+            end
           else
             # for destroying the ticket which is not exceeding now
-            ResilienceTicket.find_by(sla_attr: risk_appetite.kind,business_service_line: self, unit: bsl.unit)&.destroy
+            ResilienceTicket.find_by(sla_attr: risk_appetite.kind,business_service_line: self, unit: bsl.unit, supplier: supplier_step.supplier)&.destroy
           end
         end
       end
