@@ -1,5 +1,26 @@
 <% if @type.present? %>
    $(".private-tab-content").html("<%= escape_javascript(render 'organisation/dashboard_break_downs/partials/firm_hosted') %>");
 <% else %>
+    if ($('.lazy-graph').length >= 1) {
+    $('.lazy-graph').each(function() {
+      $.ajax({
+        url:      '/organisation/graphs/compose',
+        dataType: 'script',
+        type:     'GET',
+        async:     false,
+        data:     {
+          key:            $(this).data('key'),
+          args:           $(this).data('args'),
+          data_append_to: $(this).data('append-to'),
+          partial_name:   $(this).data('partial-name')
+        }
+      });
+    });
+  }
+  $("#section2").html("<%= escape_javascript(render 'organisation/dashboard_break_downs/partials/public_cloud_cais.html.erb') %>");
+  $(".private-tab-content").html("<%= escape_javascript(render 'organisation/dashboard_break_downs/partials/firm_hosted') %>");
   $(".custom-tab-content").html("<%= escape_javascript(render 'organisation/dashboard_break_downs/partials/consumption_model') %>");
+  $("#section3").html("<%= escape_javascript(render 'organisation/dashboard_break_downs/partials/private_cloud_cais.html.erb') %>");
+  $("#section4").html("<%= j(render 'organisation/dashboard_break_downs/partials/top_conformant_suppliers', conformant_suppliers: @conformant_suppliers) %>");
+  $("#section5").html("<%= j(render 'organisation/dashboard_break_downs/partials/top_non_conformant_suppliers', non_conformant_suppliers: @non_conformant_suppliers) %>");
 <% end %>
