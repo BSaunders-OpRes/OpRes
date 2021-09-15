@@ -39,15 +39,15 @@
           <div class="row">
             <div class="col-12 form-group single-select2">
               <label for="" class="text-capitalize">resilience gap</label>
-              <%= select_tag 'user', options_for_select(@resilience_bsl.organisation_users.map { |user| [user.email, user.id,{'data-name'=> user.name}] }), prompt: 'Select Resilience Assignee', class: 'form-control w-100 font-12 h-auto py-3 shadow-none select2 resilience-user'%>
+              <%= select_tag 'user', options_for_select(@resilience_bsl.organisation_users.map { |user| [user.name, user.id,{'data-email'=> user.email}] }), prompt: 'Select Resilience Assignee', class: 'form-control w-100 font-12 h-auto py-3 shadow-none select2 resilience-user'%>
             </div>
           </div>
           <div class="row">
             <div class="col-12 form-group">
               <div class="card">
                 <div class="card-body px-2 py-3">
-                  <p id="resilience-assignee-name">
-                    <span class="text-capitalize font-12">selected resilience assigned name</span>
+                  <p id="resilience-assignee-email">
+                    <span class="text-capitalize font-12">selected resilience assigned email</span>
                   </p>
                 </div>
               </div>

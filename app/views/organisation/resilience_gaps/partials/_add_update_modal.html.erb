@@ -38,7 +38,7 @@
                 </div>
               </div>
             </div>
-            <% if f.object.persisted? %>
+            <% if f.object.persisted? && f.object.attachment.present? %>
               <div class="details d-flex align-items-center justify-content-between">
                 <div class="descr d-flex align-items-center">
                   <div class="icon py-3 px-4 bg-body-color rounded mr-3">

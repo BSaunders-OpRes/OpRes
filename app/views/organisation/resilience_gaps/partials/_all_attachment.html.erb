@@ -1,6 +1,7 @@
 <div class="all-attachments px-4 mb-4">
   <h6 class="my-4">All Attachments</h6>
   <% @resilience_audits&.each do |resilience_audit|%>
+    <% if resilience_audit.attachment.present? %>
     <div class="line-row d-flex align-items-center justify-content-between mb-4 flex-wrap">
       <div class="left-side d-flex align-items-center">
         <div class="image px-4 py-3 mr-3 bg-body-color">
@@ -16,6 +17,7 @@
         <%= link_to 'Download', rails_blob_path(resilience_audit.attachment, disposition: 'attachment'), class: 'ml-2 text-black text-decoration-none' %>
       </div>
     </div>
+    <% end %>
   <% end %>
   <div class="buttons pt-3 my-4">
     <span data-resilience="<%= @resilience_ticket.id %>" data-target="#resilience-ticket-add-attachment-modal" data-attachment-update="true" class="font-13 font-500 btn btn-sm btn-dark py-2 px-3 bg-black rounded-50 mr-1 mb-2 cursor-pointer resilience-audit-new">
