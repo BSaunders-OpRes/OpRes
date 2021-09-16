@@ -6,32 +6,39 @@
         <div class="icon-btn text-right d-flex align-items-center flex-1 justify-content-md-end justify-content-between w-100">
         </div>
       </div>
-      <div class="row directory-list no-gutters">
+      <div class="row directory-list no-gutters mx-4">
         <% @data.each do |chp, data| %>
-          <div class="col-lg-3 directory-box px-2">
+          <div class="col-lg-3 directory-box">
             <ul class="first-level list-unstyled pl-2 pl-xxl-3">
               <li>
                 <div class="img-wrapper d-flex align-items-center justify-content-center">
                   <%= image_tag @data.dig(chp, :logo), class: 'img-fluid' %>
                 </div>
                 <span class="font-12 font-xxl-14 font-600"><%= chp %></span>
-                <ul class="second-level list-unstyled pl-2 pl-xxl-3">
+                <ul class="second-level list-unstyled ml-3">
                   <% Supplier.consumption_models.keys.each do  |cm| %>
                     <li class="text-center pt-3">
                       <span class="font-12 font-xxl-14 font-600 text-center"><%= titleize_last_alpha(cm.humanize) %></span>
-                      <ul class="third-level list-unstyled pl-2 pl-xxl-3 text-left pt-3">
+                      <ul class="third-level list-unstyled text-left ml-3">
                         <% @data.dig(chp, cm, :bsls).each do  |bsl| %>
-                          <li>
+                          <li class="pt-3">
                             <span class="font-12 font-xxl-14 font-400"><%= bsl.name.humanize %></span>
-                            <ul class="fourth-level list-unstyled pl-2 pl-xxl-3 pt-3">
+                            <ul class="fourth-level list-unstyled ml-3">
                               <% @data.dig(chp, cm, bsl.id, :suppliers).each do  |supplier| %>
-                                <li class="mb-2">
+                                <li class="pt-3">
                                   <span class="font-12 font-xxl-14 font-400"><%= supplier.name.humanize %></span>
-                                  <ul class="second-level list-unstyled">
-                                    <% @data.dig(chp, cm, bsl.id, supplier.id, :cloud_services).each do |service_name| %>
+                                  <ul class="second-level list-unstyled ml-3">
+                                    <% @data.dig(chp, cm, bsl.id, supplier.id, :cloud_services).first(3).each do |service_name| %>
                                       <li class="font-12 font-xxl-14 py-1">
                                         <%= service_name %>
                                       </li>
+                                    <% end %>
+                                    <% if @data.dig(chp, cm, bsl.id, supplier.id, :cloud_services).length > 3 %>
+                                    <li>
+                                      <button type="button" class="font-12 font-xxl-14 py-1 border-top-0 border-right-0 border-left-0 px-0 bg-transparent" data-toggle="modal" data-target="#exampleModalLong">
+                                        <%= @data.dig(chp, cm, bsl.id, supplier.id, :cloud_services).length-3 %> view more<
+                                      </button>
+                                    </li>
                                     <% end %>
                                   </ul>
                                 </li>
@@ -52,3 +59,22 @@
   </div>
 </div>
 
+<div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">List</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-light-grey" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary black-btn">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
