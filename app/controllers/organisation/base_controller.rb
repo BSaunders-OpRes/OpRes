@@ -4,8 +4,9 @@ class Organisation::BaseController < ApplicationController
   before_action :load_organisational_unit
   before_action :load_managing_units
 
-  attr_reader :organisational_unit
-  attr_reader :managing_units
+  attr_reader   :organisational_unit
+  attr_reader   :managing_units
+  attr_accessor :root_users
 
   layout 'organisation'
 
@@ -24,6 +25,9 @@ class Organisation::BaseController < ApplicationController
     @managing_units = current_user.managing_units
   end
 
+  def organisatial_root_user
+    @root_users = organisational_unit.users&.root_user
+  end
   # Organisation Namespace Helpers #
   def authenticate_root_user
     redirect_to organisation_dashboard_index_path, alert: 'Access Denied!' unless current_user.root_user?

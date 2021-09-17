@@ -1,21 +1,119 @@
 .directory-list ul {
   position: relative;
-  padding-left: 10px;
-  border-left: 1px solid #ddd;
   overflow: hidden;
-  // &:before {
-  //   content: '';
-  //   width: 1px solid #ddd;
-  //   top: 0;
-  //   bottom: 0;
-  // }
+}
+
+.first-level {
+  &:before {
+    content: '';
+    width: 2px;
+    top: 48px;
+    bottom: 0;
+    background: #ddd;
+    position: absolute;
+    left: 35px
+  }
+}
+
+.second-level {
+  margin-left: 20px;
+  position: relative;
+  
+  > li {
+    a {
+      position: relative;
+      display: block;
+      &::before {
+        content: '';
+        position: absolute;
+        width: 25px;
+        height: 2px;
+        background: #ddd;
+        left: -22px;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+    }
+  }
+}
+.third-level {
+  margin-left: 20px;
+  overflow: auto;
+  > li.folder {
+    position: relative;
+    &:first-child::after {
+      content: '';
+      width: 2px;
+      top: -16px;
+      bottom: 0;
+      background: #ddd;
+      position: absolute;
+      left: -16px;
+      height: 38px;
+    }
+    &::after {
+      content: '';
+      width: 2px;
+      top: -10px;
+      bottom: -39px;
+      background: #ddd;
+      position: absolute;
+      left: -16px
+    }
+    &:last-child::after {
+      content: '';
+      width: 2px;
+      top: -16px;
+      bottom: 0;
+      background: #ddd;
+      position: absolute;
+      left: -16px;
+      height: 38px;
+    }
+  }
+}
+.fourth-level {
+  margin-left: 20px;
+  overflow: auto;
+  > li.folder {
+    position: relative;
+    &::after {
+      content: '';
+      width: 2px;
+      top: -22px;
+      bottom: -30px;
+      background: #ddd;
+      position: absolute;
+      left: -16px
+    }
+    &:last-child::after {
+      content: '';
+      width: 2px;
+      top: 0px;
+      bottom: 30px;
+      background: #ddd;
+      position: absolute;
+      left: -16px
+    }
+    .second-level {
+      padding: 0 !important;
+    }
+  }
+}
+.directory-list ul.first-level {
+  border: 0;
+  li:first-child {
+    a {
+      &:after {
+        display: none;
+      }
+    }
+  }
 }
 
 .directory-list li {
-  list-style: none;
   color: #888;
-  font-size: 17px;
-  font-style: italic;
+  font-size: 12px;
   font-weight: normal;
   position: relative;
 }
@@ -25,6 +123,17 @@
   color: #888;
   text-decoration: none;
   transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  .img-wrapper {
+    width: 30px;
+    height: 30px;
+  }
+  img {
+    display: block !important;
+    width: 100%;
+    height: auto;
+  }
 }
 
 .directory-list a:hover {
@@ -67,19 +176,26 @@
   display: none;
 }
 .directory-list li.folder a {
-  width: 100%;
+  width: 170px;
   background: $body-bg-color;
   display: block;
-  margin-bottom: 10px;
   font-weight: 600;
   padding: 10px;
   position: relative;
+  display: flex;
+  align-items: center;
+  border-radius: 8px;
+  span {
+    margin-left: 10px;
+    color: $black;
+    font-size: 14px;
+  }
    &:after {
     content: '';
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    height: 1px;
+    height: 2px;
     background: #ddd;
     width: 20px;
     right: 100%;
@@ -93,3 +209,63 @@
 //   background-position: center top;
 //   background-size: 75% auto;
 // }
+
+
+@media only screen and (max-width: 1570px) {
+
+  .directory-list {
+    .directory-box {
+      li {
+        a {
+          width: 130px;
+          padding: 7px;
+        }
+      }
+      .second-level, .third-level, .fourth-level {
+        li.folder {
+          a {
+            span {
+              margin: 0;
+            }
+          }
+        }
+      }
+      .first-level:before {
+        left: 20px;
+      }
+      .second-level {
+        margin-left: 0;
+        padding-left: 25px !important;
+      }
+      .second-level > li a::before {
+        left: -13px;
+        width: 13px;
+      }
+      .third-level {
+        margin-left: 10px;
+      }
+      .third-level > li.folder:last-child::after {
+        content: '';
+        width: 2px;
+        top: -18px;
+        bottom: 0;
+        background: #ddd;
+        position: absolute;
+        left: -8px;
+        height: 44px;
+      }
+      .fourth-level {
+        margin-left: 10px;
+      }
+      .fourth-level > li.folder::after {
+        content: '';
+        width: 2px;
+        top: -22px;
+        bottom: -30px;
+        background: #ddd;
+        position: absolute;
+        left: -8px;
+      }
+    }
+  }
+}

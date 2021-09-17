@@ -1,0 +1,162 @@
+<div class="card border-0 shadow-sm rounded-50 mb-4">
+  <div class="card-body px-0">
+    <div class="box">
+      <div class="d-flex justify-content-between align-items-center mb-4 pb-2 px-4">
+        <h5 class="text-capitalize font-600 text-left">Description of Resilience Gap</h5>
+      </div>
+      <div class="info-text mb-4 pb-2 px-4">
+        <p class="font-13">It has been identified that <%= @resilience_supplier.name %> does not match the impact tolerances that have been defined for <%= sla_compounded_resilience_breakdown_text(@resilience_ticket.sla_attr) %></p>
+      </div>
+      <div class="mb-4 px-4">
+        <% supplier_steps = @resilience_bsl.supplier_steps.supplier_based(@resilience_supplier) %>
+        <h5 class="text-capitalize d-block mb-4">Total Steps Supplier Touches Across Business Service</h5>
+        <div class="small-boxes row no-gutters">
+          <div class="col-md-6 col-lg mb-2 px-1">
+            <div class="card h-100 border-0">
+              <div class="card-body px-2 py-3 d-block rounded bg-body-color">
+                <div class="color-tier d-flex align-items-center h-100">
+                  <div class="d-inline-block w-50 text-left align-middle">
+                    <span class="font-12 font-400 d-block">Critical</span>
+                  </div>
+                  <div class="text d-inline-block align-middle w-50 text-right">
+                    <span class="font-12 d-block font-weight-bold"><%= supplier_steps&.critical&.size %></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg mb-2 px-1">
+            <div class="card h-100 border-0">
+              <div class="card-body px-2 py-3 d-block rounded bg-body-color">
+                <div class="color-tier d-flex align-items-center h-100">
+                  <div class="d-inline-block w-50 text-left align-middle">
+                    <span class="font-12 font-400 d-block">Important</span>
+                  </div>
+                  <div class="text d-inline-block align-middle w-50 text-right">
+                    <span class="font-12 d-block font-weight-bold"><%= supplier_steps&.important&.size %></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg mb-2 px-1">
+            <div class="card h-100 border-0">
+              <div class="card-body px-2 py-3 d-block rounded bg-body-color">
+                <div class="color-tier d-flex align-items-center h-100">
+                  <div class="d-inline-block w-50 text-left align-middle">
+                    <span class="font-12 font-400 d-block">Operates as a Firm-hosted Supplier</span>
+                  </div>
+                  <div class="text d-inline-block align-middle w-50 text-right">
+                    <span class="font-12 d-block font-weight-bold"><%= supplier_steps&.send('firm-hosted')&.size&.zero? ? 'NO' : 'YES' %></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg mb-2 px-1">
+            <div class="card h-100 border-0">
+              <div class="card-body px-2 py-3 d-block rounded bg-body-color">
+                <div class="color-tier d-flex align-items-center h-100">
+                  <div class="d-inline-block w-50 text-left align-middle">
+                    <span class="font-12 font-400 d-block">Operates as a 3rd Party Supplier</span>
+                  </div>
+                  <div class="text d-inline-block align-middle w-50 text-right">
+                    <span class="font-12 d-block font-weight-bold"><%= supplier_steps&.send('3rd-party')&.size&.zero? ? 'NO' : 'YES' %></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg mb-2 px-1">
+            <div class="card h-100 border-0">
+              <div class="card-body px-2 py-3 d-block rounded bg-body-color">
+                <div class="color-tier d-flex align-items-center h-100">
+                  <div class="d-inline-block w-50 text-left align-middle">
+                    <span class="font-12 font-400 d-block">Operates as a 4th Party Supplier</span>
+                  </div>
+                  <div class="text d-inline-block align-middle w-50 text-right">
+                    <span class="font-12 d-block font-weight-bold"><%= supplier_steps&.send('4th-party')&.size&.zero? ? 'NO' : 'YES' %></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg mb-2 px-1">
+            <div class="card h-100 border-0">
+              <div class="card-body px-2 py-3 d-block rounded bg-body-color">
+                <div class="color-tier d-flex align-items-center h-100">
+                  <div class="d-inline-block w-50 text-left align-middle">
+                    <span class="font-12 font-400 d-block">Operates as a 4th Party Supplier</span>
+                  </div>
+                  <div class="text d-inline-block align-middle w-50 text-right">
+                    <span class="font-12 d-block font-weight-bold"><%= supplier_steps&.send('4th-party')&.size&.zero? ? 'NO' : 'YES' %></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row no-gutters">
+          <div class="col-md-6 col-lg-3 mb-2 px-1">
+            <div class="card h-100 border-0">
+              <div class="card-body px-2 py-3 d-block rounded bg-body-color">
+                <div class="color-tier d-flex align-items-center h-100">
+                  <div class="d-inline-block w-50 text-left align-middle">
+                    <span class="font-12 font-400 d-block">Affected Impact Tolerance</span>
+                  </div>
+                  <div class="text d-inline-block align-middle w-50 text-right">
+                    <span class="font-12 d-block font-weight-bold"><%= sla_compounded_resilience_breakdown_text(@resilience_ticket.sla_attr) %></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-3 mb-2 px-1">
+            <div class="card h-100 border-0">
+              <div class="card-body px-2 py-3 d-block rounded bg-body-color">
+                <div class="color-tier d-flex align-items-center h-100">
+                  <div class="d-inline-block w-50 text-left align-middle">
+                    <span class="font-12 font-400 d-block">Firms Target</span>
+                  </div>
+                  <div class="text d-inline-block align-middle w-50 text-right">
+                    <span class="font-12 d-block font-weight-bold"><%= @resilience_bsl.sla[@resilience_ticket.sla_attr] %></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-3 mb-2 px-1">
+            <div class="card h-100 border-0">
+              <div class="card-body px-2 py-3 d-block rounded bg-body-color">
+                <div class="color-tier d-flex align-items-center h-100">
+                  <div class="d-inline-block w-50 text-left align-middle">
+                    <span class="font-12 font-400 d-block">Supplier Agreement</span>
+                  </div>
+                  <div class="text d-inline-block align-middle w-50 text-right">
+                    <span class="font-12 d-block font-weight-bold"><%= @resilience_supplier.sla[@resilience_ticket.sla_attr] %></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-3 mb-2 px-1">
+            <div class="card h-100 border-0">
+              <div class="card-body px-2 py-3 d-block rounded bg-body-color">
+                <div class="color-tier d-flex justify-content-between align-items-center h-100">
+                  <div class="text-left align-middle">
+                    <span class="font-12 font-400 d-block">Difference</span>
+                  </div>
+                  <div class="text d-inline-block align-middle text-right">
+                    <span class="font-12 d-block font-weight-bold"><%= find_sla_difference(@resilience_ticket.sla_attr, @resilience_bsl.sla[@resilience_ticket.sla_attr], @resilience_supplier.sla[@resilience_ticket.sla_attr] ) %></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

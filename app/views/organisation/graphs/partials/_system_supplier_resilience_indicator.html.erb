@@ -8,7 +8,7 @@
             <%= react_component('highcharts/donut', { data: data.dig(:overall, key.underscore, :graph), render_to: 'donut' }, { class: 'h-130px d-flex align-items-center' }) %>
             <div class="donut-value font-25 font-700 text-black"><%= data.dig(:overall, key.underscore, :total) || 0 %></div>
             <div class="donut-desc sm-donut-desc flex-column">
-              <span class="font-11 font-xxl-14 font-600 text-capitalize mb-2"><%= key.titleize %></span>
+              <span class="font-12 font-xxl-14 font-600 text-capitalize mb-2"><%= key.titleize %></span>
             </div>
           </div>
         </div>
@@ -19,15 +19,15 @@
 <div class="d-flex text-black align-items-center h-70px justify-content-between w-100 px-3 mt-xxl-4">
   <div class="d-flex align-items-center">
     <div class="circle green-1"></div>
-    <span class="font-11 font-xxl-13 font-600 ml-1 text-capitalize text-black mt-1">matches</span>
+    <span class="font-12 font-xxl-14 font-600 ml-1 text-capitalize text-black mt-1">matches</span>
   </div>
   <div class="d-flex align-items-center">
     <div class="circle green-2"></div>
-    <span class="font-11 font-xxl-13 font-600 ml-1 text-capitalize text-black mt-1">meet</span>
+    <span class="font-12 font-xxl-14 font-600 ml-1 text-capitalize text-black mt-1">meet</span>
   </div>
   <div class="d-flex align-items-center">
     <div class="circle green-3"></div>
-    <span class="font-11 font-xxl-13 font-600 ml-1 text-capitalize text-black mt-1">exceeds</span>
+    <span class="font-12 font-xxl-14 font-600 ml-1 text-capitalize text-black mt-1">exceeds</span>
   </div>
 </div>
 <%= render "organisation/graphs/partials/system_supplier_resilience_indicator_tabs", data: data %>

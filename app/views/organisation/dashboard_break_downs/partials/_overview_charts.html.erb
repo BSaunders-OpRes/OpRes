@@ -6,41 +6,42 @@
         <div class="icon-btn text-right d-flex align-items-center flex-1 justify-content-md-end justify-content-between w-100">
         </div>
       </div>
-      <div class="row directory">
-        <% @data[:chp_obj].each do |chp| %>
-          <div class="col-lg-3 directory-box">
-            <ul class="first-level list-unstyled px-3">
+      <div class="row directory-list no-gutters">
+        <% @data.each do |chp, data| %>
+          <div class="col-lg-3 directory-box px-2">
+            <ul class="first-level list-unstyled pl-2 pl-xxl-3">
               <li>
-                <a href="#" class="w-100">
-                  <%= image_tag chp.logo, class: 'img-fluid ml-2' %>
-                  <span class="font-12 font-400 ml-1"><%= chp.short_name %></span>
-                </a>
-                <ul class="second-level list-unstyled pl-4">
-                  <% @data[:chp_model_supplier].each do |cm, number| %>
-                  <li>
-                    <a href="#" class="w-100">
-                      <span class="font-12 font-400"><%= cm&.humanize %></span>
-                    </a>
-                    <ul class="third-level list-unstyled pl-4">
-                      <% if @data[:chp_suppliers][chp.short_name].present? %>
-                        <% @data[:chp_suppliers][chp.short_name][cm]&.first(3)&.each do |supplier| %>
+                <div class="img-wrapper d-flex align-items-center justify-content-center">
+                  <%= image_tag @data.dig(chp, :logo), class: 'img-fluid' %>
+                </div>
+                <span class="font-12 font-xxl-14 font-600"><%= chp %></span>
+                <ul class="second-level list-unstyled pl-2 pl-xxl-3">
+                  <% Supplier.consumption_models.keys.each do  |cm| %>
+                    <li class="text-center pt-3">
+                      <span class="font-12 font-xxl-14 font-600 text-center"><%= titleize_last_alpha(cm.humanize) %></span>
+                      <ul class="third-level list-unstyled pl-2 pl-xxl-3 text-left pt-3">
+                        <% @data.dig(chp, cm, :bsls).each do  |bsl| %>
                           <li>
-                            <a href="#">
-                              <span class="font-10 font-400"><%= supplier&.name %></span>
-                            </a>
+                            <span class="font-12 font-xxl-14 font-400"><%= bsl.name.humanize %></span>
+                            <ul class="fourth-level list-unstyled pl-2 pl-xxl-3 pt-3">
+                              <% @data.dig(chp, cm, bsl.id, :suppliers).each do  |supplier| %>
+                                <li class="mb-2">
+                                  <span class="font-12 font-xxl-14 font-400"><%= supplier.name.humanize %></span>
+                                  <ul class="second-level list-unstyled">
+                                    <% @data.dig(chp, cm, bsl.id, supplier.id, :cloud_services).each do |service_name| %>
+                                      <li class="font-12 font-xxl-14 py-1">
+                                        <%= service_name %>
+                                      </li>
+                                    <% end %>
+                                  </ul>
+                                </li>
+                              <% end %>
+                            </ul>
                           </li>
                         <% end %>
-                        <li>
-                          <% if @data[:chp_suppliers][chp.short_name][cm].present? && @data[:chp_suppliers][chp.short_name][cm]&.drop(3)&.size > 1 %>
-                            <a href="#">
-                              <span class="font-10 font-400">+ <%= @data[:chp_suppliers][chp.short_name][cm]&.drop(3)&.size %> more</span>
-                            </a>
-                          <% end %>
-                        </li>
-                        <% end %>
-                      <% end %>
-                    </ul>
-                  </li>
+                      </ul>
+                    </li>
+                  <% end %>
                 </ul>
               </li>
             </ul>

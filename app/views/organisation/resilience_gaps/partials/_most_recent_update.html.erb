@@ -1,0 +1,24 @@
+<div class="card mx-4 border-0 mb-4">
+  <div class="card-body bg-body-color">
+    <div class="recent-attachment">
+      <div class="detail">
+        <h6 class="font-14 mb-3"><%= @recent_resilience_audit&.description %></h6>
+        <span class="d-block font-13 text-light-grey mb-3"><%= @resilience_ticket.user.name %>, <%= @recent_resilience_audit&.created_at&.strftime('%H:%M%p %d-%m-%y') %></span>
+      </div>
+      <div class="attach font-13">
+        <i class="fa fa-paperclip paperclip font-20"></i>
+        <span><%= @recent_resilience_audit.attachment.present? ? @recent_resilience_audit.attachment.filename : 'No, Attachment attached.' %></span>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="buttons px-4 pb-4 mb-4 d-flex flex-column flex-md-row flex-wrap">
+    <%= link_to edit_organisation_resilience_ticket_resilience_gap_path(@resilience_ticket, @recent_resilience_audit), class: 'btn btn-sm btn-dark py-2 px-3 bg-black rounded-50 mr-1 mb-2', remote: true do %>
+      <i class="fa fa-pencil mr-1"></i>
+      Edit Most Recent Update
+    <% end %>
+    <span  data-resilience="<%= @resilience_ticket.id %>" class="font-13 font-500 btn btn-sm btn-dark py-2 px-3 bg-black rounded-50 mr-1 mb-2 cursor-pointer resilience-audit-new">
+    <i class="fa fa-plus-circle mr-1"></i>
+    <span class="text-white text-decoration-none">Add Update</span>
+  </span>
+</div>

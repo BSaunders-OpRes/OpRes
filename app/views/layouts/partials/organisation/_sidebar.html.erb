@@ -13,7 +13,7 @@
     <ul class="list-unstyled mb-5">
       <li class="d-flex pl-4 align-items-center">
         <i class="fa fa-home font-18" aria-hidden="true"></i>
-        <%= link_to 'Resilience Hub', organisation_dashboard_index_path, class: 'ml-3 font-14 text-decoration-none font-600 text-capitalize py-4 close-bar' %>
+        <%= link_to 'Resilience Data Hub', organisation_dashboard_index_path, class: 'ml-3 font-14 text-decoration-none font-600 text-capitalize py-4 close-bar' %>
       </li>
         <li class="d-flex pl-4 align-items-center">
           <i class="fa fa-list-ul" aria-hidden="true"></i>
@@ -54,6 +54,21 @@
         </ul>
       <% end %>
     </ul>
+
+
+    <div class="coming-soon gradient-border card have-issue d-flex flex-column justify-content-center mx-auto mt-3">
+      <div class="card-body align-items-center text-center">
+        <i class="fa fa-calculator font-20 text-black" aria-hidden="true"></i>
+        <p class="text-capitalize">
+          <span class="font-18 font-600 text-green">
+           resilience calculator  
+          </span>
+          <span class="font-14 text-black font-600">
+            "comming soon"
+          </span>
+        </p>
+      </div>
+    </div>
     <div class="have-issue d-flex flex-column p-3 justify-content-center mx-auto mt-5">
       <div class="img-container text-center">
         <%= image_pack_tag 'media/images/issue.png', class: 'img-fluid' %>

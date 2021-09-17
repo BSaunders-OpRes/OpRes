@@ -89,7 +89,6 @@ class Organisation::DashboardBreakDownsController < Organisation::BaseController
   end
   
   def impact_tolerance_appetite; end
-  def resilience_indicator_ticket; end
 
   def system_supplier_resilience_indicator
     args = {
