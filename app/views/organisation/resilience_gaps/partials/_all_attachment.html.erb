@@ -8,8 +8,8 @@
           <i class="fa fa-paperclip paperclip font-20 align-middle"></i>
         </div>
         <div class="text">
-          <span class="d-block font-14 font-xxl-16 font-500"><%= resilience_audit.attachment.record.description %></span>
-          <span class="d-block font-12 font-xxl-14 text-light-grey"><%="#{ @resilience_ticket.user.name}, #{@resilience_ticket.created_at.strftime('%d-%m-%y')}" %></span>
+          <span class="d-block font-14 font-500"><%= resilience_audit.attachment.filename %></span>
+          <span class="d-block font-12 text-light-grey"><%="#{ @resilience_ticket.user.name}, #{@resilience_ticket.created_at.strftime('%d-%m-%y')}" %></span>
         </div>
       </div>
       <div class="right-side text-right flex-half mt-sm-0 mt-3">

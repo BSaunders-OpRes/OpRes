@@ -38,8 +38,9 @@ class Organisation::BusinessServiceLinesController < Organisation::BaseControlle
     @bsl = BusinessServiceLine
             .includes(:sla, :resilience_tickets, steps: [supplier_steps: [supplier: [:sla, :cloud_hosting_provider, :fourth_party_suppliers]]])
             .find(@bsl.id)
-    @open_resilience   = @bsl.resilience_tickets.open
-    @close_resilience  = @bsl.resilience_tickets.close
+    @open_resilience   = @bsl.resilience_tickets.order(:rgid).open
+    @onhold_resilience = @bsl.resilience_tickets.order(:rgid).onhold
+    @close_resilience  = @bsl.resilience_tickets.order(:rgid).close
   end
 
   def destroy; end

@@ -6,6 +6,7 @@
 <% if @recent_resilience_audit %>
   $('#recent-update').html("<%= j render 'organisation/resilience_gaps/partials/recent_update' %>");
   $('#resilience-all-attachments').html("<%= j render 'organisation/resilience_gaps/partials/all_attachment' %>");
+  $('#all-resilience-modal').html("<%= j render 'organisation/resilience_gaps/partials/all_resilience_modal' %>");
   toastr.success('Update updated successfully!');
 <% else %>
   toastr.error('ops! Update not updated.');

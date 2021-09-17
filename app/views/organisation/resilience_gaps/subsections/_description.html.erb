@@ -5,7 +5,7 @@
         <h5 class="text-capitalize font-600 text-left">Description of Resilience Gap</h5>
       </div>
       <div class="info-text mb-4 pb-2 px-4">
-        <p class="font-14 font-xxl-16">It has been identified that <%= @resilience_supplier.name %> does not match the impact tolerances that have been defined for <%= sla_compounded_resilience_breakdown_text(@resilience_ticket.sla_attr) %>.</p>
+        <p class="font-13">It has been identified that <%= @resilience_supplier.name %> does not match the impact tolerances that have been defined for <%= sla_full_form(@resilience_ticket.sla_attr) %></p>
       </div>
       <div class="mb-4 px-4">
         <% supplier_steps = @resilience_bsl.supplier_steps.supplier_based(@resilience_supplier) %>

@@ -1,6 +1,8 @@
 $('#resilience-ticket-add-update-modal').modal('hide');
 <% if @recent_resilience_audit_status %>
   $('#most-recent-resilience-update').html("<%= j render 'organisation/resilience_gaps/partials/most_recent_update' %>");
+  $('#resilience-all-attachments').html("<%= j render 'organisation/resilience_gaps/partials/all_attachment' %>");
+  $('#all-resilience-modal').html("<%= j render 'organisation/resilience_gaps/partials/all_resilience_modal' %>");
   toastr.success('Update Added successfully!');
 <% else %>
   toastr.error('ops! Update not added.');

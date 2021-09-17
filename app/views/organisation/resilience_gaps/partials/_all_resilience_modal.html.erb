@@ -45,7 +45,7 @@
                   <% @resilience_audits&.each do |resilience_audit| %>
                     <tr>
                       <td class="font-12 font-weight-500"><%= resilience_audit.updated_at.strftime('%d-%m-%y')%></td>
-                      <td class="font-12 font-weight-500">Jane Doe</td>
+                      <td class="font-12 font-weight-500"><%= @resilience_ticket.user.name %></td>
                       <td class="font-12 font-weight-500"><%= resilience_audit.description %></td>
                       <td class="font-12 font-weight-500">
                         <% if resilience_audit.attachment.present? %>
