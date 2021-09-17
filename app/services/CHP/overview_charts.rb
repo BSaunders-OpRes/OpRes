@@ -26,7 +26,7 @@ class CHP::OverviewCharts < ApplicationService
           data[co.short_name][c_model][bsl.id][:suppliers] = b_suppliers
           b_suppliers.each do |supplier|
             data[co.short_name][c_model][bsl.id][supplier.id]  = {}
-            data[co.short_name][c_model][bsl.id][supplier.id][:cloud_services] = supplier.cloud_hosting_provider.cloud_hosting_provider_services.limit(10).pluck(:name)
+            data[co.short_name][c_model][bsl.id][supplier.id][:cloud_services] = supplier.cloud_hosting_provider.cloud_hosting_provider_services.pluck(:name)
           end
         end
       end

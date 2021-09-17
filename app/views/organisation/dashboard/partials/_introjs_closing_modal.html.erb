@@ -1,17 +1,27 @@
 <div class="modal fade mt-5 pt-5" id="dashboard-tour-end-modal" role="dialog" aria-labelledby="welcome-tour-modal" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header border-0 pb-0 pt-0">
-          <button type="button" class="close mt-1" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body pt-5 pb-4">
-          <p class="font-25 font-400 text-center">Thank you for taking the OpRes Launch Tour!</p>
-        </div>
-        <div class="modal-footer border-0 pb-5 d-flex justify-content-center">
-          <button type="button" class="btn font-500 black-btn w-75 mx-auto rounded-50 border py-2 px-4 shadow-none" data-dismiss="modal">End Tour</button>
-        </div>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header border-0 pb-0 pt-0">
+        <button type="button" class="close mt-1" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body py-3">
+        <p class="font-25 font-400 text-center">
+          <strong class="text-secondary-green font-18 mb-4 d-block">
+            Thanks for taking the OpRes tour.    
+          </strong>
+          <span class="d-block font-14 font-xxl-16">
+            We suggest you get started by adding an Important Business Service or Supplier. This can be done via the Administration Portal.
+          </span>
+        </p>
+      </div>
+      <div class="modal-footer border-0 pb-5 d-flex justify-content-center">
+       <!--  <button type="button" class="btn font-500 black-btn w-75 mx-auto rounded-50 border py-2 px-4 shadow-none" data-dismiss="modal">Take me to the Administration Portal</button> -->
+        <%= link_to organisation_administration_portal_index_path, class: 'btn font-600 black-btn w-75 mx-auto rounded-50 border py-2 px-4 shadow-none font-12 font-xxl-14' do %>
+          Take me to the Administration Portal
+        <% end %>
       </div>
     </div>
+  </div>
 </div>

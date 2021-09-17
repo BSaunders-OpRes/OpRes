@@ -21,7 +21,7 @@
         <div class="modal-dialog" role="document">
           <div class="modal-content">
             <div class="modal-header border-0 p-4">
-              <h5 class="modal-title text-capitalize font-16">
+              <h5 class="modal-title text-capitalize font-16 font-600">
                 add supplier to step
                 <span id="bsl-step-supplier-modal-number"></span>
               </h5>
@@ -38,7 +38,7 @@
                   <%= select_tag 'supplier[supplier]', options_for_select(@suppliers.map { |supplier| [supplier.name, supplier.id] }), prompt: 'Select Supplier', class: 'form-control w-100 font-12 h-auto py-3 shadow-none select2 bsl-step-field', id: 'bsl-step-supplier-modal-suppliers' %>
                 </div>
                 <div class="col-sm-1 text-right order-2 flex-sm-half mb-2 mb-sm-0">
-                  <div class="info" data-toggle="tooltip" data-placement="top" title="supplier" aria-hidden="true">i</div>
+                  <div class="info" data-toggle="tooltip" data-placement="top" title="Search supplier" aria-hidden="true">i</div>
                 </div>
               </div>
               <div class="row mb-3">
