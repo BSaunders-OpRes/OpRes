@@ -10,6 +10,9 @@
           <a href="#open_issues" class="nav-link active text-capitalize font-12 font-xxl-14 border-0 p-0 pb-2 text-light-grey font-500" data-toggle="tab" href="#open_issues" role="tab" aria-controls="open_issues" aria-selected="true">Open Issues</a>
         </li>
         <li class="nav-item mr-3">
+          <a href="#onhold_issues" class="nav-link text-capitalize font-12 font-xxl-14 border-0 p-0 pb-2 text-light-grey font-500" data-toggle="tab" href="#onhold_issues" role="tab" aria-controls="onhold_issues" aria-selected="true">On Hold Issues</a>
+        </li>
+        <li class="nav-item mr-3">
           <a href="#closed_issues" class="nav-link text-capitalize font-12 font-xxl-14 border-0 p-0 pb-2 text-light-grey font-500" data-toggle="tab" href="#closed_issues" role="tab" aria-controls="closed_issues" aria-selected="true">Closed Issues</a>
         </li>
       </ul>
@@ -54,6 +57,46 @@
             </div>
           </div>
         </div>
+        <div class="tab-pane fade" id='onhold_issues'>
+          <div class="top-5-table">
+            <div class="table-responsive">
+              <table class="table mb-0 table-striped">
+                <thead>
+                  <tr>
+                    <th class="font-12 text-light-grey border-bottom-0 border-top-0 pl-4">ID</th>
+                    <th class="font-12 text-light-grey border-bottom-0 border-top-0">Supplier</th>
+                    <th class="font-12 text-light-grey border-bottom-0 border-top-0">Description</th>
+                    <th class="font-12 text-light-grey border-bottom-0 border-top-0">Created</th>
+                    <th class="font-12 text-light-grey border-bottom-0 border-top-0">Updated</th>
+                    <th class="font-12 text-light-grey border-bottom-0 border-top-0">Days Open</th>
+                    <th class="font-12 text-light-grey border-bottom-0 border-top-0">Owner</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <% if @onhold_resilience.present? %>
+                    <% @onhold_resilience&.each do |resilience_ticket| %>
+                      <tr>
+                        <td class="font-12 font-500 pl-4"><%= link_to resilience_ticket.rgid,resilience_indicator_ticket_organisation_resilience_ticket_resilience_gap_path(resilience_ticket.id) %></td>
+                        <td class="font-12 font-500"><%= resilience_ticket.supplier.name %></td>
+                        <td class="font-12 font-500"><%= @bsl.name %> has Exceeded the Firm’s target</td>
+                        <td class="font-12 font-500"><%= resilience_ticket.created_at.strftime('%d-%m-%y') %></td>
+                        <td class="font-12 font-500"><%= resilience_ticket.updated_at.strftime('%d-%m-%y') %></td>
+                        <td class="font-12 font-500"><%= resilience_ticket.days_open %></td>
+                        <td class="font-12 font-500"><%= resilience_ticket.user.name %></td>
+                      </tr>
+                    <% end %>
+                  <% else %>
+                  <tr>
+                    <td colspan="7">
+                      <p class="text-center font-14 font-600">No, onhold issues </p>
+                    </td>
+                  </tr>
+                  <% end %>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
         <div class="tab-pane fade" id='closed_issues'>
           <div class="top-5-table">
             <div class="table-responsive">
@@ -73,7 +116,7 @@
                   <% if @close_resilience.present? %>
                     <% @close_resilience&.each do |resilience_ticket| %>
                       <tr>
-                        <td class="font-12 font-500 pl-4"><%= link_to resilience_ticket.id,resilience_indicator_ticket_organisation_resilience_ticket_resilience_gap_path(resilience_ticket.id) %></td>
+                        <td class="font-12 font-500 pl-4"><%= link_to resilience_ticket.rgid,resilience_indicator_ticket_organisation_resilience_ticket_resilience_gap_path(resilience_ticket.id) %></td>
                         <td class="font-12 font-500"><%= resilience_ticket.supplier.name %></td>
                         <td class="font-12 font-500"><%= @bsl.name %> has Exceeded the Firm’s target</td>
                         <td class="font-12 font-500"><%= resilience_ticket.created_at.strftime('%d-%m-%y') %></td>
