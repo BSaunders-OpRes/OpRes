@@ -6,20 +6,21 @@
         <h6 class="empty-donut-line px-5 mb-2"></h6>
       </div>
     </div>
+  </div>
   <% else %>
   <div class="col-sm-6 py-3 px-md-3">
     <div class="card border-0 pie-high-chart">
-      <div class="card-header h-240px border-0 bg-white text-center">
+      <div class="card-header h-auto border-0 bg-white text-center pb-0">
         <div class="donut-content">
           <%= react_component('highcharts/percentage_donut', { data: data.dig(:overall, :graph).flatten, render_to: 'donut-chp' }, { class: 'h-200-highchart' }) %>
           <div class="donut-value font-30 font-700 d-flex"><span><%= "#{data.dig(:overall,:graph)[0].second.dig(:count)}" %></span><span><span>%</span></div>
         </div>
-        <h6 class="font-13 font-600 w-75 mx-auto mt-5">Supplier Conformance with Impact Tolerances</h6>
+        <h6 class="font-13 font-600 w-75 mx-auto mt-4">Supplier Conformance with Impact Tolerances</h6>
       </div>
     </div>
   </div>
-  <div class="col-md-6 d-flex align-items-center justify-content-center  py-3 px-md-3 mb-4">
-    <div class="card border-0 pie-high-chart mt-4 pt-3">
+  <div class="col-md-6 d-flex py-3 px-md-3 justify-content-center">
+    <div class="card border-0 pie-high-chart d-flex justify-content-end">
       <div class="border-0 bg-white text-center">
         <div class="donut-content">
           <div class="align-items-center justify-content-center">
@@ -31,7 +32,7 @@
             </div>
           </div>
         </div>
-        <div class="text text-center mt-4 pt-1">
+        <div class="text text-center mt-5">
           <p class="font-13 font-600">Open Resilience Gaps</p>
         </div>
       </div>

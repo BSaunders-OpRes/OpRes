@@ -2,20 +2,19 @@
   <h6 class="my-4">All Attachments</h6>
   <% @resilience_audits&.each do |resilience_audit|%>
     <% if resilience_audit.attachment.present? %>
-    <div class="line-row d-flex align-items-center justify-content-between mb-4 flex-wrap">
-      <div class="left-side d-flex align-items-center">
-        <div class="image px-4 py-3 mr-3 bg-body-color">
+    <div class="line-row d-flex align-items-sm-center align-items-start justify-content-between mb-4 flex-wrap flex-sm-row flex-column">
+      <div class="left-side d-flex align-items-sm-center align-items-start flex-sm-row flex-column flex-half">
+        <div class="image px-4 py-3 mr-3 bg-body-color mb-sm-0 mb-3 ">
           <i class="fa fa-paperclip paperclip font-20 align-middle"></i>
         </div>
         <div class="text">
-
           <span class="d-block font-14 font-500"><%= resilience_audit.attachment.filename %></span>
           <span class="d-block font-12 text-light-grey"><%="#{ @resilience_ticket.user.name}, #{@resilience_ticket.created_at.strftime('%d-%m-%y')}" %></span>
         </div>
       </div>
-      <div class="right-side text-right">
-        <%= link_to 'View', rails_blob_path(resilience_audit.attachment, disposition: 'preview'), target: '_blank', class: 'ml-2 text-black text-decoration-none' %>
-        <%= link_to 'Download', rails_blob_path(resilience_audit.attachment, disposition: 'attachment'), class: 'ml-2 text-black text-decoration-none' %>
+      <div class="right-side text-right flex-half mt-sm-0 mt-3">
+        <%= link_to 'View', rails_blob_path(resilience_audit.attachment, disposition: 'preview'), target: '_blank', class: 'ml-sm-2 ml-0 text-black text-decoration-none border-bottom' %>
+        <%= link_to 'Download', rails_blob_path(resilience_audit.attachment, disposition: 'attachment'), class: 'ml-2 text-black text-decoration-none border-bottom' %>
       </div>
     </div>
     <% end %>

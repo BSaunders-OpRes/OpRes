@@ -5,6 +5,6 @@ class Organisation::GraphsController  < Organisation::BaseController
       current_user:        current_user,
       organisational_unit: organisational_unit
     }.merge((params[:args] || ActionController::Parameters.new).permit!.to_h)
-    @data   = service.call(args.stringify_keys)
+    @data = service.call(args.stringify_keys)
   end
 end

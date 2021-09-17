@@ -16,13 +16,13 @@
     </div>
       <ul class="nav nav-tabs border-0 active-green my-4 public-cloud-system">
         <li class="nav-item mr-3">
-          <%= link_to 'IaaS', critical_important_system_organisation_dashboard_break_downs_path(cm_model:"iaas"), class:"active nav-link text-capitalize font-12 font-xxl-14 border-0 p-0 pb-2 text-light-grey font-500", remote: true %>
+          <%= link_to 'IaaS', critical_important_system_organisation_dashboard_break_downs_path(cm_model:"iaas"), class:"#{@i_active} nav-link text-capitalize font-12 font-xxl-14 border-0 p-0 pb-2 text-light-grey font-500", remote: true %>
         </li>
         <li class="nav-item mr-3">
-          <%= link_to 'SaaS', critical_important_system_organisation_dashboard_break_downs_path(cm_model:'saas'), class:"nav-link text-capitalize font-12 font-xxl-14 border-0 p-0 pb-2 text-light-grey font-500", remote: true %>
+          <%= link_to 'SaaS', critical_important_system_organisation_dashboard_break_downs_path(cm_model:'saas'), class:" #{@s_active} nav-link text-capitalize font-12 font-xxl-14 border-0 p-0 pb-2 text-light-grey font-500", remote: true %>
         </li>
         <li class="nav-item mr-3">
-           <%= link_to 'PaaS', critical_important_system_organisation_dashboard_break_downs_path(cm_model:"paas"), class:"nav-link text-capitalize font-12 font-xxl-14 border-0 p-0 pb-2 text-light-grey font-500", remote: true %>
+           <%= link_to 'PaaS', critical_important_system_organisation_dashboard_break_downs_path(cm_model:"paas"), class:" #{@p_active} nav-link text-capitalize font-12 font-xxl-14 border-0 p-0 pb-2 text-light-grey font-500", remote: true %>
         </li>
       </ul>
       <div class="form-group">
