@@ -42,6 +42,12 @@
 
 // border animation
 
+.color-animation {
+  // color: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);
+  animation: colorchange 6s ease alternate infinite;
+  display: inline-block;
+}
+
 .gradient-border {
   --borderWidth: 3px;
   background: #1D1F20;
@@ -72,5 +78,77 @@
   }
   100% {
     background-position: 0% 50%;
+  }
+}
+@-webkit-keyframes animatedgradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+@-ms-keyframes animatedgradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+@-o-keyframes animatedgradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    color: #a166ab;
+    background-position: 0% 50%;
+  }
+}
+
+
+
+@-webkit-keyframes colorchange {
+  0% {
+    color: #f79533;
+  }
+  10% {
+    color: #f37055;
+  }
+  20% {
+    color: #1abc9c;
+  }
+  30% {
+    color: #ef4e7b;
+  }
+  40% {
+    color: #a166ab;
+  }
+  50% {
+    color: #34495e;
+  }
+  60% {
+    color: #5073b8;
+  }
+  70% {
+    color: #1098ad;
+  }
+  80% {
+    color: #07b39b;
+  }
+  90% {
+    color: #6fba82;
+  }
+  100% {
+    color: pink;
   }
 }
