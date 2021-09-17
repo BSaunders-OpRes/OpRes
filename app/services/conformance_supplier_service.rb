@@ -1,9 +1,10 @@
 class ConformanceSupplierService < Graphs::BaseService
   attr_accessor :filter
 
-  def initialize(args, importance_level = nil)
-    @args                = args
-    @importance_level    = importance_level
+  def initialize(args, params = nil)
+    @args                = args    
+    @importance_level    = params[:importance_level]
+    @regions             = params[:regions]
     @current_user        = args.dig('current_user')
     @organisational_unit = args.dig('organisational_unit')
 

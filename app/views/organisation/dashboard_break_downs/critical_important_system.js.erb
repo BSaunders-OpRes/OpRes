@@ -1,6 +1,7 @@
 <% if @type.present? %>
    $(".private-tab-content").html("<%= escape_javascript(render 'organisation/dashboard_break_downs/partials/firm_hosted') %>");
 <% else %>
+    var params = JSON.parse('<%= raw({"importance_level":  @importance_level, "regions": @regional_filters }.to_json) %>');
     if ($('.lazy-graph').length >= 1) {
     $('.lazy-graph').each(function() {
       $.ajax({
@@ -10,7 +11,7 @@
         async:     false,
         data:     {
           key:            $(this).data('key'),
-          args:           $(this).data('args'),
+          args:           params,
           data_append_to: $(this).data('append-to'),
           partial_name:   $(this).data('partial-name')
         }

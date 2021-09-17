@@ -5,8 +5,27 @@ class  Graphs::CaisOverviewService < Graphs::BaseService
 
   attr_reader :suppliers, :data
 
+  def initialize(args)
+    @args                = args
+    @current_user        = args.dig('current_user')
+    @importance_level    = args.dig('importance_level')
+    @regions             = args.dig('regions')
+    @organisational_unit = args.dig('organisational_unit')
+
+    @data = {}
+  end
+
   def call
-    @suppliers      = Supplier.where(unit_id: managing_nodes)
+    if @importance_level.present? || @regions.present?
+      if @regions.present?
+        regional_ids = Unit.where(id: managing_nodes).where(type:"Units::Regional").where(name: @regions).ids
+        @suppliers = Supplier.where(unit_id: regional_ids || managing_nodes)
+      else
+        @suppliers = Supplier.where(unit_id: regional_ids || managing_nodes).joins(:supplier_steps).where(supplier_steps: { importance_level: @importance_level })
+      end
+    else
+      @suppliers = Supplier.where(unit_id: managing_nodes)
+    end
     data[:overall] = overall
 
     data

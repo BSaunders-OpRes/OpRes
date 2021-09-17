@@ -59,9 +59,9 @@
             </div>
           </div>
         </div>
-
         <div class="card ">
-          <div id="cais-overview" class="col-lg-12 col-md-12 custom-high-chart custom-high-chart mb-4 lazy-graph" data-key="cais_overview" data-args="<%= {}.to_json %>" data-append-to="cais-overview" data-partial-name="cais_overview">
+          <div id="cais-overview" class="col-lg-12 col-md-12 custom-high-chart custom-high-chart mb-4
+         lazy-graph" data-key="cais_overview" data-args="<%= { importance_level: @importance_level }.to_json%>" data-append-to="cais-overview" data-partial-name="cais_overview">
             <%= render 'organisation/graphs/partials/cais_overview.html.erb', data: {} %>
           </div>
         </div>
