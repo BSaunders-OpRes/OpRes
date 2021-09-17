@@ -4,16 +4,16 @@
       <div class="d-flex justify-content-between align-items-center mb-4 pb-2 px-4">
         <h5 class="text-capitalize font-600 text-left">Overview</h5>
       </div>
-      <div class="resilience-gap-text d-flex align-items-start align-items-lg-center justify-content-between flex-column flex-lg-row">
-        <div class="info-text mb-4 pb-2 px-4">
+      <div class="resilience-gap-text d-flex align-items-start align-items-lg-center justify-content-between flex-sm-row flex-column">
+        <div class="info-text mb-4 pb-2 pl-4">
           <div class="d-flex flex-wrap">
-            <h6 class="font-14 mr-2 my-2">Resilience Gap ID: <%= @resilience_ticket.rgid %></h6>
+            <h6 class="font-14 font-xxl-18 mr-2 my-2 font-600">Resilience Gap ID: <%= @resilience_ticket.rgid %></h6>
           </div>
-          <span class="font-12 text-light-grey">Date Created <%= @resilience_ticket.created_at.strftime('%d-%m-%y') %></span>
+          <span class="font-12 font-xxl-14 text-light-grey font-600">Date Created <%= @resilience_ticket.created_at.strftime('%d-%m-%y') %></span>
         </div>
-        <div class="info-text mb-4 px-4">
+        <div class="info-text mb-4 pr-4">
           <div class="filter-grouped d-flex align-items-center justify-content-start info-text mb-4">
-            <h6 class="mr-3 font-14 flex-1 text-right font-600">Status</h6>
+            <h6 class="mr-sm-3 ml-4 font-14 flex-1 text-sm-right text-left  font-600">Status</h6>
 
             <div class=" body-color-dropdown flex-1 select-arrow position-relative p-0 rounded">
             <%= select_tag 'resilience_status', options_for_select(ResilienceTicket.statuses.transform_keys(&:titleize),ResilienceTicket.statuses[@resilience_ticket.status]), multiple: false, class: ' w-100 font-12 shadow-none h-auto resilience-status border-0 bg-transparent p-2 form-control' %>
@@ -26,42 +26,42 @@
       <div class="details mb-4 px-4">
         <div class="intro-box mb-3 d-flex align-items-start justify-content-center">
           <div class="w-50 w-md-25">
-            <span class="font-12">Business Service Name:</span>
+            <span class="font-12 font-600 font-xxl-14">Business Service Name:</span>
           </div>
           <div class="w-50 w-md-75">
-            <strong class="w-75 font-12"><%= @resilience_bsl.name %></strong>
+            <span class="w-75 font-12 font-xxl-14"><%= @resilience_bsl.name %></span>
           </div>
         </div>
         <div class="intro-box mb-3 d-flex align-items-start justify-content-center">
           <div class="w-50 w-md-25">
-            <span class="font-12">Material Risk Taker:</span>
+            <span class="font-12 font-600 font-xxl-14">Material Risk Taker:</span>
           </div>
           <div class="w-50 w-md-75">
-            <strong class="font-12"><%= @resilience_material_risk_taker.name %></strong>
+            <span class="font-12 font-xxl-14"><%= @resilience_material_risk_taker.name %></span>
           </div>
         </div>
         <div class="intro-box mb-3 d-flex align-items-start justify-content-center">
           <div class="w-50 w-md-25">
-            <span class="font-12">Region:</span>
+            <span class="font-12 font-600 font-xxl-14">Region:</span>
           </div>
           <div class="w-50 w-md-75">
-            <strong class="font-12"><%= @resilience_bsl.region.region.name.titleize %></strong>
+            <span class="font-12 font-xxl-14"><%= @resilience_bsl.region.region.name.titleize %></span>
           </div>
         </div>
         <div class="intro-box mb-3 d-flex align-items-start justify-content-center">
           <div class="w-50 w-md-25">
-            <span class="font-12">Country:</span>
+            <span class="font-12 font-600 font-xxl-14">Country:</span>
           </div>
           <div class="w-50 w-md-75">
-            <strong class="font-12"><%= @resilience_bsl.country.country.name.titleize %></strong>
+            <span class="font-12 font-xxl-14"><%= @resilience_bsl.country.country.name.titleize %></span>
           </div>
         </div>
         <div class="intro-box mb-3 d-flex align-items-start justify-content-center">
           <div class="w-50 w-md-25">
-            <span class="font-12">Description of Business Service:</span>
+            <span class="font-12 font-600 font-xxl-14">Description of Business Service:</span>
           </div>
           <div class="w-50 w-md-75">
-            <strong class="font-12"><%= @resilience_bsl.description %></strong>
+            <span class="font-12 font-xxl-14"><%= @resilience_bsl.description %></span>
           </div>
         </div>
       </div>

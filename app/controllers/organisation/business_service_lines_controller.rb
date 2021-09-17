@@ -38,8 +38,9 @@ class Organisation::BusinessServiceLinesController < Organisation::BaseControlle
     @bsl = BusinessServiceLine
             .includes(:sla, :resilience_tickets, steps: [supplier_steps: [supplier: [:sla, :cloud_hosting_provider, :fourth_party_suppliers]]])
             .find(@bsl.id)
-    @open_resilience   = @bsl.resilience_tickets.open
-    @close_resilience  = @bsl.resilience_tickets.close
+    @open_resilience   = @bsl.resilience_tickets.order(:rgid).open
+    @onhold_resilience = @bsl.resilience_tickets.order(:rgid).onhold
+    @close_resilience  = @bsl.resilience_tickets.order(:rgid).close
   end
 
   def destroy; end
@@ -52,8 +53,10 @@ class Organisation::BusinessServiceLinesController < Organisation::BaseControlle
   def compound_resilience
     if params.dig('supplier_type') == SupplierStep.importance_levels[:critical].to_s
       @service_level_agreement = Supplier.joins(:sla, supplier_steps: [step: [:business_service_line]]).where(business_service_lines: { id: @bsl.id }).where(supplier_steps: { importance_level: SupplierStep.importance_levels[:critical] }).where.not(slas:{"service_level_agreement": nil})
+      @type = 'critical steps'
     elsif params.dig('supplier_type') == SupplierStep.importance_levels[:important].to_s
       @service_level_agreement =  Supplier.joins(:sla, supplier_steps: [step: [:business_service_line]]).where(business_service_lines: { id: @bsl.id }).where(supplier_steps: { importance_level: SupplierStep.importance_levels[:important] }).where.not(slas:{"service_level_agreement": nil})
+      @type = 'important steps'
     end
   end
 

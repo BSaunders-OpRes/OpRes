@@ -71,6 +71,20 @@ module Organisation::SuppliersHelper
     end
   end
 
+   def sla_full_form(sla_attr)
+    if sla_attr == 'severity1'
+      'severity 1 notification'
+    elsif sla_attr == 'severity2'
+      'severity 2 notification'
+    elsif sla_attr == 'severity3'
+      'severity 3 notification'
+    elsif sla_attr == 'severity4'
+      'severity 4 notification'
+    else
+      sla_attr.humanize
+    end
+  end
+
   def check_logo(social_account_name)
     case social_account_name
     when 'LinkedIn'

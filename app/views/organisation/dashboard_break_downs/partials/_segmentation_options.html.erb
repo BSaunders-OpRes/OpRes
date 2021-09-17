@@ -1,5 +1,5 @@
-<div class="col-lg px-1 col-md-4 col-sm-6">
-  <div class="dropdown custom-dropdown" id="dropdownMenuSupplierType">
+<div class="col-lg px-1 col-md-4 col-sm-6 segmentation_suppliers">
+  <div class="dropdown custom-dropdown z-index-10" id="dropdownMenuSupplierType">
     <button class="border-0 p-3 bg-body-color dropdown-toggle w-100 shadow-none mb-3 rounded" type="button" id="dropdownMenuButtonSupplierType" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
       <span class="d-flex flex-column align-items-start">
         <h6 class="text-capitalize font-12 font-xxl-14 mb-1">
@@ -8,40 +8,27 @@
         <span class="text-capitalize font-12 font-xxl-14 text-light-grey">View all</span>
       </span>
     </button>
-    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-      <div class="form-group dropdown-item pl-3 m-0">
-        <label for="ch39" class="custom-checkbox d-flex m-0">
-          <span class="font-12 text-black text-capitalize">View All</span>
-          <input type="checkbox" class="form-control" id="ch39">
-          <span class="transparent-checkmark"></span>
-        </label>
-      </div>
+    <div class="dropdown-menu supplier-type" aria-labelledby="dropdownMenuButton">
       <div class="form-group dropdown-item pl-3 m-0">
         <label for="ch69" class="custom-checkbox d-flex m-0">
-          <span class="font-12 text-black text-capitalize">AMERS</span>
-          <input type="checkbox" class="form-control" id="ch69">
+          <span class="font-12 text-black text-capitalize">Critical</span>
+          <input type="checkbox" class="form-control filter-value" id="ch69" data-id="ch69" data-args='critical' name="critical">
+
           <span class="transparent-checkmark"></span>
         </label>
       </div>
       <div class="form-group dropdown-item pl-3 m-0">
         <label for="ch59" class="custom-checkbox d-flex m-0">
-          <span class="font-12 text-black text-capitalize">APAC</span>
-          <input type="checkbox" class="form-control" id="ch59">
-          <span class="transparent-checkmark"></span>
-        </label>
-      </div>
-      <div class="form-group dropdown-item pl-3 m-0">
-        <label for="ch79" class="custom-checkbox d-flex m-0">
-          <span class="font-12 text-black text-capitalize">EMEA</span>
-          <input type="checkbox" class="form-control" id="ch79">
+          <span class="font-12 text-black text-capitalize">Important</span>
+          <input type="checkbox" class="form-control filter-value" id="ch59" data-id="ch59" data-args='important'>
           <span class="transparent-checkmark"></span>
         </label>
       </div>
     </div>
   </div>
 </div>
-<div class="col-lg px-1 col-md-4 col-sm-6">
-  <div class="dropdown custom-dropdown">
+<div class="col-lg px-1 col-md-4 col-sm-6 segmentation_regions">
+  <div class="dropdown custom-dropdown z-index-10">
     <button class="border-0 rounded mb-3 bg-body-color p-3 dropdown-toggle w-100 shadow-none" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
       <span class="d-flex flex-column align-items-start">
         <h6 class="text-capitalize font-12 font-xxl-14 mb-1">
@@ -58,40 +45,22 @@
           <span class="transparent-checkmark"></span>
         </label>
       </div>
-      <div class="form-group dropdown-item pl-3 m-0 mb-2">
-        <label for="ch619" class="custom-checkbox d-flex m-0">
-          <span class="font-12 text-black text-capitalize">Sub Saharan Africa
-            <span class="text-light-grey">- 3 countries</span>
-          </span>
-          <input type="checkbox" class="form-control" id="ch619">
-          <span class="transparent-checkmark"></span>
-        </label>
-      </div>
-      <div class="form-group dropdown-item pl-3 m-0 mb-2">
-        <label for="ch519" class="custom-checkbox d-flex m-0">
-          <span class="font-12 text-black text-capitalize">
-            eastern europe
-            <span class="text-light-grey">- 3 countries</span>
-          </span>
-          <input type="checkbox" class="form-control" id="ch519">
-          <span class="transparent-checkmark"></span>
-        </label>
-      </div>
-      <div class="form-group dropdown-item pl-3 m-0 mb-2">
-        <label for="ch719" class="custom-checkbox d-flex m-0">
-          <span class="font-12 text-black text-capitalize">
-            northern europe
-            <span class="text-light-grey">- 3 countries</span>
-          </span>
-          <input type="checkbox" class="form-control" id="ch719">
-          <span class="transparent-checkmark"></span>
-        </label>
-      </div>
+      <% @regions&.each do |region|%>
+        <div class="form-group dropdown-item pl-3 m-0 mb-2">
+          <label for="<%= region.id %>" class="custom-checkbox d-flex m-0">
+            <span class="font-12 text-black text-capitalize"><%= region.name %>
+              <span class="text-light-grey">- <%= region.children.size %> countries</span>
+            </span>
+            <input type="checkbox" class="form-control" id="<%= region.id %>" data-args="<%= region.name %>">
+            <span class="transparent-checkmark"></span>
+          </label>
+        </div>
+      <% end %>
     </div>
   </div>
 </div>
-<div class="col-lg px-1 col-md-4 col-sm-6">
-  <div class="dropdown custom-dropdown">
+<div class="col-lg px-1 col-md-4 col-sm-6 segmentation_countries">
+  <div class="dropdown custom-dropdown z-index-10">
     <button class="border-0 rounded mb-3 p-3 bg-body-color dropdown-toggle w-100 shadow-none" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
       <span class="d-flex flex-column align-items-start">
         <h6 class="text-capitalize font-12 font-xxl-14 mb-1">
@@ -108,55 +77,21 @@
           <span class="transparent-checkmark"></span>
         </label>
       </div>
-      <div class="form-group dropdown-item pl-3 m-0">
-        <label for="ch69" class="custom-checkbox d-flex m-0">
-          <span class="font-12 text-black text-capitalize">
-            <i class="flag belgium"></i>
-          belgium</span>
-          <input type="checkbox" class="form-control" id="ch69">
-          <span class="transparent-checkmark"></span>
-        </label>
-      </div>
-      <div class="form-group dropdown-item pl-3 m-0">
-        <label for="ch59" class="custom-checkbox d-flex m-0">
-          <span class="font-12 text-black text-capitalize">
-            <i class="flag france"></i>
-          france</span>
-          <input type="checkbox" class="form-control" id="ch59">
-          <span class="transparent-checkmark"></span>
-        </label>
-      </div>
-      <div class="form-group dropdown-item pl-3 m-0">
-        <label for="ch79" class="custom-checkbox d-flex m-0">
-          <span class="font-12 text-black text-capitalize">
-            <i class="flag germany"></i>
-          germany</span>
-          <input type="checkbox" class="form-control" id="ch79">
-          <span class="transparent-checkmark"></span>
-        </label>
-      </div>
-      <div class="form-group dropdown-item pl-3 m-0">
-        <label for="ch79" class="custom-checkbox d-flex m-0">
-          <span class="font-12 text-black text-capitalize">
-            <i class="flag spain"></i>
-          spain</span>
-          <input type="checkbox" class="form-control" id="ch79">
-          <span class="transparent-checkmark"></span>
-        </label>
-      </div>
-      <div class="form-group dropdown-item pl-3 m-0">
-        <label for="ch79" class="custom-checkbox d-flex m-0">
-          <span class="font-12 text-black text-capitalize">
-            <i class="flag uk"></i>
-          UK</span>
-          <input type="checkbox" class="form-control" id="ch79">
-          <span class="transparent-checkmark"></span>
-        </label>
-      </div>
+      <% @countries&.each do |country|%>
+        <div class="form-group dropdown-item pl-3 m-0">
+          <label for="<%= country.id %>" class="custom-checkbox d-flex m-0">
+            <span class="font-12 text-black text-capitalize">
+              <i class="flag <%= country.name.split().last.downcase %>"></i>
+            <%= country.name %></span>
+            <input type="checkbox" class="form-control" id="<%= country.id %>" data-args="<%= country.name %>">
+            <span class="transparent-checkmark"></span>
+          </label>
+        </div>
+      <% end %>
     </div>
   </div>
 </div>
-<div class="col-lg px-1 col-md-4 col-sm-6">
+<div class="col-lg px-1 col-md-4 col-sm-6 segmentation_firms">
   <div class="dropdown custom-dropdown">
     <button class="border-0 rounded mb-3 p-3 bg-body-color dropdown-toggle w-100 shadow-none" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
       <span class="d-flex flex-column align-items-start">
@@ -174,56 +109,21 @@
           <span class="transparent-checkmark"></span>
         </label>
       </div>
-      <div class="form-group dropdown-item pl-3 m-0">
-        <label for="ch69" class="custom-checkbox d-flex m-0">
-          <span class="font-12 text-black text-capitalize">
-            <i class="flag belgium"></i>
-          belgium</span>
-          <input type="checkbox" class="form-control" id="ch69">
-          <span class="transparent-checkmark"></span>
-        </label>
-      </div>
-      <div class="form-group dropdown-item pl-3 m-0">
-        <label for="ch59" class="custom-checkbox d-flex m-0">
-          <span class="font-12 text-black text-capitalize">
-            <i class="flag france"></i>
-          france</span>
-          <input type="checkbox" class="form-control" id="ch59">
-          <span class="transparent-checkmark"></span>
-        </label>
-      </div>
-      <div class="form-group dropdown-item pl-3 m-0">
-        <label for="ch79" class="custom-checkbox d-flex m-0">
-          <span class="font-12 text-black text-capitalize">
-            <i class="flag germany"></i>
-          germany</span>
-          <input type="checkbox" class="form-control" id="ch79">
-          <span class="transparent-checkmark"></span>
-        </label>
-      </div>
-      <div class="form-group dropdown-item pl-3 m-0">
-        <label for="ch79" class="custom-checkbox d-flex m-0">
-          <span class="font-12 text-black text-capitalize">
-            <i class="flag spain"></i>
-          spain</span>
-          <input type="checkbox" class="form-control" id="ch79">
-          <span class="transparent-checkmark"></span>
-        </label>
-      </div>
-      <div class="form-group dropdown-item pl-3 m-0">
-        <label for="ch79" class="custom-checkbox d-flex m-0">
-          <span class="font-12 text-black text-capitalize">
-            <i class="flag uk"></i>
-          UK</span>
-          <input type="checkbox" class="form-control" id="ch79">
-          <span class="transparent-checkmark"></span>
-        </label>
-      </div>
+      <% @intitutions.each do |institution|%>
+        <div class="form-group dropdown-item pl-3 m-0">
+          <label for="<%= institution.id %>" class="custom-checkbox d-flex m-0">
+            <span class="font-12 text-black text-capitalize">
+            <%= institution.name %></span>
+            <input type="checkbox" class="form-control" id="<%= institution.id %>" data-args="<%= institution.name %>">
+            <span class="transparent-checkmark"></span>
+          </label>
+        </div>
+      <% end %>
     </div>
   </div>
 </div>
-<div class="col-lg px-1 col-md-4 col-sm-6">
-  <div class="dropdown custom-dropdown">
+<div class="col-lg px-1 col-md-4 col-sm-6 segmentation_products">
+  <div class="dropdown custom-dropdown z-index-10">
     <button class="border-0 rounded mb-3 p-3 bg-body-color dropdown-toggle w-100 shadow-none" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
       <span class="d-flex flex-column align-items-start">
         <h6 class="text-capitalize font-12 font-xxl-14 mb-1">
@@ -240,27 +140,15 @@
           <span class="transparent-checkmark"></span>
         </label>
       </div>
-      <div class="form-group dropdown-item pl-3 m-0">
-        <label for="ch69" class="custom-checkbox d-flex m-0">
-          <span class="font-12 text-black text-capitalize">AMERS</span>
-          <input type="checkbox" class="form-control" id="ch69">
-          <span class="transparent-checkmark"></span>
-        </label>
-      </div>
-      <div class="form-group dropdown-item pl-3 m-0">
-        <label for="ch59" class="custom-checkbox d-flex m-0">
-          <span class="font-12 text-black text-capitalize">APAC</span>
-          <input type="checkbox" class="form-control" id="ch59">
-          <span class="transparent-checkmark"></span>
-        </label>
-      </div>
-      <div class="form-group dropdown-item pl-3 m-0">
-        <label for="ch79" class="custom-checkbox d-flex m-0">
-          <span class="font-12 text-black text-capitalize">EMEA</span>
-          <input type="checkbox" class="form-control" id="ch79">
-          <span class="transparent-checkmark"></span>
-        </label>
-      </div>
+      <% @products.each do |product| %>
+        <div class="form-group dropdown-item pl-3 m-0">
+          <label for="<%= product.id %>" class="custom-checkbox d-flex m-0">
+            <span class="font-12 text-black text-capitalize"><%= product.name %></span>
+            <input type="checkbox" class="form-control" id="<%= product.id %>" data-args="<%= product.name %>">
+            <span class="transparent-checkmark"></span>
+          </label>
+        </div>
+      <% end %>
     </div>
   </div>
 </div>
