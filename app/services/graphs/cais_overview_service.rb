@@ -20,7 +20,7 @@ class  Graphs::CaisOverviewService < Graphs::BaseService
 
   def call
     @suppliers = []
-    if @regions.present? || @firms.present? || @countries.present? || @importance_level.present? || @products.present?
+    if @regions.present? || @firms.present? || @countries.present? || @products.present?
       regional_unit_ids = Unit.where(id: managing_nodes).where(type:"Units::Regional").where(name: @regions).ids if @regions.present?
       child_units = Unit.where(id: regional_unit_ids)&.map{|e| e.children.ids }&.flatten
       @suppliers << Supplier.where(unit_id: child_units) if Supplier.where(unit_id: child_units).size > 0 
