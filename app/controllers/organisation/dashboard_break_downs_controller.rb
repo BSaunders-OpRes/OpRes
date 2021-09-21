@@ -33,7 +33,6 @@ class Organisation::DashboardBreakDownsController < Organisation::BaseController
     @query = params[:query]
     @type = params[:type]
     @importance_level = params[:supplier_type] if params[:supplier_type].present?
-
     if @type.blank?
       @suppliers = Supplier.where(unit_id: managing_nodes).group_by{ |e| e.consumption_model }
       @cm_model = params[:cm_model].present? ? params[:cm_model]: 'iaas'
@@ -55,12 +54,10 @@ class Organisation::DashboardBreakDownsController < Organisation::BaseController
     @countries_filters = params[:countries]  if params[:countries].present?
     @firms_filters = params[:firms] if params[:firms].present?
     @products_filters = params[:products] if params[:products].present?
-
     @regions = Unit.where(id: managing_nodes).where(type:"Units::Regional")
     @countries = Unit.where(id: managing_nodes).where(type:"Units::Country")
     @intitutions = Unit.where(id: managing_nodes).where(type:"Units::Institution")
     @products = Product.joins(:units).where(units: { id: @intitutions.ids }).uniq
-
     @private_suppliers = Supplier.where(unit_id: managing_nodes).joins(:supplier_steps).where(supplier_steps: { party_type: 'firm-hosted' }).where(consumption_model: @cm_model) unless @type.present?
     if params[:supplier_type].present?
       @conformant_suppliers = ConformanceSupplierService.new(args, params).conformant_suppliers_data
