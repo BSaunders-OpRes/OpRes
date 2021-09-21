@@ -13,7 +13,7 @@ class Graphs::HighRiskBslService < Graphs::BaseService
   def overall
     datum = []
 
-    nodes     = organisational_unit.inclusive_children.map(&:id)
+    nodes     = filter_data
     bsls      = BusinessServiceLine.where(unit_id: nodes)
 
     bsls&.each do |bsl|

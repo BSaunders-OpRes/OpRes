@@ -26,6 +26,7 @@ import './highcharts/stacked-chart';
 import './dashboards/critical-important-system';
 import './dashboards/resilience-ticket';
 import './list_directory/list_directory';
+import './dashboards/main-dashboard';
 
 window.$          = JQuery;
 window.Highcharts = Highcharts;

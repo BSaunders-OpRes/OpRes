@@ -4,7 +4,7 @@ class Graphs::ChpBreakdownService < Graphs::BaseService
   COLORS = %w[#6BEAB3 #367C5C #CDFAF1 #05b368]
 
   def call
-    nodes     = organisational_unit.inclusive_children.map(&:id)
+    nodes     = filter_data
     suppliers = Supplier.where(unit_id: nodes).group_by(&:cloud_hosting_provider)
 
     data[:total] = suppliers.values.flatten.size

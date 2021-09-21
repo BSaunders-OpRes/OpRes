@@ -15,7 +15,7 @@ class Graphs::SystemSupplierResilienceIndicatorService < Graphs::BaseService
 
   def overall
     datum = {}
-    nodes     = organisational_unit.inclusive_children.map(&:id)
+    nodes     = filter_data
     bsls      = BusinessServiceLine.where(unit_id: nodes)
     @match_firm_hosted_tolerance  =  0
     @match_3rd_party_tolerance    =  0
