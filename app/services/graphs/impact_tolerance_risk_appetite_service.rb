@@ -10,7 +10,7 @@ class Graphs::ImpactToleranceRiskAppetiteService < Graphs::BaseService
 
   def overall
     risk_data   = {}
-    nodes       = organisational_unit.inclusive_children.map(&:id)
+    nodes       = filter_data
 
     suppliers     = Supplier.includes(:sla, supplier_steps: [step: [:business_service_line]])
                             .where(unit_id: nodes)

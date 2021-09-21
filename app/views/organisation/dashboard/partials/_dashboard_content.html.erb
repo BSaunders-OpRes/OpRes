@@ -1,0 +1,44 @@
+<div class="row mt-5 d-flex no-gutters">
+  <div class="col-md-6 col-lg-3 order-lg-1 order-2 mb-lg-0 mb-4 px-1" id="bsl-tour">
+    <div id="bsl-tiers" class="lazy-graph" data-key="bsl_tiers" data-args="<%= {}.to_json %>" data-append-to="bsl-tiers" data-partial-name="bsl_tiers" data-filters="<%= filters.to_json %>">
+      <%= render 'organisation/graphs/partials/bsl_tiers', data: {} %>
+    </div>
+  </div>
+
+  <div class="col-md-12 col-lg-3 order-lg-2 order-3 mb-lg-0 mb-4 px-1">
+    <div class="card border-0 shadow-sm pie-high-chart pie-high-chart-sm overflow-hidden rounded-50 min-h-560" >
+
+      <div id="system-supplier-resilience-indicator" class="lazy-graph" data-key="system_supplier_resilience_indicator" data-args="<%= {}.to_json %>" data-append-to="system-supplier-resilience-indicator" data-partial-name="system_supplier_resilience_indicator" data-filters="<%= filters.to_json %>">
+        <%= render 'organisation/graphs/partials/system_supplier_resilience_indicator', data: {} %>
+      </div>
+
+    </div>
+  </div>
+  <div id="critical-and-important" class="col-md-6 col-lg-3 order-lg-4 order-1 mb-lg-0 mb-4 px-1 custom-high-chart lazy-graph" data-key="critical_and_important_system" data-args="<%= {}.to_json %>" data-append-to="critical-and-important" data-partial-name="critical_and_important_system" data-filters="<%= filters.to_json %>">
+    <%= render 'organisation/graphs/partials/critical_and_important_system', data: {} %>
+  </div>
+  <div id="chp-breakdown" class="col-md-6 col-lg-3 order-lg-4 order-1 mb-lg-0 mb-4 px-1 custom-high-chart lazy-graph" data-key="chp_breakdown" data-args="<%= {}.to_json %>" data-append-to="chp-breakdown" data-partial-name="chp_breakdown" data-filters="<%= filters.to_json %>">
+    <%= render 'organisation/graphs/partials/chp_breakdown', data: {} %>
+  </div>
+</div>
+<div class="row mt-4 no-gutters">
+  <div class="col-md-12 col-lg mb-4 mb-lg-0 px-1">
+    <div class="card bg-white border-0 shadow-none rounded-50 overflow-hidden min-h-640">
+      <div id="high-risk-bsl" class="lazy-graph" data-key="high_risk_bsl" data-args="<%= {}.to_json %>" data-append-to="high-risk-bsl" data-partial-name="high_risk_bsl" data-filters="<%= filters.to_json %>">
+        <%= render 'organisation/graphs/partials/high_risk_bsl' %>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-12 col-lg-3 ml-xxl-2 px-1">
+    <div class="card resiliece-indicator border-0 rounded-50 overflow-hidden min-h-640" id="impact-tolerance">
+      <div id="impact-tolerance-risk-appetite" class="lazy-graph" data-key="impact_tolerance_risk_appetite" data-args="<%= {}.to_json %>" data-append-to="impact-tolerance-risk-appetite" data-partial-name="impact_tolerance_risk_appetite" data-filters="<%= filters.to_json %>">
+        <%= render 'organisation/graphs/partials/impact_tolerance_risk_appetite', data: {} %>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row no-gutters mt-4">
+  <div class="col-md-12 px-1">
+    <%#= render 'organisation/dashboard/partials/resilience_risk_indicator' %>
+  </div>
+</div>

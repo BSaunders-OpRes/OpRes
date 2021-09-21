@@ -132,5 +132,15 @@ module ApplicationHelper
     end
     risk_appetite_data
   end
+
+  def institution_products
+    products = []
+    organisational_unit.institutions.each do |institution|
+      institution.products.each do |product|
+        products << product unless products.include?(product)
+      end
+    end
+    products
+  end
 end
 

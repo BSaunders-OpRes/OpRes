@@ -7,7 +7,7 @@ class Graphs::BslTiersService < Graphs::BaseService
     if args.dig('bsl').present?
       tier_bsls = args.dig('bsl') == '0' ? [] : BusinessServiceLine.where(id: args.dig('bsl')).group_by(&:tier)
     else
-      nodes     = organisational_unit.inclusive_children.map(&:id)
+      nodes     = filter_data
       tier_bsls = BusinessServiceLine.where(unit_id: nodes).group_by(&:tier)
     end
 
