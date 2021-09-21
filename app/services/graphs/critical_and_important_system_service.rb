@@ -7,7 +7,7 @@ class Graphs::CriticalAndImportantSystemService < Graphs::BaseService
   attr_reader :suppliers, :data
 
   def call
-    @suppliers      = Supplier.where(unit_id: managing_nodes)
+    @suppliers      = Supplier.where(unit_id: filter_data)
     data[:overall] = overall
 
     data
