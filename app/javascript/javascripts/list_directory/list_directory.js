@@ -15,10 +15,11 @@
     folderAndName.wrapInner("<a href='#' />");
     // then put the inner <ul> back
     folderAndName.append(backupOfThisFolder);
-
+    let minusSign = $('.folder').find('fa-plus-circle');
     // now add a slideToggle to the <a> we just added
     folderAndName.find("a").click(function(e) {
       $(this).siblings("ul").slideToggle();
+      $(this).find('i').toggleClass('fa-minus-circle fa-plus-circle')
       e.preventDefault();
     });
 
