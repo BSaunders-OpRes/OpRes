@@ -282,6 +282,9 @@ i.paperclip {
       transform: translateY(-50%);
     }
   }
+  .down-drop {
+    transform: translate3d(5px, 70px, 0px) !important;
+  }
 }
 .min-h-560 {
   min-height: 560px;
