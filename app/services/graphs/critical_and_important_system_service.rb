@@ -1,7 +1,7 @@
 class Graphs::CriticalAndImportantSystemService < Graphs::BaseService
   # Critical & important breakdown of suppliers selected on BSL steps.
 
-  COLORS = %w[#6BEAB3 #367C5C #CDFAF1 #05b368]
+  COLORS = %w[#6BEAB3 #E39A2B #E4412E #05b368]
   TOLERANCES = %w[match meet exceed]
 
   attr_reader :suppliers, :data
