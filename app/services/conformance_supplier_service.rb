@@ -2,9 +2,9 @@ class ConformanceSupplierService < Graphs::BaseService
   attr_accessor :filter
 
   def initialize(args, params = nil)
-    @args                = args    
-    @importance_level    = params[:importance_level]
-    @regions             = params[:regions]
+    @args                = args
+    @importance_level    = params&.dig(:importance_level)
+    @regions             = params&.dig(:regions)
     @current_user        = args.dig('current_user')
     @organisational_unit = args.dig('organisational_unit')
 
@@ -13,16 +13,19 @@ class ConformanceSupplierService < Graphs::BaseService
 
   def conformant_suppliers_data
     conformant_data = {}
-    nodes           = organisational_unit&.inclusive_children&.map(&:id)
+    nodes           = filter_data
     if @importance_level.present?
       suppliers = Supplier.where(unit_id: nodes).joins(:supplier_steps).where(supplier_steps: { importance_level: @importance_level })
     else
       suppliers = Supplier.includes(:supplier_steps, :sla).where(unit_id: nodes)
+                                                          .where("supplier_steps.party_type IN (?)", filter_by_party_type)
+                                                          .references(:supplier_steps)
     end
     suppliers.each do |supplier|
       conformant_data["#{supplier.id}"] = {}
       bsls = BusinessServiceLine.joins(steps: [supplier_steps: [:supplier]])
                                 .where(suppliers: {id: supplier.id})
+                                .where("supplier_steps.party_type IN (?)", filter_by_party_type)
                                 .includes(:sla, :risk_appetites)
 
 

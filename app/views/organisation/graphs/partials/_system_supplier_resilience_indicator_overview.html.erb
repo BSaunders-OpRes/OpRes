@@ -36,26 +36,26 @@
       <div class="row align-items-center mt-3">
         <div class="col-md-4">
           <div class="position-relative">
-            <%= react_component('highcharts/donut', { data: render_data(data), render_to: 'donut' }, { class: 'h-200px d-flex align-items-center' }) %>
-            <span class="position-absolute center-position font-md-30 font-40 font-600"><%= data.dig(:overall, :total) %></span>
+            <%= react_component('highcharts/donut', { data: render_data(data, params[:filters]), render_to: 'donut' }, { class: 'h-200px d-flex align-items-center' }) %>
+            <span class="position-absolute center-position font-md-30 font-40 font-600"><%= total_for_selected_supplier_type(data, params[:filters]) %></span>
           </div>
         </div>
         <div class="col-md-8">
           <div class="d-flex justify-content-between align-items-center font-12 font-xxl-14 my-3">
-            <span class="font-500 text-capitalize">Total Number of Suppliers</span>
-            <span class="font-700"><%= data.dig(:overall, :total) %></span>
+            <span class="font-500 text-capitalize"><%= overview_heading(params[:filters]) %></span>
+            <span class="font-700"><%= total_for_selected_supplier_type(data, params[:filters]) %></span>
           </div>
           <div class="d-flex justify-content-between align-items-center font-12 font-xxl-14 my-3">
             <span class="font-500 text-capitalize">Total Number Match Impact Tolerance</span>
-            <span class="font-700"><%= data.dig(:overall, :total_match) %></span>
+            <span class="font-700"><%= total_match_for_selected_supplier_type(data, params[:filters]) %></span>
           </div>
           <div class="d-flex justify-content-between align-items-center font-12 font-xxl-14 my-3">
             <span class="font-500 text-capitalize">Total Number Meet Impact Tolerance</span>
-            <span class="font-700"><%= data.dig(:overall, :total_meet) %></span>
+            <span class="font-700"><%= total_meet_for_selected_supplier_type(data, params[:filters]) %></span>
           </div>
           <div class="d-flex justify-content-between align-items-center font-12 font-xxl-14 my-3">
             <span class="font-500 text-capitalize">Total Number Exceed Impact Tolerance</span>
-            <span class="font-700"><%= data.dig(:overall, :total_exceed) %></span>
+            <span class="font-700"><%= total_exceed_for_selected_supplier_type(data, params[:filters]) %></span>
           </div>
         </div>
       </div>

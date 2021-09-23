@@ -5,12 +5,13 @@ class BreakdownService < Graphs::BaseService
     @sla_attr       = args.dig(:sla_attr)
     @filter         = args.dig(:filter)
     @sla_attributes = args.dig(:sla_attr).present? ? Sla::SLA_ATTR.select { |sla| sla == @sla_attr } : Sla::SLA_ATTR
-    nodes     = organisational_unit.inclusive_children.map(&:id)
+    nodes     = filter_data
 
     breakdown_data = {}
     breakdown_data[:overall_tolerance] = 0
     suppliers = Supplier.includes(:supplier_steps, :sla).where(unit_id: nodes)
-
+                                                        .where("supplier_steps.party_type IN (?)", filter_by_party_type)
+                                                        .references(:supplier_steps)
     sla_attributes.each do |sla_attr|
       @match_tolerance  =  0
       @meet_tolerance   =  0
@@ -26,6 +27,7 @@ class BreakdownService < Graphs::BaseService
 
         bsls = BusinessServiceLine.joins(steps: [supplier_steps: [:supplier]])
                                   .where(suppliers: {id: supplier.id})
+                                  .where("supplier_steps.party_type IN (?)", filter_by_party_type)
                                   .includes(:sla, :risk_appetites)
 
         bsls.each do |bsl|

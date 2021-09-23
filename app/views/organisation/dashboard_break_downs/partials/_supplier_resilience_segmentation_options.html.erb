@@ -5,7 +5,7 @@
         <i class="fa fa-sliders"></i>
         <h5 class="text-capitalize font-600 ml-2">segmentation options</h5>
       </div>
-      <%= form_tag system_supplier_resilience_indicator_organisation_dashboard_break_downs_path, method: :get do %>
+      <%= form_tag system_supplier_resilience_indicator_organisation_dashboard_break_downs_path, method: :get, remote: true  do %>
         <div class="row no-gutters mt-3">
           <div class="col-lg px-1 col-md-4 col-sm-6">
             <!-- <label for="sl" class="font-12 pl-2 ml-1 text-capitalize select-arrow position-relative shadow-sm bg-light"><span>supplier type</span>
@@ -16,38 +16,26 @@
               <button class="border-0 p-3 bg-body-color dropdown-toggle w-100 shadow-none mb-3" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <h6 class="d-flex flex-column align-items-start text-capitalize font-12 font-xxl-14">
                   <span class="font-500 text-capitalize mb-2">supplier type</span>
-                  <span class="font-500 text-capitalize">3rd Party</span>
+                  <span class="font-500 text-capitalize text-light-grey">View All</span>
                 </h6>
               </button>
               <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                 <div class="form-group dropdown-item pl-3 m-0">
-                  <label for="ch39" class="custom-checkbox d-flex m-0">
+                  <label for="party-types-all" class="custom-checkbox d-flex m-0">
                     <span class="font-12 text-black text-capitalize">View All</span>
-                    <input type="checkbox" class="form-control" id="ch39">
+                    <%= check_box_tag 'filters[party_type_ids][]', 'all', false, id: "party-types-all", class: 'form-control party_types', onclick: 'RailsUJS.fire(this.form, "submit")' %>
                     <span class="transparent-checkmark"></span>
                   </label>
                 </div>
+                <% SupplierStep.party_types.each do |key, value| %>
                 <div class="form-group dropdown-item pl-3 m-0">
-                  <label for="ch69" class="custom-checkbox d-flex m-0">
-                    <span class="font-12 text-black text-capitalize">AMERS</span>
-                    <input type="checkbox" class="form-control" id="ch69">
+                  <label for="party-types<%= value %>" class="custom-checkbox d-flex m-0">
+                    <span class="font-12 text-black text-capitalize"><%= key.titleize %></span>
+                    <%= check_box_tag 'filters[party_type_ids][]', key, false, id: "party-types#{value}", class: 'form-control party_types', onclick: 'RailsUJS.fire(this.form, "submit")' %>
                     <span class="transparent-checkmark"></span>
                   </label>
                 </div>
-                <div class="form-group dropdown-item pl-3 m-0">
-                  <label for="ch59" class="custom-checkbox d-flex m-0">
-                    <span class="font-12 text-black text-capitalize">APAC</span>
-                    <input type="checkbox" class="form-control" id="ch59">
-                    <span class="transparent-checkmark"></span>
-                  </label>
-                </div>
-                <div class="form-group dropdown-item pl-3 m-0">
-                  <label for="ch79" class="custom-checkbox d-flex m-0">
-                    <span class="font-12 text-black text-capitalize">EMEA</span>
-                    <input type="checkbox" class="form-control" id="ch79">
-                    <span class="transparent-checkmark"></span>
-                  </label>
-                </div>
+              <% end %>
               </div>
             </div>
           </div>
@@ -61,57 +49,21 @@
               </button>
               <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                 <div class="form-group dropdown-item pl-3 m-0">
-                  <label for="ch39" class="custom-checkbox d-flex m-0">
+                  <label for="region-all" class="custom-checkbox d-flex m-0">
                     <span class="font-12 text-black text-capitalize">View All</span>
-                    <input type="checkbox" class="form-control" id="ch39">
+                    <%= check_box_tag 'filters[region_ids][]', 'all', false, id: "region-all", class: 'form-control regions', onclick: 'RailsUJS.fire(this.form, "submit")' %>
                     <span class="transparent-checkmark"></span>
                   </label>
                 </div>
-                <div class="form-group dropdown-item pl-3 m-0">
-                  <label for="ch69" class="custom-checkbox d-flex m-0">
-                    <span class="font-12 text-black text-capitalize">
-                    <i class="flag belgium"></i>
-                    belgium</span>
-                    <input type="checkbox" class="form-control" id="ch69">
+                <% @organisational_unit.children.each do |unit_region| %>
+                  <div class="form-group dropdown-item pl-3 m-0">
+                  <label for="ch<%= unit_region.region.id %>" class="custom-checkbox d-flex m-0">
+                    <span class="font-12 text-black text-capitalize"><%= unit_region.region.name %></span>
+                    <%= check_box_tag 'filters[region_ids][]', unit_region.region.id, false, id: "ch#{unit_region.region.id}", class: 'form-control regions', onclick: 'RailsUJS.fire(this.form, "submit")' %>
                     <span class="transparent-checkmark"></span>
                   </label>
                 </div>
-                <div class="form-group dropdown-item pl-3 m-0">
-                  <label for="ch59" class="custom-checkbox d-flex m-0">
-                    <span class="font-12 text-black text-capitalize">
-                    <i class="flag france"></i>
-                    france</span>
-                    <input type="checkbox" class="form-control" id="ch59">
-                    <span class="transparent-checkmark"></span>
-                  </label>
-                </div>
-                <div class="form-group dropdown-item pl-3 m-0">
-                  <label for="ch79" class="custom-checkbox d-flex m-0">
-                    <span class="font-12 text-black text-capitalize">
-                    <i class="flag germany"></i>
-                    germany</span>
-                    <input type="checkbox" class="form-control" id="ch79">
-                    <span class="transparent-checkmark"></span>
-                  </label>
-                </div>
-                <div class="form-group dropdown-item pl-3 m-0">
-                  <label for="ch79" class="custom-checkbox d-flex m-0">
-                    <span class="font-12 text-black text-capitalize">
-                    <i class="flag spain"></i>
-                    spain</span>
-                    <input type="checkbox" class="form-control" id="ch79">
-                    <span class="transparent-checkmark"></span>
-                  </label>
-                </div>
-                <div class="form-group dropdown-item pl-3 m-0">
-                  <label for="ch79" class="custom-checkbox d-flex m-0">
-                    <span class="font-12 text-black text-capitalize">
-                    <i class="flag uk"></i>
-                    UK</span>
-                    <input type="checkbox" class="form-control" id="ch79">
-                    <span class="transparent-checkmark"></span>
-                  </label>
-                </div>
+                <% end %>
               </div>
             </div>
           </div>
@@ -125,57 +77,23 @@
               </button>
               <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                 <div class="form-group dropdown-item pl-3 m-0">
-                  <label for="ch39" class="custom-checkbox d-flex m-0">
+                  <label for="country-all" class="custom-checkbox d-flex m-0">
                     <span class="font-12 text-black text-capitalize">View All</span>
-                    <input type="checkbox" class="form-control" id="ch39">
+                    <%= check_box_tag 'filters[country_ids][]', 'all', false, id: "country-all", class: 'form-control countries', onclick: 'RailsUJS.fire(this.form, "submit")' %>
                     <span class="transparent-checkmark"></span>
                   </label>
                 </div>
-                <div class="form-group dropdown-item pl-3 m-0">
-                  <label for="ch69" class="custom-checkbox d-flex m-0">
-                    <span class="font-12 text-black text-capitalize">
-                    <i class="flag belgium"></i>
-                    belgium</span>
-                    <input type="checkbox" class="form-control" id="ch69">
-                    <span class="transparent-checkmark"></span>
-                  </label>
-                </div>
-                <div class="form-group dropdown-item pl-3 m-0">
-                  <label for="ch59" class="custom-checkbox d-flex m-0">
-                    <span class="font-12 text-black text-capitalize">
-                    <i class="flag france"></i>
-                    france</span>
-                    <input type="checkbox" class="form-control" id="ch59">
-                    <span class="transparent-checkmark"></span>
-                  </label>
-                </div>
-                <div class="form-group dropdown-item pl-3 m-0">
-                  <label for="ch79" class="custom-checkbox d-flex m-0">
-                    <span class="font-12 text-black text-capitalize">
-                    <i class="flag germany"></i>
-                    germany</span>
-                    <input type="checkbox" class="form-control" id="ch79">
-                    <span class="transparent-checkmark"></span>
-                  </label>
-                </div>
-                <div class="form-group dropdown-item pl-3 m-0">
-                  <label for="ch79" class="custom-checkbox d-flex m-0">
-                    <span class="font-12 text-black text-capitalize">
-                    <i class="flag spain"></i>
-                    spain</span>
-                    <input type="checkbox" class="form-control" id="ch79">
-                    <span class="transparent-checkmark"></span>
-                  </label>
-                </div>
-                <div class="form-group dropdown-item pl-3 m-0">
-                  <label for="ch79" class="custom-checkbox d-flex m-0">
-                    <span class="font-12 text-black text-capitalize">
-                    <i class="flag uk"></i>
-                    UK</span>
-                    <input type="checkbox" class="form-control" id="ch79">
-                    <span class="transparent-checkmark"></span>
-                  </label>
-                </div>
+                <% @managing_country_units.map { |a| a.country}.each do |country| %>
+                  <div class="form-group dropdown-item pl-3 m-0">
+                    <label for="country<%= country.id %>" class="custom-checkbox d-flex m-0">
+                      <span class="font-12 text-black text-capitalize">
+                      <i class="flag <%= country.name.downcase %>"></i>
+                      <%= country.name %></span>
+                      <%= check_box_tag 'filters[country_ids][]', country.id, false, id: "country#{country.id}", class: 'form-control countries', onclick: 'RailsUJS.fire(this.form, "submit")' %>
+                      <span class="transparent-checkmark"></span>
+                    </label>
+                  </div>
+                <% end %>
               </div>
             </div>
           </div>
@@ -183,39 +101,29 @@
             <div class="dropdown custom-dropdown">
               <button class="border-0 rounded p-3 bg-body-color dropdown-toggle w-100 shadow-none mb-3" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <h6 class="d-flex flex-column align-items-start text-capitalize font-12 font-xxl-14">
-                  <span class="font-500 text-capitalize mb-2">firms</span>
+                  <span class="font-500 text-capitalize mb-2">institution</span>
                   <span class="font-500 text-capitalize text-light-grey">view all</span>
                 </h6>
               </button>
               <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                 <div class="form-group dropdown-item pl-3 m-0">
-                  <label for="ch39" class="custom-checkbox d-flex m-0">
+                  <label for="institution-all" class="custom-checkbox d-flex m-0">
                     <span class="font-12 text-black text-capitalize">View All</span>
-                    <input type="checkbox" class="form-control" id="ch39">
+                    <%= check_box_tag 'filters[institution_ids][]', 'all', false, id: "institution-all", class: 'form-control institutions', onclick: 'RailsUJS.fire(this.form, "submit")' %>
                     <span class="transparent-checkmark"></span>
                   </label>
                 </div>
-                <div class="form-group dropdown-item pl-3 m-0">
-                  <label for="ch69" class="custom-checkbox d-flex m-0">
-                    <span class="font-12 text-black text-capitalize">AMERS</span>
-                    <input type="checkbox" class="form-control" id="ch69">
-                    <span class="transparent-checkmark"></span>
-                  </label>
-                </div>
-                <div class="form-group dropdown-item pl-3 m-0">
-                  <label for="ch59" class="custom-checkbox d-flex m-0">
-                    <span class="font-12 text-black text-capitalize">APAC</span>
-                    <input type="checkbox" class="form-control" id="ch59">
-                    <span class="transparent-checkmark"></span>
-                  </label>
-                </div>
-                <div class="form-group dropdown-item pl-3 m-0">
-                  <label for="ch79" class="custom-checkbox d-flex m-0">
-                    <span class="font-12 text-black text-capitalize">EMEA</span>
-                    <input type="checkbox" class="form-control" id="ch79">
-                    <span class="transparent-checkmark"></span>
-                  </label>
-                </div>
+                <% @organisational_unit.institutions.each do |institution| %>
+                  <div class="form-group dropdown-item pl-3 m-0">
+                    <label for="institution<%= institution.id %>" class="custom-checkbox d-flex m-0">
+                      <span class="font-12 text-black text-capitalize">
+                        <%= institution.name %>
+                      </span>
+                      <%= check_box_tag 'filters[institution_ids][]', institution.id, false, id: "institution#{institution.id}", class: 'form-control institutions', onclick: 'RailsUJS.fire(this.form, "submit")' %>
+                      <span class="transparent-checkmark"></span>
+                    </label>
+                  </div>
+                <% end %>
               </div>
             </div>
           </div>
@@ -229,41 +137,26 @@
               </button>
               <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                 <div class="form-group dropdown-item pl-3 m-0">
-                  <label for="ch39" class="custom-checkbox d-flex m-0">
+                  <label for="product-all" class="custom-checkbox d-flex m-0">
                     <span class="font-12 text-black text-capitalize">View All</span>
-                    <input type="checkbox" class="form-control" id="ch39">
+                    <%= check_box_tag 'filters[product_ids][]', 'all', false, id: "product-all", class: 'form-control products', onclick: 'RailsUJS.fire(this.form, "submit")' %>
                     <span class="transparent-checkmark"></span>
                   </label>
                 </div>
-                <div class="form-group dropdown-item pl-3 m-0">
-                  <label for="ch69" class="custom-checkbox d-flex m-0">
-                    <span class="font-12 text-black text-capitalize">AMERS</span>
-                    <input type="checkbox" class="form-control" id="ch69">
-                    <span class="transparent-checkmark"></span>
-                  </label>
-                </div>
-                <div class="form-group dropdown-item pl-3 m-0">
-                  <label for="ch59" class="custom-checkbox d-flex m-0">
-                    <span class="font-12 text-black text-capitalize">APAC</span>
-                    <input type="checkbox" class="form-control" id="ch59">
-                    <span class="transparent-checkmark"></span>
-                  </label>
-                </div>
-                <div class="form-group dropdown-item pl-3 m-0">
-                  <label for="ch79" class="custom-checkbox d-flex m-0">
-                    <span class="font-12 text-black text-capitalize">EMEA</span>
-                    <input type="checkbox" class="form-control" id="ch79">
-                    <span class="transparent-checkmark"></span>
-                  </label>
-                </div>
+                <% @organisational_unit.products.each do |product| %>
+                  <div class="form-group dropdown-item pl-3 m-0">
+                    <label for="product<%= product.id %>" class="custom-checkbox d-flex m-0">
+                      <span class="font-12 text-black text-capitalize"><%= product.name %></span>
+                      <%= check_box_tag 'filters[product_ids][]', product.id, false, id: "product#{product.id}", class: 'form-control products', onclick: 'RailsUJS.fire(this.form, "submit")' %>
+                      <span class="transparent-checkmark"></span>
+                    </label>
+                  </div>
+                <% end %>
               </div>
             </div>
           </div>
         </div>
       <% end %>
     </div>
-  </div>
-  <div id="system-supplier-resilience-indicator_overview" class="lazy-graph" data-key="system_supplier_resilience_indicator" data-args="<%= {}.to_json %>" data-append-to="system-supplier-resilience-indicator_overview" data-partial-name="system_supplier_resilience_indicator_overview">
-    <%= render 'organisation/graphs/partials/system_supplier_resilience_indicator_overview', data: {} %>
   </div>
 </section>
