@@ -1,0 +1,18 @@
+$('#breakdown-wrapper').html('<%= escape_javascript(render "organisation/dashboard_break_downs/partials/supplier_conformace_wrapper", impact_tolerance_breakdowns: @impact_tolerance_breakdowns, conformant_suppliers: @conformant_suppliers, non_conformant_suppliers: @non_conformant_suppliers, filters: params.dig(:filters) || {}) %>');
+if ($('.lazy-graph').length >= 1) {
+  $('.lazy-graph').each(function() {
+    $.ajax({
+      url:      '/organisation/graphs/compose',
+      dataType: 'script',
+      type:     'GET',
+      async:     false,
+      data:     {
+        key:            $(this).data('key'),
+        args:           $(this).data('args'),
+        data_append_to: $(this).data('append-to'),
+        partial_name:   $(this).data('partial-name'),
+        filters:        $(this).data('filters')
+      }
+    });
+  });
+}
