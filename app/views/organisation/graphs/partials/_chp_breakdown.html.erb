@@ -1,20 +1,29 @@
 <% if data.blank? %>
-  <div class="card">
-    <div class="card-body">
-      <div class="box bg-body-color rounded bg-transparent">
-      <h6 class="font-12">Cloud Hosting Provider breakdown</h6>
-      <div class="border-0 pie-high-chart overflow-hidden rounded-50">
-        <div class="col-md-12 card-header h-230px d-flex align-items-center px-0 py-2 bg-body-color text-center border-0">
-          <div class="empty-donut-block py-3 px-5"></div>
-        </div>
-        <div class="col-md-12 card-body py-3 px-0">
-          <div class="empty-donut-line px-5 mb-2"></div>
-          <div class="empty-donut-line px-5 mb-2"></div>
-          <div class="empty-donut-line px-5 mb-2"></div>
-          <div class="empty-donut-line px-5 mb-2"></div>
-        </div>
+  <div class="card border-0 shadow-sm pie-high-chart overflow-hidden rounded-50 min-h-560">
+    <div class="card-header bg-white text-center">
+      <p class="font-14 text-capitalize font-600 chart-header-title">Critical & Important System</p>
+      <div class="donut-content h-75">
+        <div class="empty-donut-block py-3 px-5"></div>
       </div>
     </div>
+    <div class="card-body">
+      <div class="tiers d-flex justify-content-between align-items-center mb-1">
+        <div class="empty-donut-line px-5 mb-2 py-3"></div>
+      </div>
+      <div class="tiers d-flex justify-content-between align-items-center mb-1">
+        <div class="empty-donut-line px-5 mb-2 py-3"></div>
+      </div>
+      <div class="tiers d-flex justify-content-between align-items-center mb-1">
+        <div class="empty-donut-line px-5 mb-2 py-3"></div>
+      </div>
+      <div class="tiers d-flex justify-content-between align-items-center mb-1">
+        <div class="empty-donut-line px-5 mb-2 py-3"></div>
+      </div>
+    </div>
+    <div class="card-footer bg-white">
+      <div class="tiers d-flex justify-content-between align-items-center mb-1">
+        <div class="empty-donut-line px-5 py-1"></div>
+      </div>
     </div>
   </div>
   <% else %>
