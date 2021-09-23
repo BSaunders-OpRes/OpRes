@@ -1,0 +1,10 @@
+<section id="section1" class="section">
+  <div class="card border-0 rounded-50">
+    <div id="system-supplier-resilience-indicator_overview" class="lazy-graph" data-key="system_supplier_resilience_indicator" data-args="<%= {}.to_json %>" data-append-to="system-supplier-resilience-indicator_overview" data-partial-name="system_supplier_resilience_indicator_overview" data-filters ="<%= filters.to_json %>">
+      <%= render 'organisation/graphs/partials/system_supplier_resilience_indicator_overview', data: {} %>
+    </div>
+  </div>
+</section>
+<%= render 'organisation/dashboard_break_downs/partials/impact_tolerance_breakdown', impact_tolerance_breakdowns: impact_tolerance_breakdowns %>
+<%= render 'organisation/dashboard_break_downs/partials/top_conformant_suppliers', conformant_suppliers: conformant_suppliers %>
+<%= render 'organisation/dashboard_break_downs/partials/top_non_conformant_suppliers', non_conformant_suppliers: non_conformant_suppliers %>

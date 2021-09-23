@@ -82,11 +82,31 @@ module ApplicationHelper
     end
   end
 
-  def render_data(data)
+  def render_data(data, filters)
     combined_data = []
-    combined_data << {:name=>"Match Tolerance", :y=>data.dig(:overall, :total_match), :color=>"#6BEAB3", :count=> data.dig(:overall, :total_match)}
-    combined_data << {:name=>"Meet Tolerance", :y=>data.dig(:overall, :total_meet), :color=>"#367C5C", :count=> data.dig(:overall, :total_meet)}
-    combined_data << {:name=>"Exceed Tolerance", :y=>data.dig(:overall, :total_exceed), :color=>"#CDFAF1", :count=> data.dig(:overall, :total_exceed)}
+    if filters.present? && filters.dig("party_type_ids").present?
+      if filters.dig("party_type_ids").include?("all")
+        combined_data << {:name=>"Match Tolerance", :y=>data.dig(:overall, :total_match), :color=>"#6BEAB3", :count=> data.dig(:overall, :total_match)}
+        combined_data << {:name=>"Meet Tolerance", :y=>data.dig(:overall, :total_meet), :color=>"#367C5C", :count=> data.dig(:overall, :total_meet)}
+        combined_data << {:name=>"Exceed Tolerance", :y=>data.dig(:overall, :total_exceed), :color=>"#CDFAF1", :count=> data.dig(:overall, :total_exceed)}
+      else
+        total_match = 0
+        total_meet = 0
+        total_exceed = 0
+        filters.dig("party_type_ids").each do |i|
+          total_match += data.dig(:overall, i.underscore, :total_match) || 0
+          total_meet += data.dig(:overall, i.underscore, :total_meet) || 0
+          total_exceed += data.dig(:overall, i.underscore, :total_exceed) || 0
+        end
+        combined_data << {:name=>"Match Tolerance", :y=>total_match, :color=>"#6BEAB3", :count=> total_match}
+        combined_data << {:name=>"Meet Tolerance", :y=>total_meet, :color=>"#367C5C", :count=> total_meet}
+        combined_data << {:name=>"Exceed Tolerance", :y=>total_exceed, :color=>"#CDFAF1", :count=> total_exceed}
+      end
+    else
+      combined_data << {:name=>"Match Tolerance", :y=>data.dig(:overall, :total_match), :color=>"#6BEAB3", :count=> data.dig(:overall, :total_match)}
+      combined_data << {:name=>"Meet Tolerance", :y=>data.dig(:overall, :total_meet), :color=>"#367C5C", :count=> data.dig(:overall, :total_meet)}
+      combined_data << {:name=>"Exceed Tolerance", :y=>data.dig(:overall, :total_exceed), :color=>"#CDFAF1", :count=> data.dig(:overall, :total_exceed)}
+    end
 
     combined_data
   end
@@ -141,6 +161,82 @@ module ApplicationHelper
       end
     end
     products
+  end
+
+  def overview_heading(filters)
+    if filters.present? && filters.dig("party_type_ids").present?
+      if filters.dig("party_type_ids").include?("all")
+        "Total Number Of Suppliers"
+      else
+        "Total Number Of #{filters.dig("party_type_ids").join(' & ')} Suppliers"
+      end
+    else
+      "Total Number Of Suppliers"
+    end
+  end
+
+  def total_for_selected_supplier_type(data, filters)
+    if filters.present? && filters.dig("party_type_ids").present?
+      if filters.dig("party_type_ids").include?("all")
+        data.dig(:overall, :total)
+      else
+        total = 0
+        filters.dig("party_type_ids").each do |i|
+          total += ((data.dig(:overall, i.underscore, :total_match) || 0) + (data.dig(:overall, i.underscore, :total_meet) || 0) + (data.dig(:overall, i.underscore, :total_exceed) || 0))
+        end
+        total
+      end
+    else
+      data.dig(:overall, :total)
+    end
+  end
+
+  def total_match_for_selected_supplier_type(data, filters)
+    if filters.present? && filters.dig("party_type_ids").present?
+      if filters.dig("party_type_ids").include?("all")
+        data.dig(:overall, :total_match)
+      else
+        total = 0
+        filters.dig("party_type_ids").each do |i|
+          total += data.dig(:overall, i.underscore, :total_match) || 0
+        end
+        total
+      end
+    else
+      data.dig(:overall, :total_match)
+    end
+  end
+
+  def total_meet_for_selected_supplier_type(data, filters)
+    if filters.present? && filters.dig("party_type_ids").present?
+      if filters.dig("party_type_ids").include?("all")
+        data.dig(:overall, :total_meet)
+      else
+        total = 0
+        filters.dig("party_type_ids").each do |i|
+          total += data.dig(:overall, i.underscore, :total_meet) || 0
+        end
+        total
+      end
+    else
+      data.dig(:overall, :total_meet)
+    end
+  end
+
+  def total_exceed_for_selected_supplier_type(data, filters)
+    if filters.present? && filters.dig("party_type_ids").present?
+      if filters.dig("party_type_ids").include?("all")
+        data.dig(:overall, :total_exceed)
+      else
+        total = 0
+        filters.dig("party_type_ids").each do |i|
+          total += data.dig(:overall, i.underscore, :total_exceed) || 0
+        end
+        total
+      end
+    else
+      data.dig(:overall, :total_exceed)
+    end
   end
 end
 

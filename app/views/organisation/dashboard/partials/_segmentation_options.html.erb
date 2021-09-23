@@ -86,7 +86,6 @@
                 <label for="country-all" class="custom-checkbox d-flex m-0">
                   <span class="font-12 text-black text-capitalize">View All</span>
                   <%= check_box_tag 'filters[country_ids][]', 'all', false, id: "country-all", class: 'form-control countries', onclick: 'RailsUJS.fire(this.form, "submit")' %>
-                  <input type="checkbox" class="form-control countries" id="">
                   <span class="transparent-checkmark"></span>
                 </label>
               </div>

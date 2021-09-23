@@ -64,6 +64,9 @@ class Graphs::SystemSupplierResilienceIndicatorService < Graphs::BaseService
       total_match   += eval("@match_#{step.underscore}_tolerance")
       total_meet    += eval("@meet_#{step.underscore}_tolerance")
       total_exceed  += eval("@exceed_#{step.underscore}_tolerance")
+      datum[step.underscore][:total_match] = eval("@match_#{step.underscore}_tolerance")
+      datum[step.underscore][:total_meet] = eval("@meet_#{step.underscore}_tolerance")
+      datum[step.underscore][:total_exceed] = eval("@exceed_#{step.underscore}_tolerance")
       datum[step.underscore][:graph] = []
       datum[step.underscore][:graph] << {
         name:  'Match Tolerance',

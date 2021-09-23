@@ -1,4 +1,6 @@
 class Organisation::DashboardBreakDownsController < Organisation::BaseController
+  before_action :managing_country_units, only: %i[system_supplier_resilience_indicator]
+
   def business_service_tiers
     @bsls                    = BusinessServiceLine.where(unit_id: managing_institution_units.ids)
     @suppliers               = Supplier.where(id: managing_country_units.ids)
@@ -89,7 +91,8 @@ class Organisation::DashboardBreakDownsController < Organisation::BaseController
   def system_supplier_resilience_indicator
     args = {
       'current_user' =>  current_user,
-      'organisational_unit' =>  organisational_unit
+      'organisational_unit' =>  organisational_unit,
+      'filters' => (params[:filters] || ActionController::Parameters.new).permit!.to_h
     }
     @impact_tolerance_breakdowns  = BreakdownService.new(args).calculate_breakdown
     @conformant_suppliers         = ConformanceSupplierService.new(args).conformant_suppliers_data
