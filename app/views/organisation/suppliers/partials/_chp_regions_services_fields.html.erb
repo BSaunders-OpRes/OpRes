@@ -36,10 +36,11 @@
                       </label>
                     </div>
                   <% selected_services = supplier&.cloud_hosting_provider_services_ids || [] %>
+                  <% selected_services = @selected_services.map{ |e| e.to_i } if @selected_services.present? %>
                   <% cloud_hosting_provider.cloud_hosting_provider_services.each do |chps| %>
                     <div class="form-group mb-4 service-list" >
                       <label class="d-flex justify-content-between align-items-center custom-checkbox px-0 pb-4 border-bottom" for="<%= "#{chps.id}" %>" >
-                        <span class="text-uppercase text-left flex-1 font-14 font-400"><%= chps.name %></span>
+                          <span class="text-uppercase text-left flex-1 font-14 font-400"><%= chps.name %></span>
                         <%= check_box_tag 'supplier[cloud_hosting_provider_services_ids][]', chps.id, selected_services.include?(chps.id), class: 'form-control w-auto service', id: chps.id %>
                         <span class="checkmark position-relative"></span>
                       </label>

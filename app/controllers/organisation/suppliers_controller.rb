@@ -4,7 +4,8 @@ class Organisation::SuppliersController < Organisation::BaseController
   before_action :load_supplier, only: %i[edit update show destroy critical_important_suppliers compound_resilience search_and_filter]
 
   def new
-    @supplier = Supplier.new
+    @supplier = Supplier.new(params[:supplier_params]&.permit!)
+    @selected_services = params[:supplier_params][:cloud_hosting_provider_services_ids] if params[:supplier_params].present?
     prepare_form_data
   end
 
@@ -17,7 +18,7 @@ class Organisation::SuppliersController < Organisation::BaseController
       else
         prepare_form_data
         format.json { render json: { errors: @supplier.errors.full_messages } }
-        format.html { render :new }
+        format.html { redirect_to new_organisation_supplier_path(supplier_params: supplier_params), alert: @supplier.errors.full_messages }
       end
     end
   end
