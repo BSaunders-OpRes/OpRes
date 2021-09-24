@@ -4,7 +4,7 @@ import { Form, FormCheck, FormLabel } from 'react-bootstrap';
 import { AiFillEyeInvisible }         from 'react-icons/ai';
 import { Tabs, Tab }                  from 'react-bootstrap';
 import { BrowserRouter as Router, Link, Route, Switch } from 'react-router-dom';
-
+import TermsCondition from './terms_&_conditions';
 import authentication    from '../../libraries/api/authentication';
 import Carousel          from '../carousel/carousel';
 import Logo              from '../../images/logo.png';
@@ -12,24 +12,29 @@ import Logo              from '../../images/logo.png';
 import { organisationTypes } from '../../libraries/helpers/constants';
 
 export default function Registration() {
-  const [first_name, setFirstName]                        = useState('');
-  const [last_name, setLastName]                          = useState('');
-  const [job_title, setJobTitle]                          = useState('');
-  const [email, setEmail]                                 = useState('');
-  const [emailError, setEmailError]                       = useState('');
-  const [password, setPassword]                           = useState('');
-  const [passwordError, setPasswordError]                 = useState('');
-  const [organisationName, setorganisationName]           = useState('');
-  const [organisationNameError, setorganisationNameError] = useState('');
-  const [organisationType, setOrganisationType]           = useState('');
-  const [organisationTypeError, setOrganisationTypeError] = useState('');
-  const [passwordShown, setPasswordShown]                 = useState(false);
+  const [first_name, setFirstName]                                    = useState('');
+  const [last_name, setLastName]                                      = useState('');
+  const [job_title, setJobTitle]                                      = useState('');
+  const [email, setEmail]                                             = useState('');
+  const [emailError, setEmailError]                                   = useState('');
+  const [password, setPassword]                                       = useState('');
+  const [passwordError, setPasswordError]                             = useState('');
+  const [organisationName, setorganisationName]                       = useState('');
+  const [organisationNameError, setorganisationNameError]             = useState('');
+  const [organisationType, setOrganisationType]                       = useState('');
+  const [organisationTypeError, setOrganisationTypeError]             = useState('');
+  const [termsAndConditionsTypeError, setTermsAndConditionsTypeError] = useState('');
+  const [passwordShown, setPasswordShown]                             = useState(false);
+  const [termsAndConditions, setTermsAndConditions]                   = useState(false);
+  const [submitted, setSubmitted]                                     = useState(false);
+  const [show, setShow]                                               = useState(false);
 
   const togglePasswordVisiblity = () => {
     setPasswordShown(passwordShown ? false : true);
   };
   const handleSubmit = (e)=> {
     e.preventDefault();
+    setSubmitted(true);
 
     if (email === '') {
       setEmailError('Email is required');
@@ -42,6 +47,9 @@ export default function Registration() {
       return;
     } else if (organisationType === '') {
       setOrganisationTypeError('Organization type is required');
+      return;
+    }else if(!termsAndConditions){
+      setTermsAndConditionsTypeError('Please agree to all terms and conditions before signup');
       return;
     }
 
@@ -70,6 +78,7 @@ export default function Registration() {
   const error_handling = (err) => {
     toast.error(err.response.data.message, { autoClose:3000 });
   }
+
   const eye = <i className="fa fa-eye" aria-hidden="true"></i>
   const eyeSlash = <i className="fa fa-eye-slash" aria-hidden="true"></i>;
 
@@ -78,6 +87,7 @@ export default function Registration() {
       <div className='row h-100'>
         <div className="col-md-6 pr-md-0">
           <div className='form-wrapper'>
+            <TermsCondition showModal={show} modalEvent= {(e) => setShow(!show)} />
             <form className='h-100' onSubmit = {handleSubmit}>
               <div className="row">
                 <div className="col-md-10 mx-auto">
@@ -103,18 +113,30 @@ export default function Registration() {
                     <div className="form-group col-md-12 animated-field">
                       <input type="email" value={email} name="name" className='form-control border-0' placeholder='Email address' onChange={e => setEmail(e.target.value)} />
                       <label>Email address</label>
-                      <div className='error'>{emailError}</div>
+                      {
+                        (submitted && email === '') && (
+                          <div className='error'>{emailError}</div>
+                        )
+                      }
                     </div>
                     <div className="form-group col-md-12 animated-field password">
                       <input type={passwordShown ? 'text' : 'password'} value={password} name="password" className='form-control border-0' placeholder='Password' onChange={e => setPassword(e.target.value)} />
                       <label>Password</label>
                       <i onClick={togglePasswordVisiblity}>{passwordShown ? eye : eyeSlash}</i>
-                      <div className='error'>{passwordError}</div>
+                      {
+                        (submitted && password === '') && (
+                          <div className='error'>{passwordError}</div>
+                        )
+                      }
                     </div>
                     <div className="form-group col-md-12 animated-field">
                       <input type="text" value={organisationName} name="company_name" className='form-control border-0' placeholder='Organisation Name' onChange={e => setorganisationName(e.target.value)} />
                       <label>Organisation Name</label>
-                      <div className='error'>{organisationNameError}</div>
+                      {
+                        (submitted && organisationName === '') && (
+                          <div className='error'>{organisationNameError}</div>
+                        )
+                      }
                     </div>
                     <div className="form-group col-md-12">
                       <select className='form-control border-0 signup-select' name="organisationtype" placeholder='Organization Type' onChange={e => setOrganisationType(e.target.value)}>
@@ -126,7 +148,20 @@ export default function Registration() {
                         )}
                       </select>
                       <i className="fa fa-sort-desc pr-2 mr-2" aria-hidden="true"></i>
-                      <div className='error'>{organisationTypeError}</div>
+                      {
+                        (submitted && organisationType === '') && (
+                          <div className='error'>{organisationTypeError}</div>
+                        )
+                      }
+                    </div>
+                    <div className="form-group col-md-12">
+                      <input type="checkbox" id="agree" onChange={ e => setTermsAndConditions(!termsAndConditions)}/>
+                      <label htmlFor="agree"> I agree to the OpRes <a href="javascript::void(0)" onClick={e => setShow(true)}>Terms of Service</a></label>
+                      {
+                        (submitted && !termsAndConditions) && (
+                          <div className='error'>{termsAndConditionsTypeError}</div>
+                        )
+                      }
                     </div>
                     <div className="form-group col-md-12">
                       <button type="submit" value="Submit" className='btn-submit w-100 p-2'>
