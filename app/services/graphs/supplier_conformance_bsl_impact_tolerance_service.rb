@@ -1,7 +1,7 @@
 class Graphs::SupplierConformanceBslImpactToleranceService < Graphs::BaseService
   # Supplier Conformance Business service Impact Tolerance.
 
-  COLORS   = %w[#6BEAB3 #367C5C #CDFAF1 #05b368 #f5f5f5]
+  COLORS   = %w[#6BEAB3 #E39A2B #E4412E #05b368 #f5f5f5]
   attr_reader :supplier
 
   def call

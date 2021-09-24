@@ -1,7 +1,7 @@
 class Graphs::ImpactToleranceBreakdownService < Graphs::BaseService
   # Impact tolerance breakdown on the basis of its SLA attributes.
 
-  COLORS = %w[#6BEAB3 #367C5C #CDFAF1 #05b368]
+  COLORS = %w[#6BEAB3 #E39A2B #E4412E #05b368]
 
   attr_reader :supplier, :bsl_ids, :sla_attr
 

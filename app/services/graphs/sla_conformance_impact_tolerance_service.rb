@@ -1,7 +1,7 @@
 class Graphs::SlaConformanceImpactToleranceService < Graphs::BaseService
   # Supplier Conformance Impact Tolerance.
 
-  COLORS   = %w[#f5f5f5 #6BEAB3 #367C5C #CDFAF1 #05b368]
+  COLORS   = %w[#f5f5f5 #6BEAB3 #E39A2B #E4412E #05b368]
   attr_reader :supplier, :bsl_ids, :sla_attr
 
   def call
