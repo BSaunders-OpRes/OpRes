@@ -2,12 +2,13 @@ class SupplierStep < ApplicationRecord
   # Associations #
   belongs_to :step
   belongs_to :supplier
-
+    
   # Enums #
   enum party_type:       %i[firm-hosted 3rd-party 4th-party]
   enum importance_level: %i[critical important]
 
   scope :supplier_based,  ->(id) { where supplier_id: id }
+  validates :step_id, :uniqueness => { :scope => :supplier_id, :message => "#{self.name} already exist, please use different supplier"}
 
   # Methods #
   class << self

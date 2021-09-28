@@ -16,10 +16,11 @@ class Graphs::SupplierSystemBreakdownService < Graphs::BaseService
 
   def overall
     datum = {}
-    datum[:suppliers] = []
-    supplier_steps = bsl.supplier_steps
+    datum[:suppliers]         = []
+    all_supplier_steps        = bsl.supplier_steps
+    unique_supplier_steps     = all_supplier_steps.uniq(&:supplier_id)
 
-    supplier_steps&.each do |supplier_step|
+    unique_supplier_steps&.each do |supplier_step|
       total_sum = 0
       sla_attr_status = []
       sla_attr = {}
@@ -41,14 +42,13 @@ class Graphs::SupplierSystemBreakdownService < Graphs::BaseService
           sla_attr_status << sla_attr
         end
       end
-
       datum[:suppliers] << {
-        name:                  supplier_step.supplier.name ,
+        name:                  supplier_step.supplier.name,
         id:                    supplier_step.supplier.id,
         logo:                  supplier_step.supplier.cloud_hosting_provider.logo,
         consumption_model:     supplier_step.supplier.consumption_model,
-        critical_steps_total:  supplier_steps.critical&.where(supplier_id: supplier_step.supplier.id).size,
-        important_steps_total: supplier_steps.important&.where(supplier_id: supplier_step.supplier.id).size,
+        critical_steps_total:  all_supplier_steps.critical&.where(supplier_id: supplier_step.supplier.id).size,
+        important_steps_total: all_supplier_steps.important&.where(supplier_id: supplier_step.supplier.id).size,
         conformance_score:     ((total_sum/120.to_f)*100).round(2),
         sla_attr:              supplier_step.supplier.sla,
         third_parties:         supplier_step.supplier.third_party_suppliers,
@@ -56,7 +56,6 @@ class Graphs::SupplierSystemBreakdownService < Graphs::BaseService
         sla_attr_status:       sla_attr_status
       }
     end
-
     datum
   end
 end

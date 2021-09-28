@@ -4,7 +4,7 @@
       <i class="fa fa-sliders font-18"></i>
       <h5 class="text-capitalize ml-2 font-600 mt-1">segmentation options</h5>
     </div>
-    <%= form_tag organisation_dashboard_index_path, method: :get, remote: true do %>
+    <%= form_tag path, method: :get, remote: true do %>
       <div class="row no-gutters mt-3">
         <div class="col-lg px-1 col-md-4 col-sm-6">
           <div class="dropdown custom-dropdown">
@@ -169,38 +169,10 @@
             </div>
           </div>
         </div> -->
-        <div class="col-lg px-1 col-md-4 col-sm-6">
-          <div class="dropdown custom-dropdown general-dropdown">
-            <button class="border-0 mb-3 p-3 bg-body-color dropdown-toggle w-100 shadow-none" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <span class="d-flex flex-column align-items-start">
-                <h6 class="text-capitalize font-12 font-xxl-14 mb-1">
-                  <span class="font-600 text-capitalize">products .</span>
-                  <span class="text-light-grey font-600 products-count">0</span>
-                </h6>
-                <span class="text-capitalize font-12 font-xxl-14 text-light-grey font-600">View all</span>
-              </span>
-            </button>
-            <div class="dropdown-menu down-drop overflow-auto z-index-10 h-400-with-scroll" aria-labelledby="dropdownMenuButton">
-              <div class="form-group dropdown-item pl-3 m-0">
-                <label for="product-all" class="custom-checkbox d-flex m-0">
-                  <span class="font-12 text-black text-capitalize">View All</span>
-                  <%= check_box_tag 'filters[product_ids][]', 'all', false, id: "product-all", class: 'form-control products', onclick: 'RailsUJS.fire(this.form, "submit")' %>
-                  <span class="transparent-checkmark"></span>
-                </label>
-              </div>
-              <% @organisational_unit.products.each do |product| %>
-                <div class="form-group dropdown-item pl-3 m-0">
-                  <label for="product<%= product.id %>" class="custom-checkbox d-flex m-0">
-                    <span class="font-12 text-black text-capitalize"><%= product.name %></span>
-                    <%= check_box_tag 'filters[product_ids][]', product.id, false, id: "product#{product.id}", class: 'form-control products', onclick: 'RailsUJS.fire(this.form, "submit")' %>
-                    <span class="transparent-checkmark"></span>
-                  </label>
-                </div>
-              <% end %>
-            </div>
-          </div>
+        <div class="col-lg px-1 col-md-4 col-sm-6" id="institution-products">
+          <%= render 'organisation/dashboard/partials/products_option_render', products: @organisational_unit.products %>
+        </div>
       </div>
-    </div>
-  <% end %>
+    <% end %>
   </div>
 </div>

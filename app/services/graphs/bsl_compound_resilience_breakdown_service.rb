@@ -16,9 +16,10 @@ class Graphs::BslCompoundResilienceBreakdownService < Graphs::BaseService
   def overall
     datum = []
 
-    supplier_steps = args.dig('supplier').present? &&  args.dig('supplier') == '0' ? [] : bsl.supplier_steps.where(supplier_id: supplier_ids).includes(supplier: :sla)
+    supplier_steps = args.dig('supplier').present? &&  args.dig('supplier') == '0' ? [] : bsl.supplier_steps.where(supplier_id: supplier_ids).includes(supplier: :sla).uniq(&:supplier_id)
     supplier_steps.each do |supplier_step|
-      supplier_data = { 'supplier_name': supplier_step.supplier.name, 'party_type': supplier_step.party_type, 'impact_tolerance': '', 'resilience_id': 0 }
+      resilience_id = ResilienceTicket.find_by(sla_attr: sla_attr, business_service_line: bsl, supplier: supplier_step.supplier)&.rgid || 0
+      supplier_data = { 'supplier_name': supplier_step.supplier.name, 'party_type': supplier_step.party_type, 'impact_tolerance': '', 'resilience_id': resilience_id }
       bsl_sla_val       = bsl.sla[sla_attr]
       supplier_sla_val  = supplier_step.supplier.sla[sla_attr]
       risk_appetite     = bsl.risk_appetites.where(kind: sla_attr)

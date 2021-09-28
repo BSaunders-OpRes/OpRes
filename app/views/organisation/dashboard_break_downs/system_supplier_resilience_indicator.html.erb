@@ -28,7 +28,7 @@
       <%= render 'organisation/dashboard_break_downs/partials/system_supplier_resilience_sidebar' %>
     </div>
     <div class="col-sm-9 col-xxl-10 px-1">
-      <%= render 'organisation/dashboard_break_downs/partials/supplier_resilience_segmentation_options' %>
+      <%= render 'organisation/dashboard_break_downs/partials/supplier_resilience_segmentation_options', path: system_supplier_resilience_indicator_organisation_dashboard_break_downs_path %>
       <div id='breakdown-wrapper'>
         <%= render 'organisation/dashboard_break_downs/partials/supplier_conformace_wrapper', impact_tolerance_breakdowns: @impact_tolerance_breakdowns, conformant_suppliers: @conformant_suppliers, non_conformant_suppliers: @non_conformant_suppliers, filters: params.dig(:filters) || {} %>
       </div>

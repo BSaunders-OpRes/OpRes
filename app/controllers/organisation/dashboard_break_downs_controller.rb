@@ -1,5 +1,5 @@
 class Organisation::DashboardBreakDownsController < Organisation::BaseController
-  before_action :managing_country_units, only: %i[system_supplier_resilience_indicator]
+  before_action :managing_country_units, only: %i[cloud_service_provider_breakdown system_supplier_resilience_indicator]
 
   def business_service_tiers
     @bsls                    = BusinessServiceLine.where(unit_id: managing_institution_units.ids)
