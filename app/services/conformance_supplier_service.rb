@@ -51,7 +51,7 @@ class ConformanceSupplierService < Graphs::BaseService
         end
       end
       conformant_data["#{supplier.id}"][:institution_count] = supplier&.unit&.children&.count
-      conformant_data["#{supplier.id}"][:total_impact_tolerance] = total_sum
+      conformant_data["#{supplier.id}"][:total_impact_tolerance] = ((total_sum/120.to_f)*100).round(2)
     end
     conformant_suppliers = conformant_data.sort{|a,b| b[1][:total_impact_tolerance] <=> a[1][:total_impact_tolerance]}.to_h
 
