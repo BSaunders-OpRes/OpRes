@@ -1,4 +1,4 @@
-$('#dashboard-wrapper').html('<%= escape_javascript(render "organisation/dashboard/partials/dashboard_content", filters: params.dig(:filters) || {}) %>');
+$('#cloud-service-provider-wrapper').html('<%= escape_javascript(render "organisation/dashboard_break_downs/partials/cloud_service_provider_wrapper", filters: params.dig(:filters) || {}) %>');
 <% if params.dig(:filters, :institution_ids).present? %>
   $('#institution-products').html('<%= escape_javascript(render "organisation/dashboard/partials/products_option_render", products: @organisational_unit.institutions.select {|a| params.dig(:filters, :institution_ids).include?(a.id.to_s)}.map{|i| i.products}.flatten.uniq) %>');
 <% end %>
