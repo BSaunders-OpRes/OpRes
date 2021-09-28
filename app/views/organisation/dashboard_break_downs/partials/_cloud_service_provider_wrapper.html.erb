@@ -1,0 +1,254 @@
+<div class="w-100">
+  <div class="content-area">
+    <div id="section1">
+      <div class="card border-0 shadow-sm rounded-50 mb-4">
+        <div class="card-body px-0">
+          <div class="box">
+            <div class="d-flex justify-content-between align-items-center mb-4 px-4">
+              <h5 class="text-capitalize text-left font-600">Overview</h5>
+            </div>
+            <div class="row custom-high-chart">
+              <div class="col-lg-6 col-md-12">
+                <div class="box">
+                  <div id="chp-breakdown" class="order-1 mb-lg-0 mb-4 px-1 custom-high-chart lazy-graph" data-key="chp_breakdown" data-args="<%= {}.to_json %>" data-append-to="chp-breakdown" data-partial-name="chp_breakdown_v1" data-partial-name="chp_breakdown_v1" data-filters="<%= filters.to_json %>">
+                    <%= render 'organisation/graphs/partials/chp_breakdown_v1', data: {} %>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-6 col-md-12">
+                <div class="box">
+                  <div id="consumption-chp" class="order-1 mb-lg-0 mb-4 px-1 custom-high-chart lazy-graph" data-key="consumption_chp" data-args="<%= {}.to_json %>" data-append-to="consumption-chp" data-partial-name="consumption_chp" data-partial-name="consumption_chp" data-filters="<%= filters.to_json %>">
+                      <%= render 'organisation/graphs/partials/consumption_chp', data: {} %>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="section2">
+      <%=  render 'organisation/dashboard_break_downs/partials/overview_charts', data: {} %>
+    </div>
+    <!-- <div id="section3">
+      <div class="row mt-4 no-gutters">
+        <div class="col-md-4 mb-4 mb-lg-0 px-1">
+          <div class="card border-0 shadow-sm rounded-50 overflow-hidden">
+            <div class="card-body p-3">
+              <div class="box">
+                <div class="d-flex align-items-center px-1 mb-3">
+                  <h5 class="card-heading text-capitalize text-center font-12 w-100">Resilience Gaps - Iaas Summary</h5>
+                </div>
+                <div class="px-1">
+                  <div class="">
+                    <div class="">
+                      <div class="table-responsive mt-0 mt-lg-3">
+                        <table class="table custom-table mb-0">
+                          <thead>
+                            <tr>
+                              <th class="font-10 font-xxl-14 px-1 text-dark font-400 p-2"></th>
+                              <th class="font-10 font-xxl-14 px text-dark font-400 p-2">
+                                Low
+                                <div class="green-sm-cirle"></div>
+                              </th>
+                              <th class="font-10 font-xxl-14 px text-dark font-400 p-2">
+                                Medium
+                                <div class="yellow-sm-cirle"></div>
+                              </th>
+                              <th class="font-10 font-xxl-14 px text-dark font-400 p-2">
+                                High
+                                <div class="orange-sm-cirle"></div>
+                              </th>
+                              <th class="font-10 font-xxl-14 px text-dark font-400 p-2">
+                                V High
+                                <div class="red-sm-cirle"></div>
+                              </th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td class="font-11 font-xxl-14 px-1 text-dark font-600 p-2">AWS</td>
+                              <td class="font-11 font-xxl-14 text-dark font-500 p-2">4</td>
+                              <td class="font-11 font-xxl-14 text-dark font-500 p-2">3</td>
+                              <td class="font-11 font-xxl-14 text-dark font-500 p-2">5</td>
+                              <td class="font-11 font-xxl-14 text-dark font-500 p-2">5</td>
+                            </tr>
+                            <tr>
+                              <td class="font-11 font-xxl-14 px-1 text-dark font-600 p-2">GCP</td>
+                              <td class="font-11 font-xxl-14 text-dark font-500 p-2">4</td>
+                              <td class="font-11 font-xxl-14 text-dark font-500 p-2">3</td>
+                              <td class="font-11 font-xxl-14 text-dark font-500 p-2">5</td>
+                              <td class="font-11 font-xxl-14 text-dark font-500 p-2">5</td>
+                            </tr>
+                            <tr>
+                              <td class="font-11 font-xxl-14 px-1 text-dark font-600 p-2">Azure</td>
+                              <td class="font-11 font-xxl-14 text-dark font-500 p-2">4</td>
+                              <td class="font-11 font-xxl-14 text-dark font-500 p-2">3</td>
+                              <td class="font-11 font-xxl-14 text-dark font-500 p-2">5</td>
+                              <td class="font-11 font-xxl-14 text-dark font-500 p-2">5</td>
+                            </tr>
+                            <tr>
+                              <td class="font-11 font-xxl-14 px-1 text-dark font-600 p-2">Private</td>
+                              <td class="font-11 font-xxl-14 text-dark font-500 p-2">4</td>
+                              <td class="font-11 font-xxl-14 text-dark font-500 p-2">3</td>
+                              <td class="font-11 font-xxl-14 text-dark font-500 p-2">5</td>
+                              <td class="font-11 font-xxl-14 text-dark font-500 p-2">5</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4 mb-lg-0 px-1">
+          <div class="card border-0 shadow-sm rounded-50 overflow-hidden">
+            <div class="card-body p-3">
+              <div class="box">
+                <div class="d-flex align-items-center px-1 mb-3">
+                  <h5 class="card-heading text-capitalize text-center font-12 w-100">Resilience Gaps - PaaS Summary</h5>
+                </div>
+                <div class="px-1">
+                  <div class="">
+                    <div class="">
+                      <div class="table-responsive mt-0 mt-lg-3">
+                        <table class="table custom-table mb-0">
+                          <thead>
+                            <tr>
+                              <th class="font-10 font-xxl-14 px-1 text-dark font-400 p-2"></th>
+                              <th class="font-10 font-xxl-14 px text-dark font-400 p-2">
+                                Low
+                                <div class="green-sm-cirle"></div>
+                              </th>
+                              <th class="font-10 font-xxl-14 px text-dark font-400 p-2">
+                                Medium
+                                <div class="yellow-sm-cirle"></div>
+                              </th>
+                              <th class="font-10 font-xxl-14 px text-dark font-400 p-2">
+                                High
+                                <div class="orange-sm-cirle"></div>
+                              </th>
+                              <th class="font-10 font-xxl-14 px text-dark font-400 p-2">
+                                V High
+                                <div class="red-sm-cirle"></div>
+                              </th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td class="font-11 font-xxl-14 px-1 text-dark font-600 p-2">AWS</td>
+                              <td class="font-11 font-xxl-14 text-dark font-500 p-2">4</td>
+                              <td class="font-11 font-xxl-14 text-dark font-500 p-2">3</td>
+                              <td class="font-11 font-xxl-14 text-dark font-500 p-2">5</td>
+                              <td class="font-11 font-xxl-14 text-dark font-500 p-2">5</td>
+                            </tr>
+                            <tr>
+                              <td class="font-11 font-xxl-14 px-1 text-dark font-600 p-2">GCP</td>
+                              <td class="font-11 font-xxl-14 text-dark font-500 p-2">4</td>
+                              <td class="font-11 font-xxl-14 text-dark font-500 p-2">3</td>
+                              <td class="font-11 font-xxl-14 text-dark font-500 p-2">5</td>
+                              <td class="font-11 font-xxl-14 text-dark font-500 p-2">5</td>
+                            </tr>
+                            <tr>
+                              <td class="font-11 font-xxl-14 px-1 text-dark font-600 p-2">Azure</td>
+                              <td class="font-11 font-xxl-14 text-dark font-500 p-2">4</td>
+                              <td class="font-11 font-xxl-14 text-dark font-500 p-2">3</td>
+                              <td class="font-11 font-xxl-14 text-dark font-500 p-2">5</td>
+                              <td class="font-11 font-xxl-14 text-dark font-500 p-2">5</td>
+                            </tr>
+                            <tr>
+                              <td class="font-11 font-xxl-14 px-1 text-dark font-600 p-2">Private</td>
+                              <td class="font-11 font-xxl-14 text-dark font-500 p-2">4</td>
+                              <td class="font-11 font-xxl-14 text-dark font-500 p-2">3</td>
+                              <td class="font-11 font-xxl-14 text-dark font-500 p-2">5</td>
+                              <td class="font-11 font-xxl-14 text-dark font-500 p-2">5</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4 mb-lg-0 px-1">
+          <div class="card border-0 shadow-sm rounded-50 overflow-hidden">
+            <div class="card-body p-3">
+              <div class="box">
+                <div class="d-flex align-items-center px-1 mb-3">
+                  <h5 class="card-heading text-capitalize text-center font-12 w-100">Resilience Gaps - SaaS Summary</h5>
+                </div>
+                <div class="px-1">
+                  <div class="">
+                    <div class="">
+                      <div class="table-responsive mt-0 mt-lg-3">
+                        <table class="table custom-table mb-0">
+                          <thead>
+                            <tr>
+                              <th class="font-10 font-xxl-14 px-1 text-dark font-400 p-2"></th>
+                              <th class="font-10 font-xxl-14 px text-dark font-400 p-2">
+                                Low
+                                <div class="green-sm-cirle"></div>
+                              </th>
+                              <th class="font-10 font-xxl-14 px text-dark font-400 p-2">
+                                Medium
+                                <div class="yellow-sm-cirle"></div>
+                              </th>
+                              <th class="font-10 font-xxl-14 px text-dark font-400 p-2">
+                                High
+                                <div class="orange-sm-cirle"></div>
+                              </th>
+                              <th class="font-10 font-xxl-14 px text-dark font-400 p-2">
+                                V High
+                                <div class="red-sm-cirle"></div>
+                              </th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td class="font-11 font-xxl-14 px-1 text-dark font-600 p-2">AWS</td>
+                              <td class="font-11 font-xxl-14 text-dark font-500 p-2">4</td>
+                              <td class="font-11 font-xxl-14 text-dark font-500 p-2">3</td>
+                              <td class="font-11 font-xxl-14 text-dark font-500 p-2">5</td>
+                              <td class="font-11 font-xxl-14 text-dark font-500 p-2">5</td>
+                            </tr>
+                            <tr>
+                              <td class="font-11 font-xxl-14 px-1 text-dark font-600 p-2">GCP</td>
+                              <td class="font-11 font-xxl-14 text-dark font-500 p-2">4</td>
+                              <td class="font-11 font-xxl-14 text-dark font-500 p-2">3</td>
+                              <td class="font-11 font-xxl-14 text-dark font-500 p-2">5</td>
+                              <td class="font-11 font-xxl-14 text-dark font-500 p-2">5</td>
+                            </tr>
+                            <tr>
+                              <td class="font-11 font-xxl-14 px-1 text-dark font-600 p-2">Azure</td>
+                              <td class="font-11 font-xxl-14 text-dark font-500 p-2">4</td>
+                              <td class="font-11 font-xxl-14 text-dark font-500 p-2">3</td>
+                              <td class="font-11 font-xxl-14 text-dark font-500 p-2">5</td>
+                              <td class="font-11 font-xxl-14 text-dark font-500 p-2">5</td>
+                            </tr>
+                            <tr>
+                              <td class="font-11 font-xxl-14 px-1 text-dark font-600 p-2">Private</td>
+                              <td class="font-11 font-xxl-14 text-dark font-500 p-2">4</td>
+                              <td class="font-11 font-xxl-14 text-dark font-500 p-2">3</td>
+                              <td class="font-11 font-xxl-14 text-dark font-500 p-2">5</td>
+                              <td class="font-11 font-xxl-14 text-dark font-500 p-2">5</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div> -->
+  </div>
+</div>

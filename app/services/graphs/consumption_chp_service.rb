@@ -5,7 +5,7 @@ class Graphs::ConsumptionChpService < Graphs::BaseService
   COLORS = %w[#6BEAB3 #367C5C #CDFAF1 #05b368]
 
   def call
-    nodes     = organisational_unit.inclusive_children.map(&:id)
+    nodes     = filter_data
     suppliers = Supplier.where(unit_id: nodes).group_by(&:consumption_model)
 
     data[:total] = suppliers.values.flatten.size
