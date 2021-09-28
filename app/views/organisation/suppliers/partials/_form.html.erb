@@ -477,11 +477,7 @@
             <p class="text-capitalize font-14 font-600 text-capitalize">3rd Party suppliers</p>
           </div>
         </div>
-        <div id="third-party-suppliers">
-          <%= form.fields_for :third_party_suppliers do |third_party_supplier| %>
-            <%= render 'organisation/suppliers/partials/sub_supplier_fields', f: third_party_supplier %>
-          <% end %>
-        </div>
+
         <span>
           <%= link_to_add_association form, :third_party_suppliers, class: 'add-step-btn text-decoration-none mb-4 d-inline-block', partial: 'organisation/suppliers/partials/sub_supplier_fields' do %>
             <i class="fa fa-plus-circle" aria-hidden="true"></i>
@@ -492,11 +488,6 @@
           <div class="col-md-12 px-1 mb-4">
             <p class="text-capitalize font-14 font-600 text-capitalize">4th Party suppliers</p>
           </div>
-        </div>
-        <div id="fourth-party-suppliers">
-          <%= form.fields_for :fourth_party_suppliers do |fourth_party_supplier| %>
-            <%= render 'organisation/suppliers/partials/sub_supplier_fields', f: fourth_party_supplier %>
-          <% end %>
         </div>
         <span>
           <%= link_to_add_association form, :fourth_party_suppliers, class: 'add-step-btn text-decoration-none mb-4 d-inline-block', partial: 'organisation/suppliers/partials/sub_supplier_fields' do %>

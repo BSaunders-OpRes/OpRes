@@ -52,12 +52,12 @@
               <p>Contracted SLA</p>
             </div>
             <div class="text-box w-40">
-              <p class="text-left"><%= supplier_data.dig(:sla_attr)&.service_level_agreement.present? ? "#{supplier_data.dig(:sla_attr).service_level_agreement} %" : '-' %> %</p>
+              <p class="text-left"><%= supplier_data.dig(:sla_attr)&.service_level_agreement.present? ? "#{supplier_data.dig(:sla_attr).service_level_agreement}" : '-' %> %</p>
             </div>
             <div class="text-box w-20">
               <div class="color-tier d-flex align-items-center justify-content-start">
                 <div class="circle red-circle p-2"></div>
-                <span class="font-11 font-400 ml-2">Very High Risk</span>
+                <span class="font-11 font-400 ml-2">Exceeds Impact Tolerance</span>
               </div>
             </div>
           </div>
@@ -71,7 +71,7 @@
             <div class="text-box w-20">
               <div class="color-tier d-flex align-items-center justify-content-start">
                 <div class="circle red-circle p-2"></div>
-                <span class="font-11 font-400 ml-2">Very High Risk</span>
+                <span class="font-11 font-400 ml-2">Exceeds Impact Tolerance</span>
               </div>
             </div>
           </div>
@@ -85,7 +85,7 @@
             <div class="text-box w-20">
               <div class="color-tier d-flex align-items-center justify-content-start">
                 <div class="circle orange-circle p-2"></div>
-                <span class="font-11 font-400 ml-2">High Risk</span>
+                <span class="font-11 font-400 ml-2">Meets Impact Tolerance</span>
               </div>
             </div>
           </div>
@@ -99,7 +99,7 @@
             <div class="text-box w-20">
               <div class="color-tier d-flex align-items-center justify-content-start">
                 <div class="circle orange-circle p-2"></div>
-                <span class="font-11 font-400 ml-2">High Risk</span>
+                <span class="font-11 font-400 ml-2">Meets Impact Tolerance</span>
               </div>
             </div>
           </div>
@@ -113,7 +113,7 @@
             <div class="text-box w-20">
               <div class="color-tier d-flex align-items-center justify-content-start">
                 <div class="circle orange-circle p-2"></div>
-                <span class="font-11 font-400 ml-2">High Risk</span>
+                <span class="font-11 font-400 ml-2">Meets Impact Tolerance</span>
               </div>
             </div>
           </div>
@@ -127,7 +127,7 @@
             <div class="text-box w-20">
               <div class="color-tier d-flex align-items-center justify-content-start">
                 <div class="circle green-1 p-2"></div>
-                <span class="font-11 font-400 ml-2">Low Risk</span>
+                <span class="font-11 font-400 ml-2">Matches Impact Tolerance</span>
               </div>
             </div>
           </div>
