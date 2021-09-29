@@ -55,6 +55,35 @@ i.paperclip {
   }
 }
 
+.resilience-breakdown-modal {
+  .dataTables_wrapper {
+    .dataTables_length {
+      text-align: right;
+      label {
+        text-transform: capitalize;
+      }
+      select {
+        width: 100px;
+        padding: 5px;
+        border: 1px solid #eee !important;
+        outline: none;
+        background: $body-bg-color;
+
+        &:focus, &:active {
+          outline: none !important;
+        }
+      }
+    }
+  }
+  .page-item.active .page-link {
+    background-color: lightgrey !important;
+    border: 1px solid black;
+  }
+  .page-link {
+      color: black !important;
+  }
+}
+
 .donut-chart-react {
   margin-top: -80px;
 }

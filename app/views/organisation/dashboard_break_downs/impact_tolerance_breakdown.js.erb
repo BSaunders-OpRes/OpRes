@@ -1,2 +1,15 @@
 $('#breakdown-modal-section').html("<%= escape_javascript render 'organisation/dashboard_break_downs/partials/supplier_resilience_breakdown_modal', sla_attr: @sla_attr, impact_tolerance_breakdown_data: @impact_tolerance_breakdown, type: @type %>");
 $('#resilience-breakdown-modal').modal('show');
+$('#break-down-resilience-data-table').DataTable({
+// paging: false,
+// "info": false,
+  searching: false,
+  "language": {
+      "lengthMenu": "Show entities _MENU_",
+      "zeroRecords": "Nothing found - sorry",
+      "info": "",
+      "infoEmpty": "No records available",
+      "infoFiltered": "(filtered from _MAX_ total records)"
+  }
+
+});
