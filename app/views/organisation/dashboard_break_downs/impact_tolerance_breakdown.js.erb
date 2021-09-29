@@ -3,5 +3,13 @@ $('#resilience-breakdown-modal').modal('show');
 $('#break-down-resilience-data-table').DataTable({
 // paging: false,
 // "info": false,
-searching: false,
+  searching: false,
+  "language": {
+      "lengthMenu": "Show entities _MENU_",
+      "zeroRecords": "Nothing found - sorry",
+      "info": "",
+      "infoEmpty": "No records available",
+      "infoFiltered": "(filtered from _MAX_ total records)"
+  }
+
 });
