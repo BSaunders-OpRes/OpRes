@@ -48,6 +48,7 @@ Rails.application.routes.draw do
       get :cloud_critical_system, on: :collection
       get :system_supplier_resilience_indicator, on: :collection
       get :impact_tolerance_breakdown, on: :collection
+      get :cloud_service_provider_services, on: :collection
     end
 
     resources :accounts, only: %i[index] do

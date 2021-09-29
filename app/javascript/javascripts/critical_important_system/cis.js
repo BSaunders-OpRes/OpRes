@@ -18,12 +18,13 @@ document.addEventListener('turbolinks:load', function() {
   });
 
   $(".segmentation-options input[type=checkbox]").on('click', function(){
+    $(".loader-wrapper").removeClass("d-none");
+    $('body').addClass("overflow-hidden");
     segmentation_suppliers = getFilterValues($(".segmentation-options .segmentation_suppliers input:checked"))
     segmentation_regions = getFilterValues($(".segmentation-options .segmentation_regions input:checked"))
     segmentation_countries = getFilterValues($(".segmentation-options .segmentation_countries input:checked"))
     segmentation_firms = getFilterValues($(".segmentation-options .segmentation_firms input:checked"))
     segmentation_products = getFilterValues($(".segmentation-options .segmentation_products input:checked"))
-    
     $.ajax({
       url:      '/organisation/dashboard_break_downs/critical_important_system',
       dataType: 'script',
@@ -37,6 +38,7 @@ document.addEventListener('turbolinks:load', function() {
         products: segmentation_products
       }
     });
+    $(".loader-wrapper").addClass("d-none");
   });
 
   function getFilterValues(filterObject) {

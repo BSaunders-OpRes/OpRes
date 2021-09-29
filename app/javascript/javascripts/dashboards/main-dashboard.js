@@ -1,5 +1,7 @@
 document.addEventListener('turbolinks:load', function() {
-  $('body').on('change', '.regions,.countries,.institutions,.products,.sub-regions,.entities', function(e) {
+  $('body').on('change', '.regions,.countries,.institutions,.products,.sub-regions,.entities,.party_types', function(e) {
+    $(".loader-wrapper").removeClass("d-none");
+    $('body').addClass("overflow-hidden");
     if(e.target.className.includes('regions')){
       if(e.target.id == 'region-all'){
         // $('.regions').prop("checked", e.target.checked);
@@ -38,6 +40,14 @@ document.addEventListener('turbolinks:load', function() {
         $('.products-count').text(e.target.checked ? $('.products').length-1 : 0);
       }else{
         $('.products-count').text($('.products:checked').length);
+      }
+    }
+    if(e.target.className.includes('party_types')){
+      if(e.target.id == 'party-types-all'){
+        // $('.products').prop("checked", e.target.checked);
+        $('.party-types-count').text(e.target.checked ? $('.party_types').length-1 : 0);
+      }else{
+        $('.party-types-count').text($('.party_types:checked').length);
       }
     }
     // if(e.target.className.includes('entities')){

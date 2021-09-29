@@ -136,3 +136,9 @@
     transition: all .3s;
   }
 }
+.tc-checkbox {
+  input[type= checkbox] {
+    appearance: none;
+    padding: 0;
+  }
+}

@@ -14,10 +14,13 @@
             </label> -->
             <div class="dropdown custom-dropdown">
               <button class="border-0 p-3 bg-body-color dropdown-toggle w-100 shadow-none mb-3" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <h6 class="d-flex flex-column align-items-start text-capitalize font-12 font-xxl-14">
-                  <span class="font-500 text-capitalize mb-2">supplier type</span>
-                  <span class="font-500 text-capitalize text-light-grey">View All</span>
-                </h6>
+                <span class="d-flex flex-column align-items-start">
+                  <h6 class="text-capitalize font-12 font-xxl-14 mb-1">
+                    <span class="font-600 text-capitalize">supplier type .</span>
+                    <span class="text-light-grey font-600 party-types-count">0</span>
+                  </h6>
+                  <span class="text-capitalize font-12 font-xxl-14 text-light-grey font-600">View all</span>
+                </span>
               </button>
               <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                 <div class="form-group dropdown-item pl-3 m-0">
@@ -42,10 +45,13 @@
           <div class="col-lg px-1 col-md-4 col-sm-6">
             <div class="dropdown custom-dropdown">
               <button class="border-0 p-3 bg-body-color rounded dropdown-toggle w-100 shadow-none mb-3" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <h6 class="d-flex flex-column align-items-start text-capitalize font-12 font-xxl-14">
-                  <span class="font-500 text-capitalize mb-2">region</span>
-                  <span class="font-500 text-capitalize text-light-grey">view all</span>
-                </h6>
+                <span class="d-flex flex-column align-items-start">
+                  <h6 class="text-capitalize font-12 font-xxl-14 mb-1">
+                    <span class="font-600 text-capitalize">Regions .</span>
+                    <span class="text-light-grey font-600 regions-count">0</span>
+                  </h6>
+                  <span class="text-capitalize font-12 font-xxl-14 text-light-grey font-600">View all</span>
+                </span>
               </button>
               <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                 <div class="form-group dropdown-item pl-3 m-0">
@@ -55,7 +61,7 @@
                     <span class="transparent-checkmark"></span>
                   </label>
                 </div>
-                <% @organisational_unit.children.each do |unit_region| %>
+                <% organisational_regions.each do |unit_region| %>
                   <div class="form-group dropdown-item pl-3 m-0">
                   <label for="ch<%= unit_region.region.id %>" class="custom-checkbox d-flex m-0">
                     <span class="font-12 text-black text-capitalize"><%= unit_region.region.name %></span>
@@ -70,10 +76,13 @@
           <div class="col-lg px-1 col-md-4 col-sm-6">
             <div class="dropdown custom-dropdown">
               <button class="border-0 rounded p-3 bg-body-color dropdown-toggle w-100 shadow-none mb-3" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <h6 class="d-flex flex-column align-items-start text-capitalize font-12 font-xxl-14">
-                  <span class="font-500 text-capitalize mb-2">countries</span>
-                  <span class="font-500 text-capitalize text-light-grey">view all</span>
-                </h6>
+                <span class="d-flex flex-column align-items-start">
+                  <h6 class="text-capitalize font-12 font-xxl-14 mb-1">
+                    <span class="font-600 text-capitalize">Countries .</span>
+                    <span class="text-light-grey font-600 countries-count">0</span>
+                  </h6>
+                  <span class="text-capitalize font-12 font-xxl-14 text-light-grey font-600">View all</span>
+                </span>
               </button>
               <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                 <div class="form-group dropdown-item pl-3 m-0">
@@ -83,7 +92,7 @@
                     <span class="transparent-checkmark"></span>
                   </label>
                 </div>
-                <% @managing_country_units.map { |a| a.country}.each do |country| %>
+                <% organisational_countries.each do |country| %>
                   <div class="form-group dropdown-item pl-3 m-0">
                     <label for="country<%= country.id %>" class="custom-checkbox d-flex m-0">
                       <span class="font-12 text-black text-capitalize">
@@ -100,10 +109,13 @@
           <div class="col-lg px-1 col-md-4 col-sm-6">
             <div class="dropdown custom-dropdown">
               <button class="border-0 rounded p-3 bg-body-color dropdown-toggle w-100 shadow-none mb-3" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <h6 class="d-flex flex-column align-items-start text-capitalize font-12 font-xxl-14">
-                  <span class="font-500 text-capitalize mb-2">institution</span>
-                  <span class="font-500 text-capitalize text-light-grey">view all</span>
-                </h6>
+                <span class="d-flex flex-column align-items-start">
+                  <h6 class="text-capitalize font-12 font-xxl-14 mb-1">
+                    <span class="font-600 text-capitalize">Institutions .</span>
+                    <span class="text-light-grey font-600 institutions-count">0</span>
+                  </h6>
+                  <span class="text-capitalize font-12 font-xxl-14 text-light-grey font-600">View all</span>
+                </span>
               </button>
               <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                 <div class="form-group dropdown-item pl-3 m-0">
@@ -113,7 +125,7 @@
                     <span class="transparent-checkmark"></span>
                   </label>
                 </div>
-                <% @organisational_unit.institutions.each do |institution| %>
+                <% organisational_institutions.each do |institution| %>
                   <div class="form-group dropdown-item pl-3 m-0">
                     <label for="institution<%= institution.id %>" class="custom-checkbox d-flex m-0">
                       <span class="font-12 text-black text-capitalize">
@@ -128,7 +140,7 @@
             </div>
           </div>
           <div class="col-lg px-1 col-md-4 col-sm-6" id="institution-products">
-            <%= render 'organisation/dashboard/partials/products_option_render', products: @organisational_unit.products %>
+            <%= render 'organisation/dashboard/partials/products_option_render', products: organisational_products %>
           </div>
         </div>
       <% end %>

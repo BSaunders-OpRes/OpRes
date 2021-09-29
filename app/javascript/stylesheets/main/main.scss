@@ -64,7 +64,12 @@ h1, h2, h3, h4, h5, h6, p {
     border-top: 1px solid #ddd;
   }
 }
-
+// .full-loader {
+//   position: relative;
+//   &:after {
+//     content: ''
+//   }
+// }
 .fa.fa-times {
   display: inline-block;
   transition: .4s all;
@@ -160,8 +165,10 @@ input[type=number] {
   width: 84%;
   margin: 0 auto;
 }
+
 .h-300-with-scroll {
   height: 300px;
+  overflow: auto;
   &::-webkit-scrollbar {
     width: 2px;
   }
@@ -502,6 +509,9 @@ a {
 }
 .border-bottom-black {
   border-bottom: 1px solid $black;
+}
+.border-bottom-blue-light {
+  border-bottom: 1px solid #007bff;
 }
 .border-bottom-light {
   border-bottom: 1px solid #f3f3f3;

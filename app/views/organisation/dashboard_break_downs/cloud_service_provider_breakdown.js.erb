@@ -1,6 +1,6 @@
 $('#cloud-service-provider-wrapper').html('<%= escape_javascript(render "organisation/dashboard_break_downs/partials/cloud_service_provider_wrapper", filters: params.dig(:filters) || {}) %>');
 <% if params.dig(:filters, :institution_ids).present? %>
-  $('#institution-products').html('<%= escape_javascript(render "organisation/dashboard/partials/products_option_render", products: @organisational_unit.institutions.select {|a| params.dig(:filters, :institution_ids).include?(a.id.to_s)}.map{|i| i.products}.flatten.uniq) %>');
+  $('#institution-products').html('<%= escape_javascript(render "organisation/dashboard/partials/products_option_render", products: Product.joins(:units).where(units: { id: specific_organisational_institution_ids(params) }).uniq) %>');
 <% end %>
 if ($('.lazy-graph').length >= 1) {
   $('.lazy-graph').each(function() {
@@ -18,4 +18,5 @@ if ($('.lazy-graph').length >= 1) {
       }
     });
   });
+  $(".loader-wrapper").addClass("d-none");
 }

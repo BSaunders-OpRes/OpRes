@@ -11,6 +11,8 @@ require('@nathanvda/cocoon');
 require('select2');
 require('toastr');
 require('intro.js');
+require( 'datatables.net');
+require( 'datatables.net-dt');
 
 require.context('../images', true);
 

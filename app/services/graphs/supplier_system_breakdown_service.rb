@@ -22,7 +22,6 @@ class Graphs::SupplierSystemBreakdownService < Graphs::BaseService
 
     unique_supplier_steps&.each do |supplier_step|
       total_sum = 0
-      sla_attr_status = []
       sla_attr = {}
 
       bsl.risk_appetites.each do |risk_appetite|
@@ -39,7 +38,6 @@ class Graphs::SupplierSystemBreakdownService < Graphs::BaseService
             sla_attr[risk_appetite.kind] = result[1]
             total_sum =  total_sum + result[0]&.to_i
           end
-          sla_attr_status << sla_attr
         end
       end
       datum[:suppliers] << {
@@ -53,7 +51,7 @@ class Graphs::SupplierSystemBreakdownService < Graphs::BaseService
         sla_attr:              supplier_step.supplier.sla,
         third_parties:         supplier_step.supplier.third_party_suppliers,
         fourth_parties:        supplier_step.supplier.fourth_party_suppliers,
-        sla_attr_status:       sla_attr_status
+        sla_attr_status:       sla_attr
       }
     end
     datum
