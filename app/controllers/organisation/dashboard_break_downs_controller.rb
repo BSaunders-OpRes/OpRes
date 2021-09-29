@@ -109,4 +109,9 @@ class Organisation::DashboardBreakDownsController < Organisation::BaseController
     @sla_attr                   = params.dig(:sla_attr)
     @impact_tolerance_breakdown = BreakdownService.new(args).calculate_breakdown
   end
+
+  def cloud_service_provider_services
+    @supplier = Supplier.find(params[:supplier_id])
+    @services = @supplier.cloud_hosting_provider.cloud_hosting_provider_services.where(service_tag: params[:consumption_model])
+  end
 end
