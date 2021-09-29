@@ -98,19 +98,19 @@ export default function Registration() {
                     <div className='col-md-12'>
                       <h3 className="font-600 w-100 mt-2 mb-3">Sign Up</h3>
                     </div>
-                    <div className="form-group col-md-12 animated-field">
+                    <div className="form-group col-md-12 animated-field mb-2">
                       <input type="text" value={first_name} name="first_name" className='form-control border-0' placeholder='First Name' onChange={e => setFirstName(e.target.value)} />
                       <label>First Name</label>
                     </div>
-                    <div className="form-group col-md-12 animated-field">
+                    <div className="form-group col-md-12 animated-field mb-2">
                       <input type="text" value={last_name} name="last_name" className='form-control border-0' placeholder='Last Name' onChange={e => setLastName(e.target.value)} />
                       <label>Last Name</label>
                     </div>
-                    <div className="form-group col-md-12 animated-field">
+                    <div className="form-group col-md-12 animated-field mb-2">
                       <input type="text" value={job_title} name="name" className='form-control border-0' placeholder='Job Title' onChange={e => setJobTitle(e.target.value)} />
                       <label>Job Title</label>
                     </div>
-                    <div className="form-group col-md-12 animated-field">
+                    <div className="form-group col-md-12 animated-field mb-2">
                       <input type="email" value={email} name="name" className='form-control border-0' placeholder='Email address' onChange={e => setEmail(e.target.value)} />
                       <label>Email address</label>
                       {
@@ -119,7 +119,7 @@ export default function Registration() {
                         )
                       }
                     </div>
-                    <div className="form-group col-md-12 animated-field password">
+                    <div className="form-group col-md-12 animated-field password mb-2">
                       <input type={passwordShown ? 'text' : 'password'} value={password} name="password" className='form-control border-0' placeholder='Password' onChange={e => setPassword(e.target.value)} />
                       <label>Password</label>
                       <i onClick={togglePasswordVisiblity}>{passwordShown ? eye : eyeSlash}</i>
@@ -129,7 +129,7 @@ export default function Registration() {
                         )
                       }
                     </div>
-                    <div className="form-group col-md-12 animated-field">
+                    <div className="form-group col-md-12 animated-field mb-2">
                       <input type="text" value={organisationName} name="company_name" className='form-control border-0' placeholder='Organisation Name' onChange={e => setorganisationName(e.target.value)} />
                       <label>Organisation Name</label>
                       {
@@ -138,7 +138,7 @@ export default function Registration() {
                         )
                       }
                     </div>
-                    <div className="form-group col-md-12">
+                    <div className="form-group col-md-12 mb-2">
                       <select className='form-control border-0 signup-select' name="organisationtype" placeholder='Organization Type' onChange={e => setOrganisationType(e.target.value)}>
                         <option value="">Please select organisation type</option>
                         {Object.entries(organisationTypes).map((type) => {
@@ -154,16 +154,20 @@ export default function Registration() {
                         )
                       }
                     </div>
-                    <div className="form-group col-md-12">
-                      <input type="checkbox" id="agree" onChange={ e => setTermsAndConditions(!termsAndConditions)}/>
-                      <label htmlFor="agree"> I agree to the OpRes <a href="javascript::void(0)" onClick={e => setShow(true)}>Terms of Service</a></label>
+                    <div className="form-group col-md-12 my-3">
+                      <label className='font-14 font-xxl-14 mb-0 tc-checkbox radio-check d-flex p-0 align-items-end' htmlFor="agree">
+                        <input type="checkbox" id="agree" onChange={ e => setTermsAndConditions(!termsAndConditions)}/>
+                        <label className="mb-0 ml-2 font-12 text-capitalize order-2 ml-2" for="agree">
+                          I agree to the OpRes <a href="javascript::void(0)" onClick={e => setShow(true)} className='font-600 border-bottom-blue-light text-decoration-none'>Terms of Service</a></label>
+                        <div className="checkmark position-relative order-1"></div>
+                      </label>
                       {
                         (submitted && !termsAndConditions) && (
                           <div className='error'>{termsAndConditionsTypeError}</div>
                         )
                       }
                     </div>
-                    <div className="form-group col-md-12">
+                    <div className="form-group col-md-12 mb-2">
                       <button type="submit" value="Submit" className='btn-submit w-100 p-2'>
                         Sign Up
                       </button>
