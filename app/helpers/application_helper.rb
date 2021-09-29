@@ -145,14 +145,14 @@ module ApplicationHelper
       risk_appetite_data[tier][:total_critical] = data.dig(:overall, tier,:total_critical) || 0
       risk_appetite_data[tier][:critical] = []
       risk_appetite_data[tier][:critical] << {:name=>"Match Tolerance", :y=>data.dig(:overall, tier,:critical_match_tolerance) || 0, :color=>"#6BEAB3", :count=> data.dig(:overall, tier,:critical_match_tolerance) || 0}
-      risk_appetite_data[tier][:critical] << {:name=>"Meet Tolerance", :y=>data.dig(:overall, tier,:critical_meet_tolerance) || 0, :color=>"#367C5C", :count=> data.dig(:overall, tier,:critical_meet_tolerance) || 0}
-      risk_appetite_data[tier][:critical] << {:name=>"Exceed Tolerance", :y=>data.dig(:overall, tier,:critical_exceed_tolerance) || 0, :color=>"#CDFAF1", :count=> data.dig(:overall, tier,:critical_exceed_tolerance) || 0}
+      risk_appetite_data[tier][:critical] << {:name=>"Meet Tolerance", :y=>data.dig(:overall, tier,:critical_meet_tolerance) || 0, :color=>"#E39A2B", :count=> data.dig(:overall, tier,:critical_meet_tolerance) || 0}
+      risk_appetite_data[tier][:critical] << {:name=>"Exceed Tolerance", :y=>data.dig(:overall, tier,:critical_exceed_tolerance) || 0, :color=>"#E4412E", :count=> data.dig(:overall, tier,:critical_exceed_tolerance) || 0}
 
       risk_appetite_data[tier][:total_important] = data.dig(:overall, tier,:total_important) || 0
       risk_appetite_data[tier][:important] = []
       risk_appetite_data[tier][:important] << {:name=>"Match Tolerance", :y=>data.dig(:overall, tier,:important_match_tolerance) || 0, :color=>"#6BEAB3", :count=> data.dig(:overall, tier,:important_match_tolerance) || 0}
-      risk_appetite_data[tier][:important] << {:name=>"Meet Tolerance", :y=>data.dig(:overall, tier,:important_meet_tolerance) || 0, :color=>"#367C5C", :count=> data.dig(:overall, tier,:important_meet_tolerance) || 0}
-      risk_appetite_data[tier][:important] << {:name=>"Exceed Tolerance", :y=>data.dig(:overall, tier,:important_exceed_tolerance) || 0, :color=>"#CDFAF1", :count=> data.dig(:overall, tier,:important_exceed_tolerance) || 0}
+      risk_appetite_data[tier][:important] << {:name=>"Meet Tolerance", :y=>data.dig(:overall, tier,:important_meet_tolerance) || 0, :color=>"#E39A2B", :count=> data.dig(:overall, tier,:important_meet_tolerance) || 0}
+      risk_appetite_data[tier][:important] << {:name=>"Exceed Tolerance", :y=>data.dig(:overall, tier,:important_exceed_tolerance) || 0, :color=>"#E4412E", :count=> data.dig(:overall, tier,:important_exceed_tolerance) || 0}
     end
     risk_appetite_data
   end
@@ -170,12 +170,12 @@ module ApplicationHelper
   def overview_heading(filters)
     if filters.present? && filters.dig("party_type_ids").present?
       if filters.dig("party_type_ids").include?("all")
-        "Total Number Of Suppliers"
+        "Total Number Of Impact Tolerance Suppliers"
       else
-        "Total Number Of #{filters.dig("party_type_ids").join(' & ')} Suppliers"
+        "Total Number Of #{filters.dig("party_type_ids").join(' & ')} Impact Tolerance Suppliers"
       end
     else
-      "Total Number Of Suppliers"
+      "Total Number Of Impact Tolerance Suppliers"
     end
   end
 

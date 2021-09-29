@@ -127,33 +127,8 @@
               </div>
             </div>
           </div>
-          <div class="col-lg px-1 col-md-4 col-sm-6">
-            <div class="dropdown custom-dropdown">
-              <button class="border-0 rounded p-3 bg-body-color dropdown-toggle w-100 shadow-none mb-3" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <h6 class="d-flex flex-column align-items-start text-capitalize font-12 font-xxl-14">
-                  <span class="font-500 text-capitalize mb-2">products</span>
-                  <span class="font-500 text-capitalize text-light-grey">view all</span>
-                </h6>
-              </button>
-              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <div class="form-group dropdown-item pl-3 m-0">
-                  <label for="product-all" class="custom-checkbox d-flex m-0">
-                    <span class="font-12 text-black text-capitalize">View All</span>
-                    <%= check_box_tag 'filters[product_ids][]', 'all', false, id: "product-all", class: 'form-control products', onclick: 'RailsUJS.fire(this.form, "submit")' %>
-                    <span class="transparent-checkmark"></span>
-                  </label>
-                </div>
-                <% @organisational_unit.products.each do |product| %>
-                  <div class="form-group dropdown-item pl-3 m-0">
-                    <label for="product<%= product.id %>" class="custom-checkbox d-flex m-0">
-                      <span class="font-12 text-black text-capitalize"><%= product.name %></span>
-                      <%= check_box_tag 'filters[product_ids][]', product.id, false, id: "product#{product.id}", class: 'form-control products', onclick: 'RailsUJS.fire(this.form, "submit")' %>
-                      <span class="transparent-checkmark"></span>
-                    </label>
-                  </div>
-                <% end %>
-              </div>
-            </div>
+          <div class="col-lg px-1 col-md-4 col-sm-6" id="institution-products">
+            <%= render 'organisation/dashboard/partials/products_option_render', products: @organisational_unit.products %>
           </div>
         </div>
       <% end %>

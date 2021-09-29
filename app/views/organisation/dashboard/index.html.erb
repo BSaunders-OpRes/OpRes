@@ -6,7 +6,7 @@
     </div>
   </div>
 </div>
-<%= render 'organisation/dashboard/partials/segmentation_options' %>
+<%= render 'organisation/dashboard/partials/segmentation_options', path: organisation_dashboard_index_path %>
 <div id="dashboard-wrapper">
   <%= render 'organisation/dashboard/partials/dashboard_content', filters: params.dig(:filters) || {} %>
 </div>

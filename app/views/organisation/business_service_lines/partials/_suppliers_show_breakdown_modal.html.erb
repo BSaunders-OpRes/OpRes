@@ -1,0 +1,82 @@
+<div class="modal px-2 fade mt-3 pt-5" tabindex="-1" id="modal_show" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog max-width-sm-75 w-100 mx-auto">
+    <div class="modal-content">
+      <div class="modal-header border-0 pb-0">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body p-3">
+        <div class="col-md-12 mb-4 mb-lg-0 px-1">
+          <div class="box">
+            <div class="d-flex mb-4 align-items-center px-1 justify-content-between mb-3">
+              <h5 class="text-capitalize font-600">breakdown</h5>
+            </div>
+            <div class="tb-header align-items-center flex-wrap d-flex justify-content-between flex-lg-row flex-column">
+              <div class="form-group mb-lg-0 mb-3 flex-1 mr-0 mr-lg-2 w-100">
+                <span class="search-field d-block">
+                  <i class="fa fa-search"></i>
+                  <input type="text" class="bg-body-color h-auto form-control font-12 border-0 shadow-none" placeholder="Search Global Resilience Gaps" id="country-search-filter">
+                </span>
+              </div>
+              <div class="filter-grouped d-flex flex-half w-100 flex-sm-nowrap flex-wrap">
+                <div class="dropdown body-color-dropdown mr-sm-2 w-100 mb-3 mb-sm-0">
+                  <a id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class='dropdown-toggle text-capitalize py-2 pr-5 pl-2 d-flex align-items-center justify-content-start font-12 text-dark font-400' id='top-10'>Sort By: Impact Tolerace</a>
+                  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item">Action</a>
+                    <a class="dropdown-item">Filter top 10</a>
+                    <a class="dropdown-item">Filter top 10</a>
+                  </div>
+                </div>
+                <div class="dropdown body-color-dropdown w-100">
+                  <a id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class='dropdown-toggle text-capitalize py-2 pr-5 pl-2 d-flex align-items-center justify-content-start font-12 text-dark font-400' id='top-10'>10 results per page</a>
+                  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item">Action</a>
+                    <a class="dropdown-item">Filter top 10</a>
+                    <a class="dropdown-item">Filter top 10</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="table-responsive mt-0 mt-lg-3">
+              <table class="table custom-table mb-4">
+                <thead>
+                  <tr>
+                    <th class="font-12 border-bottom text-capitalize font-xxl-14 text-dark font-400">Supplier Name</th>
+                    <th class="font-12 border-bottom text-capitalize font-xxl-14 text-dark font-400">Party Type</th>
+                    <th class="font-12 border-bottom text-capitalize font-xxl-14 text-dark font-400">Impact tolerance condition</th>
+                    <th class="font-12 border-bottom text-capitalize font-xxl-14 text-dark font-400">Resilience ID</th>
+                  </tr>
+                </thead>
+                <tbody>
+                 <% data&.dig(:overall, :suppliers)&.uniq! {|e| e[:name] }&.each do |supplier|%>
+                  <tr>
+                    <% byebug %>
+                    <td class="font-13 border-0 text-capitalize font-xxl-14 text-dark font-600"><%= supplier.dig(:supplier_name)%></td>
+                    <td class="font-13 border-0 font-xxl-14 text-dark font-600"><%= supplier.dig(:party_type)&.humanize %></td>
+                    <td class="font-13 border-0 font-xxl-14 text-dark font-600">
+                      <div class="d-flex align-items-center">
+                        <div class="sm-circle <%= identify_impact_color(supplier.dig(:impact_tolerance)) %>"></div>
+                        <span class="ml-2 text-capitalize"><%= supplier.dig(:impact_tolerance) %> impact tolerance</span>
+                      </div>
+                    </td>
+                    <td class="font-13 border-0 font-xxl-14 text-dark font-600"><%= supplier.dig(:resilience_id) %></td>
+                  </tr>
+                  <% end %>
+                </tbody>
+              </table>
+              <nav aria-label="Page navigation example">
+                <ul class="pagination pagination-active justify-content-center mb-0 border-top pt-4">
+                  <li class="page-item active"><a class="rounded-0 font-12 font-xxl-14 page-link border-0 text-light-grey shadow-none transition" href="javascript:void(0);">1</a></li>
+                  <!-- <li class="page-item"><a class="rounded-0 font-12 font-xxl-14 page-link border-0 text-light-grey shadow-none transition" href="javascript:void(0);">2</a></li>
+                  <li class="page-item"><a class="rounded-0 font-12 font-xxl-14 page-link border-0 text-light-grey shadow-none transition" href="javascript:void(0);">3</a></li>
+                  <li class="page-item"><a class="rounded-0 font-12 font-xxl-14 page-link border-0 text-light-grey shadow-none transition" href="javascript:void(0);">4</a></li> -->
+                </ul>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

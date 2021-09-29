@@ -1,4 +1,7 @@
 $('#breakdown-wrapper').html('<%= escape_javascript(render "organisation/dashboard_break_downs/partials/supplier_conformace_wrapper", impact_tolerance_breakdowns: @impact_tolerance_breakdowns, conformant_suppliers: @conformant_suppliers, non_conformant_suppliers: @non_conformant_suppliers, filters: params.dig(:filters) || {}) %>');
+<% if params.dig(:filters, :institution_ids).present? %>
+  $('#institution-products').html('<%= escape_javascript(render "organisation/dashboard/partials/products_option_render", products: @organisational_unit.institutions.select {|a| params.dig(:filters, :institution_ids).include?(a.id.to_s)}.map{|i| i.products}.flatten.uniq) %>');
+<% end %>
 if ($('.lazy-graph').length >= 1) {
   $('.lazy-graph').each(function() {
     $.ajax({

@@ -52,12 +52,12 @@
               <p>Contracted SLA</p>
             </div>
             <div class="text-box w-40">
-              <p class="text-left"><%= supplier_data.dig(:sla_attr)&.service_level_agreement.present? ? "#{supplier_data.dig(:sla_attr).service_level_agreement} %" : '-' %> %</p>
+              <p class="text-left"><%= supplier_data.dig(:sla_attr)&.service_level_agreement.present? ? "#{supplier_data.dig(:sla_attr).service_level_agreement} %" : '-' %></p>
             </div>
             <div class="text-box w-20">
               <div class="color-tier d-flex align-items-center justify-content-start">
-                <div class="circle red-circle p-2"></div>
-                <span class="font-11 font-400 ml-2">Very High Risk</span>
+                <div class="circle <%= identify_impact_color(supplier_data.dig(:sla_attr_status, 'service_level_agreement')) %> p-2"></div>
+                <span class="font-11 font-400 ml-2"><%= supplier_data.dig(:sla_attr_status, 'service_level_agreement').present? ? "#{supplier_data.dig(:sla_attr_status, 'service_level_agreement')} Impact Tolerance" : 'N/A' %></span>
               </div>
             </div>
           </div>
@@ -70,8 +70,8 @@
             </div>
             <div class="text-box w-20">
               <div class="color-tier d-flex align-items-center justify-content-start">
-                <div class="circle red-circle p-2"></div>
-                <span class="font-11 font-400 ml-2">Very High Risk</span>
+                <div class="circle <%= identify_impact_color(supplier_data.dig(:sla_attr_status, 'recovery_time_objective')) %> p-2"></div>
+                <span class="font-11 font-400 ml-2"><%= supplier_data.dig(:sla_attr_status, 'recovery_time_objective').present? ? "#{supplier_data.dig(:sla_attr_status, 'recovery_time_objective')} Impact Tolerance" : 'N/A' %></span>
               </div>
             </div>
           </div>
@@ -84,8 +84,8 @@
             </div>
             <div class="text-box w-20">
               <div class="color-tier d-flex align-items-center justify-content-start">
-                <div class="circle orange-circle p-2"></div>
-                <span class="font-11 font-400 ml-2">High Risk</span>
+                <div class="circle <%= identify_impact_color(supplier_data.dig(:sla_attr_status, 'recovery_point_objective')) %> p-2"></div>
+                <span class="font-11 font-400 ml-2"><%= supplier_data.dig(:sla_attr_status, 'recovery_point_objective').present? ? "#{supplier_data.dig(:sla_attr_status, 'recovery_point_objective')} Impact Tolerance" : 'N/A' %></span>
               </div>
             </div>
           </div>
@@ -98,8 +98,8 @@
             </div>
             <div class="text-box w-20">
               <div class="color-tier d-flex align-items-center justify-content-start">
-                <div class="circle orange-circle p-2"></div>
-                <span class="font-11 font-400 ml-2">High Risk</span>
+                <div class="circle <%= identify_impact_color(supplier_data.dig(:sla_attr_status, 'recovery_point_objective')) %> p-2"></div>
+                <span class="font-11 font-400 ml-2"><%= supplier_data.dig(:sla_attr_status, 'transactions_per_second').present? ? "#{supplier_data.dig(:sla_attr_status, 'transactions_per_second')} Impact Tolerance" : 'N/A' %></span>
               </div>
             </div>
           </div>
@@ -112,8 +112,8 @@
             </div>
             <div class="text-box w-20">
               <div class="color-tier d-flex align-items-center justify-content-start">
-                <div class="circle orange-circle p-2"></div>
-                <span class="font-11 font-400 ml-2">High Risk</span>
+                <div class="circle <%= identify_impact_color(supplier_data.dig(:sla_attr_status, 'response_time')) %> p-2"></div>
+                <span class="font-11 font-400 ml-2"><%= supplier_data.dig(:sla_attr_status, 'response_time').present? ? "#{supplier_data.dig(:sla_attr_status, 'response_time')} Impact Tolerance" : 'N/A' %></span>
               </div>
             </div>
           </div>
@@ -126,8 +126,8 @@
             </div>
             <div class="text-box w-20">
               <div class="color-tier d-flex align-items-center justify-content-start">
-                <div class="circle green-1 p-2"></div>
-                <span class="font-11 font-400 ml-2">Low Risk</span>
+                <div class="p-2"></div>
+                <span class="font-11 font-400 ml-2">N/A</span>
               </div>
             </div>
           </div>
@@ -152,25 +152,25 @@
                     <td class="border-0 pl-0 font-12">Incident Response SLA</td>
                     <td class="border-0 pl-0 font-12">
                       <div class="color-tier d-flex align-items-center justify-content-start">
-                        <div class="circle <%= identify_impact_color(supplier_data.dig(:sla_attr_status).first.dig('severity1')) %> p-2"></div>
+                        <div class="circle <%= identify_impact_color(supplier_data.dig(:sla_attr_status)&.dig('severity1')) %> p-2"></div>
                         <span class="font-11 font-400 ml-2"><%= supplier_data.dig(:sla_attr)&.severity1.present? ? "#{supplier_data.dig(:sla_attr).severity1} minutes" : '-' %></span>
                       </div>
                     </td>
                     <td class="border-0 pl-0 font-12">
                       <div class="color-tier d-flex align-items-center justify-content-start">
-                        <div class="circle <%= identify_impact_color(supplier_data.dig(:sla_attr_status).first.dig('severity2')) %> p-2"></div>
+                        <div class="circle <%= identify_impact_color(supplier_data.dig(:sla_attr_status)&.dig('severity2')) %> p-2"></div>
                         <span class="font-11 font-400 ml-2"><%= supplier_data.dig(:sla_attr)&.severity2.present? ? "#{supplier_data.dig(:sla_attr).severity2} minutes" : '-' %></span>
                       </div>
                     </td>
                     <td class="border-0 pl-0 font-12">
                       <div class="color-tier d-flex align-items-center justify-content-start">
-                        <div class="circle <%= identify_impact_color(supplier_data.dig(:sla_attr_status).first.dig('severity3')) %> p-2"></div>
+                        <div class="circle <%= identify_impact_color(supplier_data.dig(:sla_attr_status)&.dig('severity3')) %> p-2"></div>
                         <span class="font-11 font-400 ml-2"><%= supplier_data.dig(:sla_attr)&.severity3.present? ? "#{supplier_data.dig(:sla_attr).severity3} minutes" : '-' %></span>
                       </div>
                     </td>
                     <td class="border-0 pl-0 font-12">
                       <div class="color-tier d-flex align-items-center justify-content-start">
-                        <div class="circle <%= identify_impact_color(supplier_data.dig(:sla_attr_status).first.dig('severity4')) %> p-2"></div>
+                        <div class="circle <%= identify_impact_color(supplier_data.dig(:sla_attr_status)&.dig('severity4')) %> p-2"></div>
                         <span class="font-11 font-400 ml-2"><%= supplier_data.dig(:sla_attr)&.severity4.present? ? "#{supplier_data.dig(:sla_attr).severity4} minutes" : '-' %></span>
                       </div>
                     </td>
@@ -179,25 +179,25 @@
                     <td class="border-0 pl-0 font-12">Incident Restoration SLA</td>
                     <td class="border-0 pl-0 font-12">
                       <div class="color-tier d-flex align-items-center justify-content-start">
-                        <div class="circle <%= identify_impact_color(supplier_data.dig(:sla_attr_status).first.dig('severity1_restoration')) %> p-2"></div>
+                        <div class="circle <%= identify_impact_color(supplier_data.dig(:sla_attr_status)&.dig('severity1_restoration')) %> p-2"></div>
                         <span class="font-11 font-400 ml-2"><%= supplier_data.dig(:sla_attr)&.severity1_restoration.present? ? "#{supplier_data.dig(:sla_attr).severity1_restoration} minutes" : '-' %></span>
                       </div>
                     </td>
                     <td class="border-0 pl-0 font-12">
                       <div class="color-tier d-flex align-items-center justify-content-start">
-                        <div class="circle <%= identify_impact_color(supplier_data.dig(:sla_attr_status).first.dig('severity2_restoration')) %> p-2"></div>
+                        <div class="circle <%= identify_impact_color(supplier_data.dig(:sla_attr_status)&.dig('severity2_restoration')) %> p-2"></div>
                         <span class="font-11 font-400 ml-2"><%= supplier_data.dig(:sla_attr)&.severity2_restoration.present? ? "#{ supplier_data.dig(:sla_attr).severity2_restoration} minutes" : '-' %></span>
                       </div>
                     </td>
                     <td class="border-0 pl-0 font-12">
                       <div class="color-tier d-flex align-items-center justify-content-start">
-                        <div class="circle <%= identify_impact_color(supplier_data.dig(:sla_attr_status).first.dig('severity3_restoration')) %> p-2"></div>
+                        <div class="circle <%= identify_impact_color(supplier_data.dig(:sla_attr_status)&.dig('severity3_restoration')) %> p-2"></div>
                         <span class="font-11 font-400 ml-2"><%= supplier_data.dig(:sla_attr)&.severity3_restoration.present? ? "#{supplier_data.dig(:sla_attr).severity3_restoration} minutes" : '-' %></span>
                       </div>
                     </td>
                     <td class="border-0 pl-0 font-12">
                       <div class="color-tier d-flex align-items-center justify-content-start">
-                        <div class="circle <%= identify_impact_color(supplier_data.dig(:sla_attr_status).first.dig('severity4_restoration')) %> p-2"></div>
+                        <div class="circle <%= identify_impact_color(supplier_data.dig(:sla_attr_status)&.dig('severity4_restoration')) %> p-2"></div>
                         <span class="font-11 font-400 ml-2"><%= supplier_data.dig(:sla_attr)&.severity4_restoration.present? ? "#{supplier_data.dig(:sla_attr).severity4_restoration} minutes" : '-' %></span>
                       </div>
                     </td>
