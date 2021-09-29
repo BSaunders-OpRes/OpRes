@@ -40,7 +40,6 @@ class Graphs::SupplierSystemBreakdownService < Graphs::BaseService
           end
         end
       end
-
       datum[:suppliers] << {
         name:                  supplier_step.supplier.name,
         id:                    supplier_step.supplier.id,
