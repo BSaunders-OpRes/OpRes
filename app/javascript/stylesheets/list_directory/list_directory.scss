@@ -141,7 +141,17 @@
   background-size: 75% auto;
   display: none;
 }
-.directory-list li.folder a {
+.directory-list li {
+  a.view-more-list {
+    border-bottom: 2px solid;
+    display: inline;
+    &:before {
+      content: '';
+      display: none;
+    }
+  }
+}
+.directory-list li.folder > a {
   background: $body-bg-color;
   display: block;
   font-weight: 600;

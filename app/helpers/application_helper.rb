@@ -242,5 +242,29 @@ module ApplicationHelper
       data.dig(:overall, :total_exceed)
     end
   end
+
+  def organisational_regions
+    organisational_unit.children
+  end
+
+  def organisational_countries
+    organisational_unit.children.map {|a| a.children}.flatten.map {|b| b.country}
+  end
+
+  def organisational_institution_ids
+    managing_units.map(&:inclusive_children).flatten.select {|a| a.type == "Units::Institution"}
+  end
+
+  def specific_organisational_institution_ids(params_data)
+    managing_units.map(&:inclusive_children).flatten.select {|a| a.type == "Units::Institution" && params_data.dig(:filters, :institution_ids).include?(a.institution_id.to_s) }.map(&:id)
+  end
+
+  def organisational_institutions
+    managing_units.map(&:inclusive_children).flatten.select {|a| a.type == "Units::Institution"}.map {|a| a.institution}.uniq
+  end
+
+  def organisational_products
+    Product.joins(:units).where(units: { id: organisational_institution_ids.map(&:id) }).uniq
+  end
 end
 

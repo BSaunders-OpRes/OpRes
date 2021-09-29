@@ -25,7 +25,7 @@
                   <span class="transparent-checkmark"></span>
                 </label>
               </div>
-              <% @organisational_unit.children.each do |unit_region| %>
+              <% organisational_regions.each do |unit_region| %>
                 <div class="form-group dropdown-item pl-3 m-0">
                   <label for="ch<%= unit_region.region.id %>" class="custom-checkbox d-flex m-0">
                     <span class="font-12 text-black text-capitalize"><%= unit_region.region.name %></span>
@@ -49,14 +49,14 @@
               </span>
             </button>
             <div class="dropdown-menu down-drop z-index-10" aria-labelledby="dropdownMenuButton">
-              <div class="form-group dropdown-item pl-3 m-0 mb-2">
+              <div class="form-group dropdown-item pl-3 m-0">
                 <label for="sub-region-all" class="custom-checkbox d-flex m-0">
                   <span class="font-12 text-black text-capitalize">View All</span>
                   <%= check_box_tag 'filters[sub_region_ids][]', 'all', false, id: "sub-region-all", class: 'form-control sub-regions', onclick: 'RailsUJS.fire(this.form, "submit")' %>
                   <span class="transparent-checkmark"></span>
                 </label>
               </div>
-              <% @managing_country_units.map { |a| a.country}.each do |country| %>
+              <% organisational_countries.each do |country| %>
                 <div class="form-group dropdown-item pl-3 m-0">
                   <label for="sub-region<%= country.id %>" class="custom-checkbox d-flex m-0">
                     <span class="font-12 text-black text-capitalize">
@@ -89,7 +89,7 @@
                   <span class="transparent-checkmark"></span>
                 </label>
               </div>
-              <% @managing_country_units.map { |a| a.country}.each do |country| %>
+              <% organisational_countries.each do |country| %>
                 <div class="form-group dropdown-item pl-3 m-0">
                   <label for="country<%= country.id %>" class="custom-checkbox d-flex m-0">
                     <span class="font-12 text-black text-capitalize">
@@ -122,7 +122,7 @@
                   <span class="transparent-checkmark"></span>
                 </label>
               </div>
-              <% @organisational_unit.institutions.each do |institution| %>
+              <% organisational_institutions.each do |institution| %>
                 <div class="form-group dropdown-item pl-3 m-0">
                   <label for="institution<%= institution.id %>" class="custom-checkbox d-flex m-0">
                     <span class="font-12 text-black text-capitalize">
@@ -170,7 +170,7 @@
           </div>
         </div> -->
         <div class="col-lg px-1 col-md-4 col-sm-6" id="institution-products">
-          <%= render 'organisation/dashboard/partials/products_option_render', products: @organisational_unit.products %>
+          <%= render 'organisation/dashboard/partials/products_option_render', products: organisational_products %>
         </div>
       </div>
     <% end %>
