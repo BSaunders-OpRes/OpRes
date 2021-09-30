@@ -8,24 +8,24 @@
     <%= f.hidden_field :reset_password_token %>
     <div class="row">
       <div class="field form-group col-sm-10 mx-auto">
-        <h2 class="text-center my-5">Change your password</h2>
-        <%= f.label :password, "New password" %><br />
+        <h2 class="text-center my-5 font-600">Change your password</h2>
+        <%= f.label :password, "New password", class: 'font-600 font-12 mb-1' %><br />
         <%= f.password_field :password, autofocus: true, autocomplete: "new-password", class: 'form-control shadow-none' %>
         <% if @minimum_password_length %>
-          <small class="d-flex justify-content-end text-right mt-2">(<%= @minimum_password_length %> characters minimum)</small>
+          <small class="d-flex justify-content-end text-right mt-2 font-600 font-11">(<%= @minimum_password_length %> characters minimum)</small>
         <% end %>
       </div>
 
       <div class="field form-group col-sm-10 mx-auto">
-        <%= f.label :password_confirmation, "Confirm new password" %><br />
+        <%= f.label :password_confirmation, "Confirm new password", class: 'font-600 font-12 mb-1' %><br />
         <%= f.password_field :password_confirmation, autocomplete: "new-password", class: 'form-control shadow-none' %>
       </div>
 
     </div>
     <div class="row">
       <div class="actions col-sm-8 mx-auto text-right d-flex justify-content-between flex-column align-items-center">
-        <%= f.submit "Change my password", class: 'btn black-btn rounded-50 w-100 mb-3' %>
-        <h6 class="mb-3">Or</h6>
+        <%= f.submit "Change my password", class: 'btn black-btn rounded-50 w-100 mb-3 font-600' %>
+        <h6 class="mb-3 font-600">Or</h6>
         <div class="d-flex align-items-center w-100">
           <%= link_to "Log in", new_session_path(resource_name), class: 'btn btn-outline-dark rounded-50 w-100 font-600 mr-1' %>
           <%= link_to "Sign up", new_registration_path(resource_name), class: 'btn btn-outline-dark rounded-50 w-100 font-600 ml-1' %>

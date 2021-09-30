@@ -139,10 +139,8 @@
           <p class="text-capitalize font-14 font-600 text-capitalize">products</p>
         </div>
         <div class="col-sm-7 order-3 order-sm-2 mt-sm-0 mt-3">
-          <div class="checkbox-container d-flex justify-content-start flex-wrap">
-            <div class="form-check d-flex align-items-center mr-2 form-group" id="bsl-products-dropdown">
-              <%= render 'organisation/unit_hierarchys/partials/check_box', options: (@bsl.unit&.products_checkboxes || []), val: @bsl.products.map(&:id), param_name: 'business_service_line[product_ids][]' %>
-            </div>
+          <div id="bsl-products-dropdown" class="ml-3 checkbox-container d-flex justify-content-start flex-wrap">
+            <%= render 'organisation/unit_hierarchys/partials/check_box', options: (@bsl.unit&.products_checkboxes || []), val: @bsl.products.map(&:id), param_name: 'business_service_line[product_ids][]' %>
           </div>
         </div>
         <div class="col-sm-1 text-right order-2 flex-sm-half align-self-start">
