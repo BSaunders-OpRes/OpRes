@@ -72,12 +72,10 @@ const TermsCondition = (props) => {
               <p className ='text-left line-height-30 font-14 font-xxl-14'>
                 Through the Service you control who you share OpResaccess with. OpReshas no liability for how others may access or use Customer Content as aresult of your or your Users' decision to provideaccess to the Service.
               </p>
-
               <h6 className="text-capitalize my-3 font-weight-bold">Age Requirement for Users</h6>
               <p className ='text-left line-height-30 font-14 font-xxl-14'>
                 The Service is not intended for, and may not be usedby, anyone under theage of 16. Customer is responsible for ensuring thatall Users are at least 16 years old.
               </p>
-
               <h6 className="text-capitalize my-3 font-weight-bold">Restrictions</h6>
               <p className ='text-left line-height-30 font-14 font-xxl-14'>
                 Customer will not (and will not permit anyone else to) do any of the following:
@@ -283,7 +281,6 @@ const TermsCondition = (props) => {
                   </p>
                 </li>
               </ul>
-
               <h6 className="text-capitalize my-3 font-weight-bold">Termination for Convenience</h6>
               <p className="text-left line-height-30 font-14 font-xxl-14">Either party may terminate this Agreement (includingall Orders) at any timefor any reason upon 90 days' notice to the other party, provided</p>
               <ul className="pl-3">
