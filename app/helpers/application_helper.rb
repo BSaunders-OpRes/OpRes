@@ -170,12 +170,12 @@ module ApplicationHelper
   def overview_heading(filters)
     if filters.present? && filters.dig("party_type_ids").present?
       if filters.dig("party_type_ids").include?("all")
-        "Total Number Of Impact Tolerance Suppliers"
+        "Total Number of Impact Tolerances Measured"
       else
-        "Total Number Of #{filters.dig("party_type_ids").join(' & ')} Impact Tolerance Suppliers"
+        "Total Number of #{filters.dig("party_type_ids").join(' & ')} Impact Tolerances Measured"
       end
     else
-      "Total Number Of Impact Tolerance Suppliers"
+      "Total Number of Impact Tolerances Measured"
     end
   end
 
