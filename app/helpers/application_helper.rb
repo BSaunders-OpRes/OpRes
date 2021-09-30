@@ -128,9 +128,9 @@ module ApplicationHelper
     when "Total Business Service"
       bsl_regional_tiers.dig(region, tier).present? ? bsl_regional_tiers.dig(region, tier).size : 0
     when "Total Resilience Gaps"
-      0
+      bsl_tiers.dig("#{region.downcase}_#{tier}_resilience_gaps") || 0
     when "Total Internal Systems"
-      0
+      bsl_tiers.dig("#{region.downcase}_#{tier}_internal_systems")&.size
     when "Total 3rd Party Suppliers"
       bsl_tiers.dig("#{region.downcase}_#{tier}_third_party_suppliers")&.size
     when "Total 4th Party Suppliers"

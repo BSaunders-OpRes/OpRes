@@ -42,7 +42,7 @@
             <a href="#section3" class=" text-decoration-none text-capitalize font-13 font-xxl-14 font-sm-12 d-block py-2">Tier N# Resilience Gaps Trend Analysis</a>
           </li> -->
           <li class="links mb-2 mb-sm-3">
-            <a href="#section4" class=" text-decoration-none text-capitalize font-13 font-xxl-14 font-sm-12 d-block py-2">Business Services Lines</a>
+            <a href="#section4" class=" text-decoration-none text-capitalize font-13 font-xxl-14 font-sm-12 d-block py-2">Important Business Services</a>
           </li>
         </ul>
       </aside>
@@ -70,16 +70,9 @@
                 <div class="card border-0 shadow-sm rounded-50">
                   <div class="card-body px-0">
                     <div class="tab-content mb-3" id="myTabContent1">
-                     
-
-
                       <!-- Tier 1 Start -->
                       <div class="tab-pane fade show active" id="tier-1" role="tabpanel" aria-labelledby="tier-1-tab">
                         <div class="box">
-                          <div class="d-flex align-items-center mb-2 px-4">
-                            <h5 class="text-capitalize text-left w-75 font-600">Overview</h5>
-                            <i class="fa fa-ellipsis-v w-25 text-right" aria-hidden="true"></i>
-                          </div>
                           <div class="table-custom">
                             <ul class="nav nav-tabs w-100 mb-2 px-4 py-2 border-0" id="myTab" role="tablist">
                               <li class="nav-item">
@@ -137,11 +130,11 @@
                                       </tr>
                                       <tr>
                                         <td class="font-12 border-right font-500 py-3 px-4">Total Resilience Gaps</td>
-                                        <td class="font-12 border-right font-500 py-3 px-4">0</td>
+                                        <td class="font-12 border-right font-500 py-3 px-4"><%= @bsl_tiers.dig('emea_tier_1_resilience_gaps') || 0 %></td>
                                       </tr>
                                       <tr>
                                         <td class="font-12 border-right font-500 py-3 px-4">Total Internal Systems</td>
-                                        <td class="font-12 border-right font-500 py-3 px-4">0</td>
+                                        <td class="font-12 border-right font-500 py-3 px-4"><%= @bsl_tiers.dig('emea_tier_1_internal_systems')&.size %></td>
                                       </tr>
                                       <tr>
                                         <td class="font-12 border-right font-500 py-3 px-4">Total 3rd Party Suppliers</td>
@@ -180,11 +173,11 @@
                                       </tr>
                                       <tr>
                                         <td class="font-12 border-right font-500 py-3 px-4">Total Resilience Gaps</td>
-                                        <td class="font-12 border-right font-500 py-3 px-4">0</td>
+                                        <td class="font-12 border-right font-500 py-3 px-4"><%= @bsl_tiers.dig('amers_tier_1_resilience_gaps') || 0 %></td>
                                       </tr>
                                       <tr>
                                         <td class="font-12 border-right font-500 py-3 px-4">Total Internal Systems</td>
-                                        <td class="font-12 border-right font-500 py-3 px-4">0</td>
+                                        <td class="font-12 border-right font-500 py-3 px-4"><%= @bsl_tiers.dig('amers_tier_1_internal_systems')&.size %></td>
                                       </tr>
                                       <tr>
                                         <td class="font-12 border-right font-500 py-3 px-4">Total 3rd Party Suppliers</td>
@@ -223,11 +216,11 @@
                                       </tr>
                                       <tr>
                                         <td class="font-12 border-right font-500 py-3 px-4">Total Resilience Gaps</td>
-                                        <td class="font-12 border-right font-500 py-3 px-4">0</td>
+                                        <td class="font-12 border-right font-500 py-3 px-4"><%= @bsl_tiers.dig('apac_tier_1_resilience_gaps') || 0 %></td>
                                       </tr>
                                       <tr>
                                         <td class="font-12 border-right font-500 py-3 px-4">Total Internal Systems</td>
-                                        <td class="font-12 border-right font-500 py-3 px-4">0</td>
+                                        <td class="font-12 border-right font-500 py-3 px-4"><%= @bsl_tiers.dig('apac_tier_1_internal_systems')&.size %></td>
 
                                       <tr>
                                         <td class="font-12 border-right font-500 py-3 px-4">Total 3rd Party Suppliers</td>
@@ -260,10 +253,6 @@
                       <!-- Tier 2 Start -->
                       <div class="tab-pane fade" id="tier-2" role="tabpanel" aria-labelledby="tier-2-tab">
                         <div class="box">
-                          <div class="d-flex align-items-center mb-2 px-4">
-                            <h5 class="text-capitalize text-left w-75">Overview</h5>
-                            <i class="fa fa-ellipsis-v w-25 text-right" aria-hidden="true"></i>
-                          </div>
                           <div class="table-custom">
                             <ul class="nav nav-tabs w-100 mb-2 px-4 py-2 border-0" id="myTab" role="tablist">
                               <li class="nav-item">
@@ -321,11 +310,11 @@
                                       </tr>
                                       <tr>
                                         <td class="font-12 border-right font-500 py-3 px-4">Total Resilience Gaps</td>
-                                        <td class="font-12 border-right font-500 py-3 px-4">0</td>
+                                        <td class="font-12 border-right font-500 py-3 px-4"><%= @bsl_tiers.dig('emea_tier_2_resilience_gaps') || 0 %></td>
                                       </tr>
                                       <tr>
                                         <td class="font-12 border-right font-500 py-3 px-4">Total Internal Systems</td>
-                                        <td class="font-12 border-right font-500 py-3 px-4">0</td>
+                                        <td class="font-12 border-right font-500 py-3 px-4"><%= @bsl_tiers.dig('emea_tier_2_internal_systems')&.size %></td>
                                       </tr>
                                       <tr>
                                         <td class="font-12 border-right font-500 py-3 px-4">Total 3rd Party Suppliers</td>
@@ -364,11 +353,11 @@
                                       </tr>
                                       <tr>
                                         <td class="font-12 border-right font-500 py-3 px-4">Total Resilience Gaps</td>
-                                        <td class="font-12 border-right font-500 py-3 px-4">0</td>
+                                        <td class="font-12 border-right font-500 py-3 px-4"><%= @bsl_tiers.dig('amers_tier_2_resilience_gaps') || 0 %></td>
                                       </tr>
                                       <tr>
                                         <td class="font-12 border-right font-500 py-3 px-4">Total Internal Systems</td>
-                                        <td class="font-12 border-right font-500 py-3 px-4">0</td>
+                                        <td class="font-12 border-right font-500 py-3 px-4"><%= @bsl_tiers.dig('amers_tier_2_internal_systems')&.size %></td>
                                       </tr>
                                       <tr>
                                         <td class="font-12 border-right font-500 py-3 px-4">Total 3rd Party Suppliers</td>
@@ -407,11 +396,11 @@
                                       </tr>
                                       <tr>
                                         <td class="font-12 border-right font-500 py-3 px-4">Total Resilience Gaps</td>
-                                        <td class="font-12 border-right font-500 py-3 px-4">0</td>
+                                        <td class="font-12 border-right font-500 py-3 px-4"><%= @bsl_tiers.dig('apac_tier_2_resilience_gaps') || 0 %></td>
                                       </tr>
                                       <tr>
                                         <td class="font-12 border-right font-500 py-3 px-4">Total Internal Systems</td>
-                                        <td class="font-12 border-right font-500 py-3 px-4">0</td>
+                                        <td class="font-12 border-right font-500 py-3 px-4"><%= @bsl_tiers.dig('apac_tier_2_internal_systems')&.size %></td>
 
                                       <tr>
                                         <td class="font-12 border-right font-500 py-3 px-4">Total 3rd Party Suppliers</td>
@@ -444,10 +433,6 @@
                       <!-- Tier 3 Start -->
                       <div class="tab-pane fade" id="tier-3" role="tabpanel" aria-labelledby="tier-3-tab">
                         <div class="box">
-                          <div class="d-flex align-items-center mb-2 px-4">
-                            <h5 class="text-capitalize text-left w-75">Overview</h5>
-                            <i class="fa fa-ellipsis-v w-25 text-right" aria-hidden="true"></i>
-                          </div>
                           <div class="table-custom">
                             <ul class="nav nav-tabs w-100 mb-2 px-4 py-2 border-0" id="myTab" role="tablist">
                               <li class="nav-item">
@@ -507,11 +492,11 @@
                                       </tr>
                                       <tr>
                                         <td class="font-12 border-right font-500 py-3 px-4">Total Resilience Gaps</td>
-                                        <td class="font-12 border-right font-500 py-3 px-4">0</td>
+                                        <td class="font-12 border-right font-500 py-3 px-4"><%= @bsl_tiers.dig('emea_tier_3_resilience_gaps') || 0 %></td>
                                       </tr>
                                       <tr>
                                         <td class="font-12 border-right font-500 py-3 px-4">Total Internal Systems</td>
-                                        <td class="font-12 border-right font-500 py-3 px-4">0</td>
+                                        <td class="font-12 border-right font-500 py-3 px-4"><%= @bsl_tiers.dig('emea_tier_3_internal_systems')&.size %></td>
                                       </tr>
                                       <tr>
                                         <td class="font-12 border-right font-500 py-3 px-4">Total 3rd Party Suppliers</td>
@@ -550,11 +535,11 @@
                                       </tr>
                                       <tr>
                                         <td class="font-12 border-right font-500 py-3 px-4">Total Resilience Gaps</td>
-                                        <td class="font-12 border-right font-500 py-3 px-4">0</td>
+                                        <td class="font-12 border-right font-500 py-3 px-4"><%= @bsl_tiers.dig('amers_tier_3_resilience_gaps') || 0 %></td>
                                       </tr>
                                       <tr>
                                         <td class="font-12 border-right font-500 py-3 px-4">Total Internal Systems</td>
-                                        <td class="font-12 border-right font-500 py-3 px-4">0</td>
+                                        <td class="font-12 border-right font-500 py-3 px-4"><%= @bsl_tiers.dig('amers_tier_3_internal_systems')&.size %></td>
                                       </tr>
                                       <tr>
                                         <td class="font-12 border-right font-500 py-3 px-4">Total 3rd Party Suppliers</td>
@@ -593,11 +578,11 @@
                                       </tr>
                                       <tr>
                                         <td class="font-12 border-right font-500 py-3 px-4">Total Resilience Gaps</td>
-                                        <td class="font-12 border-right font-500 py-3 px-4">0</td>
+                                        <td class="font-12 border-right font-500 py-3 px-4"><%= @bsl_tiers.dig('apac_tier_3_resilience_gaps') || 0 %></td>
                                       </tr>
                                       <tr>
                                         <td class="font-12 border-right font-500 py-3 px-4">Total Internal Systems</td>
-                                        <td class="font-12 border-right font-500 py-3 px-4">0</td>
+                                        <td class="font-12 border-right font-500 py-3 px-4"><%= @bsl_tiers.dig('apac_tier_3_internal_systems')&.size %></td>
 
                                       <tr>
                                         <td class="font-12 border-right font-500 py-3 px-4">Total 3rd Party Suppliers</td>
@@ -630,10 +615,6 @@
                       <!-- Tier 4 Start -->
                       <div class="tab-pane fade" id="tier-4" role="tabpanel" aria-labelledby="tier-4-tab">
                         <div class="box">
-                          <div class="d-flex align-items-center mb-2 px-4">
-                            <h5 class="text-capitalize text-left w-75">Overview</h5>
-                            <i class="fa fa-ellipsis-v w-25 text-right" aria-hidden="true"></i>
-                          </div>
                           <div class="table-custom">
                             <ul class="nav nav-tabs w-100 mb-2 px-4 py-2 border-0" id="myTab" role="tablist">
                               <li class="nav-item">
@@ -691,11 +672,11 @@
                                       </tr>
                                       <tr>
                                         <td class="font-12 border-right font-500 py-3 px-4">Total Resilience Gaps</td>
-                                        <td class="font-12 border-right font-500 py-3 px-4">0</td>
+                                        <td class="font-12 border-right font-500 py-3 px-4"><%= @bsl_tiers.dig('emea_tier_4_resilience_gaps') || 0 %></td>
                                       </tr>
                                       <tr>
                                         <td class="font-12 border-right font-500 py-3 px-4">Total Internal Systems</td>
-                                        <td class="font-12 border-right font-500 py-3 px-4">0</td>
+                                        <td class="font-12 border-right font-500 py-3 px-4"><%= @bsl_tiers.dig('emea_tier_4_internal_systems')&.size %></td>
                                       </tr>
                                       <tr>
                                         <td class="font-12 border-right font-500 py-3 px-4">Total 3rd Party Suppliers</td>
@@ -734,11 +715,11 @@
                                       </tr>
                                       <tr>
                                         <td class="font-12 border-right font-500 py-3 px-4">Total Resilience Gaps</td>
-                                        <td class="font-12 border-right font-500 py-3 px-4">0</td>
+                                        <td class="font-12 border-right font-500 py-3 px-4"><%= @bsl_tiers.dig('amers_tier_4_resilience_gaps') || 0 %></td>
                                       </tr>
                                       <tr>
                                         <td class="font-12 border-right font-500 py-3 px-4">Total Internal Systems</td>
-                                        <td class="font-12 border-right font-500 py-3 px-4">0</td>
+                                        <td class="font-12 border-right font-500 py-3 px-4"><%= @bsl_tiers.dig('amers_tier_4_internal_systems')&.size %></td>
                                       </tr>
                                       <tr>
                                         <td class="font-12 border-right font-500 py-3 px-4">Total 3rd Party Suppliers</td>
@@ -777,11 +758,11 @@
                                       </tr>
                                       <tr>
                                         <td class="font-12 border-right font-500 py-3 px-4">Total Resilience Gaps</td>
-                                        <td class="font-12 border-right font-500 py-3 px-4">0</td>
+                                        <td class="font-12 border-right font-500 py-3 px-4"><%= @bsl_tiers.dig('apac_tier_4_resilience_gaps') || 0 %></td>
                                       </tr>
                                       <tr>
                                         <td class="font-12 border-right font-500 py-3 px-4">Total Internal Systems</td>
-                                        <td class="font-12 border-right font-500 py-3 px-4">0</td>
+                                        <td class="font-12 border-right font-500 py-3 px-4"><%= @bsl_tiers.dig('apac_tier_4_internal_systems')&.size %></td>
 
                                       <tr>
                                         <td class="font-12 border-right font-500 py-3 px-4">Total 3rd Party Suppliers</td>
@@ -1144,7 +1125,7 @@
               <div class="col-md-12 mb-4 px-1">
                 <div class="card border-0 shadow-sm rounded-50 px-4">
                   <div class="d-flex justify-content-between align-items-center py-3 mt-3">
-                    <h5 class="text-capitalize font-600 font-xxl-25">business service line</h5>
+                    <h5 class="text-capitalize font-600 font-xxl-25">Important Business Services</h5>
                   </div>
                   <div class="table-search-field px-0">
                     <i class="fa fa-search text-dark font-14" aria-hidden="true"></i>
@@ -1161,7 +1142,7 @@
                           <% BusinessServiceLine.tiers.each do |k, v| %>
                             <div class="form-group mb-0 py-2 dropdown-item border-bottom px-3">
                               <label class="d-flex justify-content-between align-items-center custom-checkbox mb-0 px-0 py-2" for="<%= "search-bsl-tier-#{k.dasherize}" %>">
-                                <span class="text-uppercase font-12 font-600"><%= k.humanize %></span>
+                                <span class="text-uppercase font-12 font-600 white-space-break flex-1"><%= k.humanize %></span>
                                 <%= check_box_tag 'bsl[tier]', k, false, class: 'form-control w-auto search-bsl-tier', id: "search-bsl-tier-#{k.dasherize}" %>
                                 <span class="checkmark position-relative"></span>
                               </label>
@@ -1179,7 +1160,7 @@
                           <% managing_units.each do |regional_unit| %>
                             <div class="form-group mb-0 py-2 dropdown-item border-bottom px-3">
                               <label class="d-flex justify-content-between align-items-center custom-checkbox mb-0 px-0 py-2" for="<%= "search-bsl-regional-unit-#{regional_unit.name.parameterize.dasherize}" %>">
-                                <span class="text-uppercase font-12 font-600"><%= regional_unit.name %></span>
+                                <span class="text-uppercase font-12 font-600 white-space-break flex-1"><%= regional_unit.name %></span>
                                 <%= check_box_tag 'bsl[regional_unit]', regional_unit.id, false, class: 'form-control w-auto search-bsl-regional-unit', id: "search-bsl-regional-unit-#{regional_unit.name.parameterize.dasherize}" %>
                                 <span class="checkmark position-relative"></span>
                               </label>
@@ -1197,7 +1178,7 @@
                           <% @managing_institution_units.each do |institution_unit| %>
                             <div class="form-group mb-0 py-2 dropdown-item border-bottom px-3">
                               <label class="d-flex justify-content-between align-items-center custom-checkbox mb-0 px-0 py-2" for="<%= "search-bsl-institution-unit-#{institution_unit.name.parameterize.dasherize}" %>">
-                                <span class="text-uppercase font-12 font-600"><%= institution_unit.name %></span>
+                                <span class="text-uppercase font-12 font-600 white-space-break flex-1"><%= institution_unit.name %></span>
                                 <%= check_box_tag 'bsl[institution_unit]', institution_unit.id, false, class: 'form-control w-auto search-bsl-institution-unit', id: "search-bsl-institution-unit-#{institution_unit.name.parameterize.dasherize}" %>
                                 <span class="checkmark position-relative"></span>
                               </label>
@@ -1215,7 +1196,7 @@
                           <% Product.joins(:units).where(units: { id: @managing_institution_units.map(&:id) }).uniq.each do |product| %>
                             <div class="form-group mb-0 py-2 dropdown-item border-bottom px-3">
                               <label class="d-flex justify-content-between align-items-center custom-checkbox mb-0 px-0 py-2" for="<%= "search-bsl-product-#{product.name.parameterize.dasherize}" %>">
-                                <span class="text-uppercase font-12 font-600"><%= product.name %></span>
+                                <span class="text-uppercase font-12 font-600 white-space-break flex-1"><%= product.name %></span>
                                 <%= check_box_tag 'bsl[product]', product.id, false, class: 'form-control w-auto search-bsl-product', id: "search-bsl-product-#{product.name.parameterize.dasherize}" %>
                                 <span class="checkmark position-relative"></span>
                               </label>
@@ -1230,16 +1211,19 @@
                       <thead>
                         <tr>
                           <th class="text-capitalize font-12 font-xxl-14 pl-0">BSL Name</th>
-                          <th class="w-10 font-12 font-xxl-14 text-capitalize">Tier</th>
-                          <th class="w-10 font-12 font-xxl-14 text-capitalize">Country</th>
-                          <th class="w-10 font-12 font-xxl-14 text-capitalize">region</th>
-                          <th class="w-10 font-12 font-xxl-14 text-capitalize">institution</th>
-                          <th class="w-10 font-12 font-xxl-14 text-capitalize">product</th>
+                          <th class="w-10 font-12 font-xxl-14 text-capitalize px-2">Tier</th>
+                          <th class="w-10 font-12 font-xxl-14 text-capitalize px-2">Country</th>
+                          <th class="w-10 font-12 font-xxl-14 text-capitalize px-2">region</th>
+                          <th class="w-10 font-12 font-xxl-14 text-capitalize px-2">institution</th>
+                          <th class="w-10 font-12 font-xxl-14 text-capitalize px-2">product</th>
+                          <th class="w-10 font-12 font-xxl-14 text-capitalize px-2">Matches</th>
+                          <th class="w-10 font-12 font-xxl-14 text-capitalize px-2">Meets</th>
+                          <th class="w-10 font-12 font-xxl-14 text-capitalize px-2">Exceeds</th>
                           <th></th>
                         </tr>
                       </thead>
                       <tbody id="all-bsls">
-                        <%= render 'organisation/administration_portal/partials/bsls', bsls: @bsls %>
+                        <%= render 'organisation/dashboard_break_downs/partials/bsls', bsls: @bsls %>
                       </tbody>
                     </table>
                   </div>

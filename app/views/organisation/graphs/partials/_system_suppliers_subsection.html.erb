@@ -57,7 +57,7 @@
             <div class="text-box w-20">
               <div class="color-tier d-flex align-items-center justify-content-start">
                 <div class="circle <%= identify_impact_color(supplier_data.dig(:sla_attr_status, 'service_level_agreement')) %> p-2"></div>
-                <span class="font-11 font-400 ml-2"><%= supplier_data.dig(:sla_attr_status, 'service_level_agreement').present? ? "#{supplier_data.dig(:sla_attr_status, 'service_level_agreement')} Impact Tolerance" : 'N/A' %></span>
+                <span class="font-11 font-400 ml-2"><%= supplier_data.dig(:sla_attr_status, 'service_level_agreement').present? ? "#{supplier_data.dig(:sla_attr_status, 'service_level_agreement').titleize} Impact Tolerance" : 'N/A' %></span>
               </div>
             </div>
           </div>
@@ -71,7 +71,7 @@
             <div class="text-box w-20">
               <div class="color-tier d-flex align-items-center justify-content-start">
                 <div class="circle <%= identify_impact_color(supplier_data.dig(:sla_attr_status, 'recovery_time_objective')) %> p-2"></div>
-                <span class="font-11 font-400 ml-2"><%= supplier_data.dig(:sla_attr_status, 'recovery_time_objective').present? ? "#{supplier_data.dig(:sla_attr_status, 'recovery_time_objective')} Impact Tolerance" : 'N/A' %></span>
+                <span class="font-11 font-400 ml-2"><%= supplier_data.dig(:sla_attr_status, 'recovery_time_objective').present? ? "#{supplier_data.dig(:sla_attr_status, 'recovery_time_objective').titleize} Impact Tolerance" : 'N/A' %></span>
               </div>
             </div>
           </div>
@@ -85,7 +85,7 @@
             <div class="text-box w-20">
               <div class="color-tier d-flex align-items-center justify-content-start">
                 <div class="circle <%= identify_impact_color(supplier_data.dig(:sla_attr_status, 'recovery_point_objective')) %> p-2"></div>
-                <span class="font-11 font-400 ml-2"><%= supplier_data.dig(:sla_attr_status, 'recovery_point_objective').present? ? "#{supplier_data.dig(:sla_attr_status, 'recovery_point_objective')} Impact Tolerance" : 'N/A' %></span>
+                <span class="font-11 font-400 ml-2"><%= supplier_data.dig(:sla_attr_status, 'recovery_point_objective').present? ? "#{supplier_data.dig(:sla_attr_status, 'recovery_point_objective').titleize} Impact Tolerance" : 'N/A' %></span>
               </div>
             </div>
           </div>
@@ -99,7 +99,7 @@
             <div class="text-box w-20">
               <div class="color-tier d-flex align-items-center justify-content-start">
                 <div class="circle <%= identify_impact_color(supplier_data.dig(:sla_attr_status, 'recovery_point_objective')) %> p-2"></div>
-                <span class="font-11 font-400 ml-2"><%= supplier_data.dig(:sla_attr_status, 'transactions_per_second').present? ? "#{supplier_data.dig(:sla_attr_status, 'transactions_per_second')} Impact Tolerance" : 'N/A' %></span>
+                <span class="font-11 font-400 ml-2"><%= supplier_data.dig(:sla_attr_status, 'transactions_per_second').present? ? "#{supplier_data.dig(:sla_attr_status, 'transactions_per_second').titleize} Impact Tolerance" : 'N/A' %></span>
               </div>
             </div>
           </div>
@@ -113,7 +113,7 @@
             <div class="text-box w-20">
               <div class="color-tier d-flex align-items-center justify-content-start">
                 <div class="circle <%= identify_impact_color(supplier_data.dig(:sla_attr_status, 'response_time')) %> p-2"></div>
-                <span class="font-11 font-400 ml-2"><%= supplier_data.dig(:sla_attr_status, 'response_time').present? ? "#{supplier_data.dig(:sla_attr_status, 'response_time')} Impact Tolerance" : 'N/A' %></span>
+                <span class="font-11 font-400 ml-2"><%= supplier_data.dig(:sla_attr_status, 'response_time').present? ? "#{supplier_data.dig(:sla_attr_status, 'response_time').titleize} Impact Tolerance" : 'N/A' %></span>
               </div>
             </div>
           </div>
