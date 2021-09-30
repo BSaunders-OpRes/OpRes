@@ -9,18 +9,30 @@ class Organisation::DashboardBreakDownsController < Organisation::BaseController
     @bsls_tier               = @bsls.group_by(&:tier)
 
     @managing_regions        = current_user.managing_regions
+    args    = { bsl: @bsls&.pluck(:id)}
+
+    @bsl_impact_tolerances   = Graphs::ImpactToleranceBslsService.call(args.stringify_keys)
 
     @bsl_tiers = {}
     BusinessServiceLine.tiers.each do |tier, index|
       Region.all.each do |region|
         third_party_key  = "#{region.lower_name}_#{tier}_third_party_suppliers"
         fourth_party_key = "#{region.lower_name}_#{tier}_fourth_party_suppliers"
+        internal_system  = "#{region.lower_name}_#{tier}_internal_systems"
+        resilence_gap    = "#{region.lower_name}_#{tier}_resilience_gaps"
+
+        args    = { bsl: @bsl_regional_tiers.dig(region.name, tier)&.pluck(:id)}
+
+        exceed_tolerance_count = Graphs::ExceedResilienceSupplierService.call(args.stringify_keys)
+        @bsl_tiers[resilence_gap]    = exceed_tolerance_count
+        @bsl_tiers[internal_system]  = Supplier.joins(supplier_steps: [step: [:business_service_line]]).where(business_service_lines: { id: @bsl_regional_tiers.dig(region.name, tier)&.pluck(:id) })
         @bsl_tiers[third_party_key]  = SubSuppliers::ThirdPartySupplier.joins(supplier: [supplier_steps: [step: [:business_service_line]]])
                                                                       .where(business_service_lines: { id: @bsl_regional_tiers.dig(region.name, tier)&.pluck(:id) })
         @bsl_tiers[fourth_party_key] = SubSuppliers::FourthPartySupplier.joins(supplier: [supplier_steps: [step: [:business_service_line]]])
                                                                        .where(business_service_lines: { id: @bsl_regional_tiers.dig(region.name, tier)&.pluck(:id) })
       end
     end
+
   end
 
   def cloud_service_provider_breakdown
