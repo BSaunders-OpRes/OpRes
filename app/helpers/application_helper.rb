@@ -247,8 +247,12 @@ module ApplicationHelper
     organisational_unit.children
   end
 
-  def organisational_countries
-    organisational_unit.children.map {|a| a.children}.flatten.map {|b| b.country}
+  def organisational_countries(params_data=nil)
+    if params_data.present? && params_data.dig(:filters, :region_ids).present?
+      return organisational_unit.children.select{|a| params_data.dig(:filters, :region_ids).include?(a.region_id.to_s)}.map {|a| a.children}.flatten.map {|b| b.country}
+    else
+      return organisational_unit.children.map {|a| a.children}.flatten.map {|b| b.country}
+    end
   end
 
   def organisational_institution_ids

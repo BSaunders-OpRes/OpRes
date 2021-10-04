@@ -1,0 +1,29 @@
+<div class="dropdown custom-dropdown">
+  <button class="border-0 p-3 bg-body-color dropdown-toggle w-100 shadow-none mb-3" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    <span class="d-flex flex-column align-items-start">
+      <h6 class="text-capitalize font-12 font-xxl-14 mb-1">
+        <span class="font-600 text-capitalize">Regions .</span>
+        <span class="text-light-grey font-600 regions-count">0</span>
+      </h6>
+      <span class="text-capitalize font-600 font-12 font-xxl-14 text-light-grey">View all</span>
+    </span>
+  </button>
+  <div class="dropdown-menu z-index-10 down-drop" aria-labelledby="dropdownMenuButton">
+    <div class="form-group dropdown-item pl-3 m-0">
+      <label for="region-all" class="custom-checkbox d-flex m-0">
+        <span class="font-12 text-black text-capitalize ">View All</span>
+        <%= check_box_tag 'filters[region_ids][]', 'all', false, id: "region-all", class: 'form-control regions', onclick: 'RailsUJS.fire(this.form, "submit")' %>
+        <span class="transparent-checkmark"></span>
+      </label>
+    </div>
+    <% regions.each do |unit_region| %>
+      <div class="form-group dropdown-item pl-3 m-0">
+        <label for="ch<%= unit_region.region.id %>" class="custom-checkbox d-flex m-0">
+          <span class="font-12 text-black text-capitalize"><%= unit_region.region.name %></span>
+          <%= check_box_tag 'filters[region_ids][]', unit_region.region.id, false, id: "ch#{unit_region.region.id}", class: 'form-control regions', onclick: 'RailsUJS.fire(this.form, "submit")' %>
+          <span class="transparent-checkmark"></span>
+        </label>
+      </div>
+    <% end %>
+  </div>
+</div>
