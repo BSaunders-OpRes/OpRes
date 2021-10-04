@@ -1,0 +1,31 @@
+<div class="dropdown custom-dropdown">
+  <button class="border-0 mb-3 bg-body-color p-3 dropdown-toggle w-100 shadow-none" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    <span class="d-flex flex-column align-items-start">
+      <h6 class="text-capitalize font-12 font-xxl-14 mb-1">
+        <span class="font-600 text-capitalize">Sub Regions .</span>
+        <span class="text-light-grey font-600 sub-region-count">0</span>
+      </h6>
+      <span class="text-capitalize font-600 font-12 font-xxl-14 text-light-grey">View all</span>
+    </span>
+  </button>
+  <div class="dropdown-menu down-drop z-index-12 h-420-with-scroll" aria-labelledby="dropdownMenuButton">
+    <div class="form-group dropdown-item pl-3 m-0">
+      <label for="sub-region-all" class="custom-checkbox d-flex m-0">
+        <span class="font-12 text-black text-capitalize">View All</span>
+        <%= check_box_tag 'filters[sub_region_ids][]', 'all', false, id: "sub-region-all", class: 'form-control sub-regions', onclick: 'RailsUJS.fire(this.form, "submit")' %>
+        <span class="transparent-checkmark"></span>
+      </label>
+    </div>
+    <% countries.each do |country| %>
+      <div class="form-group dropdown-item pl-3 m-0">
+        <label for="sub-region<%= country.id %>" class="custom-checkbox d-flex m-0">
+          <span class="font-12 text-black text-capitalize">
+          <!-- <i class="flag <%#= country.name.downcase %>"></i> -->
+          <%= country.subregion %></span>
+          <%= check_box_tag 'filters[sub_region_ids][]', country.id, false, id: "sub-region#{country.id}", class: 'form-control sub-regions', onclick: 'RailsUJS.fire(this.form, "submit")' %>
+          <span class="transparent-checkmark"></span>
+        </label>
+      </div>
+    <% end %>
+  </div>
+</div>
