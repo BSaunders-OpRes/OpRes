@@ -26,7 +26,7 @@ export default function login(props) {
   }
 
   const error_handling = (err) => {
-    toast.error(err.response.data.error, { autoClose:3000 });
+    toast.error(err.response.data.error, { autoClose:5000 });
   }
 
   const redirection = (resp) => {

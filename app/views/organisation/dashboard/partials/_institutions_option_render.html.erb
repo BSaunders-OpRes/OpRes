@@ -1,0 +1,31 @@
+<div class="dropdown custom-dropdown">
+  <button class="border-0 mb-3 p-3 bg-body-color dropdown-toggle w-100 shadow-none" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    <span class="d-flex flex-column align-items-start">
+      <h6 class="text-capitalize font-12 font-xxl-14 mb-1">
+        <span class="font-600 text-capitalize">institutions .</span>
+        <span class="text-light-grey font-600 institutions-count">0</span>
+      </h6>
+      <span class="text-capitalize font-12 font-xxl-14 text-light-grey font-600">View all</span>
+    </span>
+  </button>
+  <div class="dropdown-menu z-index-12 down-drop h-420-with-scroll" aria-labelledby="dropdownMenuButton">
+    <div class="form-group dropdown-item pl-3 m-0">
+      <label for="institution-all" class="custom-checkbox d-flex m-0">
+        <span class="font-12 text-black text-capitalize">View All</span>
+        <%= check_box_tag 'filters[institution_ids][]', 'all', false, id: "institution-all", class: 'form-control institutions', onclick: 'RailsUJS.fire(this.form, "submit")' %>
+        <span class="transparent-checkmark"></span>
+      </label>
+    </div>
+    <% institutions.each do |institution| %>
+      <div class="form-group dropdown-item pl-3 m-0">
+        <label for="institution<%= institution.id %>" class="custom-checkbox d-flex m-0">
+          <span class="font-12 text-black text-capitalize">
+            <%= institution.name %>
+          </span>
+          <%= check_box_tag 'filters[institution_ids][]', institution.id, false, id: "institution#{institution.id}", class: 'form-control institutions', onclick: 'RailsUJS.fire(this.form, "submit")' %>
+          <span class="transparent-checkmark"></span>
+        </label>
+      </div>
+    <% end %>
+  </div>
+</div>

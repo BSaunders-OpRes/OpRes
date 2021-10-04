@@ -12,7 +12,7 @@
             <div class="input-group-prepend">
               <div class="input-group-text px-3 bg-white font-12">%</div>
             </div>
-            <%= internal_sla.number_field :service_level_agreement, min: 0, step: 0.01, placeholder: 'Enter Target', class: 'form-control form-control font-12 h-auto py-3 shadow-none' %>
+            <%= internal_sla.number_field :service_level_agreement, min: 0, step: 'any', placeholder: 'Enter Target', class: 'form-control form-control font-12 h-auto py-3 shadow-none' %>
           </div>
         </div>
         <div class="col-sm-1 text-right order-2 flex-sm-half mb-2 mb-sm-0">
@@ -28,7 +28,7 @@
             <div class="input-group-prepend">
               <div class="input-group-text px-3 bg-white font-12">%</div>
             </div>
-            <%= internal_sla.number_field :service_level_objective, min: 0, step: 0.01, placeholder: 'Enter Target', class: 'form-control form-control font-12 h-auto py-3 shadow-none' %>
+            <%= internal_sla.number_field :service_level_objective, min: 0, step: 'any', placeholder: 'Enter Target', class: 'form-control form-control font-12 h-auto py-3 shadow-none' %>
           </div>
         </div>
         <div class="col-sm-1 text-right order-2 flex-sm-half mb-2 mb-sm-0">

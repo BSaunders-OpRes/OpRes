@@ -72,11 +72,11 @@ export default function Registration() {
 
   const redirection = (resp) => {
     window.location.href = resp.redirect_url;
-    toast.success(resp.message, { autoClose:3000 });
+    toast.success(resp.message, { autoClose:5000 });
   }
 
   const error_handling = (err) => {
-    toast.error(err.response.data.message, { autoClose:3000 });
+    toast.error(err.response.data.message, { autoClose:5000 });
   }
 
   const eye = <i className="fa fa-eye" aria-hidden="true"></i>
