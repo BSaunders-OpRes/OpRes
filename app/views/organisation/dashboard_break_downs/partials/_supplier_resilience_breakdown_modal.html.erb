@@ -57,7 +57,7 @@
                     <span class="font-500"><%= number_with_precision(supplier.dig(:difference), precision: 2) %></span>
                   </td>
                   <td class="font-12 font-xxl-14 py-4">
-                    <span class="font-500"><%= supplier.dig(:resilience_id) %></span>
+                    <span class="font-500"><%= type == "exceed" ? supplier.dig(:resilience_id) : 'N/A' %></span>
                   </td>
                 </tr>
               <% end %>
