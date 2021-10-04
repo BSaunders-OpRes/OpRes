@@ -3,8 +3,6 @@ import { Modal, Form, FormCheck, FormLabel, Button } from 'react-bootstrap';
 
 
 const TermsCondition = (props) => {
-  const onHide = () => {
-  }
   return (
     <Modal show={props.showModal} onHide={props.modalEvent} size="lg">
       <Modal.Header closeButton className='border-0'>

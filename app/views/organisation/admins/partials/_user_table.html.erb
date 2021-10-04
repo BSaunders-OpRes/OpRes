@@ -13,7 +13,7 @@
       <tr>
         <td class="text-dark"><%= admin.name.present? ? admin.name : 'Not Available' %></td>
         <td><%= admin.email %></td>
-        <td><%= admin.role.humanize %></td>
+        <td><%= admin&.role&.humanize %></td>
         <td>
           <%= link_to 'View', organisation_admin_path(admin), class: 'font-12 font-700 mx-1 text-dark text-uppercase' %>
           <%= link_to 'Edit', edit_organisation_admin_path(admin), class: 'font-12 font-700 mx-1 text-dark text-uppercase' %>
