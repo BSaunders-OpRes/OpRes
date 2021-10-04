@@ -6,135 +6,17 @@
     </div>
     <%= form_tag path, method: :get, remote: true do %>
       <div class="row no-gutters mt-3">
-        <div class="col-lg px-1 col-md-4 col-sm-6">
-          <div class="dropdown custom-dropdown">
-            <button class="border-0 p-3 bg-body-color dropdown-toggle w-100 shadow-none mb-3" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <span class="d-flex flex-column align-items-start">
-                <h6 class="text-capitalize font-12 font-xxl-14 mb-1">
-                  <span class="font-600 text-capitalize">Regions .</span>
-                  <span class="text-light-grey font-600 regions-count">0</span>
-                </h6>
-                <span class="text-capitalize font-600 font-12 font-xxl-14 text-light-grey">View all</span>
-              </span>
-            </button>
-            <div class="dropdown-menu z-index-10 down-drop" aria-labelledby="dropdownMenuButton">
-              <div class="form-group dropdown-item pl-3 m-0">
-                <label for="region-all" class="custom-checkbox d-flex m-0">
-                  <span class="font-12 text-black text-capitalize ">View All</span>
-                  <%= check_box_tag 'filters[region_ids][]', 'all', false, id: "region-all", class: 'form-control regions', onclick: 'RailsUJS.fire(this.form, "submit")' %>
-                  <span class="transparent-checkmark"></span>
-                </label>
-              </div>
-              <% organisational_regions.each do |unit_region| %>
-                <div class="form-group dropdown-item pl-3 m-0">
-                  <label for="ch<%= unit_region.region.id %>" class="custom-checkbox d-flex m-0">
-                    <span class="font-12 text-black text-capitalize"><%= unit_region.region.name %></span>
-                    <%= check_box_tag 'filters[region_ids][]', unit_region.region.id, false, id: "ch#{unit_region.region.id}", class: 'form-control regions', onclick: 'RailsUJS.fire(this.form, "submit")' %>
-                    <span class="transparent-checkmark"></span>
-                  </label>
-                </div>
-              <% end %>
-            </div>
-          </div>
+        <div class="col-lg px-1 col-md-4 col-sm-6" id="segmentation-regions">
+          <%= render 'organisation/dashboard/partials/regions_option_render', regions: organisational_regions %>
         </div>
-        <div class="col-lg px-1 col-md-4 col-sm-6">
-          <div class="dropdown custom-dropdown">
-            <button class="border-0 mb-3 bg-body-color p-3 dropdown-toggle w-100 shadow-none" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <span class="d-flex flex-column align-items-start">
-                <h6 class="text-capitalize font-12 font-xxl-14 mb-1">
-                  <span class="font-600 text-capitalize">Sub Regions .</span>
-                  <span class="text-light-grey font-600 sub-region-count">0</span>
-                </h6>
-                <span class="text-capitalize font-600 font-12 font-xxl-14 text-light-grey">View all</span>
-              </span>
-            </button>
-            <div class="dropdown-menu down-drop z-index-10" aria-labelledby="dropdownMenuButton">
-              <div class="form-group dropdown-item pl-3 m-0">
-                <label for="sub-region-all" class="custom-checkbox d-flex m-0">
-                  <span class="font-12 text-black text-capitalize">View All</span>
-                  <%= check_box_tag 'filters[sub_region_ids][]', 'all', false, id: "sub-region-all", class: 'form-control sub-regions', onclick: 'RailsUJS.fire(this.form, "submit")' %>
-                  <span class="transparent-checkmark"></span>
-                </label>
-              </div>
-              <% organisational_countries.each do |country| %>
-                <div class="form-group dropdown-item pl-3 m-0">
-                  <label for="sub-region<%= country.id %>" class="custom-checkbox d-flex m-0">
-                    <span class="font-12 text-black text-capitalize">
-                    <!-- <i class="flag <%#= country.name.downcase %>"></i> -->
-                    <%= country.subregion %></span>
-                    <%= check_box_tag 'filters[sub_region_ids][]', country.id, false, id: "sub-region#{country.id}", class: 'form-control sub-regions', onclick: 'RailsUJS.fire(this.form, "submit")' %>
-                    <span class="transparent-checkmark"></span>
-                  </label>
-                </div>
-              <% end %>
-            </div>
-          </div>
+        <div class="col-lg px-1 col-md-4 col-sm-6" id="segmentation-subregions">
+          <%= render 'organisation/dashboard/partials/subregions_option_render', countries: organisational_countries %>
         </div>
-        <div class="col-lg px-1 col-md-4 col-sm-6">
-          <div class="dropdown custom-dropdown">
-            <button class="border-0 mb-3 p-3 bg-body-color dropdown-toggle w-100 shadow-none" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <span class="d-flex flex-column align-items-start">
-                <h6 class="text-capitalize font-12 font-xxl-14 mb-1">
-                  <span class="font-600 text-capitalize">countries .</span>
-                  <span class="text-light-grey font-600 countries-count">0</span>
-                </h6>
-                <span class="text-capitalize font-12 font-xxl-14 text-light-grey font-600">View all</span>
-              </span>
-            </button>
-            <div class="dropdown-menu z-index-10 down-drop" aria-labelledby="dropdownMenuButton">
-              <div class="form-group dropdown-item pl-3 m-0">
-                <label for="country-all" class="custom-checkbox d-flex m-0">
-                  <span class="font-12 text-black text-capitalize">View All</span>
-                  <%= check_box_tag 'filters[country_ids][]', 'all', false, id: "country-all", class: 'form-control countries', onclick: 'RailsUJS.fire(this.form, "submit")' %>
-                  <span class="transparent-checkmark"></span>
-                </label>
-              </div>
-              <% organisational_countries.each do |country| %>
-                <div class="form-group dropdown-item pl-3 m-0">
-                  <label for="country<%= country.id %>" class="custom-checkbox d-flex m-0">
-                    <span class="font-12 text-black text-capitalize">
-                    <i class="flag <%= country.name.downcase %>"></i>
-                    <%= country.name %></span>
-                    <%= check_box_tag 'filters[country_ids][]', country.id, false, id: "country#{country.id}", class: 'form-control countries', onclick: 'RailsUJS.fire(this.form, "submit")' %>
-                    <span class="transparent-checkmark"></span>
-                  </label>
-                </div>
-              <% end %>
-            </div>
-          </div>
+        <div class="col-lg px-1 col-md-4 col-sm-6" id="segmentation-countries">
+          <%= render 'organisation/dashboard/partials/countries_option_render', countries: organisational_countries %>
         </div>
-        <div class="col-lg px-1 col-md-4 col-sm-6">
-          <div class="dropdown custom-dropdown">
-            <button class="border-0 mb-3 p-3 bg-body-color dropdown-toggle w-100 shadow-none" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <span class="d-flex flex-column align-items-start">
-                <h6 class="text-capitalize font-12 font-xxl-14 mb-1">
-                  <span class="font-600 text-capitalize">institutions .</span>
-                  <span class="text-light-grey font-600 institutions-count">0</span>
-                </h6>
-                <span class="text-capitalize font-12 font-xxl-14 text-light-grey font-600">View all</span>
-              </span>
-            </button>
-            <div class="dropdown-menu z-index-10 down-drop h-400-with-scroll" aria-labelledby="dropdownMenuButton">
-              <div class="form-group dropdown-item pl-3 m-0">
-                <label for="institution-all" class="custom-checkbox d-flex m-0">
-                  <span class="font-12 text-black text-capitalize">View All</span>
-                  <%= check_box_tag 'filters[institution_ids][]', 'all', false, id: "institution-all", class: 'form-control institutions', onclick: 'RailsUJS.fire(this.form, "submit")' %>
-                  <span class="transparent-checkmark"></span>
-                </label>
-              </div>
-              <% organisational_institutions.each do |institution| %>
-                <div class="form-group dropdown-item pl-3 m-0">
-                  <label for="institution<%= institution.id %>" class="custom-checkbox d-flex m-0">
-                    <span class="font-12 text-black text-capitalize">
-                      <%= institution.name %>
-                    </span>
-                    <%= check_box_tag 'filters[institution_ids][]', institution.id, false, id: "institution#{institution.id}", class: 'form-control institutions', onclick: 'RailsUJS.fire(this.form, "submit")' %>
-                    <span class="transparent-checkmark"></span>
-                  </label>
-                </div>
-              <% end %>
-            </div>
-          </div>
+        <div class="col-lg px-1 col-md-4 col-sm-6" id="segmentation-institutions">
+          <%= render 'organisation/dashboard/partials/institutions_option_render', institutions: organisational_institutions %>
         </div>
         <!-- <div class="col-lg px-1 col-md-4 col-sm-6">
           <div class="dropdown custom-dropdown">
