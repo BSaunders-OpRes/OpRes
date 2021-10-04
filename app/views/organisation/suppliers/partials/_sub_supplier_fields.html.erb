@@ -20,13 +20,13 @@
     <div class="row no-gutters">
       <div class="col-md-2 form-group px-1">
         <label for="ch1" class="rounded border label-field p-2 d-flex align-items-start flex-column justify-content-between">
-          <%= supplier_sla.number_field :service_level_agreement, step: 0.01, min: 0, placeholder: 'Enter Target', class: 'border-0 shadow-none h-auto form-control order-2 text-left p-0 font-12 font-12' %>
+          <%= supplier_sla.number_field :service_level_agreement, step: 'any', min: 0, placeholder: 'Enter Target', class: 'border-0 shadow-none h-auto form-control order-2 text-left p-0 font-12 font-12' %>
           <span class="font-12 font-500 text-capitalize">SLA</span>
         </label>
       </div>
       <div class="col-md-2 form-group px-1">
         <label for="ch1" class="border label-field rounded p-2 d-flex align-items-start flex-column justify-content-between">
-          <%= supplier_sla.number_field :service_level_objective, step: 0.01, min: 0, placeholder: 'Enter Target', id: 'inlineFormInputGroup', class: 'border-0 shadow-none h-auto form-control order-2 text-left p-0 font-12' %>
+          <%= supplier_sla.number_field :service_level_objective, step: 'any', min: 0, placeholder: 'Enter Target', id: 'inlineFormInputGroup', class: 'border-0 shadow-none h-auto form-control order-2 text-left p-0 font-12' %>
           <span class="font-12 font-500 text-capitalize">SLO</span>
         </label>
       </div>
