@@ -54,10 +54,10 @@ class BreakdownService < Graphs::BaseService
               firm_impact_tolerance: bsl_sla_val,
               difference: bsl_sla_val - supplier.sla[sla_attr],
               total_number_of_critical_steps: supplier.critical_supplier_steps.count,
-              resilience_id: supplier.resilience_tickets.present? ? supplier.resilience_tickets.last&.rgid : 'N/A'
+              resilience_id: supplier.resilience_tickets.present? ? supplier.resilience_tickets.find_by(sla_attr: sla_attr)&.rgid : 'N/A'
             }
             breakdown_data["#{sla_attr}"]["#{result[1]}_suppliers"] << supplier_data
-            breakdown_data["#{sla_attr}"]["#{result[1]}_suppliers"] = breakdown_data["#{sla_attr}"]["#{result[1]}_suppliers"].uniq {|a| a[:id]}
+            # breakdown_data["#{sla_attr}"]["#{result[1]}_suppliers"] = breakdown_data["#{sla_attr}"]["#{result[1]}_suppliers"].uniq {|a| a[:id]}
           end
         end
       end
