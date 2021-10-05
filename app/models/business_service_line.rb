@@ -1,4 +1,8 @@
 class BusinessServiceLine < ApplicationRecord
+
+  # Modules #
+  include ResilienceConcern
+
   # Associations #
   belongs_to :unit
 
@@ -146,36 +150,16 @@ class BusinessServiceLine < ApplicationRecord
             result = find_score_and_status_for_time(sla[risk_appetite.kind], supplier_step.supplier.sla[risk_appetite.kind], risk_appetite.amount)
           end
           if result[1] == 'exceed'
-            resilience_id = ResilienceTicket.where(unit: unit)&.last&.rgid.present? ? (ResilienceTicket.where(unit: unit).last.rgid&.split('-')[1].to_i+1).to_s :  '100000'.to_s
-            unless ResilienceTicket.find_by(sla_attr: risk_appetite.kind, business_service_line: self, unit: unit, supplier: supplier_step.supplier)
-              self.resilience_tickets << ResilienceTicket.create( user: self.organisation_root_users.first, rgid: 'RES-'+resilience_id, sla_attr: risk_appetite.kind, business_service_line: self, unit: unit, supplier: supplier_step.supplier)
+            resilience_id = ResilienceTicket.where(unit: unit.parent)&.last&.rgid.present? ? (ResilienceTicket.where(unit: unit.parent).last.rgid&.split('-')[1].to_i+1).to_s :  '100000'.to_s
+            unless ResilienceTicket.find_by(sla_attr: risk_appetite.kind, business_service_line: self, unit: unit.parent, supplier: supplier_step.supplier)
+              self.resilience_tickets << ResilienceTicket.create( user: self.organisation_root_users.first, rgid: 'RES-'+resilience_id, sla_attr: risk_appetite.kind, business_service_line: self, unit: unit.parent, supplier: supplier_step.supplier)
             end
           else
             # for destroying the ticket which is not exceeding now
-            ResilienceTicket.find_by(sla_attr: risk_appetite.kind,business_service_line: self, unit: unit, supplier: supplier_step.supplier)&.destroy
+            ResilienceTicket.find_by(sla_attr: risk_appetite.kind,business_service_line: self, unit: unit.parent, supplier: supplier_step.supplier)&.destroy
           end
         end
       end
-    end
-  end
-
-  def find_score_and_status_for_percentage(bsl_point,  supplier_point, impact_tolerance_point)
-    if(supplier_point == bsl_point || supplier_point > bsl_point)
-      %w(10 match)
-    elsif (supplier_point < bsl_point && supplier_point >= impact_tolerance_point)
-      %w(5 meet)
-    elsif (supplier_point < impact_tolerance_point)
-      %w(0 exceed)
-    end
-  end
-
-  def find_score_and_status_for_time(bsl_point,  supplier_point, impact_tolerance_point)
-    if (supplier_point == bsl_point || supplier_point <= bsl_point)
-      %w(10 match)
-    elsif (supplier_point > bsl_point && (supplier_point <= impact_tolerance_point && supplier_point > bsl_point))
-      %w(5  meet)
-    elsif (supplier_point > impact_tolerance_point)
-      %w(0 exceed)
     end
   end
 end
