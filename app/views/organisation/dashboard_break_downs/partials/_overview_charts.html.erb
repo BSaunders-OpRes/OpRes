@@ -38,7 +38,7 @@
                                     <% end %>
                                     <% if @data.dig(chp, cm, bsl.id, supplier.id, :cloud_services).length > 3 %>
                                     <li>
-                                      <%= link_to "#{@data.dig(chp, cm, bsl.id, supplier.id, :cloud_services).length-3} view more", cloud_service_provider_services_organisation_dashboard_break_downs_path(consumption_model: cm, supplier_id: supplier.id), class: "text-black font-12 font-xxl-14 py-1 border-top-0 border-right-0 border-left-0 px-0 bg-transparent view-more-list", remote: true %>
+                                      <%= link_to "#{@data.dig(chp, cm, bsl.id, supplier.id, :cloud_services).length-3} view more", cloud_service_provider_services_organisation_dashboard_break_downs_path(consumption_model: cm, supplier_id: supplier.id, cloud_hosting_provider: chp), class: "text-black font-12 font-xxl-14 py-1 border-top-0 border-right-0 border-left-0 px-0 bg-transparent view-more-list", remote: true %>
                                       <!-- <button type="button" class="font-12 font-xxl-14 py-1 border-top-0 border-right-0 border-left-0 px-0 bg-transparent">
                                         <%#= @data.dig(chp, cm, bsl.id, supplier.id, :cloud_services).length-3 %> view more
                                       </button> -->
