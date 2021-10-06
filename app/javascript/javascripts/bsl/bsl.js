@@ -243,14 +243,13 @@ document.addEventListener('turbolinks:load', function() {
         $(warning_message_id).removeClass('d-block').addClass('d-none');
       }
     }
-    else{
+    else if(!$(this).attr('data-sla').includes("transactions_per_second")){
       if(impact_tolerance_val < sla_attr_val){
         $(warning_message_id).removeClass('d-none').addClass('d-block');
       }else{
         $(warning_message_id).removeClass('d-block').addClass('d-none');
       }
     }
-
   });
 
   $('body').on('click', '#save-bsl-form', function(e) {

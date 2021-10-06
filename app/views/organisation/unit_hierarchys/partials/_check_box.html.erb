@@ -1,9 +1,9 @@
 <% if options.present? %>
   <% options.each do |k, v| %>
     <div class="d-flex align-items-center form-group mr-2">
-      <label class="d-flex p-0 radio-check text-capitalize font-13 align-items-center m-0" for="<% "#{k} -- #{v}" %>">
+      <label class="d-flex p-0 radio-check text-capitalize font-13 align-items-center m-0" for="<%= "#{k} -- #{v}" %>">
         <%= check_box_tag param_name, v, val&.include?(v), class: 'form-check-input mt-0 shadow-none d-none', id: "#{k} -- #{v}" %>
-        <label class="mb-0 ml-2 font-12 text-capitalize order-2 ml-2" for="support-hours-24/7"><%= k %></label>
+        <label class="mb-0 ml-2 font-12 text-capitalize order-2 ml-2" for="<%= "#{k} -- #{v}" %>" ><%= k %></label>
         <div class="checkmark position-relative order-1"></div>
       </label>
     </div>
