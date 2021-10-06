@@ -21,7 +21,7 @@ class Graphs::ImpactToleranceBslsService < Graphs::BaseService
       @match_tolerance  =  0
 
       bsl&.supplier_steps&.each do |supplier_step|
-        bsl.risk_appetites.each do |risk_appetite|
+        bsl.excluded_risk_appetites.each do |risk_appetite|
         bsl_sla_val       = bsl.sla[risk_appetite.kind]
         supplier_sla_val  = supplier_step.supplier.sla[risk_appetite.kind]
         risk_appetite_val = risk_appetite&.amount

@@ -22,11 +22,11 @@ class CHP::OverviewCharts < ApplicationService
         data[co.short_name][c_model][:bsls] = cm_bsls
         cm_bsls.each do |bsl|
           data[co.short_name][c_model][bsl.id] = {}
-          b_suppliers = Supplier.joins(supplier_steps: [step: :business_service_line]).where(business_service_lines: { id: bsl.id })
+          b_suppliers = Supplier.joins(supplier_steps: [step: :business_service_line]).where("business_service_lines.id =? AND suppliers.consumption_model = ?", bsl.id, Supplier.consumption_models[c_model])
           data[co.short_name][c_model][bsl.id][:suppliers] = b_suppliers
           b_suppliers.each do |supplier|
             data[co.short_name][c_model][bsl.id][supplier.id]  = {}
-            data[co.short_name][c_model][bsl.id][supplier.id][:cloud_services] = supplier.cloud_hosting_provider.cloud_hosting_provider_services.where(service_tag: c_model).pluck(:name)
+            data[co.short_name][c_model][bsl.id][supplier.id][:cloud_services] = supplier.cloud_hosting_provider_services.where(cloud_hosting_provider_id: co.id, service_tag: c_model).pluck(:name)
           end
         end
       end

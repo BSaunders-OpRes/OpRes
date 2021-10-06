@@ -123,7 +123,8 @@ class Organisation::DashboardBreakDownsController < Organisation::BaseController
   end
 
   def cloud_service_provider_services
+    @chp = CloudHostingProvider.find_by_short_name(params[:cloud_hosting_provider])
     @supplier = Supplier.find(params[:supplier_id])
-    @services = @supplier.cloud_hosting_provider.cloud_hosting_provider_services.where(service_tag: params[:consumption_model])
+    @services = @supplier.cloud_hosting_provider_services.where(cloud_hosting_provider_id: @chp.id, service_tag: params[:consumption_model])
   end
 end

@@ -37,7 +37,7 @@ class Graphs::SystemSupplierResilienceIndicatorService < Graphs::BaseService
       party_type_suppliers.each do |party_type, supplier_steps|
         supplier_steps.each do |supplier_step|
           datum[party_type.underscore][:total] += 1
-          bsl.risk_appetites.each do |risk_appetite|
+          bsl.excluded_risk_appetites.each do |risk_appetite|
             bsl_sla_val       = bsl.sla[risk_appetite.kind]
             supplier_sla_val  = supplier_step.supplier.sla[risk_appetite.kind]
             risk_appetite_val = risk_appetite&.amount

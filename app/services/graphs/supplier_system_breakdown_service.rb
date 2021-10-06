@@ -24,7 +24,7 @@ class Graphs::SupplierSystemBreakdownService < Graphs::BaseService
       total_sum = 0
       sla_attr = {}
 
-      bsl.risk_appetites.each do |risk_appetite|
+      bsl.excluded_risk_appetites.each do |risk_appetite|
         bsl_sla_val       = bsl.sla[risk_appetite.kind]
         supplier_sla_val  = supplier_step.supplier.sla[risk_appetite.kind]
         risk_appetite_val = risk_appetite&.amount

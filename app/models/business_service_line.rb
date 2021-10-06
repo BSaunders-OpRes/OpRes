@@ -1,4 +1,8 @@
 class BusinessServiceLine < ApplicationRecord
+
+  # Modules #
+  include ResilienceConcern
+
   # Associations #
   belongs_to :unit
 
@@ -118,7 +122,7 @@ class BusinessServiceLine < ApplicationRecord
   end
 
   def custom_validation
-    risk_appetites&.each do |risk_appetite|
+    excluded_risk_appetites&.each do |risk_appetite|
       if risk_appetite.percentage_amount?
         if !risk_appetite&.amount.nil? && !sla[risk_appetite.kind.to_sym] && risk_appetite&.amount > sla[risk_appetite.kind.to_sym]
           self.errors[:base] << "Risk Appetite does not meet the requirement of target value."
@@ -131,11 +135,15 @@ class BusinessServiceLine < ApplicationRecord
     end
   end
 
+  def excluded_risk_appetites
+    risk_appetites.where.not(kind: ["response_time", "transactions_per_second"])
+  end
+
   private
 
   def create_resilience_tickets
     supplier_steps&.each do |supplier_step|
-      risk_appetites.each do |risk_appetite|
+      excluded_risk_appetites.each do |risk_appetite|
         bsl_sla_val       = sla[risk_appetite.kind]
         supplier_sla_val  = supplier_step.supplier.sla[risk_appetite.kind]
         risk_appetite_val = risk_appetite&.amount
@@ -146,36 +154,16 @@ class BusinessServiceLine < ApplicationRecord
             result = find_score_and_status_for_time(sla[risk_appetite.kind], supplier_step.supplier.sla[risk_appetite.kind], risk_appetite.amount)
           end
           if result[1] == 'exceed'
-            resilience_id = ResilienceTicket.where(unit: unit)&.last&.rgid.present? ? (ResilienceTicket.where(unit: unit).last.rgid&.split('-')[1].to_i+1).to_s :  '100000'.to_s
-            unless ResilienceTicket.find_by(sla_attr: risk_appetite.kind, business_service_line: self, unit: unit, supplier: supplier_step.supplier)
-              self.resilience_tickets << ResilienceTicket.create( user: self.organisation_root_users.first, rgid: 'RES-'+resilience_id, sla_attr: risk_appetite.kind, business_service_line: self, unit: unit, supplier: supplier_step.supplier)
+            resilience_id = ResilienceTicket.where(unit: unit.parent)&.last&.rgid.present? ? (ResilienceTicket.where(unit: unit.parent).last.rgid&.split('-')[1].to_i+1).to_s :  '100000'.to_s
+            unless ResilienceTicket.find_by(sla_attr: risk_appetite.kind, business_service_line: self, unit: unit.parent, supplier: supplier_step.supplier)
+              self.resilience_tickets << ResilienceTicket.create( user: self.organisation_root_users.first, rgid: 'RES-'+resilience_id, sla_attr: risk_appetite.kind, business_service_line: self, unit: unit.parent, supplier: supplier_step.supplier)
             end
           else
             # for destroying the ticket which is not exceeding now
-            ResilienceTicket.find_by(sla_attr: risk_appetite.kind,business_service_line: self, unit: unit, supplier: supplier_step.supplier)&.destroy
+            ResilienceTicket.find_by(sla_attr: risk_appetite.kind,business_service_line: self, unit: unit.parent, supplier: supplier_step.supplier)&.destroy
           end
         end
       end
-    end
-  end
-
-  def find_score_and_status_for_percentage(bsl_point,  supplier_point, impact_tolerance_point)
-    if(supplier_point == bsl_point || supplier_point > bsl_point)
-      %w(10 match)
-    elsif (supplier_point < bsl_point && supplier_point >= impact_tolerance_point)
-      %w(5 meet)
-    elsif (supplier_point < impact_tolerance_point)
-      %w(0 exceed)
-    end
-  end
-
-  def find_score_and_status_for_time(bsl_point,  supplier_point, impact_tolerance_point)
-    if (supplier_point == bsl_point || supplier_point <= bsl_point)
-      %w(10 match)
-    elsif (supplier_point > bsl_point && (supplier_point <= impact_tolerance_point && supplier_point > bsl_point))
-      %w(5  meet)
-    elsif (supplier_point > impact_tolerance_point)
-      %w(0 exceed)
     end
   end
 end

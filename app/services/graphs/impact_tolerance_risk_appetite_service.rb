@@ -35,7 +35,7 @@ class Graphs::ImpactToleranceRiskAppetiteService < Graphs::BaseService
       tbs.each do |supplier|
         supplier_bsls = total_bsls.where(suppliers: { id: supplier.id })
         supplier_bsls.each do |bsl|
-          bsl.risk_appetites.each do |risk_appetite|
+          bsl.excluded_risk_appetites.each do |risk_appetite|
             bsl_sla_val       = bsl.sla[risk_appetite.kind]
             supplier_sla_val  = supplier.sla[risk_appetite.kind]
             risk_appetite_val = risk_appetite&.amount

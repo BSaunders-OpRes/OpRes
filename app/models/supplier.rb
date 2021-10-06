@@ -1,6 +1,8 @@
 class Supplier < ApplicationRecord
   # Modules #
   include Suppliers::SupplierStepConcern
+  include ResilienceConcern
+
 
   # Associations #
   belongs_to :unit
@@ -44,6 +46,9 @@ class Supplier < ApplicationRecord
   accepts_nested_attributes_for :social_account_recipients, allow_destroy: true
   accepts_nested_attributes_for :third_party_suppliers,     allow_destroy: true
   accepts_nested_attributes_for :fourth_party_suppliers,    allow_destroy: true
+
+  # callbacks #
+  after_save :create_resilience_tickets
 
   # Methods #
   def strf_attr(attr)
@@ -100,5 +105,38 @@ class Supplier < ApplicationRecord
 
   def cloud_hosting_provider_services_list
     cloud_hosting_provider_services.pluck(:name).join(', ')
+  end
+
+  private
+
+  def create_resilience_tickets
+
+    bsls = BusinessServiceLine.joins(steps: [supplier_steps: [:supplier]])
+                              .where(suppliers: {id: id})
+                              .includes(:sla)
+
+    bsls.each do |bsl|
+      bsl.excluded_risk_appetites.each do |risk_appetite|
+        bsl_sla_val       = bsl.sla[risk_appetite.kind]
+        supplier_sla_val  = sla[risk_appetite.kind]
+        risk_appetite_val = risk_appetite&.amount
+        if bsl_sla_val && supplier_sla_val && risk_appetite_val
+          if risk_appetite.percentage_amount?
+            result = find_score_and_status_for_percentage(bsl.sla[risk_appetite.kind], sla[risk_appetite.kind], risk_appetite.amount)
+          else
+            result = find_score_and_status_for_time(bsl.sla[risk_appetite.kind], sla[risk_appetite.kind], risk_appetite.amount)
+          end
+          if result[1] == 'exceed'
+            resilience_id = ResilienceTicket.where(unit: unit)&.last&.rgid.present? ? (ResilienceTicket.where(unit: unit).last.rgid&.split('-')[1].to_i+1).to_s :  '100000'.to_s
+            unless ResilienceTicket.find_by(sla_attr: risk_appetite.kind, business_service_line: bsl, unit: unit, supplier: self)
+              self.resilience_tickets << ResilienceTicket.create( user: bsl.organisation_root_users.first, rgid: 'RES-'+resilience_id, sla_attr: risk_appetite.kind, business_service_line: bsl, unit: unit, supplier: self)
+            end
+          else
+            # for destroying the ticket which is not exceeding now
+            ResilienceTicket.find_by(sla_attr: risk_appetite.kind, business_service_line: bsl, unit: unit, supplier: self)&.destroy
+          end
+        end
+      end
+    end
   end
 end
