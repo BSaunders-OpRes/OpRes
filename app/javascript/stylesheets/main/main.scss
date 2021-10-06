@@ -4,7 +4,7 @@
   }
 }
 
-.logo-box {
+.logo-box, .logo-container {
   img {
     display: block !important;
   }
@@ -127,6 +127,17 @@ button[aria-expanded='false'] {
 .general-dropdown {
   .down-drop{
     transform: translate3d(5px, 158px, 0px) !important;
+  }
+}
+
+.search-field {
+  input[type='text'] {
+    border: 1px solid #ddd !important;
+    opacity: .2;
+    pointer-events: none;
+  }
+  a {
+    pointer-events: none;
   }
 }
 

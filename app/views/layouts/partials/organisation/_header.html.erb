@@ -3,6 +3,7 @@
     <div class="logo-bar d-flex align-items-center">
       <% unless hide_side_bar? %>
         <i id="open_sidebar" class="fa fa-bars font-18 text-white" aria-hidden="true"></i>
+        <a href="#" class="btn-shine font-12" target="_blank">Search Functionality is coming soon..!</a>
       <% end %>
       <div class="logo-box ml-3">
         <%= link_to determine_user_redirect_path do %>
@@ -13,7 +14,8 @@
     <% unless hide_search_bar? %>
       <div class="search-field" id="header-search-field">
         <i class="fa fa-search text-medium-grey font-14" aria-hidden="true"></i>
-        <input type="text" placeholder="search anything..." class="border-0 text-medium-grey form-control shadow-none h-auto text-capitalize">
+        <input type="text" class="border-0 text-medium-grey form-control shadow-none h-auto text-capitalize">
+        <a href="#" class="btn-shine font-12" target="_blank">Search Functionality is coming soon..!</a>
       </div>
     <% end %>
     <div class="notification-field d-flex align-items-center justify-content-end">
