@@ -122,7 +122,7 @@ class BusinessServiceLine < ApplicationRecord
   end
 
   def custom_validation
-    risk_appetites&.each do |risk_appetite|
+    excluded_risk_appetites&.each do |risk_appetite|
       if risk_appetite.percentage_amount?
         if !risk_appetite&.amount.nil? && !sla[risk_appetite.kind.to_sym] && risk_appetite&.amount > sla[risk_appetite.kind.to_sym]
           self.errors[:base] << "Risk Appetite does not meet the requirement of target value."
@@ -135,11 +135,15 @@ class BusinessServiceLine < ApplicationRecord
     end
   end
 
+  def excluded_risk_appetites
+    risk_appetites.where.not(kind: ["response_time", "transactions_per_second"])
+  end
+
   private
 
   def create_resilience_tickets
     supplier_steps&.each do |supplier_step|
-      risk_appetites.each do |risk_appetite|
+      excluded_risk_appetites.each do |risk_appetite|
         bsl_sla_val       = sla[risk_appetite.kind]
         supplier_sla_val  = supplier_step.supplier.sla[risk_appetite.kind]
         risk_appetite_val = risk_appetite&.amount
