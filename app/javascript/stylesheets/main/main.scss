@@ -129,6 +129,24 @@ button[aria-expanded='false'] {
     transform: translate3d(5px, 158px, 0px) !important;
   }
 }
+header {
+  .search-field {
+    input[type='text'] {
+      border: 1px solid #ddd !important;
+      opacity: .2;
+      pointer-events: none;
+    }
+    a {
+      pointer-events: none;
+    }
+  }
+}
+
+.search-field {
+  input[type='text'] {
+    border: 1px solid #ddd !important;
+  }
+}
 
 .search-field {
   input[type='text'] {
