@@ -148,17 +148,6 @@ header {
   }
 }
 
-.search-field {
-  input[type='text'] {
-    border: 1px solid #ddd !important;
-    opacity: .2;
-    pointer-events: none;
-  }
-  a {
-    pointer-events: none;
-  }
-}
-
 .bubble-circle {
   background: $primary-green;
   width: 50px;
