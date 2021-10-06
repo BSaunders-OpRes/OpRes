@@ -7,7 +7,7 @@
     <td class="font-12 py-0 px-1 font-xxl-14 font-400 text-capitalize align-middle"><%= bsl.unit&.parent&.name %></td>
     <td class="font-12 py-0 px-1 font-xxl-14 font-400 text-capitalize align-middle"><%= bsl.unit&.parent&.parent&.name %></td>
     <td class="font-12 py-0 px-1 font-xxl-14 font-400 text-capitalize align-middle"><%= bsl.unit&.name %></td>
-    <td class="font-12 py-0 px-1 font-xxl-14 font-400 text-capitalize align-middle">products</td>
+    <td class="font-12 py-0 px-1 font-xxl-14 font-400 text-capitalize align-middle"><%= bsl.products&.pluck(:name)&.to_sentence %></td>
     <td class="font-12 py-0 d-flex py-4 px-2">
       <%= link_to 'Edit', edit_organisation_business_service_line_path(bsl), class: 'mx-1 text-black text-uppercase font-600 font-12' %>
       <%= link_to 'View', organisation_business_service_line_path(bsl), class: 'mx-1 text-black text-uppercase font-600 font-12' %>
