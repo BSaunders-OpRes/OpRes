@@ -3,7 +3,7 @@
     <span class="d-flex flex-column align-items-start">
       <h6 class="text-capitalize font-12 font-xxl-14 mb-1">
         <span class="font-600 text-capitalize">products .</span>
-        <span class="text-light-grey font-600 products-count">0</span>
+        <span class="text-light-grey font-600 products-count"><%= selected_count_filters(params, "product_ids") %></span>
       </h6>
       <span class="text-capitalize font-12 font-xxl-14 text-light-grey font-600">View all</span>
     </span>
@@ -12,7 +12,7 @@
     <div class="form-group dropdown-item pl-3 m-0">
       <label for="product-all" class="custom-checkbox d-flex m-0">
         <span class="font-12 text-black text-capitalize">View All</span>
-        <%= check_box_tag 'filters[product_ids][]', 'all', false, id: "product-all", class: 'form-control products', onclick: 'RailsUJS.fire(this.form, "submit")' %>
+        <%= check_box_tag 'filters[product_ids][]', 'all', checkboxes_handler(params, "product_ids", "all"), id: "product-all", class: 'form-control products', onclick: 'selectCall();RailsUJS.fire(this.form, "submit")' %>
         <span class="transparent-checkmark"></span>
       </label>
     </div>
@@ -20,7 +20,7 @@
       <div class="form-group dropdown-item pl-3 m-0">
         <label for="product<%= product.id %>" class="custom-checkbox d-flex m-0">
           <span class="font-12 text-black text-capitalize"><%= product.name %></span>
-          <%= check_box_tag 'filters[product_ids][]', product.id, false, id: "product#{product.id}", class: 'form-control products', onclick: 'RailsUJS.fire(this.form, "submit")' %>
+          <%= check_box_tag 'filters[product_ids][]', product.id, checkboxes_handler(params, "product_ids", product.id), id: "product#{product.id}", class: 'form-control products', onclick: 'RailsUJS.fire(this.form, "submit")' %>
           <span class="transparent-checkmark"></span>
         </label>
       </div>

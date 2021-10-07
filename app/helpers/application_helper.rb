@@ -270,5 +270,30 @@ module ApplicationHelper
   def organisational_products
     Product.joins(:units).where(units: { id: organisational_institution_ids.map(&:id) }).uniq
   end
+
+  def checkboxes_handler(params_data, ids_sym, id)
+    params_data.dig(:filters, ids_sym.to_sym).present? && (params.dig(:filters, ids_sym.to_sym).include?("all") || params.dig(:filters, ids_sym.to_sym).include?(id.to_s)) ? true : false
+  end
+
+  def selected_count_filters(params_data, ids_sym)
+    if params_data.dig(:filters, ids_sym.to_sym).present?
+      if params.dig(:filters, ids_sym.to_sym).include?("all")
+        case ids_sym
+        when "sub_region_ids"
+          return organisational_countries(params_data).length
+        when "institution_ids"
+          return organisational_institutions(params_data).length
+        when "product_ids"
+          return organisational_products.length
+        when "country_ids"
+          return organisational_countries(params_data).length
+        end
+      else
+        return params.dig(:filters, ids_sym.to_sym).length
+      end
+    else
+      return 0
+    end
+  end
 end
 

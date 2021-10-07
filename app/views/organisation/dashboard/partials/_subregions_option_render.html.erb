@@ -3,7 +3,7 @@
     <span class="d-flex flex-column align-items-start">
       <h6 class="text-capitalize font-12 font-xxl-14 mb-1">
         <span class="font-600 text-capitalize">Sub Regions .</span>
-        <span class="text-light-grey font-600 sub-region-count">0</span>
+        <span class="text-light-grey font-600 sub-region-count"><%= selected_count_filters(params, "sub_region_ids") %></span>
       </h6>
       <span class="text-capitalize font-600 font-12 font-xxl-14 text-light-grey">View all</span>
     </span>
@@ -12,7 +12,7 @@
     <div class="form-group dropdown-item pl-3 m-0">
       <label for="sub-region-all" class="custom-checkbox d-flex m-0">
         <span class="font-12 text-black text-capitalize">View All</span>
-        <%= check_box_tag 'filters[sub_region_ids][]', 'all', false, id: "sub-region-all", class: 'form-control sub-regions', onclick: 'RailsUJS.fire(this.form, "submit")' %>
+        <%= check_box_tag 'filters[sub_region_ids][]', 'all', checkboxes_handler(params, "sub_region_ids","all"), id: "sub-region-all", class: 'form-control sub-regions', onclick: 'selectCall();RailsUJS.fire(this.form, "submit")' %>
         <span class="transparent-checkmark"></span>
       </label>
     </div>
@@ -22,7 +22,7 @@
           <span class="font-12 text-black text-capitalize">
           <!-- <i class="flag <%#= country.name.downcase %>"></i> -->
           <%= country.subregion %></span>
-          <%= check_box_tag 'filters[sub_region_ids][]', country.id, false, id: "sub-region#{country.id}", class: 'form-control sub-regions', onclick: 'RailsUJS.fire(this.form, "submit")' %>
+          <%= check_box_tag 'filters[sub_region_ids][]', country.id, checkboxes_handler(params, "sub_region_ids", country.id), id: "sub-region#{country.id}", class: 'form-control sub-regions', onclick: 'RailsUJS.fire(this.form, "submit")' %>
           <span class="transparent-checkmark"></span>
         </label>
       </div>
