@@ -31,7 +31,7 @@ document.addEventListener('turbolinks:load', function() {
         // $('.sub-regions').prop("checked", e.target.checked);
         $('.sub-region-count').text(e.target.checked ? $('.sub-regions').length-1 : 0);
       }else{
-        $('.sub-regions-count').text($('.sub-regions:checked').length);
+        $('.sub-region-count').text($('.sub-regions:checked').length);
       }
     }
     if(e.target.className.includes('products')){
@@ -59,4 +59,10 @@ document.addEventListener('turbolinks:load', function() {
     //   }
     // }
   });
+
+  window.selectCall = function(){
+    if(!this.event.target.checked){
+      $(`.${this.event.target.className.split(" ").pop()}`).prop("checked", false);
+    }
+  }
 });
