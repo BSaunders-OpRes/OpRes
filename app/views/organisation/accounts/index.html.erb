@@ -111,17 +111,17 @@
                       <div class="d-flex flex-column">
                         <label for="ch1" class="custom-checkbox mb-4 d-flex align-items-center p-0">
                           <span class="order-2 pl-2 text-capitalize font-13 font-xxl-14 font-400">root user</span>
-                          <input type="checkbox" id='ch1' checked="checked">
+                          <%= check_box_tag 'user[role][]', 'root_user', current_user.role == "root_user" ? true : false, id: "root_user" %>
                           <span class="checkmark position-relative order-1"></span>
                         </label>
                         <label for="ch2" class="custom-checkbox mb-4 d-flex align-items-center p-0">
                           <span class="order-2 pl-2 text-capitalize font-13 font-xxl-14 font-400">super user</span>
-                          <input type="checkbox" id='ch2'>
+                          <%= check_box_tag 'user[role][]', 'super_user', current_user.role == "super_user" ? true : false, id: "super_user" %>
                           <span class="checkmark position-relative order-1"></span>
                         </label>
                         <label for="ch3" class="custom-checkbox mb-4 d-flex align-items-center p-0">
                           <span class="order-2 pl-2 text-capitalize font-13 font-xxl-14 font-400">user</span>
-                          <input type="checkbox" id='ch3' checked="checked">
+                          <%= check_box_tag 'user[role][]', 'user', current_user.role == "standard_user" ? true : false, id: "user" %>
                           <span class="checkmark position-relative order-1"></span>
                         </label>
                       </div>
@@ -138,21 +138,14 @@
                     </div>
                     <div class="col-sm-6 order-3 order-sm-2">
                       <div class="d-flex flex-column">
-                        <label for="ch4" class="custom-checkbox mb-4 d-flex align-items-center p-0">
-                          <span class="order-2 pl-2 text-capitalize font-13 font-xxl-14 font-400">EMEA</span>
-                          <input type="checkbox" id='ch4'>
-                          <span class="checkmark position-relative order-1"></span>
-                        </label>
-                        <label for="ch5" class="custom-checkbox mb-4 d-flex align-items-center p-0">
-                          <span class="order-2 pl-2 text-capitalize font-13 font-xxl-14 font-400">AMERS</span>
-                          <input type="checkbox" id='ch5' checked="checked">
-                          <span class="checkmark position-relative order-1"></span>
-                        </label>
-                        <label for="ch6" class="custom-checkbox mb-4 d-flex align-items-center p-0">
-                          <span class="order-2 pl-2 text-capitalize font-13 font-xxl-14 font-400">APAC</span>
-                          <input type="checkbox" id='ch6'>
-                          <span class="checkmark position-relative order-1"></span>
-                        </label>
+                        <% regional_units = organisational_unit.children %>
+                        <% Region.all.each do |region| %>
+                          <label for="<%= region.id %>" class="custom-checkbox mb-4 d-flex align-items-center p-0">
+                            <span class="order-2 pl-2 text-capitalize font-13 font-xxl-14 font-400"><%= region.name %></span>
+                            <%= check_box_tag 'user[region][]', 'user', regional_units.pluck(:region_id).include?(region.id), id: "#{region.id}" %>
+                            <span class="checkmark position-relative order-1"></span>
+                          </label>
+                        <% end %>
                       </div>
                     </div>
                     <div class="col-sm-2 text-right order-2 flex-sm-half mb-2 mb-sm-0">
@@ -184,7 +177,7 @@
                       </div>
                       <div class="col-sm-2 text-right order-2 flex-sm-half mb-0">
                         <a href="#">
-                          <%= image_pack_tag 'media/images/trash.png', class: 'img-fluid' %>
+                          <%#= image_pack_tag 'media/images/trash.png', class: 'img-fluid' %>
                         </a>
                       </div>
                     </div>
@@ -200,7 +193,7 @@
                       </div>
                       <div class="col-sm-2 text-right order-2 flex-sm-half mb-0">
                         <a href="#">
-                          <%= image_pack_tag 'media/images/trash.png', class: 'img-fluid' %>
+                          <%#= image_pack_tag 'media/images/trash.png', class: 'img-fluid' %>
                         </a>
                       </div>
                     </div>
@@ -216,7 +209,7 @@
                       </div>
                       <div class="col-sm-2 text-right order-2 flex-sm-half mb-0">
                         <a href="#">
-                          <%= image_pack_tag 'media/images/trash.png', class: 'img-fluid' %>
+                          <%#= image_pack_tag 'media/images/trash.png', class: 'img-fluid' %>
                         </a>
                       </div>
                     </div>
@@ -232,7 +225,7 @@
                       </div>
                       <div class="col-sm-2 text-right order-2 flex-sm-half mb-0">
                         <a href="#">
-                          <%= image_pack_tag 'media/images/trash.png', class: 'img-fluid' %>
+                          <%#= image_pack_tag 'media/images/trash.png', class: 'img-fluid' %>
                         </a>
                       </div>
                     </div>
@@ -248,7 +241,7 @@
                       </div>
                       <div class="col-sm-2 text-right order-2 flex-sm-half mb-0">
                         <a href="#">
-                          <%= image_pack_tag 'media/images/trash.png', class: 'img-fluid' %>
+                          <%#= image_pack_tag 'media/images/trash.png', class: 'img-fluid' %>
                         </a>
                       </div>
                     </div>
@@ -264,7 +257,7 @@
                       </div>
                       <div class="col-sm-2 text-right order-2 flex-sm-half mb-0">
                         <a href="#">
-                          <%= image_pack_tag 'media/images/trash.png', class: 'img-fluid' %>
+                          <%#= image_pack_tag 'media/images/trash.png', class: 'img-fluid' %>
                         </a>
                       </div>
                     </div>
@@ -280,7 +273,7 @@
                       </div>
                       <div class="col-sm-2 text-right order-2 flex-sm-half mb-0">
                         <a href="#">
-                          <%= image_pack_tag 'media/images/trash.png', class: 'img-fluid' %>
+                          <%#= image_pack_tag 'media/images/trash.png', class: 'img-fluid' %>
                         </a>
                       </div>
                     </div>
@@ -296,7 +289,7 @@
                       </div>
                       <div class="col-sm-2 text-right order-2 flex-sm-half mb-0">
                         <a href="#">
-                          <%= image_pack_tag 'media/images/trash.png', class: 'img-fluid' %>
+                          <%#= image_pack_tag 'media/images/trash.png', class: 'img-fluid' %>
                         </a>
                       </div>
                     </div>
