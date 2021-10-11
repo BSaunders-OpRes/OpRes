@@ -40,6 +40,20 @@
       </div>
       <div class="row align-items-center mt-4">
         <div class="col-sm-4 flex-sm-1 mb-2 mb-sm-0">
+          <p class="text-capitalize font-14 font-600">data classification</p>
+        </div>
+        <div class="col-sm-7 order-3 order-sm-2 field-scroll">
+          <div class="select-arrow">
+            <%= form.select :data_classification, options_for_select(BusinessServiceLine.data_classifications.map { |k, v| [k.titleize, k] }, @bsl&.data_classification), { include_blank: 'Please select' }, { class: 'form-control w-100 font-12 h-auto py-3 shadow-none', required: true } %>
+              <i class="fa fa-sort-desc pr-2 mr-2 position-absolute" aria-hidden="true"></i>
+          </div>
+        </div>
+        <div class="col-sm-1 text-right order-2 flex-sm-half mb-2 mb-sm-0">
+          <div class="info" data-toggle="tooltip" data-placement="top" title="Please select a data classification level for the business service" aria-hidden="true">i</div>
+        </div>
+      </div>
+      <div class="row align-items-center mt-4">
+        <div class="col-sm-4 flex-sm-1 mb-2 mb-sm-0">
           <p class="text-capitalize font-14 font-600">Currency</p>
         </div>
         <div class="col-sm-7 order-3 order-sm-2 field-scroll single-select2">
