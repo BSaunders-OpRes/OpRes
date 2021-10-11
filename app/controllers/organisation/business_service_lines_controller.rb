@@ -43,7 +43,13 @@ class Organisation::BusinessServiceLinesController < Organisation::BaseControlle
     @close_resilience  = @bsl.resilience_tickets.order(:rgid).close
   end
 
-  def destroy; end
+  def destroy 
+    if @bsl.destroy
+      redirect_to organisation_administration_portal_index_path, notice: 'Business Service Line has been deleted successfully.'
+    else
+      redirect_to organisation_administration_portal_index_path, alert: @bsl.errors.full_messages.first
+    end
+  end
 
   def critical_important_suppliers
     @critical_ss  = @bsl.critical_supplier_steps
