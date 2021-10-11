@@ -11,6 +11,19 @@
             <div class="color-tier d-flex align-items-center">
               <i class="fa fa-certificate"></i>
               <div class="text">
+                <span class="font-12 font-xxl-14 font-400 ml-2 d-block">Data Classification:</span>
+                <span class="font-12 font-xxl-14 ml-2 d-block font-600"><%= @bsl&.data_classification&.titleize %></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="card h-100 border-0 bg-body-color mb-2">
+          <div class="card-body p-2 d-flex align-items-center rounded">
+            <div class="color-tier d-flex align-items-center">
+              <i class="fa fa-certificate"></i>
+              <div class="text">
                 <span class="font-12 font-xxl-14 font-400 ml-2 d-block">Service Tier:</span>
                 <span class="font-12 font-xxl-14 ml-2 d-block font-600"><%= @bsl.tier.titleize %></span>
               </div>

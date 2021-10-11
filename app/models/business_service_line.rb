@@ -22,6 +22,7 @@ class BusinessServiceLine < ApplicationRecord
 
   # Enums #
   enum tier: %i[tier_1 tier_2 tier_3 tier_4]
+  enum data_classification: {public: 0, private: 1, internal: 2, confidential: 3, restricted: 4}, _suffix: true
 
   # Validations #
   validates :name, :description, :tier, presence: true
