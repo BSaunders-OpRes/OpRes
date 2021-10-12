@@ -7,7 +7,7 @@
     <td class="font-12 py-0 font-xxl-14 font-400 text-capitalize px-2 align-middle"><%= bsl.unit&.parent&.name %></td>
     <td class="font-12 py-0 font-xxl-14 font-400 text-capitalize px-2 align-middle"><%= bsl.unit&.parent&.parent&.name %></td>
     <td class="font-12 py-0 font-xxl-14 font-400 text-capitalize px-2 align-middle"><%= bsl.unit&.name %></td>
-    <td class="font-12 py-0 font-xxl-14 font-400 text-capitalize px-2 align-middle">products</td>
+    <td class="font-12 py-0 font-xxl-14 font-400 text-capitalize px-2 align-middle"><%= bsl.products&.pluck(:name)&.to_sentence %></td>
     <% bsl_data = @bsl_impact_tolerances&.select{ |pl| pl&.dig(:bsl_id) == bsl.id}%>
     <td class="font-12 py-0 font-xxl-14 font-400 text-capitalize px-2 align-middle"><%= bsl_data&.first&.dig(:match) || 0 %></td>
     <td class="font-12 py-0 font-xxl-14 font-400 text-capitalize px-2 align-middle"><%= bsl_data&.first&.dig(:meet) || 0 %></td>

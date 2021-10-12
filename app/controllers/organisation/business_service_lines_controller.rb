@@ -43,7 +43,13 @@ class Organisation::BusinessServiceLinesController < Organisation::BaseControlle
     @close_resilience  = @bsl.resilience_tickets.order(:rgid).close
   end
 
-  def destroy; end
+  def destroy 
+    if @bsl.destroy
+      redirect_to organisation_administration_portal_index_path, notice: 'Business Service Line has been deleted successfully.'
+    else
+      redirect_to organisation_administration_portal_index_path, alert: @bsl.errors.full_messages.first
+    end
+  end
 
   def critical_important_suppliers
     @critical_ss  = @bsl.critical_supplier_steps
@@ -116,7 +122,7 @@ class Organisation::BusinessServiceLinesController < Organisation::BaseControlle
     end
 
     params.require(:business_service_line)
-          .permit(:unit_id, :name, :description, :tier, :cost_centre_id, :currency_id,
+          .permit(:unit_id, :name, :description, :tier, :cost_centre_id, :currency_id, :data_classification,
             product_ids: [], channel_ids: [],
             material_risk_taker_attributes: %i[id name title email],
             sla_attributes: %i[id service_level_agreement service_level_objective recovery_point_objective recovery_time_objective transactions_per_second response_time severity1 severity2 severity3 severity4 severity1_restoration severity2_restoration severity3_restoration severity4_restoration support_hours support_hours_other],
