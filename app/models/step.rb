@@ -19,7 +19,7 @@ class Step < ApplicationRecord
 
   # Methods #
   def reoder_steps
-    business_service_line.reoder_steps
+    business_service_line.reoder_steps unless destroyed?
   end
 
   def supplier_ids

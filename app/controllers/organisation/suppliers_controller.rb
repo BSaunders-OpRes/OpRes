@@ -45,7 +45,13 @@ class Organisation::SuppliersController < Organisation::BaseController
     @chp_services           = @supplier.cloud_hosting_provider_services
   end
 
-  def destroy; end
+  def destroy
+    if @supplier.destroy
+      redirect_to organisation_administration_portal_index_path, notice: 'Supplier has been deleted successfully.'
+    else
+      redirect_to organisation_administration_portal_index_path, notice: @supplier.errors.full_messages.first
+    end
+  end
 
   def all_suppliers
     @suppliers = Supplier.where(unit_id: managing_nodes)
