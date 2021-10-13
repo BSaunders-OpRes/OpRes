@@ -1,0 +1,7 @@
+<%= form_for BusinessServiceLine.new, url: import_organisation_business_service_lines_path, multipart: true do |f| %>
+   <div class="form-group">
+      <%= f.label :file, "Upload CSV File" %>
+      <%= f.file_field :file, required: true %>
+   </div>
+   <%= f.button :submit %>
+<% end %>

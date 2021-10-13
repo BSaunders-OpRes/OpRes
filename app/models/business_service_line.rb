@@ -1,5 +1,5 @@
 class BusinessServiceLine < ApplicationRecord
-
+  require 'CSV'
   # Modules #
   include ResilienceConcern
 
@@ -40,6 +40,20 @@ class BusinessServiceLine < ApplicationRecord
   after_save :create_resilience_tickets
 
   # Methods #
+  def self.import(file)
+    CSV.open(file.path, headers: true, liberal_parsing: true).each do |row|
+      bsl_hash = BusinessServiceLine.new
+      bsl_hash.name = row[1]
+      bsl_hash.description = row[2]
+      bsl_hash.tier = row[3]
+      bsl_hash.cost_centre_id = row[4]
+      bsl_hash.data_classification = row[5]
+      bsl_hash.material_risk_taker_attributes = {name: row[6], title: row[7], email: row[8]}
+      bsl_hash.unit_id = 1
+      bsl_hash.save
+    end
+  end
+
   def reoder_steps
     steps.each_with_index do |step, index|
       step.update(number: index + 1)

@@ -51,6 +51,16 @@ class Supplier < ApplicationRecord
   after_save :create_resilience_tickets
 
   # Methods #
+  def self.import(file)
+    CSV.foreach(file.path, headers: true) do |row|
+      bsl_hash = Supplier.new
+      bsl_hash.name = row[0]
+      bsl_hash.code = row[1]
+      bsl_hash.material_risk_taker_attributes.
+      bsl_hash.save
+    end
+  end
+
   def strf_attr(attr)
     send(attr)&.strftime('%d.%m.%Y')
   end
