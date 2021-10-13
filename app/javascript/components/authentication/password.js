@@ -25,6 +25,14 @@ export default function login(props) {
     .catch(err => error_handling(err))
   }
 
+  function SubmitButton(){
+    if (email) {
+      return <button type="submit" value="Submit" className='border-0 shadow-sm text-white font-600 rounded bg-primary-green w-100 p-2'>Send</button>
+    } else {
+      return <button type="submit" value="Submit" data-toggle="tooltip" data-placement="top" title="Enter Email" className='border-0 shadow-sm rounded font-600 btn-submit w-100 p-2' disabled>Send</button>
+    };
+  };
+
   const error_handling = (err) => {
     toast.error(err.response.data.error, { autoClose:5000 });
   }
@@ -48,12 +56,12 @@ export default function login(props) {
             <div className='input-field'>
               <form className='h-100' onSubmit={handleSubmit}>
                 <div className="row">
-                  <div class="col-md-10 mx-auto">
+                  <div className="col-md-10 mx-auto">
                     <div className='logo-container'>
                       <img src={Logo} alt=""/>
                     </div>
                     <h2 className="mb-4 font-600">Forgot Password</h2>
-                    <div class="row">
+                    <div className="row">
                       <div className="form-group col-md-12 animated-field">
                         <input type="email" value={email} name="name" className='form-control border-0' placeholder='Email address' onChange={e => setEmail(e.target.value)} />
                         <label>Email Address</label>
@@ -61,9 +69,7 @@ export default function login(props) {
                       </div>
                     </div>
                     <div className="form-group">
-                      <button className='btn-submit w-100 p-2'type="submit" value="Submit">
-                        Send
-                      </button>
+                      <SubmitButton/>
                     </div>
                     <div className='forget-password-text text-center'>
                       <p className="mb-3">
