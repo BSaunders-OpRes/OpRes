@@ -28,7 +28,7 @@ export default function Registration() {
   const [termsAndConditions, setTermsAndConditions]                   = useState(false);
   const [submitted, setSubmitted]                                     = useState(false);
   const [show, setShow]                                               = useState(false);
-
+  const [color, setColor]                                             = useState(false);
   const togglePasswordVisiblity = () => {
     setPasswordShown(passwordShown ? false : true);
   };
@@ -78,6 +78,13 @@ export default function Registration() {
   const error_handling = (err) => {
     toast.error(err.response.data.message, { autoClose:5000 });
   }
+  function SubmitButton(){
+    if (first_name && last_name && email && job_title && password && organisationName && organisationType && termsAndConditions) {
+      return <button type="submit" value="Submit" className='border-0 shadow-sm text-white font-600 rounded bg-primary-green w-100 p-2'>Sign Up</button>
+    } else {
+      return <button type="submit" value="Submit" data-toggle="tooltip" data-placement="top" title="Fill the sign up form" className='border-0 shadow-sm rounded font-600 btn-submit w-100 p-2' disabled>Sign Up</button>
+    };
+  };
 
   const eye = <i className="fa fa-eye" aria-hidden="true"></i>
   const eyeSlash = <i className="fa fa-eye-slash" aria-hidden="true"></i>;
@@ -168,9 +175,7 @@ export default function Registration() {
                       }
                     </div>
                     <div className="form-group col-md-12 mb-2">
-                      <button type="submit" value="Submit" className='btn-submit w-100 p-2'>
-                        Sign Up
-                      </button>
+                      <SubmitButton/>
                     </div>
                     <div className='sign-up-text text-center col-md-12'>
                       <p className="mb-3">Already have an account

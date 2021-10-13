@@ -4,9 +4,9 @@
       <h5 class="text-capitalize text-left w-75 font-600">Overview</h5>
       <!-- <i class="fa fa-ellipsis-v w-25 text-right" aria-hidden="true"></i> -->
     </div>
-    <div class="small-boxes row px-4 mb-4">
-      <div class="col-md-3">
-        <div class="card h-100 border-0 bg-body-color mb-2">
+    <div class="small-boxes row no-gutters px-3 mb-4">
+      <div class="col-md-3 col-lg px-1">
+        <div class="card h-100 border-0 bg-body-color mb-2" data-toggle="tooltip" data-placement="top" title="<%= @bsl&.data_classification&.titleize %>">
           <div class="card-body p-2 d-flex align-items-center rounded">
             <div class="color-tier d-flex align-items-center">
               <i class="fa fa-certificate"></i>
@@ -18,8 +18,8 @@
           </div>
         </div>
       </div>
-      <div class="col-md-3">
-        <div class="card h-100 border-0 bg-body-color mb-2">
+      <div class="col-md-3 col-lg px-1">
+        <div class="card h-100 border-0 bg-body-color mb-2" data-toggle="tooltip" data-placement="top" title="<%= @bsl.tier.titleize %>">
           <div class="card-body p-2 d-flex align-items-center rounded">
             <div class="color-tier d-flex align-items-center">
               <i class="fa fa-certificate"></i>
@@ -31,21 +31,21 @@
           </div>
         </div>
       </div>
-      <div class="col-md-3">
-        <div class="card h-100 border-0 bg-body-color mb-2">
+      <div class="col-md-3 col-lg px-1">
+        <div class="card h-100 border-0 bg-body-color mb-2 " data-toggle="tooltip" data-placement="top" title="<%= @bsl.product_list %>">
           <div class="card-body p-2 d-flex align-items-center rounded">
             <div class="color-tier d-flex align-items-center">
               <i class="fa fa-folder"></i>
               <div class="text">
                 <span class="font-12 font-xxl-14 font-400 ml-2 d-block">Product:</span>
-                <span class="font-12 font-xxl-14 ml-2 d-block font-600"><%= @bsl.product_list %></span>
+                <span class="font-12 font-xxl-14 ml-2 d-block font-600 text-overflow-ellipsis-100"><%= @bsl.product_list %></span>
               </div>
             </div>
           </div>
         </div>
       </div>
-      <div class="col-md-3">
-        <div class="card h-100 border-0 bg-body-color mb-2 d-flex justify-content-center">
+      <div class="col-md-3 col-lg px-1">
+        <div class="card h-100 border-0 bg-body-color mb-2 d-flex justify-content-center" data-toggle="tooltip" data-placement="top" title="<%= @bsl.critical_supplier_steps.size %>">
           <%= link_to critical_important_suppliers_organisation_business_service_line_path(@bsl), class: 'text-black text-decoration-none' do %>
             <div class="card-body p-2 d-flex align-items-center rounded">
               <div class="color-tier d-flex align-items-center">
@@ -59,8 +59,8 @@
           <% end %>
         </div>
       </div>
-      <div class="col-md-3">
-        <div class="card h-100 border-0 bg-body-color mb-2 d-flex justify-content-center">
+      <div class="col-md-3 col-lg px-1">
+        <div class="card h-100 border-0 bg-body-color mb-2 d-flex justify-content-center" data-toggle="tooltip" data-placement="top" title="<%= @bsl.important_supplier_steps.size %>">
           <%= link_to critical_important_suppliers_organisation_business_service_line_path(@bsl), class: 'text-black text-decoration-none' do %>
             <div class="card-body p-2 d-flex align-items-center rounded">
               <div class="color-tier d-flex align-items-center">
