@@ -14,7 +14,7 @@
     <% unless hide_search_bar? %>
       <div class="search-field" id="header-search-field">
         <i class="fa fa-search text-medium-grey font-14" aria-hidden="true"></i>
-        <%= text_field_tag 'q', "", class: ' border-0 text-medium-grey form-control shadow-none h-auto text-capitalize', id: 'select_item', autocomplete: 'on' %>
+        <%= text_field_tag 'q', "", class: ' border-0 text-medium-grey form-control shadow-none h-auto text-capitalize', placeholder: 'Search anything...', id: 'select_item', autocomplete: 'on' %>
         <!-- <input type="text" class="border-0 text-medium-grey form-control shadow-none h-auto text-capitalize" style="pointer-events: visible;"> -->
         <!-- <a href="#" class="btn-shine font-12" target="_blank">Search Functionality is coming soon.</a> -->
       </div>
