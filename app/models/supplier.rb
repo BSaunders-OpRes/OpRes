@@ -1,4 +1,5 @@
 class Supplier < ApplicationRecord
+  require 'CSV'
   # Modules #
   include Suppliers::SupplierStepConcern
   include ResilienceConcern
@@ -53,11 +54,11 @@ class Supplier < ApplicationRecord
   # Methods #
   def self.import(file)
     CSV.foreach(file.path, headers: true) do |row|
-      bsl_hash = Supplier.new
-      bsl_hash.name = row[0]
-      bsl_hash.code = row[1]
-      bsl_hash.material_risk_taker_attributes.
-      bsl_hash.save
+      byebug
+      spl_hash = Supplier.new
+      spl_hash.name = row[0]
+      spl_hash.code = row[1]
+      spl_hash.save
     end
   end
 

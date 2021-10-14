@@ -58,7 +58,7 @@ class Organisation::BusinessServiceLinesController < Organisation::BaseControlle
 
   def import
     BusinessServiceLine.import(params[:business_service_line][:file])
-    redirect_to organisation_administration_portal_index_path, notice: "BSL Data has been imported!"
+    redirect_to organisation_administration_portal_index_path, notice: "BSL data has been imported!"
   end
 
   def compound_resilience
