@@ -71,7 +71,7 @@ document.addEventListener('turbolinks:load', function() {
     source: "/organisation/dashboard/search"
   }).data("ui-autocomplete")._renderItem = function( ul, item ){
     $('.ui-helper-hidden-accessible').remove();
-    var ulElement = $('#ui-id-1');
+    var ulElement = $('.ui-autocomplete');
     ulElement.appendTo('.search-field');
     $(".ui-menu").css({"overflow-y":"scroll", "max-height": "250px"});
     return (
@@ -80,8 +80,8 @@ document.addEventListener('turbolinks:load', function() {
   };
 
   $('body').on('focus', '#select_item', function(e) {
-    if($('#ui-id-1')){
-      $('#ui-id-1').show();
+    if($('.ui-autocomplete')){
+      $('.ui-autocomplete').show();
     }
   });
 
@@ -112,12 +112,12 @@ document.addEventListener('turbolinks:load', function() {
       async:     false,
       success: function(result){
         let newUl = $('<ul class="list-unstyled search-history"></ul>');
-        $("<p class='text-capitalize font-12'>recent searches</p>").insertAfter('#ui-id-1 li:last');
-        $('<p class="text-capitalize font-12">matches</p>').insertBefore('#ui-id-1 li:first');
-        result.forEach((item, index) => newUl.append(`<li class="searched-li py-2 ${index > 2 ? 'd-none' : 'd-block'}">` + `<a href='${item.url}'>${item.title}</a>` + "</li>"))
-        $('#ui-id-1').append(newUl);
-        if(result.length > 2){
-          $('#ui-id-1').append('<a class="view-all text-capitalize text-center font-12 py-2 d-block border-top"><span class="text-dark text-decoration-none cursor-pointer border-bottom-black">View All</span></a>');
+        $("<p class='text-capitalize font-12'>recent searches</p>").insertAfter('.ui-autocomplete li:last');
+        $('<p class="text-capitalize font-12">matches</p>').insertBefore('.ui-autocomplete li:first');
+        result.forEach((item, index) => newUl.append(`<li class="searched-li py-2 ${index > 4 ? 'd-none' : 'd-block'}">` + `<a href='${item.url}'>${item.title}</a>` + "</li>"))
+        $('.ui-autocomplete').append(newUl);
+        if(result.length > 4){
+          $('.ui-autocomplete').append('<a class="view-all text-capitalize text-center font-12 py-2 d-block border-top"><span class="text-dark text-decoration-none cursor-pointer border-bottom-black">View All</span></a>');
         }
         // window.open(ui.item.url, '_blank');
         // location.href = ui.item.url;
