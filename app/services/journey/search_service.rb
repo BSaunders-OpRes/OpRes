@@ -31,6 +31,6 @@ class Journey::SearchService < ApplicationService
   def get_resilience_data
     resilience_ticket = ResilienceTicket.where(unit_id: @nodes)
                                         .where("rgid ILIKE (?)", "%#{@filter}%")
-    return resilience_ticket.map {|rt| {id: rt.id, name: rt.rgid, url: resilience_indicator_ticket_organisation_resilience_ticket_resilience_gap_path(id: rt.business_service_line_id, resilience_ticket_id: rt.id)}}
+    return resilience_ticket.map {|rt| {id: rt.id, name: rt.rgid, url: Rails.application.routes.url_helpers.resilience_indicator_ticket_organisation_resilience_ticket_resilience_gap_path(id: rt.business_service_line_id, resilience_ticket_id: rt.id)}}
   end
 end
