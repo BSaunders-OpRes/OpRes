@@ -30,7 +30,13 @@
           <% end %>
           <tr>
             <td class="font-11 font-xxl-14 px-1 text-dark font-600"><%= bsl_data.dig(:bsl_name)%></td>
-            <td class="font-11 font-xxl-14 text-dark font-600"><%= bsl_data.dig(:total_resilience_gap)%></td>
+            <td class="font-11 font-xxl-14 text-dark font-600">
+              <div class="text-center">
+                <span class="w-25px h-25px bg-red d-flex align-items-center justify-content-center circle text-white text-center">
+                  <%= bsl_data.dig(:total_resilience_gap)%>
+                </span>
+              </div>
+            </td>
             <td class="font-11 font-xxl-14 text-dark font-600"><%= bsl_data.dig(:exceed_firm_hosted)%></td>
             <td class="font-11 font-xxl-14 text-dark font-600"><%= bsl_data.dig(:exceed_3rd_party)%></td>
             <td class="font-11 font-xxl-14 text-dark font-600"><%= bsl_data.dig(:exceed_4th_party)%></td>
