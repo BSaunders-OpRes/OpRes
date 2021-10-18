@@ -23,14 +23,14 @@
 </div>
 <div class="row mt-4 no-gutters">
   <div class="col-md-12 col-lg mb-4 mb-lg-0 px-1">
-    <div class="card bg-white border-0 shadow-none rounded-50 overflow-hidden min-h-640">
+    <div class="card bg-white border-0 shadow-sm rounded-50 overflow-hidden min-h-640">
       <div id="high-risk-bsl" class="lazy-graph" data-key="high_risk_bsl" data-args="<%= {}.to_json %>" data-append-to="high-risk-bsl" data-partial-name="high_risk_bsl" data-filters="<%= filters.to_json %>">
         <%= render 'organisation/graphs/partials/high_risk_bsl' %>
       </div>
     </div>
   </div>
   <div class="col-md-12 col-lg-3 ml-xxl-2 px-1">
-    <div class="card resiliece-indicator border-0 rounded-50 overflow-hidden min-h-640" id="impact-tolerance">
+    <div class="card resiliece-indicator shadow-sm border-0 rounded-50 overflow-hidden min-h-640" id="impact-tolerance">
       <div id="impact-tolerance-risk-appetite" class="lazy-graph" data-key="impact_tolerance_risk_appetite" data-args="<%= {}.to_json %>" data-append-to="impact-tolerance-risk-appetite" data-partial-name="impact_tolerance_risk_appetite" data-filters="<%= filters.to_json %>">
         <%= render 'organisation/graphs/partials/impact_tolerance_risk_appetite', data: {} %>
       </div>
@@ -39,6 +39,6 @@
 </div>
 <div class="row no-gutters mt-4">
   <div class="col-md-12 px-1">
-    <%#= render 'organisation/dashboard/partials/resilience_risk_indicator' %>
+    <%= render 'organisation/dashboard/partials/resilience_risk_indicator' %>
   </div>
 </div>
