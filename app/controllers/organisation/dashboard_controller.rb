@@ -7,6 +7,11 @@ class Organisation::DashboardController < Organisation::BaseController
 
   def show; end
 
+  def search
+    search_data = Journey::SearchService.call({current_user: current_user, organisational_unit: @organisational_unit, filter: params.dig(:term)})
+    render json: search_data
+  end
+
   private
 
   def load_graph

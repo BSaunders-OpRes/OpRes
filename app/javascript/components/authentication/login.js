@@ -16,6 +16,14 @@ export default function login(props) {
   const togglePasswordVisiblity = () => {
     setPasswordShown(passwordShown ? false : true);
   };
+
+  function SubmitButton(){
+    if (email && password ) {
+      return <button type="submit" value="Submit" className='border-0 shadow-sm text-white font-600 rounded bg-primary-green w-100 p-2'>Sign In</button>
+    } else {
+      return <button type="submit" value="Submit" data-toggle="tooltip" data-placement="top" title="Fill the login form" className='border-0 shadow-sm rounded font-600 btn-submit w-100 p-2' disabled>Sign In</button>
+    };
+  };
   const handleSubmit = (e)=> {
     e.preventDefault();
     if (email === '' || password === '') {
@@ -71,9 +79,7 @@ export default function login(props) {
                         </Form.Group>
                       </div>
                       <div className="form-group col-md-12">
-                        <button className='btn-submit w-100 p-2'type="submit" value="Submit">
-                          Login
-                        </button>
+                        <SubmitButton/>
                       </div>
                       <div className='sign-up-text text-center col-md-12'>
                         <p className="mb-3">Dont have an account

@@ -28,8 +28,9 @@ Rails.application.routes.draw do
     match '/journeys/*id',      to: 'journeys#show', via: %i[get post], as: :journey
     get :build_institution,     to: 'journeys#build_institution'
     get :build_user_invitation, to: 'journeys#build_user_invitation'
-    resources :dashboard, only: %i[index show]
-
+    resources :dashboard, only: %i[index show] do
+      get :search, to: 'dashboard#search', on: :collection
+    end
 
     resources :resilience_tickets do
       post :save_assignee_user, to: 'resilience_gaps#save_assignee_user'
@@ -106,5 +107,7 @@ Rails.application.routes.draw do
     resources :steps, only: %[destroy] do
       delete :supplier_step, on: :member
     end
+
+    resources :search_histories, only: %i[index create]
   end
 end

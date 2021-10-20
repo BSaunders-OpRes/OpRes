@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_11_095434) do
+ActiveRecord::Schema.define(version: 2021_10_14_061424) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -413,6 +413,15 @@ ActiveRecord::Schema.define(version: 2021_10_11_095434) do
     t.index ["business_service_line_id"], name: "index_risk_appetites_on_business_service_line_id"
   end
 
+  create_table "search_histories", force: :cascade do |t|
+    t.string "title"
+    t.text "url"
+    t.bigint "user_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_search_histories_on_user_id"
+  end
+
   create_table "slas", force: :cascade do |t|
     t.string "slaable_type"
     t.bigint "slaable_id"
@@ -655,6 +664,7 @@ ActiveRecord::Schema.define(version: 2021_10_11_095434) do
   add_foreign_key "risk_appetite_justifications", "risk_appetites"
   add_foreign_key "risk_appetite_justifications", "users"
   add_foreign_key "risk_appetites", "business_service_lines"
+  add_foreign_key "search_histories", "users"
   add_foreign_key "social_account_recipients", "social_accounts"
   add_foreign_key "steps", "business_service_lines"
   add_foreign_key "sub_suppliers", "suppliers"

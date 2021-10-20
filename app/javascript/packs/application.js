@@ -6,6 +6,7 @@ require('channels')
 require('jquery');
 require('jquery-validation');
 require('popper.js');
+require("jquery-ui")
 require('bootstrap');
 require('@nathanvda/cocoon');
 require('select2');
