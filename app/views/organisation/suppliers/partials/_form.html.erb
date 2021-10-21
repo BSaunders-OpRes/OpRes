@@ -124,8 +124,8 @@
             </div>
             <div class="col-sm-7 order-3 order-sm-2">
               <div class="position-relative">
-                <%= form.text_field :start_date, value: @supplier&.start_date&.strftime("%d-%m-%Y"), class: 'datepicker w-100 form-control font-12 h-auto py-3 shadow-none', placeholder: 'dd/mm/yyyy', autocomplete: 'off', id: 'start-date' %>
-                <i class="fa fa-calendar font-12 position-absolute right-0-vertical-50 mr-2" aria-hidden="true"></i>
+                <%= form.date_field :start_date, value: @supplier&.start_date&.strftime("%d-%m-%Y"), class: 'w-100 form-control font-12 h-auto py-3 shadow-none', placeholder: 'dd/mm/yyyy', autocomplete: 'off', id: 'start-date' %>
+                <!-- <i class="fa fa-calendar font-12 position-absolute right-0-vertical-50 mr-2" aria-hidden="true"></i> -->
               </div>
             </div>
           </div>
@@ -136,8 +136,8 @@
             </div>
             <div class="col-sm-7 order-3 order-sm-2">
               <div class="position-relative">
-                <%= form.text_field :end_date, value: @supplier&.end_date&.strftime("%d-%m-%Y"), class: 'datepicker w-100 form-control font-12 h-auto py-3 shadow-none', placeholder: 'dd/mm/yyyy', autocomplete: 'off', id: 'end-date'%>
-                <i class="fa fa-calendar font-12 position-absolute right-0-vertical-50 mr-2" aria-hidden="true"></i>
+                <%= form.date_field :end_date, value: @supplier&.end_date&.strftime("%d-%m-%Y"), class: 'w-100 form-control font-12 h-auto py-3 shadow-none', placeholder: 'dd/mm/yyyy', autocomplete: 'off', id: 'end-date'%>
+                <!-- <i class="fa fa-calendar font-12 position-absolute right-0-vertical-50 mr-2" aria-hidden="true"></i> -->
               </div>
               <div class="end-date-errors mt-2 font-12 text-danger d-none">
                 <p>*End date should be greater than start Date</p>
