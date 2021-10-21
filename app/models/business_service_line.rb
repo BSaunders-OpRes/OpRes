@@ -40,18 +40,29 @@ class BusinessServiceLine < ApplicationRecord
   after_save :create_resilience_tickets
 
   # Methods #
-  def self.import(file)
+  def self.import(file, unit)
     CSV.open(file.path, headers: true, liberal_parsing: true).each do |row|
       bsl_hash = BusinessServiceLine.new
-      bsl_hash.name = row[1]
-      bsl_hash.description = row[2]
+      bsl_hash.name = row[0]
+      bsl_hash.description = row[1]
+      bsl_hash.cost_centre_id = row[2]
       bsl_hash.tier = row[3]
-      bsl_hash.cost_centre_id = row[4]
-      bsl_hash.data_classification = row[5]
-      bsl_hash.material_risk_taker_attributes = {name: row[6], title: row[7], email: row[8]}
-      bsl_hash.unit_id = 1
+      bsl_hash.data_classification = row[4]      
+      bsl_hash.material_risk_taker_attributes = {business_service_line_id: find_bsl_id(row[5]), name: row[6], title: row[7], email: row[8]}
+      bsl_hash.sla_attributes = {slaable_type: row[9], slaable_id: find_slaable_id(row[10]), service_level_agreement: row[11], service_level_objective: row[12], recovery_point_objective: row[13], transactions_per_second: row[14], recovery_time_objective: row[15], response_time: row[16], severity1: row[17], severity2: row[18], severity3: row[19], severity4: row[20], severity1_restoration: row[21], severity2_restoration: row[22], severity3_restoration: row[23], severity4_restoration: row[24], support_hours: row[25], support_hours_other: row[26]}
+      #bsl_hash.steps_attributes = { business_service_line_id: find_bsl_id(row[27]), name: row[28], description: row[29], number: row[30]}
+      #bsl_hash.risk_appetites_attributes = {business_service_line_id: find_bsl_id(row[31]), name: row[32], amount: row[33], kind: row[34], label: row[35]}
+      bsl_hash.unit_id = unit.first.id
       bsl_hash.save
     end
+  end
+
+  def self.find_slaable_id(name)
+    Supplier.find_by(name: name)&.id || BusinessServiceLine.find_by(name: name)&.id  
+  end
+
+  def self.find_bsl_id(name)
+    BusinessServiceLine.find_by(name: name)&.id 
   end
 
   def reoder_steps

@@ -57,7 +57,8 @@ class Organisation::BusinessServiceLinesController < Organisation::BaseControlle
   end
 
   def import
-    BusinessServiceLine.import(params[:business_service_line][:file])
+    institution_unit = organisational_unit.inclusive_children.collect{|e| e if e.type == "Units::Institution"}.compact
+    BusinessServiceLine.import(params[:business_service_line][:file], institution_unit)
     redirect_to organisation_administration_portal_index_path, notice: "BSL data has been imported!"
   end
 
