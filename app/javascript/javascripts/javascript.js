@@ -1,7 +1,7 @@
 import JQuery     from 'jquery';
 import Highcharts from 'highcharts';
 import toastr     from 'toastr';
-import Datepicker from 'bootstrap-datepicker';
+// import Datepicker from 'bootstrap-datepicker';
 import Swal       from 'sweetalert2';
 import IntroJS    from 'intro.js';
 
