@@ -70,19 +70,19 @@ class Graphs::SystemSupplierResilienceIndicatorService < Graphs::BaseService
       datum[step.underscore][:graph] = []
       datum[step.underscore][:graph] << {
         name:  'Match Tolerance',
-        y:     datum[step.underscore][:total].zero? ? 0 : ((eval("@match_#{step.underscore}_tolerance") / total.to_f) * 100).round(2),
+        y:     datum[step.underscore][:total].zero? ? 0 : ((eval("@match_#{step.underscore}_tolerance") / (total == 0 ? 1.to_f : total.to_f)) * 100).round(2),
         color: COLORS[0],
         count: eval("@match_#{step.underscore}_tolerance")
       }
       datum[step.underscore][:graph] << {
         name:  'Meet Tolerance',
-        y:     datum[step.underscore][:total].zero? ? 0 : ((eval("@meet_#{step.underscore}_tolerance") / total.to_f) * 100).round(2),
+        y:     datum[step.underscore][:total].zero? ? 0 : ((eval("@meet_#{step.underscore}_tolerance") / (total == 0 ? 1.to_f : total.to_f)) * 100).round(2),
         color: COLORS[1],
         count: eval("@meet_#{step.underscore}_tolerance")
       }
       datum[step.underscore][:graph] << {
         name:  'Exceed Tolerance',
-        y:     datum[step.underscore][:total].zero? ? 0 : ((eval("@exceed_#{step.underscore}_tolerance") / total.to_f) * 100).round(2),
+        y:     datum[step.underscore][:total].zero? ? 0 : ((eval("@exceed_#{step.underscore}_tolerance") / (total == 0 ? 1.to_f : total.to_f)) * 100).round(2),
         color: COLORS[2],
         count: eval("@exceed_#{step.underscore}_tolerance")
       }
