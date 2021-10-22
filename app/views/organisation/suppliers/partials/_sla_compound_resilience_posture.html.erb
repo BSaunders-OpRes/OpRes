@@ -11,7 +11,7 @@
           <%= render 'organisation/graphs/partials/impact_tolerance_breakdown', data: {} %>
         </div>
       </div>
-      <div id="sla-conformance-<%= sla_attr.dasherize%>" class="col-md-12 col-lg-12 order-lg-1 order-2 mb-lg-0 mb-4 lazy-graph d-flex" data-key="sla_conformance_impact_tolerance" data-args="<%= { sla_attr: sla_attr, supplier: @supplier.id, bsl: bsl.ids.present? ? bsl.ids : 0 }.to_json %>" data-append-to="sla-conformance-<%= sla_attr.dasherize%>" data-partial-name="supplier_conformance_impact_tolerance">
+      <div id="sla-conformance-<%= sla_attr.dasherize%>" class="col-md-12 col-lg-12 order-lg-1 order-2 mb-lg-0 mb-4 lazy-graph" data-key="sla_conformance_impact_tolerance" data-args="<%= { sla_attr: sla_attr, supplier: @supplier.id, bsl: bsl.ids.present? ? bsl.ids : 0 }.to_json %>" data-append-to="sla-conformance-<%= sla_attr.dasherize%>" data-partial-name="supplier_conformance_impact_tolerance">
         <%= render 'organisation/graphs/partials/supplier_conformance_impact_tolerance', data: {} %>
       </div>
     </div>
