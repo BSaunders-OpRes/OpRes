@@ -44,6 +44,7 @@ class BreakdownService < Graphs::BaseService
               result = find_score_and_status_for_time(bsl.sla[risk_appetite.kind],  supplier.sla[risk_appetite.kind], risk_appetite.amount)
               self.instance_variable_set("@#{result[1]}_tolerance".to_sym, eval("@#{result[1]}_tolerance")+1)
             end
+            resilience_tickets = ResilienceTicket.where(business_service_line_id: bsl.id, supplier_id: supplier.id, sla_attr: sla_attr, unit: bsl.unit.parent)
             supplier_data = {
               id: supplier.id,
               name: supplier.name,
@@ -54,7 +55,7 @@ class BreakdownService < Graphs::BaseService
               firm_impact_tolerance: bsl_sla_val,
               difference: bsl_sla_val - supplier.sla[sla_attr],
               total_number_of_critical_steps: supplier.critical_supplier_steps.count,
-              resilience_id: supplier.resilience_tickets.present? ? supplier.resilience_tickets.find_by(sla_attr: sla_attr)&.rgid : 'N/A'
+              resilience_id: resilience_tickets.present? ? resilience_tickets&.first&.rgid : 'N/A'
             }
             breakdown_data["#{sla_attr}"]["#{result[1]}_suppliers"] << supplier_data
             # breakdown_data["#{sla_attr}"]["#{result[1]}_suppliers"] = breakdown_data["#{sla_attr}"]["#{result[1]}_suppliers"].uniq {|a| a[:id]}

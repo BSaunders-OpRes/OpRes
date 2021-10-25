@@ -16,7 +16,7 @@
         <span class="transparent-checkmark"></span>
       </label>
     </div>
-    <% countries.each do |country| %>
+    <% countries.uniq {|a| a.subregion}.each do |country| %>
       <div class="form-group dropdown-item pl-3 m-0">
         <label for="sub-region<%= country.id %>" class="custom-checkbox d-flex m-0">
           <span class="font-12 text-black text-capitalize">
