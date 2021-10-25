@@ -2,25 +2,17 @@
   <div class="content-area">
     <div id="section1">
       <div class="card border-0 shadow-sm rounded-50 mb-4">
-        <div class="card-body px-0">
+        <div class="card-body">
           <div class="box">
-            <div class="d-flex justify-content-between align-items-center mb-4 px-4">
+            <div class="d-flex justify-content-between align-items-center mb-4">
               <h5 class="text-capitalize text-left font-600">Overview</h5>
             </div>
             <div class="row custom-high-chart">
-              <div class="col-lg-6 col-md-12">
-                <div class="box">
-                  <div id="chp-breakdown" class="order-1 mb-lg-0 mb-4 px-1 custom-high-chart lazy-graph" data-key="chp_breakdown" data-args="<%= {}.to_json %>" data-append-to="chp-breakdown" data-partial-name="chp_breakdown_v1" data-partial-name="chp_breakdown_v1" data-filters="<%= filters.to_json %>">
-                    <%= render 'organisation/graphs/partials/chp_breakdown_v1', data: {} %>
-                  </div>
-                </div>
+              <div id="chp-breakdown" class="order-1 col-lg-6 col-md-12 custom-high-chart lazy-graph" data-key="chp_breakdown" data-args="<%= {}.to_json %>" data-append-to="chp-breakdown" data-partial-name="chp_breakdown_v1" data-partial-name="chp_breakdown_v1" data-filters="<%= filters.to_json %>">
+                <%= render 'organisation/graphs/partials/chp_breakdown_v1', data: {} %>
               </div>
-              <div class="col-lg-6 col-md-12">
-                <div class="box">
-                  <div id="consumption-chp" class="order-1 mb-lg-0 mb-4 px-1 custom-high-chart lazy-graph" data-key="consumption_chp" data-args="<%= {}.to_json %>" data-append-to="consumption-chp" data-partial-name="consumption_chp" data-partial-name="consumption_chp" data-filters="<%= filters.to_json %>">
-                      <%= render 'organisation/graphs/partials/consumption_chp', data: {} %>
-                  </div>
-                </div>
+              <div id="consumption-chp" class="order-1 col-lg-6 col-md-12 custom-high-chart lazy-graph" data-key="consumption_chp" data-args="<%= {}.to_json %>" data-append-to="consumption-chp" data-partial-name="consumption_chp" data-partial-name="consumption_chp" data-filters="<%= filters.to_json %>">
+                  <%= render 'organisation/graphs/partials/consumption_chp', data: {} %>
               </div>
             </div>
           </div>
