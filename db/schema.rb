@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_14_061424) do
+ActiveRecord::Schema.define(version: 2021_10_25_064848) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -376,7 +376,7 @@ ActiveRecord::Schema.define(version: 2021_10_14_061424) do
   end
 
   create_table "resilience_tickets", force: :cascade do |t|
-    t.integer "rgid"
+    t.string "rgid"
     t.integer "status", default: 0
     t.string "sla_attr"
     t.integer "impact"

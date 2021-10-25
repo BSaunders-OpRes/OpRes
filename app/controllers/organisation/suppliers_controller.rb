@@ -54,12 +54,12 @@ class Organisation::SuppliersController < Organisation::BaseController
   end
 
   def import
-    BusinessServiceLine.import(params[:file])
+    Supplier.import(params[:supplier][:file], organisational_unit)
     redirect_to organisation_administration_portal_index_path, alert: "Suppliers has been imported!"
   end
 
   def upload
-    @bsl = BusinessServiceLine.new
+    @bsl = Supplier.new
   end
 
   def all_suppliers

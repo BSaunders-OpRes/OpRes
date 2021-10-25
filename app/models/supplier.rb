@@ -52,18 +52,45 @@ class Supplier < ApplicationRecord
   after_save :create_resilience_tickets
 
   # Methods #
-  def self.import(file)
+  def self.import(file, organsational_unit)
     CSV.foreach(file.path, headers: true) do |row|
-      byebug
       spl_hash = Supplier.new
       spl_hash.name = row[0]
-      spl_hash.code = row[1]
+      spl_hash.contracting_terms = row[1]
+      spl_hash.contracting_terms_other = row[2]
+      spl_hash.start_date = row[3]
+      spl_hash.end_date = row[4]
+      spl_hash.description = row[5]
+      spl_hash.annual_cost_of_contract = row[6]
+      spl_hash.cloud_hosting_provider_id = find_chp(row[7])
+      spl_hash.cloud_hosting_provider_region_id = find_chp_region(row[8])
+      row[9]&.split(",").each do |e|
+        spl_hash.cloud_hosting_provider_service_ids << CloudHostingProviderService.find_by(name: e)&.id
+      end
+      spl_hash.sla_attributes = {slaable_type: row[10], slaable_id: find_slaable_id(row[11]), service_level_agreement: row[12], service_level_objective: row[13], recovery_point_objective: row[14], transactions_per_second: row[15], recovery_time_objective: row[16], response_time: row[17], severity1: row[18], severity2: row[19], severity3: row[20], severity4: row[21], severity1_restoration: row[22], severity2_restoration: row[23], severity3_restoration: row[24], severity4_restoration: row[25], support_hours: row[26], support_hours_other: row[27]}
+      spl_hash.relationship_owner_attributes = {supplier_id: find_supplier_by_name(row[28]), name: row[29], email: row[30], job_title: row[31]}
+      spl_hash.unit_id = organsational_unit.inclusive_children.map{|e| e if e.type == "Units::Country"}.compact.first.id
       spl_hash.save
     end
   end
 
   def strf_attr(attr)
     send(attr)&.strftime('%d.%m.%Y')
+  end
+  def self.find_chp_region(name)
+    CloudHostingProviderRegion.find_by(name:name)&.id
+  end
+
+  def self.find_chp(name)
+    CloudHostingProvider.find_by(name:name)&.id
+  end
+
+  def self.find_slaable_id(name)
+    Supplier.find_by(name: name)&.id || BusinessServiceLine.find_by(name: name)&.id  
+  end
+
+  def self.find_supplier_by_name(name)
+    Supplier.find_by(name: name)&.id
   end
 
   def self.real_consumption_models
