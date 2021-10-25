@@ -1,13 +1,41 @@
-<% if data.present? %>
-  <div class="border-0 pie-high-chart overflow-hidden rounded-50 d-flex justify-content-center align-items-start flex-wrap flex-md-nowrap">
-    <div class="card-header h-auto p-2 bg-white text-center border-0">
+<% if data.blank? %>
+  <div class="card border-0 shadow-sm pie-high-chart overflow-hidden rounded-50 min-h-560">
+    <div class="card-header bg-white text-center">
+      <p class="font-14 text-capitalize font-600 chart-header-title">Service Provider Breakdown</p>
+      <div class="donut-content h-75">
+        <div class="empty-donut-block py-3 px-5"></div>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="tiers d-flex justify-content-between align-items-center mb-1">
+        <div class="empty-donut-line px-5 mb-2 py-3"></div>
+      </div>
+      <div class="tiers d-flex justify-content-between align-items-center mb-1">
+        <div class="empty-donut-line px-5 mb-2 py-3"></div>
+      </div>
+      <div class="tiers d-flex justify-content-between align-items-center mb-1">
+        <div class="empty-donut-line px-5 mb-2 py-3"></div>
+      </div>
+      <div class="tiers d-flex justify-content-between align-items-center mb-1">
+        <div class="empty-donut-line px-5 mb-2 py-3"></div>
+      </div>
+    </div>
+    <div class="card-footer bg-white">
+      <div class="tiers d-flex justify-content-between align-items-center mb-1">
+        <div class="empty-donut-line px-5 py-1"></div>
+      </div>
+    </div>
+  </div>
+<% else %>
+  <div class="pie-high-chart row align-items-center">
+    <div class="card-header bg-white h-auto col-md-12 col-lg-6">
       <p class="font-12 text-center px-3 font-600">Consumption Model Type Breakdown</p>
       <div class="donut-content w-150px mx-auto">
         <%= react_component('highcharts/donut', { data: data.dig(:graph), render_to: 'consumption-chp' }, { class: 'h-200-highchart h-140-highchart' }) %>
         <div class="donut-value font-30 font-700"><%= data.dig(:total)%></div>
       </div>
     </div>
-    <div class="card-body px-md-2 px-3 mt-4">
+    <div class="col-md-12 col-lg-6">
       <% data.dig(:graph).each do |graph| %>
         <div class="tiers d-flex justify-content-between align-items-center mb-3">
           <div class="color-tier d-flex align-items-center">

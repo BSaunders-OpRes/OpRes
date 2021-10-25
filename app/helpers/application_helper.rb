@@ -272,7 +272,15 @@ module ApplicationHelper
   end
 
   def checkboxes_handler(params_data, ids_sym, id)
-    params_data.dig(:filters, ids_sym.to_sym).present? && (params.dig(:filters, ids_sym.to_sym).include?("all") || params.dig(:filters, ids_sym.to_sym).include?(id.to_s)) ? true : false
+    if params_data.dig(:filters, ids_sym.to_sym).present?
+      if params_data.dig(:filters, ids_sym.to_sym).include?("all")
+        return true
+      elsif params.dig(:filters, ids_sym.to_sym).include?(id.to_s)
+        return true
+      end
+    else
+      return false
+    end
   end
 
   def selected_count_filters(params_data, ids_sym)
@@ -284,7 +292,11 @@ module ApplicationHelper
         when "institution_ids"
           return organisational_institutions(params_data).length
         when "product_ids"
-          return organisational_products.length
+          if params_data.dig(:filters, :institution_ids).present? && !params_data.dig(:filters, :institution_ids).include?("all")
+            return Product.joins(:units).where(units: { id: specific_organisational_institution_ids(params_data) }).uniq.length
+          else
+            return organisational_products.length
+          end
         when "country_ids"
           return organisational_countries(params_data).length
         end
