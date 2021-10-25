@@ -27,20 +27,20 @@
     </div>
   </div>
   <% else %>
-    <div class="border-0 pie-high-chart overflow-hidden rounded-50 d-flex justify-content-center align-items-start flex-wrap flex-md-nowrap">
-      <div class="card-header h-auto p-2 bg-white text-center border-0">
+    <div class="border-0 pie-high-chart overflow-hidden rounded-50 row align-items-center">
+      <div class="card-header bg-white h-auto col-md-12 col-lg-6">
         <p class="font-12 text-center px-3 font-600">Service Provider Breakdown</p>
         <div class="donut-content w-150px mx-auto">
           <%= react_component('highcharts/donut', { data: data.dig(:graph), render_to: 'chp-breakdown' }, { class: 'h-200-highchart h-140-highchart' }) %>
           <div class="donut-value font-30 font-700"><%= data.dig(:total)%></div>
         </div>
       </div>
-      <div class="card-body px-md-2 px-3 mt-4">
+      <div class="col-md-12 col-lg-6">
         <% data.dig(:graph).each do |graph| %>
           <div class="color-tier d-flex align-items-center mb-2 mb-xxl-3">
             <div class="d-flex align-items-center">
               <div class="circle" style="background-color: <%= graph.dig(:color) %>"></div>
-              <div class="w-25px w-xxl-40px ml-3 ml-xxl-4">
+              <div class="w-25px d-none w-xxl-40px ml-3 ml-xxl-4">
                 <%= image_tag graph.dig(:logo), class: 'img-fluid' %>
               </div>
             </div>
