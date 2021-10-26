@@ -54,8 +54,8 @@ class Organisation::SuppliersController < Organisation::BaseController
   end
 
   def import
-    Supplier.import(params[:supplier][:file], organisational_unit)
-    redirect_to organisation_administration_portal_index_path, alert: "Suppliers has been imported!"
+    Supplier.import(params[:supplier][:file])
+    redirect_to organisation_administration_portal_index_path, notice: "Suppliers has been imported!"
   end
 
   def upload

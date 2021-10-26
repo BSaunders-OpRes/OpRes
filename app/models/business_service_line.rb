@@ -40,21 +40,34 @@ class BusinessServiceLine < ApplicationRecord
   after_save :create_resilience_tickets
 
   # Methods #
-  def self.import(file, unit)
-    CSV.open(file.path, headers: true, liberal_parsing: true).each do |row|
+  def self.import(file)
+    CSV.open(file.path, headers: true).each do |col|
       bsl_hash = BusinessServiceLine.new
-      bsl_hash.name = row[0]
-      bsl_hash.description = row[1]
-      bsl_hash.cost_centre_id = row[2]
-      bsl_hash.tier = row[3]
-      bsl_hash.data_classification = row[4]      
-      bsl_hash.material_risk_taker_attributes = {business_service_line_id: find_bsl_id(row[5]), name: row[6], title: row[7], email: row[8]}
-      bsl_hash.sla_attributes = {slaable_type: row[9], slaable_id: find_slaable_id(row[10]), service_level_agreement: row[11], service_level_objective: row[12], recovery_point_objective: row[13], transactions_per_second: row[14], recovery_time_objective: row[15], response_time: row[16], severity1: row[17], severity2: row[18], severity3: row[19], severity4: row[20], severity1_restoration: row[21], severity2_restoration: row[22], severity3_restoration: row[23], severity4_restoration: row[24], support_hours: row[25], support_hours_other: row[26]}
-      #bsl_hash.steps_attributes = { business_service_line_id: find_bsl_id(row[27]), name: row[28], description: row[29], number: row[30]}
-      #bsl_hash.risk_appetites_attributes = {business_service_line_id: find_bsl_id(row[31]), name: row[32], amount: row[33], kind: row[34], label: row[35]}
-      bsl_hash.unit_id = unit.first.id
+      bsl_hash.name = col[0]
+      bsl_hash.description = col[1]
+      bsl_hash.cost_centre_id = col[2]
+      bsl_hash.tier = col[3]
+      bsl_hash.data_classification = col[4]
+      bsl_hash.unit_id = Unit.find_by(name: col[6]).id
+      bsl_hash.save
+      CurrencyRecipient.create(currency_id: find_currency(col[5]), currency_recipientable_type: "BusinessServiceLine", currency_recipientable_id: bsl_hash[:id])
+      col[7]&.split(",").each do |e|
+        BusinessServiceLineProduct.create(product_id: find_product(e.strip), business_service_line_id: bsl_hash[:id])
+      end
+      bsl_hash.material_risk_taker_attributes = {business_service_line_id: bsl_hash[:id], name: col[8], title: col[9], email: col[10]}
+      bsl_hash.sla_attributes = {slaable_type: "BusinessServiceLine", slaable_id: bsl_hash[:id], service_level_agreement: col[11], service_level_objective: col[12], recovery_point_objective: col[13], transactions_per_second: col[14], recovery_time_objective: col[15], response_time: col[16], severity1: col[17], severity2: col[18], severity3: col[19], severity4: col[20], severity1_restoration: col[21], severity2_restoration: col[22], severity3_restoration: col[23], severity4_restoration: col[24], support_hours: col[25], support_hours_other: col[26]}
+      RiskAppetite.create({business_service_line_id: bsl_hash[:id], name: col[30], amount: col[31], kind: col[32], label: col[33]})
+      
       bsl_hash.save
     end
+  end
+
+  def self.find_product(name)
+    Product.find_by(name: name)&.id
+  end
+
+  def self.find_currency(name)
+    Currency.find_by(name:name)&.id
   end
 
   def self.find_slaable_id(name)
