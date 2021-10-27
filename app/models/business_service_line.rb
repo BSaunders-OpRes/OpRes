@@ -167,7 +167,7 @@ class BusinessServiceLine < ApplicationRecord
           self.errors[:base] << "Risk Appetite does not meet the requirement of target value."
         end
       else
-        if !risk_appetite&.amount.nil? && !sla[risk_appetite.kind.to_sym] && risk_appetite&.amount  < sla[risk_appetite.kind.to_sym]
+        if !risk_appetite&.amount.nil? && !sla[risk_appetite.kind.to_sym].nil? && risk_appetite&.amount  < sla[risk_appetite.kind.to_sym]
           self.errors[:base] << "Risk Appetite does not meet the requirement of target value."
         end
       end
@@ -193,7 +193,8 @@ class BusinessServiceLine < ApplicationRecord
             result = find_score_and_status_for_time(sla[risk_appetite.kind], supplier_step.supplier.sla[risk_appetite.kind], risk_appetite.amount)
           end
           if result[1] == 'exceed'
-            resilience_id = ResilienceTicket.where(unit: unit.parent)&.last&.rgid.present? ? (ResilienceTicket.where(unit: unit.parent).last.rgid&.split('-')[1].to_i+1).to_s :  '100000'.to_s
+            existing_resilience = ResilienceTicket.where(unit: unit.parent).where.not(rgid: nil).order("rgid asc")
+            resilience_id = existing_resilience.present? ? (existing_resilience.last.rgid&.split('-')[1].to_i+1).to_s :  '100000'.to_s
             unless ResilienceTicket.find_by(sla_attr: risk_appetite.kind, business_service_line: self, unit: unit.parent, supplier: supplier_step.supplier)
               self.resilience_tickets << ResilienceTicket.create( user: self.organisation_root_users.first, rgid: 'RES-'+resilience_id, sla_attr: risk_appetite.kind, business_service_line: self, unit: unit.parent, supplier: supplier_step.supplier)
             end

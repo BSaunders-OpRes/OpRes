@@ -50,14 +50,6 @@ document.addEventListener('turbolinks:load', function() {
         $('.party-types-count').text($('.party_types:checked').length);
       }
     }
-    // if(e.target.className.includes('entities')){
-    //   if(e.target.id == 'entity-all'){
-    //     // $('.entities').prop("checked", e.target.checked);
-    //     $('.entities-count').text(e.target.checked ? $('.entities:checked').length-1 : $('.entities:checked').length);
-    //   }else{
-    //     $('.entities-count').text($('.entities:checked').length);
-    //   }
-    // }
   });
 
   window.selectCall = function(){

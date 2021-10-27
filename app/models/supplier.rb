@@ -172,7 +172,8 @@ class Supplier < ApplicationRecord
             result = find_score_and_status_for_time(bsl.sla[risk_appetite.kind], sla[risk_appetite.kind], risk_appetite.amount)
           end
           if result[1] == 'exceed'
-            resilience_id = ResilienceTicket.where(unit: unit)&.last&.rgid.present? ? (ResilienceTicket.where(unit: unit).last.rgid&.split('-')[1].to_i+1).to_s :  '100000'.to_s
+            existing_resilience = ResilienceTicket.where(unit: unit).where.not(rgid: nil).order("rgid asc")
+            resilience_id = existing_resilience.present? ? (existing_resilience.last.rgid&.split('-')[1].to_i+1).to_s :  '100000'.to_s
             unless ResilienceTicket.find_by(sla_attr: risk_appetite.kind, business_service_line: bsl, unit: unit, supplier: self)
               self.resilience_tickets << ResilienceTicket.create( user: bsl.organisation_root_users.first, rgid: 'RES-'+resilience_id, sla_attr: risk_appetite.kind, business_service_line: bsl, unit: unit, supplier: self)
             end

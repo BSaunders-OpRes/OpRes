@@ -4,7 +4,7 @@ $('#dashboard-wrapper').html('<%= escape_javascript(render "organisation/dashboa
   $('#segmentation-countries').html('<%= escape_javascript(render "organisation/dashboard/partials/countries_option_render", countries: organisational_countries(params)) %>');
 <% end %>
 <% if params.dig(:filters, :institution_ids).present? %>
-  $('#institution-products').html('<%= escape_javascript(render "organisation/dashboard/partials/products_option_render", products: Product.joins(:units).where(units: { id: specific_organisational_institution_ids(params) }).uniq) %>');
+  $('#institution-products').html('<%= escape_javascript(render "organisation/dashboard/partials/products_option_render", products: params.dig(:filters, :institution_ids).include?("all") ? organisational_products : Product.joins(:units).where(units: { id: specific_organisational_institution_ids(params) }).uniq) %>');
 <% end %>
 if ($('.lazy-graph').length >= 1) {
   $('.lazy-graph').each(function() {
