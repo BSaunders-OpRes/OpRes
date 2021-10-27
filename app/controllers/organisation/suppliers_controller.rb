@@ -53,6 +53,15 @@ class Organisation::SuppliersController < Organisation::BaseController
     end
   end
 
+  def import
+    Supplier.import(params[:supplier][:file])
+    redirect_to organisation_administration_portal_index_path, notice: "Suppliers has been imported!"
+  end
+
+  def upload
+    @bsl = Supplier.new
+  end
+
   def all_suppliers
     @suppliers = Supplier.where(unit_id: managing_nodes)
 

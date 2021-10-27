@@ -72,7 +72,9 @@ Rails.application.routes.draw do
       get :critical_important_suppliers,    on: :member
       get :compound_resilience,             on: :member
       get :cloud_service_provider,          on: :member
+      get :upload,                          on: :collection
       get :bsl_critical_important_supplier, on: :collection
+      post :import,                          on: :collection
       get :find_chp_data,                   on: :collection
       get :find_compound_resilience_data,   on: :collection
     end
@@ -81,6 +83,8 @@ Rails.application.routes.draw do
       get :critical_important_suppliers, on: :member
       get :compound_resilience,          on: :member
       get :search_and_filter,            on: :member
+      get :upload,                       on: :collection
+      post :import,                       on: :collection
       get :find_compound_resilience_data,   on: :collection
       resources :compliance_evidences do
         resources :compliance_rules

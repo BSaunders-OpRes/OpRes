@@ -1,4 +1,5 @@
 class Supplier < ApplicationRecord
+  require 'CSV'
   # Modules #
   include Suppliers::SupplierStepConcern
   include ResilienceConcern
@@ -51,8 +52,52 @@ class Supplier < ApplicationRecord
   after_save :create_resilience_tickets
 
   # Methods #
+  def self.import(file)
+    CSV.foreach(file.path, headers: true) do |col|
+      spl_hash = Supplier.new
+      spl_hash.name = col[0]
+      spl_hash.contracting_terms = col[1]
+      spl_hash.contracting_terms_other = col[2]
+      spl_hash.start_date = col[3]
+      spl_hash.end_date = col[4]
+      spl_hash.description = col[5]
+      spl_hash.annual_cost_of_contract = col[6]
+      spl_hash.unit_id = Unit.find_by(name: col[7]).id
+      spl_hash.save
+      CloudHostingProviderRecipient.create(cloud_hosting_provider_id: find_chp(col[8]), chp_recipientable_type: "Supplier", chp_recipientable_id: spl_hash[:id]) 
+      CloudHostingProviderRegionRecipient.create(cloud_hosting_provider_region_id: find_chp_region(col[9]), chpr_recipientable_type: "Supplier", chpr_recipientable_id: spl_hash[:id])
+      col[10]&.split(",").each do |e|
+        id = CloudHostingProviderService.find_by(name: e.strip)&.id
+        CloudHostingProviderServiceRecipient.create(cloud_hosting_provider_service_id: id, chps_recipientable_type: "Supplier", chps_recipientable_id: spl_hash[:id])
+      end
+      spl_hash.sla_attributes = {slaable_type: "Supplier", slaable_id: spl_hash[:id], service_level_agreement: col[11], service_level_objective: col[12], recovery_point_objective: col[13], transactions_per_second: col[14], recovery_time_objective: col[15], response_time: col[16], severity1: col[17], severity2: col[18], severity3: col[19], severity4: col[20], severity1_restoration: col[21], severity2_restoration: col[22], severity3_restoration: col[23], severity4_restoration: col[24], support_hours: col[25], support_hours_other: col[26]}
+      spl_hash.relationship_owner_attributes = {supplier_id: spl_hash[:id], name: col[27], email: col[28], job_title: col[29]}
+      SocialAccountRecipient.create(social_account_id: 1, link: col[30], social_account_recipientable_type: "Supplier", social_account_recipientable_id: spl_hash[:id])      
+      SocialAccountRecipient.create(social_account_id: 2, link: col[31], social_account_recipientable_type: "Supplier", social_account_recipientable_id: spl_hash[:id])      
+      SocialAccountRecipient.create(social_account_id: 3, link: col[32], social_account_recipientable_type: "Supplier", social_account_recipientable_id: spl_hash[:id])      
+      SocialAccountRecipient.create(social_account_id: 4, link: col[33], social_account_recipientable_type: "Supplier", social_account_recipientable_id: spl_hash[:id])      
+      SocialAccountRecipient.create(social_account_id: 5, link: col[34], social_account_recipientable_type: "Supplier", social_account_recipientable_id: spl_hash[:id])      
+      spl_hash.save
+    end
+  end
+
   def strf_attr(attr)
     send(attr)&.strftime('%d.%m.%Y')
+  end
+  def self.find_chp_region(name)
+    CloudHostingProviderRegion.find_by(name:name)&.id
+  end
+
+  def self.find_chp(name)
+    CloudHostingProvider.find_by(name:name)&.id
+  end
+
+  def self.find_slaable_id(name)
+    Supplier.find_by(name: name)&.id || BusinessServiceLine.find_by(name: name)&.id  
+  end
+
+  def self.find_supplier_by_name(name)
+    Supplier.find_by(name: name)&.id
   end
 
   def self.real_consumption_models
