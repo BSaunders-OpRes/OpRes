@@ -1,5 +1,5 @@
 class BusinessServiceLine < ApplicationRecord
-  require 'CSV'
+  require 'csv'
   # Modules #
   include ResilienceConcern
 

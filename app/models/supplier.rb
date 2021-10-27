@@ -1,5 +1,5 @@
 class Supplier < ApplicationRecord
-  require 'CSV'
+  require 'csv'
   # Modules #
   include Suppliers::SupplierStepConcern
   include ResilienceConcern
