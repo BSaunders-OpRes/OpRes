@@ -75,7 +75,7 @@ class Graphs::BslSupplierConformanceImpactToleranceService < Graphs::BaseService
 
       },
       {
-      y: 100,
+      y: 100 - (total_sum.zero? ? 0 : (((total_sum / total.to_f) * 100).round(2)) > 100 ? 100 : ((total_sum / total.to_f) * 100).round(2)),
       color: COLORS[4]
       }
     ]
