@@ -52,7 +52,7 @@ class Supplier < ApplicationRecord
   after_save :create_resilience_tickets
 
   # Methods #
-  def self.import(file)
+  def self.import(file, organisational_unit)
     CSV.foreach(file.path, headers: true) do |col|
       spl_hash = Supplier.new
       spl_hash.name = col[0]
@@ -62,7 +62,7 @@ class Supplier < ApplicationRecord
       spl_hash.end_date = col[4]
       spl_hash.description = col[5]
       spl_hash.annual_cost_of_contract = col[6]
-      spl_hash.unit_id = Unit.find_by(name: col[7]).id
+      spl_hash.unit_id = Unit.find_by(name: organisational_unit.name + " " + col[7]).id
       spl_hash.save
       CloudHostingProviderRecipient.create(cloud_hosting_provider_id: find_chp(col[8]), chp_recipientable_type: "Supplier", chp_recipientable_id: spl_hash[:id]) 
       CloudHostingProviderRegionRecipient.create(cloud_hosting_provider_region_id: find_chp_region(col[9]), chpr_recipientable_type: "Supplier", chpr_recipientable_id: spl_hash[:id])
@@ -85,11 +85,11 @@ class Supplier < ApplicationRecord
     send(attr)&.strftime('%d.%m.%Y')
   end
   def self.find_chp_region(name)
-    CloudHostingProviderRegion.find_by(name:name)&.id
+    CloudHostingProviderRegion.find_by(name: name)&.id
   end
 
   def self.find_chp(name)
-    CloudHostingProvider.find_by(name:name)&.id
+    CloudHostingProvider.find_by(name: name)&.id
   end
 
   def self.find_slaable_id(name)
@@ -186,3 +186,5 @@ class Supplier < ApplicationRecord
     end
   end
 end
+
+
