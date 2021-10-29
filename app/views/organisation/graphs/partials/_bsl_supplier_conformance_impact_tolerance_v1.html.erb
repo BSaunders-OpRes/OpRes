@@ -11,7 +11,11 @@
       <p class="font-14 text-capitalize font-600 chart-header-title text-black text-decoration-none text-center">Conformance with Impact Tolerances</p>
       <div class="donut-content">
         <%= react_component('highcharts/percentage_donut', { data: data.dig(:overall, :graph).flatten, render_to: 'donut-chp' }, { class: '' }) %>
-        <div class="donut-value font-sm-20 font-30 font-700 d-flex"><span><%= "#{data.dig(:overall,:graph)[0].second.dig(:count)}" %></span><span><span>%</span></div>
+        <div class="donut-value font-700 d-flex">
+          <span><%= "#{data.dig(:overall,:graph)[0].second.dig(:count)}" %>
+          </span>
+          <span>%</span>
+        </div>
       </div>
     </div>
   </div>

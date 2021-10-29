@@ -5,7 +5,7 @@
       <!-- <i class="fa fa-ellipsis-v w-25 text-right" aria-hidden="true"></i> -->
     </div>
     <div class="small-boxes row no-gutters px-3 mb-4">
-      <div class="col-md-3 col-lg px-1">
+      <div class="col-sm-6 col-md-4 col-lg px-1 mb-2">
         <div class="card h-100 border-0 bg-body-color mb-2" data-toggle="tooltip" data-placement="top" title="<%= @bsl&.data_classification&.titleize %>">
           <div class="card-body p-2 d-flex align-items-center rounded">
             <div class="color-tier d-flex align-items-center">
@@ -18,7 +18,7 @@
           </div>
         </div>
       </div>
-      <div class="col-md-3 col-lg px-1">
+      <div class="col-sm-6 col-md-4 col-lg px-1 mb-2">
         <div class="card h-100 border-0 bg-body-color mb-2" data-toggle="tooltip" data-placement="top" title="<%= @bsl.tier.titleize %>">
           <div class="card-body p-2 d-flex align-items-center rounded">
             <div class="color-tier d-flex align-items-center">
@@ -31,7 +31,7 @@
           </div>
         </div>
       </div>
-      <div class="col-md-3 col-lg px-1">
+      <div class="col-sm-6 col-md-4 col-lg px-1 mb-2">
         <div class="card h-100 border-0 bg-body-color mb-2 " data-toggle="tooltip" data-placement="top" title="<%= @bsl.product_list %>">
           <div class="card-body p-2 d-flex align-items-center rounded">
             <div class="color-tier d-flex align-items-center">
@@ -44,7 +44,7 @@
           </div>
         </div>
       </div>
-      <div class="col-md-3 col-lg px-1">
+      <div class="col-sm-6 col-md-4 col-lg px-1 mb-2">
         <div class="card h-100 border-0 bg-body-color mb-2 d-flex justify-content-center" data-toggle="tooltip" data-placement="top" title="<%= @bsl.critical_supplier_steps.size %>">
           <%= link_to critical_important_suppliers_organisation_business_service_line_path(@bsl), class: 'text-black text-decoration-none' do %>
             <div class="card-body p-2 d-flex align-items-center rounded">
@@ -59,7 +59,7 @@
           <% end %>
         </div>
       </div>
-      <div class="col-md-3 col-lg px-1">
+      <div class="col-sm-6 col-md-4 col-lg px-1 mb-2">
         <div class="card h-100 border-0 bg-body-color mb-2 d-flex justify-content-center" data-toggle="tooltip" data-placement="top" title="<%= @bsl.important_supplier_steps.size %>">
           <%= link_to critical_important_suppliers_organisation_business_service_line_path(@bsl), class: 'text-black text-decoration-none' do %>
             <div class="card-body p-2 d-flex align-items-center rounded">
