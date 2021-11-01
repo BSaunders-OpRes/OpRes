@@ -4,7 +4,11 @@
       <div class="d-flex justify-content-between align-items-center flex-wrap">
         <div class="left d-flex align-items-center flex-wrap">
           <div class="mr-4 back-btn">
-            <%= render 'layouts/partials/shared/redirect_back', path: organisation_administration_portal_index_path %>
+            <% if @bsl_tiers_screen.present? %>
+              <%= render 'layouts/partials/shared/redirect_back', path: business_service_tiers_organisation_dashboard_break_downs_path(active_optional: @active_optional) %>
+            <% else %>
+              <%= render 'layouts/partials/shared/redirect_back', path: organisation_administration_portal_index_path %>
+            <% end %>
           </div>
           <h2 class="font-600 font-sm-18 font-25 text-capitalize">
             <%= @bsl.name %>

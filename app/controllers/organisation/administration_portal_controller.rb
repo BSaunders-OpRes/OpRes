@@ -20,6 +20,10 @@ class Organisation::AdministrationPortalController < Organisation::BaseControlle
     end
   end
 
+  def download_sample_file
+    send_file params[:file]
+  end
+
   private
 
   def load_search_data

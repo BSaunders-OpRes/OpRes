@@ -101,7 +101,9 @@ Rails.application.routes.draw do
     resources :admins do
       get :search_by_name, on: :collection
     end
-    resources :administration_portal, only: %i[index]
+    resources :administration_portal, only: %i[index] do 
+      get :download_sample_file, on: :collection
+    end
     # resources :supplier_contacts
     resources :key_contacts
     resources :steps, only: %[destroy] do

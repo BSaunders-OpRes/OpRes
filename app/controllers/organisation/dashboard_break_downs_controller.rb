@@ -7,6 +7,12 @@ class Organisation::DashboardBreakDownsController < Organisation::BaseController
     @bsl_regional_tiers      = @bsls.group_by{|bsl| bsl.unit.parent.parent.region.name}
                                .each_with_object({}) {|(k, v), h| h[k] = v.group_by { |s| s.tier } }
     @bsls_tier               = @bsls.group_by(&:tier)
+    if params[:active_optional].present?
+      @active_optional = "active-white"
+      @default                 = nil
+    else
+      @default = "active-white"
+    end
 
     @managing_regions        = current_user.managing_regions
     args    = { bsl: @bsls&.pluck(:id)}

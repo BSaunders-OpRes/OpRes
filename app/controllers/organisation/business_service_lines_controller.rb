@@ -22,6 +22,11 @@ class Organisation::BusinessServiceLinesController < Organisation::BaseControlle
   end
 
   def edit
+    if params[:tiers_screen].present?
+      @bsl_tiers_screen = true 
+      @active_optional = "active-white"
+      @default = nil
+    end
     prepare_form_data
   end
 
@@ -35,6 +40,11 @@ class Organisation::BusinessServiceLinesController < Organisation::BaseControlle
   end
 
   def show
+    if params[:tiers_screen].present?
+      @bsl_tiers_screen = true 
+      @active_optional = "active-white"
+      @default = nil
+    end
     @bsl = BusinessServiceLine
             .includes(:sla, :resilience_tickets, steps: [supplier_steps: [supplier: [:sla, :cloud_hosting_provider, :fourth_party_suppliers]]])
             .find(@bsl.id)
