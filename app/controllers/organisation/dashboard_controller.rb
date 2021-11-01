@@ -12,6 +12,16 @@ class Organisation::DashboardController < Organisation::BaseController
     render json: search_data
   end
 
+  def filter_resilience_indicator
+    args = {
+      'current_user' =>  current_user,
+      'organisational_unit' =>  organisational_unit,
+      'filters' => (params[:filters] || ActionController::Parameters.new).permit!.to_h
+    }
+
+    @resilience_risk_indicator = Graphs::ResilienceRiskIndicatorService.new(args).call
+  end
+
   private
 
   def load_graph

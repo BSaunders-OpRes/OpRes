@@ -30,6 +30,7 @@ Rails.application.routes.draw do
     get :build_user_invitation, to: 'journeys#build_user_invitation'
     resources :dashboard, only: %i[index show] do
       get :search, to: 'dashboard#search', on: :collection
+      get :filter_resilience_indicator, to: 'dashboard#filter_resilience_indicator', on: :collection
     end
 
     resources :resilience_tickets do
