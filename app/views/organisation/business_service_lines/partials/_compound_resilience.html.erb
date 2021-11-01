@@ -26,13 +26,13 @@
                 <% if index == 6 %>
                   <% break %>
                 <% end %>
-                <li class="nav-item w-sm-25 w-50 custom-item col-lg-2 col-md-3 col-sm-4 px-1 mb-2 mx-0">
+                <li class="nav-item w-sm-25 w-50 custom-item col-lg-2 col-sm-4 px-1 mb-2 mx-0">
                   <a class="text-decoration-none nav-link w-100 font-12 py-3 text-capitalize px-2 rounded custom-link border-0 <%= index.zero? ? 'active' : '' %> sla-compound-resilience " id="<%= sla_attr + '_tab' %>" data-toggle="tab" href="#<%= sla_attr%>" role="tab" aria-controls="<%= sla_attr %>" aria-selected="true" data-args="<%= { bsl: bsl.id, sla_name: sla_attr, supplier_type: params[:supplier_type] }.to_json %>" data-append-to=" sla-tab-content" data-partial-name="sla_compound_resilience_posture" data-turbolinks="true">
                     <%= sla_compounded_resilience_posture_text(sla_attr) %></a>
                 </li>
               <% end %>
               <% Sla::SLA_ATTR[6..-1].each do |sla_attr| %>
-                <li class="nav-item w-sm-25 w-50 col-lg col-md-3 col-sm-4 px-1 mb-2 mx-0 custom-item">
+                <li class="nav-item w-sm-25 w-50 col-lg col-sm-4 px-1 mb-2 mx-0 custom-item">
                   <a class="text-decoration-none nav-link w-100 font-12 py-3 text-capitalize px-2 rounded custom-link border-0 sla-compound-resilience" id="<%= sla_attr + '_tab' %>" data-toggle="tab" href="#<%= sla_attr%>" role="tab" aria-controls="<%= sla_attr %>" aria-selected="false" data-args="<%= { bsl: bsl.id, sla_name: sla_attr, supplier_type: params[:supplier_type] }.to_json %>" data-append-to="sla-tab-content" data-partial-name="sla_compound_resilience_posture" data-turbolinks="true" >
                     <%= sla_compounded_resilience_posture_text(sla_attr) %></a>
                 </li>
