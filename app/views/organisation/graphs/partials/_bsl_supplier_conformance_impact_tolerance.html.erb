@@ -10,7 +10,7 @@
     <div class="card-header h-auto border-0 bg-white text-center">
       <div class="donut-content">
         <%= react_component('highcharts/percentage_donut', { data: data.dig(:overall, :graph).flatten, render_to: 'donut-chp' }, { class: 'h-200-highchart' }) %>
-        <div class="donut-value font-30 font-700 d-flex"><span><%= "#{data.dig(:overall,:graph)[0].second.dig(:count)}" %></span><span><span>%</span></div>
+        <div class="donut-value font-20 font-xxl-30 font-700 d-flex"><span><%= "#{data.dig(:overall,:graph)[0].second.dig(:count)}" %></span><span><span>%</span></div>
       </div>
     </div>
     <div class="col-md-12">

@@ -39,6 +39,8 @@
 </div>
 <div class="row no-gutters mt-4">
   <div class="col-md-12 px-1">
-    <%#= render 'organisation/dashboard/partials/resilience_risk_indicator' %>
+    <div id="resilience-risk-indicator" class="lazy-graph" data-key="resilience_risk_indicator" data-args="<%= {}.to_json %>" data-append-to="resilience-risk-indicator" data-partial-name="resilience_risk_indicator" data-filters="<%= filters.to_json %>">
+      <%= render 'organisation/graphs/partials/resilience_risk_indicator', data: {} %>
+    </div>
   </div>
 </div>

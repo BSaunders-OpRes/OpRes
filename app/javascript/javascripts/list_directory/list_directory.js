@@ -1,6 +1,7 @@
   document.addEventListener('turbolinks:load', function() {
   // get all folders in our .directory-list
   var allFolders = $(".directory-list li > ul");
+  allFolders.find('.third-level').css('display', 'none')
   allFolders.each(function() {
 
     // add the folder class to the parent <li>

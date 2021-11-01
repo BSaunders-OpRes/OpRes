@@ -1,7 +1,0 @@
-<%= form_for Supplier.new, url: import_organisation_suppliers_path, multipart: true do |f| %>
-   <div class="form-group">
-      <%= f.label :file, "Upload CSV File" %>
-      <%= f.file_field :file, required: true, accept: 'text/csv' %>
-   </div>
-   <%= f.button :submit %>
-<% end %>

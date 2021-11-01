@@ -1,0 +1,48 @@
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">BSL File</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="d-flex mb-4 mt-2">
+          <div class="flex-1 file-download rounded-50 bg-body-color p-2 d-flex shadow-sm mr-1 align-items-center">
+            <span><i class='fa fa-file-text-o font-25 mr-2'></i></span>
+            <%= link_to "Download BSL sample file", download_sample_file_organisation_administration_portal_index_path(file: Rails.root.join("public", "BSL_sample_upload_file.csv")), target: "_blank", class: 'text-black text-decoration-none'%> 
+          </div>
+          <div class="flex-1 file-download rounded-50 bg-body-color p-2 shadow-sm d-flex ml-1 align-items-center">
+            <span><i class='fa fa-file-text-o font-25 mr-2'></i></span>
+            <%= link_to "Download BSL required data file", download_sample_file_organisation_administration_portal_index_path(file: Rails.root.join("public", "BSL_sheet_required_data.csv")), target: "_blank", class: 'text-black text-decoration-none' %>
+          </div>
+        </div>
+        
+        
+        <%= form_for BusinessServiceLine.new, url: import_organisation_business_service_lines_path, multipart: true do |f| %>
+          <div class="inputfile-box d-flex">
+            <%= f.file_field :file, required: true, id: 'bsl-csv', accept: 'text/csv', class: 'btn btn-sm btn-dark py-2 px-3 bg-black rounded mr-1 inputfile' %>
+            <label for="bsl-csv" class="d-flex flex-1 align-items-end">
+              <span id="file-name" class="file-box order-2"></span>
+              <span class="file-button order-1 black-btn p-3 cursor-pointer rounded-50">
+                <i class="fa fa-paperclip paperclip font-20 text-white align-middle"></i>
+                <span class="text-white ml-1 mt-1">Attach File</span>
+              </span>
+            </label>
+              <%#= f.label :file, "Upload CSV File" %>
+          </div>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary black-btn" data-dismiss="modal">Close</button>
+        <%= f.submit "submit", class: "btn btn-secondary black-btn" %>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+

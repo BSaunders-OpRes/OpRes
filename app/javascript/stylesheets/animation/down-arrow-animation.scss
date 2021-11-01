@@ -182,3 +182,15 @@
     background-position: 280px;
   }
 }
+
+.file-download {
+  transition: .4s all;
+  cursor: pointer;
+  &:hover {
+    background-color: $primary-green;
+  }
+}
+
+
+
+

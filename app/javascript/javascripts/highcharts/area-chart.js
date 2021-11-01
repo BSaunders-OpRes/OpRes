@@ -6,7 +6,7 @@ document.addEventListener('turbolinks:load', function() {
   function render_area_chart(element) {
     Highcharts.chart(element, {
       chart: {
-        type: 'area',
+        type: 'bar',
         plotBorderWidth: 1,
       },
       title: {

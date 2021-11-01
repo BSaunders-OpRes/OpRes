@@ -81,7 +81,7 @@ document.addEventListener('turbolinks:load', function() {
     $('.file-attach').removeClass('d-none').addClass('d-block')
     $('.file-name').text(e.target.value.split('\\').pop())
     $('.file-size').text((this.files[0].size/1000).toFixed(2)+'KB')
-    $('#file-name').text(e.target.value.split('\\').pop());
+    $(this).parents('.inputfile-box').find('#file-name').text(e.target.value.split('\\').pop());
 
     if ($(this.files[0].size/1000).length > 0){
       $('#attachment-icon').removeClass('d-none').addClass('d-block')
