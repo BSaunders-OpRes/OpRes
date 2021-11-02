@@ -34,11 +34,11 @@ class Organisation::DashboardBreakDownsController < Organisation::BaseController
         @bsl_tiers[internal_system]  = Supplier.joins(supplier_steps: [step: [:business_service_line]]).where(business_service_lines: { id: @bsl_regional_tiers.dig(region.name, tier)&.pluck(:id) })
         @bsl_tiers[third_party_key]  = SubSuppliers::ThirdPartySupplier.joins(supplier: [supplier_steps: [step: [:business_service_line]]])
                                                                       .where(business_service_lines: { id: @bsl_regional_tiers.dig(region.name, tier)&.pluck(:id) })
+
         @bsl_tiers[fourth_party_key] = SubSuppliers::FourthPartySupplier.joins(supplier: [supplier_steps: [step: [:business_service_line]]])
                                                                        .where(business_service_lines: { id: @bsl_regional_tiers.dig(region.name, tier)&.pluck(:id) })
       end
     end
-
   end
 
   def cloud_service_provider_breakdown
