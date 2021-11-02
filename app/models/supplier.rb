@@ -155,7 +155,6 @@ class Supplier < ApplicationRecord
   private
 
   def create_resilience_tickets
-
     bsls = BusinessServiceLine.joins(steps: [supplier_steps: [:supplier]])
                               .where(suppliers: {id: id})
                               .includes(:sla)
