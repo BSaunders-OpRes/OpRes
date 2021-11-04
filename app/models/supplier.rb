@@ -62,11 +62,11 @@ class Supplier < ApplicationRecord
       spl_hash.end_date = col[4]
       spl_hash.description = col[5]
       spl_hash.annual_cost_of_contract = col[6]
-      spl_hash.unit_id = Unit.find_by(name: organisational_unit.name + " " + col[7]).id
-      spl_hash.save
+      spl_hash.unit_id = Unit.find_by(name: organisational_unit.name + " " + col[7])&.id
+      spl_hash.save!
       CloudHostingProviderRecipient.create(cloud_hosting_provider_id: find_chp(col[8]), chp_recipientable_type: "Supplier", chp_recipientable_id: spl_hash[:id]) 
       CloudHostingProviderRegionRecipient.create(cloud_hosting_provider_region_id: find_chp_region(col[9]), chpr_recipientable_type: "Supplier", chpr_recipientable_id: spl_hash[:id])
-      col[10]&.split(",").each do |e|
+      col[10]&.split(",")&.each do |e|
         id = CloudHostingProviderService.find_by(name: e.strip)&.id
         CloudHostingProviderServiceRecipient.create(cloud_hosting_provider_service_id: id, chps_recipientable_type: "Supplier", chps_recipientable_id: spl_hash[:id])
       end
@@ -77,7 +77,7 @@ class Supplier < ApplicationRecord
       SocialAccountRecipient.create(social_account_id: 3, link: col[32], social_account_recipientable_type: "Supplier", social_account_recipientable_id: spl_hash[:id])      
       SocialAccountRecipient.create(social_account_id: 4, link: col[33], social_account_recipientable_type: "Supplier", social_account_recipientable_id: spl_hash[:id])      
       SocialAccountRecipient.create(social_account_id: 5, link: col[34], social_account_recipientable_type: "Supplier", social_account_recipientable_id: spl_hash[:id])      
-      spl_hash.save
+      spl_hash.save!
     end
   end
 
