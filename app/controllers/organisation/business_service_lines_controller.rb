@@ -68,8 +68,14 @@ class Organisation::BusinessServiceLinesController < Organisation::BaseControlle
 
   def import
     #institution_unit = organisational_unit.inclusive_children.collect{|e| e if e.type == "Units::Institution"}.compact
-    BusinessServiceLine.import(params[:business_service_line][:file])
-    redirect_to organisation_administration_portal_index_path, notice: "BSL data has been imported!"
+    begin
+      BusinessServiceLine.import(params[:business_service_line][:file])
+    rescue ArgumentError => e
+      redirect_to organisation_administration_portal_index_path, alert: e.message
+    rescue ActiveRecord::RecordInvalid => e
+      redirect_to organisation_administration_portal_index_path, alert: e.message
+    end
+    redirect_to organisation_administration_portal_index_path, notice: "BSL data has been imported!" if e.blank?
   end
 
   def compound_resilience
