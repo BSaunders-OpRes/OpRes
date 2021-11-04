@@ -54,8 +54,14 @@ class Organisation::SuppliersController < Organisation::BaseController
   end
 
   def import
-    Supplier.import(params[:supplier][:file], organisational_unit)
-    redirect_to organisation_administration_portal_index_path, notice: "Suppliers has been imported!"
+    begin
+      Supplier.import(params[:supplier][:file], organisational_unit)
+    rescue ArgumentError => e
+      redirect_to organisation_administration_portal_index_path, alert: e.message
+    rescue ActiveRecord::RecordInvalid => e
+      redirect_to organisation_administration_portal_index_path, alert: e.message
+    end
+    redirect_to organisation_administration_portal_index_path, notice: "Suppliers has been imported!" if e.blank?
   end
 
   def upload
