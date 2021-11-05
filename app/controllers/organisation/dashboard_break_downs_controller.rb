@@ -92,9 +92,7 @@ class Organisation::DashboardBreakDownsController < Organisation::BaseController
     end
   end
 
-  def private_cloud
-    
-  end
+  def private_cloud; end
 
   def breakdown
     @supplier = Supplier.find_by(id: params[:id])
@@ -104,7 +102,19 @@ class Organisation::DashboardBreakDownsController < Organisation::BaseController
     end
   end
   
-  def impact_tolerance_appetite; end
+  def impact_tolerance_appetite
+    args = {
+      'current_user' =>  current_user,
+      'organisational_unit' =>  organisational_unit,
+      'tier' => params[:tier],
+      'per' => params[:per],
+      'filters' => (params[:filters] || ActionController::Parameters.new).permit!.to_h
+    }
+
+    @tier            = params[:tier]
+    @bsls            = BusinessServiceLine.joins(:resilience_tickets).where(unit_id: organisational_unit.inclusive_children.map(&:id)).uniq
+    @resilience_gaps = PaginationService.new(Graphs::GlobalResilienceGapService.new(args).call, params[:page], params[:per] || 5).paginate_array
+  end
 
   def system_supplier_resilience_indicator
     args = {
