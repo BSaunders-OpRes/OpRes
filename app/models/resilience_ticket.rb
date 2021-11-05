@@ -9,6 +9,7 @@ class ResilienceTicket < ApplicationRecord
 
   # Enums #
   enum status: %i[open onhold close]
+  enum risk_level: %i[high medium low]
 
   # Methods #
   def days_open 
