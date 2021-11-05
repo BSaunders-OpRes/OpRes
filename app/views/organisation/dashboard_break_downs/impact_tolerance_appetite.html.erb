@@ -5,16 +5,16 @@
         <div class="mr-4 back-btn mb-3 mb-lg-0">
           <%= render 'layouts/partials/shared/redirect_back', path: organisation_dashboard_index_path %>
         </div>
-        <h2 class="font-600 font-sm-18 font-25 text-capitalize">global resilience gaps for tier N# business services</h2>
+        <h2 class="font-600 font-sm-18 font-25 text-capitalize">global resilience gaps for <%= @tier.titleize %> business services</h2>
       </div>
       <div class="right d-flex mt-3 mt-lg-0">
-        <div class="white-btn d-flex align-items-center pl-2 mr-2 rounded-50 px-3 pr-2 py-2 cursor-pointer">
+        <!-- <div class="white-btn d-flex align-items-center pl-2 mr-2 rounded-50 px-3 pr-2 py-2 cursor-pointer">
           <span><i class='fa fa-save font-16 mr-2'></i></span>
           <span class="text-capitalize font-12 font-xxl-14 font-600">save view</span>
         </div>
         <div class="white-btn p-1 d-flex align-items-center rounded-50 cursor-pointer">
           <i class="fa fa-ellipsis-v px-2 mx-1"></i>
-        </div>
+        </div> -->
       </div>
     </div>
   </div>
@@ -23,208 +23,106 @@
   <div class="col-md-12">
     <div class="card border-0 shadow-sm rounded-50 overflow-hidden">
       <div class="card-body">
-        <div class="tb-header align-items-center flex-wrap d-flex justify-content-between flex-lg-row flex-column">
-          <div class="form-group mb-lg-0 mb-3 flex-1 mr-0 mr-lg-2 w-100">
-            <span class="search-field d-block">
-              <i class="fa fa-search"></i>
-              <input type="text" class="bg-body-color h-auto form-control font-12 border-0 shadow-none py-3" placeholder="Search Global Resilience Gaps" id="country-search-filter">
-            </span>
-          </div>
-          <div class="filter-grouped d-flex flex-sm-nowrap flex-wrap flex-half w-100">
-            <div class="dropdown body-color-dropdown mb-sm-0 mb-3 mr-0 mr-sm-2 w-100 rounded">
-              <a id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class='dropdown-toggle text-capitalize py-3 pr-5 pl-2 d-flex align-items-center rounded justify-content-start font-12 text-dark font-400' id='top-10'>Sort By: Risk high to low</a>
-              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <a class="dropdown-item">Action</a>
-                <a class="dropdown-item">Filter top 10</a>
-                <a class="dropdown-item">Filter top 10</a>
-              </div>
+        <%= form_tag impact_tolerance_appetite_organisation_dashboard_break_downs_path({tier: @tier }), remote: true, method: :get do %>
+          <div class="tb-header align-items-center flex-wrap d-flex justify-content-between flex-lg-row flex-column">
+            <%= hidden_field_tag 'tier', @tier %>
+            <div class="form-group mb-lg-0 mb-3 flex-1 mr-0 mr-lg-2 w-100">
+              <span class="search-field d-block">
+                <i class="fa fa-search"></i>
+                <%= text_field_tag 'filters[query]', params.dig("filters", "query"), placeholder: 'Search Global Resilience Gaps', class: "bg-body-color h-auto form-control font-12 border-0 shadow-none py-3", id: "search-filter", onkeyup: 'RailsUJS.fire(this.form, "submit")' %>
+              </span>
             </div>
-            <div class="dropdown body-color-dropdown w-100 rounded">
-              <a id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class='dropdown-toggle text-capitalize py-3 rounded pr-5 pl-2 d-flex align-items-center justify-content-start font-12 text-dark font-400' id='top-10'>10 results per page</a>
-              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <a class="dropdown-item">Action</a>
-                <a class="dropdown-item">Filter top 10</a>
-                <a class="dropdown-item">Filter top 10</a>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="filter-header">
-          <div class="table-filter-field d-flex mt-4 mb-2 flex-wrap">
-            <div class="filter mr-3">
-              <div class="dropdown">
-                <a class="text-black text-decoration-none dropdown-toggle font-12 font-400 font-xxl-14 text-capitalize text-secondary" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  All Regions
-                </a>
-                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                  <a class="dropdown-item" href="#">Action</a>
-                  <a class="dropdown-item" href="#">Another action</a>
-                  <a class="dropdown-item" href="#">Something else here</a>
+            <div class="filter-grouped d-flex flex-sm-nowrap flex-wrap flex-half w-100">
+              <div class="dropdown body-color-dropdown mb-sm-0 mb-3 mr-0 mr-sm-2 w-100 rounded">
+                <div class="select-arrow position-relative">
+                  <%= select_tag "filters[sort]", options_for_select([["Sort By: Risk High to Low",'asc'], ["Sort By: Risk Low to High",'desc']]), class: "form-control w-100 font-12 h-auto py-3 border-0 shadow-none pr-4 bg-body-color bg-light", onchange: 'RailsUJS.fire(this.form, "submit")' %>
+                  <i class="fa fa-sort-desc position-absolute" aria-hidden="true"></i>
                 </div>
               </div>
-            </div>
-            <div class="filter mr-3">
-              <div class="dropdown">
-                <a class="text-black text-decoration-none dropdown-toggle font-12 font-400 font-xxl-14 text-capitalize text-secondary" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  All countries
-                </a>
-                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                  <a class="dropdown-item" href="#">Action</a>
-                  <a class="dropdown-item" href="#">Another action</a>
-                  <a class="dropdown-item" href="#">Something else here</a>
-                </div>
-              </div>
-            </div>
-            <div class="filter mr-3">
-              <div class="dropdown">
-                <a class="text-black text-decoration-none dropdown-toggle font-12 font-400 font-xxl-14 text-capitalize text-secondary" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  All institution
-                </a>
-                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                  <a class="dropdown-item" href="#">Action</a>
-                  <a class="dropdown-item" href="#">Another action</a>
-                  <a class="dropdown-item" href="#">Something else here</a>
-                </div>
-              </div>
-            </div>
-            <div class="filter mr-3">
-              <div class="dropdown">
-                <a class="text-black text-decoration-none dropdown-toggle font-12 font-400 font-xxl-14 text-capitalize text-secondary" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  All products
-                </a>
-                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                  <a class="dropdown-item" href="#">Action</a>
-                  <a class="dropdown-item" href="#">Another action</a>
-                  <a class="dropdown-item" href="#">Something else here</a>
-                </div>
-              </div>
-            </div>
-            <div class="filter mr-3">
-              <div class="dropdown">
-                <a class="text-black text-decoration-none dropdown-toggle font-12 font-400 font-xxl-14 text-capitalize text-secondary" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  All business service
-                </a>
-                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                  <a class="dropdown-item" href="#">Action</a>
-                  <a class="dropdown-item" href="#">Another action</a>
-                  <a class="dropdown-item" href="#">Something else here</a>
-                </div>
-              </div>
-            </div>
-            <div class="filter mr-3">
-              <div class="dropdown">
-                <a class="text-black text-decoration-none dropdown-toggle font-12 font-400 font-xxl-14 text-capitalize text-secondary" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  All resilience ID's
-                </a>
-                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                  <a class="dropdown-item" href="#">Action</a>
-                  <a class="dropdown-item" href="#">Another action</a>
-                  <a class="dropdown-item" href="#">Something else here</a>
-                </div>
-              </div>
-            </div>
-            <div class="filter mr-3">
-              <div class="dropdown">
-                <a class="text-black text-decoration-none dropdown-toggle font-12 font-400 font-xxl-14 text-capitalize text-secondary" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  All statuses
-                </a>
-                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                  <a class="dropdown-item" href="#">Action</a>
-                  <a class="dropdown-item" href="#">Another action</a>
-                  <a class="dropdown-item" href="#">Something else here</a>
-                </div>
-              </div>
-            </div>
-            <div class="filter mr-3">
-              <div class="dropdown">
-                <a class="text-black text-decoration-none dropdown-toggle font-12 font-400 font-xxl-14 text-capitalize text-secondary" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  All risk levels
-                </a>
-                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                  <a class="dropdown-item" href="#">Action</a>
-                  <a class="dropdown-item" href="#">Another action</a>
-                  <a class="dropdown-item" href="#">Something else here</a>
+              <div class="dropdown body-color-dropdown w-100 rounded">
+                <div class="select-arrow position-relative">
+                  <%= select_tag "per", options_for_select([["Filter Top 5",5], ["Filter Top 10",10], ["Filter Top 20",20], ["Filter Top 30",30]]), class: "form-control w-100 font-12 h-auto py-3 border-0 shadow-none pr-4 bg-body-color bg-light", onchange: 'RailsUJS.fire(this.form, "submit")' %>
+                  <i class="fa fa-sort-desc position-absolute" aria-hidden="true"></i>
                 </div>
               </div>
             </div>
           </div>
-        </div>
+          <div class="filter-header">
+            <div class="table-filter-field d-flex mt-4 mb-2 flex-wrap">
+              <div class="filter mr-3">
+                <div class="dropdown body-color-dropdown w-100 rounded">
+                  <div class="select-arrow position-relative">
+                    <%= select_tag "filters[region_ids][]", options_for_select(organisational_regions.map {|region| [region.region.name.titleize, region.region.id]}), prompt: 'Select Region', class: "form-control w-100 font-12 h-auto py-3 border-0 shadow-none pr-4 bg-body-color bg-light", onchange: 'RailsUJS.fire(this.form, "submit")' %>
+                    <i class="fa fa-sort-desc position-absolute" aria-hidden="true"></i>
+                  </div>
+                </div>
+              </div>
+              <div class="filter mr-3">
+                <div class="dropdown body-color-dropdown w-100 rounded">
+                  <div class="select-arrow position-relative">
+                    <%= select_tag "filters[country_ids][]", options_for_select(organisational_countries.map {|oc| [oc.name.titleize, oc.id]}), prompt: 'Select Country', class: "form-control w-100 font-12 h-auto py-3 border-0 shadow-none pr-4 bg-body-color bg-light", onchange: 'RailsUJS.fire(this.form, "submit")' %>
+                    <i class="fa fa-sort-desc position-absolute" aria-hidden="true"></i>
+                  </div>
+                </div>
+              </div>
+              <div class="filter mr-3">
+                <div class="dropdown body-color-dropdown w-100 rounded">
+                  <div class="select-arrow position-relative">
+                    <%= select_tag "filters[institution_ids][]", options_for_select(organisational_institutions.map {|oi| [oi.name.titleize, oi.id]}), prompt: 'Select Institutions', class: "form-control w-100 font-12 h-auto py-3 border-0 shadow-none pr-4 bg-body-color bg-light", onchange: 'RailsUJS.fire(this.form, "submit")' %>
+                    <i class="fa fa-sort-desc position-absolute" aria-hidden="true"></i>
+                  </div>
+                </div>
+              </div>
+              <div class="filter mr-3">
+                <div class="dropdown body-color-dropdown w-100 rounded">
+                  <div class="select-arrow position-relative">
+                    <%= select_tag "filters[product_ids][]", options_for_select(organisational_products.map {|op| [op.name.titleize, op.id]}), prompt: 'Select Products', class: "form-control w-100 font-12 h-auto py-3 border-0 shadow-none pr-4 bg-body-color bg-light", onchange: 'RailsUJS.fire(this.form, "submit")' %>
+                    <i class="fa fa-sort-desc position-absolute" aria-hidden="true"></i>
+                  </div>
+                </div>
+              </div>
+              <div class="filter mr-3">
+                <div class="dropdown body-color-dropdown w-100 rounded">
+                  <div class="select-arrow position-relative">
+                    <%= select_tag "filters[bsl]", options_for_select(@bsls.map {|bsl| [bsl.name.titleize, bsl.id]}), prompt: 'Select Business Service', class: "form-control w-100 font-12 h-auto py-3 border-0 shadow-none pr-4 bg-body-color bg-light", onchange: 'RailsUJS.fire(this.form, "submit")' %>
+                    <i class="fa fa-sort-desc position-absolute" aria-hidden="true"></i>
+                  </div>
+                </div>
+              </div>
+              <div class="filter mr-3">
+                <div class="dropdown body-color-dropdown w-100 rounded">
+                  <div class="select-arrow position-relative">
+                    <%= select_tag "filters[resilience_id]", options_for_select(@resilience_gaps.map {|rg| [rg.rgid.titleize, rg.rgid]}), prompt: "Select Resilience Id's", class: "form-control w-100 font-12 h-auto py-3 border-0 shadow-none pr-4 bg-body-color bg-light", onchange: 'RailsUJS.fire(this.form, "submit")' %>
+                    <i class="fa fa-sort-desc position-absolute" aria-hidden="true"></i>
+                  </div>
+                </div>
+              </div>
+              <div class="filter mr-3">
+                <div class="dropdown body-color-dropdown w-100 rounded">
+                  <div class="select-arrow position-relative">
+                    <%= select_tag "filters[resilience_status]", options_for_select(ResilienceTicket.statuses.map {|key,value| [key.titleize, value]}), prompt: 'Select statuses', class: "form-control w-100 font-12 h-auto py-3 border-0 shadow-none pr-4 bg-body-color bg-light", onchange: 'RailsUJS.fire(this.form, "submit")' %>
+                    <i class="fa fa-sort-desc position-absolute" aria-hidden="true"></i>
+                  </div>
+                </div>
+              </div>
+              <div class="filter mr-3">
+                <div class="dropdown body-color-dropdown w-100 rounded">
+                  <div class="select-arrow position-relative">
+                    <%= select_tag "filters[resilience_risk_level]", options_for_select(ResilienceTicket.risk_levels.map {|key,value| [key.titleize, value]}), prompt: 'Select Risk Levels', class: "form-control w-100 font-12 h-auto py-3 border-0 shadow-none pr-4 bg-body-color bg-light", onchange: 'RailsUJS.fire(this.form, "submit")' %>
+                    <i class="fa fa-sort-desc position-absolute" aria-hidden="true"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        <% end %>
 
-        <div class="table-responsive mt-0 mt-lg-3">
-          <table class="table custom-table mb-4 text-capitalize">
-            <thead class="font-600">
-              <tr>
-                <th class="font-12 font-xxl-14 px-1 text-light-grey font-400 text-capitalize font-600">region</th>
-                <th class="font-12 font-xxl-14 px text-light-grey font-400 text-capitalize font-600">country</th>
-                <th class="font-12 font-xxl-14 px text-light-grey font-400 text-capitalize font-600">institution</th>
-                <th class="font-12 font-xxl-14 px text-light-grey font-400 text-capitalize font-600">product</th>
-                <th class="font-12 font-xxl-14 px text-light-grey font-400 text-capitalize font-600">business services</th>
-                <th class="font-12 font-xxl-14 px text-light-grey font-400 text-capitalize font-600">resilience ID</th>
-                <th class="font-12 font-xxl-14 px text-light-grey font-400 text-capitalize font-600">status</th>
-                <th class="font-12 font-xxl-14 px text-light-grey font-400 text-capitalize font-600">risk level</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td class="font-11 font-xxl-14 px-1 text-dark font-600">EMEA</td>
-                <td class="font-11 font-xxl-14 text-dark font-600">country</td>
-                <td class="font-11 font-xxl-14 text-dark font-600">institution</td>
-                <td class="font-11 font-xxl-14 text-dark font-600">product</td>
-                <td class="font-11 font-xxl-14 text-dark font-600">service name</td>
-                <td class="font-11 font-xxl-14 text-dark font-600">0321342442</td>
-                <td class="font-11 font-xxl-14 text-dark font-600">open</td>
-                <td class="font-11 font-xxl-14 text-dark font-600">
-                  <div class="d-flex align-items-center">
-                    <div class="sm-circle bg-red"></div>
-                    <span class="ml-2 text-capitalize flex-1">very high</span>
-                  </div>
-                </td>
-                <td>
-                  <%= link_to 'view', organisation_dashboard_path('resilience_indicator_ticket'), class: 'font-11 font-xxl-14 text-dark font-600 text-capitalize' %>
-                </td>
-              </tr>
-              <tr>
-                <td class="font-11 font-xxl-14 px-1 text-dark font-600">EMEA</td>
-                <td class="font-11 font-xxl-14 text-dark font-600">country</td>
-                <td class="font-11 font-xxl-14 text-dark font-600">institution</td>
-                <td class="font-11 font-xxl-14 text-dark font-600">product</td>
-                <td class="font-11 font-xxl-14 text-dark font-600">service name</td>
-                <td class="font-11 font-xxl-14 text-dark font-600">0321342442</td>
-                <td class="font-11 font-xxl-14 text-dark font-600">open</td>
-                <td class="font-11 font-xxl-14 text-dark font-600">
-                  <div class="d-flex align-items-center">
-                    <div class="sm-circle bg-red"></div>
-                    <span class="ml-2 text-capitalize flex-1">very high</span>
-                  </div>
-                </td>
-                <td>
-                  <%= link_to 'view', organisation_dashboard_path('resilience_indicator_ticket'), class: 'font-11 font-xxl-14 text-dark font-600 text-capitalize' %>
-                </td>
-              </tr>
-              <tr>
-                <td class="font-11 font-xxl-14 px-1 text-dark font-600">EMEA</td>
-                <td class="font-11 font-xxl-14 text-dark font-600">country</td>
-                <td class="font-11 font-xxl-14 text-dark font-600">institution</td>
-                <td class="font-11 font-xxl-14 text-dark font-600">product</td>
-                <td class="font-11 font-xxl-14 text-dark font-600">service name</td>
-                <td class="font-11 font-xxl-14 text-dark font-600">0321342442</td>
-                <td class="font-11 font-xxl-14 text-dark font-600">open</td>
-                <td class="font-11 font-xxl-14 text-dark font-600">
-                  <div class="d-flex align-items-center">
-                    <div class="sm-circle bg-red"></div>
-                    <span class="ml-2 text-capitalize flex-1">high</span>
-                  </div>
-                </td>
-                <td>
-                  <%= link_to 'view', organisation_dashboard_path('resilience_indicator_ticket'), class: 'font-11 font-xxl-14 text-dark font-600 text-capitalize' %>
-                </td>
-              </tr>
-            </tbody>
-          </table>
+        <div id="resilience-gap-table" class="table-responsive mt-0 mt-lg-3">
+          <%= render 'organisation/dashboard_break_downs/partials/resilience_gap_table', resilience_gaps: @resilience_gaps %>
         </div>
       </div>
     </div>
-    <div class="row mt-4">
+    <!-- <div class="row mt-4">
       <div class="col-sm-12 text-center">
         <nav aria-label="Page navigation example">
           <ul class="pagination pagination-active justify-content-center mb-0">
@@ -235,6 +133,6 @@
           </ul>
         </nav>
       </div>
-    </div>
+    </div> -->
   </div>
 </div>
