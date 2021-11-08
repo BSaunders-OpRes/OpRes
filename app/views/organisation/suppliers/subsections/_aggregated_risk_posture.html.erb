@@ -11,7 +11,7 @@
       </div>
       <div class="mb-4 px-4">
         <div class="justify-content-center">
-          <div id="supplier-conformance-impact-tolerance" class="row mx-auto lazy-graph" data-key="supplier_conformance_impact_tolerance" data-args="<%= { supplier: @supplier.id }.to_json %>" data-append-to="supplier-conformance-impact-tolerance" data-partial-name="supplier_conformance_impact_tolerance">
+          <div id="supplier-conformance-impact-tolerance" class="lazy-graph" data-key="supplier_conformance_impact_tolerance" data-args="<%= { supplier: @supplier.id }.to_json %>" data-append-to="supplier-conformance-impact-tolerance" data-partial-name="supplier_conformance_impact_tolerance">
             <%= render 'organisation/graphs/partials/supplier_conformance_impact_tolerance', data: {} %>
           </div>
         </div>
