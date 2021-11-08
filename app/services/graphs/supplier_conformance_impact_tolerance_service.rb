@@ -55,7 +55,7 @@ class Graphs::SupplierConformanceImpactToleranceService < Graphs::BaseService
 
       },
       {
-      y: datum[:total],
+      y: datum[:total] - (total_sum.zero? ? 0 : ((total_sum / total.to_f) * 100).round(2)),
       color: COLORS[0]
       }
     ]
