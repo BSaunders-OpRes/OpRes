@@ -16,7 +16,7 @@ class Graphs::ResilienceRiskIndicatorService < Graphs::BaseService
     nodes                          = filter_data
     ResilienceTicket.statuses.keys.each_with_index do |status, index|
       series_data = {
-        name: status.capitalize,
+        name: status == 'onhold' ? 'Pending Resilience Gap' : "#{status.capitalize} Resilience Gap",
         data: []
       }
       risk_data[:data] << series_data

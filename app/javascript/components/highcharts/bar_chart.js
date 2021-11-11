@@ -8,10 +8,17 @@ let chartOptions = {
     type: 'column',
     plotBorderWidth: 1,
   },
-  colors: ['#c42525', '#E39A2B', '#05b368'],
-  title: {
-    text: ''
+ yAxis: {
+    title: {
+      text: 'Total Count'
+    }
   },
+  xAxis: {
+    title: {
+      text: 'Month & Year'
+    }
+  },
+  colors: ['#E4412E', '#E39A2B', '#6BEAB3'],
   tooltip: {
     headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
     pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
