@@ -29,16 +29,16 @@
             <div class="form-group mb-lg-0 mb-3 flex-1 mr-0 mr-lg-2 w-100">
               <span class="search-field d-block">
                 <i class="fa fa-search"></i>
-                <%= text_field_tag 'filters[query]', params.dig("filters", "query"), placeholder: 'Search Global Resilience Gaps', class: "bg-body-color h-auto form-control font-12 border-0 shadow-none py-3", id: "search-filter", onkeyup: 'RailsUJS.fire(this.form, "submit")' %>
+                <%= text_field_tag 'filters[query]', params.dig("filters", "query"), placeholder: 'Search Global Resilience Gaps', class: "bg-body-color h-auto form-control font-12 border-0 shadow-none py-3", id: "search-filter", autocomplete: 'off', onkeyup: 'RailsUJS.fire(this.form, "submit")' %>
               </span>
             </div>
             <div class="filter-grouped d-flex flex-sm-nowrap flex-wrap flex-half w-100">
-              <div class="dropdown body-color-dropdown mb-sm-0 mb-3 mr-0 mr-sm-2 w-100 rounded">
+              <!-- <div class="dropdown body-color-dropdown mb-sm-0 mb-3 mr-0 mr-sm-2 w-100 rounded">
                 <div class="select-arrow position-relative">
-                  <%= select_tag "filters[sort]", options_for_select([["Sort By: Risk High to Low",'asc'], ["Sort By: Risk Low to High",'desc']]), class: "form-control w-100 font-12 h-auto py-3 border-0 shadow-none pr-4 bg-body-color bg-light", onchange: 'RailsUJS.fire(this.form, "submit")' %>
+                  <%#= select_tag "filters[sort]", options_for_select([["Sort By: Risk High to Low",'asc'], ["Sort By: Risk Low to High",'desc']]), class: "form-control w-100 font-12 h-auto py-3 border-0 shadow-none pr-4 bg-body-color bg-light", onchange: 'RailsUJS.fire(this.form, "submit")' %>
                   <i class="fa fa-sort-desc position-absolute" aria-hidden="true"></i>
                 </div>
-              </div>
+              </div> -->
               <div class="dropdown body-color-dropdown w-100 rounded">
                 <div class="select-arrow position-relative">
                   <%= select_tag "per", options_for_select([["Filter Top 5",5], ["Filter Top 10",10], ["Filter Top 20",20], ["Filter Top 30",30]]), class: "form-control w-100 font-12 h-auto py-3 border-0 shadow-none pr-4 bg-body-color bg-light", onchange: 'RailsUJS.fire(this.form, "submit")' %>
@@ -49,70 +49,29 @@
           </div>
           <div class="filter-header">
             <div class="table-filter-field d-flex mt-4 mb-2 flex-wrap">
-              <div class="filter mr-3">
+              <div class="filter mr-3 flex-1" id="segmentation-regions">
+                <%= render 'organisation/dashboard/partials/regions_option_render', regions: organisational_regions %>
+              </div>
+              <div class="filter mr-3 flex-1" id="segmentation-countries">
+                <%= render 'organisation/dashboard/partials/countries_option_render', countries: organisational_countries %>
+              </div>
+              <div class="filter mr-3 flex-1" id="segmentation-institutions">
+                <%= render 'organisation/dashboard/partials/institutions_option_render', institutions: organisational_institutions %>
+              </div>
+              <div class="filter mr-3 flex-1" id="institution-products">
+                <%= render 'organisation/dashboard/partials/products_option_render', products: organisational_products %>
+              </div>
+              <div class="filter mr-3 flex-1" id="segmentation-bsls">
+                <%= render 'organisation/dashboard_break_downs/partials/bsl_option_render', bsls: @bsls %>
+              </div>
+              <!-- <div class="filter mr-3 flex-1">
                 <div class="dropdown body-color-dropdown w-100 rounded">
                   <div class="select-arrow position-relative">
-                    <%= select_tag "filters[region_ids][]", options_for_select(organisational_regions.map {|region| [region.region.name.titleize, region.region.id]}), prompt: 'Select Region', class: "form-control w-100 font-12 h-auto py-3 border-0 shadow-none pr-4 bg-body-color bg-light", onchange: 'RailsUJS.fire(this.form, "submit")' %>
+                    <%#= select_tag "filters[resilience_risk_level]", options_for_select(ResilienceTicket.risk_levels.map {|key,value| [key.titleize, value]}), prompt: 'Select Risk Levels', class: "form-control w-100 font-12 h-auto py-3 border-0 shadow-none pr-4 bg-body-color bg-light", onchange: 'RailsUJS.fire(this.form, "submit")' %>
                     <i class="fa fa-sort-desc position-absolute" aria-hidden="true"></i>
                   </div>
                 </div>
-              </div>
-              <div class="filter mr-3">
-                <div class="dropdown body-color-dropdown w-100 rounded">
-                  <div class="select-arrow position-relative">
-                    <%= select_tag "filters[country_ids][]", options_for_select(organisational_countries.map {|oc| [oc.name.titleize, oc.id]}), prompt: 'Select Country', class: "form-control w-100 font-12 h-auto py-3 border-0 shadow-none pr-4 bg-body-color bg-light", onchange: 'RailsUJS.fire(this.form, "submit")' %>
-                    <i class="fa fa-sort-desc position-absolute" aria-hidden="true"></i>
-                  </div>
-                </div>
-              </div>
-              <div class="filter mr-3">
-                <div class="dropdown body-color-dropdown w-100 rounded">
-                  <div class="select-arrow position-relative">
-                    <%= select_tag "filters[institution_ids][]", options_for_select(organisational_institutions.map {|oi| [oi.name.titleize, oi.id]}), prompt: 'Select Institutions', class: "form-control w-100 font-12 h-auto py-3 border-0 shadow-none pr-4 bg-body-color bg-light", onchange: 'RailsUJS.fire(this.form, "submit")' %>
-                    <i class="fa fa-sort-desc position-absolute" aria-hidden="true"></i>
-                  </div>
-                </div>
-              </div>
-              <div class="filter mr-3">
-                <div class="dropdown body-color-dropdown w-100 rounded">
-                  <div class="select-arrow position-relative">
-                    <%= select_tag "filters[product_ids][]", options_for_select(organisational_products.map {|op| [op.name.titleize, op.id]}), prompt: 'Select Products', class: "form-control w-100 font-12 h-auto py-3 border-0 shadow-none pr-4 bg-body-color bg-light", onchange: 'RailsUJS.fire(this.form, "submit")' %>
-                    <i class="fa fa-sort-desc position-absolute" aria-hidden="true"></i>
-                  </div>
-                </div>
-              </div>
-              <div class="filter mr-3">
-                <div class="dropdown body-color-dropdown w-100 rounded">
-                  <div class="select-arrow position-relative">
-                    <%= select_tag "filters[bsl]", options_for_select(@bsls.map {|bsl| [bsl.name.titleize, bsl.id]}), prompt: 'Select Business Service', class: "form-control w-100 font-12 h-auto py-3 border-0 shadow-none pr-4 bg-body-color bg-light", onchange: 'RailsUJS.fire(this.form, "submit")' %>
-                    <i class="fa fa-sort-desc position-absolute" aria-hidden="true"></i>
-                  </div>
-                </div>
-              </div>
-              <div class="filter mr-3">
-                <div class="dropdown body-color-dropdown w-100 rounded">
-                  <div class="select-arrow position-relative">
-                    <%= select_tag "filters[resilience_id]", options_for_select(@resilience_gaps.map {|rg| [rg.rgid.titleize, rg.rgid]}), prompt: "Select Resilience Id's", class: "form-control w-100 font-12 h-auto py-3 border-0 shadow-none pr-4 bg-body-color bg-light", onchange: 'RailsUJS.fire(this.form, "submit")' %>
-                    <i class="fa fa-sort-desc position-absolute" aria-hidden="true"></i>
-                  </div>
-                </div>
-              </div>
-              <div class="filter mr-3">
-                <div class="dropdown body-color-dropdown w-100 rounded">
-                  <div class="select-arrow position-relative">
-                    <%= select_tag "filters[resilience_status]", options_for_select(ResilienceTicket.statuses.map {|key,value| [key.titleize, value]}), prompt: 'Select statuses', class: "form-control w-100 font-12 h-auto py-3 border-0 shadow-none pr-4 bg-body-color bg-light", onchange: 'RailsUJS.fire(this.form, "submit")' %>
-                    <i class="fa fa-sort-desc position-absolute" aria-hidden="true"></i>
-                  </div>
-                </div>
-              </div>
-              <div class="filter mr-3">
-                <div class="dropdown body-color-dropdown w-100 rounded">
-                  <div class="select-arrow position-relative">
-                    <%= select_tag "filters[resilience_risk_level]", options_for_select(ResilienceTicket.risk_levels.map {|key,value| [key.titleize, value]}), prompt: 'Select Risk Levels', class: "form-control w-100 font-12 h-auto py-3 border-0 shadow-none pr-4 bg-body-color bg-light", onchange: 'RailsUJS.fire(this.form, "submit")' %>
-                    <i class="fa fa-sort-desc position-absolute" aria-hidden="true"></i>
-                  </div>
-                </div>
-              </div>
+              </div> -->
             </div>
           </div>
         <% end %>
