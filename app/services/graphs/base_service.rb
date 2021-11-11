@@ -55,7 +55,7 @@ class Graphs::BaseService < ApplicationService
           nodes << regional_nodes.map {|a| a.inclusive_children}.flatten.map(&:id)
         end
       end
-      if (args.dig("filters", "months").present? || args.dig("filters", "query").present? || args.dig("per") || args.dig("filters", "sort").present? ) && nodes.blank?
+      if (args.dig("filters", "months").present? || args.dig("filters", "bsl_ids").present? || args.dig("filters", "query").present? || args.dig("per") || args.dig("filters", "sort").present? ) && nodes.blank?
         nodes << organisational_unit.inclusive_children.map(&:id)
       end
       # if args.dig("filters","entity_ids").present?
