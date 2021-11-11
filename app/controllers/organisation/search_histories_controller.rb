@@ -5,7 +5,7 @@ class Organisation::SearchHistoriesController < Organisation::BaseController
   end
 
   def create
-    @search_history = current_user.search_histories.find_or_create_by(title: params.dig(:key), url: params.dig(:url))
+    @search_history = current_user.search_histories.create(title: params.dig(:key), url: params.dig(:url))
     render json: { message: "History create successfully" }, status: :ok
   end
 end
