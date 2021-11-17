@@ -1,0 +1,76 @@
+<div class="card mb-2 shadow-sm">
+  <div class="card-body p-0">
+    <div class="d-flex align-items-stretch h-min-160px">
+      <div class="left p-4 bg-yellow d-flex w-10 justify-content-center">
+        <i class="fa fa-cubes font-25 text-white align-self-center" aria-hidden="true"></i>
+      </div>
+      <div class="right  border-left p-4">
+        <h4 class='mb-2 font-600'>Features</h4>
+        <ul class='mb-0 p-0 list-unstyled ml-3'>
+          <% @release.release_notes.feature.each do |release_note| %>
+            <li>
+              <%= release_note.note %>      
+            </li>
+          <%end%>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="card mb-2 shadow-sm">
+  <div class="card-body p-0 ">
+    <div class="d-flex align-items-stretch h-min-160px">
+      <div class="left p-4 bg-red d-flex w-10 justify-content-center">
+        <i class="fa fa-exclamation-triangle font-25 text-white align-self-center" aria-hidden="true"></i>
+      </div>
+      <div class="right  border-left p-4">
+        <h4 class='mb-2 font-600'>Bug Fix</h4>
+        <ul class='mb-0 p-0 list-unstyled ml-3'>
+          <% @release.release_notes.bugfix.each do |release_note| %>
+            <li> <%= release_note.note %></li>
+          <%end%>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="card mb-2 shadow-sm">
+  <div class="card-body p-0">
+    <div class="d-flex align-items-stretch h-min-160px">
+      <div class="left p-4 bg-primary-green d-flex w-10 justify-content-center">
+        <i class="fa fa-tree font-25 text-white align-self-center" aria-hidden="true"></i>
+      </div>
+      <div class="right  border-left p-4">
+        <h4 class='mb-2 font-600'>Upgrades</h4>
+        <ul class='mb-0 p-0 list-unstyled ml-3'>
+          <% @release.release_notes.upgrades.each do |release_note| %>
+            <li><%= release_note.note %></li>
+          <%end%>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="card mb-2 shadow-sm">
+  <div class="card-body p-0">
+    <div class="d-flex align-items-stretch h-min-160px">
+      <div class="left p-4 bg-dark-yellow d-flex w-10 justify-content-center">
+        <i class="fa fa-sticky-note font-25 text-white align-self-center" aria-hidden="true"></i>
+      </div>
+      <div class="right border-left p-4">
+        <h4 class='mb-2 font-600'>General Notes</h4>
+        <ul class='mb-0 p-0 list-unstyled ml-3'>
+          <% @release.release_notes.general_note.each do |release_note| %>
+            <li><%= release_note.note %></li>
+          <%end%>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+  

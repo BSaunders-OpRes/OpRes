@@ -6,7 +6,8 @@ class User < ApplicationRecord
   has_many :risk_appetite_justifications, dependent: :nullify
   has_many :resilience_tickets, dependent: :destroy
   has_many :search_histories, dependent: :destroy
-
+  has_many :user_releases, dependent: :destroy
+  has_many :user_notifications
   # Callbacks #
   before_validation :confirm_user
 

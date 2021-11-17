@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_03_120417) do
+ActiveRecord::Schema.define(version: 2021_11_15_103645) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -293,6 +293,15 @@ ActiveRecord::Schema.define(version: 2021_11_03_120417) do
     t.index ["business_service_line_id"], name: "index_material_risk_takers_on_business_service_line_id"
   end
 
+  create_table "notifications", force: :cascade do |t|
+    t.string "title"
+    t.integer "noti_type", default: 2
+    t.string "notificationable_type"
+    t.bigint "notificationable_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "pre_channels", force: :cascade do |t|
     t.string "name"
     t.text "description"
@@ -365,6 +374,20 @@ ActiveRecord::Schema.define(version: 2021_11_03_120417) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["supplier_id"], name: "index_relationship_owners_on_supplier_id"
+  end
+
+  create_table "release_notes", force: :cascade do |t|
+    t.integer "title", default: 0
+    t.text "note"
+    t.integer "release_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "releases", force: :cascade do |t|
+    t.string "title"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "resilience_audits", force: :cascade do |t|
@@ -580,6 +603,14 @@ ActiveRecord::Schema.define(version: 2021_11_03_120417) do
     t.index ["institution_id"], name: "index_units_on_institution_id"
     t.index ["parent_id"], name: "index_units_on_parent_id"
     t.index ["region_id"], name: "index_units_on_region_id"
+  end
+
+  create_table "user_notifications", force: :cascade do |t|
+    t.integer "notification_id"
+    t.integer "user_id"
+    t.boolean "viewed", default: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "users", force: :cascade do |t|
