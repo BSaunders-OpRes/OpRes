@@ -21,48 +21,47 @@
     <% end %>
     <div class="notification-field d-flex align-items-center justify-content-end">
       <div class="dropdown notification-dropdown" >
-        <!-- <a href="" class="alert-notification d-flex align-items-center" id="notification-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <a href="" class="alert-notification d-flex align-items-center" id="notification-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <span class="font-14 font-700 text-white d-none d-sm-block">Alert</span>
-          <span class="notification-green-circle"><i class="fa fa-bell-o text-white ml-2 font-18" aria-hidden="true"></i></span>
-        </a> -->
+            <span class="notification-green-circle">
+              <% if @unviewed_notifications.present? %>
+              <span class='green-circle'></span>
+                 <% end %>
+              <i class="fa fa-bell-o text-white ml-2 font-18" aria-hidden="true"></i>
+            </span>
+        </a>
         <div class="dropdown-menu py-0" aria-labelledby="notification-dropdown">
-          <div class="news-alert">
-            <h6 class="dropdown-item text-capitalize font-12 py-3 font-500 text-dark">new alert</h6>
-            <li class="dropdown-item py-3 border-bottom">
-              <a class="d-flex align-items-start font-14" href="#">
-                <span class="text-uppercase font-600 text-dark font-13 alert-circle d-flex align-items-center justify-content-center bg-ternary-green"><i class="fa fa-bell-o text-black font-18" aria-hidden="true"></i></span>
-                <span class="text-capitalize font-600 font-14 ml-2 text-capitalize alert-text flex-1 text-black">service provider added to <i>Customer onboarding business service line</i>
-                <small class="small font-10">Today 12:34</small>
-                </span>
-              </a>
-            </li>
-            <li class="dropdown-item py-3">
-              <a class="d-flex align-items-start font-14" href="#">
-                <span class="text-uppercase font-600 text-dark font-13 alert-circle d-flex align-items-center justify-content-center bg-ternary-green"><i class="fa fa-bell-o text-black font-18" aria-hidden="true"></i></span>
-                <span class="text-capitalize font-600 font-14 ml-2 text-capitalize alert-text flex-1 text-black">service provider added to <i>Customer onboarding business service line</i>
-                <small class="small font-10">Today 12:34</small>
-                </span>
-              </a>
-            </li>
+          <div class="news-alert z-index-1">
+            <h6 class="dropdown-item text-capitalize font-12 py-3 font-500 text-dark">new alerts</h6>
+            <% @unviewed_notifications.order("created_at DESC").each do |unviewed|%>
+              <li class="dropdown-item py-3 border-bottom shadow-sm">
+                <% if unviewed.notification.notificationable_type == 'Release'%>
+
+                  <a class="d-flex align-items-start font-14" href="<%= release_path(id: unviewed.notification.notificationable_id)%>">
+                    <span class="text-uppercase font-600 text-dark font-13 alert-circle d-flex align-items-center justify-content-center bg-ternary-green"><i class="fa fa-bell-o text-black font-18" aria-hidden="true"></i></span>
+                    <span class="text-capitalize font-600 font-14 ml-2 text-capitalize alert-text flex-1 text-black">
+                      <i class='d-block'><%= unviewed.notification.title %></i>
+                      <small class="small font-10"><%= unviewed.notification.created_at.strftime("%A %I:%M")%></small>
+                    </span>
+                  </a>
+                <% end %>
+              </li>
+            <% end %>
           </div>
           <div class="previous-alert">
             <h6 class="dropdown-item text-capitalize font-12 py-3 font-500 text-dark">previous alert</h6>
-            <li class="dropdown-item py-3 border-bottom">
-              <a class="d-flex align-items-start font-14" href="#">
-                <span class="text-uppercase font-600 text-dark font-13 alert-circle d-flex align-items-center justify-content-center bg-ternary-green"><i class="fa fa-bell-o text-black font-18" aria-hidden="true"></i></span>
-                <span class="text-capitalize font-500 font-14 ml-2 text-capitalize alert-text flex-1 text-dark">service provider added to <i>Customer onboarding business service line</i>
-                <small class="small font-10">Today 12:34</small>
-                </span>
-              </a>
-            </li>
-            <li class="dropdown-item py-3 border-bottom">
-              <a class="d-flex align-items-start font-14" href="#">
-                <span class="text-uppercase font-600 text-dark font-13 alert-circle d-flex align-items-center justify-content-center bg-ternary-green"><i class="fa fa-bell-o text-black font-18" aria-hidden="true"></i></span>
-                <span class="text-capitalize font-500 font-14 ml-2 text-capitalize alert-text flex-1 text-dark">service provider added to <i>Customer onboarding business service line</i>
-                <small class="small font-10">Today 12:34</small>
-                </span>
-              </a>
-            </li>
+            <% @viewed_notifications.order("created_at DESC").each do |viewed| %>
+              <li class="dropdown-item py-3 border-bottom bg-body-color">
+                <% if viewed.notification.notificationable_type == 'Release'%>
+                  <a class="d-flex align-items-start font-14" href="<%= release_path(id: viewed.notification.notificationable_id) %>">
+                    <span class="text-uppercase font-600 text-dark font-13 alert-circle d-flex align-items-center justify-content-center bg-ternary-green"><i class="fa fa-bell-o text-black font-18" aria-hidden="true"></i></span>
+                    <span class="text-capitalize font-500 font-14 ml-2 text-capitalize alert-text flex-1 text-dark"><i class='d-block'><%= viewed.notification.title %></i>
+                    <small class="small font-10"><%= viewed.notification.created_at.strftime("%A %I:%M")%></small>
+                    </span>
+                  </a>
+                <% end %>
+              </li>
+            <% end %>
           </div>
           <a href="" class="text-decoration-none d-block text-center py-3 text-capitalize text-black">view all</a>
         </div>

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   mount RailsAdmin::Engine => '/opres_admin', as: 'rails_admin'
   devise_scope :user do
     root 'users/sessions#new'
@@ -13,6 +14,11 @@ Rails.application.routes.draw do
     invite_confirmations: 'users/invite_confirmations'
   }
 
+  get 'notification/index'
+  get 'notification/show'
+  get 'notification/viewed'
+
+  resources :releases
 
   resources :introjs, only: %i[index] do
     post :visited, on: :collection

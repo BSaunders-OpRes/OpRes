@@ -78,8 +78,7 @@
     .alert-notification {
       .notification-green-circle {
         position: relative;
-        &::before {
-          content: "";
+        .green-circle {
           position: absolute;
           background: #6BEAB3;
           width: 8px;
