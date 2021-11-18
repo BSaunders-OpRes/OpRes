@@ -6,7 +6,7 @@
       </div>
       <div class="right  border-left p-4">
         <h4 class='mb-2 font-600'>Features</h4>
-        <ul class='mb-0 p-0 list-unstyled ml-3'>
+        <ul class='mb-0 p-0 ml-3'>
           <% @release.release_notes.feature.each do |release_note| %>
             <li>
               <%= release_note.note %>      
@@ -27,7 +27,7 @@
       </div>
       <div class="right  border-left p-4">
         <h4 class='mb-2 font-600'>Bug Fix</h4>
-        <ul class='mb-0 p-0 list-unstyled ml-3'>
+        <ul class='mb-0 p-0 ml-3'>
           <% @release.release_notes.bugfix.each do |release_note| %>
             <li> <%= release_note.note %></li>
           <%end%>
@@ -45,7 +45,7 @@
       </div>
       <div class="right  border-left p-4">
         <h4 class='mb-2 font-600'>Upgrades</h4>
-        <ul class='mb-0 p-0 list-unstyled ml-3'>
+        <ul class='mb-0 p-0 ml-3'>
           <% @release.release_notes.upgrades.each do |release_note| %>
             <li><%= release_note.note %></li>
           <%end%>
@@ -63,7 +63,7 @@
       </div>
       <div class="right border-left p-4">
         <h4 class='mb-2 font-600'>General Notes</h4>
-        <ul class='mb-0 p-0 list-unstyled ml-3'>
+        <ul class='mb-0 p-0 ml-3'>
           <% @release.release_notes.general_note.each do |release_note| %>
             <li><%= release_note.note %></li>
           <%end%>
