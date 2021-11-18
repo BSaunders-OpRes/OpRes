@@ -27,13 +27,8 @@
     <div class="card-header flex-wrap bg-transparent d-flex justify-content-between align-items-center border-0 pt-4">
       <h3 class="font-14 font-600">Resilience Risk Indicator</h3>
       <%= form_tag filter_resilience_indicator_organisation_dashboard_index_path, method: :get, remote: true, class: 'd-flex' do %>
-        <div class="dropdown body-color-dropdown mr-2">
-          <div class="select-arrow position-relative">
-            <%= select_tag "filters[tiers]", options_for_select([["Select All","all"], ["Tier 1","tier_1"], ["Tier 2","tier_2"], ["Tier 3","tier_3"], ["Tier 4","tier_4"]]), class: "form-control w-100 font-12 h-auto py-3 border-0 shadow-none pr-4 bg-body-color bg-light", onchange: 'RailsUJS.fire(this.form, "submit")' %>
-            <i class="fa fa-sort-desc position-absolute" aria-hidden="true"></i>
-          </div>
-        </div>
-        <div class="dropdown body-color-dropdown mr-2">
+        <%= render 'organisation/dashboard/partials/tier_option_render' %>
+        <div class="dropdown body-color-dropdown mr-2 d-flex align-items-center">
           <div class="select-arrow position-relative">
             <%= select_tag "filters[months]", options_for_select([["Last 3 month",3], ["Last 6 month",6], ["Last 9 month",9], ["Last 12 month",12], ["Last 18 month",18], ["Last 24 month",24]]), class: "form-control w-100 font-12 h-auto py-3 border-0 shadow-none pr-4 bg-body-color bg-light", onchange: 'RailsUJS.fire(this.form, "submit")' %>
             <i class="fa fa-sort-desc position-absolute" aria-hidden="true"></i>

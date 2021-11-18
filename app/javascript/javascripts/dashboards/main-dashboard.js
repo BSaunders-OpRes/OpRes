@@ -1,7 +1,9 @@
 document.addEventListener('turbolinks:load', function() {
-  $('body').on('change', '.regions,.countries,.institutions,.products,.sub-regions,.entities,.party_types,.bsls', function(e) {
-    $(".loader-wrapper").removeClass("d-none");
-    $('body').addClass("overflow-hidden");
+  $('body').on('change', '.regions,.countries,.institutions,.products,.sub-regions,.entities,.party_types,.bsls, .tiers', function(e) {
+    if (!e.target.className.includes('tiers')) {
+      $(".loader-wrapper").removeClass("d-none");
+      $('body').addClass("overflow-hidden");
+    }
     if(e.target.className.includes('regions')){
       if(e.target.id == 'region-all'){
         $('.regions').prop("checked", e.target.checked);
@@ -55,6 +57,9 @@ document.addEventListener('turbolinks:load', function() {
         $('.bsls').prop("checked", e.target.checked);
         // $('.bsls').text(e.target.checked ? $('.party_types').length-1 : 0);
       }
+    }
+    if(e.target.className.includes('tiers')){
+      $('.tiers-count').text($('.tiers:checked').length);
     }
   });
 

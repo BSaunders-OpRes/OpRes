@@ -22,10 +22,10 @@ class Graphs::ResilienceRiskIndicatorService < Graphs::BaseService
       risk_data[:data] << series_data
     end
 
-    if args.dig("filters", "tiers") && args.dig("filters", "tiers") != 'all'
+    if args.dig("filters", "tier_ids")
       resilience_tickets = ResilienceTicket.joins(:unit, :business_service_line)
                                            .where(unit_id: nodes)
-                                           .where(business_service_lines: { tier: BusinessServiceLine.tiers[args.dig("filters", "tiers")] })
+                                           .where(business_service_lines: { tier: BusinessServiceLine.tiers.select {|a,v| args.dig("filters", "tier_ids").include?(a)}.values })
                                            .uniq.group_by {|rt| rt.created_at.strftime('%m/%Y') }
     else
       resilience_tickets = ResilienceTicket.includes(:unit).where(unit_id: nodes).group_by {|rt| rt.created_at.strftime('%m/%Y') }
