@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_03_120417) do
+ActiveRecord::Schema.define(version: 2021_11_15_103645) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -161,6 +161,12 @@ ActiveRecord::Schema.define(version: 2021_11_03_120417) do
     t.index ["compliance_evidence_id"], name: "index_compliance_rules_on_compliance_evidence_id"
   end
 
+  create_table "consumption_models", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "countries", force: :cascade do |t|
     t.bigint "region_id"
     t.string "continent"
@@ -287,6 +293,15 @@ ActiveRecord::Schema.define(version: 2021_11_03_120417) do
     t.index ["business_service_line_id"], name: "index_material_risk_takers_on_business_service_line_id"
   end
 
+  create_table "notifications", force: :cascade do |t|
+    t.string "title"
+    t.integer "noti_type", default: 2
+    t.string "notificationable_type"
+    t.bigint "notificationable_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "pre_channels", force: :cascade do |t|
     t.string "name"
     t.text "description"
@@ -361,6 +376,20 @@ ActiveRecord::Schema.define(version: 2021_11_03_120417) do
     t.index ["supplier_id"], name: "index_relationship_owners_on_supplier_id"
   end
 
+  create_table "release_notes", force: :cascade do |t|
+    t.integer "title", default: 0
+    t.text "note"
+    t.integer "release_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "releases", force: :cascade do |t|
+    t.string "title"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "resilience_audits", force: :cascade do |t|
     t.text "description"
     t.bigint "resilience_ticket_id", null: false
@@ -403,8 +432,8 @@ ActiveRecord::Schema.define(version: 2021_11_03_120417) do
     t.float "amount"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "label", default: 0
     t.integer "kind", default: 0
+    t.integer "label", default: 0
     t.index ["business_service_line_id"], name: "index_risk_appetites_on_business_service_line_id"
   end
 
@@ -476,6 +505,15 @@ ActiveRecord::Schema.define(version: 2021_11_03_120417) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["supplier_id"], name: "index_sub_suppliers_on_supplier_id"
+  end
+
+  create_table "supplier_consumption_models", force: :cascade do |t|
+    t.bigint "supplier_id", null: false
+    t.bigint "consumption_model_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["consumption_model_id"], name: "index_supplier_consumption_models_on_consumption_model_id"
+    t.index ["supplier_id"], name: "index_supplier_consumption_models_on_supplier_id"
   end
 
   create_table "supplier_contact_suppliers", force: :cascade do |t|
@@ -567,6 +605,14 @@ ActiveRecord::Schema.define(version: 2021_11_03_120417) do
     t.index ["region_id"], name: "index_units_on_region_id"
   end
 
+  create_table "user_notifications", force: :cascade do |t|
+    t.integer "notification_id"
+    t.integer "user_id"
+    t.boolean "viewed", default: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.bigint "unit_id"
     t.string "first_name"
@@ -654,6 +700,8 @@ ActiveRecord::Schema.define(version: 2021_11_03_120417) do
   add_foreign_key "social_account_recipients", "social_accounts"
   add_foreign_key "steps", "business_service_lines"
   add_foreign_key "sub_suppliers", "suppliers"
+  add_foreign_key "supplier_consumption_models", "consumption_models"
+  add_foreign_key "supplier_consumption_models", "suppliers"
   add_foreign_key "supplier_contact_suppliers", "supplier_contacts"
   add_foreign_key "supplier_contact_suppliers", "suppliers"
   add_foreign_key "supplier_contacts", "units"
