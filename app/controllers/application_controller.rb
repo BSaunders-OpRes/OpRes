@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :null_session
-  before_action :load_notifications
+  #before_action :load_notifications
 
   rescue_from CanCan::AccessDenied do |exception|
     respond_to do |format|
