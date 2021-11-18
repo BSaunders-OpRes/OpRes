@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :null_session
-  #before_action :load_notifications
+  before_action :load_notifications
 
   rescue_from CanCan::AccessDenied do |exception|
     respond_to do |format|
@@ -11,6 +11,8 @@ class ApplicationController < ActionController::Base
   end
 
   def load_notifications
+    return nil if current_user.blank?
+    
     @unviewed_notifications = current_user.user_notifications.where(viewed: false)
     @viewed_notifications = current_user.user_notifications.where(viewed: true)
   end
