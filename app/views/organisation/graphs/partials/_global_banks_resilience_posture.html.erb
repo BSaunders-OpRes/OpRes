@@ -33,7 +33,7 @@
               <span class="font-12 d-block text-capitalize text-light-grey">Resilience Posture</span>
             </p>
             <div class="donut-content">
-              <%= react_component('highcharts/donut', { data: data.dig(key, :graph), render_to: 'critical-and-important' }, { class: 'h-130px d-flex align-items-center' }) %>
+              <%= react_component('highcharts/donut', { data: data.dig(key, :graph), render_to: 'critical-and-important' }, { class: 'd-flex align-items-center' }) %>
             </div>
           </div>
           <div class="card-body border-bottom">
