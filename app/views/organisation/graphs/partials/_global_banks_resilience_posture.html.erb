@@ -1,0 +1,79 @@
+<% if data.blank? %>
+  <div class="row five-grid mt-4 no-gutters">
+    <% organisational_unit.inclusive_children.select {|a| a.type == "Units::Institution"}.uniq {|a| a.institution_id}.each do |unit_institution| %>  
+      <div class="col mb-lg-0 mb-4 px-1">
+        <div class="card border-0 shadow-sm pie-high-chart overflow-hidden rounded-50 min-h-510">
+          <div class="card-header bg-white text-center border-0">
+            <p class="font-14 font-600 chart-header-title">
+              <% 8.times.each do |header| %>
+                <div class="empty-donut-block py-3 px-5"></div>
+              <% end %>
+            </p>
+            <% 8.times.each do |header| %>
+              <p class="font-14 font-600 chart-header-title">
+                <div class="empty-donut-block py-3 px-5"></div>
+              </p>
+              <% if header == 3 %>
+                <hr>
+              <% end %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+<% else %>
+  <div class="row five-grid mt-4 no-gutters">
+    <% data.each do |key, value| %>
+      <div class="col mb-lg-0 mb-4 px-1">
+        <div class="card border-0 shadow-sm pie-high-chart overflow-hidden rounded-50 min-h-510">
+          <div class="card-header bg-white text-center border-0">
+            <p class="font-14 font-600 chart-header-title">
+              <span class="d-block text-capitalize">global <%= key.titleize %></span>
+              <span class="font-12 d-block text-capitalize text-light-grey">Resilience Posture</span>
+            </p>
+            <div class="donut-content">
+              <%= react_component('highcharts/donut', { data: data.dig(key, :graph), render_to: 'critical-and-important' }, { class: 'd-flex align-items-center' }) %>
+            </div>
+          </div>
+          <div class="card-body border-bottom">
+            <div class="tiers d-flex justify-content-between align-items-center mb-3">
+              <div class="color-tier d-flex align-items-center">
+                <div class="circle green-1"></div>
+                <span class="font-12 font-400 ml-2">Matches Tolerences</span>
+              </div>
+              <span class="font-12 font-700"><%= data.dig(key, :match_tolerance)%></span>
+            </div>
+            <div class="tiers d-flex justify-content-between align-items-center mb-3">
+              <div class="color-tier d-flex align-items-center">
+                <div class="circle green-2"></div>
+                <span class="font-12 font-400 ml-2">Meets Tolerences</span>
+              </div>
+              <span class="font-12 font-700"><%= data.dig(key, :meet_tolerance)%></span>
+            </div>
+            <div class="tiers d-flex justify-content-between align-items-center mb-3">
+              <div class="color-tier d-flex align-items-center">
+                <div class="circle green-3"></div>
+                <span class="font-12 font-400 ml-2">Exceeds Tolerences</span>
+              </div>
+              <span class="font-12 font-700"><%= data.dig(key, :exceed_tolerance)%></span>
+            </div>
+          </div>
+          <div class="card-body">
+            <% data.dig(key, :bank_info).each do |bank_info_key, bank_info_value|%>
+              <div class="tiers d-flex justify-content-between align-items-center mb-3">
+                <div class="color-tier d-flex align-items-center">
+                  <span class="font-11 font-xxl-14 font-500"><%= bank_info_key.to_s.titleize %></span>
+                </div>
+                <span class="font-11 font-xxl-14 font-700"><%= bank_info_value %></span>
+              </div>
+            <% end %>
+          </div>
+          <div class="card-footer text-center bg-white">
+            <a href="javascript::void();" class="font-12 font-xxl-14 text-capitalize font-600 border-bottom-black text-dark text-decoration-none">view all</a>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+<% end%>
