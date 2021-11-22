@@ -11,6 +11,8 @@ class ApplicationController < ActionController::Base
   end
 
   def load_notifications
+    return nil if current_user.blank?
+    
     @unviewed_notifications = current_user.user_notifications.where(viewed: false)
     @viewed_notifications = current_user.user_notifications.where(viewed: true)
   end
