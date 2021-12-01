@@ -1,6 +1,6 @@
 class Graphs::GlobalInstitutionService < Graphs::BaseService
 
-  COLORS = %w[#6BEAB3 #367C5C #CDFAF1 #05b368]
+  COLORS = %w[#6BEAB3 #E39A2B #E4412E]
 
   def call
     data[:overall] = overall
