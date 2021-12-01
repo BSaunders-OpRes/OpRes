@@ -15,6 +15,7 @@ class Supplier < ApplicationRecord
   has_one :cloud_hosting_provider_region_recipient, as: :chpr_recipientable, dependent: :destroy
   has_one :cloud_hosting_provider_region,           through:   :cloud_hosting_provider_region_recipient
 
+  has_many :documents, dependent: :destroy
   has_many :key_contact_suppliers, dependent: :destroy
   has_many :key_contacts, through: :key_contact_suppliers
   has_many :supplier_contact_suppliers, dependent: :destroy

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_15_103645) do
+ActiveRecord::Schema.define(version: 2021_11_30_105653) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -226,6 +226,16 @@ ActiveRecord::Schema.define(version: 2021_11_15_103645) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["currency_id"], name: "index_currency_recipients_on_currency_id"
     t.index ["currency_recipientable_type", "currency_recipientable_id"], name: "currency_recipient_on_recipientable_type_id"
+  end
+
+  create_table "documents", force: :cascade do |t|
+    t.string "name"
+    t.string "required_until"
+    t.integer "importance"
+    t.integer "RAG", default: 0
+    t.integer "rules", default: 0
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "incidents", force: :cascade do |t|
