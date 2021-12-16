@@ -17,15 +17,15 @@
                 <div class="icon py-3 px-4 bg-body-color rounded mr-3">
                   <i class="fa fa-paperclip paperclip font-20"></i>
                 </div>
-                <div class="attach font-13 font-500 black-placeholder form-group mb-0 w-100">
-                  <%= f.text_field :name, class: "form-control bg-transparent border-0 font-18", placeholder: "Compliance Evidence Document Name", required: true %>
+                <div class="attach font-13 font-500 form-group mb-0 w-100">
+                  <%= f.text_field :name, class: "form-control border font-15 h-auto py-3 shadow-none", placeholder: "Compliance Evidence Document Name", required: true %>
                 </div>
               </div>
             </div>
             <div class="col-md-4 d-flex align-items-center">
-              <span class="text-capitalize font-12 mr-2 text-right font-600">Compliance tier</span>
+              <span class="text-capitalize font-14 mr-2 text-right font-600">Compliance tier</span>
               <div class="select-arrow position-relative flex-1">
-                <%= f.select :compliance_tier, options_for_select(ComplianceEvidence.compliance_tiers.map {|k, v| [k.humanize.capitalize, k,{'data-toggle'=> 'tooltip', title: compliance_tier_tooltip(k)}]}, f.object.compliance_tier || ComplianceEvidence.compliance_tiers.first), {},class: 'form-control w-100 font-12 h-auto py-2 shadow-none pr-4', required: true, id: :compliance_tier %>
+                <%= f.select :compliance_tier, options_for_select(ComplianceEvidence.compliance_tiers.map {|k, v| [k.humanize.capitalize, k,{'data-toggle'=> 'tooltip', title: compliance_tier_tooltip(k)}]}, f.object.compliance_tier || ComplianceEvidence.compliance_tiers.first), {},class: 'form-control w-100 py-3 font-15 text-light-grey h-auto shadow-none pr-4', required: true, id: :compliance_tier %>
                 <i class="fa fa-sort-desc position-absolute"></i>
               </div>
             </div>
