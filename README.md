@@ -1,6 +1,8 @@
 # README
 
-* What is OpRes
+
+
+What is OpRes
 
 The financial services sector is under pressure to deliver great products and experiences to their customers, whilst maintaining operational resilience. 
 Regulatory requirements, FinTechs, established competitors and the public cloud are bringing new and complex challenges. Whilst customers desire exceptional products that are always available, at the click of a button.
