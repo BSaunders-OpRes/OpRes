@@ -21,6 +21,8 @@ PS21/3 Building Operational Resilience
 
 FG16/5: Guidance For Firms Outsourcing To The ‘Cloud’ and Other Third Party IT Services
 
+DORA - Digital Operational Resilience Act
+
 
 -------------------------- -------------------------- -------------------------- -------------------------- -------------------------- -------------------------- 
 
